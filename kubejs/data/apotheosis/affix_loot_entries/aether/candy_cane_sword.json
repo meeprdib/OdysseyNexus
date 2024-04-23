@@ -9,7 +9,7 @@
 		"item": "aether:candy_cane_sword"
 	},
 	"min_rarity": "apotheosis:uncommon",
-	"max_rarity": "apotheosis:epic",
+	"max_rarity": "apotheosis:rare",
 	"dimensions": [
 		"aether:the_aether"
 	]
