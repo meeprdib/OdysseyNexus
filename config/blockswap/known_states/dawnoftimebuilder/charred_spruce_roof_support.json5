@@ -1,0 +1,1204 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "straight",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "straight",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "straight",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "straight",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "north"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "straight",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "straight",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "straight",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "straight",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "south"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "straight",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "straight",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "straight",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "straight",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "west"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "straight",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "straight",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "straight",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "straight",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "straight",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "inner_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "inner_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "inner_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_left",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"shape": "outer_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"shape": "outer_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"shape": "outer_right",
+			"facing": "east"
+		},
+		"Name": "dawnoftimebuilder:charred_spruce_roof_support"
+	}
+]

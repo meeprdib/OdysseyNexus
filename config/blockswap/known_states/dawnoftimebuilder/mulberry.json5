@@ -1,0 +1,484 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "true",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "true",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "true",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "true",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "false",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "false",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "false",
+			"age": "0"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "true",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "true",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "true",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "true",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "false",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "false",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "false",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "false",
+			"age": "1"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "true",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "true",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "true",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "true",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "false",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "false",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "false",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "false",
+			"age": "2"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "true",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "true",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "true",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "true",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "false",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "false",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "false",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "false",
+			"age": "3"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "true",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "true",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "true",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "true",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "false",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "false",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "false",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "false",
+			"age": "4"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "true",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "true",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "true",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "true",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "top",
+			"cut": "false",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "top",
+			"cut": "false",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "true",
+			"half": "bottom",
+			"cut": "false",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"persistent": "false",
+			"half": "bottom",
+			"cut": "false",
+			"age": "5"
+		},
+		"Name": "dawnoftimebuilder:mulberry"
+	}
+]

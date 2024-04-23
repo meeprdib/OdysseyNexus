@@ -1,0 +1,185 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"heat": "0"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"heat": "0"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"heat": "0"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"heat": "1"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"heat": "1"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"heat": "1"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"heat": "1"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"heat": "2"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"heat": "2"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"heat": "2"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"heat": "2"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"heat": "3"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"heat": "3"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"heat": "3"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"heat": "3"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"heat": "4"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"heat": "4"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"heat": "4"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"heat": "4"
+		},
+		"Name": "dawnoftimebuilder:plastered_stone_cresset"
+	}
+]

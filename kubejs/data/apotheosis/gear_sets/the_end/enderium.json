@@ -1,0 +1,67 @@
+{
+	"weight": 10,
+	"mainhands": [{
+			"weight": 3,
+			"stack": {
+				"item": "majruszsdifficulty:enderium_sword"
+			}
+		},
+		{
+			"weight": 3,
+			"stack": {
+				"item": "majruszsdifficulty:enderium_axe"
+			}
+		},
+		{
+			"weight": 1,
+			"stack": {
+				"item": "majruszsdifficulty:enderium_hoe"
+			}
+		},
+		{
+			"weight": 2,
+			"stack": {
+				"item": "irons_spellbooks:keeper_flamberge"
+			}
+		},
+        {
+			"weight": 1,
+			"stack": {
+				"item": "cataclysm:void_forge"
+			}
+		},
+        {
+			"weight": 1,
+			"stack": {
+				"item": "cataclysm:gauntlet_of_bulwark"
+			}
+		}
+	],
+	"boots": [{
+		"weight": 1,
+		"stack": {
+			"item": "majruszsdifficulty:enderium_boots"
+		}
+	}],
+	"leggings": [{
+		"weight": 1,
+		"stack": {
+			"item": "majruszsdifficulty:enderium_leggings"
+		}
+	}],
+	"chestplates": [{
+		"weight": 1,
+		"stack": {
+			"item": "majruszsdifficulty:enderium_chestplate"
+		}
+	}],
+	"helmets": [{
+		"weight": 1,
+		"stack": {
+			"item": "majruszsdifficulty:enderium_helmet"
+		}
+	}],
+	"tags": [
+		"end_big"
+	]
+}

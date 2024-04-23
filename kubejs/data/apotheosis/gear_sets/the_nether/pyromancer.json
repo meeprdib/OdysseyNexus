@@ -1,0 +1,73 @@
+{
+    "weight": 100,
+    "mainhands": [
+        {
+            "weight": 3,
+            "stack": {
+                "item": "alexscaves:desolate_dagger"
+            }
+        },
+        {
+            "weight": 1,
+            "stack": {
+                "item": "undergarden:utherium_axe"
+            }
+        },
+        {
+            "weight": 1,
+            "stack": {
+                "item": "undergarden:utherium_sword"
+            }
+        }
+    ],
+    "offhands": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "bygonenether:gilded_netherite_shield"
+            }
+        }
+    ],
+    "boots": [
+        {
+            "weight": 3,
+            "stack": {
+                "item": "irons_spellbooks:pyromancer_boots"
+            }
+        }
+    ],
+    "leggings": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "irons_spellbooks:pyromancer_leggings"
+            }
+        }
+    ],
+    "chestplates": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "irons_spellbooks:pyromancer_chestplate"
+            }
+        }
+    ],
+    "helmets": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "irons_spellbooks:tarnished_helmet"
+            }
+        },
+        {
+            "weight": 3,
+            "stack": {
+                "item": "irons_spellbooks:pyromancer_helmet"
+            }
+        }
+    ],
+    "tags": [
+        "nether_medium",
+        "pyromancer"
+    ]
+}

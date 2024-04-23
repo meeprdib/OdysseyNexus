@@ -1,0 +1,1013 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_bottom",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_bottom",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_bottom",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_bottom",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_top",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_middle",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_bottom",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_bottom",
+			"facing": "north"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_bottom",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_bottom",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_bottom",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_bottom",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_top",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_middle",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_bottom",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_bottom",
+			"facing": "south"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_bottom",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_bottom",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_bottom",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_bottom",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_top",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_middle",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_bottom",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_bottom",
+			"facing": "west"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_bottom",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_bottom",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "single_middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "single_middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "left_side_bottom",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "left_side_bottom",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_top",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_middle",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"part": "right_side_bottom",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"part": "right_side_bottom",
+			"facing": "east"
+		},
+		"Name": "valhelsia_furniture:open_orange_curtain"
+	}
+]

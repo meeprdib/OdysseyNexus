@@ -1,0 +1,60 @@
+
+[waterframes]
+
+	#Configures all rendering limits, size, distance
+	[waterframes.rendering]
+		#Range: 1.0 ~ 128.0
+		maxWidth = 40.0
+		#Range: 1.0 ~ 128.0
+		maxHeight = 40.0
+		#Range: 8 ~ 512
+		maxRenderDistance = 128
+		#Range: 8 ~ 128
+		maxProjectionDistance = 32
+
+	#Configures all settings related with multimedia player
+	[waterframes.multimedia]
+		#Range: 8 ~ 512
+		maxVolumeDistance = 64
+		#Values over 100 uses ÜberVolume of VLC
+		#Range: 10 ~ 200
+		maxVolume = 100
+
+		#Enables VideoLAN usage for multimedia processing (support added by WATERMeDIA)
+		[waterframes.multimedia.videoLan]
+			#Toggle the option
+			enable = true
+			#Enables VLC media processing and game rendering for videos, disabling only plays audio
+			keepsRendering = true
+
+	#Configures block behavior
+	[waterframes.blockBehavior]
+
+		#Enables redstone playback for all DisplayBlocks
+		[waterframes.blockBehavior.redstonePlayback]
+			#Toggle the option
+			enable = true
+			#Select what redstone behavior should have
+			#IN: Input redstone changes playback
+			#OUT: Emits restone with playback
+			#Allowed Values: INPUT, OUTPUT
+			redstoneMode = "INPUT"
+			#Redstone gets more powerful and forces playback to ignore any other sources of controlling
+			#Only works when redstone behavior is on 'IN' mode
+			overridingPlayback = true
+
+	#Configures player permissions and url restrictions
+	[waterframes.permissions]
+		#Changes if players in Adventure mode can use displays
+		usableOnAdventureMode = false
+		#Changes if players in Survival mode can use displays
+		usableOnSurvivalMode = true
+		#Changes if any player can use displays, otherwise only admins can use it
+		usableForAnyone = true
+
+		#Whitelist config
+		[waterframes.permissions.whitelist]
+			#Toggle the option
+			enable = true
+			url = ["imgur.com", "gyazo.com", "prntscr.com", "tinypic.com", "puu.sh", "pinimg.com", "photobucket.com", "staticflickr.com", "flic.kr", "tenor.co", "gfycat.com", "giphy.com", "gph.is", "gifbin.com", "i.redd.it", "media.tumblr.com", "twimg.com", "discordapp.com", "images.discordapp.net", "discord.com", "githubusercontent.com", "googleusercontent.com", "googleapis.com", "wikimedia.org", "ytimg.com", "youtube.com", "twitch.com", "twitter.com", "soundcloud.com", "kick.com", "srrapero720.me", "youtu.be", "fbcdn.net", "drive.google.com"]
+

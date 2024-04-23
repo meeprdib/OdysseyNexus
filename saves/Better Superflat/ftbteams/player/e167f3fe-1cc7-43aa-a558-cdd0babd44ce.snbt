@@ -1,0 +1,15 @@
+{
+	id: "e167f3fe-1cc7-43aa-a558-cdd0babd44ce"
+	type: "player"
+	player_name: "meepr_dib"
+	ranks: { }
+	properties: {
+		"ftbteams:display_name": "meepr_dib"
+		"ftbteams:description": ""
+		"ftbteams:color": "#FF8159"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

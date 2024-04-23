@@ -1,0 +1,17 @@
+{
+	id: "11fc2a22-6dbb-43b4-a737-4fbbc49e129b"
+	type: "player"
+	player_name: "BusinessExpense"
+	ranks: {
+		11fc2a22-6dbb-43b4-a737-4fbbc49e129b: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "BusinessExpense"
+		"ftbteams:description": ""
+		"ftbteams:color": "#F959FF"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

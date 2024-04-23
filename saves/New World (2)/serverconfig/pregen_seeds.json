@@ -1,0 +1,118 @@
+{
+	"level_seeds": [
+		{
+			"dim": "blue_skies:everbright",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:personal_pockets",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "minecraft:the_nether",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "undergarden:undergarden",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "aether:the_aether",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:limbo",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "wrd:wesleys_infinite_dungeons",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "twilightforest:twilight_forest",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "minecraft:the_end",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:public_pockets",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "minecraft:overworld",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "blue_skies:everdawn",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:dungeon_pockets",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "create_dd:ponder",
+			"seed": -7242263832381620726
+		}
+	],
+	"structure_seeds": [
+		{
+			"dim": "blue_skies:everbright",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:personal_pockets",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "minecraft:the_nether",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "undergarden:undergarden",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "aether:the_aether",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:limbo",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "wrd:wesleys_infinite_dungeons",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "twilightforest:twilight_forest",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "minecraft:the_end",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:public_pockets",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "minecraft:overworld",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "blue_skies:everdawn",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "dimdoors:dungeon_pockets",
+			"seed": -7242263832381620726
+		},
+		{
+			"dim": "create_dd:ponder",
+			"seed": -7242263832381620726
+		}
+	]
+}

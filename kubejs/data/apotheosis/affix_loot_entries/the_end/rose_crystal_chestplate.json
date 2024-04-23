@@ -1,0 +1,16 @@
+{
+    "dimensions": [
+        "minecraft:the_end"
+    ],
+    "min_rarity": "apotheosis:rare",
+    "max_rarity": "apotheosis:epic",
+    "weight": 25,
+    "quality": 10,
+    "stack": {
+        "item": "outer_end:rose_crystal_chestplate",
+        "count": 1,
+        "nbt": {
+            "Damage": 0
+        }
+    }
+}

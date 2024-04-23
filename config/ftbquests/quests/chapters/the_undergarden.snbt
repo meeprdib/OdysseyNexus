@@ -1,0 +1,144 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "the_undergarden"
+	group: "48CD4E3AE1F52E3E"
+	icon: "undergarden:deepturf_block"
+	id: "2ED2449DD5BF27EA"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "undergarden:catalyst"
+			id: "348919B0F7BDE0C3"
+			subtitle: "Create the Catalyst"
+			tasks: [
+				{
+					id: "06BC38106956047B"
+					item: "undergarden:catalyst"
+					type: "item"
+				}
+				{
+					id: "3E8BB05261EA4468"
+					type: "checkmark"
+				}
+			]
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["348919B0F7BDE0C3"]
+			dependency_requirement: "one_completed"
+			id: "7E132AAFCBCC73B0"
+			subtitle: "To make the Undergarden portal, make a Nether portal shape out of stone bricks and use the Catalyst to light it."
+			tasks: [{
+				advancement: "undergarden:undergarden/enter_undergarden"
+				criterion: ""
+				id: "4969570FED5E648A"
+				type: "advancement"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["15450ED60676A2C8"]
+			id: "76C373A11E0EFB0D"
+			subtitle: "Obtain an Utherium Crystal"
+			tasks: [{
+				id: "66F53B23C00D2EC7"
+				item: "undergarden:utherium_crystal"
+				type: "item"
+			}]
+			title: "Better than Diamonds"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7E132AAFCBCC73B0"]
+			id: "1CDAD2C7C3077E25"
+			tasks: [{
+				advancement: "undergarden:undergarden/kill_rotling"
+				criterion: ""
+				id: "3B30BD7BEB9C93C0"
+				type: "advancement"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1CDAD2C7C3077E25"]
+			id: "15450ED60676A2C8"
+			tasks: [{
+				advancement: "undergarden:undergarden/kill_all_rotspawn"
+				criterion: ""
+				id: "016AFD4E939972C5"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7E132AAFCBCC73B0"]
+			id: "61A4BEE3F5E3A9CD"
+			subtitle: "Discover The Catacombs"
+			tasks: [{
+				advancement: "undergarden:undergarden/catacombs"
+				criterion: ""
+				id: "52E73982386106CF"
+				type: "advancement"
+			}]
+			x: 2.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["61A4BEE3F5E3A9CD"]
+			id: "6A4A6F9E90CC8671"
+			subtitle: "Defeat a Forgotten Guardian"
+			tasks: [{
+				advancement: "undergarden:undergarden/kill_forgotten_guardian"
+				criterion: ""
+				id: "6FF50A214F0C7CA5"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["6A4A6F9E90CC8671"]
+			id: "5241B2BA7A7A46BE"
+			subtitle: "Craft a Forgotten Ingot"
+			tasks: [{
+				advancement: "undergarden:undergarden/forgotten_ingot"
+				criterion: ""
+				id: "2B89DB7DFD33D4E8"
+				type: "advancement"
+			}]
+			x: 4.0d
+			y: -1.0d
+		}
+		{
+			id: "738AAC60DA6D3AC0"
+			subtitle: "Trade with a Stoneborn"
+			tasks: [{
+				advancement: "undergarden:undergarden/stoneborn_trade"
+				criterion: ""
+				id: "225A392B988C137C"
+				type: "advancement"
+			}]
+			x: 2.0d
+			y: 1.5d
+		}
+		{
+			id: "4EF1F123A8E4700F"
+			tasks: [{
+				advancement: "undergarden:undergarden/all_undergarden_biomes"
+				criterion: ""
+				id: "2889E507EE8749CD"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: 1.5d
+		}
+	]
+	title: "Undergarden"
+}

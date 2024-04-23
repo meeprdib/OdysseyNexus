@@ -1,0 +1,51 @@
+{
+	"weight": 100,
+	"quality": 2.5,
+	"mainhands": [{
+			"weight": 3,
+			"stack": {
+				"item": "iceandfire:dragonsteel_fire_sword"
+			}
+		},
+		{
+			"weight": 3,
+			"stack": {
+				"item": "iceandfire:dragonsteel_fire_axe"
+			}
+		},
+		{
+			"weight": 2,
+			"stack": {
+				"item": "iceandfire:dragonsteel_fire_pickaxe"
+			}
+		}
+	],
+	"offhands": [],
+	"boots": [{
+		"weight": 100,
+		"stack": {
+			"item": "iceandfire:dragonsteel_fire_boots"
+		}
+	}],
+	"leggings": [{
+		"weight": 100,
+		"stack": {
+			"item": "iceandfire:dragonsteel_fire_leggings"
+		}
+	}],
+	"chestplates": [{
+		"weight": 100,
+		"stack": {
+			"item": "iceandfire:dragonsteel_fire_chestplate"
+		}
+	}],
+	"helmets": [{
+		"weight": 100,
+		"stack": {
+			"item": "iceandfire:dragonsteel_fire_helmet"
+		}
+	}],
+	"tags": [
+		"fire_dragon"
+	]
+}

@@ -1,0 +1,404 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "nothing",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "nothing",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "nothing",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "4_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "4_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "4_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "4_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "6_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "6_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "6_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "6_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "8_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "8_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "8_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "8_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "10_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "10_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "10_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "10_pixels",
+			"axis": "x"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "nothing",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "nothing",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "nothing",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "nothing",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "4_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "4_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "4_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "4_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "6_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "6_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "6_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "6_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "8_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "8_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "8_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "8_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "true",
+			"pillar_connection": "10_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "true",
+			"pillar_connection": "10_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"subaxis": "false",
+			"pillar_connection": "10_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"subaxis": "false",
+			"pillar_connection": "10_pixels",
+			"axis": "z"
+		},
+		"Name": "everycomp:dot/regions_unexplored/green_bioshroom_support_beam"
+	}
+]

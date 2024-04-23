@@ -1,0 +1,17 @@
+{
+	id: "840dbf45-43d6-4205-acf7-d257e3b27e3d"
+	type: "player"
+	player_name: "Ghost_KD01"
+	ranks: {
+		840dbf45-43d6-4205-acf7-d257e3b27e3d: "owner"
+	}
+	properties: {
+		"ftbteams:display_name": "Ghost_KD01"
+		"ftbteams:description": ""
+		"ftbteams:color": "#59CDFF"
+		"ftbteams:free_to_join": 0b
+		"ftbteams:max_msg_history_size": 1000
+	}
+	message_history: [ ]
+	extra: { }
+}

@@ -1,0 +1,324 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "none",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "none",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "none",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "left",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "left",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "left",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "left",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "right",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "right",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "right",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "right",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "both",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "both",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "both",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "both",
+			"axis": "x"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "none",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "none",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "none",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "none",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "left",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "left",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "left",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "left",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "right",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "right",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "right",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "right",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "true",
+			"horizontal_connection": "both",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "true",
+			"horizontal_connection": "both",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"lit": "false",
+			"horizontal_connection": "both",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"lit": "false",
+			"horizontal_connection": "both",
+			"axis": "z"
+		},
+		"Name": "dawnoftimebuilder:fireplace"
+	}
+]

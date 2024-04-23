@@ -1,0 +1,12 @@
+{
+	version: 1
+	uuid: "e167f3fe1cc743aaa558cdd0babd44ce"
+	name: "meepr_dib#e167f3fe"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: { }
+}

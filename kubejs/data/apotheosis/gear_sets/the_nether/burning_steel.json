@@ -1,0 +1,78 @@
+{
+    "weight": 100,
+    "mainhands": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "nethersdelight:diamond_machete"
+            }
+        },
+        {
+            "weight": 1,
+            "stack": {
+                "item": "nethersdelight:netherite_machete"
+            }
+        },
+        {
+            "weight": 1,
+            "stack": {
+                "item": "twilightforest:fiery_sword"
+            }
+        },
+        {
+            "weight": 1,
+            "stack": {
+                "item": "undergarden:utherium_axe"
+            }
+        },
+        {
+            "weight": 1,
+            "stack": {
+                "item": "undergarden:utherium_sword"
+            }
+        }
+    ],
+    "offhands": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "bygonenether:gilded_netherite_shield"
+            }
+        }
+    ],
+    "boots": [
+        {
+            "weight": 3,
+            "stack": {
+                "item": "tetranichematerials:burning_steel_armor_feet"
+            }
+        }
+    ],
+    "leggings": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "tetranichematerials:burning_steel_armor_legs"
+            }
+        }
+    ],
+    "chestplates": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "tetranichematerials:burning_steel_armor_chest"
+            }
+        }
+    ],
+    "helmets": [
+        {
+            "weight": 1,
+            "stack": {
+                "item": "cataclysm:monstrous_helm"
+            }
+        }
+    ],
+    "tags": [
+        "nether_medium"
+    ]
+}

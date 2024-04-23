@@ -1,0 +1,221 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "north",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "north",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "east",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "east",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "south",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "south",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "west",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "west",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "axis_x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "axis_x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "axis_z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "axis_z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "north",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "north",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "east",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "east",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "south",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "south",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "west",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "west",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "axis_x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "true",
+			"sided_window": "axis_z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"up": "false",
+			"sided_window": "axis_z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:lattice_stone_bricks_window"
+	}
+]

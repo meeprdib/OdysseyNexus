@@ -1,0 +1,531 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "true"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "x",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "true",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "1",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "2",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"stack": "3",
+			"rolled": "false",
+			"axis": "z",
+			"attached": "false"
+		},
+		"Name": "dawnoftimebuilder:small_tatami_mat"
+	}
+]

@@ -1,0 +1,126 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "apotheosis_gems"
+	group: "4995C2E3EB2A87B4"
+	icon: {
+		Count: 1b
+		id: "apotheosis:gem"
+		tag: {
+			affix_data: {
+				rarity: "apotheosis:ancient"
+			}
+			gem: "apotheosis:core/solar"
+		}
+	}
+	id: "717D9BC10D4145CF"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["Find an item with an &9Affix&r on it. You can apply affixes to your other gear with a &6Reforging Table.&r"]
+			id: "6CA9D834693818FE"
+			invisible: true
+			tasks: [{
+				advancement: "apotheosis:affix/root"
+				criterion: ""
+				id: "2764764A570B4201"
+				type: "advancement"
+			}]
+			x: -1.0d
+			y: 0.0d
+		}
+		{
+			id: "0F1D8AFC816890E5"
+			invisible: true
+			tasks: [{
+				advancement: "apotheosis:affix/gem"
+				criterion: ""
+				id: "2E56B33E5924F9CD"
+				type: "advancement"
+			}]
+			x: 1.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["09E8D609DFCB1373"]
+			description: ["Make a &aSalvaging Table&r to scrap any &9Affix&r items that you don't want. These rarity materials can be used to upgrade other gear, using the &6Reforging Table&r"]
+			id: "03603327BDD5D244"
+			tasks: [{
+				id: "58F939581032E7F1"
+				item: "apotheosis:salvaging_table"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -3.0d
+		}
+		{
+			dependencies: [
+				"09E8D609DFCB1373"
+				"6CA9D834693818FE"
+			]
+			dependency_requirement: "one_completed"
+			description: ["Use rarity materials, Gem Dust, and XP levels to apply &9Affixes&r to your gear. The basic &6Reforging Table&r can only go up to \"rare\" rarity, and you'll need to upgrade it to apply stronger &9Affixes&r to your gear."]
+			id: "1192C887DC30BEC8"
+			tasks: [{
+				id: "7F968E8BC569C756"
+				item: "apotheosis:simple_reforging_table"
+				type: "item"
+			}]
+			title: "&6Basic Reforging Table&r"
+			x: -2.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["1192C887DC30BEC8"]
+			id: "3B86C39E214AAE07"
+			subtitle: "By the time you have this, you probably already know what it does. Have fun with it!"
+			tasks: [{
+				id: "7BC03B1578C9BA00"
+				item: "apotheosis:reforging_table"
+				type: "item"
+			}]
+			title: "Upgrades people, upgrades!"
+			x: -2.0d
+			y: -3.0d
+		}
+		{
+			dependencies: ["0F1D8AFC816890E5"]
+			description: ["Acquire some gem dust by dropping an anvil on a &eGem.&r"]
+			id: "09E8D609DFCB1373"
+			tasks: [{
+				id: "3C5538086EDAA65A"
+				item: "apotheosis:gem_dust"
+				type: "item"
+			}]
+			title: "No, it's not angel dust."
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["0F1D8AFC816890E5"]
+			id: "6E0BD319F1015EEE"
+			tasks: [{
+				advancement: "apotheosis:affix/socket"
+				criterion: ""
+				id: "70CC373C57FBD3A6"
+				type: "advancement"
+			}]
+			x: 2.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["0F1D8AFC816890E5"]
+			id: "69CDC8A106E65DE0"
+			tasks: [{
+				advancement: "apotheosis:affix/gem_cut"
+				criterion: ""
+				id: "7E2719E3560AA133"
+				type: "advancement"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+	]
+	title: "Apothic Affixes"
+}

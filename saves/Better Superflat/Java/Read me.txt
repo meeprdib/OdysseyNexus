@@ -1,0 +1,1 @@
+Move the world folder to %appdata% and the .minecraft, then into saves.

@@ -1,0 +1,10 @@
+{
+  "type": "embers:melting",
+  "input": {
+    "tag": "forge:storage_blocks/netherite"
+  },
+  "output": {
+    "amount": 810,
+    "fluid": "kubejs:molten_netherite"
+  }
+}

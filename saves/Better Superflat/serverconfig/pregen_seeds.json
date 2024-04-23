@@ -1,0 +1,158 @@
+{
+	"level_seeds": [
+		{
+			"dim": "ad_astra:glacio_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "minecraft:the_end",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mars",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "minecraft:overworld",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "twilightforest:twilight_forest",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:moon",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "aether:the_aether",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:moon_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:venus",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:earth_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:venus_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "blue_skies:everbright",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "minecraft:the_nether",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "undergarden:undergarden",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:glacio",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mars_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mercury",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mercury_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "blue_skies:everdawn",
+			"seed": 3803850738570871014
+		}
+	],
+	"structure_seeds": [
+		{
+			"dim": "ad_astra:glacio_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "minecraft:the_end",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mars",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "minecraft:overworld",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "twilightforest:twilight_forest",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:moon",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "aether:the_aether",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:moon_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:venus",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:earth_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:venus_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "blue_skies:everbright",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "minecraft:the_nether",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "undergarden:undergarden",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:glacio",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mars_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mercury",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "ad_astra:mercury_orbit",
+			"seed": 3803850738570871014
+		},
+		{
+			"dim": "blue_skies:everdawn",
+			"seed": 3803850738570871014
+		}
+	]
+}

@@ -1,0 +1,2306 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "floor"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "true",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "up",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"vertical_direction": "down",
+			"raise": "false",
+			"power": "false",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "iammusicplayer:boombox"
+	}
+]

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#kubejs:null_biomes",
+  "features": "create_dd:striated_ores_overworld",
+  "step": "underground_ores"
+}

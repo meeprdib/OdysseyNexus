@@ -1,0 +1,5834 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "none"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "low"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "none",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "low",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "none",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "low",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "none",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "low",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "true",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "none",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "low",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west": "tall",
+			"waterlogged": "false",
+			"south": "tall",
+			"pillar": "tall",
+			"north": "tall",
+			"east": "tall"
+		},
+		"Name": "dawnoftimebuilder:covered_sandstone_wall"
+	}
+]

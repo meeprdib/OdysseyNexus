@@ -1,0 +1,97 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "spells_and_spellbooks"
+	group: "4995C2E3EB2A87B4"
+	hide_quest_details_until_startable: true
+	icon: {
+		Count: 1b
+		id: "irons_spellbooks:scroll"
+		tag: {
+			ISB_spell: {
+				id: "irons_spellbooks:acupuncture"
+				level: 1
+			}
+		}
+	}
+	id: "1FB5080DEF2B6102"
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["You got a scroll! You can use the &6Inscription Table&r to put the spell in and out of &bSpellbooks&r."]
+			id: "687FAD9083F37981"
+			invisible: true
+			rewards: [
+				{
+					id: "2E7E3B0019035969"
+					item: "irons_spellbooks:inscription_table"
+					type: "item"
+				}
+				{
+					id: "655844EF7B36825F"
+					item: {
+						Count: 1b
+						id: "irons_spellbooks:copper_spell_book"
+						tag: {
+							ISB_spellbook: {
+								activeSpellIndex: -1
+								spellSlots: 4
+								spells: [ ]
+							}
+						}
+					}
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "24B4A226C572C1EE"
+				item: "irons_spellbooks:scroll"
+				type: "item"
+			}]
+			title: "It's Scrolling Time!"
+			x: 0.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["687FAD9083F37981"]
+			description: ["Get &8Ink&r, used to make scrolls in the &aScroll Forge.&r"]
+			id: "5E35EDA8524AD952"
+			tasks: [{
+				advancement: "irons_spellbooks:irons_spellbooks/ink_root"
+				criterion: ""
+				id: "7B6C0753C2F9CA61"
+				type: "advancement"
+			}]
+			x: 2.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["15A7009C9A4E9104"]
+			description: ["Craft the &5Arcane Anvil&r, used to put spells directly into weapons and to combine scrolls. You can also use it to apply &cUpgrade Orbs&r to spellbooks and armor."]
+			id: "2B3BBFEB3FDB1238"
+			tasks: [{
+				advancement: "irons_spellbooks:irons_spellbooks/make_arcane_anvil"
+				criterion: ""
+				id: "1D41585CA9229137"
+				type: "advancement"
+			}]
+			x: 6.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["5E35EDA8524AD952"]
+			id: "15A7009C9A4E9104"
+			subtitle: "Forge the Scrolls"
+			tasks: [{
+				advancement: "irons_spellbooks:irons_spellbooks/make_scroll_forge"
+				criterion: ""
+				id: "3194CA8D5513FA46"
+				type: "advancement"
+			}]
+			x: 4.0d
+			y: 0.5d
+		}
+	]
+	title: "Spells and Spellbooks"
+}

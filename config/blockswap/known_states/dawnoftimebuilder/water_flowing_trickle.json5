@@ -1,0 +1,2497 @@
+/*
+This file uses the ".json5" file extension which allows for comments like this in a json file!
+Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+
+VSCode: https://code.visualstudio.com/
+JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+
+to make editing this file much easier.
+*/
+[
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "true"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "true",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "true",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "true",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "true",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "straight",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "fade",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "true",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"west_trickle": "false",
+			"water_end": "splash",
+			"unstable": "false",
+			"south_trickle": "false",
+			"north_trickle": "false",
+			"east_trickle": "false",
+			"center_trickle": "false"
+		},
+		"Name": "dawnoftimebuilder:water_flowing_trickle"
+	}
+]
