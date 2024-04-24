@@ -9,20 +9,13 @@ to make editing this file much easier.
 */
 [
 	{
-		"Name": "deep_aether:sunroot_hanger"
-	},
-	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"three_shapes": "1"
+			"bottom": "true"
 		},
 		"Name": "deep_aether:sunroot_hanger"
 	},
 	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"three_shapes": "2"
-		},
 		"Name": "deep_aether:sunroot_hanger"
 	}
 ]

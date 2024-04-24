@@ -11,44 +11,28 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"double_drops": "true",
-			"axis": "x"
+			"waterlogged": "true",
+			"double_drops": "true"
 		},
 		"Name": "deep_aether:yagroot_roots"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"double_drops": "false",
-			"axis": "x"
+			"waterlogged": "false",
+			"double_drops": "true"
 		},
 		"Name": "deep_aether:yagroot_roots"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"double_drops": "true",
-			"axis": "y"
+			"waterlogged": "true",
+			"double_drops": "false"
 		},
 		"Name": "deep_aether:yagroot_roots"
 	},
 	{
-		"Name": "deep_aether:yagroot_roots"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"double_drops": "true",
-			"axis": "z"
-		},
-		"Name": "deep_aether:yagroot_roots"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"double_drops": "false",
-			"axis": "z"
-		},
 		"Name": "deep_aether:yagroot_roots"
 	}
 ]

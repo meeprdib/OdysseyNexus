@@ -544,15 +544,10 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:lukewarm_ocean": "2024-03-29 02:45:36 -0400",
-      "minecraft:river": "2024-03-29 03:22:12 -0400"
+      "minecraft:river": "2024-03-29 03:22:12 -0400",
+      "minecraft:savanna": "2024-04-23 23:01:15 -0400"
     },
     "done": false
-  },
-  "twilightdelight:recipes/frozen/cutting/ice_sword": {
-    "criteria": {
-      "has_diamond_sword": "2024-03-29 02:57:01 -0400"
-    },
-    "done": true
   },
   "aether:recipes/combat/diamond_sword_repairing": {
     "criteria": {
@@ -632,12 +627,6 @@
     },
     "done": true
   },
-  "tetra:recipes/planks": {
-    "criteria": {
-      "got_wood": "2024-03-29 03:02:13 -0400"
-    },
-    "done": true
-  },
   "minecraft:recipes/redstone/oak_door": {
     "criteria": {
       "has_planks": "2024-03-29 03:02:13 -0400"
@@ -687,12 +676,6 @@
     "done": true
   },
   "regions_unexplored:recipes/building_blocks/green_painted_planks": {
-    "criteria": {
-      "has_planks": "2024-03-29 03:02:13 -0400"
-    },
-    "done": true
-  },
-  "domum_ornamentum:recipes/building_blocks/blockbarreldeco_onside": {
     "criteria": {
       "has_planks": "2024-03-29 03:02:13 -0400"
     },
@@ -785,12 +768,6 @@
   "valhelsia_furniture:recipes/decorations/black_oak_chair": {
     "criteria": {
       "has_oak_planks": "2024-03-29 03:02:13 -0400"
-    },
-    "done": true
-  },
-  "domum_ornamentum:recipes/building_blocks/blockbarreldeco_standing": {
-    "criteria": {
-      "has_planks": "2024-03-29 03:02:13 -0400"
     },
     "done": true
   },
@@ -1079,12 +1056,6 @@
     },
     "done": false
   },
-  "domum_ornamentum:recipes/tools/architectscutter": {
-    "criteria": {
-      "has_log": "2024-04-06 15:11:35 -0400"
-    },
-    "done": true
-  },
   "minecraft:recipes/misc/charcoal": {
     "criteria": {
       "has_log": "2024-04-06 15:11:35 -0400"
@@ -1151,12 +1122,6 @@
     },
     "done": true
   },
-  "blue_skies:recipes/food/cake_compat": {
-    "criteria": {
-      "has_item": "2024-04-06 15:12:33 -0400"
-    },
-    "done": true
-  },
   "farmersdelight:recipes/cooking/fried_rice": {
     "criteria": {
       "has_any_ingredient": "2024-04-06 15:12:33 -0400"
@@ -1169,77 +1134,17 @@
     },
     "done": true
   },
-  "incendium:technical/sentrys_wrath": {
+  "lootr:1barrel": {
     "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
+      "opened_barrel": "2024-04-08 00:32:56 -0400"
     },
-    "done": false
+    "done": true
   },
-  "incendium:technical/on_kill": {
+  "lootr:10loot": {
     "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
+      "loot_stat": "2024-04-08 00:32:56 -0400"
     },
-    "done": false
-  },
-  "incendium:technical/on_inventory_change": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/holy_wrath": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/on_block": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/feed_ghastling": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/inventory/firestorm": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/give_ghastling": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/multiplex_crossbow": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/on_player_hurt": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/inventory/sentrys_wrath": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
-  },
-  "incendium:technical/firestorm": {
-    "criteria": {
-      "log_spam_fixer": "2024-04-08 00:36:53 -0400"
-    },
-    "done": false
+    "done": true
   },
   "iceandfire:recipes/misc/dragon_bone_wall": {
     "criteria": {
@@ -1259,18 +1164,6 @@
     },
     "done": true
   },
-  "lootr:1barrel": {
-    "criteria": {
-      "opened_barrel": "2024-04-08 00:32:56 -0400"
-    },
-    "done": true
-  },
-  "regions_unexplored:recipes/building_blocks/magnolia_wood": {
-    "criteria": {
-      "has_log": "2024-04-08 00:36:00 -0400"
-    },
-    "done": true
-  },
   "iceandfire:recipes/misc/dragon_horn": {
     "criteria": {
       "has_item": "2024-04-08 00:35:02 -0400"
@@ -1280,12 +1173,6 @@
   "iceandfire:recipes/misc/dragon_stick": {
     "criteria": {
       "has_item": "2024-04-08 00:35:02 -0400"
-    },
-    "done": true
-  },
-  "regions_unexplored:recipes/building_blocks/magnolia_planks": {
-    "criteria": {
-      "has_logs": "2024-04-08 00:36:00 -0400"
     },
     "done": true
   },
@@ -1331,15 +1218,21 @@
     },
     "done": true
   },
-  "lootr:10loot": {
-    "criteria": {
-      "loot_stat": "2024-04-08 00:32:56 -0400"
-    },
-    "done": true
-  },
   "iceandfire:recipes/tools/dragonbone_sword": {
     "criteria": {
       "has_item": "2024-04-08 00:35:02 -0400"
+    },
+    "done": true
+  },
+  "regions_unexplored:recipes/building_blocks/magnolia_wood": {
+    "criteria": {
+      "has_log": "2024-04-08 00:36:00 -0400"
+    },
+    "done": true
+  },
+  "regions_unexplored:recipes/building_blocks/magnolia_planks": {
+    "criteria": {
+      "has_logs": "2024-04-08 00:36:00 -0400"
     },
     "done": true
   },
@@ -1348,6 +1241,78 @@
       "has_log": "2024-04-08 00:36:00 -0400"
     },
     "done": true
+  },
+  "incendium:technical/sentrys_wrath": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/on_kill": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/on_inventory_change": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/holy_wrath": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/on_block": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/feed_ghastling": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/inventory/firestorm": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/give_ghastling": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/multiplex_crossbow": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/on_player_hurt": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/inventory/sentrys_wrath": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
+  },
+  "incendium:technical/firestorm": {
+    "criteria": {
+      "log_spam_fixer": "2024-04-23 23:01:23 -0400"
+    },
+    "done": false
   },
   "DataVersion": 3465
 }

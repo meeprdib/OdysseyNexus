@@ -12,7 +12,68 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "true",
 			"frame": "true",
+			"facing": "north"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "true",
+			"frame": "true",
+			"facing": "north"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"frame": "true",
+			"facing": "north"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "true",
+			"facing": "north"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
+			"frame": "false",
+			"facing": "north"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "true",
+			"frame": "false",
+			"facing": "north"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"frame": "false",
 			"facing": "north"
 		},
 		"Name": "waterframes:frame"
@@ -24,24 +85,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
-			"frame": "false",
-			"facing": "north"
-		},
-		"Name": "waterframes:frame"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "false",
-			"frame": "false",
-			"facing": "north"
-		},
-		"Name": "waterframes:frame"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
+			"powered": "true",
 			"frame": "true",
 			"facing": "east"
 		},
@@ -51,6 +95,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "true",
 			"facing": "east"
 		},
@@ -60,6 +105,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "true",
+			"facing": "east"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "true",
+			"facing": "east"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "false",
 			"facing": "east"
 		},
@@ -69,6 +135,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "false",
 			"facing": "east"
 		},
@@ -78,6 +145,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "false",
+			"facing": "east"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "false",
+			"facing": "east"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "true",
 			"facing": "south"
 		},
@@ -87,6 +175,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "true",
 			"facing": "south"
 		},
@@ -96,6 +185,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "true",
+			"facing": "south"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "true",
+			"facing": "south"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "false",
 			"facing": "south"
 		},
@@ -105,6 +215,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "false",
 			"facing": "south"
 		},
@@ -114,6 +225,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "false",
+			"facing": "south"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "false",
+			"facing": "south"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "true",
 			"facing": "west"
 		},
@@ -123,6 +255,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "true",
 			"facing": "west"
 		},
@@ -132,6 +265,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "true",
+			"facing": "west"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "true",
+			"facing": "west"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "false",
 			"facing": "west"
 		},
@@ -141,6 +295,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "false",
 			"facing": "west"
 		},
@@ -150,6 +305,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "false",
+			"facing": "west"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "false",
+			"facing": "west"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "true",
 			"facing": "up"
 		},
@@ -159,6 +335,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "true",
 			"facing": "up"
 		},
@@ -168,6 +345,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "true",
+			"facing": "up"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "true",
+			"facing": "up"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "false",
 			"facing": "up"
 		},
@@ -177,6 +375,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "false",
 			"facing": "up"
 		},
@@ -186,6 +385,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "false",
+			"facing": "up"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "false",
+			"facing": "up"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "true",
 			"facing": "down"
 		},
@@ -195,6 +415,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
 			"frame": "true",
 			"facing": "down"
 		},
@@ -204,6 +425,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
+			"powered": "false",
+			"frame": "true",
+			"facing": "down"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"frame": "true",
+			"facing": "down"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"frame": "false",
 			"facing": "down"
 		},
@@ -213,6 +455,27 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
+			"powered": "true",
+			"frame": "false",
+			"facing": "down"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"frame": "false",
+			"facing": "down"
+		},
+		"Name": "waterframes:frame"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
 			"frame": "false",
 			"facing": "down"
 		},

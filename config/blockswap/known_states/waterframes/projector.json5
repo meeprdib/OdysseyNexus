@@ -9,11 +9,40 @@ to make editing this file much easier.
 */
 [
 	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
+			"facing": "north"
+		},
 		"Name": "waterframes:projector"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
+			"waterlogged": "false",
+			"powered": "true",
+			"facing": "north"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"facing": "north"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"facing": "south"
 		},
 		"Name": "waterframes:projector"
@@ -21,6 +50,35 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
+			"waterlogged": "false",
+			"powered": "true",
+			"facing": "south"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"facing": "south"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"facing": "south"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
 			"facing": "west"
 		},
 		"Name": "waterframes:projector"
@@ -28,6 +86,62 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
+			"waterlogged": "false",
+			"powered": "true",
+			"facing": "west"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"facing": "west"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
+			"facing": "west"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "true",
+			"facing": "east"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "true",
+			"facing": "east"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"powered": "false",
+			"facing": "east"
+		},
+		"Name": "waterframes:projector"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"powered": "false",
 			"facing": "east"
 		},
 		"Name": "waterframes:projector"
