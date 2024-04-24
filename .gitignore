@@ -1,0 +1,16 @@
+
+/.idea
+.idea/.name
+/.mixin.out/class/net/minecraft/client/renderer/entity
+config/everycomp-hazardous.properties
+config/libraryferret_1.properties
+config/oculus.properties
+config/sound_physics_remastered/occlusion.properties
+config/sound_physics_remastered/reflectivity.properties
+/XaeroWorldMap
+/XaeroWorldMap
+/saves
+minecraftinstance.json
+/crash-reports
+/logs
+usercache.json
