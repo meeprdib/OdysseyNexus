@@ -1,1 +1,0 @@
-To import just double click the .mcworld file.
