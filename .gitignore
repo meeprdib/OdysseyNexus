@@ -14,3 +14,9 @@ minecraftinstance.json
 /crash-reports
 /logs
 usercache.json
+/.idea
+/.mixin.out
+/logs
+/saves
+usercache.json
+/XaeroWorldMap
