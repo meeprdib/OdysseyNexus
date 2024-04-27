@@ -43,6 +43,8 @@ ServerEvents.tags('item', event => {
     event.add('forge:molten_zinc', 'kubejs:molten_zinc')
     event.add('forge:molten_brass', 'kubejs:molten_brass')
 
+    event.add('')
+
 })
 ServerEvents.tags('fluid', event => {
     event.add('forge:fluids/lava', 'kubejs:molten_netherite')

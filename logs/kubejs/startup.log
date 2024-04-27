@@ -1,19 +1,19 @@
-[08:41:24] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[08:41:24] [INIT] Loaded plugins:
-[08:41:24] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[08:41:24] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[08:41:24] [INIT] - dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration
-[08:41:24] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[08:41:24] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[08:41:24] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[08:41:24] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[08:41:24] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[08:41:24] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[08:41:24] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[08:41:24] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[08:41:24] [INIT] - com.probejs.ProbeJSPlugin
-[08:41:24] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[08:41:26] [INFO] Loaded script startup_scripts:blocks.js in 0.114 s
-[08:41:26] [INFO] Loaded script startup_scripts:fluids.js in 0.002 s
-[08:41:26] [INFO] Loaded script startup_scripts:items.js in 0.001 s
-[08:41:26] [INFO] Loaded 3/3 KubeJS startup scripts in 1.096 s with 0 errors and 0 warnings
+[01:22:15] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[01:22:15] [INIT] Loaded plugins:
+[01:22:15] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[01:22:15] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[01:22:15] [INIT] - dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration
+[01:22:15] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[01:22:15] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[01:22:15] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[01:22:15] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[01:22:15] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[01:22:15] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[01:22:15] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[01:22:15] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[01:22:15] [INIT] - com.probejs.ProbeJSPlugin
+[01:22:15] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[01:22:16] [INFO] Loaded script startup_scripts:blocks.js in 0.126 s
+[01:22:16] [INFO] Loaded script startup_scripts:fluids.js in 0.002 s
+[01:22:16] [INFO] Loaded script startup_scripts:items.js in 0.0 s
+[01:22:16] [INFO] Loaded 3/3 KubeJS startup scripts in 1.263 s with 0 errors and 0 warnings

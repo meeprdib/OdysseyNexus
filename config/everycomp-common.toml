@@ -54,9 +54,6 @@
 			[general.types.wood_type.outer_end]
 				azure = true
 
-			[general.types.wood_type.dimdoors]
-				driftwood = true
-
 			[general.types.wood_type.regions_unexplored]
 				alpha = true
 				baobab = true
@@ -82,9 +79,6 @@
 				willow = true
 				yellow_bioshroom = true
 
-			[general.types.wood_type.born_in_chaos_v1]
-				scorched = true
-
 			[general.types.wood_type.iceandfire]
 				dreadwood = true
 
@@ -93,6 +87,11 @@
 				smoked = true
 				spirit = true
 				rubber = true
+
+			[general.types.wood_type.quark]
+				azalea = true
+				ancient = true
+				blossom = true
 
 		[general.types.leaves_type]
 
@@ -150,9 +149,6 @@
 			[general.types.leaves_type.outer_end]
 				azure = true
 
-			[general.types.leaves_type.dimdoors]
-				driftwood = true
-
 			[general.types.leaves_type.regions_unexplored]
 				bamboo = true
 				golden_larch = true
@@ -188,6 +184,14 @@
 
 			[general.types.leaves_type.create_dd]
 				rubber = true
+
+			[general.types.leaves_type.quark]
+				ancient = true
+				blue_blossom = true
+				lavender_blossom = true
+				orange_blossom = true
+				yellow_blossom = true
+				red_blossom = true
 
 		[general.types.cake]
 
@@ -227,4 +231,20 @@
 
 			[general.entries.wood_type.regions_unexplored]
 				branch = true
+
+			[general.entries.wood_type.quark]
+				vertical_planks = true
+				post = true
+				trapped_chest = true
+				bookshelf = true
+				chest = true
+				stripped_post = true
+				ladder = true
+				hollow_log = true
+
+		[general.entries.leaves_type]
+
+			[general.entries.leaves_type.quark]
+				hedge = true
+				leaf_carpet = true
 
