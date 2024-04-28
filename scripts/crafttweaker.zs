@@ -319,9 +319,6 @@ craftingTable.remove(<item:create_power_loader:empty_andesite_chunk_loader>);
 
 <recipetype:create_dd:superheating>.remove(<item:create_dd:diamond_shard>);
 
-craftingTable.remove(<item:create_dd:kinetic_motor>);
-craftingTable.remove(<item:create_dd:accelerator_motor>);
-
 # Enchanting
 
 craftingTable.remove(<item:minecraft:enchanting_table>);
