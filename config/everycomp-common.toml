@@ -93,6 +93,10 @@
 				ancient = true
 				blossom = true
 
+			[general.types.wood_type.upgrade_aquatic]
+				driftwood = true
+				river = true
+
 		[general.types.leaves_type]
 
 			[general.types.leaves_type.fruitsdelight]
@@ -192,6 +196,9 @@
 				orange_blossom = true
 				yellow_blossom = true
 				red_blossom = true
+
+			[general.types.leaves_type.upgrade_aquatic]
+				river = true
 
 		[general.types.cake]
 

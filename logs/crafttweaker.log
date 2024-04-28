@@ -1,438 +1,425 @@
-[01:22:11.123][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
-[01:22:11.195][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[01:22:11.391][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
-[01:22:11.394][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
-[01:22:11.400][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
-[01:22:11.405][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
-[01:22:14.625][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
-[01:22:14.629][INFO][CraftTweaker]: - 'aether' at version '1.20.1-1.4.0-neoforge'
-[01:22:14.629][INFO][CraftTweaker]: - 'aquaculture' at version '2.5.1'
-[01:22:14.629][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.38'
-[01:22:14.629][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
-[01:22:14.629][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
-[01:22:14.629][INFO][CraftTweaker]: - 'gamestages' at version '15.0.1'
-[01:22:14.629][INFO][CraftTweaker]: - 'gateways' at version '4.2.4'
-[01:22:40.178][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[01:22:40.936][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[01:22:41.026][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[01:22:41.263][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[01:23:21.458][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[01:23:21.474][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[01:23:21.499][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[01:23:21.505][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[01:23:25.206][INFO][CraftTweaker]: CraftTweaker reload starting!
-[01:23:25.217][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[01:23:25.229][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[01:23:25.633][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
-[01:23:25.634][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
-[01:23:25.657][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:born_in_chaos_v1:skullbreaker_hammer>! Item does not appear to exist!
-[01:23:25.659][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:born_in_chaos_v1:skullbreaker_hammer>! Item does not appear to exist!
-[01:23:25.668][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:246:127: Invalid parameters to BEP item: '<item:born_in_chaos_v1:skullbreaker_hammer>. There may be more information about this in the log.
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedCallArguments.parse(ParsedCallArguments.java:46)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:399)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:299)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:81)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:215)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:158)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zencode.java.ScriptingEngine.createScriptedModule(ScriptingEngine.java:125)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:85)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.m_5787_(ScriptReloadListener.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimplePreparableReloadListener.m_10789_(SimplePreparableReloadListener.java:13)
-	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_18701_(Minecraft.java:5941)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_246486_(WorldOpenFlows.java:163)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eln000$onLoadLevel(WorldOpenFlows.java:2532)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_6375_(WorldSelectionList.java:416)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.AbstractSelectionList.m_6375_(AbstractSelectionList.java:298)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.events.ContainerEventHandler.m_6375_(ContainerEventHandler.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168084_(MouseHandler.java:92)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.Screen.m_96579_(Screen.java:437)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91530_(MouseHandler.java:89)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168091_(MouseHandler.java:189)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:102)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91565_(MouseHandler.java:188)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallback$Container.invoke(GLFWMouseButtonCallback.java:81)
-	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
-	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$edk000$handleWaitEventsTimeout(RenderSystem.java:3508)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[01:23:25.669][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:247:140: Invalid parameters to BEP item: '<item:born_in_chaos_v1:skullbreaker_hammer>. There may be more information about this in the log.
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedCallArguments.parse(ParsedCallArguments.java:46)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:399)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:299)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:81)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:215)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:158)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zencode.java.ScriptingEngine.createScriptedModule(ScriptingEngine.java:125)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:85)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.m_5787_(ScriptReloadListener.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimplePreparableReloadListener.m_10789_(SimplePreparableReloadListener.java:13)
-	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_18701_(Minecraft.java:5941)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_246486_(WorldOpenFlows.java:163)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eln000$onLoadLevel(WorldOpenFlows.java:2532)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_6375_(WorldSelectionList.java:416)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.AbstractSelectionList.m_6375_(AbstractSelectionList.java:298)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.events.ContainerEventHandler.m_6375_(ContainerEventHandler.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168084_(MouseHandler.java:92)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.Screen.m_96579_(Screen.java:437)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91530_(MouseHandler.java:89)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168091_(MouseHandler.java:189)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:102)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91565_(MouseHandler.java:188)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallback$Container.invoke(GLFWMouseButtonCallback.java:81)
-	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
-	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$edk000$handleWaitEventsTimeout(RenderSystem.java:3508)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[01:23:25.670][ERROR][CraftTweaker]: Scripts are invalid!
-[01:23:25.670][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[01:23:25.674][INFO][CraftTweaker]: CraftTweaker reload complete!
-[01:23:25.675][INFO][CraftTweaker]: This reload was made possible by KoTeŭKa and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
-[01:40:24.803][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[01:40:24.803][INFO][CraftTweaker-ZenCode]: Undoing previous actions
-[01:40:24.816][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[01:40:24.822][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[01:40:24.829][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[01:40:28.599][INFO][CraftTweaker]: CraftTweaker reload starting!
-[01:40:28.608][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[01:40:28.608][INFO][CraftTweaker-ZenCode]: Undoing previous actions
-[01:40:28.623][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[01:40:28.932][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
-[01:40:28.932][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
-[01:40:28.938][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:born_in_chaos_v1:skullbreaker_hammer>! Item does not appear to exist!
-[01:40:28.938][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:born_in_chaos_v1:skullbreaker_hammer>! Item does not appear to exist!
-[01:40:28.944][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:246:127: Invalid parameters to BEP item: '<item:born_in_chaos_v1:skullbreaker_hammer>. There may be more information about this in the log.
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedCallArguments.parse(ParsedCallArguments.java:46)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:399)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:299)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:81)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:215)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:158)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zencode.java.ScriptingEngine.createScriptedModule(ScriptingEngine.java:125)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:85)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.m_5787_(ScriptReloadListener.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimplePreparableReloadListener.m_10789_(SimplePreparableReloadListener.java:13)
-	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_18701_(Minecraft.java:5941)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_246486_(WorldOpenFlows.java:163)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eln000$onLoadLevel(WorldOpenFlows.java:2532)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_6375_(WorldSelectionList.java:416)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.AbstractSelectionList.m_6375_(AbstractSelectionList.java:298)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.events.ContainerEventHandler.m_6375_(ContainerEventHandler.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168084_(MouseHandler.java:92)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.Screen.m_96579_(Screen.java:437)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91530_(MouseHandler.java:89)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168091_(MouseHandler.java:189)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:102)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91565_(MouseHandler.java:188)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallback$Container.invoke(GLFWMouseButtonCallback.java:81)
-	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
-	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$edk000$handleWaitEventsTimeout(RenderSystem.java:3508)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[01:40:28.945][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:247:140: Invalid parameters to BEP item: '<item:born_in_chaos_v1:skullbreaker_hammer>. There may be more information about this in the log.
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedCallArguments.parse(ParsedCallArguments.java:46)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:399)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:299)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:81)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:215)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:158)
-	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zencode.java.ScriptingEngine.createScriptedModule(ScriptingEngine.java:125)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:85)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
-	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.m_5787_(ScriptReloadListener.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimplePreparableReloadListener.m_10789_(SimplePreparableReloadListener.java:13)
-	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_18701_(Minecraft.java:5941)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_246486_(WorldOpenFlows.java:163)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eln000$onLoadLevel(WorldOpenFlows.java:2532)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_6375_(WorldSelectionList.java:416)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.AbstractSelectionList.m_6375_(AbstractSelectionList.java:298)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.components.events.ContainerEventHandler.m_6375_(ContainerEventHandler.java:38)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168084_(MouseHandler.java:92)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.Screen.m_96579_(Screen.java:437)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91530_(MouseHandler.java:89)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_168091_(MouseHandler.java:189)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:102)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.MouseHandler.m_91565_(MouseHandler.java:188)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallback$Container.invoke(GLFWMouseButtonCallback.java:81)
-	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
-	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$edk000$handleWaitEventsTimeout(RenderSystem.java:3508)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-	at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[01:40:28.946][ERROR][CraftTweaker]: Scripts are invalid!
-[01:40:28.946][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[01:40:28.947][INFO][CraftTweaker]: CraftTweaker reload complete!
-[01:40:28.947][INFO][CraftTweaker]: This reload was made possible by Peregrinus11 and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[00:57:33.013][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
+[00:57:33.122][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[00:57:33.446][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
+[00:57:33.451][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
+[00:57:33.455][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
+[00:57:33.459][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
+[00:57:38.602][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
+[00:57:38.606][INFO][CraftTweaker]: - 'aether' at version '1.20.1-1.4.0-neoforge'
+[00:57:38.607][INFO][CraftTweaker]: - 'aquaculture' at version '2.5.1'
+[00:57:38.607][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.38'
+[00:57:38.607][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
+[00:57:38.607][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
+[00:57:38.607][INFO][CraftTweaker]: - 'gamestages' at version '15.0.1'
+[00:57:38.607][INFO][CraftTweaker]: - 'gateways' at version '4.2.4'
+[00:58:01.152][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[00:58:02.448][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[00:58:02.564][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[00:58:02.904][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[00:59:21.012][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[00:59:21.030][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[00:59:21.052][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[00:59:21.060][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[00:59:25.905][INFO][CraftTweaker]: CraftTweaker reload starting!
+[00:59:25.912][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[00:59:25.928][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[00:59:26.293][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[00:59:26.293][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[00:59:26.375][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:compacting_drawers_3>'
+[00:59:26.386][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:controller_slave>'
+[00:59:26.393][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:controller>'
+[00:59:26.399][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:obsidian_storage_upgrade>'
+[00:59:26.406][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:iron_storage_upgrade>'
+[00:59:26.413][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:gold_storage_upgrade>'
+[00:59:26.420][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:diamond_storage_upgrade>'
+[00:59:26.428][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:emerald_storage_upgrade>'
+[00:59:26.433][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:upgrade_template>'
+[00:59:26.446][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_1' that outputs: '<item:storagedrawers:obsidian_storage_upgrade>'
+[00:59:26.447][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_2' that outputs: '<item:storagedrawers:iron_storage_upgrade>'
+[00:59:26.447][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_3' that outputs: '<item:storagedrawers:gold_storage_upgrade>'
+[00:59:26.448][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_4' that outputs: '<item:storagedrawers:diamond_storage_upgrade>'
+[00:59:26.448][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_5' that outputs: '<item:storagedrawers:emerald_storage_upgrade>'
+[00:59:26.448][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:void_upgrade>'
+[00:59:26.451][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:sd_void_upgrade' that outputs: '<item:storagedrawers:void_upgrade>'
+[00:59:26.456][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:cloggrum_knife>'
+[00:59:26.460][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:frosteel_knife>'
+[00:59:26.464][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:utherium_knife>'
+[00:59:26.468][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:forgotten_knife>'
+[00:59:26.471][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:holystone_knife>'
+[00:59:26.476][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:zanite_knife>'
+[00:59:26.480][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:gravitite_knife>'
+[00:59:26.484][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:skyjade_knife>'
+[00:59:26.490][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:stratus_knife>'
+[00:59:26.493][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:veridium_knife>'
+[00:59:26.498][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:wooden_fillet_knife>'
+[00:59:26.502][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:stone_fillet_knife>'
+[00:59:26.507][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:iron_fillet_knife>'
+[00:59:26.511][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:gold_fillet_knife>'
+[00:59:26.515][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:diamond_fillet_knife>'
+[00:59:26.520][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:ends_delight:purpur_knife>'
+[00:59:26.525][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:ends_delight:end_stone_knife>'
+[00:59:26.529][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[00:59:26.533][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[00:59:26.534][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[00:59:26.535][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[00:59:26.535][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:depthrock_furnace' that outputs: '<item:minecraft:furnace>'
+[00:59:26.535][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[00:59:26.539][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_helmet>'
+[00:59:26.549][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_chestplate>'
+[00:59:26.549][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_leggings>'
+[00:59:26.550][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_boots>'
+[00:59:26.550][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_helmet' that outputs: '<item:cataclysm:ignitium_helmet>'
+[00:59:26.550][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_chestplate' that outputs: '<item:cataclysm:ignitium_chestplate>'
+[00:59:26.550][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_leggings' that outputs: '<item:cataclysm:ignitium_leggings>'
+[00:59:26.550][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_boots' that outputs: '<item:cataclysm:ignitium_boots>'
+[00:59:26.550][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_helmet>'
+[00:59:26.550][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_chestplate>'
+[00:59:26.551][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_leggings>'
+[00:59:26.551][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_boots>'
+[00:59:26.551][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_helmet' that outputs: '<item:minecraft:netherite_helmet>'
+[00:59:26.551][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_chestplate' that outputs: '<item:minecraft:netherite_chestplate>'
+[00:59:26.551][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_leggings' that outputs: '<item:minecraft:netherite_leggings>'
+[00:59:26.552][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_boots' that outputs: '<item:minecraft:netherite_boots>'
+[00:59:26.552][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:vintagedelight:cheese_burger>'
+[00:59:26.555][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:vintagedelight:deluxe_burger>'
+[00:59:26.563][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[00:59:26.563][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[00:59:26.568][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[00:59:26.574][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[00:59:26.574][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[00:59:26.574][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[00:59:26.576][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[00:59:26.576][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[00:59:26.576][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[alexscaves:glass_from_sea_glass_shards]'
+[00:59:26.579][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/blaze"})'
+[00:59:26.583][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/enderman"})'
+[00:59:26.586][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/slime"})'
+[00:59:26.590][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:emerald_grove"})'
+[00:59:26.593][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:endless/blaze"})'
+[00:59:26.597][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:overworldian_nights"})'
+[00:59:26.601][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:hellish_fortress"})'
+[00:59:26.605][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_helmet>'
+[00:59:26.609][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_chestplate>'
+[00:59:26.613][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_leggings>'
+[00:59:26.616][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_boots>'
+[00:59:26.618][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_sword>'
+[00:59:26.621][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_shovel>'
+[00:59:26.625][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_pickaxe>'
+[00:59:26.629][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_axe>'
+[00:59:26.633][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_hoe>'
+[00:59:26.638][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_starter_tier>'
+[00:59:26.641][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_1>'
+[00:59:26.645][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_2>'
+[00:59:26.649][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_3>'
+[00:59:26.652][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_4>'
+[00:59:26.655][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:tank_upgrade>'
+[00:59:26.658][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:battery_upgrade>'
+[00:59:26.661][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:compacting_upgrade>'
+[00:59:26.664][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:filter_upgrade>'
+[00:59:26.668][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_refill_upgrade>'
+[00:59:26.672][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_deposit_upgrade>'
+[00:59:26.676][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_restock_upgrade>'
+[00:59:26.681][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_void_upgrade>'
+[00:59:26.685][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_compacting_upgrade>'
+[00:59:26.689][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_feeding_upgrade>'
+[00:59:26.693][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[00:59:26.697][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_filter_upgrade>'
+[00:59:26.700][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_pickup_upgrade>'
+[00:59:26.703][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:auto_smelting_upgrade>'
+[00:59:26.705][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:auto_smoking_upgrade>'
+[00:59:26.707][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:auto_blasting_upgrade>'
+[00:59:26.709][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_tool_swapper_upgrade>'
+[00:59:26.711][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_pump_upgrade>'
+[00:59:26.713][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[00:59:26.714][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:pickup_upgrade>'
+[00:59:26.715][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:void_upgrade>'
+[00:59:26.716][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:crafting_upgrade>'
+[00:59:26.717][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stonecutter_upgrade>'
+[00:59:26.718][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:jukebox_upgrade>'
+[00:59:26.718][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:pump_upgrade>'
+[00:59:26.719][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:anvil_upgrade>'
+[00:59:26.720][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:copper_backpack>'
+[00:59:26.721][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:iron_backpack>'
+[00:59:26.722][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:gold_backpack>'
+[00:59:26.723][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:diamond_backpack>'
+[00:59:26.724][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:sophisticatedbackpacks:netherite_backpack>'
+[00:59:26.725][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_1' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_starter_tier>'
+[00:59:26.725][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_2' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_1>'
+[00:59:26.725][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_3' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_2>'
+[00:59:26.725][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_4' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_3>'
+[00:59:26.726][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_5' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_4>'
+[00:59:26.726][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:tank_upgrade' that outputs: '<item:sophisticatedbackpacks:tank_upgrade>'
+[00:59:26.726][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:battery_upgrade' that outputs: '<item:sophisticatedbackpacks:battery_upgrade>'
+[00:59:26.726][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:compacting_upgrade' that outputs: '<item:sophisticatedbackpacks:compacting_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:magnet_upgrade_copper' that outputs: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:magnet_upgrade_scarlet' that outputs: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:magnet_upgrade_azure' that outputs: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:pickup_upgrade' that outputs: '<item:sophisticatedbackpacks:pickup_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:void_upgrade' that outputs: '<item:sophisticatedbackpacks:void_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:crafting_upgrade' that outputs: '<item:sophisticatedbackpacks:crafting_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:stonecutter_upgrade' that outputs: '<item:sophisticatedbackpacks:stonecutter_upgrade>'
+[00:59:26.727][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:pump_upgrade' that outputs: '<item:sophisticatedbackpacks:pump_upgrade>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:jukebox_upgrade' that outputs: '<item:sophisticatedbackpacks:jukebox_upgrade>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:anvil_upgrade' that outputs: '<item:sophisticatedbackpacks:anvil_upgrade>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:advanced_magnet_upgrade_copper' that outputs: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:advanced_magnet_upgrade_scarlet' that outputs: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:advanced_magnet_upgrade_azure' that outputs: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_1' that outputs: '<item:sophisticatedbackpacks:iron_backpack>'
+[00:59:26.728][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_2' that outputs: '<item:sophisticatedbackpacks:gold_backpack>'
+[00:59:26.729][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_3' that outputs: '<item:sophisticatedbackpacks:diamond_backpack>'
+[00:59:26.729][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_4' that outputs: '<item:sophisticatedbackpacks:netherite_backpack>'
+[00:59:26.729][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[00:59:26.731][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[00:59:26.731][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[00:59:26.732][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[00:59:26.732][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[00:59:26.735][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[00:59:26.737][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[00:59:26.738][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[00:59:26.738][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_power_loader:empty_andesite_chunk_loader>'
+[00:59:26.739][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:create_power_loader:empty_brass_chunk_loader>'
+[00:59:26.740][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:brass_chunk_loader' that outputs: '<item:create_power_loader:empty_brass_chunk_loader>'
+[00:59:26.740][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[00:59:26.741][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 2'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[00:59:26.741][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[00:59:26.741][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infadirt>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infadripstone_block>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infatuff>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacalcite>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacobbled_deepslate>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaandesite>'
+[00:59:26.741][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infadiorite>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infagranite>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infastone>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infasnow_block>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaice>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaobsidian>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infagravel>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infared_sand>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacobblestone>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infamud>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacoarse_dirt>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infasoul_sand>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaend_stone>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infanetherrack>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infamagma_block>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infamoss_block>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infasand>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[00:59:26.742][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:kinetic_motor>'
+[00:59:26.744][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:accelerator_motor>'
+[00:59:26.746][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:minecraft:enchanting_table>'
+[00:59:26.747][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_enchantment_industry:printer>'
+[00:59:26.749][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_enchantment_industry:enchanting_guide>'
+[00:59:26.750][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[00:59:26.751][INFO][CraftTweaker]: CraftTweaker reload complete!
+[00:59:26.752][INFO][CraftTweaker]: This reload was made possible by BrÃ¸nsted and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[01:00:17.424][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[01:00:17.424][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[01:00:17.447][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[01:00:17.451][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[01:00:17.465][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[01:00:20.933][INFO][CraftTweaker]: CraftTweaker reload starting!
+[01:00:20.943][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[01:00:20.943][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[01:00:20.944][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[01:00:20.959][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[01:00:21.095][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[01:00:21.096][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[01:00:21.203][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:compacting_drawers_3>'
+[01:00:21.210][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:controller_slave>'
+[01:00:21.216][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:controller>'
+[01:00:21.220][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:obsidian_storage_upgrade>'
+[01:00:21.226][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:iron_storage_upgrade>'
+[01:00:21.233][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:gold_storage_upgrade>'
+[01:00:21.238][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:diamond_storage_upgrade>'
+[01:00:21.242][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:emerald_storage_upgrade>'
+[01:00:21.245][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:upgrade_template>'
+[01:00:21.251][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_1' that outputs: '<item:storagedrawers:obsidian_storage_upgrade>'
+[01:00:21.251][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_2' that outputs: '<item:storagedrawers:iron_storage_upgrade>'
+[01:00:21.252][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_3' that outputs: '<item:storagedrawers:gold_storage_upgrade>'
+[01:00:21.252][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_4' that outputs: '<item:storagedrawers:diamond_storage_upgrade>'
+[01:00:21.252][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:drawer_upgrade_5' that outputs: '<item:storagedrawers:emerald_storage_upgrade>'
+[01:00:21.252][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:storagedrawers:void_upgrade>'
+[01:00:21.256][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:sd_void_upgrade' that outputs: '<item:storagedrawers:void_upgrade>'
+[01:00:21.256][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:cloggrum_knife>'
+[01:00:21.259][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:frosteel_knife>'
+[01:00:21.262][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:utherium_knife>'
+[01:00:21.265][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:undergardendelight:forgotten_knife>'
+[01:00:21.268][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:holystone_knife>'
+[01:00:21.272][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:zanite_knife>'
+[01:00:21.275][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:gravitite_knife>'
+[01:00:21.278][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:skyjade_knife>'
+[01:00:21.282][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:stratus_knife>'
+[01:00:21.286][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aetherdelight:veridium_knife>'
+[01:00:21.291][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:wooden_fillet_knife>'
+[01:00:21.295][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:stone_fillet_knife>'
+[01:00:21.299][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:iron_fillet_knife>'
+[01:00:21.304][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:gold_fillet_knife>'
+[01:00:21.308][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:aquaculture:diamond_fillet_knife>'
+[01:00:21.311][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:ends_delight:purpur_knife>'
+[01:00:21.314][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:ends_delight:end_stone_knife>'
+[01:00:21.317][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[01:00:21.321][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[01:00:21.321][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[01:00:21.322][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[01:00:21.322][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:depthrock_furnace' that outputs: '<item:minecraft:furnace>'
+[01:00:21.322][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[01:00:21.326][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_helmet>'
+[01:00:21.329][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_chestplate>'
+[01:00:21.330][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_leggings>'
+[01:00:21.331][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:cataclysm:ignitium_boots>'
+[01:00:21.333][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_helmet' that outputs: '<item:cataclysm:ignitium_helmet>'
+[01:00:21.333][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_chestplate' that outputs: '<item:cataclysm:ignitium_chestplate>'
+[01:00:21.334][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_leggings' that outputs: '<item:cataclysm:ignitium_leggings>'
+[01:00:21.334][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:enderium_tier_to_ignitium_boots' that outputs: '<item:cataclysm:ignitium_boots>'
+[01:00:21.334][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_helmet>'
+[01:00:21.334][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_chestplate>'
+[01:00:21.335][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_leggings>'
+[01:00:21.336][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:minecraft:netherite_boots>'
+[01:00:21.338][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_helmet' that outputs: '<item:minecraft:netherite_helmet>'
+[01:00:21.338][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_chestplate' that outputs: '<item:minecraft:netherite_chestplate>'
+[01:00:21.339][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_leggings' that outputs: '<item:minecraft:netherite_leggings>'
+[01:00:21.340][INFO][CraftTweaker]: Adding 'minecraft:smithing' recipe, with name: 'crafttweaker:diamond_tier_to_netherite_boots' that outputs: '<item:minecraft:netherite_boots>'
+[01:00:21.340][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:vintagedelight:cheese_burger>'
+[01:00:21.344][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:vintagedelight:deluxe_burger>'
+[01:00:21.348][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[01:00:21.348][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[01:00:21.352][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[01:00:21.353][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[01:00:21.354][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[01:00:21.354][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[01:00:21.355][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[01:00:21.355][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[01:00:21.355][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[alexscaves:glass_from_sea_glass_shards]'
+[01:00:21.355][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/blaze"})'
+[01:00:21.360][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/enderman"})'
+[01:00:21.363][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/slime"})'
+[01:00:21.367][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:emerald_grove"})'
+[01:00:21.371][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:endless/blaze"})'
+[01:00:21.375][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:overworldian_nights"})'
+[01:00:21.379][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:gateways:gate_pearl>.withTag({gateway: "gateways:hellish_fortress"})'
+[01:00:21.382][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_helmet>'
+[01:00:21.386][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_chestplate>'
+[01:00:21.389][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_leggings>'
+[01:00:21.392][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:armor_copper_metal_boots>'
+[01:00:21.396][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_sword>'
+[01:00:21.399][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_shovel>'
+[01:00:21.403][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_pickaxe>'
+[01:00:21.407][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_axe>'
+[01:00:21.410][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:iceandfire:copper_hoe>'
+[01:00:21.413][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_starter_tier>'
+[01:00:21.417][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_1>'
+[01:00:21.420][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_2>'
+[01:00:21.424][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_3>'
+[01:00:21.426][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stack_upgrade_tier_4>'
+[01:00:21.429][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:tank_upgrade>'
+[01:00:21.431][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:battery_upgrade>'
+[01:00:21.434][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:compacting_upgrade>'
+[01:00:21.436][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:filter_upgrade>'
+[01:00:21.438][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_refill_upgrade>'
+[01:00:21.441][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_deposit_upgrade>'
+[01:00:21.444][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_restock_upgrade>'
+[01:00:21.446][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_void_upgrade>'
+[01:00:21.448][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_compacting_upgrade>'
+[01:00:21.450][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_feeding_upgrade>'
+[01:00:21.453][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[01:00:21.455][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_filter_upgrade>'
+[01:00:21.458][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_pickup_upgrade>'
+[01:00:21.461][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:auto_smelting_upgrade>'
+[01:00:21.464][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:auto_smoking_upgrade>'
+[01:00:21.467][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:auto_blasting_upgrade>'
+[01:00:21.469][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_tool_swapper_upgrade>'
+[01:00:21.471][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:advanced_pump_upgrade>'
+[01:00:21.474][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[01:00:21.476][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:pickup_upgrade>'
+[01:00:21.479][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:void_upgrade>'
+[01:00:21.481][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:crafting_upgrade>'
+[01:00:21.483][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:stonecutter_upgrade>'
+[01:00:21.485][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:jukebox_upgrade>'
+[01:00:21.487][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:pump_upgrade>'
+[01:00:21.489][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:anvil_upgrade>'
+[01:00:21.491][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:copper_backpack>'
+[01:00:21.493][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:iron_backpack>'
+[01:00:21.495][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:gold_backpack>'
+[01:00:21.496][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:sophisticatedbackpacks:diamond_backpack>'
+[01:00:21.497][INFO][CraftTweaker]: Removing 'smithing' recipes with output: '<item:sophisticatedbackpacks:netherite_backpack>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_1' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_starter_tier>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_2' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_1>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_3' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_2>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_4' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_3>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:stack_upgrade_tier_5' that outputs: '<item:sophisticatedbackpacks:stack_upgrade_tier_4>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:tank_upgrade' that outputs: '<item:sophisticatedbackpacks:tank_upgrade>'
+[01:00:21.499][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:battery_upgrade' that outputs: '<item:sophisticatedbackpacks:battery_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:compacting_upgrade' that outputs: '<item:sophisticatedbackpacks:compacting_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:magnet_upgrade_copper' that outputs: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:magnet_upgrade_scarlet' that outputs: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:magnet_upgrade_azure' that outputs: '<item:sophisticatedbackpacks:magnet_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:pickup_upgrade' that outputs: '<item:sophisticatedbackpacks:pickup_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:void_upgrade' that outputs: '<item:sophisticatedbackpacks:void_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:crafting_upgrade' that outputs: '<item:sophisticatedbackpacks:crafting_upgrade>'
+[01:00:21.501][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:stonecutter_upgrade' that outputs: '<item:sophisticatedbackpacks:stonecutter_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:pump_upgrade' that outputs: '<item:sophisticatedbackpacks:pump_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:jukebox_upgrade' that outputs: '<item:sophisticatedbackpacks:jukebox_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:anvil_upgrade' that outputs: '<item:sophisticatedbackpacks:anvil_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:advanced_magnet_upgrade_copper' that outputs: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:advanced_magnet_upgrade_scarlet' that outputs: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shapeless", with name: 'crafttweaker:advanced_magnet_upgrade_azure' that outputs: '<item:sophisticatedbackpacks:advanced_magnet_upgrade>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_1' that outputs: '<item:sophisticatedbackpacks:iron_backpack>'
+[01:00:21.502][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_2' that outputs: '<item:sophisticatedbackpacks:gold_backpack>'
+[01:00:21.503][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_3' that outputs: '<item:sophisticatedbackpacks:diamond_backpack>'
+[01:00:21.503][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:backpack_4' that outputs: '<item:sophisticatedbackpacks:netherite_backpack>'
+[01:00:21.503][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[01:00:21.503][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[01:00:21.503][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[01:00:21.504][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[01:00:21.504][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[01:00:21.507][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[01:00:21.510][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[01:00:21.511][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[01:00:21.512][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_power_loader:empty_andesite_chunk_loader>'
+[01:00:21.514][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:create_power_loader:empty_brass_chunk_loader>'
+[01:00:21.516][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:brass_chunk_loader' that outputs: '<item:create_power_loader:empty_brass_chunk_loader>'
+[01:00:21.516][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[01:00:21.516][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 2'
+[01:00:21.516][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[01:00:21.516][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[01:00:21.516][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[01:00:21.517][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[01:00:21.517][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infadirt>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infadripstone_block>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infatuff>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacalcite>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacobbled_deepslate>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaandesite>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infadiorite>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infagranite>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infastone>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infasnow_block>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaice>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaobsidian>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infagravel>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infared_sand>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacobblestone>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infamud>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infacoarse_dirt>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infasoul_sand>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infaend_stone>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infanetherrack>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infamagma_block>'
+[01:00:21.517][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infamoss_block>'
+[01:00:21.518][INFO][CraftTweaker]: Removing 'create:deploying' recipes with output: '<item:create_dd:infasand>'
+[01:00:21.518][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[01:00:21.518][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:kinetic_motor>'
+[01:00:21.521][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:accelerator_motor>'
+[01:00:21.524][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:minecraft:enchanting_table>'
+[01:00:21.526][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_enchantment_industry:printer>'
+[01:00:21.529][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_enchantment_industry:enchanting_guide>'
+[01:00:21.532][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[01:00:21.532][INFO][CraftTweaker]: CraftTweaker reload complete!
+[01:00:21.532][INFO][CraftTweaker]: This reload was made possible by AdaraChristine and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

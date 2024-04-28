@@ -19,119 +19,6 @@ import mods.create.CompactingManager;
 import mods.create.SequencedAssemblyManager;
 import crafttweaker.api.recipe.CraftingTableRecipeManager;
 
-# Refined Storage
-
-craftingTable.remove(<item:refinedstorage:processor_binding>);
-craftingTable.remove(<item:refinedstorage:raw_basic_processor>);
-craftingTable.remove(<item:refinedstorage:raw_improved_processor>);
-craftingTable.remove(<item:refinedstorage:raw_advanced_processor>);
-furnace.remove(<item:refinedstorage:basic_processor>);
-furnace.remove(<item:refinedstorage:improved_processor>);
-furnace.remove(<item:refinedstorage:advanced_processor>);
-craftingTable.remove(<item:refinedstorage:1k_storage_part>);
-craftingTable.remove(<item:refinedstorage:4k_storage_part>);
-craftingTable.remove(<item:refinedstorage:16k_storage_part>);
-craftingTable.remove(<item:refinedstorage:64k_storage_part>);
-craftingTable.remove(<item:refinedstorage:64k_fluid_storage_part>);
-craftingTable.remove(<item:refinedstorage:256k_fluid_storage_part>);
-craftingTable.remove(<item:refinedstorage:1024k_fluid_storage_part>);
-craftingTable.remove(<item:refinedstorage:4096k_fluid_storage_part>);
-craftingTable.remove(<item:refinedstorage:controller>);
-craftingTable.remove(<item:refinedstorage:storage_housing>);
-craftingTable.remove(<item:refinedstorage:1k_storage_disk>);
-craftingTable.remove(<item:refinedstorage:4k_storage_disk>);
-craftingTable.remove(<item:refinedstorage:16k_storage_disk>);
-craftingTable.remove(<item:refinedstorage:64k_storage_disk>);
-craftingTable.remove(<item:refinedstorage:1k_storage_block>);
-craftingTable.remove(<item:refinedstorage:4k_storage_block>);
-craftingTable.remove(<item:refinedstorage:16k_storage_block>);
-craftingTable.remove(<item:refinedstorage:64k_storage_block>);
-craftingTable.remove(<item:refinedstorage:256k_fluid_storage_block>);
-craftingTable.remove(<item:refinedstorage:1024k_fluid_storage_block>);
-craftingTable.remove(<item:refinedstorage:64k_fluid_storage_block>);
-craftingTable.remove(<item:refinedstorage:4096k_fluid_storage_block>);
-craftingTable.remove(<item:refinedstorage:64k_fluid_storage_disk>);
-craftingTable.remove(<item:refinedstorage:256k_fluid_storage_disk>);
-craftingTable.remove(<item:refinedstorage:1024k_fluid_storage_disk>);
-craftingTable.remove(<item:refinedstorage:4096k_fluid_storage_disk>);
-craftingTable.remove(<item:refinedstorage:crafting_grid>);
-
-<recipetype:create:item_application>.addRecipe("rs_controller", [<item:refinedstorage:controller>], <item:refinedstorage:machine_casing>, <item:refinedstorage:advanced_processor>, false);
-<recipetype:create:item_application>.addRecipe("crafting_grid", [<item:refinedstorage:crafting_grid>], <item:refinedstorage:grid>, <item:minecraft:crafting_table>, false);
-
-<recipetype:create:pressing>.addRecipe("press_1k_storage_disk", [<item:refinedstorage:1k_storage_disk>], <item:refinedstorage:1k_storage_block>, 200);
-<recipetype:create:pressing>.addRecipe("press_4k_storage_disk", [<item:refinedstorage:4k_storage_disk>], <item:refinedstorage:4k_storage_block>, 200);
-<recipetype:create:pressing>.addRecipe("press_16k_storage_disk", [<item:refinedstorage:16k_storage_disk>], <item:refinedstorage:16k_storage_block>, 200);
-<recipetype:create:pressing>.addRecipe("press_64k_storage_disk", [<item:refinedstorage:64k_storage_disk>], <item:refinedstorage:64k_storage_block>, 200);
-
-craftingTable.addShapeless('1k_storage_disk', <item:refinedstorage:1k_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:1k_storage_part>]);
-craftingTable.addShapeless('4k_storage_disk', <item:refinedstorage:4k_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:4k_storage_part>]);
-craftingTable.addShapeless('16k_storage_disk', <item:refinedstorage:16k_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:16k_storage_part>]);
-craftingTable.addShapeless('64k_storage_disk', <item:refinedstorage:64k_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:64k_storage_part>]);
-
-<recipetype:create:pressing>.addRecipe("press_64k_fluid_storage_disk", [<item:refinedstorage:64k_fluid_storage_disk>], <item:refinedstorage:64k_fluid_storage_block>, 200);
-<recipetype:create:pressing>.addRecipe("press_256k_fluid_storage_disk", [<item:refinedstorage:256k_fluid_storage_disk>], <item:refinedstorage:256k_fluid_storage_block>, 200);
-<recipetype:create:pressing>.addRecipe("press_1024k_fluid_storage_disk", [<item:refinedstorage:1024k_fluid_storage_disk>], <item:refinedstorage:1024k_fluid_storage_block>, 200);
-<recipetype:create:pressing>.addRecipe("press_4096k_fluid_storage_disk", [<item:refinedstorage:4096k_fluid_storage_disk>], <item:refinedstorage:4096k_fluid_storage_block>, 200);
-
-craftingTable.addShapeless('64k_fluid_storage_disk', <item:refinedstorage:64k_fluid_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:64k_fluid_storage_part>]);
-craftingTable.addShapeless('256k_fluid_storage_disk', <item:refinedstorage:256k_fluid_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:256k_fluid_storage_part>]);
-craftingTable.addShapeless('1024k_fluid_storage_disk', <item:refinedstorage:1024k_fluid_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:1024k_fluid_storage_part>]);
-craftingTable.addShapeless('4096k_fluid_storage_disk', <item:refinedstorage:4096k_fluid_storage_disk>, [<item:refinedstorage:storage_housing>, <item:refinedstorage:4096k_fluid_storage_part>]);
-
-craftingTable.addShaped('1k_storage_part', <item:refinedstorage:1k_storage_part>, [
-	[<item:refinedstorage:silicon>, <tag:items:odysseynexus:tier_2_material>, <item:refinedstorage:silicon>],
-	[<tag:items:odysseynexus:tier_2_material>, <item:minecraft:redstone>, <tag:items:odysseynexus:tier_2_material>],
-	[<item:refinedstorage:silicon>, <tag:items:odysseynexus:tier_2_material>, <item:refinedstorage:silicon>]]);
-craftingTable.addShaped('4k_storage_part', <item:refinedstorage:4k_storage_part>, [
-	[<item:refinedstorage:basic_processor>, <tag:items:odysseynexus:tier_3_material>, <item:refinedstorage:basic_processor>],
-	[<item:refinedstorage:1k_storage_part>, <item:minecraft:redstone>, <item:refinedstorage:1k_storage_part>],
-	[<item:refinedstorage:basic_processor>, <item:refinedstorage:1k_storage_part>, <item:refinedstorage:basic_processor>]]);
-craftingTable.addShaped('16k_storage_part', <item:refinedstorage:16k_storage_part>, [
-	[<item:refinedstorage:improved_processor>, <tag:items:odysseynexus:tier_4_material>, <item:refinedstorage:improved_processor>],
-	[<item:refinedstorage:4k_storage_part>, <item:minecraft:redstone>, <item:refinedstorage:4k_storage_part>],
-	[<item:refinedstorage:improved_processor>, <item:refinedstorage:4k_storage_part>, <item:refinedstorage:improved_processor>]]);
-craftingTable.addShaped('64k_storage_part', <item:refinedstorage:64k_storage_part>, [
-	[<item:refinedstorage:advanced_processor>, <tag:items:odysseynexus:tier_5_material>, <item:refinedstorage:advanced_processor>],
-	[<item:refinedstorage:4k_storage_part>, <item:minecraft:redstone>, <item:refinedstorage:4k_storage_part>],
-	[<item:refinedstorage:advanced_processor>, <item:refinedstorage:4k_storage_part>, <item:refinedstorage:advanced_processor>]]);
-
-craftingTable.addShaped('64k_fluid_storage_part', <item:refinedstorage:64k_fluid_storage_part>, [
-	[<item:refinedstorage:silicon>, <tag:items:odysseynexus:tier_2_material>, <item:refinedstorage:silicon>],
-	[<tag:items:odysseynexus:tier_2_material>, <item:minecraft:bucket>, <tag:items:odysseynexus:tier_2_material>],
-	[<item:refinedstorage:silicon>, <tag:items:odysseynexus:tier_2_material>, <item:refinedstorage:silicon>]]);
-craftingTable.addShaped('256k_fluid_storage_part', <item:refinedstorage:256k_fluid_storage_part>, [
-	[<item:refinedstorage:basic_processor>, <tag:items:odysseynexus:tier_3_material>, <item:refinedstorage:basic_processor>],
-	[<item:refinedstorage:64k_fluid_storage_part>, <item:minecraft:bucket>, <item:refinedstorage:64k_fluid_storage_part>],
-	[<item:refinedstorage:basic_processor>, <item:refinedstorage:64k_fluid_storage_part>, <item:refinedstorage:basic_processor>]]);
-	craftingTable.addShaped('1024k_fluid_storage_part', <item:refinedstorage:1024k_fluid_storage_part>, [
-	[<item:refinedstorage:improved_processor>, <tag:items:odysseynexus:tier_4_material>, <item:refinedstorage:improved_processor>],
-	[<item:refinedstorage:256k_fluid_storage_part>, <item:minecraft:bucket>, <item:refinedstorage:256k_fluid_storage_part>],
-	[<item:refinedstorage:improved_processor>, <item:refinedstorage:256k_fluid_storage_part>, <item:refinedstorage:improved_processor>]]);
-	craftingTable.addShaped('4096k_fluid_storage_part', <item:refinedstorage:4096k_fluid_storage_part>, [
-	[<item:refinedstorage:advanced_processor>, <tag:items:odysseynexus:tier_5_material>, <item:refinedstorage:advanced_processor>],
-	[<item:refinedstorage:1024k_fluid_storage_part>, <item:minecraft:bucket>, <item:refinedstorage:1024k_fluid_storage_part>],
-	[<item:refinedstorage:advanced_processor>, <item:refinedstorage:1024k_fluid_storage_part>, <item:refinedstorage:advanced_processor>]]);
-
-<recipetype:create:item_application>.addRecipe("1k_storage_block", [<item:refinedstorage:1k_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:1k_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("4k_storage_block", [<item:refinedstorage:4k_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:4k_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("16k_storage_block", [<item:refinedstorage:16k_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:16k_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("64k_storage_block", [<item:refinedstorage:64k_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:64k_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("64k_fluid_storage_block", [<item:refinedstorage:64k_fluid_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:64k_fluid_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("256k_fluid_storage_block", [<item:refinedstorage:256k_fluid_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:256k_fluid_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("1024k_fluid_storage_block", [<item:refinedstorage:1024k_fluid_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:1024k_fluid_storage_part>, false);
-<recipetype:create:item_application>.addRecipe("4096k_fluid_storage_block", [<item:refinedstorage:4096k_fluid_storage_block>], <item:refinedstorage:machine_casing>, <item:refinedstorage:4096k_fluid_storage_part>, false);
-
-craftingTable.addShapeless("new_basic_processor", <item:refinedstorage:basic_processor>,
-[<item:refinedstorage:silicon>, <item:create_dd:integrated_circuit>, <tag:items:odysseynexus:tier_1_material>]);
-craftingTable.addShapeless("new_improved_processor", <item:refinedstorage:improved_processor>,
-[<item:refinedstorage:silicon>, <item:create_dd:integrated_circuit>, <tag:items:odysseynexus:tier_2_material>]);
-craftingTable.addShapeless("new_advanced_processor", <item:refinedstorage:advanced_processor>,
-[<item:refinedstorage:silicon>, <item:create_dd:integrated_circuit>, <tag:items:odysseynexus:tier_3_material>]);
-
-craftingTable.remove(<item:refinedstorage:machine_casing>);
-<recipetype:create:item_application>.addRecipe("machine_casing", [<item:refinedstorage:machine_casing>], <item:create_dd:steel_block>, <item:refinedstorage:quartz_enriched_iron>, false);
-
 # Storage Drawers
 
 craftingTable.remove(<item:storagedrawers:compacting_drawers_3>);
@@ -150,10 +37,6 @@ craftingTable.addShapeless("drawer_upgrade_2", <item:storagedrawers:iron_storage
 craftingTable.addShapeless("drawer_upgrade_3", <item:storagedrawers:gold_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_3_material>]);
 craftingTable.addShapeless("drawer_upgrade_4", <item:storagedrawers:diamond_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_4_material>]);
 craftingTable.addShapeless("drawer_upgrade_5", <item:storagedrawers:emerald_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_5_material>]);
-
-<recipetype:create:item_application>.addRecipe("compacting_drawers", [<item:storagedrawers:compacting_drawers_3>], <item:refinedstorage:machine_casing>, <item:minecraft:piston>, false);
-<recipetype:create:item_application>.addRecipe("sd_controller", [<item:storagedrawers:controller>], <tag:items:forge:stripped_logs>, <item:refinedstorage:advanced_processor>, false);
-<recipetype:create:item_application>.addRecipe("controller_slave", [<item:storagedrawers:controller_slave>], <tag:items:forge:stripped_logs>, <item:refinedstorage:improved_processor>, false);
 
 craftingTable.remove(<item:storagedrawers:void_upgrade>);
 craftingTable.addShapeless("sd_void_upgrade", <item:storagedrawers:void_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <item:createutilities:void_steel_ingot>]);
@@ -243,9 +126,6 @@ craftingTable.remove(<item:alexscaves:nuclear_bomb>);
 
 craftingTable.removeByName("alexscaves:glass_from_sea_glass_shards");
 
-<recipetype:farmersdelight:cutting>.addRecipe("you_monster", <item:undergarden:gronglet>, [<item:farmersdelight:minced_beef>], <item:born_in_chaos_v1:skullbreaker_hammer>, "undergarden:block.gronglet.burn");
-<recipetype:farmersdelight:cutting>.addRecipe("i_hate_turtles", <item:minecraft:turtle_egg>, [<item:aquaculturedelight:small_turtle_meat>], <item:born_in_chaos_v1:skullbreaker_hammer>, "undergarden:block.gronglet.burn");
-
 craftingTable.remove(<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/blaze"}));
 craftingTable.remove(<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/enderman"}));
 craftingTable.remove(<item:gateways:gate_pearl>.withTag({gateway: "gateways:basic/slime"}));
@@ -263,16 +143,6 @@ craftingTable.remove(<item:iceandfire:copper_shovel>);
 craftingTable.remove(<item:iceandfire:copper_pickaxe>);
 craftingTable.remove(<item:iceandfire:copper_axe>);
 craftingTable.remove(<item:iceandfire:copper_hoe>);
-
-//craftingTable.remove(<item:wrd:magic_cauldron>);
-//craftingTable.remove(<item:wrd:magic_cauldron_desert>);
-//craftingTable.remove(<item:wrd:magic_cauldron_ice>);
-//craftingTable.remove(<item:wrd:magic_cauldron_jungle>);
-//craftingTable.remove(<item:wrd:magic_cauldron_nether>);
-
-//craftingTable.remove(<item:qualitycrops:iron_fertilizer>);
-//craftingTable.remove(<item:qualitycrops:gold_fertilizer>);
-//craftingTable.remove(<item:qualitycrops:diamond_fertilizer>);
 
 # Sophisticated Backpack
 
@@ -342,7 +212,7 @@ craftingTable.addShaped("battery_upgrade", <item:sophisticatedbackpacks:battery_
 	[<item:createaddition:modular_accumulator>, <item:sophisticatedbackpacks:upgrade_base>, <item:createaddition:modular_accumulator>],
 	[<item:createaddition:modular_accumulator>, <item:createaddition:modular_accumulator>, <item:createaddition:modular_accumulator>]]);
 craftingTable.addShapeless("compacting_upgrade", <item:sophisticatedbackpacks:compacting_upgrade>, [<item:storagedrawers:compacting_drawers_3>, <item:sophisticatedbackpacks:upgrade_base>]);
-craftingTable.addShapeless("filtering_upgrade", <item:sophisticatedbackpacks:filter_upgrade>, [<item:refinedstorage:filter>, <item:sophisticatedbackpacks:upgrade_base>]);
+//craftingTable.addShapeless("filtering_upgrade", <item:sophisticatedbackpacks:filter_upgrade>, [<item:refinedstorage:filter>, <item:sophisticatedbackpacks:upgrade_base>]);
 craftingTable.addShapeless("magnet_upgrade_copper", <item:sophisticatedbackpacks:magnet_upgrade>, [<item:spelunkery:item_magnet>, <item:sophisticatedbackpacks:pickup_upgrade>]);
 craftingTable.addShapeless("magnet_upgrade_scarlet", <item:sophisticatedbackpacks:magnet_upgrade>, [<item:alexscaves:scarlet_magnet>, <item:sophisticatedbackpacks:pickup_upgrade>]);
 craftingTable.addShapeless("magnet_upgrade_azure", <item:sophisticatedbackpacks:magnet_upgrade>, [<item:alexscaves:azure_magnet>, <item:sophisticatedbackpacks:pickup_upgrade>]);
@@ -357,20 +227,20 @@ craftingTable.addShapeless("anvil_upgrade", <item:sophisticatedbackpacks:anvil_u
 craftingTable.addShapeless("advanced_magnet_upgrade_copper", <item:sophisticatedbackpacks:advanced_magnet_upgrade>, [<item:spelunkery:item_magnet>, <item:sophisticatedbackpacks:advanced_pickup_upgrade>]);
 craftingTable.addShapeless("advanced_magnet_upgrade_scarlet", <item:sophisticatedbackpacks:advanced_magnet_upgrade>, [<item:alexscaves:scarlet_magnet>, <item:sophisticatedbackpacks:advanced_pickup_upgrade>]);
 craftingTable.addShapeless("advanced_magnet_upgrade_azure", <item:sophisticatedbackpacks:advanced_magnet_upgrade>, [<item:alexscaves:azure_magnet>, <item:sophisticatedbackpacks:advanced_pickup_upgrade>]);
-craftingTable.addShapeless("advanced_pickup_upgrade", <item:sophisticatedbackpacks:advanced_pickup_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:pickup_upgrade>]);
-craftingTable.addShapeless("advanced_refill_upgrade", <item:sophisticatedbackpacks:advanced_refill_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:refill_upgrade>]);
-craftingTable.addShapeless("advanced_filter_upgrade", <item:sophisticatedbackpacks:advanced_filter_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:filter_upgrade>]);
-craftingTable.addShapeless("advanced_deposit_upgrade", <item:sophisticatedbackpacks:advanced_deposit_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:deposit_upgrade>]);
-craftingTable.addShapeless("advanced_compacting_upgrade", <item:sophisticatedbackpacks:advanced_compacting_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:compacting_upgrade>]);
-craftingTable.addShapeless("advanced_void_upgrade", <item:sophisticatedbackpacks:advanced_void_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:void_upgrade>]);
-craftingTable.addShapeless("advanced_feeding_upgrade", <item:sophisticatedbackpacks:advanced_feeding_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:feeding_upgrade>]);
-craftingTable.addShapeless("advanced_restock_upgrade", <item:sophisticatedbackpacks:advanced_restock_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:restock_upgrade>]);
-craftingTable.addShapeless("advanced_tool_swapper_upgrade", <item:sophisticatedbackpacks:advanced_tool_swapper_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:tool_swapper_upgrade>]);
-craftingTable.addShapeless("advanced_magnet_upgrade", <item:sophisticatedbackpacks:advanced_magnet_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:magnet_upgrade>]);
-craftingTable.addShapeless("auto_blasting_upgrade", <item:sophisticatedbackpacks:auto_blasting_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:blasting_upgrade>]);
-craftingTable.addShapeless("auto_smelting_upgrade", <item:sophisticatedbackpacks:auto_smelting_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:smelting_upgrade>]);
-craftingTable.addShapeless("auto_smoking_upgrade", <item:sophisticatedbackpacks:auto_smoking_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:smoking_upgrade>]);
-craftingTable.addShapeless("advanced_pump_upgrade", <item:sophisticatedbackpacks:advanced_pump_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:pump_upgrade>]);
+//craftingTable.addShapeless("advanced_pickup_upgrade", <item:sophisticatedbackpacks:advanced_pickup_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:pickup_upgrade>]);
+//craftingTable.addShapeless("advanced_refill_upgrade", <item:sophisticatedbackpacks:advanced_refill_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:refill_upgrade>]);
+//craftingTable.addShapeless("advanced_filter_upgrade", <item:sophisticatedbackpacks:advanced_filter_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:filter_upgrade>]);
+//craftingTable.addShapeless("advanced_deposit_upgrade", <item:sophisticatedbackpacks:advanced_deposit_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:deposit_upgrade>]);
+//craftingTable.addShapeless("advanced_compacting_upgrade", <item:sophisticatedbackpacks:advanced_compacting_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:compacting_upgrade>]);
+//craftingTable.addShapeless("advanced_void_upgrade", <item:sophisticatedbackpacks:advanced_void_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:void_upgrade>]);
+//craftingTable.addShapeless("advanced_feeding_upgrade", <item:sophisticatedbackpacks:advanced_feeding_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:feeding_upgrade>]);
+//craftingTable.addShapeless("advanced_restock_upgrade", <item:sophisticatedbackpacks:advanced_restock_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:restock_upgrade>]);
+//craftingTable.addShapeless("advanced_tool_swapper_upgrade", <item:sophisticatedbackpacks:advanced_tool_swapper_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:tool_swapper_upgrade>]);
+//craftingTable.addShapeless("advanced_magnet_upgrade", <item:sophisticatedbackpacks:advanced_magnet_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:magnet_upgrade>]);
+//craftingTable.addShapeless("auto_blasting_upgrade", <item:sophisticatedbackpacks:auto_blasting_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:blasting_upgrade>]);
+//craftingTable.addShapeless("auto_smelting_upgrade", <item:sophisticatedbackpacks:auto_smelting_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:smelting_upgrade>]);
+//craftingTable.addShapeless("auto_smoking_upgrade", <item:sophisticatedbackpacks:auto_smoking_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:smoking_upgrade>]);
+//craftingTable.addShapeless("advanced_pump_upgrade", <item:sophisticatedbackpacks:advanced_pump_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:pump_upgrade>]);
 
 craftingTable.addShaped("backpack_1", <item:sophisticatedbackpacks:iron_backpack>, [
 	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>],
