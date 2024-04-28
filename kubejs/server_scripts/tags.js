@@ -43,7 +43,7 @@ ServerEvents.tags('item', event => {
     event.add('forge:molten_zinc', 'kubejs:molten_zinc')
     event.add('forge:molten_brass', 'kubejs:molten_brass')
 
-    event.add('')
+    event.add('theoneprobe:hasprobe', 'create:goggles', 'embers:ashen_goggles')
 
 })
 ServerEvents.tags('fluid', event => {
