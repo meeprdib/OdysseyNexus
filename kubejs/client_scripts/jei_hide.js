@@ -1,9 +1,5 @@
 JEIEvents.hideItems(event => {
   event.hide([
-    'refinedstorage:processor_binding',
-    'refinedstorage:raw_basic_processor',
-    'refinedstorage:raw_improved_processor',
-    'refinedstorage:raw_advanced_processor',
     'undergardendelight:cloggrum_knife',
     'undergardendelight:frosteel_knife',
     'undergardendelight:utherium_knife',
