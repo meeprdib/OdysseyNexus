@@ -45,5 +45,7 @@ ServerEvents.recipes(event => {
         'create_enchantment_industry:printer',
         'create_enchantment_industry:enchanting_guide',
         'create_dd:copycat_block',
-        'create_dd:copycat_slab'
+        'create_dd:copycat_slab',
+        'computercraft:turtle_normal',
+        'computercraft:turtle_advanced'
 ]})})

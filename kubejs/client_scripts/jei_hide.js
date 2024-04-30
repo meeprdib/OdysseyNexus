@@ -43,6 +43,8 @@ JEIEvents.hideItems(event => {
     'ae2:nether_quartz_wrench',
     'ae2:certus_quartz_wrench',
     'create_dd:copycat_block',
-    'create_dd:copycat_slab'
+    'create_dd:copycat_slab',
+    'computercraft:turtle_normal',
+    'computercraft:turtle_advanced'
   ])
 })
