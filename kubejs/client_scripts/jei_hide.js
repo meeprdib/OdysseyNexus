@@ -45,6 +45,10 @@ JEIEvents.hideItems(event => {
     'create_dd:copycat_block',
     'create_dd:copycat_slab',
     'computercraft:turtle_normal',
-    'computercraft:turtle_advanced'
+    'computercraft:turtle_advanced',
+    'computercraft:computer_normal',
+    'computercraft:pocket_computer_normal',
+    'computercraft:pocket_computer_normal',
+    'computercraft:monitor_normal'
   ])
 })
