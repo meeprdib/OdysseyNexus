@@ -19,28 +19,6 @@ import mods.create.CompactingManager;
 import mods.create.SequencedAssemblyManager;
 import crafttweaker.api.recipe.CraftingTableRecipeManager;
 
-# Storage Drawers
-
-craftingTable.remove(<item:storagedrawers:compacting_drawers_3>);
-craftingTable.remove(<item:storagedrawers:controller_slave>);
-craftingTable.remove(<item:storagedrawers:controller>);
-
-craftingTable.remove(<item:storagedrawers:obsidian_storage_upgrade>);
-craftingTable.remove(<item:storagedrawers:iron_storage_upgrade>);
-craftingTable.remove(<item:storagedrawers:gold_storage_upgrade>);
-craftingTable.remove(<item:storagedrawers:diamond_storage_upgrade>);
-craftingTable.remove(<item:storagedrawers:emerald_storage_upgrade>);
-craftingTable.remove(<item:storagedrawers:upgrade_template>);
-
-craftingTable.addShapeless("drawer_upgrade_1", <item:storagedrawers:obsidian_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_1_material>]);
-craftingTable.addShapeless("drawer_upgrade_2", <item:storagedrawers:iron_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_2_material>]);
-craftingTable.addShapeless("drawer_upgrade_3", <item:storagedrawers:gold_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_3_material>]);
-craftingTable.addShapeless("drawer_upgrade_4", <item:storagedrawers:diamond_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_4_material>]);
-craftingTable.addShapeless("drawer_upgrade_5", <item:storagedrawers:emerald_storage_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_5_material>]);
-
-craftingTable.remove(<item:storagedrawers:void_upgrade>);
-craftingTable.addShapeless("sd_void_upgrade", <item:storagedrawers:void_upgrade>, [<item:sophisticatedbackpacks:upgrade_base>, <item:createutilities:void_steel_ingot>]);
-
 # Misc
 
 craftingTable.remove(<item:undergardendelight:cloggrum_knife>);
