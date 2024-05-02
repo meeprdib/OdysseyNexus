@@ -1,13 +1,13 @@
 {
 	"entity": "minecraft:endermite",
-	"weight": 1,
+	"weight": 5,
 	"quality": 1,
 	"size": {
 		"width": 0.4,
 		"height": 0.3
 	},
 	"valid_gear_sets": [
-		"#end_small"
+		"#the_end"
 	],
 	"dimensions": [
 		"minecraft:the_end"

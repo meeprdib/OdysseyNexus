@@ -8,7 +8,7 @@
 		"minecraft:skeleton"
 	],
 	"valid_gear_sets": [
-		"#nether_small_bow"
+		"#the_nether_bow"
 	],
 	"dimensions": [
 		"minecraft:the_nether"

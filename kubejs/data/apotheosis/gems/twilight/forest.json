@@ -3,7 +3,7 @@
 		"type": "forge:mod_loaded",
 		"modid": "twilightforest"
 	}],
-	"weight": 0,
+	"weight": 5,
 	"quality": 1.5,
 	"dimensions": [
 		"twilightforest:twilight_forest"
@@ -51,9 +51,9 @@
 					"operation": "MULTIPLY_BASE",
 					"values": {
 						"rare": 0.10,
-						"epic": 0.15,
-						"mythic": 0.25,
-						"ancient": 0.30
+						"epic": 0.20,
+						"mythic": 0.30,
+						"ancient": 0.40
 					}
 				},
 				{
@@ -96,30 +96,30 @@
 					"attribute": "attributeslib:armor_shred",
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
-						"rare": 0.25,
-						"epic": 0.35,
-						"mythic": 0.45,
-						"ancient": 0.5
+						"rare": 0.35,
+						"epic": 0.50,
+						"mythic": 0.75,
+						"ancient": 1
 					}
 				},
 				{
 					"attribute": "attributeslib:prot_shred",
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
-						"rare": -0.20,
-						"epic": -0.30,
-						"mythic": -0.40,
-						"ancient": -0.60
+						"rare": -0.25,
+						"epic": -0.40,
+						"mythic": -0.60,
+						"ancient": -0.80
 					}
 				},
 				{
 					"attribute": "attributeslib:prot_pierce",
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
-						"rare": -0.20,
-						"epic": -0.30,
-						"mythic": -0.40,
-						"ancient": -0.60
+						"rare": -0.25,
+						"epic": -0.40,
+						"mythic": -0.60,
+						"ancient": -0.80
 					}
 				}
 			]

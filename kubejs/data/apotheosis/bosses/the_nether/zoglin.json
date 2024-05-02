@@ -1,13 +1,13 @@
 {
 	"entity": "minecraft:zoglin",
-	"weight": 100,
+	"weight": 30,
 	"quality": 7,
 	"size": {
 		"width": 1.3965,
 		"height": 1.4
 	},
 	"valid_gear_sets": [
-		"#nether_medium"
+		"#the_nether"
 	],
 	"dimensions": [
 		"minecraft:the_nether"

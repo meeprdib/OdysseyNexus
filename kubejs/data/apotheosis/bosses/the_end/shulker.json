@@ -1,19 +1,19 @@
 {
 	"entity": "minecraft:shulker",
-	"weight": 0,
+	"weight": 40,
 	"quality": 0,
 	"size": {
 		"width": 1,
 		"height": 1
 	},
 	"valid_gear_sets": [
-		"#end_small"
+		"#the_end"
 	],
 	"dimensions": [
 		"minecraft:the_end"
 	],
-	"min_rarity": "epic",
-	"max_rarity": "epic",
+	"min_rarity": "mythic",
+	"max_rarity": "mythic",
 	"stats": {
 		"mythic": {
 			"enchant_chance": 0.85,

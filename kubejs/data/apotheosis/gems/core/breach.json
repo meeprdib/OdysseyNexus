@@ -1,6 +1,6 @@
 {
 	"variant": "breach",
-	"weight": 0,
+	"weight": 10,
 	"quality": 0,
 	"dimensions": [
 	],
@@ -18,10 +18,10 @@
 			"values": {
 				"common": 0.5,
 				"uncommon": 1,
-				"rare": 1.5,
-				"epic": 2,
-				"mythic": 2.5,
-				"ancient": 3
+				"rare": 2,
+				"epic": 2.75,
+				"mythic": 3.5,
+				"ancient": 5.5
 			}
 		},
 		{
@@ -36,10 +36,10 @@
 			"operation": "ADDITION",
 			"values": {
 				"common": 0.05,
-				"uncommon": 0.075,
-				"rare": 0.10,
-				"epic": 0.125,
-				"mythic": 0.15,
+				"uncommon": 0.10,
+				"rare": 0.125,
+				"epic": 0.15,
+				"mythic": 0.175,
 				"ancient": 0.25
 			}
 		},
@@ -77,9 +77,9 @@
 			"values": {
 				"common": 0.5,
 				"uncommon": 1,
-				"rare": 1.5,
-				"epic": 2,
-				"mythic": 2.5,
+				"rare": 2,
+				"epic": 3,
+				"mythic": 4,
 				"ancient": 5
 			}
 		}

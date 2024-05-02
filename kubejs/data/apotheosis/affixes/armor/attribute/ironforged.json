@@ -35,6 +35,7 @@
 		}
 	},
 	"types": [
-		"chestplate", "leggings"
+		"helmet", "chestplate", "leggings", "boots",
+		"shield"
 	]
 }

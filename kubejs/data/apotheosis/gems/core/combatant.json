@@ -1,6 +1,6 @@
 {
 	"variant": "combatant",
-	"weight": 0,
+	"weight": 10,
 	"quality": 0,
 	"dimensions": [
 	],
@@ -19,11 +19,11 @@
 			"operation": "MULTIPLY_BASE",
 			"values": {
 				"common": 0.05,
-				"uncommon": 0.10,
-				"rare": 0.125,
-				"epic": 0.15,
-				"mythic": 0.20,
-				"ancient": 0.25
+				"uncommon": 0.15,
+				"rare": 0.20,
+				"epic": 0.30,
+				"mythic": 0.40,
+				"ancient": 0.50
 			}
 		},
 		{
@@ -38,11 +38,11 @@
 			"damage_type": "physical",
 			"values": {
 				"common": 0.05,
-				"uncommon": 0.085,
+				"uncommon": 0.075,
 				"rare": 0.125,
-				"epic": 0.15,
-				"mythic": 0.175,
-				"ancient": 0.225
+				"epic": 0.175,
+				"mythic": 0.225,
+				"ancient": 0.275
 			}
 		},
 		{
@@ -57,10 +57,10 @@
 			"values": {
 				"common": 0.05,
 				"uncommon": 0.10,
-				"rare": 0.125,
-				"epic": 0.2,
-				"mythic": 0.25,
-				"ancient": 0.30
+				"rare": 0.15,
+				"epic": 0.225,
+				"mythic": 0.30,
+				"ancient": 0.40
 			}
 		}
 	]

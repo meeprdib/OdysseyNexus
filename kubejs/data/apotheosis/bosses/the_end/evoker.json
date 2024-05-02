@@ -1,21 +1,21 @@
 {
 	"entity": "minecraft:evoker",
-	"weight": 100,
+	"weight": 20,
 	"quality": 3,
 	"size": {
 		"width": 0.6,
 		"height": 1.95
 	},
 	"valid_gear_sets": [
-		"#end_small"
+		"#the_end"
 	],
 	"dimensions": [
 		"minecraft:the_end"
 	],
-	"min_rarity": "epic",
-	"max_rarity": "epic",
+	"min_rarity": "mythic",
+	"max_rarity": "mythic",
 	"stats": {
-		"epic": {
+		"mythic": {
 			"enchant_chance": 1,
 			"enchantment_levels": [36, 30, 100, 85],
 			"effects": [{

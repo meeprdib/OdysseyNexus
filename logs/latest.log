@@ -10862,3 +10862,842 @@ java.lang.IllegalStateException: Not a JSON Object: null
 [20:20:05] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
 [20:20:05] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
 [20:20:05] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:23:32] [Render thread/ERROR]: Deleting stream buffers: Invalid operation.
+[20:23:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:23:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:23:43] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:23:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:23:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:23:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:23:51] [Render thread/INFO]: MultiMineClient initializing
+[20:23:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:01] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:01] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:03] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:03] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:08] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:09] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:13] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:18] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:33] [Server thread/INFO]: Saving and pausing game...
+[20:24:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:24:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:24:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:24:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:24:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:24:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:24:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:24:59] [Server thread/INFO]: Saving and pausing game...
+[20:24:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:24:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:24:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:24:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:24:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:24:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:25:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:30] [Server thread/INFO]: Saving and pausing game...
+[20:25:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:25:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:25:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:25:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:25:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:25:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:25:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:34] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:34] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:40] [Server thread/INFO]: Saving and pausing game...
+[20:25:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:25:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:25:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:25:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:25:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:25:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:25:43] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:25:49] [Server thread/INFO]: Saving and pausing game...
+[20:25:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:25:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:25:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:25:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:25:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:25:49] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:26:12] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:15] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:18] [Server thread/INFO]: Saving and pausing game...
+[20:26:18] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:26:18] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:26:18] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:26:18] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:26:18] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:26:18] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:26:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:20] [Server thread/INFO]: Saving and pausing game...
+[20:26:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:26:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:26:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:26:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:26:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:26:20] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:26:21] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:27] [Render thread/WARN]: Failed to load texture: minecraft:textures/models/armor/cultist_layer_1.png
+java.io.FileNotFoundException: minecraft:textures/models/armor/cultist_layer_1.png
+	at net.minecraft.server.packs.resources.ResourceProvider.m_215590_(ResourceProvider.java:21) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
+	at net.minecraft.server.packs.resources.ResourceProvider.m_215593_(ResourceProvider.java:21) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at software.bernie.geckolib.cache.texture.AnimatableTexture.m_6704_(AnimatableTexture.java:39) ~[geckolib-forge-1.20.1-4.4.4.jar%23497!/:4.4.4]
+	at net.minecraft.client.renderer.texture.TextureManager.m_118515_(TextureManager.java:96) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.m_118495_(TextureManager.java:66) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.handler$ddl000$wrapAnimatableTexture(TextureManager.java:1529) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.m_118506_(TextureManager.java) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderStateShard$TextureStateShard.m_263890_(RenderStateShard.java:243) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderStateShard.m_110185_(RenderStateShard.java:37) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-31.1-jre.jar%23109!/:?]
+	at net.minecraft.client.renderer.RenderType$CompositeRenderType.m_110526_(RenderType.java:490) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderStateShard.m_110185_(RenderStateShard.java:37) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderType.m_276775_(RenderType.java:433) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.MultiBufferSource$BufferSource.m_109912_(MultiBufferSource.java:97) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.MultiBufferSource$BufferSource.m_6299_(MultiBufferSource.java:46) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.ItemRenderer.m_115184_(ItemRenderer.java:163) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at software.bernie.geckolib.renderer.GeoArmorRenderer.m_7695_(GeoArmorRenderer.java:275) ~[geckolib-forge-1.20.1-4.4.4.jar%23497!/:4.4.4]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderModel(HumanoidArmorLayer.java:110) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.m_117118_(HumanoidArmorLayer.java:67) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.m_6494_(HumanoidArmorLayer.java:44) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.m_6494_(HumanoidArmorLayer.java:29) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.LivingEntityRenderer.m_7392_(LivingEntityRenderer.java:131) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.player.PlayerRenderer.m_7392_(PlayerRenderer.java:63) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.player.PlayerRenderer.m_7392_(PlayerRenderer.java:44) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.EntityRenderDispatcher.m_114384_(EntityRenderDispatcher.java:140) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.m_279817_(InventoryScreen.java:138) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at com.mojang.blaze3d.systems.RenderSystem.runAsFancy(RenderSystem.java:1191) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.m_280432_(InventoryScreen.java:137) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.renderEntityInInventoryFollowsAngle(InventoryScreen.java:116) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.m_274545_(InventoryScreen.java:97) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.m_7286_(CreativeModeInventoryScreen.java:704) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.AbstractContainerScreen.m_88315_(AbstractContainerScreen.java:92) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen.m_88315_(EffectRenderingInventoryScreen.java:28) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.m_88315_(CreativeModeInventoryScreen.java:629) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.Screen.m_280264_(Screen.java:109) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraftforge.client.ForgeHooksClient.drawScreenInternal(ForgeHooksClient.java:427) ~[forge-1.20.1-47.2.20-universal.jar%23629!/:?]
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:420) ~[forge-1.20.1-47.2.20-universal.jar%23629!/:?]
+	at net.minecraft.client.renderer.GameRenderer.m_109093_(GameRenderer.java:965) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1146) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-47.2.20.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.2.20.jar:?]
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.2.20.jar:?]
+	at net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25) ~[fmlloader-1.20.1-47.2.20.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
+[20:26:27] [Render thread/WARN]: Failed to load texture: minecraft:textures/models/armor/cultist_layer_2.png
+java.io.FileNotFoundException: minecraft:textures/models/armor/cultist_layer_2.png
+	at net.minecraft.server.packs.resources.ResourceProvider.m_215590_(ResourceProvider.java:21) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
+	at net.minecraft.server.packs.resources.ResourceProvider.m_215593_(ResourceProvider.java:21) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at software.bernie.geckolib.cache.texture.AnimatableTexture.m_6704_(AnimatableTexture.java:39) ~[geckolib-forge-1.20.1-4.4.4.jar%23497!/:4.4.4]
+	at net.minecraft.client.renderer.texture.TextureManager.m_118515_(TextureManager.java:96) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.m_118495_(TextureManager.java:66) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.handler$ddl000$wrapAnimatableTexture(TextureManager.java:1529) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.texture.TextureManager.m_118506_(TextureManager.java) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderStateShard$TextureStateShard.m_263890_(RenderStateShard.java:243) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderStateShard.m_110185_(RenderStateShard.java:37) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422) ~[guava-31.1-jre.jar%23109!/:?]
+	at net.minecraft.client.renderer.RenderType$CompositeRenderType.m_110526_(RenderType.java:490) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderStateShard.m_110185_(RenderStateShard.java:37) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.RenderType.m_276775_(RenderType.java:433) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.MultiBufferSource$BufferSource.m_109912_(MultiBufferSource.java:97) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.MultiBufferSource$BufferSource.m_6299_(MultiBufferSource.java:46) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.ItemRenderer.m_115184_(ItemRenderer.java:163) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at software.bernie.geckolib.renderer.GeoArmorRenderer.m_7695_(GeoArmorRenderer.java:275) ~[geckolib-forge-1.20.1-4.4.4.jar%23497!/:4.4.4]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderModel(HumanoidArmorLayer.java:110) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.m_117118_(HumanoidArmorLayer.java:67) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.m_6494_(HumanoidArmorLayer.java:45) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.m_6494_(HumanoidArmorLayer.java:29) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.LivingEntityRenderer.m_7392_(LivingEntityRenderer.java:131) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.player.PlayerRenderer.m_7392_(PlayerRenderer.java:63) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.player.PlayerRenderer.m_7392_(PlayerRenderer.java:44) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.renderer.entity.EntityRenderDispatcher.m_114384_(EntityRenderDispatcher.java:140) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.m_279817_(InventoryScreen.java:138) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at com.mojang.blaze3d.systems.RenderSystem.runAsFancy(RenderSystem.java:1191) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.m_280432_(InventoryScreen.java:137) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.renderEntityInInventoryFollowsAngle(InventoryScreen.java:116) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.m_274545_(InventoryScreen.java:97) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.m_7286_(CreativeModeInventoryScreen.java:704) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.AbstractContainerScreen.m_88315_(AbstractContainerScreen.java:92) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen.m_88315_(EffectRenderingInventoryScreen.java:28) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.m_88315_(CreativeModeInventoryScreen.java:629) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.gui.screens.Screen.m_280264_(Screen.java:109) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraftforge.client.ForgeHooksClient.drawScreenInternal(ForgeHooksClient.java:427) ~[forge-1.20.1-47.2.20-universal.jar%23629!/:?]
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:420) ~[forge-1.20.1-47.2.20-universal.jar%23629!/:?]
+	at net.minecraft.client.renderer.GameRenderer.m_109093_(GameRenderer.java:965) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1146) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718) ~[client-1.20.1-20230612.114412-srg.jar%23624!/:?]
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-47.2.20.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.2.20.jar:?]
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.2.20.jar:?]
+	at net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25) ~[fmlloader-1.20.1-47.2.20.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
+[20:26:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:35] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:42] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:47] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:58] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:26:58] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:03] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:05] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:06] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:12] [Server thread/INFO]: Saving and pausing game...
+[20:27:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:27:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:27:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:27:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:27:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:27:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:27:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:20] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:22] [Server thread/INFO]: Saving and pausing game...
+[20:27:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:27:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:27:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:27:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:27:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:27:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:27:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:35] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:38] [Server thread/INFO]: Saving and pausing game...
+[20:27:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:27:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:27:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:27:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:27:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:27:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:27:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:50] [Server thread/INFO]: Saving and pausing game...
+[20:27:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:27:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:27:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:27:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:27:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:27:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:27:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:27:59] [Server thread/INFO]: Saving and pausing game...
+[20:28:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:28:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:28:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:28:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:28:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:28:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:29:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:29:40] [Server thread/INFO]: Saving and pausing game...
+[20:29:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:29:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:29:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:29:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:29:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:29:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:29:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:29:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:29:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:29:58] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:29:58] [Server thread/INFO]: Saving and pausing game...
+[20:29:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:29:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:29:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:29:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:29:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:29:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:30:04] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:07] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:15] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:17] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:19] [Server thread/INFO]: Saving and pausing game...
+[20:30:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:30:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:30:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:30:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:30:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:30:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:30:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:27] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:27] [Server thread/INFO]: Saving and pausing game...
+[20:30:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:30:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:30:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:30:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:30:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:30:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:30:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:42] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:50] [Server thread/INFO]: Saving and pausing game...
+[20:30:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:30:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:30:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:30:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:30:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:30:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:30:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:30:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:00] [Server thread/INFO]: Saving and pausing game...
+[20:31:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:31:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:31:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:31:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:31:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:31:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:31:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:27] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:32] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:31:37] [Server thread/INFO]: Saving and pausing game...
+[20:31:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:31:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:31:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:31:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:31:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:31:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:32:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:32:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:32:51] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:32:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:32:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:32:55] [Server thread/INFO]: Saving and pausing game...
+[20:32:55] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:32:55] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:32:55] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:32:55] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:32:55] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:32:55] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:33:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:33:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:33:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:33:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:33:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:33:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:03] [Server thread/INFO]: Saving and pausing game...
+[20:34:03] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:34:03] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:34:03] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:34:03] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:34:03] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:34:03] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:34:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:17] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:27] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:28] [Server thread/INFO]: Saving and pausing game...
+[20:34:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:34:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:34:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:34:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:34:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:34:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:34:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:34:44] [Server thread/INFO]: Saving and pausing game...
+[20:34:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:34:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:34:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:34:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:34:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:34:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:39:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:17] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:32] [Server thread/INFO]: Saving and pausing game...
+[20:39:32] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:39:32] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:39:32] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:39:32] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:39:32] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:39:32] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:39:39] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:47] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:51] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:39:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:00] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:02] [Server thread/INFO]: [meepr_dib: Summoned new Ignis]
+[20:40:02] [Render thread/INFO]: [CHAT] Summoned new Ignis
+[20:40:03] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:13] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:21] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:26] [Server thread/INFO]: meepr_dib has completed the challenge [The Extinguished Fire]
+[20:40:26] [Render thread/INFO]: [CHAT] meepr_dib has completed the challenge [The Extinguished Fire]
+[20:40:26] [Render thread/INFO]: Loaded 396 advancements
+[20:40:27] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:34] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:40:59] [Server thread/INFO]: meepr_dib has completed the challenge [The broken Nether's warmachine]
+[20:40:59] [Render thread/INFO]: [CHAT] meepr_dib has completed the challenge [The broken Nether's warmachine]
+[20:40:59] [Render thread/INFO]: Loaded 396 advancements
+[20:40:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:00] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:05] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:15] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:20] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:35] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:39] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:42] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:47] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:41:49] [Server thread/INFO]: meepr_dib has completed the challenge [The Thing of Ancient Civilization]
+[20:41:49] [Render thread/INFO]: [CHAT] meepr_dib has completed the challenge [The Thing of Ancient Civilization]
+[20:41:49] [Render thread/INFO]: Loaded 396 advancements
+[20:41:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:06] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:08] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:11] [Server thread/INFO]: meepr_dib has completed the challenge [Death finds a Way]
+[20:42:11] [Render thread/INFO]: [CHAT] meepr_dib has completed the challenge [Death finds a Way]
+[20:42:11] [Render thread/INFO]: Loaded 396 advancements
+[20:42:13] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:13] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:21] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:39] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:41] [Server thread/INFO]: Saving and pausing game...
+[20:42:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:42:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:42:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:42:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:42:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:42:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:42:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:50] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:50] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:51] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:42:58] [Server thread/INFO]: Saving and pausing game...
+[20:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:43:07] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:27] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:42] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:47] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:43:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:00] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:02] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:05] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:06] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:20] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:21] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:43] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:44:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:12] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:35] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:47] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:50] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:45:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:00] [Render thread/INFO]: Loaded 397 advancements
+[20:46:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:12] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:16] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:21] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:34] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:35] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:50] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:46:58] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:02] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:03] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:04] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:09] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:10] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:11] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:15] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:18] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:23] [Render thread/INFO]: Loaded 398 advancements
+[20:47:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:27] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:30] [Server thread/INFO]: meepr_dib has made the advancement [Hunt and Gather]
+[20:47:30] [Render thread/INFO]: [CHAT] meepr_dib has made the advancement [Hunt and Gather]
+[20:47:30] [Render thread/INFO]: Loaded 401 advancements
+[20:47:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:41] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:51] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:47:58] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:04] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:10] [Render thread/INFO]: [CHAT] [Watch Your Fingers] With a tool in hand, use a Cutting Board to break down an item
+[20:48:10] [Render thread/INFO]: Loaded 401 advancements
+[20:48:10] [Render thread/INFO]: Loaded 404 advancements
+[20:48:12] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:12] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:26] [Server thread/INFO]: Saving and pausing game...
+[20:48:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:48:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:48:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:48:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:48:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:48:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:48:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:50] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:51] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:48:56] [Server thread/INFO]: Saving and pausing game...
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:49:31] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:32] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:34] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:43] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:45] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:49:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:00] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:02] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:02] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:04] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:04] [Server thread/INFO]: Saving and pausing game...
+[20:50:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:50:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:50:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:50:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:50:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:50:04] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:50:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:23] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:24] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:32] [Render thread/INFO]: [CHAT] Item in hand:
+[20:50:32] [Render thread/INFO]: [CHAT] - Item.of('farmersdelight:diamond_knife', '{Damage:0}')
+[20:50:32] [Render thread/INFO]: [CHAT] - '#forge:tools/knives'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#forge:tools'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#sliceanddice:allowed_tools'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#nethersdelight:tools/hunting_tools'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#farmersdelight:straw_harvesters'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#forge:tools/scavenging'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#embers:augmentables'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#embers:augmentables/tools_armors'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#create:upright_on_deployer'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#embers:augmentables/tools'
+[20:50:32] [Render thread/INFO]: [CHAT] - '#farmersdelight:tools/knives'
+[20:50:32] [Render thread/INFO]: [CHAT] - '@farmersdelight'
+[20:50:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:39] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:40] [Server thread/INFO]: Saving and pausing game...
+[20:50:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:50:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:50:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:50:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:50:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:50:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:50:44] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:50:55] [Render thread/INFO]: [CHAT] Item in hand:
+[20:50:55] [Render thread/INFO]: [CHAT] - Item.of('miapi:modular_dagger', "{Damage:0,miapi_modules:'{\"module\":\"handle_normal\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"wood\\\\\"}\"},\"subModules\":{\"0\":{\"module\":\"guard_normal\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"netherite\\\\\"}\"},\"subModules\":{\"0\":{\"module\":\"blade_dagger\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"diamond\\\\\"}\"},\"subModules\":{}}}},\"1\":{\"module\":\"pommel_round\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"netherite\\\\\"}\"},\"subModules\":{}}}}',modules:'{\"module\":\"handle_normal\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"wood\\\\\"}\"},\"subModules\":{\"0\":{\"module\":\"guard_normal\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"netherite\\\\\"}\"},\"subModules\":{\"0\":{\"module\":\"blade_dagger\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"diamond\\\\\"}\"},\"subModules\":{}}}},\"1\":{\"module\":\"pommel_round\",\"moduleData\":{\"properties\":\"{\\\\\"material\\\\\":\\\\\"netherite\\\\\"}\"},\"subModules\":{}}}}'}")
+[20:50:55] [Render thread/INFO]: [CHAT] - '#embers:augmentables/tools'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#embers:augmentables/tools_armors'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#c:swords'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#minecraft:breaks_decorated_pots'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#forge:swords'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#c:knifes'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#minecraft:tools'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#miapi:swords'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#forge:knifes'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#miapi:knifes'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#create:upright_on_deployer'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#forge:tools'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#minecraft:swords'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#minecraft:knifes'
+[20:50:55] [Render thread/INFO]: [CHAT] - '#embers:augmentables'
+[20:50:55] [Render thread/INFO]: [CHAT] - '@miapi'
+[20:50:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:07] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:08] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:14] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:15] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:19] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:20] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:21] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:25] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:33] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:35] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:38] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:39] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:40] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:43] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:48] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:49] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:51] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:52] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:51:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:00] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:02] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:03] [Render thread/INFO]: Loaded 423 advancements
+[20:52:03] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:04] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:05] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:07] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:07] [Server thread/INFO]: meepr_dib has completed the challenge [Serious Dedication]
+[20:52:07] [Render thread/INFO]: [CHAT] meepr_dib has completed the challenge [Serious Dedication]
+[20:52:07] [Render thread/INFO]: Loaded 427 advancements
+[20:52:22] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:26] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:28] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:29] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:30] [Server thread/ERROR]: Failed to execute LootRule minecraft:diamond_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:36] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:37] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:46] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:53] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:54] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:55] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:56] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:57] [Server thread/ERROR]: Failed to execute LootRule minecraft:chainmail_helmet/apotheosis:rare/ABILITY/0.33!
+[20:52:59] [Server thread/ERROR]: Failed to execute LootRule minecraft:netherite_helmet/apotheosis:rare/ABILITY/0.33!
+[20:53:00] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:53:01] [Server thread/ERROR]: Failed to execute LootRule minecraft:iron_helmet/apotheosis:rare/ABILITY/0.33!
+[20:53:06] [Server thread/ERROR]: Failed to execute LootRule minecraft:golden_helmet/apotheosis:rare/ABILITY/0.33!
+[20:53:06] [Server thread/ERROR]: Failed to execute LootRule minecraft:leather_helmet/apotheosis:rare/ABILITY/0.33!
+[20:53:09] [Server thread/INFO]: Saving and pausing game...
+[20:53:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:53:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:53:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:53:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:53:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:53:09] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:53:09] [Render thread/INFO]: Applying gamepad mappings from internal database
+[20:53:09] [Render thread/INFO]: Successfully updated 1 gamepad mappings
+[20:53:09] [Render thread/INFO]: Stopping!
+[20:53:09] [Render thread/INFO]: Finalizing world map session...
+[20:53:09] [Thread-15/INFO]: World map cleaned normally!
+[20:53:09] [Render thread/INFO]: World map session finalized.
+[20:53:09] [Render thread/INFO]: Minimap session finalized.
+[20:53:09] [Render thread/INFO]: JEI StartEventObserver received class net.minecraftforge.client.event.ClientPlayerNetworkEvent$LoggingOut
+[20:53:09] [Render thread/INFO]: JEI StartEventObserver transitioning state from JEI_STARTED to DISABLED
+[20:53:09] [Render thread/INFO]: Stopping JEI
+[20:53:09] [Render thread/INFO]: Sending Runtime Unavailable...
+[20:53:09] [Render thread/INFO]: Stopping JEI GUI
+[20:53:09] [Render thread/INFO]: Sending Runtime Unavailable took 9.266 ms
+[20:53:09] [Render thread/INFO]: Curios disabled
+[20:53:09] [Server thread/INFO]: meepr_dib lost connection: Disconnected
+[20:53:09] [Server thread/INFO]: meepr_dib left the game
+[20:53:09] [Server thread/INFO]: Updating all forceload tickets for e167f3fe-1cc7-43aa-a558-cdd0babd44ce
+[20:53:09] [Server thread/INFO]: Stopping singleplayer server as player logged out
+[20:53:09] [Server thread/INFO]: Stopping server
+[20:53:09] [Server thread/INFO]: Saving players
+[20:53:09] [Server thread/INFO]: Saving worlds
+[20:53:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:overworld
+[20:53:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/create_dd:ponder
+[20:53:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/aether:the_aether
+[20:53:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_end
+[20:53:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/minecraft:the_nether
+[20:53:10] [Server thread/INFO]: Saving chunks for level 'ServerLevel[gm_construct 13]'/ae2:spatial_storage
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (gm_construct 13): All chunks are saved
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (ponder): All chunks are saved
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (the_aether): All chunks are saved
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage (spatial_storage): All chunks are saved
+[20:53:10] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20:53:10] [Server thread/INFO]: Stopping IO worker...
+[20:53:10] [Server thread/INFO]: Stopped IO worker!
+[20:53:10] [Server thread/INFO]: Unloading server configs...
+[20:53:10] [Render thread/INFO]: Stopping worker threads

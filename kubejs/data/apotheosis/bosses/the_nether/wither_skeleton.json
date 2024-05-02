@@ -7,8 +7,8 @@
 		"height": 2.4
 	},
 	"valid_gear_sets": [
-		"#nether_medium",
-		"#nether_medium_bow"
+		"#the_nether",
+		"#the_nether_bow"
 	],
 	"dimensions": [
 		"minecraft:the_nether"

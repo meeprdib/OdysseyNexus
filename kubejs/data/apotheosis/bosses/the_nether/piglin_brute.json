@@ -1,13 +1,13 @@
 {
 	"entity": "minecraft:piglin_brute",
-	"weight": 100,
+	"weight": 50,
 	"quality": 4,
 	"size": {
 		"width": 0.6,
 		"height": 1.95
 	},
 	"valid_gear_sets": [
-		"#nether_medium"
+		"#the_nether"
 	],
 	"dimensions": [
 		"minecraft:the_nether"

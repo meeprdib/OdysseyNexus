@@ -1,11 +1,11 @@
 {
-	"weight": 0,
+	"weight": 5,
 	"quality": 1.5,
 	"dimensions": [
 		"overworld"
 	],
 	"unique": true,
-	"min_rarity": "epic",
+	"min_rarity": "rare",
 	"bonuses": [
 		{
 			"type": "apotheosis:enchantment",
@@ -18,11 +18,12 @@
 				]
 			},
 			"enchantment": "sharpness",
-			"must_exist": false,
+			"must_exist": true,
 			"values": {
-				"epic": 1,
-				"mythic": 2,
-				"ancient": 3
+				"rare": 1,
+				"epic": 2,
+				"mythic": 3,
+				"ancient": 4
 			}
 		},
 		{
@@ -35,11 +36,12 @@
 				]
 			},
 			"enchantment": "protection",
-			"must_exist": false,
+			"must_exist": true,
 			"values": {
-				"epic": 1,
-				"mythic": 2,
-				"ancient": 3
+				"rare": 1,
+				"epic": 2,
+				"mythic": 3,
+				"ancient": 4
 			}
 		},
 		{
@@ -52,11 +54,12 @@
 				]
 			},
 			"enchantment": "fortune",
-			"must_exist": false,
+			"must_exist": true,
 			"values": {
-				"epic": 3,
-				"mythic": 4,
-				"ancient": 5
+				"rare": 1,
+				"epic": 2,
+				"mythic": 3,
+				"ancient": 4
 			}
 		}
 	]

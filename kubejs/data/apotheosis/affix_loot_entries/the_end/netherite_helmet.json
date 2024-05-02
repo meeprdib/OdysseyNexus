@@ -4,7 +4,7 @@
     ],
     "min_rarity": "apotheosis:rare",
     "max_rarity": "apotheosis:mythic",
-    "weight": 0,
+    "weight": 70,
     "quality": 10.0,
     "stack": {
         "item": "minecraft:netherite_helmet",

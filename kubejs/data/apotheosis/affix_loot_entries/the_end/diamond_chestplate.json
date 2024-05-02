@@ -3,7 +3,7 @@
         "minecraft:the_end"
     ],
     "min_rarity": "apotheosis:rare",
-    "max_rarity": "apotheosis:epic",
+    "max_rarity": "apotheosis:mythic",
     "weight": 100,
     "quality": 5.0,
     "stack": {

@@ -7,7 +7,7 @@
 		"height": 1.99
 	},
 	"valid_gear_sets": [
-		"#overworld_medium_bow"
+		"#overworld_bow"
 	],
 	"dimensions": [
 		"minecraft:overworld"

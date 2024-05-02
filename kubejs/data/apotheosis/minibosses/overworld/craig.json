@@ -8,7 +8,7 @@
 		"minecraft:goat"
 	],
 	"valid_gear_sets": [
-		"#overworld_medium"
+		"#overworld"
 	],
 	"dimensions": [
 		"minecraft:overworld"

@@ -1,6 +1,6 @@
 {
 	"variant": "tyrannical",
-	"weight": 0,
+	"weight": 10,
 	"quality": 0,
 	"unique": true,
 	"dimensions": [
@@ -16,12 +16,12 @@
 			"attribute": "attributeslib:current_hp_damage",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.02,
-				"uncommon": 0.04,
-				"rare": 0.06,
-				"epic": 0.08,
-				"mythic": 0.10,
-				"ancient": 0.15
+				"common": 0.025,
+				"uncommon": 0.05,
+				"rare": 0.10,
+				"epic": 0.15,
+				"mythic": 0.20,
+				"ancient": 0.25
 			}
 		},
 		{
@@ -36,12 +36,12 @@
 			"attribute": "minecraft:generic.attack_knockback",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.1,
-				"uncommon": 0.2,
-				"rare": 0.4,
-				"epic": 0.6,
-				"mythic": 0.8,
-				"ancient": 1.2
+				"common": 0.5,
+				"uncommon": 1,
+				"rare": 1.5,
+				"epic": 2,
+				"mythic": 3,
+				"ancient": 3.5
 			}
 		},
 		{
@@ -57,8 +57,8 @@
 			"values": {
 				"common": 0.5,
 				"uncommon": 1,
-				"rare": 2,
-				"epic": 3,
+				"rare": 1.5,
+				"epic": 2.5,
 				"mythic": 4,
 				"ancient": 6
 			}
@@ -75,11 +75,36 @@
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
 				"common": 0.05,
-				"uncommon": 0.09,
-				"rare": 0.13,
-				"epic": 0.17,
-				"mythic": 0.2,
-				"ancient": 0.3
+				"uncommon": 0.10,
+				"rare": 0.15,
+				"epic": 0.225,
+				"mythic": 0.3,
+				"ancient": 0.425
+			}
+		},
+        {
+			"type": "apotheosis:mob_effect",
+			"gem_class": {
+				"key": "ranged_weapon",
+				"types": [
+					"bow",
+					"crossbow"
+				]
+			},
+			"mob_effect": "attributeslib:bleeding",
+            "stack_on_reapply": true,
+			"target": "arrow_target",
+			"values": {
+				"mythic": {
+					"duration": 160,
+					"amplifier": 0,
+					"cooldown": 40
+				},
+				"ancient": {
+					"duration": 160,
+					"amplifier": 1,
+					"cooldown": 40
+				}
 			}
 		}
 	]

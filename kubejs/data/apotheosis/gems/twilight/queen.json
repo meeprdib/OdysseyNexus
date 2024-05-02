@@ -3,7 +3,7 @@
 		"type": "forge:mod_loaded",
 		"modid": "twilightforest"
 	}],
-	"weight": 0,
+	"weight": 5,
 	"quality": 1.5,
 	"dimensions": [
 		"twilightforest:twilight_forest"
@@ -40,17 +40,35 @@
 		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
+				"key": "helmet",
+				"types": [
+					"helmet"
+				]
+			},
+			"attribute": "attributeslib:cold_damage",
+			"operation": "MULTIPLY_TOTAL",
+			"values": {
+				"rare": 0.50,
+				"epic": 0.625,
+				"mythic": 0.75,
+				"ancient": 0.90
+			}
+		},
+		{
+			"type": "apotheosis:attribute",
+			"gem_class": {
 				"key": "heavy_weapon",
 				"types": [
 					"heavy_weapon"
 				]
 			},
 			"attribute": "attributeslib:cold_damage",
-			"operation": "MULTIPLY_BASE",
+			"operation": "ADDITION",
 			"values": {
-				"epic": 0.1,
-				"mythic": 0.2,
-				"ancient": 0.3
+				"rare": 6,
+				"epic": 8,
+				"mythic": 10,
+				"ancient": 12.5
 			}
 		},
 		{

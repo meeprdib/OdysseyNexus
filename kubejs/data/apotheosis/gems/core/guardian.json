@@ -1,6 +1,6 @@
 {
 	"variant": "guardian",
-	"weight": 0,
+	"weight": 10,
 	"quality": 0,
 	"dimensions": [
 	],
@@ -13,15 +13,15 @@
 					"leggings"
 				]
 			},
-			"attribute": "minecraft:generic.armor_toughness",
+			"attribute": "minecraft:generic.armor",
 			"operation": "ADDITION",
 			"values": {
 				"common": 0.5,
 				"uncommon": 1,
-				"rare": 2,
-				"epic": 3,
-				"mythic": 4,
-				"ancient": 6
+				"rare": 2.5,
+				"epic": 4,
+				"mythic": 6,
+				"ancient": 8
 			}
 		},
 		{
@@ -36,12 +36,12 @@
 			"attribute": "attributeslib:life_steal",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.01,
-				"uncommon": 0.01,
-				"rare": 0.01,
-				"epic": 0.01,
-				"mythic": 0.02,
-				"ancient": 0.03
+				"common": 0.05,
+				"uncommon": 0.10,
+				"rare": 0.15,
+				"epic": 0.20,
+				"mythic": 0.25,
+				"ancient": 0.30
 			}
 		},
 		{

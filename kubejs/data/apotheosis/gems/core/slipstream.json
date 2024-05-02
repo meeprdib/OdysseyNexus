@@ -1,6 +1,6 @@
 {
 	"variant": "slipstream",
-	"weight": 0,
+	"weight": 10,
 	"quality": 0,
 	"unique": true,
 	"dimensions": [

@@ -4,7 +4,6 @@
     "material": "apotheosis:mythic_material",
 	"weight": 40,
 	"quality": 20,
-	"stages": ["three"],
 	"rules": [{
 			"type": "stat",
 			"chance": 1.0

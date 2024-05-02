@@ -1,6 +1,6 @@
 {
 	"variant": "brawlers",
-	"weight": 0,
+	"weight": 10,
 	"quality": 0,
 	"dimensions": [
 	],
@@ -16,12 +16,12 @@
 			"attribute": "minecraft:generic.attack_speed",
 			"operation": "MULTIPLY_BASE",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.1,
-				"rare": 0.15,
-				"epic": 0.2,
-				"mythic": 0.25,
-				"ancient": 0.3
+				"common": 0.10,
+				"uncommon": 0.15,
+				"rare": 0.20,
+				"epic": 0.25,
+				"mythic": 0.35,
+				"ancient": 0.50
 			}
 		},
 		{
@@ -36,12 +36,12 @@
 			"attribute": "minecraft:generic.max_health",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.25,
-				"uncommon": 0.5,
-				"rare": 1,
-				"epic": 1.5,
-				"mythic": 2,
-				"ancient": 4
+				"common": 1,
+				"uncommon": 2,
+				"rare": 4,
+				"epic": 6,
+				"mythic": 8,
+				"ancient": 10
 			}
 		},
 		{
@@ -55,12 +55,12 @@
 			"attribute": "attributeslib:armor_pierce",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.5,
-				"uncommon": 1,
-				"rare": 2,
-				"epic": 3.25,
-				"mythic": 4.5,
-				"ancient": 7
+				"common": 1,
+				"uncommon": 2.5,
+				"rare": 5,
+				"epic": 7,
+				"mythic": 9,
+				"ancient": 14
 			}
 		},
 		{
@@ -74,12 +74,12 @@
 			"attribute": "minecraft:generic.max_health",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.06,
-				"uncommon": 0.07,
-				"rare": 0.08,
-				"epic": 0.09,
-				"mythic": 0.10,
-				"ancient": 0.20
+				"common": 0.05,
+				"uncommon": 0.10,
+				"rare": 0.15,
+				"epic": 0.20,
+				"mythic": 0.25,
+				"ancient": 0.30
 			}
 		}
 	]

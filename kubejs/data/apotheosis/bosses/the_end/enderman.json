@@ -6,15 +6,15 @@
 		"height": 2.9
 	},
 	"valid_gear_sets": [
-		"#end_small"
+		"#the_end"
 	],
 	"dimensions": [
 		"minecraft:the_end"
 	],
-	"min_rarity": "rare",
-	"max_rarity": "epic",
+	"min_rarity": "epic",
+	"max_rarity": "mythic",
 	"stats": {
-		"rare": {
+		"epic": {
 			"enchant_chance": 0.80,
 			"enchantment_levels": [30, 24, 50, 40],
 			"effects": [{
@@ -65,7 +65,7 @@
 				}
 			]
 		},
-		"epic": {
+		"mythic": {
 			"enchant_chance": 0.85,
 			"enchantment_levels": [32, 25, 60, 50],
 			"effects": [{
