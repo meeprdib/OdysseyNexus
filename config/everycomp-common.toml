@@ -27,11 +27,6 @@
 			[general.types.wood_type.aether]
 				skyroot = true
 
-			[general.types.wood_type.undergarden]
-				smogstem = true
-				wigglewood = true
-				grongle = true
-
 			[general.types.wood_type.alexscaves]
 				pewen = true
 				thornwood = true
@@ -121,11 +116,6 @@
 				crystal_fruit = true
 				holiday = true
 				decorated_holiday = true
-
-			[general.types.leaves_type.undergarden]
-				smogstem = true
-				wigglewood = true
-				grongle = true
 
 			[general.types.leaves_type.alexscaves]
 				ancient = true

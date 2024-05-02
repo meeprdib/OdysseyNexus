@@ -21,10 +21,6 @@ import crafttweaker.api.recipe.CraftingTableRecipeManager;
 
 # Misc
 
-craftingTable.remove(<item:undergardendelight:cloggrum_knife>);
-craftingTable.remove(<item:undergardendelight:frosteel_knife>);
-craftingTable.remove(<item:undergardendelight:utherium_knife>);
-craftingTable.remove(<item:undergardendelight:forgotten_knife>);
 craftingTable.remove(<item:aetherdelight:holystone_knife>);
 craftingTable.remove(<item:aetherdelight:zanite_knife>);
 craftingTable.remove(<item:aetherdelight:gravitite_knife>);
@@ -39,9 +35,6 @@ craftingTable.remove(<item:aquaculture:diamond_fillet_knife>);
 craftingTable.remove(<item:ends_delight:purpur_knife>);
 craftingTable.remove(<item:ends_delight:end_stone_knife>);
 
-//craftingTable.remove(<item:explorerscompass:explorerscompass>);
-//craftingTable.remove(<item:naturescompass:naturescompass>);
-
 craftingTable.remove(<item:createaddition:iron_rod>);
 blastFurnace.remove(<item:create_dd:steel_ingot>);
 
@@ -53,11 +46,6 @@ craftingTable.addShaped("bundle_with_rabbit", <item:minecraft:bundle>, [
 	[<item:minecraft:string>, <item:minecraft:rabbit_hide>, <item:minecraft:string>], 
 	[<item:minecraft:rabbit_hide>, <item:minecraft:air>, <item:minecraft:rabbit_hide>], 
 	[<item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>]]);
-
-craftingTable.addShaped("depthrock_furnace", <item:minecraft:furnace>, [
-	[<item:undergarden:depthrock>, <item:undergarden:depthrock>, <item:undergarden:depthrock>], 
-	[<item:undergarden:depthrock>, <item:minecraft:air>, <item:undergarden:depthrock>], 
-	[<item:undergarden:depthrock>, <item:undergarden:depthrock>, <item:undergarden:depthrock>]]);
 
 craftingTable.remove(<item:cataclysm:ignitium_upgrade_smithing_template>);
 

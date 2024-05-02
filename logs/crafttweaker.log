@@ -1,49 +1,48 @@
-[20:58:40.806][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
-[20:58:40.855][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[20:58:41.034][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
-[20:58:41.037][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
-[20:58:41.039][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
-[20:58:41.041][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
-[20:58:44.179][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
-[20:58:44.182][INFO][CraftTweaker]: - 'aether' at version '1.20.1-1.4.1-neoforge'
-[20:58:44.183][INFO][CraftTweaker]: - 'aquaculture' at version '2.5.1'
-[20:58:44.183][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.38'
-[20:58:44.183][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
-[20:58:44.183][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
-[20:58:44.183][INFO][CraftTweaker]: - 'gamestages' at version '15.0.1'
-[20:58:44.183][INFO][CraftTweaker]: - 'gateways' at version '4.2.4'
-[20:59:02.379][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[20:59:03.238][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[20:59:03.325][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[20:59:03.542][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[20:59:35.080][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[20:59:35.100][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[20:59:35.121][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[20:59:35.134][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[20:59:40.761][INFO][CraftTweaker]: CraftTweaker reload starting!
-[20:59:40.772][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[20:59:40.795][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[20:59:41.234][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
-[20:59:41.235][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
-[20:59:41.235][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:compacting_drawers_3>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:controller_slave>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:controller>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:obsidian_storage_upgrade>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:iron_storage_upgrade>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:gold_storage_upgrade>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:diamond_storage_upgrade>! Item does not appear to exist!
-[20:59:41.238][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:emerald_storage_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:upgrade_template>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:obsidian_storage_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:iron_storage_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:gold_storage_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:diamond_storage_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:emerald_storage_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:void_upgrade>! Item does not appear to exist!
-[20:59:41.239][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:void_upgrade>! Item does not appear to exist!
-[20:59:41.268][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:compacting_drawers_3>! Item does not appear to exist!
-[20:59:41.281][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:24:21: Invalid parameters to BEP item: '<item:storagedrawers:compacting_drawers_3>. There may be more information about this in the log.
+[20:16:22.680][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
+[20:16:22.776][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[20:16:23.015][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
+[20:16:23.059][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
+[20:16:23.062][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
+[20:16:23.101][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
+[20:16:26.936][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
+[20:16:26.941][INFO][CraftTweaker]: - 'aether' at version '1.20.1-1.4.2-neoforge'
+[20:16:26.941][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.38'
+[20:16:26.941][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
+[20:16:26.941][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
+[20:16:26.941][INFO][CraftTweaker]: - 'gamestages' at version '15.0.1'
+[20:16:26.941][INFO][CraftTweaker]: - 'gateways' at version '4.2.4'
+[20:16:45.685][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[20:16:46.431][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:16:46.520][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:16:46.622][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[20:17:42.898][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[20:17:42.915][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:17:42.938][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:17:42.948][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[20:17:46.920][INFO][CraftTweaker]: CraftTweaker reload starting!
+[20:17:46.928][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[20:17:46.941][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:17:47.246][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[20:17:47.246][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[20:17:47.247][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:undergardendelight:cloggrum_knife>! Item does not appear to exist!
+[20:17:47.249][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:undergardendelight:frosteel_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:undergardendelight:utherium_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:undergardendelight:forgotten_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aetherdelight:holystone_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aetherdelight:zanite_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aetherdelight:gravitite_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aetherdelight:skyjade_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aetherdelight:stratus_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aetherdelight:veridium_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aquaculture:wooden_fillet_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aquaculture:stone_fillet_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aquaculture:iron_fillet_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aquaculture:gold_fillet_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:aquaculture:diamond_fillet_knife>! Item does not appear to exist!
+[20:17:47.250][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:undergarden:depthrock>! Item does not appear to exist!
+[20:17:47.259][ERROR][CraftTweaker-ZenCode]: Could not get item with name: <item:storagedrawers:compacting_drawers_3>! Item does not appear to exist!
+[20:17:47.262][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:24:21: Invalid parameters to BEP item: '<item:undergardendelight:cloggrum_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -101,7 +100,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:24:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -118,11 +117,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:24:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -140,8 +138,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:24:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.282][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:25:21: Invalid parameters to BEP item: '<item:storagedrawers:controller_slave>. There may be more information about this in the log.
+[20:17:47.263][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:25:21: Invalid parameters to BEP item: '<item:undergardendelight:frosteel_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -199,7 +197,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:25:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -216,11 +214,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:25:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -238,8 +235,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:25:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.285][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:26:21: Invalid parameters to BEP item: '<item:storagedrawers:controller>. There may be more information about this in the log.
+[20:17:47.264][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:26:21: Invalid parameters to BEP item: '<item:undergardendelight:utherium_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -297,7 +294,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:26:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -314,11 +311,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:26:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -336,8 +332,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:26:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.286][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:28:21: Invalid parameters to BEP item: '<item:storagedrawers:obsidian_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.265][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:27:21: Invalid parameters to BEP item: '<item:undergardendelight:forgotten_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -395,7 +391,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:28:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -412,11 +408,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:28:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -434,8 +429,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:28:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.287][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:29:21: Invalid parameters to BEP item: '<item:storagedrawers:iron_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.265][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:28:21: Invalid parameters to BEP item: '<item:aetherdelight:holystone_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -493,7 +488,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:29:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -510,11 +505,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:29:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -532,8 +526,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:29:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.288][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:30:21: Invalid parameters to BEP item: '<item:storagedrawers:gold_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.265][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:29:21: Invalid parameters to BEP item: '<item:aetherdelight:zanite_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -591,7 +585,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:30:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -608,11 +602,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:30:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -630,8 +623,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:30:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.290][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:31:21: Invalid parameters to BEP item: '<item:storagedrawers:diamond_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.266][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:30:21: Invalid parameters to BEP item: '<item:aetherdelight:gravitite_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -689,7 +682,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:31:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -706,11 +699,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:31:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -728,8 +720,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:31:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.291][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:32:21: Invalid parameters to BEP item: '<item:storagedrawers:emerald_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.266][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:31:21: Invalid parameters to BEP item: '<item:aetherdelight:skyjade_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -787,7 +779,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:32:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -804,11 +796,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:32:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -826,8 +817,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:32:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.291][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:33:21: Invalid parameters to BEP item: '<item:storagedrawers:upgrade_template>. There may be more information about this in the log.
+[20:17:47.266][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:32:21: Invalid parameters to BEP item: '<item:aetherdelight:stratus_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -885,7 +876,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:33:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -902,11 +893,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:33:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -924,8 +914,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:33:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.292][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:35:47: Invalid parameters to BEP item: '<item:storagedrawers:obsidian_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.267][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:33:21: Invalid parameters to BEP item: '<item:aetherdelight:veridium_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -983,7 +973,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:35:47: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1000,11 +990,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:35:47: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1022,8 +1011,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:35:47: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.293][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:36:47: Invalid parameters to BEP item: '<item:storagedrawers:iron_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.267][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:34:21: Invalid parameters to BEP item: '<item:aquaculture:wooden_fillet_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -1081,7 +1070,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:36:47: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1098,11 +1087,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:36:47: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1120,8 +1108,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:36:47: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.294][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:37:47: Invalid parameters to BEP item: '<item:storagedrawers:gold_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.267][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:35:21: Invalid parameters to BEP item: '<item:aquaculture:stone_fillet_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -1179,7 +1167,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:37:47: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1196,11 +1184,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:37:47: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1218,8 +1205,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:37:47: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.295][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:38:47: Invalid parameters to BEP item: '<item:storagedrawers:diamond_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.268][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:36:21: Invalid parameters to BEP item: '<item:aquaculture:iron_fillet_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -1277,7 +1264,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:38:47: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1294,11 +1281,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:38:47: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1316,8 +1302,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:38:47: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.296][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:39:47: Invalid parameters to BEP item: '<item:storagedrawers:emerald_storage_upgrade>. There may be more information about this in the log.
+[20:17:47.268][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:37:21: Invalid parameters to BEP item: '<item:aquaculture:gold_fillet_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -1375,7 +1361,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:39:47: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1392,11 +1378,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:39:47: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1414,8 +1399,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:39:47: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.297][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:41:21: Invalid parameters to BEP item: '<item:storagedrawers:void_upgrade>. There may be more information about this in the log.
+[20:17:47.268][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:38:21: Invalid parameters to BEP item: '<item:aquaculture:diamond_fillet_knife>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -1473,7 +1458,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:41:21: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1490,11 +1475,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:41:21: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1512,11 +1496,39 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:41:21: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.298][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:42:46: Invalid parameters to BEP item: '<item:storagedrawers:void_upgrade>. There may be more information about this in the log.
+[20:17:47.269][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:58:2: Invalid parameters to BEP item: '<item:undergarden:depthrock>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:465)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
+	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:465)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
@@ -1571,7 +1583,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:42:46: Invalid param
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1588,11 +1600,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:42:46: Invalid param
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1610,8 +1621,8 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:42:46: Invalid param
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.300][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
-org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:214:100: Invalid parameters to BEP item: '<item:storagedrawers:compacting_drawers_3>. There may be more information about this in the log.
+[20:17:47.269][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:192:100: Invalid parameters to BEP item: '<item:storagedrawers:compacting_drawers_3>. There may be more information about this in the log.
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.plugin.core.ValidatedEscapableBracketParser.parse(ValidatedEscapableBracketParser.java:179)
 	at TRANSFORMER/crafttweaker@14.0.38/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
 	at TRANSFORMER/crafttweaker@14.0.38/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
@@ -1683,7 +1694,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:214:100: Invalid par
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233122_(WorldOpenFlows.java:113)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.doLoadLevel(WorldOpenFlows.java:181)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233145_(WorldOpenFlows.java:169)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$eld000$onLoadLevel(WorldOpenFlows.java:2532)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.handler$ejk000$onLoadLevel(WorldOpenFlows.java:2532)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldOpenFlows.m_233133_(WorldOpenFlows.java)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101744_(WorldSelectionList.java:575)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.gui.screens.worldselection.WorldSelectionList$WorldListEntry.m_101704_(WorldSelectionList.java:474)
@@ -1700,11 +1711,10 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:214:100: Invalid par
 	at TRANSFORMER/fpsreducer@1.20-2.5/bre2el.fpsreducer.handler.glfw.InputEventHandler$MouseButtonEventHandler.invoke(InputEventHandler.java:133)
 	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFWMouseButtonCallbackI.callback(GLFWMouseButtonCallbackI.java:43)
 	at MC-BOOTSTRAP/org.lwjgl@3.3.1+7/org.lwjgl.system.JNI.invokeV(Native Method)
-	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:201)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:219)
-	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.platform.Window.m_85435_(Window.java:274)
-	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1170)
+	at MC-BOOTSTRAP/org.lwjgl.glfw@3.3.1+7/org.lwjgl.glfw.GLFW.glfwWaitEventsTimeout(GLFW.java:3474)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.handler$ebk000$handleWaitEventsTimeout(RenderSystem.java:3508)
+	at TRANSFORMER/minecraft@1.20.1/com.mojang.blaze3d.systems.RenderSystem.limitDisplayFPS(RenderSystem.java)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1173)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
 	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.main.Main.main(Main.java:218)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -1722,7 +1732,7 @@ org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:214:100: Invalid par
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[20:59:41.301][ERROR][CraftTweaker]: Scripts are invalid!
-[20:59:41.301][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[20:59:41.304][INFO][CraftTweaker]: CraftTweaker reload complete!
-[20:59:41.305][INFO][CraftTweaker]: This reload was made possible by Ncc1702 and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[20:17:47.270][ERROR][CraftTweaker]: Scripts are invalid!
+[20:17:47.270][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[20:17:47.272][INFO][CraftTweaker]: CraftTweaker reload complete!
+[20:17:47.272][INFO][CraftTweaker]: This reload was made possible by Jonathan McManus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
