@@ -21,17 +21,6 @@ import crafttweaker.api.recipe.CraftingTableRecipeManager;
 
 # Misc
 
-craftingTable.remove(<item:aetherdelight:holystone_knife>);
-craftingTable.remove(<item:aetherdelight:zanite_knife>);
-craftingTable.remove(<item:aetherdelight:gravitite_knife>);
-craftingTable.remove(<item:aetherdelight:skyjade_knife>);
-craftingTable.remove(<item:aetherdelight:stratus_knife>);
-craftingTable.remove(<item:aetherdelight:veridium_knife>);
-craftingTable.remove(<item:aquaculture:wooden_fillet_knife>);
-craftingTable.remove(<item:aquaculture:stone_fillet_knife>);
-craftingTable.remove(<item:aquaculture:iron_fillet_knife>);
-craftingTable.remove(<item:aquaculture:gold_fillet_knife>);
-craftingTable.remove(<item:aquaculture:diamond_fillet_knife>);
 craftingTable.remove(<item:ends_delight:purpur_knife>);
 craftingTable.remove(<item:ends_delight:end_stone_knife>);
 
@@ -177,7 +166,7 @@ craftingTable.addShaped("battery_upgrade", <item:sophisticatedbackpacks:battery_
 	[<item:createaddition:modular_accumulator>, <item:createaddition:modular_accumulator>, <item:createaddition:modular_accumulator>],
 	[<item:createaddition:modular_accumulator>, <item:sophisticatedbackpacks:upgrade_base>, <item:createaddition:modular_accumulator>],
 	[<item:createaddition:modular_accumulator>, <item:createaddition:modular_accumulator>, <item:createaddition:modular_accumulator>]]);
-craftingTable.addShapeless("compacting_upgrade", <item:sophisticatedbackpacks:compacting_upgrade>, [<item:storagedrawers:compacting_drawers_3>, <item:sophisticatedbackpacks:upgrade_base>]);
+//craftingTable.addShapeless("compacting_upgrade", <item:sophisticatedbackpacks:compacting_upgrade>, [<item:storagedrawers:compacting_drawers_3>, <item:sophisticatedbackpacks:upgrade_base>]);
 //craftingTable.addShapeless("filtering_upgrade", <item:sophisticatedbackpacks:filter_upgrade>, [<item:refinedstorage:filter>, <item:sophisticatedbackpacks:upgrade_base>]);
 craftingTable.addShapeless("magnet_upgrade_copper", <item:sophisticatedbackpacks:magnet_upgrade>, [<item:spelunkery:item_magnet>, <item:sophisticatedbackpacks:pickup_upgrade>]);
 craftingTable.addShapeless("magnet_upgrade_scarlet", <item:sophisticatedbackpacks:magnet_upgrade>, [<item:alexscaves:scarlet_magnet>, <item:sophisticatedbackpacks:pickup_upgrade>]);
