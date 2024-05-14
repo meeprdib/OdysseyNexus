@@ -43,20 +43,10 @@ smithing.remove(<item:cataclysm:ignitium_chestplate>);
 smithing.remove(<item:cataclysm:ignitium_leggings>);
 smithing.remove(<item:cataclysm:ignitium_boots>);
 
-smithing.addTransformRecipe("enderium_tier_to_ignitium_helmet", <item:cataclysm:ignitium_helmet>, <item:cataclysm:ignitium_upgrade_smithing_template>, <tag:items:odysseynexus:enderium_tier_helmet>, <item:cataclysm:ignitium_ingot>);
-smithing.addTransformRecipe("enderium_tier_to_ignitium_chestplate", <item:cataclysm:ignitium_chestplate>, <item:cataclysm:ignitium_upgrade_smithing_template>, <tag:items:odysseynexus:enderium_tier_chestplate>, <item:cataclysm:ignitium_ingot>);
-smithing.addTransformRecipe("enderium_tier_to_ignitium_leggings", <item:cataclysm:ignitium_leggings>, <item:cataclysm:ignitium_upgrade_smithing_template>, <tag:items:odysseynexus:enderium_tier_leggings>, <item:cataclysm:ignitium_ingot>);
-smithing.addTransformRecipe("enderium_tier_to_ignitium_boots", <item:cataclysm:ignitium_boots>, <item:cataclysm:ignitium_upgrade_smithing_template>, <tag:items:odysseynexus:enderium_tier_boots>, <item:cataclysm:ignitium_ingot>);
-
 smithing.remove(<item:minecraft:netherite_helmet>);
 smithing.remove(<item:minecraft:netherite_chestplate>);
 smithing.remove(<item:minecraft:netherite_leggings>);
 smithing.remove(<item:minecraft:netherite_boots>);
-
-smithing.addTransformRecipe("diamond_tier_to_netherite_helmet", <item:minecraft:netherite_helmet>, <item:minecraft:netherite_upgrade_smithing_template>, <tag:items:odysseynexus:diamond_tier_helmet>, <item:minecraft:netherite_ingot>);
-smithing.addTransformRecipe("diamond_tier_to_netherite_chestplate", <item:minecraft:netherite_chestplate>, <item:minecraft:netherite_upgrade_smithing_template>, <tag:items:odysseynexus:diamond_tier_chestplate>, <item:minecraft:netherite_ingot>);
-smithing.addTransformRecipe("diamond_tier_to_netherite_leggings", <item:minecraft:netherite_leggings>, <item:minecraft:netherite_upgrade_smithing_template>, <tag:items:odysseynexus:diamond_tier_leggings>, <item:minecraft:netherite_ingot>);
-smithing.addTransformRecipe("diamond_tier_to_netherite_boots", <item:minecraft:netherite_boots>, <item:minecraft:netherite_upgrade_smithing_template>, <tag:items:odysseynexus:enderium_tier_boots>, <item:minecraft:netherite_ingot>);
 
 craftingTable.remove(<item:vintagedelight:cheese_burger>);
 craftingTable.remove(<item:vintagedelight:deluxe_burger>);
@@ -138,26 +128,26 @@ craftingTable.remove(<item:sophisticatedbackpacks:gold_backpack>);
 craftingTable.remove(<item:sophisticatedbackpacks:diamond_backpack>);
 smithing.remove(<item:sophisticatedbackpacks:netherite_backpack>);
 
-craftingTable.addShaped("stack_upgrade_tier_1", <item:sophisticatedbackpacks:stack_upgrade_starter_tier>, [
-	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>],
-	[<tag:items:odysseynexus:tier_1_material>, <item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_1_material>],
-	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>]]);
-craftingTable.addShaped("stack_upgrade_tier_2", <item:sophisticatedbackpacks:stack_upgrade_tier_1>, [
-	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>],
-	[<tag:items:odysseynexus:tier_2_material>, <item:sophisticatedbackpacks:stack_upgrade_starter_tier>, <tag:items:odysseynexus:tier_2_material>],
-	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>]]);
-craftingTable.addShaped("stack_upgrade_tier_3", <item:sophisticatedbackpacks:stack_upgrade_tier_2>, [
-	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>],
-	[<tag:items:odysseynexus:tier_3_material>, <item:sophisticatedbackpacks:stack_upgrade_tier_1>, <tag:items:odysseynexus:tier_3_material>],
-	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>]]);
-craftingTable.addShaped("stack_upgrade_tier_4", <item:sophisticatedbackpacks:stack_upgrade_tier_3>, [
-	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>],
-	[<tag:items:odysseynexus:tier_4_material>, <item:sophisticatedbackpacks:stack_upgrade_tier_2>, <tag:items:odysseynexus:tier_4_material>],
-	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>]]);
-craftingTable.addShaped("stack_upgrade_tier_5", <item:sophisticatedbackpacks:stack_upgrade_tier_4>, [
-	[<tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>],
-	[<tag:items:odysseynexus:tier_5_material>, <item:sophisticatedbackpacks:stack_upgrade_tier_3>, <tag:items:odysseynexus:tier_5_material>],
-	[<tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>]]);
+//craftingTable.addShaped("stack_upgrade_tier_1", <item:sophisticatedbackpacks:stack_upgrade_starter_tier>, [
+//	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>],
+//	[<tag:items:odysseynexus:tier_1_material>, <item:sophisticatedbackpacks:upgrade_base>, <tag:items:odysseynexus:tier_1_material>],
+//	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>]]);
+//craftingTable.addShaped("stack_upgrade_tier_2", <item:sophisticatedbackpacks:stack_upgrade_tier_1>, [
+//	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>],
+//	[<tag:items:odysseynexus:tier_2_material>, <item:sophisticatedbackpacks:stack_upgrade_starter_tier>, <tag:items:odysseynexus:tier_2_material>],
+//	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>]]);
+//craftingTable.addShaped("stack_upgrade_tier_3", <item:sophisticatedbackpacks:stack_upgrade_tier_2>, [
+//	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>],
+//	[<tag:items:odysseynexus:tier_3_material>, <item:sophisticatedbackpacks:stack_upgrade_tier_1>, <tag:items:odysseynexus:tier_3_material>],
+//	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>]]);
+//craftingTable.addShaped("stack_upgrade_tier_4", <item:sophisticatedbackpacks:stack_upgrade_tier_3>, [
+//	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>],
+//	[<tag:items:odysseynexus:tier_4_material>, <item:sophisticatedbackpacks:stack_upgrade_tier_2>, <tag:items:odysseynexus:tier_4_material>],
+//	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>]]);
+//craftingTable.addShaped("stack_upgrade_tier_5", <item:sophisticatedbackpacks:stack_upgrade_tier_4>, [
+//	[<tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>],
+//	[<tag:items:odysseynexus:tier_5_material>, <item:sophisticatedbackpacks:stack_upgrade_tier_3>, <tag:items:odysseynexus:tier_5_material>],
+//	[<tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>, <tag:items:odysseynexus:tier_5_material>]]);
 craftingTable.addShaped("tank_upgrade", <item:sophisticatedbackpacks:tank_upgrade>, [
 	[<item:create:fluid_tank>, <item:create:fluid_tank>, <item:create:fluid_tank>],
 	[<item:create:fluid_tank>, <item:sophisticatedbackpacks:upgrade_base>, <item:create:fluid_tank>],
@@ -197,22 +187,22 @@ craftingTable.addShapeless("advanced_magnet_upgrade_azure", <item:sophisticatedb
 //craftingTable.addShapeless("auto_smoking_upgrade", <item:sophisticatedbackpacks:auto_smoking_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:smoking_upgrade>]);
 //craftingTable.addShapeless("advanced_pump_upgrade", <item:sophisticatedbackpacks:advanced_pump_upgrade>, [<item:refinedstorage:advanced_processor>, <item:sophisticatedbackpacks:pump_upgrade>]);
 
-craftingTable.addShaped("backpack_1", <item:sophisticatedbackpacks:iron_backpack>, [
-	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>],
-	[<tag:items:odysseynexus:tier_1_material>, <item:sophisticatedbackpacks:backpack>, <tag:items:odysseynexus:tier_1_material>],
-	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>]]);
-craftingTable.addShaped("backpack_2", <item:sophisticatedbackpacks:gold_backpack>, [
-	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>],
-	[<tag:items:odysseynexus:tier_2_material>, <item:sophisticatedbackpacks:iron_backpack>, <tag:items:odysseynexus:tier_2_material>],
-	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>]]);
-	craftingTable.addShaped("backpack_3", <item:sophisticatedbackpacks:diamond_backpack>, [
-	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>],
-	[<tag:items:odysseynexus:tier_3_material>, <item:sophisticatedbackpacks:gold_backpack>, <tag:items:odysseynexus:tier_3_material>],
-	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>]]);
-	craftingTable.addShaped("backpack_4", <item:sophisticatedbackpacks:netherite_backpack>, [
-	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>],
-	[<tag:items:odysseynexus:tier_4_material>, <item:sophisticatedbackpacks:diamond_backpack>, <tag:items:odysseynexus:tier_4_material>],
-	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>]]);
+//craftingTable.addShaped("backpack_1", <item:sophisticatedbackpacks:iron_backpack>, [
+//	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>],
+//	[<tag:items:odysseynexus:tier_1_material>, <item:sophisticatedbackpacks:backpack>, <tag:items:odysseynexus:tier_1_material>],
+//	[<tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>, <tag:items:odysseynexus:tier_1_material>]]);
+//craftingTable.addShaped("backpack_2", <item:sophisticatedbackpacks:gold_backpack>, [
+//	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>],
+//	[<tag:items:odysseynexus:tier_2_material>, <item:sophisticatedbackpacks:iron_backpack>, <tag:items:odysseynexus:tier_2_material>],
+//	[<tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>, <tag:items:odysseynexus:tier_2_material>]]);
+//	craftingTable.addShaped("backpack_3", <item:sophisticatedbackpacks:diamond_backpack>, [
+//	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>],
+//	[<tag:items:odysseynexus:tier_3_material>, <item:sophisticatedbackpacks:gold_backpack>, <tag:items:odysseynexus:tier_3_material>],
+//	[<tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>, <tag:items:odysseynexus:tier_3_material>]]);
+//	craftingTable.addShaped("backpack_4", <item:sophisticatedbackpacks:netherite_backpack>, [
+//	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>],
+//	[<tag:items:odysseynexus:tier_4_material>, <item:sophisticatedbackpacks:diamond_backpack>, <tag:items:odysseynexus:tier_4_material>],
+//	[<tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>, <tag:items:odysseynexus:tier_4_material>]]);
 
 # Potions
 

@@ -1,0 +1,10 @@
+{
+    "block.ae2.16k_crafting_storage": "Crafting Storage",
+    "item.ae2.cell_component_16k": "ME Storage Component",
+    "item.ae2.fluid_storage_cell_16k": "ME Fluid Storage Cell",
+    "item.ae2.item_storage_cell_16k": "ME Item Storage Cell",
+    "item.ae2.portable_fluid_cell_16k": "Portable Fluid Cell",
+    "item.ae2.portable_item_cell_16k": "Portable Item Cell",
+    "item.ae2.spatial_cell_component_128": "Spatial Component",
+    "item.ae2.spatial_storage_cell_128": "Spatial Storage Cell"
+}

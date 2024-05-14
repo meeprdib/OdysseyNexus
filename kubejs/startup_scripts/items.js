@@ -6,4 +6,5 @@ StartupEvents.registry('item', event => {
         .effect('estrogen:estrogen',9600,2,1)
         .alwaysEdible()
     })
+    event.create('polished_certus_quartz').displayName('Polished Certus Quartz')
 })

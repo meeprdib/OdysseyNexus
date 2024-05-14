@@ -92,6 +92,12 @@
 				driftwood = true
 				river = true
 
+			[general.types.wood_type.architects_palette]
+				twisted = true
+
+			[general.types.wood_type.phantasm]
+				pream = true
+
 		[general.types.leaves_type]
 
 			[general.types.leaves_type.fruitsdelight]
@@ -190,6 +196,12 @@
 			[general.types.leaves_type.upgrade_aquatic]
 				river = true
 
+			[general.types.leaves_type.architects_palette]
+				twisted = true
+
+			[general.types.leaves_type.phantasm]
+				pream = true
+
 		[general.types.cake]
 
 			[general.types.cake.createaddition]
@@ -203,12 +215,6 @@
 	[general.entries]
 
 		[general.entries.wood_type]
-
-			[general.entries.wood_type.valhelsia_structures]
-				stripped_post = true
-				cut_post = true
-				post = true
-				cut_stripped_post = true
 
 			[general.entries.wood_type.create]
 				window = true
@@ -229,6 +235,13 @@
 				stripped_post = true
 				ladder = true
 				hollow_log = true
+
+			[general.entries.wood_type.architects_palette]
+				boards = true
+				board_stairs = true
+				railing = true
+				board_wall = true
+				board_slab = true
 
 		[general.entries.leaves_type]
 
