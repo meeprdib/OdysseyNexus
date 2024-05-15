@@ -26,11 +26,11 @@
 		},
 		{
 			"type": "socket",
-			"chance": 0.85
+			"chance": 1
 		},
 		{
 			"type": "socket",
-			"chance": 0.65
+			"chance": 1
 		},
 		{
 			"type": "durability",

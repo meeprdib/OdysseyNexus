@@ -27,8 +27,6 @@
 		}
 	},
 	"types": [
-		"bow",
-		"crossbow",
 		"trident"
 	]
 }
