@@ -5,6 +5,6 @@
     "item.ae2.item_storage_cell_16k": "ME Item Storage Cell",
     "item.ae2.portable_fluid_cell_16k": "Portable Fluid Cell",
     "item.ae2.portable_item_cell_16k": "Portable Item Cell",
-    "item.ae2.spatial_cell_component_128": "Spatial Component",
-    "item.ae2.spatial_storage_cell_128": "Spatial Storage Cell"
+    "item.ae2.spatial_cell_component_16": "Spatial Component",
+    "item.ae2.spatial_storage_cell_16": "Spatial Storage Cell"
 }

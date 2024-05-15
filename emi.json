@@ -1,0 +1,20 @@
+{
+  "favorites": [],
+  "lookup_history": [
+    "item:createutilities:graviton_tube",
+    "item:createutilities:polished_amethyst",
+    "item:architects_palette:osseous_bricks",
+    "item:architects_palette:osseous_pillar",
+    "item:architects_palette:sunmetal_brick",
+    "item:ae2:green_smart_dense_cable",
+    "item:ae2:fluix_crystal"
+  ],
+  "craft_history": [],
+  "recipe_defaults": {
+    "added": [],
+    "tags": {},
+    "resolutions": {},
+    "disabled": []
+  },
+  "hidden_stacks": []
+}

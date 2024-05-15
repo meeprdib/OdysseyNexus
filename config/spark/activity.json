@@ -1,0 +1,28 @@
+[
+  {
+    "user": {
+      "type": "player",
+      "name": "meepr_dib",
+      "uniqueId": "e167f3fe-1cc7-43aa-a558-cdd0babd44ce"
+    },
+    "time": 1715710071876,
+    "type": "Profiler",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/aLtMvsrk8k"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "meepr_dib",
+      "uniqueId": "e167f3fe-1cc7-43aa-a558-cdd0babd44ce"
+    },
+    "time": 1715709263793,
+    "type": "Profiler",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/6zt2Fb4TwI"
+    }
+  }
+]

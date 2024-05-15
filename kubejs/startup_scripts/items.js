@@ -7,4 +7,7 @@ StartupEvents.registry('item', event => {
         .alwaysEdible()
     })
     event.create('polished_certus_quartz').displayName('Polished Certus Quartz')
+    event.create('certus_quartz_sheet').displayName('Certus Quartz Sheet')
+    event.create('polished_fluix').displayName('Polished Fluix')
+    event.create('fluix_sheet').displayName('Fluix Sheet')
 })

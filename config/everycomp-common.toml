@@ -95,9 +95,6 @@
 			[general.types.wood_type.architects_palette]
 				twisted = true
 
-			[general.types.wood_type.phantasm]
-				pream = true
-
 		[general.types.leaves_type]
 
 			[general.types.leaves_type.fruitsdelight]
@@ -198,9 +195,6 @@
 
 			[general.types.leaves_type.architects_palette]
 				twisted = true
-
-			[general.types.leaves_type.phantasm]
-				pream = true
 
 		[general.types.cake]
 

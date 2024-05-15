@@ -45,9 +45,9 @@ JEIEvents.hideItems(event => {
     'ae2:sky_stone_tank',
     'ae2:smooth_sky_stone_chest',
     'ae2:spatial_anchor',
-    'ae2:spatial_cell_component_16',
+    'ae2:spatial_cell_component_128',
     'ae2:spatial_cell_component_2',
-    'ae2:spatial_storage_cell_16',
+    'ae2:spatial_storage_cell_128',
     'ae2:spatial_storage_cell_2',
     'ae2:vibration_chamber',
     'computercraft:computer_normal',
@@ -82,8 +82,6 @@ JEIEvents.hideItems(event => {
     'create_dd:infastone',
     'create_dd:infatuff',
     'create_dd:kinetic_motor',
-    'create_enchantment_industry:enchanting_guide',
-    'create_enchantment_industry:printer',
     'create_power_loader:andesite_chunk_loader',
     'create_power_loader:empty_andesite_chunk_loader',
     'ends_delight:end_stone_knife',
@@ -121,7 +119,9 @@ JEIEvents.hideItems(event => {
     'sophisticatedbackpacks:deposit_upgrade',
     'sophisticatedbackpacks:anvil_upgrade',
     'sophisticatedbackpacks:auto_blasting_upgrade',
-    'sophisticatedbackpacks:auto_smoking_upgrade'
+    'sophisticatedbackpacks:auto_smoking_upgrade',
+    'create:refined_radiance_casing',
+    'create:shadow_steel_casing'
     ])
 })
 
@@ -131,10 +131,6 @@ JEIEvents.addItems(event => {
   'ae2:fluix_smart_dense_cable',
   'ae2:white_paint_ball',
   'ae2:white_lumen_paint_ball',
-  'ae2:fluix_covered_cable',
-  'ae2:fluix_glass_cable',
-  'ae2:fluix_smart_dense_cable',
-  'ae2:fluix_covered_dense_cable',
   '@architects_palette'
   ])
 })

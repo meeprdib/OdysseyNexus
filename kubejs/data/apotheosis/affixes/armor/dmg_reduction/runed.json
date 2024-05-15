@@ -24,6 +24,6 @@
 		}
 	},
 	"types": [
-		"helmet", "chestplate", "leggings"
+		"helmet", "chestplate", "leggings", "boots"
 	]
 }
