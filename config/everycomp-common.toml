@@ -27,24 +27,12 @@
 			[general.types.wood_type.aether]
 				skyroot = true
 
-			[general.types.wood_type.alexscaves]
-				pewen = true
-				thornwood = true
-
 			[general.types.wood_type.deep_aether]
 				roseroot = true
 				yagroot = true
 				cruderoot = true
 				conberry = true
 				sunroot = true
-
-			[general.types.wood_type.aether_redux]
-				blightwillow = true
-				cloudcap = true
-				crystal = true
-				glacia = true
-				fieldsproot = true
-				jellyshroom = true
 
 			[general.types.wood_type.outer_end]
 				azure = true
@@ -95,6 +83,18 @@
 			[general.types.wood_type.architects_palette]
 				twisted = true
 
+			[general.types.wood_type.alexscaves]
+				pewen = true
+				thornwood = true
+
+			[general.types.wood_type.aether_redux]
+				fieldsproot = true
+				blightwillow = true
+				cloudcap = true
+				jellyshroom = true
+				crystal = true
+				glacia = true
+
 		[general.types.leaves_type]
 
 			[general.types.leaves_type.fruitsdelight]
@@ -120,9 +120,6 @@
 				holiday = true
 				decorated_holiday = true
 
-			[general.types.leaves_type.alexscaves]
-				ancient = true
-
 			[general.types.leaves_type.deep_aether]
 				roseroot = true
 				flowering_roseroot = true
@@ -132,16 +129,6 @@
 				cruderoot = true
 				conberry = true
 				sunroot = true
-
-			[general.types.leaves_type.aether_redux]
-				blightwillow = true
-				glacia = true
-				gilded_oak = true
-				blighted_skyroot = true
-				purple_glacia = true
-				prismatic_fieldsproot = true
-				spectral_fieldsproot = true
-				azure_fieldsproot = true
 
 			[general.types.leaves_type.outer_end]
 				azure = true
@@ -195,6 +182,16 @@
 
 			[general.types.leaves_type.architects_palette]
 				twisted = true
+
+			[general.types.leaves_type.alexscaves]
+				ancient = true
+
+			[general.types.leaves_type.aether_redux]
+				blightwillow = true
+				glacia = true
+				purple_glacia = true
+				gilded_oak = true
+				blighted_skyroot = true
 
 		[general.types.cake]
 

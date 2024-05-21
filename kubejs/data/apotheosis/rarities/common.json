@@ -11,6 +11,10 @@
 		{
 			"type": "stat",
 			"chance": 0.25
+		},
+		{
+			"type": "ancient",
+			"chance": 1
 		}
 	]
 }

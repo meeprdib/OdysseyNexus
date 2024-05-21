@@ -1,0 +1,104 @@
+{
+	"conditions": [{
+		"type": "forge:mod_loaded",
+		"modid": "iceandfire"
+	}],
+	"variant": "Ice Dragon Gem",
+	"weight": 5,
+	"quality": 0,
+	"min_rarity": "epic",
+	"unique": true,
+	"dimensions": [],
+	"bonuses": [{
+			"type": "apotheosis:mob_effect",
+			"gem_class": {
+				"key": "light_weapon",
+				"types": [
+					"sword",
+					"trident"
+					
+				]
+			},
+			"mob_effect": "minecraft:slowness",
+			"target": "attack_target",
+			"stack_on_reapply": true,
+			"values": {
+				},
+				"epic": {
+					"duration": 120,
+					"amplifier": 0,
+					"cooldown": 100
+				},
+				"mythic": {
+					"duration": 180,
+					"amplifier": 1,
+					"cooldown": 80
+				},
+				"ancient": {
+					"duration": 240,
+					"amplifier": 1,
+					"cooldown": 60
+				}
+			},
+		{
+			"type": "apotheosis:mob_effect",
+			"gem_class": {
+				"key": "heavy_weapon",
+				"types": [
+					"heavy_weapon"
+				]
+			},
+			"mob_effect": "minecraft:strength",
+			"target": "attack_self",
+			"values": {
+				},
+				"epic": {
+					"duration": 80,
+					"amplifier": 0,
+					"cooldown": 900
+				},
+				"mythic": {
+					"duration": 120,
+					"amplifier": 1,
+					"cooldown": 900
+				},
+				"ancient": {
+					"duration": 160,
+					"amplifier": 2,
+					"cooldown": 900
+				}
+			},
+		{
+			"type": "apotheosis:enchantment",
+			"gem_class": {
+				"key": "chestplate",
+				"types": [
+					"chestplate"
+				]
+			},
+			"enchantment": "apotheosis:icy_thorns",
+			"values": {
+				"epic": 1,
+				"mythic": 2,
+				"ancient": 3
+				
+			}
+		},
+		{
+		"type": "apotheosis:enchantment",
+		"gem_class": {
+			"key": "boots",
+			"types": [
+				"boots"
+			]
+		},
+		"enchantment": "minecraft:frost_walker",
+		"values": {
+			"epic": 1,
+			"mythic": 2,
+			"ancient": 3
+		}
+	}
+
+]
+}

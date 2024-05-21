@@ -9,5 +9,7 @@
     "item.apotheosis.gem.apotheosis_ascended:core/spell_evocation": "Evocation Level Gem",
     "item.apotheosis.gem.apotheosis_ascended:core/spell_fire": "Fire Level Gem",
     "item.apotheosis.gem.apotheosis_ascended:core/spell_general": "All Spell Level Gem",
-    "item.apotheosis.gem.apotheosis_ascended:core/spell_lightning": "Lightning Level Gem"
+    "item.apotheosis.gem.apotheosis_ascended:core/spell_lightning": "Lightning Level Gem",
+    "affix.apotheosis:luck": "Threatening",
+    "affix.apotheosis:luck.suffix": ""
 }

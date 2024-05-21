@@ -1,5 +1,13 @@
 {
   "bookGuiScale": 0,
   "clickedVisualize": false,
-  "bookData": {}
+  "bookData": {
+    "apotheosis:apoth_chronicle": {
+      "viewedEntries": [
+        "apotheosis:adventure/attributes/overheal"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
+    }
+  }
 }

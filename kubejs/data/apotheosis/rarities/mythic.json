@@ -51,6 +51,10 @@
 		{
 			"type": "durability",
 			"chance": 0.35
+		},
+		{
+			"type": "ancient",
+			"chance": 1
 		}
 	]
 }
