@@ -9,9 +9,10 @@
         {
             "tag_type": "alembic:particle_tag",
             "particle_options": {
-                "type": "ae2:lightning_fx",
-                "scale_with_damage": true
-            }
+                "type": "irons_spellbooks:electricity"
+            },
+            "scalar": 2,
+            "scale_with_damage": true
         }
     ]
 }

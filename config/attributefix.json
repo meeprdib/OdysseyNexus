@@ -143,6 +143,28 @@
         "value": 100
       }
     },
+    "odysseynexus:blood_damage.absorption": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:nature_damage.resistance": {
+      "enabled": false,
+      "min": {
+        "default": -1024,
+        "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "additional_attributes:spell_type_portal": {
       "enabled": false,
       "min": {
@@ -152,6 +174,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "odysseynexus:evocation_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "additional_attributes:spell_type_sculk_tentacles": {
@@ -240,6 +273,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "odysseynexus:blood_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "additional_attributes:fishing_luck": {
@@ -363,6 +407,28 @@
         "value": 1024
       }
     },
+    "odysseynexus:end_damage.resistance": {
+      "enabled": false,
+      "min": {
+        "default": -1024,
+        "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:evocation_damage.absorption": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "irons_spellbooks:evocation_spell_power": {
       "enabled": false,
       "min": {
@@ -383,6 +449,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "odysseynexus:eldritch_damage.resistance": {
+      "enabled": false,
+      "min": {
+        "default": -1024,
+        "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "miapi:generic.mining_speed.axe": {
@@ -592,6 +669,28 @@
       "max": {
         "default": 10,
         "value": 10
+      }
+    },
+    "odysseynexus:holy_damage.resistance": {
+      "enabled": false,
+      "min": {
+        "default": -1024,
+        "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:end_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "minecraft:horse.jump_strength": {
@@ -869,6 +968,17 @@
         "value": 10000
       }
     },
+    "odysseynexus:nature_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "irons_spellbooks:summon_damage": {
       "enabled": false,
       "min": {
@@ -889,6 +999,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "odysseynexus:holy_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "obscure_api:healing_power": {
@@ -1001,6 +1122,17 @@
         "value": 1024
       }
     },
+    "odysseynexus:blood_damage.resistance": {
+      "enabled": false,
+      "min": {
+        "default": -1024,
+        "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "additional_attributes:spell_type_poison_breath": {
       "enabled": false,
       "min": {
@@ -1065,6 +1197,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "odysseynexus:evocation_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "irons_spellbooks:ender_spell_power": {
@@ -1243,6 +1386,17 @@
         "value": 100
       }
     },
+    "odysseynexus:nature_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "additional_attributes:spell_type_chain_creeper": {
       "enabled": false,
       "min": {
@@ -1342,6 +1496,17 @@
         "value": 10
       }
     },
+    "odysseynexus:eldritch_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "attributeslib:life_steal": {
       "enabled": false,
       "min": {
@@ -1354,6 +1519,17 @@
       }
     },
     "miapi:generic.stun_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:end_damage.absorption": {
       "enabled": false,
       "min": {
         "default": 0,
@@ -1409,6 +1585,17 @@
       }
     },
     "alembic:physical_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:eldritch_damage.absorption": {
       "enabled": false,
       "min": {
         "default": 0,
@@ -1661,6 +1848,17 @@
         "value": 1024
       }
     },
+    "odysseynexus:evocation_damage.resistance": {
+      "enabled": false,
+      "min": {
+        "default": -1024,
+        "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "alembic:arcane_damage.absorption": {
       "enabled": false,
       "min": {
@@ -1739,6 +1937,17 @@
       }
     },
     "forge:block_reach": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:nature_damage.absorption": {
       "enabled": false,
       "min": {
         "default": 0,
@@ -2002,6 +2211,17 @@
         "value": 100
       }
     },
+    "odysseynexus:holy_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "additional_attributes:spell_type_ray_of_siphoning": {
       "enabled": false,
       "min": {
@@ -2139,6 +2359,17 @@
       "min": {
         "default": -1024,
         "value": -1024
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:holy_damage.absorption": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
       },
       "max": {
         "default": 1024,
@@ -2387,6 +2618,17 @@
         "value": 1024
       }
     },
+    "odysseynexus:blood_damage.shielding": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
     "attributeslib:crit_damage": {
       "enabled": false,
       "min": {
@@ -2473,6 +2715,17 @@
       "max": {
         "default": 1,
         "value": 1
+      }
+    },
+    "odysseynexus:end_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
       }
     },
     "additional_attributes:spell_type_blood_step": {
@@ -2587,6 +2840,17 @@
     },
     "minecraft:generic.movement_speed": {
       "enabled": true,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1024,
+        "value": 1024
+      }
+    },
+    "odysseynexus:eldritch_damage": {
+      "enabled": false,
       "min": {
         "default": 0,
         "value": 0

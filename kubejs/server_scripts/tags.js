@@ -22,4 +22,7 @@ ServerEvents.tags('item', event => {
 
     event.add('on:cubable_raw_dragon_meat', 'ends_delight:raw_dragon_meat', 'iceandfire:ice_dragon_flesh', 'iceandfire:fire_dragon_flesh', 'iceandfire:lightning_dragon_flesh')
     event.add('on:raw_dragon_meat', 'ends_delight:raw_dragon_meat', 'ends_delight:raw_dragon_meat_cuts', 'ends_delight:dragon_leg', 'iceandfire:ice_dragon_flesh', 'iceandfire:fire_dragon_flesh', 'iceandfire:lightning_dragon_flesh')
+
+    event.add('aether:treated_as_aether_item', '#forge:tools')
+    event.add('aether:AetherItemTagData', '#forge:tools')
 })

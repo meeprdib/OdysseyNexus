@@ -234,6 +234,9 @@
 				board_wall = true
 				board_slab = true
 
+			[general.entries.wood_type.friendsandfoes]
+				beehive = true
+
 		[general.entries.leaves_type]
 
 			[general.entries.leaves_type.quark]

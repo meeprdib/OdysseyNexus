@@ -1,0 +1,18 @@
+{
+    "priority": 1,
+    "attributes": "odysseynexus:end_damage",
+    "particles": true,
+    "enchant_reduction": true,
+    "enchant_source": "mob",
+    "color": "#FFFF00",
+    "tags": [
+        {
+            "tag_type": "alembic:particle_tag",
+            "particle_options": {
+                "type": "alembic:ender_magic"
+            },
+            "scalar": 10,
+            "scale_with_damage": true
+        }
+    ]
+}

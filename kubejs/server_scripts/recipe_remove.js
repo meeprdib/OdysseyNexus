@@ -2,12 +2,7 @@ ServerEvents.recipes(event => {
     event.remove({
         output: [
             //'@ae2',
-            'computercraft:computer_normal',
-            'computercraft:monitor_normal',
-            'computercraft:pocket_computer_normal',
-            'computercraft:pocket_computer_normal',
-            'computercraft:turtle_advanced',
-            'computercraft:turtle_normal',
+            //'@computercraft'
             'create_dd:accelerator_motor',
             'create_dd:copycat_block',
             'create_dd:copycat_slab',

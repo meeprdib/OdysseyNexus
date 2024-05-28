@@ -1,83 +1,83 @@
-[00:40:10] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[00:40:10] [INIT] Loaded plugins:
-[00:40:10] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[00:40:10] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[00:40:10] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[00:40:10] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[00:40:10] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[00:40:10] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[00:40:10] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[00:40:10] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[00:40:10] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[00:40:10] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[00:40:10] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[00:40:10] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[00:40:10] [INIT] - com.probejs.ProbeJSPlugin
-[00:40:10] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[00:40:10] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
-[00:40:10] [INFO] Loaded script server_scripts:loot.js in 0.002 s
-[00:40:10] [INFO] Loaded script server_scripts:recipes.js in 0.0 s
-[00:40:10] [INFO] Loaded script server_scripts:recipe_remove.js in 0.001 s
-[00:40:10] [INFO] Loaded script server_scripts:tags.js in 0.001 s
-[00:40:10] [INFO] Loaded 5/5 KubeJS server scripts in 0.014 s with 0 errors and 0 warnings
-[00:40:10] [INFO] Scripts loaded
-[00:40:10] [INFO] Initializing recipe event...
-[00:40:10] [INFO] [minecraft:block] Found 818 tags, added 1 objects, removed 0 objects
-[00:40:10] [INFO] [minecraft:item] Found 1576 tags, added 70 objects, removed 0 objects
-[00:40:12] [INFO] Processing recipes...
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:himmel_vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/mossy_bricks/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/tiles/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/mossy_tiles/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/cod_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'aether_redux:genesis_dark_gummy_swet[minecraft:crafting_shapeless]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_door[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/dragon_meat_stew_block[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [result:output_item, container?:input_item, ingredients:input_item[], experience:int, cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/tiles/vertical_slab_from_violite_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/bricks/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:stripped_azure_post[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/screw[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/bricks/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'incendium:upgrade_elytra[minecraft:smithing_transform]'! Falling back to vanilla: Ingredient 'template' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_sign[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/chorus_fruit_milk_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [result:output_item, container?:input_item, experience:int, ingredients:input_item[], cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:himmel_vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/tiles/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/bubble_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], container?:input_item, result:output_item, experience:int, cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/ender_sauce[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [cookingtime:ticks, container?:input_item, experience:int, ingredients:input_item[], result:output_item]
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/chorus_fruit_wine[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [cookingtime:ticks, container?:input_item, experience:int, ingredients:input_item[], result:output_item]
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/chorus_flower_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], result:output_item, container?:input_item, experience:int, cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'ancient_aether:ancient_rune[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/steamed_dragon_egg_block[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [result:output_item, container?:input_item, ingredients:input_item[], experience:int, cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:azure_vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:azure_vertical_planks[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/bricks/vertical_slab_violite_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/dragon_breath_and_chorus_soup[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, result:output_item, ingredients:input_item[], experience:int, cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/bolt[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'destroy:compat/alexscaves/crafting/glow_ink_bomb[minecraft:crafting_shapeless]'! Falling back to vanilla: Recipe component key 'ingredients' not found! Valid keys: [ingredients:input_item[], result:output_item]
-[00:40:12] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_pith[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:azure_post[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/salmon_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'destroy:compat/alexscaves/crafting/ink_bomb[minecraft:crafting_shapeless]'! Falling back to vanilla: Recipe component key 'ingredients' not found! Valid keys: [ingredients:input_item[], result:output_item]
-[00:40:12] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/berry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/mossy_tiles/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'ends_delight:food/ender_congee[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, ingredients:input_item[], result:output_item, experience:int, cookingtime:ticks]
-[00:40:12] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_stem[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
-[00:40:12] [WARN] Failed to parse recipe 'outer_end:violite/mossy_bricks/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[00:40:12] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_trapdoor[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
-[00:40:12] [INFO] Found 15437 recipes in 323.1 ms
-[00:40:12] [INFO] Posted recipe events in 5.571 ms
-[00:40:12] [WARN] Error parsing recipe outer_end:violite/tiles/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:violite_tile_slab","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe outer_end:violite/mossy_bricks/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:mossy_violite_brick_slab","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe outer_end:azure_vertical_to_planks[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:azure_planks","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe outer_end:himmel_vertical_to_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:himmel_slab","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe outer_end:azure_vertical_to_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:azure_slab","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe outer_end:violite/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:violite_slab","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe design_decor:item_application/millstones/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
-[00:40:12] [WARN] Error parsing recipe outer_end:violite/bricks/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:violite_brick_slab","count":3}}: null
-[00:40:12] [WARN] Error parsing recipe design_decor:item_application/crushing_wheels/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
-[00:40:12] [WARN] Error parsing recipe outer_end:violite/mossy_tiles/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:mossy_violite_tile_slab","count":3}}: null
-[00:40:13] [INFO] Added 0 recipes, removed 102 recipes, modified 8 recipes, with 10 failed recipes in 544.5 ms
-[00:40:14] [INFO] Server resource reload complete!
+[00:26:41] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[00:26:41] [INIT] Loaded plugins:
+[00:26:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[00:26:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[00:26:41] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[00:26:41] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[00:26:41] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[00:26:41] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[00:26:41] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[00:26:41] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[00:26:41] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[00:26:41] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[00:26:41] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[00:26:41] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[00:26:41] [INIT] - com.probejs.ProbeJSPlugin
+[00:26:41] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[00:26:41] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
+[00:26:41] [INFO] Loaded script server_scripts:loot.js in 0.001 s
+[00:26:41] [INFO] Loaded script server_scripts:recipes.js in 0.0 s
+[00:26:41] [INFO] Loaded script server_scripts:recipe_remove.js in 0.0 s
+[00:26:41] [INFO] Loaded script server_scripts:tags.js in 0.0 s
+[00:26:41] [INFO] Loaded 5/5 KubeJS server scripts in 0.013 s with 0 errors and 0 warnings
+[00:26:41] [INFO] Scripts loaded
+[00:26:41] [INFO] Initializing recipe event...
+[00:26:42] [INFO] [minecraft:block] Found 822 tags, added 1 objects, removed 0 objects
+[00:26:42] [INFO] [minecraft:item] Found 1581 tags, added 72 objects, removed 0 objects
+[00:26:45] [INFO] Processing recipes...
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:himmel_vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/mossy_bricks/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/tiles/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/mossy_tiles/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/cod_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'aether_redux:genesis_dark_gummy_swet[minecraft:crafting_shapeless]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_door[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/dragon_meat_stew_block[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, ingredients:input_item[], cookingtime:ticks, experience:int, result:output_item]
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/tiles/vertical_slab_from_violite_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/bricks/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:stripped_azure_post[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/screw[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/bricks/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'incendium:upgrade_elytra[minecraft:smithing_transform]'! Falling back to vanilla: Ingredient 'template' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_sign[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/chorus_fruit_milk_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], container?:input_item, result:output_item, cookingtime:ticks, experience:int]
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:himmel_vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/tiles/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/bubble_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, ingredients:input_item[], cookingtime:ticks, experience:int, result:output_item]
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/ender_sauce[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, ingredients:input_item[], cookingtime:ticks, result:output_item, experience:int]
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/chorus_fruit_wine[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [result:output_item, container?:input_item, ingredients:input_item[], cookingtime:ticks, experience:int]
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/chorus_flower_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, cookingtime:ticks, ingredients:input_item[], experience:int, result:output_item]
+[00:26:45] [WARN] Failed to parse recipe 'ancient_aether:ancient_rune[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/steamed_dragon_egg_block[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, cookingtime:ticks, experience:int, result:output_item, ingredients:input_item[]]
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:azure_vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:azure_vertical_planks[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/bricks/vertical_slab_violite_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/dragon_breath_and_chorus_soup[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, result:output_item, ingredients:input_item[], cookingtime:ticks, experience:int]
+[00:26:45] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/bolt[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/vertical_slab_stonecutting[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'destroy:compat/alexscaves/crafting/glow_ink_bomb[minecraft:crafting_shapeless]'! Falling back to vanilla: Recipe component key 'ingredients' not found! Valid keys: [result:output_item, ingredients:input_item[]]
+[00:26:45] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_pith[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:azure_post[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/salmon_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'destroy:compat/alexscaves/crafting/ink_bomb[minecraft:crafting_shapeless]'! Falling back to vanilla: Recipe component key 'ingredients' not found! Valid keys: [result:output_item, ingredients:input_item[]]
+[00:26:45] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/berry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/mossy_tiles/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'ends_delight:food/ender_congee[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [container?:input_item, result:output_item, cookingtime:ticks, experience:int, ingredients:input_item[]]
+[00:26:45] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_stem[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
+[00:26:45] [WARN] Failed to parse recipe 'outer_end:violite/mossy_bricks/vertical_slab[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[00:26:45] [WARN] Failed to parse recipe 'farmersdelight:cutting/azure_trapdoor[farmersdelight:cutting]'! Falling back to vanilla: Failed to parse custom ingredient ("farmersdelight:tool") from {"type":"farmersdelight:tool","tool":"axe"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: farmersdelight:tool
+[00:26:45] [INFO] Found 15499 recipes in 563.6 ms
+[00:26:45] [INFO] Posted recipe events in 10.01 ms
+[00:26:45] [WARN] Error parsing recipe outer_end:azure_vertical_to_planks[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:azure_planks","count":3}}: null
+[00:26:45] [WARN] Error parsing recipe outer_end:violite/tiles/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:violite_tile_slab","count":3}}: null
+[00:26:46] [WARN] Error parsing recipe outer_end:violite/bricks/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:violite_brick_slab","count":3}}: null
+[00:26:46] [WARN] Error parsing recipe design_decor:item_application/millstones/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
+[00:26:46] [WARN] Error parsing recipe outer_end:himmel_vertical_to_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:himmel_slab","count":3}}: null
+[00:26:46] [WARN] Error parsing recipe outer_end:violite/mossy_bricks/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:mossy_violite_brick_slab","count":3}}: null
+[00:26:46] [WARN] Error parsing recipe design_decor:item_application/crushing_wheels/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
+[00:26:46] [WARN] Error parsing recipe outer_end:violite/mossy_tiles/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:mossy_violite_tile_slab","count":3}}: null
+[00:26:46] [WARN] Error parsing recipe outer_end:violite/slab_from_vertical_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:violite_slab","count":3}}: null
+[00:26:46] [WARN] Error parsing recipe outer_end:azure_vertical_to_slab[minecraft:crafting_shaped]: {"type":"minecraft:crafting_shaped","pattern":[" "," "," "],"key":{},"result":{"item":"outer_end:azure_slab","count":3}}: null
+[00:26:46] [INFO] Added 0 recipes, removed 90 recipes, modified 8 recipes, with 10 failed recipes in 583.1 ms
+[00:26:48] [INFO] Server resource reload complete!
