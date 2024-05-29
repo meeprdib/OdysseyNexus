@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "odysseynexus:cold_damage",
+	"attribute": "odysseynexus:blood_damage",
 	"operation": "ADDITION",
 	"values": {
 		"uncommon": {

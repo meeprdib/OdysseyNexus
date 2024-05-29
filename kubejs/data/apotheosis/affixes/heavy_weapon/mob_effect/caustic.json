@@ -40,6 +40,8 @@
 		}
 	},
 	"types": [
+		"sword",
+		"trident",
 		"heavy_weapon"
 	]
 }

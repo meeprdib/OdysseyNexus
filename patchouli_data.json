@@ -4,7 +4,8 @@
   "bookData": {
     "apotheosis:apoth_chronicle": {
       "viewedEntries": [
-        "apotheosis:adventure/attributes/overheal"
+        "apotheosis:adventure/attributes/overheal",
+        "apotheosis:adventure/affix_loot/affixes"
       ],
       "bookmarks": [],
       "completedManualQuests": []

@@ -10,7 +10,9 @@
             "tag_type": "alembic:particle_tag",
             "particle_options": {
                 "type": "alembic:frostbite"
-            }
+            },
+            "scalar": 5,
+            "scale_with_damage": true
         },
         {
             "tag_type": "alembic:extend_fire_tag",
