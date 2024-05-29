@@ -1,0 +1,10 @@
+{
+    "attribute.odysseynexus.cold_damage": "Cold Damage",
+    "attribute.odysseynexus.blood_damage": "Blood Damage",
+    "attribute.odysseynexus.eldritch_damage": "Eldritch Damage",
+    "attribute.odysseynexus.end_damage": "End Damage",
+    "attribute.odysseynexus.evocation_damage": "Evocation Damage",
+    "attribute.odysseynexus.holy_damage": "Holy Damage",
+    "attribute.odysseynexus.lightning_damage": "Lightning Damage",
+    "attribute.odysseynexus.nature_damage": "Nature Damage"
+}

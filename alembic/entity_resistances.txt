@@ -1,0 +1,1162 @@
+irons_spellbooks: 
+irons_spellbooks:apothecarist -> 
+No stats found 
+
+irons_spellbooks:archevoker -> 
+No stats found 
+
+irons_spellbooks:catacombs_zombie -> 
+No stats found 
+
+irons_spellbooks:citadel_keeper -> 
+No stats found 
+
+irons_spellbooks:cryomancer -> 
+No stats found 
+
+irons_spellbooks:cultist -> 
+No stats found 
+
+irons_spellbooks:dead_king -> 
+No stats found 
+
+irons_spellbooks:dead_king_corpse -> 
+No stats found 
+
+irons_spellbooks:debug_wizard -> 
+No stats found 
+
+irons_spellbooks:firefly_swarm -> 
+No stats found 
+
+irons_spellbooks:frozen_humanoid -> 
+No stats found 
+
+irons_spellbooks:magehunter_vindicator -> 
+No stats found 
+
+irons_spellbooks:necromancer -> 
+No stats found 
+
+irons_spellbooks:priest -> 
+No stats found 
+
+irons_spellbooks:pyromancer -> 
+No stats found 
+
+irons_spellbooks:root -> 
+No stats found 
+
+irons_spellbooks:sculk_tentacle -> 
+No stats found 
+
+irons_spellbooks:spectral_hammer -> 
+No stats found 
+
+irons_spellbooks:spectral_steed -> 
+No stats found 
+
+irons_spellbooks:summoned_polar_bear -> 
+No stats found 
+
+irons_spellbooks:summoned_skeleton -> 
+No stats found 
+
+irons_spellbooks:summoned_vex -> 
+No stats found 
+
+irons_spellbooks:summoned_zombie -> 
+No stats found 
+
+irons_spellbooks:wisp -> 
+No stats found 
+
+minecraft: 
+minecraft:allay -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.6
+    - alembic:true_damage -> 0.0
+
+minecraft:armor_stand -> 
+No stats found 
+
+minecraft:axolotl -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:bat -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:bee -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:blaze -> 
+No stats found 
+
+minecraft:camel -> 
+    - alembic:fire_damage -> 0.85
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:cat -> 
+    - alembic:fire_damage -> 0.85
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:cave_spider -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.95
+    - alembic:true_damage -> 0.0
+
+minecraft:chicken -> 
+    - alembic:fire_damage -> 0.7
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:cod -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:cow -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:creeper -> 
+    - alembic:fire_damage -> 0.4
+    - alembic:alchemical_damage -> 1.1
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:dolphin -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:donkey -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.85
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:drowned -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:elder_guardian -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.9
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.2
+    - alembic:true_damage -> 0.0
+
+minecraft:ender_dragon -> 
+    - alembic:fire_damage -> 1.4
+    - alembic:alchemical_damage -> 1.1
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.65
+    - alembic:true_damage -> 0.0
+
+minecraft:enderman -> 
+    - alembic:fire_damage -> 1.1
+    - alembic:alchemical_damage -> 0.9
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.4
+    - alembic:true_damage -> 0.0
+
+minecraft:endermite -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.9
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.3
+    - alembic:true_damage -> 0.0
+
+minecraft:evoker -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.7
+    - alembic:true_damage -> 0.0
+
+minecraft:fox -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:frog -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:ghast -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.4
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.4
+    - alembic:true_damage -> 0.0
+
+minecraft:giant -> 
+No stats found 
+
+minecraft:glow_squid -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.9
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:goat -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:guardian -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.2
+    - alembic:true_damage -> 0.0
+
+minecraft:hoglin -> 
+    - alembic:fire_damage -> 1.1
+    - alembic:alchemical_damage -> 0.9
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:horse -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.85
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:husk -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:illusioner -> 
+No stats found 
+
+minecraft:iron_golem -> 
+    - alembic:fire_damage -> 1.2
+    - alembic:alchemical_damage -> 1.6
+    - alembic:physical_damage -> 1.4
+    - alembic:arcane_damage -> 0.6
+    - alembic:true_damage -> 0.0
+
+minecraft:llama -> 
+    - alembic:fire_damage -> 0.75
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:magma_cube -> 
+    - alembic:fire_damage -> 1.8
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.8
+    - alembic:true_damage -> 0.0
+
+minecraft:mooshroom -> 
+    - alembic:fire_damage -> 0.5
+    - alembic:alchemical_damage -> 1.1
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:mule -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.85
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:ocelot -> 
+    - alembic:fire_damage -> 0.85
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:panda -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:parrot -> 
+No stats found 
+
+minecraft:phantom -> 
+    - alembic:fire_damage -> 0.6
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.2
+    - alembic:true_damage -> 0.0
+
+minecraft:pig -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:piglin -> 
+    - alembic:fire_damage -> 1.2
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:piglin_brute -> 
+    - alembic:fire_damage -> 1.25
+    - alembic:alchemical_damage -> 0.85
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:pillager -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.95
+    - alembic:true_damage -> 0.0
+
+minecraft:polar_bear -> 
+    - alembic:fire_damage -> 0.7
+    - alembic:alchemical_damage -> 0.85
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:pufferfish -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:rabbit -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:ravager -> 
+    - alembic:fire_damage -> 1.3
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.9
+    - alembic:true_damage -> 0.0
+
+minecraft:salmon -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:sheep -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:shulker -> 
+    - alembic:fire_damage -> 1.6
+    - alembic:alchemical_damage -> 0.9
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.5
+    - alembic:true_damage -> 0.0
+
+minecraft:silverfish -> 
+    - alembic:fire_damage -> 0.7
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:skeleton -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.9
+    - alembic:true_damage -> 0.0
+
+minecraft:skeleton_horse -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.9
+    - alembic:true_damage -> 0.0
+
+minecraft:slime -> 
+    - alembic:fire_damage -> 0.6
+    - alembic:alchemical_damage -> 1.25
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:sniffer -> 
+    - alembic:fire_damage -> 0.7
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:snow_golem -> 
+    - alembic:fire_damage -> 0.2
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 2.0
+    - alembic:true_damage -> 0.0
+
+minecraft:spider -> 
+    - alembic:fire_damage -> 0.85
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.15
+    - alembic:true_damage -> 0.0
+
+minecraft:squid -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:stray -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:strider -> 
+    - alembic:fire_damage -> 1.8
+    - alembic:alchemical_damage -> 0.5
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:tadpole -> 
+No stats found 
+
+minecraft:trader_llama -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 0.75
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:tropical_fish -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:turtle -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 1.3
+    - alembic:physical_damage -> 1.3
+    - alembic:arcane_damage -> 0.8
+    - alembic:true_damage -> 0.0
+
+minecraft:vex -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 1.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.4
+    - alembic:true_damage -> 0.0
+
+minecraft:villager -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:vindicator -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.9
+    - alembic:true_damage -> 0.0
+
+minecraft:wandering_trader -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.8
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:warden -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 2.0
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.6
+    - alembic:true_damage -> 0.0
+
+minecraft:witch -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 1.3
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 0.9
+    - alembic:true_damage -> 0.0
+
+minecraft:wither -> 
+    - alembic:fire_damage -> 1.2
+    - alembic:alchemical_damage -> 1.5
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.6
+    - alembic:true_damage -> 0.0
+
+minecraft:wither_skeleton -> 
+    - alembic:fire_damage -> 1.1
+    - alembic:alchemical_damage -> 1.5
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.3
+    - alembic:true_damage -> 0.0
+
+minecraft:wolf -> 
+    - alembic:fire_damage -> 0.9
+    - alembic:alchemical_damage -> 0.7
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:zoglin -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:zombie -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:zombie_horse -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:zombie_villager -> 
+    - alembic:fire_damage -> 0.8
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+minecraft:zombified_piglin -> 
+    - alembic:fire_damage -> 1.0
+    - alembic:alchemical_damage -> 1.2
+    - alembic:physical_damage -> 1.0
+    - alembic:arcane_damage -> 1.0
+    - alembic:true_damage -> 0.0
+
+alexscaves: 
+alexscaves:atlatitan -> 
+No stats found 
+
+alexscaves:boundroid -> 
+No stats found 
+
+alexscaves:boundroid_winch -> 
+No stats found 
+
+alexscaves:brainiac -> 
+No stats found 
+
+alexscaves:corrodent -> 
+No stats found 
+
+alexscaves:deep_one -> 
+No stats found 
+
+alexscaves:deep_one_knight -> 
+No stats found 
+
+alexscaves:deep_one_mage -> 
+No stats found 
+
+alexscaves:ferrouslime -> 
+No stats found 
+
+alexscaves:forsaken -> 
+No stats found 
+
+alexscaves:gammaroach -> 
+No stats found 
+
+alexscaves:gloomoth -> 
+No stats found 
+
+alexscaves:gossamer_worm -> 
+No stats found 
+
+alexscaves:grottoceratops -> 
+No stats found 
+
+alexscaves:hullbreaker -> 
+No stats found 
+
+alexscaves:lanternfish -> 
+No stats found 
+
+alexscaves:luxtructosaurus -> 
+No stats found 
+
+alexscaves:magnetron -> 
+No stats found 
+
+alexscaves:mine_guardian -> 
+No stats found 
+
+alexscaves:notor -> 
+No stats found 
+
+alexscaves:nucleeper -> 
+No stats found 
+
+alexscaves:radgill -> 
+No stats found 
+
+alexscaves:raycat -> 
+No stats found 
+
+alexscaves:relicheirus -> 
+No stats found 
+
+alexscaves:sea_pig -> 
+No stats found 
+
+alexscaves:subterranodon -> 
+No stats found 
+
+alexscaves:teletor -> 
+No stats found 
+
+alexscaves:tremorsaurus -> 
+No stats found 
+
+alexscaves:tremorzilla -> 
+No stats found 
+
+alexscaves:trilocaris -> 
+No stats found 
+
+alexscaves:tripodfish -> 
+No stats found 
+
+alexscaves:underzealot -> 
+No stats found 
+
+alexscaves:vallumraptor -> 
+No stats found 
+
+alexscaves:vesper -> 
+No stats found 
+
+alexscaves:watcher -> 
+No stats found 
+
+outer_end: 
+outer_end:entombed -> 
+No stats found 
+
+outer_end:himmelite -> 
+No stats found 
+
+outer_end:purpur_golem -> 
+No stats found 
+
+outer_end:sinker -> 
+No stats found 
+
+outer_end:spectrafly -> 
+No stats found 
+
+outer_end:stalker -> 
+No stats found 
+
+youkaishomecoming: 
+youkaishomecoming:lamprey -> 
+No stats found 
+
+youkaishomecoming:rumia -> 
+No stats found 
+
+youkaishomecoming:youkai -> 
+No stats found 
+
+endertrigon: 
+endertrigon:baby_ender_dragon -> 
+No stats found 
+
+lost_aether_content: 
+lost_aether_content:aerwhale_king -> 
+No stats found 
+
+bygonenether: 
+bygonenether:corpor -> 
+No stats found 
+
+bygonenether:piglin_hunter -> 
+No stats found 
+
+bygonenether:piglin_prisoner -> 
+No stats found 
+
+bygonenether:warped_enderman -> 
+No stats found 
+
+bygonenether:wex -> 
+No stats found 
+
+bygonenether:wither_skeleton_horse -> 
+No stats found 
+
+bygonenether:wither_skeleton_knight -> 
+No stats found 
+
+bygonenether:wraither -> 
+No stats found 
+
+iceandfire: 
+iceandfire:amphithere -> 
+No stats found 
+
+iceandfire:cockatrice -> 
+No stats found 
+
+iceandfire:cyclops -> 
+No stats found 
+
+iceandfire:deathworm -> 
+No stats found 
+
+iceandfire:dragon_egg -> 
+No stats found 
+
+iceandfire:dragon_skull -> 
+No stats found 
+
+iceandfire:dread_beast -> 
+No stats found 
+
+iceandfire:dread_ghoul -> 
+No stats found 
+
+iceandfire:dread_horse -> 
+No stats found 
+
+iceandfire:dread_knight -> 
+No stats found 
+
+iceandfire:dread_lich -> 
+No stats found 
+
+iceandfire:dread_scuttler -> 
+No stats found 
+
+iceandfire:dread_thrall -> 
+No stats found 
+
+iceandfire:fire_dragon -> 
+No stats found 
+
+iceandfire:ghost -> 
+No stats found 
+
+iceandfire:gorgon -> 
+No stats found 
+
+iceandfire:hippocampus -> 
+No stats found 
+
+iceandfire:hippogryph -> 
+No stats found 
+
+iceandfire:hydra -> 
+No stats found 
+
+iceandfire:ice_dragon -> 
+No stats found 
+
+iceandfire:lightning_dragon -> 
+No stats found 
+
+iceandfire:mob_skull -> 
+No stats found 
+
+iceandfire:myrmex_egg -> 
+No stats found 
+
+iceandfire:myrmex_queen -> 
+No stats found 
+
+iceandfire:myrmex_royal -> 
+No stats found 
+
+iceandfire:myrmex_sentinel -> 
+No stats found 
+
+iceandfire:myrmex_soldier -> 
+No stats found 
+
+iceandfire:myrmex_swarmer -> 
+No stats found 
+
+iceandfire:myrmex_worker -> 
+No stats found 
+
+iceandfire:pixie -> 
+No stats found 
+
+iceandfire:sea_serpent -> 
+No stats found 
+
+iceandfire:siren -> 
+No stats found 
+
+iceandfire:stone_statue -> 
+No stats found 
+
+iceandfire:stymphalian_bird -> 
+No stats found 
+
+iceandfire:troll -> 
+No stats found 
+
+aether: 
+aether:aechor_plant -> 
+No stats found 
+
+aether:aerbunny -> 
+No stats found 
+
+aether:aerwhale -> 
+No stats found 
+
+aether:blue_swet -> 
+No stats found 
+
+aether:cloud_minion -> 
+No stats found 
+
+aether:cockatrice -> 
+No stats found 
+
+aether:evil_whirlwind -> 
+No stats found 
+
+aether:fire_minion -> 
+No stats found 
+
+aether:flying_cow -> 
+No stats found 
+
+aether:golden_swet -> 
+No stats found 
+
+aether:mimic -> 
+No stats found 
+
+aether:moa -> 
+No stats found 
+
+aether:phyg -> 
+No stats found 
+
+aether:sentry -> 
+No stats found 
+
+aether:sheepuff -> 
+No stats found 
+
+aether:slider -> 
+No stats found 
+
+aether:sun_spirit -> 
+No stats found 
+
+aether:valkyrie -> 
+No stats found 
+
+aether:valkyrie_queen -> 
+No stats found 
+
+aether:whirlwind -> 
+No stats found 
+
+aether:zephyr -> 
+No stats found 
+
+railways: 
+railways:conductor -> 
+No stats found 
+
+spelunkery: 
+spelunkery:dust_bunny -> 
+No stats found 
+
+deep_aether: 
+deep_aether:aerglow_fish -> 
+No stats found 
+
+deep_aether:quail -> 
+No stats found 
+
+deep_aether:venomite -> 
+No stats found 
+
+upgrade_aquatic: 
+upgrade_aquatic:box_jellyfish -> 
+No stats found 
+
+upgrade_aquatic:cassiopea_jellyfish -> 
+No stats found 
+
+upgrade_aquatic:flare -> 
+No stats found 
+
+upgrade_aquatic:goose -> 
+No stats found 
+
+upgrade_aquatic:great_thrasher -> 
+No stats found 
+
+upgrade_aquatic:immortal_jellyfish -> 
+No stats found 
+
+upgrade_aquatic:lionfish -> 
+No stats found 
+
+upgrade_aquatic:nautilus -> 
+No stats found 
+
+upgrade_aquatic:perch -> 
+No stats found 
+
+upgrade_aquatic:pike -> 
+No stats found 
+
+upgrade_aquatic:thrasher -> 
+No stats found 
+
+aether_redux: 
+aether_redux:blightbunny -> 
+No stats found 
+
+aether_redux:blightbunny_spawner -> 
+No stats found 
+
+aether_redux:cockatrice_spawner -> 
+No stats found 
+
+aether_redux:mykapod -> 
+No stats found 
+
+aether_redux:shimmercow -> 
+No stats found 
+
+aether_redux:vanilla_swet -> 
+No stats found 
+
+dummmmmmy: 
+dummmmmmy:target_dummy -> 
+No stats found 
+
+cataclysm: 
+cataclysm:amethyst_crab -> 
+No stats found 
+
+cataclysm:ancient_remnant -> 
+No stats found 
+
+cataclysm:coral_golem -> 
+No stats found 
+
+cataclysm:coralssus -> 
+No stats found 
+
+cataclysm:deepling -> 
+No stats found 
+
+cataclysm:deepling_angler -> 
+No stats found 
+
+cataclysm:deepling_brute -> 
+No stats found 
+
+cataclysm:deepling_priest -> 
+No stats found 
+
+cataclysm:deepling_warlock -> 
+No stats found 
+
+cataclysm:ender_golem -> 
+No stats found 
+
+cataclysm:ender_guardian -> 
+No stats found 
+
+cataclysm:endermaptera -> 
+No stats found 
+
+cataclysm:ignis -> 
+No stats found 
+
+cataclysm:ignited_berserker -> 
+No stats found 
+
+cataclysm:ignited_revenant -> 
+No stats found 
+
+cataclysm:kobolediator -> 
+No stats found 
+
+cataclysm:koboleton -> 
+No stats found 
+
+cataclysm:lionfish -> 
+No stats found 
+
+cataclysm:modern_remnant -> 
+No stats found 
+
+cataclysm:nameless_sorcerer -> 
+No stats found 
+
+cataclysm:netherite_monstrosity -> 
+No stats found 
+
+cataclysm:the_baby_leviathan -> 
+No stats found 
+
+cataclysm:the_harbinger -> 
+No stats found 
+
+cataclysm:the_leviathan -> 
+No stats found 
+
+cataclysm:the_prowler -> 
+No stats found 
+
+cataclysm:the_watcher -> 
+No stats found 
+
+cataclysm:wadjet -> 
+No stats found 
+
+quark: 
+quark:crab -> 
+No stats found 
+
+quark:forgotten -> 
+No stats found 
+
+quark:foxhound -> 
+No stats found 
+
+quark:shiba -> 
+No stats found 
+
+quark:stoneling -> 
+No stats found 
+
+quark:toretoise -> 
+No stats found 
+
+quark:wraith -> 
+No stats found 
+
+supplementaries: 
+supplementaries:hat_stand -> 
+No stats found 
+
+supplementaries:red_merchant -> 
+No stats found 
+
+friendsandfoes: 
+friendsandfoes:copper_golem -> 
+No stats found 
+
+friendsandfoes:glare -> 
+No stats found 
+
+friendsandfoes:iceologer -> 
+No stats found 
+
+friendsandfoes:mauler -> 
+No stats found 
+
+friendsandfoes:moobloom -> 
+No stats found 
+
+friendsandfoes:player_illusion -> 
+No stats found 
+
+friendsandfoes:rascal -> 
+No stats found 
+
+friendsandfoes:tuff_golem -> 
+No stats found 
+
+friendsandfoes:wildfire -> 
+No stats found 
+
