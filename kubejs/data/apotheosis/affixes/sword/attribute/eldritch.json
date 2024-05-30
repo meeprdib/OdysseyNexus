@@ -1,4 +1,7 @@
 {
+	"conditions": [
+		{ "type": "forge:false" }
+	],
 	"type": "apotheosis:attribute",
 	"attribute": "odysseynexus:eldritch_damage",
 	"operation": "ADDITION",
