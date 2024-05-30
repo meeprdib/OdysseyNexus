@@ -34,9 +34,6 @@
 				conberry = true
 				sunroot = true
 
-			[general.types.wood_type.outer_end]
-				azure = true
-
 			[general.types.wood_type.regions_unexplored]
 				alpha = true
 				baobab = true
@@ -132,9 +129,6 @@
 				cruderoot = true
 				conberry = true
 				sunroot = true
-
-			[general.types.leaves_type.outer_end]
-				azure = true
 
 			[general.types.leaves_type.regions_unexplored]
 				bamboo = true

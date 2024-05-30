@@ -1,21 +1,21 @@
-[09:30:09] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[09:30:09] [INIT] Loaded plugins:
-[09:30:09] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[09:30:09] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[09:30:09] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[09:30:09] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[09:30:09] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[09:30:09] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[09:30:09] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[09:30:09] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[09:30:09] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[09:30:09] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[09:30:09] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[09:30:09] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[09:30:09] [INIT] - com.probejs.ProbeJSPlugin
-[09:30:09] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[09:30:09] [INFO] Loaded script client_scripts:certusquartz.js in 0.005 s
-[09:30:09] [INFO] Loaded script client_scripts:jei.js in 0.003 s
-[09:30:09] [INFO] Loaded script client_scripts:tooltips.js in 0.0 s
-[09:30:09] [INFO] Loaded 3/3 KubeJS client scripts in 0.078 s with 0 errors and 0 warnings
-[09:30:28] [INFO] Client resource reload complete!
+[15:15:09] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[15:15:09] [INIT] Loaded plugins:
+[15:15:09] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[15:15:09] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[15:15:09] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[15:15:09] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[15:15:09] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[15:15:09] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[15:15:09] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[15:15:09] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[15:15:09] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[15:15:09] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[15:15:09] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[15:15:09] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[15:15:09] [INIT] - com.probejs.ProbeJSPlugin
+[15:15:09] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[15:15:09] [INFO] Loaded script client_scripts:certusquartz.js in 0.006 s
+[15:15:09] [INFO] Loaded script client_scripts:jei.js in 0.001 s
+[15:15:09] [INFO] Loaded script client_scripts:tooltips.js in 0.0 s
+[15:15:09] [INFO] Loaded 3/3 KubeJS client scripts in 0.07 s with 0 errors and 0 warnings
+[15:15:22] [INFO] Client resource reload complete!
