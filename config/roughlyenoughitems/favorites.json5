@@ -1,5 +1,7 @@
 {
-	"favorites": [],
+	"favorites": [
+		"{data:{Count:1b,id:\"minecraft:calcite\",type:\"minecraft:item\"},type:\"roughlyenoughitems:entry_stack\"}"
+	],
 	"hiddenFavorites": [],
 	"displays": []
 }

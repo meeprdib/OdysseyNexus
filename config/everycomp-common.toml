@@ -95,6 +95,9 @@
 				crystal = true
 				glacia = true
 
+			[general.types.wood_type.cataclysm]
+				chorus = true
+
 		[general.types.leaves_type]
 
 			[general.types.leaves_type.fruitsdelight]

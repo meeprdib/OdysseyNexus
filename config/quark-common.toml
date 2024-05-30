@@ -41,11 +41,11 @@
 [categories]
 	automation = false
 	building = true
-	management = false
+	management = true
 	tools = false
-	tweaks = false
-	world = false
-	mobs = false
+	tweaks = true
+	world = true
+	mobs = true
 	client = false
 	experimental = false
 	oddities = true
@@ -197,8 +197,8 @@
 
 	[building.leaf_carpet]
 		#This feature disables itself if any of the following mods are loaded:
-		# - immersive_weathering
 		# - woodworks
+		# - immersive_weathering
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -227,13 +227,18 @@
 		#Note that ropes will still use the same blacklist.
 		"Force Enable Move Tile Entities" = false
 		"Enable Dispenser Behavior" = true
+		#This feature disables itself if any of the following mods are loaded:
+		# - supplementaries
+		#This is done to prevent content overlap.
+		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
+		"Ignore Anti Overlap" = false
 
 	[building.thatch]
 		#Allowed values: [0,1]
 		"Fall Damage Multiplier" = 0.5
 		#This feature disables itself if any of the following mods are loaded:
-		# - environmental
 		# - goated
+		# - environmental
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -241,8 +246,8 @@
 	[building.variant_bookshelves]
 		"Change Names" = true
 		#This feature disables itself if any of the following mods are loaded:
-		# - woodster
 		# - woodworks
+		# - woodster
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -261,8 +266,8 @@
 	[building.variant_ladders]
 		"Change Names" = true
 		#This feature disables itself if any of the following mods are loaded:
-		# - woodster
 		# - woodworks
+		# - woodster
 		#This is done to prevent content overlap.
 		#You can turn this on to force the feature to be loaded even if the above mods are also loaded.
 		"Ignore Anti Overlap" = false
@@ -284,13 +289,13 @@
 		"Enable Pillar" = true
 
 [management]
-	"Automatic Tool Restock" = true
+	"Automatic Tool Restock" = false
 	"Easy Transfering" = true
 	"Expanded Item Interactions" = true
 	"Hotbar Changer" = true
 	"Inventory Sorting" = true
 	"Item Sharing" = true
-	"Quick Armor Swapping" = true
+	"Quick Armor Swapping" = false
 
 	[management.automatic_tool_restock]
 		#Enchantments deemed important enough to have special priority when finding a replacement
@@ -510,44 +515,44 @@
 		"Trowel Max Durability" = 0
 
 [tweaks]
-	"Armed Armor Stands" = true
-	"Automatic Recipe Unlock" = true
-	"Better Elytra Rocket" = true
-	"Campfires Boost Elytra" = true
-	"Compasses Work Everywhere" = true
-	"Coral On Cactus" = true
-	"Diamond Repair" = true
+	"Armed Armor Stands" = false
+	"Automatic Recipe Unlock" = false
+	"Better Elytra Rocket" = false
+	"Campfires Boost Elytra" = false
+	"Compasses Work Everywhere" = false
+	"Coral On Cactus" = false
+	"Diamond Repair" = false
 	"Double Door Opening" = true
 	"Dragon Scales" = true
 	"Dyeable Item Frames" = true
-	Emotes = true
-	"Enhanced Ladders" = true
-	"Glass Shard" = true
-	"Gold Tools Have Fortune" = true
-	"Grab Chickens" = true
-	"Hoe Harvesting" = true
+	Emotes = false
+	"Enhanced Ladders" = false
+	"Glass Shard" = false
+	"Gold Tools Have Fortune" = false
+	"Grab Chickens" = false
+	"Hoe Harvesting" = false
 	"Horses Swim" = true
 	"Improved Sponges" = true
-	"Lock Rotation" = true
-	"Magma Keeps Concrete Powder" = true
-	"Map Washing" = true
-	"More Banner Layers" = true
+	"Lock Rotation" = false
+	"Magma Keeps Concrete Powder" = false
+	"Map Washing" = false
+	"More Banner Layers" = false
 	"More Note Block Sounds" = true
 	"No Durability On Cosmetics" = true
 	"Pat The Dogs" = true
 	"Petals On Water" = true
-	"Pig Litters" = true
-	"Poison Potato Usage" = true
+	"Pig Litters" = false
+	"Poison Potato Usage" = false
 	"Reacharound Placing" = true
 	"Renewable Spore Blossoms" = true
 	"Replace Scaffolding" = true
-	"Safer Creatures" = true
-	"Shulker Packing" = true
-	"Simple Harvest" = true
+	"Safer Creatures" = false
+	"Shulker Packing" = false
+	"Simple Harvest" = false
 	"Slabs To Blocks" = true
-	"Slimes To Magma Cubes" = true
-	"Snow Golem Player Heads" = true
-	"Utility Recipes" = true
+	"Slimes To Magma Cubes" = false
+	"Snow Golem Player Heads" = false
+	"Utility Recipes" = false
 	"Vexes Die With Their Masters" = true
 	"Villagers Follow Emeralds" = true
 	"Zombie Villagers On Normal" = true
@@ -1337,12 +1342,12 @@
 
 [mobs]
 	Crabs = true
-	Forgotten = true
-	Foxhound = true
-	Shiba = true
-	Stonelings = true
-	Toretoise = true
-	Wraith = true
+	Forgotten = false
+	Foxhound = false
+	Shiba = false
+	Stonelings = false
+	Toretoise = false
+	Wraith = false
 
 	[mobs.crabs]
 		"Enable Brewing" = true
@@ -1825,9 +1830,9 @@
 	[oddities.magnets]
 		#Any items you place in this list will be derived so that any block made of it will become magnetizable
 		"Magnetic Derivation List" = ["minecraft:iron_ingot", "minecraft:copper_ingot", "minecraft:exposed_copper", "minecraft:weathered_copper", "minecraft:oxidized_copper", "minecraft:raw_iron", "minecraft:raw_copper", "minecraft:iron_ore", "minecraft:deepslate_iron_ore", "minecraft:copper_ore", "minecraft:deepslate_copper_ore", "quark:gravisand"]
-		#Block IDs to force-allow magnetism on, regardless of their crafting recipe
+		#Block/Item IDs to force-allow magnetism on, regardless of their crafting recipe
 		"Magnetic Whitelist" = ["minecraft:chipped_anvil", "minecraft:damaged_anvil"]
-		#Block IDs to force-disable magnetism on, regardless of their crafting recipe
+		#Block/Item IDs to force-disable magnetism on, regardless of their crafting recipe
 		"Magnetic Blacklist" = ["minecraft:tripwire_hook"]
 		"Use Pre End Recipe" = false
 		#Makes magnet particles use the old green color
@@ -1838,6 +1843,8 @@
 		"Affects Armor" = true
 		#Determines how fast entities are pulled by magnets. Still follows the inverse square law
 		"Entities Pull Force" = 0.15
+		#Stonecutters pulled by magnets will silk touch the blocks they cut.
+		"Stone Cutter Silk Touch" = true
 
 	[oddities.matrix_enchanting]
 		#The maximum enchanting power the matrix enchanter can accept

@@ -1,0 +1,25 @@
+{
+  "priority": 1,
+  "type": "minecraft:endermite",
+  "resistances": {
+    "alchemical_damage": 1.0,
+    "physical_damage": 1.0,
+    "true_damage": 1.0,
+    "arcane_damage": 1.0,
+    "blood_damage": 1.2,
+    "fire_damage": 1.2,
+    "cold_damage": 1.2,
+    "eldritch_damage": 1.0,
+    "end_damage": 1.7,
+    "evocation_damage": 1.0,
+    "holy_damage": 0.5,
+    "lightning_damage": 0.7,
+    "nature_damage": 0.7
+  },
+  "damage": {
+    "end_damage": 1.0
+  },
+  "ignored_sources": [
+    
+  ]
+}
