@@ -6,14 +6,14 @@
     "physical_damage": 1.0,
     "true_damage": 1.0,
     "arcane_damage": 1.6,
-    "blood_damage": 1.0,
-    "cold_damage": 1.2,
-    "eldritch_damage": 0.8,
-    "end_damage": 1.0,
-    "evocation_damage": 1.0,
-    "holy_damage": 1.0,
-    "lightning_damage": 1.0,
-    "nature_damage": 1.0
+    "odysseynexus:blood_damage": 1.0,
+    "odysseynexus:cold_damage": 1.2,
+    "odysseynexus:eldritch_damage": 0.8,
+    "odysseynexus:end_damage": 1.0,
+    "odysseynexus:evocation_damage": 1.0,
+    "odysseynexus:holy_damage": 1.0,
+    "odysseynexus:lightning_damage": 1.0,
+    "odysseynexus:nature_damage": 1.0
   },
   "damage": {
     "physical_damage": 1.0
