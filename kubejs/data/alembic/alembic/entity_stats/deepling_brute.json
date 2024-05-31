@@ -1,0 +1,25 @@
+{
+    "priority": 1,
+    "type": "cataclysm:deepling_brute",
+    "resistances": {
+      "alchemical_damage": 0.9,
+      "physical_damage": 1.0,
+      "true_damage": 1.0,
+      "arcane_damage": 1.0,
+      "odysseynexus:blood_damage": 0.8,
+      "fire_damage": 1.7,
+      "odysseynexus:cold_damage": 1.0,
+      "odysseynexus:eldritch_damage": 1.0,
+      "odysseynexus:end_damage": 1.7,
+      "odysseynexus:evocation_damage": 1.0,
+      "odysseynexus:holy_damage": 0.8,
+      "odysseynexus:lightning_damage": 0.6,
+      "odysseynexus:nature_damage": 1.5
+    },
+    "damage": {
+      "physical_damage": 1.0
+    },
+    "ignored_sources": [
+      
+    ]
+  }
