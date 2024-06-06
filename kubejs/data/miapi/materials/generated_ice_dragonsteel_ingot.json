@@ -1,0 +1,51 @@
+{
+    "key": "generated_item.iceandfire.dragonsteel_ice_ingot",
+    "groups": [
+        "generated_item.iceandfire.dragonsteel_ice_ingot",
+        "metal",
+        "default"
+    ],
+    "mining_speed": 10.0,
+    "hardness": 24.0,
+    "flexibility": 2.5,
+    "mining_level": 4.0,
+    "density": 8.0,
+    "durability": 8000.0,
+    "axe_damage": -14.0,
+    "enchantability": 10.0,
+    "translation": "miapi.material.generated.item.iceandfire.dragonsteel_ice_ingot",
+    "fake_translation": "Ice Dragonsteel ",
+    "icon": {
+        "type": "item",
+        "item": "iceandfire:dragonsteel_ice_ingot"
+    },
+    "color_palette": {
+        "type": "image_generated_item",
+        "item": "iceandfire:dragonsteel_ice_ingot"
+      },
+    "items": [
+        {
+            "item": "iceandfire:dragonsteel_ice_ingot",
+            "value": 1.0
+        },
+        {
+            "ingredient": {
+                "item": "iceandfire:dragonsteel_ice_ingot"
+            },
+            "value": 1.0
+        }
+    ],
+    "properties": {
+        "axe": {
+            "attributes": [
+                {
+                    "attribute": "odysseynexus:ice_damage",
+                    "value": "10",
+                    "operation": "+",
+                    "slot": "mainhand",
+                    "seperateOnItem":true
+                }
+            ]
+        }
+    }
+}

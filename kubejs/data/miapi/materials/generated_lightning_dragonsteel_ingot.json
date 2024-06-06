@@ -20,19 +20,9 @@
         "item": "iceandfire:dragonsteel_lightning_ingot"
     },
     "color_palette": {
-        "type": "grayscale_map",
-        "colors": {
-            "0": "000000ff",
-            "36": "523393ff",
-            "72": "3a1da5ff",
-            "108": "725aa0ff",
-            "144": "503af1ff",
-            "180": "927ed3ff",
-            "216": "d2d1f3ff",
-            "252": "f2eefbff",
-            "255": "f3f3fdff"
-        }
-    },
+        "type": "image_generated_item",
+        "item": "iceandfire:dragonsteel_lightning_ingot"
+      },
     "items": [
         {
             "item": "iceandfire:dragonsteel_lightning_ingot",

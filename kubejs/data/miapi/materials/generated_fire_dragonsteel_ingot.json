@@ -20,19 +20,9 @@
         "item": "iceandfire:dragonsteel_fire_ingot"
     },
     "color_palette": {
-        "type": "grayscale_map",
-        "colors": {
-            "0": "000000ff",
-            "36": "4d0517ff",
-            "72": "41273bff",
-            "108": "41394cff",
-            "144": "6d5b6aff",
-            "180": "996e7aff",
-            "216": "8f7881ff",
-            "252": "dbe0e2ff",
-            "255": "e2ebecff"
-        }
-    },
+        "type": "image_generated_item",
+        "item": "iceandfire:dragonsteel_fire_ingot"
+      },
     "items": [
         {
             "item": "iceandfire:dragonsteel_fire_ingot",

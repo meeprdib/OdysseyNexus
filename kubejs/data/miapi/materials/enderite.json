@@ -16,20 +16,9 @@
     "mining_speed": 9,
     "mining_level": 5,
     "color_palette": {
-        "type": "grayscale_map",
-        "colors": {
-            "0": "000000",
-            "36": "181818",
-            "72": "444444",
-            "108": "3a0044",
-            "144": "842d93",
-            "180": "842d93",
-            "216": "e457fc",
-            "252": "e457fc",
-            "255": "e457fc"
-        },
-        "filler": "interpolate"
-    },
+        "type": "image_generated_item",
+        "item": "cataclysm:enderite_ingot"
+      },
     "items": [
         {
             "item": "cataclysm:enderite_ingot",

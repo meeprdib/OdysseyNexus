@@ -18,11 +18,18 @@ ServerEvents.tags('item', event => {
     event.add('forge:ores/redstone', ['spelunkery:andesite_redstone_ore', 'spelunkery:diorite_redstone_ore', 'spelunkery:tuff_redstone_ore', 'spelunkery:granite_redstone_ore', 'spelunkery:calcite_redstone_ore'])
     event.add('forge:ores/zinc', ['spelunkery:andesite_zinc_ore', 'spelunkery:diorite_zinc_ore', 'spelunkery:granite_zinc_ore'])
     event.add('forge:plates/industrial_iron', 'createdeco:industrial_iron_sheet')
-    event.add('forge:salt', 'spelunkery:salt')
+    event.add('forge:nuggets/industrial_iron', 'createdeco:industrial_iron_nugget')
 
     event.add('on:cubable_raw_dragon_meat', 'ends_delight:raw_dragon_meat', 'iceandfire:ice_dragon_flesh', 'iceandfire:fire_dragon_flesh', 'iceandfire:lightning_dragon_flesh')
     event.add('on:raw_dragon_meat', 'ends_delight:raw_dragon_meat', 'ends_delight:raw_dragon_meat_cuts', 'ends_delight:dragon_leg', 'iceandfire:ice_dragon_flesh', 'iceandfire:fire_dragon_flesh', 'iceandfire:lightning_dragon_flesh')
 
     event.add('aether:treated_as_aether_item', '#forge:tools')
     event.add('aether:AetherItemTagData', '#forge:tools')
+
+    event.add('on:cake_base', 'ratatouille:cake_base', 'createaddition:cake_base')
+    event.add('c:salt_dust', 'vintagedelight:salt_dust', 'ratatouille:salt', 'vintagedelight:salt')
+    event.add('on:salt_bucket', 'spelunkery:salt_bucket', 'vintagedelight:salt_bucket')
+    event.add('forge:storage_blocks/apple', 'fruitsdelight:apple_crate')
+    event.add('forge:storage_blocks/carrot', 'farmersdelight:carrot_crate')
+    event.add('forge:storage_blocks/beetroot', 'farmersdelight:beetroot_crate')
 })

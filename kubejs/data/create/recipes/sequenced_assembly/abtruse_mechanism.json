@@ -1,0 +1,65 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_dd:shadow_steel_sheet"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item": "create_dd:abstruse_mechanism"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_dd:incomplete_abstruse_mechanism"
+        },
+        {
+          "item": "createutilities:graviton_tube"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_dd:incomplete_abstruse_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_dd:incomplete_abstruse_mechanism"
+        },
+        {
+          "item": "kubejs:polished_fluix"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_dd:incomplete_abstruse_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_dd:incomplete_abstruse_mechanism"
+        },
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_dd:incomplete_abstruse_mechanism"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create_dd:incomplete_abstruse_mechanism"
+  }
+}

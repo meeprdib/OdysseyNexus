@@ -3,7 +3,7 @@
 	#The purpose of the damage module is to remove the invulnerability ticks after an entity is damaged to better suit gameplay where entities are going to be ignoring too much damage if left unchecked. Disabling will nullify every feature listed under this module.
 	damageModuleEnabled = true
 	#Some entities or damage sources rely on damage ticks to time their attacks. In these cases, we want to let them initiate i-frames.
-	#entityBlacklist default: ["minecraft:slime","minecraft:ender_dragon","minecraft:magma_cube","irons_spellbooks:wall_of_fire","irons_spellbooks:void_tentacle"]
+	#entityBlacklist default: ["minecraft:slime","minecraft:ender_dragon","minecraft:magma_cube","irons_spellbooks:wall_of_fire","irons_spellbooks:void_tentacle", "galosphere:pink_salt_pillar", "iceandfire:lightning_dragon", "iceandfire:ice_dragon", "iceandfire:fire_dragon"]
 	entityBlacklist = ["minecraft:slime", "minecraft:ender_dragon", "minecraft:magma_cube", "irons_spellbooks:wall_of_fire"]
 	#damagesourceBlacklist default: ["lava","inFire","cactus","inWall","hotFloor","lightningBolt","sweetBerryBush","outOfWorld","drown"]
 	damagesourceBlacklist = ["lava", "inFire", "cactus", "inWall", "hotFloor", "lightningBolt", "sweetBerryBush", "outOfWorld", "drown"]
@@ -11,11 +11,11 @@
 	invulnerabilityTickCount = 0
 	#Specialized handling for player damage ticks. "ALL" means there is no special handling, "ONLY_LIVING" means only living attacks ignore player i-frames (may help with unforeseen damage like potions), and "NONE" means player's damage ticks are unaffected by the damage module.
 	#Allowed Values: ALL, ONLY_LIVING, NONE
-	playerDamageMode = "ALL"
+	playerDamageMode = "ONLY_LIVING"
 	#In order to prevent spam attacks, a minimum threshold of attack strength can be set before an attack can deal damage. Default: 0.75
 	minimumAttackStrength = 0.75
 	#Whether or not a player is allowed to even swing if the threshold is not met. Default: true
-	allowNonFullStrengthAttacks = true
+	allowNonFullStrengthAttacks = false
 	#Global multiplier to all knockback. Default: 1.0
 	globalKnockbackMultiplier = 1.0
 

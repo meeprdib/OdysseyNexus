@@ -3,14 +3,20 @@
     "minecraft",
     "kubejs",
     "crafttweaker",
+    "ends_delight",
     "create",
+    "galosphere",
     "create_dd",
     "createdeco",
     "farmersdelight",
     "qualitycrops",
     "spelunkery",
     "vintagedelight",
-    "alexscaves"
+    "alexscaves",
+    "iceandfire",
+    "createaddition",
+    "ratatoullie",
+    "quark"
   ],
   "stoneStrata": [
     "stone",
@@ -33,7 +39,10 @@
     "forge:wires/{material}",
     "forge:storage_blocks/{material}",
     "forge:storage_blocks/raw_{material}",
-    "forge:dough"
+    "forge:dough",
+    "on:cake_base",
+    "c:salt_dust",
+    "on:salt_bucket"
   ],
   "materials": [
     "aeternium",
