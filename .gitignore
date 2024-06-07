@@ -41,3 +41,5 @@ servers.dat
 /config/blockswap
 /config/blockswap
 /logs
+logs/kubejs/server.log
+*.log
