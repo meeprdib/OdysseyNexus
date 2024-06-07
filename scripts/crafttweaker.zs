@@ -119,12 +119,12 @@ blastFurnace.removeByName("spelunkery:copper_ore_blasting");
 <recipetype:create:crushing>.addRecipe("crushed_silver_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_silver> * 3], <tag:items:forge:ores/silver>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_zinc> * 3], <tag:items:forge:ores/zinc>, 200);
 
-<recipetype:create:crushing>.addRecipe("crushed_copper_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_copper> * 18], <item:minecraft:raw_copper_block>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_iron_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_iron> * 18], <item:minecraft:raw_iron_block>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_magnetite_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_iron> * 27], <item:spelunkery:raw_magnetite_block>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_gold_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_gold> * 18], <item:minecraft:raw_gold_block>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_silver_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_silver> * 18], <item:galosphere:raw_silver_block>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_zinc_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_zinc> * 18], <item:create:raw_zinc_block>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_copper_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_copper> * 18], <item:minecraft:raw_copper_block>, 1800);
+<recipetype:create:crushing>.addRecipe("crushed_iron_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_iron> * 18], <item:minecraft:raw_iron_block>, 1800);
+<recipetype:create:crushing>.addRecipe("crushed_magnetite_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_iron> * 27], <item:spelunkery:raw_magnetite_block>, 1800);
+<recipetype:create:crushing>.addRecipe("crushed_gold_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_gold> * 18], <item:minecraft:raw_gold_block>, 1800);
+<recipetype:create:crushing>.addRecipe("crushed_silver_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_silver> * 18], <item:galosphere:raw_silver_block>, 1800);
+<recipetype:create:crushing>.addRecipe("crushed_zinc_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_zinc> * 18], <item:create:raw_zinc_block>, 1800);
 
 <recipetype:create:crushing>.addRecipe("crushed_copper_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_copper> * 2], <item:minecraft:raw_copper>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_iron_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_iron> * 2], <item:minecraft:raw_iron>, 200);
