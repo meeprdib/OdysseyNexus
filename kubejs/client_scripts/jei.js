@@ -123,6 +123,10 @@ JEIEvents.hideItems(event => {
     'sophisticatedbackpacks:auto_smoking_upgrade',
     'create:refined_radiance_casing',
     'create:shadow_steel_casing',
+    'iceandfire:armor_silver_metal_helmet',
+    'iceandfire:armor_silver_metal_chestplate',
+    'iceandfire:armor_silver_metal_leggings',
+    'iceandfire:armor_silver_metal_boots',
     ['create_dd:hot_chocolate', 'create_dd:tin_ingot', 'create_dd:raw_tin', 'create_dd:tin_sheet', 'create_dd:compound_base', 'create_dd:caramel_milkshake', 'create_dd:glowberry_milkshake', 'create_dd:shimmer_bucket', 'create_dd:diamond_shard', 'create_dd:chocolate_milkshake_bucket', 'create_dd:hot_chocolate_bucket', 'create_dd:furnace_engine', 'create_dd:flywheel', 'create_dd:radiant_drill', 'create_dd:infaobsidian', 'create_dd:coal_piece','create_dd:forest_ravager', 'create_dd:deforester_saw', 'create_dd:chocolate_milkshake', 'create_dd:strawberry_milkshake', 'create_dd:condense_milk_bucket', 'create_dd:cream_bucket', 'create_dd:strawberry_bucket', 'create_dd:vanilla_milkshake', 'create_dd:vanilla_bucket', 'create_dd:strawberry_milkshake_bucket', 'create_dd:vanilla_milkshake_bucket']
     ])
 })

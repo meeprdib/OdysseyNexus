@@ -142,6 +142,10 @@ ServerEvents.recipes(event => {
             'vintagedelight:cheese_burger',
             'vintagedelight:deluxe_burger',
             'vintagedelight:salt_bucket',
+            'iceandfire:armor_silver_metal_helmet',
+            'iceandfire:armor_silver_metal_chestplate',
+            'iceandfire:armor_silver_metal_leggings',
+            'iceandfire:armor_silver_metal_boots',
         ]
     })
 })

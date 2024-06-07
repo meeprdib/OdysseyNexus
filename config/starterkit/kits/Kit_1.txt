@@ -1,5 +1,5 @@
 'head' : '',
-'chest' : '{Count:1b,id:"sophisticatedbackpacks:backpack",tag:{contentsUuid:[I;1814973057,-1567339708,-1480460809,1662135637],inventorySlots:27,renderInfo:{upgradeItems:[{Count:1b,id:"minecraft:air",tag:{}}]},upgradeSlots:1}}',
+'chest' : '',
 'legs' : '',
 'feet' : '',
 'offhand' : '',

@@ -1,122 +1,1233 @@
-[21:49:41.261][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
-[21:49:41.341][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[21:49:41.642][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
-[21:49:41.646][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
-[21:49:41.650][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
-[21:49:41.653][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
-[21:49:45.976][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
-[21:49:45.981][INFO][CraftTweaker]: - 'aether' at version '1.20.1-1.4.2-neoforge'
-[21:49:45.981][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.40'
-[21:49:45.981][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
-[21:49:45.981][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
-[21:49:45.981][INFO][CraftTweaker]: - 'gateways' at version '4.2.4'
-[21:50:03.415][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[21:50:04.786][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[21:50:04.940][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[21:50:05.268][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[21:52:23.669][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[21:52:23.689][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[21:52:23.724][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[21:52:23.732][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[21:52:28.032][INFO][CraftTweaker]: CraftTweaker reload starting!
-[21:52:28.042][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[21:52:28.062][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[21:52:28.530][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
-[21:52:28.530][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
-[21:52:28.601][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
-[21:52:28.612][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
-[21:52:28.622][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
-[21:52:28.623][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
-[21:52:28.623][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
-[21:52:28.635][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
-[21:52:28.635][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
-[21:52:28.645][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
-[21:52:28.657][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
-[21:52:28.658][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
-[21:52:28.658][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
-[21:52:28.659][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
-[21:52:28.659][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
-[21:52:28.659][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
-[21:52:28.668][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
-[21:52:28.669][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
-[21:52:28.671][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
-[21:52:28.672][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
-[21:52:28.678][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
-[21:52:28.684][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
-[21:52:28.687][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
-[21:52:28.687][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
-[21:52:28.694][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
-[21:52:28.694][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
-[21:52:28.694][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
-[21:52:28.694][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
-[21:52:28.695][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
-[21:52:28.695][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
-[21:52:28.697][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
-[21:52:28.706][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
-[21:52:28.706][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
-[21:52:28.707][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
-[21:52:28.707][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
-[21:52:28.708][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
-[21:52:28.708][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
-[21:52:28.708][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[21:52:28.714][INFO][CraftTweaker]: CraftTweaker reload complete!
-[21:52:28.714][INFO][CraftTweaker]: This reload was made possible by embeddedt and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
-[22:16:50.711][INFO][CraftTweaker-Commands]: Item: <item:galosphere:pink_salt_shard>
-[22:18:09.518][INFO][CraftTweaker-Commands]: Item: <item:spelunkery:salt>
-[22:18:09.519][INFO][CraftTweaker-Commands]: Block: <block:spelunkery:salt>
-[22:18:09.519][INFO][CraftTweaker-Commands]: BlockState: <blockstate:spelunkery:salt:east=none,south=none,north=none,west=none>
-[22:18:09.519][INFO][CraftTweaker-Commands]: Item Tag Entries
-[22:18:09.520][INFO][CraftTweaker-Commands]:     -  <tag:items:c:salt_dust>
-[22:18:09.520][INFO][CraftTweaker-Commands]:     -  <tag:items:c:salt>
-[22:18:09.520][INFO][CraftTweaker-Commands]:     -  <tag:items:c:salts>
-[22:18:09.521][INFO][CraftTweaker-Commands]: Block Tag Entries
-[22:18:09.521][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:salt_blocks>
-[22:18:46.410][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[22:18:46.410][INFO][CraftTweaker-ZenCode]: Undoing previous actions
-[22:18:46.460][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[22:18:46.470][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[22:18:46.490][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[22:18:50.370][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[22:18:50.370][INFO][CraftTweaker-ZenCode]: Undoing previous actions
-[22:18:50.373][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
-[22:18:50.398][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[22:18:50.689][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
-[22:18:50.689][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
-[22:18:50.718][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
-[22:18:50.724][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
-[22:18:50.725][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
-[22:18:50.725][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
-[22:18:50.725][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
-[22:18:50.731][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
-[22:18:50.731][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
-[22:18:50.738][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
-[22:18:50.739][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
-[22:18:50.739][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
-[22:18:50.739][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
-[22:18:50.739][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
-[22:18:50.740][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
-[22:18:50.740][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
-[22:18:50.740][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
-[22:18:50.740][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
-[22:18:50.740][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
-[22:18:50.741][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
-[22:18:50.746][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
-[22:18:50.752][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
-[22:18:50.754][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
-[22:18:50.754][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
-[22:18:50.755][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
-[22:18:50.756][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
-[22:18:50.756][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
-[22:18:50.756][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
-[22:18:50.756][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
-[22:18:50.756][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
-[22:18:50.756][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
-[22:18:50.758][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
-[22:18:50.759][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
-[22:18:50.759][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
-[22:18:50.759][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
-[22:18:50.760][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
-[22:18:50.760][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
-[22:18:50.762][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
-[22:18:50.762][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[22:18:50.763][INFO][CraftTweaker]: This reload was made possible by Peregrinus11 and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:29:11.719][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
+[15:29:11.804][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[15:29:12.089][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
+[15:29:12.093][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
+[15:29:12.096][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
+[15:29:12.100][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
+[15:29:15.748][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
+[15:29:15.752][INFO][CraftTweaker]: - 'aether' at version '1.20.1-1.4.2-neoforge'
+[15:29:15.752][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.40'
+[15:29:15.752][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
+[15:29:15.752][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
+[15:29:15.752][INFO][CraftTweaker]: - 'gateways' at version '4.2.4'
+[15:29:32.569][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[15:29:33.566][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:29:33.720][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:29:33.990][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[15:30:16.244][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:30:16.270][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:30:16.300][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:30:16.311][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:30:20.469][INFO][CraftTweaker]: CraftTweaker reload starting!
+[15:30:20.477][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:30:20.491][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:30:20.869][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:30:20.870][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:30:20.908][ERROR][CraftTweaker-ZenCode]: crafttweaker.zs:111:0: crafttweaker.zs:111:0: No compatible methods found!
+[15:30:20.908][ERROR][CraftTweaker]: Scripts are invalid!
+[15:30:20.909][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:30:20.911][INFO][CraftTweaker]: CraftTweaker reload complete!
+[15:30:20.911][INFO][CraftTweaker]: This reload was made possible by Pongo Sapiens and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:35:45.900][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:35:45.900][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:35:45.932][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:35:45.936][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:35:45.950][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:35:49.685][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:35:49.685][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:35:49.697][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:35:49.771][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:35:49.771][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:35:49.787][ERROR][CraftTweaker-ZenCode]: crafttweaker.zs:111:0: crafttweaker.zs:111:0: No compatible methods found!
+[15:35:49.787][ERROR][CraftTweaker]: Scripts are invalid!
+[15:35:49.788][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:35:49.788][INFO][CraftTweaker]: This reload was made possible by DreamThorn and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:39:00.218][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:39:00.218][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:39:00.238][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:39:00.242][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:39:00.251][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:39:02.693][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:39:02.693][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:39:02.709][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:39:02.816][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:39:02.816][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:39:02.820][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:111:0: Unknown RecipeType: <recipetype:create:crusher>
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.api.bracket.custom.RecipeTypeBracketHandler.parse(RecipeTypeBracketHandler.java:196)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:299)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:81)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:215)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:158)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zencode.java.ScriptingEngine.createScriptedModule(ScriptingEngine.java:125)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:85)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.m_5787_(ScriptReloadListener.java:38)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimplePreparableReloadListener.m_10789_(SimplePreparableReloadListener.java:13)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.TickTask.run(TickTask.java:18)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:770)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:161)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_129961_(MinecraftServer.java:753)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_7245_(MinecraftServer.java:747)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_129861_(MinecraftServer.java:1345)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.commands.ReloadCommand.m_138235_(ReloadCommand.java:22)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.commands.ReloadCommand.m_287964_(ReloadCommand.java:53)
+	at MC-BOOTSTRAP/brigadier@1.1.8/com.mojang.brigadier.CommandDispatcher.execute(CommandDispatcher.java:264)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.commands.Commands.m_242674_(Commands.java:257)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.network.ServerGamePacketListenerImpl.m_246958_(ServerGamePacketListenerImpl.java:1246)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.network.ServerGamePacketListenerImpl.m_244885_(ServerGamePacketListenerImpl.java:1223)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18693_(BlockableEventLoop.java:67)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.TickTask.run(TickTask.java:18)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:770)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:161)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_129961_(MinecraftServer.java:753)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_7245_(MinecraftServer.java:747)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_130012_(MinecraftServer.java:733)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_130011_(MinecraftServer.java:665)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_206580_(MinecraftServer.java:251)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[15:39:02.821][ERROR][CraftTweaker]: Scripts are invalid!
+[15:39:02.821][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:39:02.821][INFO][CraftTweaker]: This reload was made possible by NickT and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:39:46.270][INFO][CraftTweaker-Commands]: Item: <item:create:crushed_raw_copper>
+[15:39:46.272][INFO][CraftTweaker-Commands]: Item Tag Entries
+[15:39:46.273][INFO][CraftTweaker-Commands]:     -  <tag:items:create:crushed_raw_materials>
+[15:39:54.788][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:39:54.788][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:39:54.804][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:39:54.808][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:39:54.824][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:39:57.433][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:39:57.433][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:39:57.446][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:39:57.596][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:39:57.596][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:39:57.598][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+org.openzen.zenscript.lexer.ParseException: crafttweaker.zs:111:0: Unknown RecipeType: <recipetype:create:crusher>
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.api.bracket.custom.RecipeTypeBracketHandler.parse(RecipeTypeBracketHandler.java:196)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.runner.IgnorePrefixCasingBracketParser.parse(IgnorePrefixCasingBracketParser.java:37)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readPrimaryExpression(ParsedExpression.java:562)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readPostfixExpression(ParsedExpression.java:364)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readUnaryExpression(ParsedExpression.java:359)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readMulExpression(ParsedExpression.java:288)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAddExpression(ParsedExpression.java:258)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readShiftExpression(ParsedExpression.java:237)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readCompareExpression(ParsedExpression.java:166)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAndExpression(ParsedExpression.java:156)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readXorExpression(ParsedExpression.java:146)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readOrExpression(ParsedExpression.java:136)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAndAndExpression(ParsedExpression.java:126)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readOrOrExpression(ParsedExpression.java:110)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readConditionalExpression(ParsedExpression.java:97)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.readAssignExpression(ParsedExpression.java:49)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.expression.ParsedExpression.parse(ParsedExpression.java:40)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:299)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.statements.ParsedStatement.parse(ParsedStatement.java:81)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:215)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zenscript.parser.ParsedFile.parse(ParsedFile.java:158)
+	at TRANSFORMER/crafttweaker@14.0.40/org.openzen.zencode.java.ScriptingEngine.createScriptedModule(ScriptingEngine.java:125)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:85)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
+	at TRANSFORMER/crafttweaker@14.0.40/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.m_5787_(ScriptReloadListener.java:38)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimplePreparableReloadListener.m_10789_(SimplePreparableReloadListener.java:13)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.TickTask.run(TickTask.java:18)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:770)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:161)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_129961_(MinecraftServer.java:753)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_7245_(MinecraftServer.java:747)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_129861_(MinecraftServer.java:1345)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.commands.ReloadCommand.m_138235_(ReloadCommand.java:22)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.commands.ReloadCommand.m_287964_(ReloadCommand.java:53)
+	at MC-BOOTSTRAP/brigadier@1.1.8/com.mojang.brigadier.CommandDispatcher.execute(CommandDispatcher.java:264)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.commands.Commands.m_242674_(Commands.java:257)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.network.ServerGamePacketListenerImpl.m_246958_(ServerGamePacketListenerImpl.java:1246)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.network.ServerGamePacketListenerImpl.m_244885_(ServerGamePacketListenerImpl.java:1223)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18693_(BlockableEventLoop.java:67)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.TickTask.run(TickTask.java:18)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:770)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_6367_(MinecraftServer.java:161)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_129961_(MinecraftServer.java:753)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_7245_(MinecraftServer.java:747)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.util.thread.BlockableEventLoop.m_18701_(BlockableEventLoop.java:139)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_130012_(MinecraftServer.java:733)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_130011_(MinecraftServer.java:665)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.m_206580_(MinecraftServer.java:251)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[15:39:57.600][ERROR][CraftTweaker]: Scripts are invalid!
+[15:39:57.600][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:39:57.601][INFO][CraftTweaker]: This reload was made possible by Pongo Sapiens and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:46:01.827][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:46:01.827][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:46:01.840][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:46:01.850][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:46:01.859][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:46:05.001][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:46:05.001][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:46:05.012][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:46:05.149][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:46:05.149][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:46:05.226][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[15:46:05.244][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:46:05.262][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[15:46:05.263][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[15:46:05.263][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[15:46:05.273][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[15:46:05.273][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[15:46:05.281][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[15:46:05.378][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[15:46:05.379][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[15:46:05.381][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[15:46:05.384][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[15:46:05.384][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[15:46:05.385][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[15:46:05.396][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:46:05.397][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[15:46:05.399][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[15:46:05.399][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[15:46:05.405][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[15:46:05.410][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[15:46:05.411][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[15:46:05.411][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[15:46:05.417][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[15:46:05.417][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[15:46:05.417][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[15:46:05.417][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:46:05.418][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[15:46:05.418][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[15:46:05.426][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[15:46:05.434][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[15:46:05.434][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[15:46:05.434][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[15:46:05.435][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[15:46:05.435][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[15:46:05.435][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[15:46:05.436][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[15:46:05.436][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[15:46:05.437][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[15:46:05.437][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[15:46:05.437][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:46:05.437][INFO][CraftTweaker]: This reload was made possible by Ncc1702 and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:52:24.602][INFO][CraftTweaker-Commands]: Item: <item:minecraft:copper_ore>
+[15:52:24.604][INFO][CraftTweaker-Commands]: Block: <block:minecraft:copper_ore>
+[15:52:24.605][INFO][CraftTweaker-Commands]: BlockState: <blockstate:minecraft:copper_ore>
+[15:52:24.605][INFO][CraftTweaker-Commands]: Item Tag Entries
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:balm:ores>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ores/copper>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ore_rates/dense>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ores>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:minecraft:copper_ores>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:spelunkery:copper_ores>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:apotheosis:boon_drops>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ores_in_ground/stone>
+[15:52:24.605][INFO][CraftTweaker-Commands]: Block Tag Entries
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:iceandfire:dragon_cave_common_ores>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ore_rates/dense>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ores>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:incontrol:cave_block>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ores/copper>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:overworld_carver_replaceables>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:primordial_caves_base_blocks>
+[15:52:24.605][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_stone_tool>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ores_in_ground/stone>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:snaps_goat_horn>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:copper_ores>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:water_carver_replaceables>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:regions_unexplored:stone_plant_can_survive_on>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:endermanoverhaul:cave_enderman_holdable>
+[15:52:24.606][INFO][CraftTweaker-Commands]:     -  <tag:blocks:galosphere:oasis_replace>
+[15:53:30.149][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:53:30.149][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:53:30.164][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:53:30.167][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:53:30.180][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:53:33.026][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:53:33.026][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:53:33.027][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:53:33.043][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:53:33.166][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:53:33.166][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:53:33.206][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[15:53:33.212][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:53:33.214][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[15:53:33.215][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[15:53:33.215][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[15:53:33.222][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[15:53:33.222][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[15:53:33.230][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[15:53:33.231][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[15:53:33.231][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[15:53:33.231][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[15:53:33.232][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[15:53:33.232][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[15:53:33.232][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[15:53:33.232][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:53:33.233][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[15:53:33.233][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[15:53:33.234][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[15:53:33.241][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[15:53:33.247][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[15:53:33.250][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[15:53:33.251][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[15:53:33.252][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[15:53:33.252][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[15:53:33.252][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[15:53:33.252][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:53:33.253][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[15:53:33.253][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[15:53:33.253][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[15:53:33.255][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[15:53:33.255][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[15:53:33.256][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[15:53:33.256][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[15:53:33.257][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[15:53:33.258][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[15:53:33.258][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[15:53:33.258][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[15:53:33.258][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[15:53:33.258][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[15:53:33.258][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[15:53:33.258][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[15:53:33.258][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[15:53:33.260][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[15:53:33.260][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[15:53:33.260][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:53:33.260][INFO][CraftTweaker]: This reload was made possible by Ncc1702 and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:53:43.726][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:53:43.726][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:53:43.742][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:53:43.745][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:53:43.754][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:53:46.724][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:53:46.724][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:53:46.724][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:53:46.744][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:53:46.913][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:53:46.913][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:53:46.940][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[15:53:46.947][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:53:46.947][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[15:53:46.949][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[15:53:46.949][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[15:53:46.954][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[15:53:46.954][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[15:53:46.960][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[15:53:46.960][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[15:53:46.961][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[15:53:46.961][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[15:53:46.962][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[15:53:46.962][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[15:53:46.962][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[15:53:46.962][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:53:46.962][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[15:53:46.963][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[15:53:46.963][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[15:53:46.970][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[15:53:46.976][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[15:53:46.978][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[15:53:46.978][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[15:53:46.979][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[15:53:46.979][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[15:53:46.979][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[15:53:46.980][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:53:46.980][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[15:53:46.981][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[15:53:46.981][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[15:53:46.983][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[15:53:46.983][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[15:53:46.984][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[15:53:46.984][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[15:53:46.985][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[15:53:46.985][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[15:53:46.986][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[15:53:46.986][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[15:53:46.986][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:53:46.987][INFO][CraftTweaker]: This reload was made possible by Spencer Gilbert and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:54:08.952][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:54:08.952][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:54:08.962][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:54:08.964][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:54:08.969][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:54:11.835][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:54:11.835][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:54:11.835][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:54:11.848][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:54:11.970][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:54:11.971][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:54:11.988][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[15:54:11.994][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:54:11.995][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[15:54:11.995][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[15:54:11.995][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[15:54:12.002][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[15:54:12.002][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[15:54:12.007][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[15:54:12.007][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[15:54:12.007][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[15:54:12.007][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[15:54:12.007][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[15:54:12.007][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[15:54:12.007][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[15:54:12.008][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:54:12.008][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[15:54:12.008][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[15:54:12.008][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[15:54:12.011][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[15:54:12.016][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[15:54:12.018][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[15:54:12.019][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[15:54:12.020][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[15:54:12.020][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[15:54:12.020][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[15:54:12.020][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:54:12.020][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[15:54:12.021][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[15:54:12.021][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[15:54:12.022][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[15:54:12.022][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[15:54:12.022][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[15:54:12.024][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[15:54:12.024][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[15:54:12.025][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[15:54:12.025][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[15:54:12.025][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[15:54:12.025][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[15:54:12.025][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[15:54:12.025][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[15:54:12.026][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[15:54:12.026][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[15:54:12.026][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[15:54:12.026][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[15:54:12.026][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:54:12.026][INFO][CraftTweaker]: This reload was made possible by Zuniroa and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:57:05.848][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:57:05.848][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:57:05.861][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:57:05.864][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:57:05.873][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:57:08.795][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:57:08.796][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:57:08.796][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:57:08.806][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:57:08.914][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:57:08.914][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:57:08.936][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[15:57:08.941][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:57:08.942][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[15:57:08.942][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[15:57:08.942][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[15:57:08.946][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[15:57:08.946][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[15:57:08.951][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[15:57:08.951][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[15:57:08.951][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[15:57:08.952][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[15:57:08.952][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[15:57:08.952][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[15:57:08.952][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[15:57:08.953][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:57:08.953][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[15:57:08.953][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[15:57:08.953][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[15:57:08.959][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[15:57:08.962][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[15:57:08.964][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[15:57:08.964][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[15:57:08.965][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[15:57:08.965][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[15:57:08.965][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[15:57:08.965][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:57:08.965][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[15:57:08.965][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[15:57:08.965][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[15:57:08.966][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[15:57:08.966][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[15:57:08.967][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[15:57:08.967][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[15:57:08.967][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[15:57:08.967][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[15:57:08.967][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[15:57:08.967][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[15:57:08.968][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[15:57:08.969][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:57:08.969][INFO][CraftTweaker]: This reload was made possible by Jonathan McManus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:57:52.025][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:57:52.025][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:57:52.037][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:57:52.040][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:57:52.048][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:57:54.920][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:57:54.920][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:57:54.921][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:57:54.936][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:57:55.049][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:57:55.049][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:57:55.085][ERROR][CraftTweaker-ZenCode]: crafttweaker.zs:110:0: crafttweaker.zs:110:0: No matching method found for removeByInput:
+Parameter 0: cannot cast KnownTag<ItemDefinition> to IItemStack
+
+[15:57:55.086][ERROR][CraftTweaker]: Scripts are invalid!
+[15:57:55.086][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:57:55.086][INFO][CraftTweaker]: This reload was made possible by Ivy_ and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[15:58:18.862][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[15:58:18.862][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:58:18.874][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:58:18.876][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[15:58:18.883][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[15:58:21.416][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[15:58:21.416][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[15:58:21.424][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[15:58:21.525][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[15:58:21.525][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[15:58:21.544][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[15:58:21.547][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:58:21.548][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[15:58:21.548][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[15:58:21.548][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[15:58:21.550][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[15:58:21.550][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[15:58:21.553][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[15:58:21.555][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[15:58:21.556][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[15:58:21.557][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[15:58:21.557][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[15:58:21.559][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[15:58:21.559][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[15:58:21.559][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[15:58:21.559][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[15:58:21.560][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[15:58:21.560][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[15:58:21.565][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[15:58:21.567][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[15:58:21.569][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[15:58:21.569][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[15:58:21.571][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[15:58:21.571][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[15:58:21.571][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[15:58:21.571][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[15:58:21.572][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[15:58:21.574][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[15:58:21.574][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[15:58:21.579][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[15:58:21.580][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[15:58:21.581][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[15:58:21.582][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[15:58:21.582][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[15:58:21.583][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[15:58:21.583][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[15:58:21.583][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[15:58:21.583][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[15:58:21.584][INFO][CraftTweaker]: This reload was made possible by Ivy_ and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:00:04.391][INFO][CraftTweaker-Commands]: Item: <item:create:experience_nugget>
+[16:00:04.392][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:00:04.392][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:nuggets>
+[16:00:04.392][INFO][CraftTweaker-Commands]:     -  <tag:items:balm:nuggets>
+[16:00:32.436][INFO][CraftTweaker-Commands]: Item: <item:minecraft:copper_ore>
+[16:00:32.436][INFO][CraftTweaker-Commands]: Block: <block:minecraft:copper_ore>
+[16:00:32.436][INFO][CraftTweaker-Commands]: BlockState: <blockstate:minecraft:copper_ore>
+[16:00:32.436][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:balm:ores>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ores/copper>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ore_rates/dense>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ores>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:minecraft:copper_ores>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:spelunkery:copper_ores>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:apotheosis:boon_drops>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:ores_in_ground/stone>
+[16:00:32.436][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:blocks:iceandfire:dragon_cave_common_ores>
+[16:00:32.436][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ore_rates/dense>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ores>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:incontrol:cave_block>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ores/copper>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:overworld_carver_replaceables>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:primordial_caves_base_blocks>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_stone_tool>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:ores_in_ground/stone>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:snaps_goat_horn>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:copper_ores>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:water_carver_replaceables>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:regions_unexplored:stone_plant_can_survive_on>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:endermanoverhaul:cave_enderman_holdable>
+[16:00:32.437][INFO][CraftTweaker-Commands]:     -  <tag:blocks:galosphere:oasis_replace>
+[16:01:44.433][INFO][CraftTweaker-Commands]: Item: <item:create:crushed_raw_copper>
+[16:01:44.433][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:01:44.433][INFO][CraftTweaker-Commands]:     -  <tag:items:create:crushed_raw_materials>
+[16:01:54.828][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:01:54.828][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:01:54.839][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:01:54.840][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:01:54.845][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:01:57.230][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:01:57.231][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:01:57.231][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:01:57.246][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:01:57.341][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:01:57.341][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:01:57.360][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:01:57.363][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:01:57.364][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:01:57.365][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:01:57.365][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:01:57.369][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:01:57.369][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:01:57.374][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:01:57.374][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:01:57.374][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:01:57.375][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:01:57.375][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:01:57.375][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:01:57.375][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:01:57.376][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:01:57.376][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:01:57.376][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:01:57.376][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:01:57.380][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:01:57.385][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:01:57.386][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:01:57.387][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:01:57.388][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:01:57.388][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:01:57.388][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:01:57.388][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:01:57.389][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:01:57.389][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:01:57.389][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:01:57.393][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:01:57.395][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:01:57.396][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:01:57.397][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:01:57.397][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:01:57.400][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:01:57.400][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:01:57.401][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[16:01:57.402][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper' that outputs: '<item:create:experience_nugget>'
+[16:01:57.402][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:01:57.402][INFO][CraftTweaker]: This reload was made possible by Lucas and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:05:23.566][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:05:23.566][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:05:23.577][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:05:23.579][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:05:23.585][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:05:26.075][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:05:26.075][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:05:26.076][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:05:26.087][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:05:26.175][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:05:26.175][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:05:26.199][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:05:26.202][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:05:26.205][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:05:26.207][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:05:26.207][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:05:26.211][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:05:26.211][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:05:26.217][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:05:26.218][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:05:26.219][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:05:26.220][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:05:26.221][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:05:26.222][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:05:26.222][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:05:26.222][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:05:26.222][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:05:26.223][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:05:26.223][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:05:26.227][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:05:26.231][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:05:26.233][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:05:26.234][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:05:26.235][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:05:26.235][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:05:26.235][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:05:26.235][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:05:26.236][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:05:26.236][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:05:26.236][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:05:26.237][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:05:26.238][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:05:26.238][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:05:26.238][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:05:26.238][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:05:26.238][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:05:26.239][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_gold>'
+[16:05:26.239][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_iron>'
+[16:05:26.240][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_silver>'
+[16:05:26.240][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_zinc>'
+[16:05:26.240][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
+[16:05:26.240][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
+[16:05:26.240][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
+[16:05:26.241][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
+[16:05:26.241][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
+[16:05:26.241][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:05:26.242][INFO][CraftTweaker]: This reload was made possible by Pongo Sapiens and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:17:47.180][INFO][CraftTweaker-Commands]: Item: <item:galosphere:raw_silver_block>
+[16:17:47.180][INFO][CraftTweaker-Commands]: Block: <block:galosphere:raw_silver_block>
+[16:17:47.180][INFO][CraftTweaker-Commands]: BlockState: <blockstate:galosphere:raw_silver_block>
+[16:17:47.180][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks/raw_silver>
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks>
+[16:17:47.181][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks/raw_silver>
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_stone_tool>
+[16:17:47.181][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks>
+[16:27:39.098][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:27:39.098][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:27:39.110][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:27:39.113][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:27:39.118][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:27:41.880][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:27:41.880][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:27:41.880][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:27:41.886][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:27:41.934][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:27:41.934][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:27:41.952][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:27:41.956][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:27:41.959][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:27:41.960][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:27:41.960][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:27:41.963][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:27:41.963][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:27:41.965][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:27:41.965][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:27:41.965][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:27:41.965][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:27:41.965][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:27:41.967][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:27:41.968][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:27:41.968][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:27:41.969][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:27:41.969][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:27:41.969][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:27:41.969][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:27:41.969][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:27:41.969][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:27:41.969][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:27:41.969][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:27:41.969][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:27:41.970][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:27:41.970][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:27:41.970][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:27:41.970][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:27:41.970][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:27:41.970][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:27:41.970][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[16:27:41.971][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_gold>'
+[16:27:41.971][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_iron>'
+[16:27:41.971][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_silver>'
+[16:27:41.971][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_zinc>'
+[16:27:41.971][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
+[16:27:41.971][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
+[16:27:41.971][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
+[16:27:41.971][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
+[16:27:41.972][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
+[16:27:41.972][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:27:41.972][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:27:41.972][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:27:41.972][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:27:41.972][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:27:41.972][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:27:41.973][INFO][CraftTweaker]: This reload was made possible by Hooley and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:31:08.416][INFO][CraftTweaker-Commands]: Item: <item:minecraft:raw_iron_block>
+[16:31:08.416][INFO][CraftTweaker-Commands]: Block: <block:minecraft:raw_iron_block>
+[16:31:08.416][INFO][CraftTweaker-Commands]: BlockState: <blockstate:minecraft:raw_iron_block>
+[16:31:08.417][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks/raw_iron>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:items:alexscaves:ferromagnetic_items>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:items:alexscaves:galena_gauntlet_crystallization_items>
+[16:31:08.417][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:overworld_carver_replaceables>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks/raw_iron>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:ferromagnetic_blocks>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:water_carver_replaceables>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:supplementaries:flint_metals>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:primordial_caves_base_blocks>
+[16:31:08.417][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_stone_tool>
+[16:31:19.786][INFO][CraftTweaker-Commands]: Item: <item:minecraft:raw_copper_block>
+[16:31:19.786][INFO][CraftTweaker-Commands]: Block: <block:minecraft:raw_copper_block>
+[16:31:19.786][INFO][CraftTweaker-Commands]: BlockState: <blockstate:minecraft:raw_copper_block>
+[16:31:19.786][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks/raw_copper>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks>
+[16:31:19.786][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:primordial_caves_base_blocks>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks/raw_copper>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:alexscaves:water_carver_replaceables>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_stone_tool>
+[16:31:19.786][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:overworld_carver_replaceables>
+[16:31:31.408][INFO][CraftTweaker-Commands]: Item: <item:minecraft:raw_gold_block>
+[16:31:31.408][INFO][CraftTweaker-Commands]: Block: <block:minecraft:raw_gold_block>
+[16:31:31.408][INFO][CraftTweaker-Commands]: BlockState: <blockstate:minecraft:raw_gold_block>
+[16:31:31.408][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:items:minecraft:piglin_loved>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks/raw_gold>
+[16:31:31.408][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:guarded_by_piglins>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks/raw_gold>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:31:31.408][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_iron_tool>
+[16:32:21.884][INFO][CraftTweaker-Commands]: Item: <item:galosphere:raw_silver_block>
+[16:32:21.884][INFO][CraftTweaker-Commands]: Block: <block:galosphere:raw_silver_block>
+[16:32:21.884][INFO][CraftTweaker-Commands]: BlockState: <blockstate:galosphere:raw_silver_block>
+[16:32:21.884][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:32:21.884][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks/raw_silver>
+[16:32:21.884][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks>
+[16:32:21.884][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:32:21.884][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks/raw_silver>
+[16:32:21.884][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:32:21.884][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:32:21.885][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_stone_tool>
+[16:32:21.885][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks>
+[16:32:33.438][INFO][CraftTweaker-Commands]: Item: <item:create:raw_zinc_block>
+[16:32:33.438][INFO][CraftTweaker-Commands]: Block: <block:create:raw_zinc_block>
+[16:32:33.438][INFO][CraftTweaker-Commands]: BlockState: <blockstate:create:raw_zinc_block>
+[16:32:33.438][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks/raw_zinc>
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:storage_blocks>
+[16:32:33.438][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks>
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_iron_tool>
+[16:32:33.438][INFO][CraftTweaker-Commands]:     -  <tag:blocks:forge:storage_blocks/raw_zinc>
+[16:33:15.486][INFO][CraftTweaker-Commands]: Item: <item:spelunkery:raw_magnetite_block>
+[16:33:15.486][INFO][CraftTweaker-Commands]: Block: <block:spelunkery:raw_magnetite_block>
+[16:33:15.486][INFO][CraftTweaker-Commands]: BlockState: <blockstate:spelunkery:raw_magnetite_block>
+[16:33:15.486][INFO][CraftTweaker-Commands]: Block Tag Entries
+[16:33:15.486][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:needs_iron_tool>
+[16:33:15.486][INFO][CraftTweaker-Commands]:     -  <tag:blocks:minecraft:mineable/pickaxe>
+[16:33:15.486][INFO][CraftTweaker-Commands]:     -  <tag:blocks:spelunkery:chiselable>
+[16:33:29.732][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:33:29.732][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:29.747][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:29.748][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:29.760][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:33:31.805][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:33:31.805][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:31.805][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:33:31.812][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:31.908][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:33:31.908][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:33:31.930][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:33:31.934][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:33:31.934][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:33:31.934][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:33:31.934][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:33:31.937][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:33:31.938][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:33:31.941][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:33:31.942][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:33:31.942][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:33:31.942][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:33:31.942][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:33:31.942][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:33:31.942][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:33:31.943][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:33:31.943][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:33:31.943][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:33:31.943][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:33:31.948][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:33:31.952][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:33:31.956][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:33:31.956][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:33:31.957][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:33:31.957][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:33:31.957][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:33:31.957][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:33:31.958][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:33:31.958][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:33:31.958][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:33:31.960][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:33:31.960][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:33:31.960][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:33:31.961][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:33:31.961][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:33:31.962][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:33:31.963][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_gold>'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_iron>'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_silver>'
+[16:33:31.963][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_zinc>'
+[16:33:31.963][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
+[16:33:31.964][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
+[16:33:31.965][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
+[16:33:31.965][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
+[16:33:31.965][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
+[16:33:31.965][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:33:31.965][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:33:31.966][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:33:31.966][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:33:31.966][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:33:31.966][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:33:31.966][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:33:31.967][INFO][CraftTweaker]: This reload was made possible by embeddedt and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:36:17.886][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:36:17.886][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:36:17.898][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:36:17.900][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:36:17.905][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:36:20.838][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:36:20.838][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:36:20.840][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:36:20.849][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:36:20.926][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:36:20.926][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:36:20.948][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:36:20.952][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:36:20.953][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:36:20.953][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:36:20.954][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:36:20.956][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:36:20.956][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:36:20.959][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:36:20.960][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:36:20.961][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:36:20.961][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:36:20.961][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:36:20.961][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:36:20.962][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:36:20.962][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:36:20.962][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:36:20.963][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:36:20.963][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:36:20.966][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:36:20.968][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:36:20.970][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:36:20.970][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:36:20.971][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:36:20.971][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:36:20.971][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:36:20.971][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:36:20.972][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:36:20.973][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:36:20.973][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:36:20.974][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:36:20.974][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:36:20.975][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:36:20.975][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:36:20.975][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:36:20.975][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:36:20.975][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:36:20.976][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:36:20.976][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
+[16:36:20.977][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
+[16:36:20.977][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:36:20.978][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:36:20.978][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:36:20.980][INFO][CraftTweaker]: This reload was made possible by Jessie Sims and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:47:43.795][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:47:43.796][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:47:43.805][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:47:43.806][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:47:43.814][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:47:46.486][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:47:46.486][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:47:46.486][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:47:46.495][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:47:46.578][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:47:46.579][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:47:46.596][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:47:46.599][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:47:46.599][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:47:46.599][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:47:46.599][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:47:46.601][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:47:46.601][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:47:46.604][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:47:46.604][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:47:46.604][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:47:46.604][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:47:46.605][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:47:46.605][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:47:46.605][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:47:46.605][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:47:46.605][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:47:46.605][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:47:46.605][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:47:46.608][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:47:46.610][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:47:46.611][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:47:46.612][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:47:46.613][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:47:46.613][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:47:46.613][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:47:46.613][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:47:46.613][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:47:46.613][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:47:46.613][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:47:46.614][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:47:46.615][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:47:46.615][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:47:46.615][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:47:46.615][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:47:46.616][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:47:46.616][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_gold>'
+[16:47:46.616][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_iron>'
+[16:47:46.617][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_silver>'
+[16:47:46.617][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_zinc>'
+[16:47:46.617][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
+[16:47:46.617][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
+[16:47:46.618][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
+[16:47:46.618][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
+[16:47:46.618][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
+[16:47:46.618][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:47:46.618][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:47:46.618][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:47:46.620][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:47:46.620][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:47:46.620][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:47:46.620][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:47:46.621][INFO][CraftTweaker]: This reload was made possible by Zuniroa and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:58:26.417][INFO][CraftTweaker-Commands]: Item: <item:minecraft:raw_iron>
+[16:58:26.417][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:58:26.417][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials>
+[16:58:26.417][INFO][CraftTweaker-Commands]:     -  <tag:items:alexscaves:ferromagnetic_items>
+[16:58:26.417][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials/iron>
+[16:58:26.417][INFO][CraftTweaker-Commands]:     -  <tag:items:alexscaves:galena_gauntlet_crystallization_items>
+[16:58:36.965][INFO][CraftTweaker-Commands]: Item: <item:minecraft:raw_copper>
+[16:58:36.965][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:58:36.965][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials>
+[16:58:36.965][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials/copper>
+[16:58:57.171][INFO][CraftTweaker-Commands]: Item: <item:galosphere:raw_silver>
+[16:58:57.171][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:58:57.171][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials/silver>
+[16:58:57.171][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials>
+[16:59:04.873][INFO][CraftTweaker-Commands]: Item: <item:create:raw_zinc>
+[16:59:04.873][INFO][CraftTweaker-Commands]: Item Tag Entries
+[16:59:04.873][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials/zinc>
+[16:59:04.873][INFO][CraftTweaker-Commands]:     -  <tag:items:forge:raw_materials>
+[16:59:33.397][INFO][CraftTweaker-Commands]: Item: <item:spelunkery:raw_magnetite>
+[16:59:42.781][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:59:42.781][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:59:42.789][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:59:42.791][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:59:42.795][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:59:45.491][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:59:45.491][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:59:45.491][INFO][CraftTweaker]: Undoing removal of Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:59:45.499][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:59:45.579][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[16:59:45.580][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[16:59:45.597][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:createaddition:iron_rod>'
+[16:59:45.601][INFO][CraftTweaker]: Removing 'blasting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:59:45.602][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_leather' that outputs: '<item:minecraft:bundle>'
+[16:59:45.602][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:bundle_with_rabbit' that outputs: '<item:minecraft:bundle>'
+[16:59:45.602][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:cataclysm:ignitium_upgrade_smithing_template>'
+[16:59:45.605][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[minecraft:lodestone]'
+[16:59:45.606][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:alexscaves:nuclear_bomb>'
+[16:59:45.609][INFO][CraftTweaker]: Adding 'create:mechanical_crafting' recipe, with name: 'crafttweaker:nuclear_bomb' that outputs: '<item:alexscaves:nuclear_bomb>'
+[16:59:45.611][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal' that outputs: '<item:alexscaves:rusty_scrap_metal>'
+[16:59:45.612][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scrap_metal_plate' that outputs: '<item:alexscaves:rusty_scrap_metal_plate>'
+[16:59:45.612][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_rebar' that outputs: '<item:alexscaves:rusty_rebar>'
+[16:59:45.612][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_scaffolding' that outputs: '<item:alexscaves:rusty_scaffolding>'
+[16:59:45.613][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:rusty_barrel' that outputs: '<item:alexscaves:rusty_barrel>'
+[16:59:45.613][INFO][CraftTweaker]: Removing 'create:mechanical_crafting' recipes with output: '<item:minecraft:enchanted_golden_apple>'
+[16:59:45.614][INFO][CraftTweaker]: Removing Brewing recipes that have an input of: <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}), output of: <item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}) and a reagent of: <item:minecraft:popped_chorus_fruit>
+[16:59:45.614][INFO][CraftTweaker]: Removing 'create:item_application' recipes with output: '<item:create_dd:steel_casing>'
+[16:59:45.614][INFO][CraftTweaker]: Adding 'create:item_application' recipe, with name: 'crafttweaker:steel_casing' that outputs: '<item:create_dd:steel_casing>'
+[16:59:45.614][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create_dd:industrial_iron_block>'
+[16:59:45.617][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:create:industrial_iron_block>'
+[16:59:45.621][INFO][CraftTweaker]: Removing 'stonecutting' recipes with output: '<item:create:industrial_iron_block>'
+[16:59:45.622][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create:industrial_iron_block>'
+[16:59:45.623][INFO][CraftTweaker]: Removing 'create:mixing' recipes with output: '<item:createutilities:void_steel_ingot>'
+[16:59:45.623][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:void_steel_void_core' that outputs: '<item:createutilities:void_steel_ingot> * 4'
+[16:59:45.623][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:createdeco:industrial_iron_ingot>'
+[16:59:45.623][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:industrial_iron_ingot>'
+[16:59:45.623][INFO][CraftTweaker]: Removing 'create:compacting' recipes with output: '<item:create_dd:steel_ingot>'
+[16:59:45.624][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:industrial_iron_ingot' that outputs: '<item:create_dd:industrial_iron_ingot>'
+[16:59:45.624][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:create_dd:steel_ingot> * 4'
+[16:59:45.624][INFO][CraftTweaker]: Removing 'create_dd:superheating' recipes with output: '<item:create_dd:diamond_shard>'
+[16:59:45.625][INFO][CraftTweaker]: Adding 'create:sequenced_assembly' recipe, with name: 'crafttweaker:sequenced_assembly/abstruse_mechanism' that outputs: '<item:create_dd:abstruse_mechanism>'
+[16:59:45.625][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
+[16:59:45.626][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
+[16:59:45.626][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
+[16:59:45.626][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
+[16:59:45.626][INFO][CraftTweaker]: Adding 'create:mixing' recipe, with name: 'crafttweaker:shadow_steel' that outputs: '<item:create_dd:shadow_steel>'
+[16:59:45.626][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_gold>'
+[16:59:45.626][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_iron>'
+[16:59:45.627][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_silver>'
+[16:59:45.627][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_zinc>'
+[16:59:45.627][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:59:45.628][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_block' that outputs: '<item:create:experience_nugget> * 9'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_raw' that outputs: '<item:create:experience_nugget>'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_raw' that outputs: '<item:create:experience_nugget>'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_raw' that outputs: '<item:create:experience_nugget>'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_raw' that outputs: '<item:create:experience_nugget>'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_raw' that outputs: '<item:create:experience_nugget>'
+[16:59:45.629][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_raw' that outputs: '<item:create:experience_nugget>'
+[16:59:45.629][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:59:45.629][INFO][CraftTweaker]: This reload was made possible by Belathus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

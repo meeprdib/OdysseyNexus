@@ -1,44 +1,44 @@
-[21:49:48] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[21:49:48] [INIT] Loaded plugins:
-[21:49:48] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[21:49:48] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[21:49:48] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[21:49:48] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[21:49:48] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[21:49:48] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[21:49:48] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[21:49:48] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[21:49:48] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[21:49:48] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[21:49:48] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[21:49:48] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[21:49:48] [INIT] - com.probejs.ProbeJSPlugin
-[21:49:48] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[21:49:48] [INFO] Loaded script client_scripts:certusquartz.js in 0.005 s
-[21:49:48] [INFO] Loaded script client_scripts:jei.js in 0.002 s
-[21:49:48] [INFO] Loaded script client_scripts:tooltips.js in 0.0 s
-[21:49:48] [INFO] Loaded 3/3 KubeJS client scripts in 0.088 s with 0 errors and 0 warnings
-[21:50:01] [INFO] Client resource reload complete!
-[21:52:47] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
-[21:52:47] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
-[21:52:47] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
-[21:52:47] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
-[21:52:47] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
-[21:52:47] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
-[21:52:47] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
-[21:52:47] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
-[21:52:47] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
-[21:52:47] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
-[21:52:47] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
-[21:52:47] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
-[21:52:47] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.plugin.client.entry.ItemEntryDefinition.tryGetItemStackToolTip(ItemEntryDefinition.java:231)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.plugin.client.entry.ItemEntryDefinition$ItemEntryRenderer.getTooltip(ItemEntryDefinition.java:369)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.impl.common.entry.AbstractEntryStack.getTooltip(AbstractEntryStack.java:195)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType.tryGetEntryStackTooltip(TooltipArgumentType.java:90)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType.cacheData(TooltipArgumentType.java:75)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType.cacheData(TooltipArgumentType.java:45)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.ArgumentCache.cacheStacks(ArgumentCache.java:138)
-[21:52:47] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.ArgumentCache.lambda$cache$1(ArgumentCache.java:110)
-[21:52:47] [ERROR] !   at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
-[21:52:47] [ERROR] !   at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+[15:29:18] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[15:29:18] [INIT] Loaded plugins:
+[15:29:18] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[15:29:18] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[15:29:18] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[15:29:18] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[15:29:18] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[15:29:18] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[15:29:18] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[15:29:18] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[15:29:18] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[15:29:18] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[15:29:18] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[15:29:18] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[15:29:18] [INIT] - com.probejs.ProbeJSPlugin
+[15:29:18] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[15:29:18] [INFO] Loaded script client_scripts:certusquartz.js in 0.006 s
+[15:29:18] [INFO] Loaded script client_scripts:jei.js in 0.001 s
+[15:29:18] [INFO] Loaded script client_scripts:tooltips.js in 0.001 s
+[15:29:18] [INFO] Loaded 3/3 KubeJS client scripts in 0.073 s with 0 errors and 0 warnings
+[15:29:30] [INFO] Client resource reload complete!
+[15:30:41] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
+[15:30:41] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
+[15:30:41] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
+[15:30:41] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
+[15:30:41] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
+[15:30:41] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
+[15:30:41] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
+[15:30:41] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
+[15:30:41] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
+[15:30:41] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
+[15:30:41] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
+[15:30:41] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
+[15:30:41] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.plugin.client.entry.ItemEntryDefinition.tryGetItemStackToolTip(ItemEntryDefinition.java:231)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.plugin.client.entry.ItemEntryDefinition$ItemEntryRenderer.getTooltip(ItemEntryDefinition.java:369)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.impl.common.entry.AbstractEntryStack.getTooltip(AbstractEntryStack.java:195)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType.tryGetEntryStackTooltip(TooltipArgumentType.java:90)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType.cacheData(TooltipArgumentType.java:75)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.type.TooltipArgumentType.cacheData(TooltipArgumentType.java:45)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.ArgumentCache.cacheStacks(ArgumentCache.java:138)
+[15:30:41] [ERROR] !   at me.shedaniel.rei.impl.client.search.argument.ArgumentCache.lambda$cache$1(ArgumentCache.java:110)
+[15:30:41] [ERROR] !   at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[15:30:41] [ERROR] !   at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
