@@ -132,3 +132,5 @@ blastFurnace.removeByName("spelunkery:copper_ore_blasting");
 <recipetype:create:crushing>.addRecipe("crushed_gold_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_gold> * 2], <item:minecraft:raw_gold>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_silver_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_silver> * 2], <item:galosphere:raw_silver>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_zinc> * 2], <item:create:raw_zinc>, 200);
+
+<recipetype:create_dd:superheating>.removeAll();
