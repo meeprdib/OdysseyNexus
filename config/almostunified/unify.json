@@ -4,6 +4,7 @@
     "kubejs",
     "crafttweaker",
     "ends_delight",
+    "create_dd",
     "create",
     "galosphere",
     "create_dd",
@@ -16,7 +17,8 @@
     "iceandfire",
     "createaddition",
     "ratatoullie",
-    "quark"
+    "quark",
+    "vintageimprovements"
   ],
   "stoneStrata": [
     "stone",

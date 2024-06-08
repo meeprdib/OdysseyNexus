@@ -43,3 +43,5 @@ servers.dat
 /logs
 logs/kubejs/server.log
 *.log
+/logs
+*.log
