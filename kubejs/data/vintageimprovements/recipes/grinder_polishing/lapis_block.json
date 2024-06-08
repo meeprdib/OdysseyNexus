@@ -3,14 +3,14 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"item": "create:rose_quartz"
+			"item": "spelunkery:rough_lazurite_block"
 		}
 	],
 	"results": [
 		{
-			"item": "create:polished_rose_quartz",
+			"item": "minecraft:lapis_block",
 			"count": 2
 		}
 	],
-	"processingTime": 20
+	"processingTime": 180
 }

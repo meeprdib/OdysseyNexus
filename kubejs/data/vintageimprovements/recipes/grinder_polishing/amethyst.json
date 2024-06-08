@@ -3,12 +3,12 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"item": "create:rose_quartz"
+			"item": "minecraft:amethyst_shard"
 		}
 	],
 	"results": [
 		{
-			"item": "create:polished_rose_quartz",
+			"item": "createutilities:polished_amethyst",
 			"count": 2
 		}
 	],

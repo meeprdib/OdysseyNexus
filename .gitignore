@@ -45,3 +45,4 @@ logs/kubejs/server.log
 *.log
 /logs
 *.log
+/logs

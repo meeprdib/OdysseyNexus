@@ -3,12 +3,12 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"item": "create:rose_quartz"
+			"item": "create_dd:spectral_ruby"
 		}
 	],
 	"results": [
 		{
-			"item": "create:polished_rose_quartz",
+			"item": "create_dd:polished_spectral_ruby",
 			"count": 2
 		}
 	],

@@ -3,12 +3,12 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"item": "create:rose_quartz"
+			"item": "spelunkery:rough_diamond_shard"
 		}
 	],
 	"results": [
 		{
-			"item": "create:polished_rose_quartz",
+			"item": "spelunkery:diamond_shard",
 			"count": 2
 		}
 	],

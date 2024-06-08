@@ -3,12 +3,12 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"item": "create:rose_quartz"
+			"item": "estrogen:balls"
 		}
 	],
 	"results": [
 		{
-			"item": "create:polished_rose_quartz",
+			"item": "estrogen:testosterone_chunk",
 			"count": 2
 		}
 	],
