@@ -21,6 +21,7 @@ import crafttweaker.api.recipe.CraftingTableRecipeManager;
 import crafttweaker.api.recipe.IRecipeManager;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
+import mods.create.SplashingManager;
 
 # Misc
 
@@ -107,60 +108,73 @@ craftingTable.addShaped("void_battery", <item:createutilities:void_battery>, [[<
 # Ore/material processing
 
 <recipetype:create:crushing>.addRecipe("crushed_pink_salt_shard", [<item:spelunkery:salt> * 2, (<item:spelunkery:salt>) % 50], <item:galosphere:pink_salt_shard>, 200);
+// <recipetype:create:mixing>.removeByName("ratatouille:salt");
+craftingTable.removeByName("vintagedelight:salt_bucket_to_salt");
 
-furnace.removeByName("spelunkery:iron_ore_smelting");
-furnace.removeByName("spelunkery:gold_ore_smelting");
-furnace.removeByName("spelunkery:zinc_ore_smelting");
-furnace.removeByName("spelunkery:emerald_ore_smelting");
-furnace.removeByName("spelunkery:redstone_ore_smelting");
+blastFurnace.removeByName("spelunkery:copper_ore_blasting");
+blastFurnace.removeByName("spelunkery:diamond_ore_blasting");
+blastFurnace.removeByName("spelunkery:emerald_ore_blasting");
+blastFurnace.removeByName("spelunkery:gold_ore_blasting");
+blastFurnace.removeByName("spelunkery:iron_ore_blasting");
+blastFurnace.removeByName("spelunkery:redstone_ore_blasting");
+blastFurnace.removeByName("spelunkery:zinc_ore_blasting");
 furnace.removeByName("spelunkery:copper_ore_smelting");
 furnace.removeByName("spelunkery:diamond_ore_smelting");
-blastFurnace.removeByName("spelunkery:iron_ore_blasting");
-blastFurnace.removeByName("spelunkery:gold_ore_blasting");
-blastFurnace.removeByName("spelunkery:emerald_ore_blasting");
-blastFurnace.removeByName("spelunkery:zinc_ore_blasting");
-blastFurnace.removeByName("spelunkery:redstone_ore_blasting");
-blastFurnace.removeByName("spelunkery:diamond_ore_blasting");
-blastFurnace.removeByName("spelunkery:copper_ore_blasting");
+furnace.removeByName("spelunkery:emerald_ore_smelting");
+furnace.removeByName("spelunkery:gold_ore_smelting");
+furnace.removeByName("spelunkery:iron_ore_smelting");
+furnace.removeByName("spelunkery:redstone_ore_smelting");
+furnace.removeByName("spelunkery:zinc_ore_smelting");
+
 <recipetype:create:crushing>.remove(<item:create:crushed_raw_copper>);
 <recipetype:create:crushing>.remove(<item:create:crushed_raw_gold>);
 <recipetype:create:crushing>.remove(<item:create:crushed_raw_iron>);
 <recipetype:create:crushing>.remove(<item:create:crushed_raw_silver>);
 <recipetype:create:crushing>.remove(<item:create:crushed_raw_zinc>);
+<recipetype:create:crushing>.remove(<item:minecraft:lapis_lazuli>);
 <recipetype:create:crushing>.remove(<item:minecraft:redstone>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_cinnabar>);
-<recipetype:create:crushing>.remove(<item:minecraft:lapis_lazuli>);
-<recipetype:create:crushing>.remove(<item:spelunkery:rough_lazurite>);
-<recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond_shard>);
+<recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_emerald>);
+<recipetype:create:crushing>.remove(<item:spelunkery:rough_lazurite>);
+
+<recipetype:create:splashing>.addRecipe("washed_silver", [(<item:galosphere:silver_nugget> * 9), <item:spelunkery:sulfur> % 75], <item:create:crushed_raw_silver>, 200);
 
 <recipetype:create:crushing>.addRecipe("crushed_copper_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_copper> * 4], <tag:items:forge:ores/copper>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_iron_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_iron> * 3], <tag:items:forge:ores/iron>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_diamond_ore", [<item:create:experience_nugget> % 75, <item:spelunkery:rough_diamond> * 3], <tag:items:forge:ores/diamond>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_emerald_ore", [<item:create:experience_nugget> % 75, <item:spelunkery:rough_emerald> * 4], <tag:items:forge:ores/emerald>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_gold_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_gold> * 3], <tag:items:forge:ores/gold>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_iron_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_iron> * 3], <tag:items:forge:ores/iron>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_lapis_ore", [<item:create:experience_nugget> % 75, <item:spelunkery:rough_lazurite> * 4], <tag:items:forge:ores/lapis>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_redstone_ore", [<item:spelunkery:rough_cinnabar> * 5], <tag:items:forge:ores/redstone>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_silver_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_silver> * 3], <tag:items:forge:ores/silver>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_zinc> * 3], <tag:items:forge:ores/zinc>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_diamond_ore", [<item:create:experience_nugget> % 75, <item:spelunkery:rough_diamond> * 3], <tag:items:forge:ores/diamond>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_redstone_ore", [<item:spelunkery:rough_cinnabar> * 5], <tag:items:forge:ores/redstone>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_lapis_ore", [<item:create:experience_nugget> % 75, <item:spelunkery:rough_lazurite> * 4], <tag:items:forge:ores/lapis>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_emerald_ore", [<item:create:experience_nugget> % 75, <item:spelunkery:rough_emerald> * 4], <tag:items:forge:ores/emerald>, 200);
 
 <recipetype:create:crushing>.addRecipe("crushed_copper_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_copper> * 18], <item:minecraft:raw_copper_block>, 1800);
+<recipetype:create:crushing>.addRecipe("crushed_gold_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_gold> * 18], <item:minecraft:raw_gold_block>, 1800);
 <recipetype:create:crushing>.addRecipe("crushed_iron_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_iron> * 18], <item:minecraft:raw_iron_block>, 1800);
 <recipetype:create:crushing>.addRecipe("crushed_magnetite_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_iron> * 27], <item:spelunkery:raw_magnetite_block>, 1800);
-<recipetype:create:crushing>.addRecipe("crushed_gold_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_gold> * 18], <item:minecraft:raw_gold_block>, 1800);
 <recipetype:create:crushing>.addRecipe("crushed_silver_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_silver> * 18], <item:galosphere:raw_silver_block>, 1800);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_zinc> * 18], <item:create:raw_zinc_block>, 1800);
 
+<recipetype:create:crushing>.addRecipe("crushed_cinnibar", [<item:create:experience_nugget> % 75, <item:minecraft:redstone> * 2], <item:spelunkery:rough_cinnabar>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_copper_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_copper> * 2], <item:minecraft:raw_copper>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_gold_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_gold> * 2], <item:minecraft:raw_gold>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_iron_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_iron> * 2], <item:minecraft:raw_iron>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_magnetite_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_iron> * 3], <item:spelunkery:raw_magnetite>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_gold_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_gold> * 2], <item:minecraft:raw_gold>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_silver_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_silver> * 2], <item:galosphere:raw_silver>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_zinc> * 2], <item:create:raw_zinc>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_cinnibar", [<item:create:experience_nugget> % 75, <item:minecraft:redstone> * 2], <item:spelunkery:rough_cinnabar>, 200);
 
+<recipetype:create:crushing>.addRecipe("crushed_pointed_redstone", [<item:create:experience_nugget> % 25, <item:minecraft:redstone> * 1], <item:regions_unexplored:pointed_redstone>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_raw_redstone_block", [<item:minecraft:redstone> * 3], <item:regions_unexplored:raw_redstone_block>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_redstone_bud", [<item:create:experience_nugget> % 25, <item:minecraft:redstone>], <item:regions_unexplored:redstone_bud>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_redstone_bulb", [<item:create:experience_nugget> % 50, <item:minecraft:redstone> * 3], <item:regions_unexplored:redstone_bulb>, 200);
-<recipetype:create:crushing>.addRecipe("crushed_pointed_redstone", [<item:create:experience_nugget> % 25, <item:minecraft:redstone> * 1], <item:regions_unexplored:pointed_redstone>, 200);
+
+craftingTable.remove(<item:vintageimprovements:grinder_belt>);
+craftingTable.addShaped("diamond_grinder_belt", <item:vintageimprovements:grinder_belt>, 
+[
+	[<item:createaddition:diamond_grit_sandpaper>, <item:createaddition:diamond_grit_sandpaper>, <item:createaddition:diamond_grit_sandpaper>],
+	[<item:createaddition:diamond_grit_sandpaper>, <item:minecraft:air>, <item:createaddition:diamond_grit_sandpaper>],
+	[<item:createaddition:diamond_grit_sandpaper>, <item:createaddition:diamond_grit_sandpaper>, <item:createaddition:diamond_grit_sandpaper>]
+]);
