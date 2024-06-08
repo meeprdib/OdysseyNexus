@@ -15,7 +15,7 @@ ServerEvents.tags('item', event => {
     event.add('forge:ores/gold', ['spelunkery:andesite_gold_ore', 'spelunkery:andesite_gold_ore', 'spelunkery:diorite_gold_ore', 'spelunkery:granite_gold_ore'])
     event.add('forge:ores/iron', ['spelunkery:diorite_iron_ore', 'spelunkery:granite_iron_ore', 'spelunkery:tuff_iron_ore', 'spelunkery:andesite_iron_ore'])
     event.add('forge:ores/lapis', ['spelunkery:andesite_lapis_ore', 'spelunkery:diorite_lapis_ore', 'spelunkery:granite_lapis_ore', 'spelunkery:sandstone_lapis_ore', 'spelunkery:tuff_lapis_ore'])
-    event.add('forge:ores/redstone', ['spelunkery:andesite_redstone_ore', 'spelunkery:diorite_redstone_ore', 'spelunkery:tuff_redstone_ore', 'spelunkery:granite_redstone_ore', 'spelunkery:calcite_redstone_ore'])
+    event.add('forge:ores/redstone', ['spelunkery:andesite_redstone_ore', 'spelunkery:diorite_redstone_ore', 'spelunkery:tuff_redstone_ore', 'spelunkery:granite_redstone_ore', 'spelunkery:calcite_redstone_ore', 'alexscaves:guanostone_redstone_ore'])
     event.add('forge:ores/zinc', ['spelunkery:andesite_zinc_ore', 'spelunkery:diorite_zinc_ore', 'spelunkery:granite_zinc_ore'])
     event.add('forge:plates/industrial_iron', 'createdeco:industrial_iron_sheet')
     event.add('forge:nuggets/industrial_iron', 'createdeco:industrial_iron_nugget')
@@ -34,4 +34,6 @@ ServerEvents.tags('item', event => {
     event.add('forge:storage_blocks/beetroot', 'farmersdelight:beetroot_crate')
 
     event.add('forge:plates/netherite', 'createdeco:netherite_sheet')
+
+    event.remove('forge:ores/redstone', 'regions_unexplored:raw_redstone_block')
 })
