@@ -44,7 +44,8 @@
     "forge:dough",
     "on:cake_base",
     "c:salt_dust",
-    "on:salt_bucket"
+    "on:salt_bucket",
+    "on:salt_block"
   ],
   "materials": [
     "aeternium",

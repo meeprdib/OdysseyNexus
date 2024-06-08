@@ -147,7 +147,23 @@ ServerEvents.recipes(event => {
             'iceandfire:armor_silver_metal_leggings',
             'iceandfire:armor_silver_metal_boots',
             'vintageimprovements:spring_coiling_machine',
-            'vintageimprovements:vacuum_chamber'
+            'vintageimprovements:vacuum_chamber',
+            'ratatouille:thresher',
+            'ratatouille:squeeze_basin',
+            'ratatouille:mechanical_demolder',
+            'ratatouille:irrigation_tower',
+            'vintageimprovements:curving_press',
+            'vintageimprovements:v_shaped_curving_head',
+            'vintageimprovements:w_shaped_curving_head',
+            'vintageimprovements:concave_curving_head',
+            'vintageimprovements:grinder_belt',
+            'vintageimprovements:convex_curving_head',
+            'sophisticatedbackpacks:backpack',
+            'sophisticatedbackpacks:copper_backpack',
+            'sophisticatedbackpacks:iron_backpack',
+            'sophisticatedbackpacks:gold_backpack',
+            'sophisticatedbackpacks:diamond_backpack',
+            'sophisticatedbackpacks:netherite_backpack',
         ]
     })
 })

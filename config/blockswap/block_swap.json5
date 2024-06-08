@@ -84,5 +84,7 @@ to make editing this file much easier.
 	   		"minecraft:diamond_block": "minecraft:emerald_block"
 	   	}
 	*/
-	"swapper": { }
+	"swapper": {
+		"spelunkery:rock_salt_block": "galosphere:pink_salt",
+	}
 }

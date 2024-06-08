@@ -29,6 +29,7 @@ ServerEvents.tags('item', event => {
     event.add('on:cake_base', 'ratatouille:cake_base', 'createaddition:cake_base')
     event.add('c:salt_dust', 'vintagedelight:salt_dust', 'ratatouille:salt', 'vintagedelight:salt')
     event.add('on:salt_bucket', 'spelunkery:salt_bucket', 'vintagedelight:salt_bucket')
+    event.add('on:salt_block', 'galosphere:pink_salt', 'spelunkery:rock_salt_block')
     event.add('forge:storage_blocks/apple', 'fruitsdelight:apple_crate')
     event.add('forge:storage_blocks/carrot', 'farmersdelight:carrot_crate')
     event.add('forge:storage_blocks/beetroot', 'farmersdelight:beetroot_crate')
