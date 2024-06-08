@@ -164,6 +164,21 @@ ServerEvents.recipes(event => {
             'sophisticatedbackpacks:gold_backpack',
             'sophisticatedbackpacks:diamond_backpack',
             'sophisticatedbackpacks:netherite_backpack',
+            'apotheosis:simple_reforging_table',
+            'iceandfire:dragonforge_fire_core',
+            'iceandfire:dragonforge_ice_core',
+            'iceandfire:dragonforge_lightning_core',
+            'iceandfire:dragonforge_fire_core_disabled',
+            'iceandfire:dragonforge_ice_core_disabled',
+            'iceandfire:dragonforge_lightning_core_disabled',
+            'irons_spellbooks:fire_upgrade_orb',
+            'irons_spellbooks:ice_upgrade_orb',
+            'irons_spellbooks:lightning_upgrade_orb',
+            'irons_spellbooks:holy_upgrade_orb',
+            'irons_spellbooks:ender_upgrade_orb',
+            'irons_spellbooks:blood_upgrade_orb',
+            'irons_spellbooks:evocation_upgrade_orb',
+            'irons_spellbooks:nature_upgrade_orb',
         ]
     })
 })
