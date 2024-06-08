@@ -24,6 +24,13 @@ import crafttweaker.api.ingredient.IIngredient;
 
 # Misc
 
+<recipetype:create_dd:superheating>.removeAll();
+<recipetype:estrogen:centrifuging>.removeAll();
+<recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
+<recipetype:vintageimprovements:vacuumizing>.removeAll();
+<recipetype:vintageimprovements:pressurizing>.removeAll();
+<recipetype:vintageimprovements:coiling>.removeAll();
+
 craftingTable.remove(<item:createaddition:iron_rod>);
 blastFurnace.remove(<item:create_dd:steel_ingot>);
 
@@ -97,6 +104,8 @@ craftingTable.addShaped("void_battery", <item:createutilities:void_battery>, [[<
 
 <recipetype:create:mixing>.addRecipe("shadow_steel", <constant:create:heat_condition:none>, [<item:create_dd:shadow_steel>], [<item:create_dd:steel_ingot>], [<fluid:spelunkery:portal_fluid> * 1000], 200);
 
+# Ore/material processing
+
 <recipetype:create:crushing>.addRecipe("crushed_pink_salt_shard", [<item:spelunkery:salt> * 2, (<item:spelunkery:salt>) % 50], <item:galosphere:pink_salt_shard>, 200);
 
 furnace.removeByName("spelunkery:iron_ore_smelting");
@@ -123,6 +132,7 @@ blastFurnace.removeByName("spelunkery:copper_ore_blasting");
 <recipetype:create:crushing>.remove(<item:minecraft:lapis_lazuli>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_lazurite>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond>);
+<recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond_shard>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_emerald>);
 
 <recipetype:create:crushing>.addRecipe("crushed_copper_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_copper> * 4], <tag:items:forge:ores/copper>, 200);
@@ -154,10 +164,3 @@ blastFurnace.removeByName("spelunkery:copper_ore_blasting");
 <recipetype:create:crushing>.addRecipe("crushed_redstone_bud", [<item:create:experience_nugget> % 25, <item:minecraft:redstone>], <item:regions_unexplored:redstone_bud>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_redstone_bulb", [<item:create:experience_nugget> % 50, <item:minecraft:redstone> * 3], <item:regions_unexplored:redstone_bulb>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_pointed_redstone", [<item:create:experience_nugget> % 25, <item:minecraft:redstone> * 1], <item:regions_unexplored:pointed_redstone>, 200);
-
-<recipetype:create_dd:superheating>.removeAll();
-<recipetype:estrogen:centrifuging>.removeAll();
-<recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
-<recipetype:vintageimprovements:vacuumizing>.removeAll();
-<recipetype:vintageimprovements:pressurizing>.removeAll();
-<recipetype:vintageimprovements:coiling>.removeAll();

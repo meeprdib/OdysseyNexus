@@ -1,0 +1,15 @@
+{
+	"type":"vintageimprovements:vibrating",
+	"ingredients": [ 
+		{
+			"item": "spelunkery:rough_diamond"
+		}
+	],
+	"results": [
+		{
+			"item": "spelunkery:diamond_shard",
+			"count": 18
+		}
+	],
+	"processingTime": 600
+}
