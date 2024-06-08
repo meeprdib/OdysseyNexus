@@ -146,6 +146,8 @@ ServerEvents.recipes(event => {
             'iceandfire:armor_silver_metal_chestplate',
             'iceandfire:armor_silver_metal_leggings',
             'iceandfire:armor_silver_metal_boots',
+            'vintageimprovements:spring_coiling_machine',
+            'vintageimprovements:vacuum_chamber'
         ]
     })
 })

@@ -133,4 +133,13 @@ blastFurnace.removeByName("spelunkery:copper_ore_blasting");
 <recipetype:create:crushing>.addRecipe("crushed_silver_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_silver> * 2], <item:galosphere:raw_silver>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_raw", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_zinc> * 2], <item:create:raw_zinc>, 200);
 
+<recipetype:create:crushing>.addRecipe("crushed_raw_redstone_block", [<item:create:experience_nugget> % 75, <item:minecraft:redstone> * 3], <item:regions_unexplored:raw_redstone_block>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_redstone_bud", [<item:create:experience_nugget> % 25, <item:minecraft:redstone>], <item:regions_unexplored:redstone_bud>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_redstone_bulb", [<item:create:experience_nugget> % 25, <item:minecraft:redstone> * 3], <item:regions_unexplored:redstone_bulb>, 200);
+
 <recipetype:create_dd:superheating>.removeAll();
+<recipetype:estrogen:centrifuging>.removeAll();
+<recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
+<recipetype:vintageimprovements:vacuumizing>.removeAll();
+<recipetype:vintageimprovements:pressurizing>.removeAll();
+<recipetype:vintageimprovements:coiling>.removeAll();

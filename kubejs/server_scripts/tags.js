@@ -3,7 +3,7 @@ ServerEvents.tags('item', event => {
     event.add('ae2:can_remove_color', 'supplementaries:soap')
     event.add('ae2:lumen_paint_balls', ['ae2:cyan_lumen_paint_ball', 'ae2:purple_lumen_paint_ball', 'ae2:blue_lumen_paint_ball', 'ae2:brown_lumen_paint_ball', 'ae2:green_lumen_paint_ball', 'ae2:red_lumen_paint_ball', 'ae2:black_lumen_paint_ball', 'ae2:white_lumen_paint_ball', 'ae2:orange_lumen_paint_ball', 'ae2:magenta_lumen_paint_ball', 'ae2:light_blue_lumen_paint_ball', 'ae2:yellow_lumen_paint_ball', 'ae2:lime_lumen_paint_ball', 'ae2:pink_lumen_paint_ball', 'ae2:gray_lumen_paint_ball', 'ae2:light_gray_lumen_paint_ball'])
 
-    event.add('forge:dusts/sulfur', 'spelunkery:sulfur')
+    event.add('forge:dusts/sulfur', 'spelunkery:sulfur', 'vintageimprovements:sulfur')
     event.add('forge:ingots/bronze', 'create_dd:bronze_ingot')
     event.add('forge:ingots/industrial_iron', 'createdeco:industrial_iron_ingot')
     event.add('forge:molten_brass', 'kubejs:molten_brass')
@@ -32,4 +32,6 @@ ServerEvents.tags('item', event => {
     event.add('forge:storage_blocks/apple', 'fruitsdelight:apple_crate')
     event.add('forge:storage_blocks/carrot', 'farmersdelight:carrot_crate')
     event.add('forge:storage_blocks/beetroot', 'farmersdelight:beetroot_crate')
+
+    event.add('forge:plates/netherite', 'createdeco:netherite_sheet')
 })
