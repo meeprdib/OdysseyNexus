@@ -199,9 +199,6 @@
 				chocolate_cake = true
 				honey_cake = true
 
-			[general.types.cake.youkaishomecoming]
-				red_velvet_cake = true
-
 	#Disables specific entries
 	[general.entries]
 

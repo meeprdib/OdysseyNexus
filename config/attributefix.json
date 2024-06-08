@@ -1870,17 +1870,6 @@
         "value": 1024
       }
     },
-    "l2damagetracker:explosion_damage": {
-      "enabled": false,
-      "min": {
-        "default": -1,
-        "value": -1
-      },
-      "max": {
-        "default": 999,
-        "value": 999
-      }
-    },
     "additional_attributes:spell_school_eldritch": {
       "enabled": false,
       "min": {
@@ -1890,6 +1879,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "l2damagetracker:explosion_damage": {
+      "enabled": false,
+      "min": {
+        "default": -1,
+        "value": -1
+      },
+      "max": {
+        "default": 999,
+        "value": 999
       }
     },
     "additional_attributes:spell_type_magic_missile": {
@@ -2112,17 +2112,6 @@
         "value": 100
       }
     },
-    "l2damagetracker:magic_damage": {
-      "enabled": false,
-      "min": {
-        "default": 0,
-        "value": 0
-      },
-      "max": {
-        "default": 1000,
-        "value": 1000
-      }
-    },
     "additional_attributes:spell_school_fire": {
       "enabled": false,
       "min": {
@@ -2132,6 +2121,17 @@
       "max": {
         "default": 100,
         "value": 100
+      }
+    },
+    "l2damagetracker:magic_damage": {
+      "enabled": false,
+      "min": {
+        "default": 0,
+        "value": 0
+      },
+      "max": {
+        "default": 1000,
+        "value": 1000
       }
     },
     "miapi:generic.elytra_glide_efficiency": {
