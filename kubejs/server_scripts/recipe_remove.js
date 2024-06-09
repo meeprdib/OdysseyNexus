@@ -4,6 +4,7 @@ ServerEvents.recipes(event => {
             //'@ae2',
             //'@computercraft'
             //'@create_dd',
+            '@waystones',
             'aether:iron_ring',
             'create_dd:abstruse_mechanism',
             'create_dd:blaze_gold',
@@ -181,6 +182,8 @@ ServerEvents.recipes(event => {
             'irons_spellbooks:nature_upgrade_orb',
             'irons_spellbooks:upgrade_orb',
             'irons_spellbooks:arcane_salvage',
+            'apotheosis:sigil_of_socketing',
+            'apotheosis:superior_sigil_of_socketing',
         ]
     })
 })

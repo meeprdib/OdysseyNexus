@@ -178,7 +178,9 @@ JEIEvents.hideItems(event => {
     'irons_spellbooks:nature_upgrade_orb',
     'irons_spellbooks:upgrade_orb',
     'irons_spellbooks:arcane_salvage',
-    'irons_spellbooks:arcane_debris'
+    'irons_spellbooks:arcane_debris',
+    'apotheosis:sigil_of_socketing',
+    'apotheosis:superior_sigil_of_socketing',
     ])
 })
 

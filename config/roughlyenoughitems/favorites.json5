@@ -1,5 +1,7 @@
 {
-	"favorites": [],
+	"favorites": [
+		"{data:{Count:1b,id:\"minecraft:stripped_jungle_wood\",type:\"minecraft:item\"},type:\"roughlyenoughitems:entry_stack\"}"
+	],
 	"hiddenFavorites": [],
 	"displays": []
 }
