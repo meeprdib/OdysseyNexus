@@ -176,6 +176,9 @@ JEIEvents.hideItems(event => {
     'irons_spellbooks:blood_upgrade_orb',
     'irons_spellbooks:evocation_upgrade_orb',
     'irons_spellbooks:nature_upgrade_orb',
+    'irons_spellbooks:upgrade_orb',
+    'irons_spellbooks:arcane_salvage',
+    'irons_spellbooks:arcane_debris'
     ])
 })
 
