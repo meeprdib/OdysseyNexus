@@ -46,3 +46,4 @@ logs/kubejs/server.log
 /logs
 *.log
 /logs
+/logs

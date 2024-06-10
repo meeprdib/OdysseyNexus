@@ -1,53 +1,28 @@
-[19:25:08] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[19:25:08] [INIT] Loaded plugins:
-[19:25:08] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[19:25:08] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[19:25:08] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[19:25:08] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[19:25:08] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[19:25:08] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[19:25:08] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[19:25:08] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[19:25:08] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[19:25:08] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[19:25:08] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[19:25:08] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[19:25:08] [INIT] - com.probejs.ProbeJSPlugin
-[19:25:08] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[19:25:08] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
-[19:25:08] [INFO] Loaded script server_scripts:loot.js in 0.001 s
-[19:25:08] [INFO] Loaded script server_scripts:recipe_remove.js in 0.005 s
-[19:25:08] [INFO] Loaded script server_scripts:starter_kit.js in 0.007 s
-[19:25:08] [INFO] Loaded script server_scripts:tags.js in 0.001 s
-[19:25:08] [INFO] Loaded 5/5 KubeJS server scripts in 0.042 s with 0 errors and 0 warnings
-[19:25:08] [INFO] Scripts loaded
-[19:25:08] [INFO] Initializing recipe event...
-[19:25:11] [INFO] [minecraft:block] Found 806 tags, added 1 objects, removed 0 objects
-[19:25:11] [INFO] [minecraft:item] Found 1765 tags, added 85 objects, removed 1 objects
-[19:25:14] [INFO] Processing recipes...
-[19:25:14] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/cod_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:14] [WARN] Failed to parse recipe 'aether_redux:genesis_dark_gummy_swet[minecraft:crafting_shapeless]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/dragon_meat_stew_block[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [cookingtime:ticks, ingredients:input_item[], experience:int, result:output_item, container?:input_item]
-[19:25:15] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/screw[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'incendium:upgrade_elytra[minecraft:smithing_transform]'! Falling back to vanilla: Ingredient 'template' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/chorus_fruit_milk_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], cookingtime:ticks, result:output_item, experience:int, container?:input_item]
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/bubble_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [cookingtime:ticks, result:output_item, experience:int, container?:input_item, ingredients:input_item[]]
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/ender_sauce[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [result:output_item, cookingtime:ticks, ingredients:input_item[], experience:int, container?:input_item]
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/chorus_fruit_wine[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], cookingtime:ticks, experience:int, result:output_item, container?:input_item]
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/chorus_flower_tea[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], result:output_item, cookingtime:ticks, experience:int, container?:input_item]
-[19:25:15] [WARN] Failed to parse recipe 'ancient_aether:ancient_rune[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/steamed_dragon_egg_block[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [cookingtime:ticks, experience:int, result:output_item, container?:input_item, ingredients:input_item[]]
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/dragon_breath_and_chorus_soup[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [ingredients:input_item[], result:output_item, cookingtime:ticks, experience:int, container?:input_item]
-[19:25:15] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/bolt[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/salmon_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/berry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[19:25:15] [WARN] Failed to parse recipe 'ends_delight:food/ender_congee[farmersdelight:cooking]'! Falling back to vanilla: Recipe component key 'experience' not found! Valid keys: [result:output_item, cookingtime:ticks, ingredients:input_item[], experience:int, container?:input_item]
-[19:25:15] [INFO] Found 15430 recipes in 911.0 ms
-[19:25:15] [INFO] Posted recipe events in 117.3 ms
-[19:25:15] [WARN] Error parsing recipe mynethersdelight:chilidog_alt[minecraft:crafting_shapeless]: {"type":"minecraft:crafting_shapeless","ingredients":[{"item":"farmersrespite:blazing_chili"},{"item":"mynethersdelight:hotdog"},{"item":"mynethersdelight:hotdog"}],"result":{"count":2,"item":"mynethersdelight:chilidog"}}: Unknown item 'farmersrespite:blazing_chili'
-[19:25:15] [WARN] Error parsing recipe design_decor:item_application/crushing_wheels/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
-[19:25:15] [WARN] Error parsing recipe mynethersdelight:cutting/hoglin_sausage_alt[farmersdelight:cutting]: {"type":"farmersdelight:cutting","ingredients":[{"item":"nethersdelight:hoglin_loin"}],"result":[{"count":2,"item":"mynethersdelight:hoglin_sausage"}],"tool":{"tag":"forge:tools/knives"}}: Unknown item 'nethersdelight:hoglin_loin'
-[19:25:15] [WARN] Error parsing recipe design_decor:item_application/millstones/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
-[19:25:16] [INFO] Added 0 recipes, removed 224 recipes, modified 0 recipes, with 4 failed recipes in 907.7 ms
-[19:25:36] [INFO] Server resource reload complete!
-[19:25:43] [ERROR] ! starter_kit.js#3: Error in 'PlayerEvents.loggedIn': TypeError: Cannot call method "add" of undefined
+[12:46:41] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[12:46:41] [INIT] Loaded plugins:
+[12:46:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[12:46:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[12:46:41] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[12:46:41] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[12:46:41] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[12:46:41] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[12:46:41] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[12:46:41] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[12:46:41] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[12:46:41] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[12:46:41] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[12:46:41] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[12:46:41] [INIT] - com.probejs.ProbeJSPlugin
+[12:46:41] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[12:46:41] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
+[12:46:41] [INFO] Loaded script server_scripts:loot.js in 0.0 s
+[12:46:41] [INFO] Loaded script server_scripts:recipe_remove.js in 0.0 s
+[12:46:41] [INFO] Loaded script server_scripts:starter_kit.js in 0.001 s
+[12:46:41] [INFO] Loaded script server_scripts:tags.js in 0.0 s
+[12:46:41] [INFO] Loaded 5/5 KubeJS server scripts in 0.011 s with 0 errors and 0 warnings
+[12:46:41] [INFO] Scripts loaded
+[12:46:41] [INFO] Initializing recipe event...
+[12:46:41] [WARN] Due to the way Minecraft resource loading works, KubeJS' server.log may not contain everything that happened in your server scripts on initial world creation.
+[12:46:41] [WARN] You can still see the full log (including past reloads) in your latest.log file.
+[12:47:03] [INFO] Server resource reload complete!
+[12:48:44] [ERROR] ! starter_kit.js#3: Error in 'PlayerEvents.loggedIn': TypeError: Cannot call method "add" of undefined

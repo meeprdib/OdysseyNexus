@@ -1,61 +1,66 @@
-[19:23:13] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[19:23:13] [INIT] Loaded plugins:
-[19:23:13] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[19:23:13] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[19:23:13] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[19:23:13] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[19:23:13] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[19:23:13] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[19:23:13] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[19:23:13] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[19:23:13] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[19:23:13] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[19:23:13] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[19:23:13] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[19:23:13] [INIT] - com.probejs.ProbeJSPlugin
-[19:23:13] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[19:23:14] [INFO] Loaded script client_scripts:certusquartz.js in 0.011 s
-[19:23:14] [INFO] Loaded script client_scripts:jei.js in 0.013 s
-[19:23:14] [INFO] Loaded script client_scripts:tooltips.js in 0.001 s
-[19:23:14] [INFO] Loaded 3/3 KubeJS client scripts in 0.22 s with 0 errors and 0 warnings
-[19:24:03] [INFO] Client resource reload complete!
-[19:25:45] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
-[19:25:45] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
-[19:25:45] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
-[19:25:45] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
-[19:25:45] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
-[19:25:45] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
-[19:25:45] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
-[19:25:45] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
-[19:25:45] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
-[19:25:45] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
-[19:25:45] [ERROR] !   at com.anthonyhilyard.prism.item.ItemColors.getColorForItem(ItemColors.java:86)
-[19:25:45] [ERROR] !   at com.anthonyhilyard.itemborders.ItemBordersConfig.getBorderColorForItem(ItemBordersConfig.java:218)
-[19:25:45] [ERROR] !   at com.anthonyhilyard.itemborders.ItemBorders.render(ItemBorders.java:47)
-[19:25:45] [ERROR] !   at com.anthonyhilyard.itemborders.ItemBorders.renderBorder(ItemBorders.java:35)
-[19:25:45] [ERROR] !   at net.minecraft.client.gui.Gui.handler$eog001$renderSlot(Gui.java:6250)
-[19:25:45] [ERROR] !   at net.minecraft.client.gui.Gui.m_280585_(Gui.java:1019)
-[19:25:45] [ERROR] !   at net.minecraft.client.gui.Gui.m_280518_(Gui.java:500)
-[19:25:45] [ERROR] !   at net.minecraftforge.client.gui.overlay.VanillaGuiOverlay.lambda$static$5(VanillaGuiOverlay.java:63)
-[19:25:45] [ERROR] !   at net.minecraftforge.client.gui.overlay.ForgeGui.lambda$render$0(ForgeGui.java:126)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/com.google.common@31.1-jre/com.google.common.collect.ImmutableList.forEach(ImmutableList.java:422)
-[19:25:45] [ERROR] !   at net.minecraftforge.client.gui.overlay.ForgeGui.m_280421_(ForgeGui.java:121)
-[19:25:45] [ERROR] !   at net.minecraft.client.renderer.GameRenderer.m_109093_(GameRenderer.java:945)
-[19:25:45] [ERROR] !   at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1146)
-[19:25:45] [ERROR] !   at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-[19:25:45] [ERROR] !   at net.minecraft.client.main.Main.main(Main.java:218)
-[19:25:45] [ERROR] !   at java.lang.reflect.Method.invoke(Method.java:568)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-[19:25:45] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-[19:25:45] [ERROR] !   at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
+[12:40:50] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[12:40:50] [INIT] Loaded plugins:
+[12:40:50] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[12:40:50] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[12:40:50] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[12:40:50] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[12:40:50] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[12:40:50] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[12:40:50] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[12:40:50] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[12:40:50] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[12:40:50] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[12:40:50] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[12:40:50] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[12:40:50] [INIT] - com.probejs.ProbeJSPlugin
+[12:40:50] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[12:40:50] [INFO] Loaded script client_scripts:certusquartz.js in 0.025 s
+[12:40:50] [INFO] Loaded script client_scripts:jei.js in 0.023 s
+[12:40:50] [INFO] Loaded script client_scripts:tooltips.js in 0.002 s
+[12:40:50] [INFO] Loaded 3/3 KubeJS client scripts in 0.237 s with 0 errors and 0 warnings
+[12:41:34] [INFO] Client resource reload complete!
+[12:44:15] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
+[12:44:15] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
+[12:44:15] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
+[12:44:15] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
+[12:44:15] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
+[12:44:15] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
+[12:44:15] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
+[12:44:15] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
+[12:44:15] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
+[12:44:15] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
+[12:44:15] [ERROR] !   at com.lootbeams.ClientSetup.lambda$onItemCreation$3(ClientSetup.java:197)
+[12:44:15] [ERROR] !   at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+[12:44:15] [ERROR] !   at com.lootbeams.ClientSetup.onItemCreation(ClientSetup.java:197)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.doCastFilter(EventBus.java:260)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.lambda$addListener$11(EventBus.java:252)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
+[12:44:15] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.entity.PersistentEntitySectionManager.m_157538_(PersistentEntitySectionManager.java:79)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.entity.PersistentEntitySectionManager.m_157533_(PersistentEntitySectionManager.java:71)
+[12:44:15] [ERROR] !   at net.minecraft.server.level.ServerLevel.m_8872_(ServerLevel.java:859)
+[12:44:15] [ERROR] !   at net.minecraft.server.level.ServerLevel.m_7967_(ServerLevel.java:814)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.block.Block.m_152440_(Block.java:325)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.block.Block.m_49840_(Block.java:299)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.block.Block.m_49856_(Block.java:274)
+[12:44:15] [ERROR] !   at java.lang.Iterable.forEach(Iterable.java:75)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.block.Block.m_49892_(Block.java:273)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.material.WaterFluid.m_7456_(WaterFluid.java:70)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.material.FlowingFluid.m_6364_(FlowingFluid.java:250)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.material.FlowingFluid.m_76014_(FlowingFluid.java:146)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.material.FlowingFluid.m_76010_(FlowingFluid.java:125)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.material.FlowingFluid.m_6292_(FlowingFluid.java:418)
+[12:44:15] [ERROR] !   at net.minecraft.world.level.material.FluidState.m_76163_(FluidState.java:76)
+[12:44:15] [ERROR] !   at net.minecraft.server.level.ServerLevel.m_184076_(ServerLevel.java:672)
+[12:44:15] [ERROR] !   at net.minecraft.world.ticks.LevelTicks.m_193272_(LevelTicks.java:215)
+[12:44:15] [ERROR] !   at net.minecraft.world.ticks.LevelTicks.m_193225_(LevelTicks.java:98)
+[12:44:15] [ERROR] !   at net.minecraft.server.level.ServerLevel.m_8793_(ServerLevel.java:298)
+[12:44:15] [ERROR] !   at net.minecraft.server.MinecraftServer.m_5703_(MinecraftServer.java:893)
+[12:44:15] [ERROR] !   at net.minecraft.server.MinecraftServer.m_5705_(MinecraftServer.java:814)
+[12:44:15] [ERROR] !   at net.minecraft.client.server.IntegratedServer.m_5705_(IntegratedServer.java:89)
+[12:44:15] [ERROR] !   at net.minecraft.server.MinecraftServer.m_130011_(MinecraftServer.java:661)
+[12:44:15] [ERROR] !   at net.minecraft.server.MinecraftServer.m_206580_(MinecraftServer.java:251)
+[12:44:15] [ERROR] !   at java.lang.Thread.run(Thread.java:833)
