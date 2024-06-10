@@ -31,7 +31,7 @@ glintStrength:0.75
 damageTiltStrength:1.0
 highContrast:false
 gamma:1.0
-renderDistance:10
+renderDistance:4
 simulationDistance:12
 entityDistanceScaling:1.0
 guiScale:3
@@ -41,7 +41,7 @@ graphicsMode:1
 ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
-renderClouds:"true"
+renderClouds:"false"
 resourcePacks:["vanilla","mod_resources","Chat Reporting Helper.zip","Default-Dark-Mode-1.20-2023.7.0.zip","FrostbiteBrimstone.zip","Moonlight Mods Dynamic Assets","PlainTextDreamDesires.zip","builtin/DAGoldenSwetBallFixClient","builtin/resource/overrides_pack","spelunkery:better_vanilla_gems","spelunkery:unlit_redstone_ores","§6No Enchant Glint 1.20.1.zip","file/ReApplied.zip","file/EclecticTrove-1.20.1-1.3.0.zip","file/Stay True Compats v7 [1.19].zip","file/Stay_True_1.20.zip","file/NoBushyLeaves.zip","file/Lopy-Create-Sophisticated-Backpacks.zip","MandalasGUI+Dakmode_1.20.5.zip"]
 incompatibleResourcePacks:["FrostbiteBrimstone.zip","PlainTextDreamDesires.zip","builtin/DAGoldenSwetBallFixClient","file/ReApplied.zip","file/Stay True Compats v7 [1.19].zip","file/Lopy-Create-Sophisticated-Backpacks.zip","MandalasGUI+Dakmode_1.20.5.zip"]
 lastServer:
@@ -122,18 +122,18 @@ key_key.estrogen.dash:key.keyboard.x
 key_key.dragon_fireAttack:key.keyboard.r
 key_key.dragon_strike:key.keyboard.g
 key_key.dragon_down:key.keyboard.x
-key_key.dragon_change_view:key.keyboard.f7
+key_key.dragon_change_view:key.keyboard.f3
 key_key.modernfix.config:key.keyboard.unknown
-key_key.apotheosis.toggle_radial_mining:key.keyboard.o:CONTROL
+key_key.apotheosis.toggle_radial_mining:key.keyboard.unknown
 key_info.structure_gel.building_tool.undo:key.keyboard.z:CONTROL
 key_info.structure_gel.building_tool.redo:key.keyboard.y:CONTROL
 key_key.structure_gel.open_building_tool_gui:key.keyboard.r
-key_key.corpse.death_history:key.keyboard.u
-key_key.curios.open.desc:key.keyboard.g
-key_iris.keybind.reload:key.keyboard.r
-key_iris.keybind.toggleShaders:key.keyboard.k
-key_iris.keybind.shaderPackSelection:key.keyboard.o
-key_Options Gui:key.keyboard.i
+key_key.corpse.death_history:key.keyboard.unknown
+key_key.curios.open.desc:key.keyboard.unknown
+key_iris.keybind.reload:key.keyboard.unknown
+key_iris.keybind.toggleShaders:key.keyboard.unknown
+key_iris.keybind.shaderPackSelection:key.keyboard.unknown
+key_Options Gui:key.keyboard.unknown
 key_key.veinmining.activate.desc:key.keyboard.unknown
 key_key.toggleVisible:key.keyboard.unknown
 key_key.toggleLiquids:key.keyboard.unknown
@@ -141,7 +141,7 @@ key_key.ae2.guide:key.keyboard.g
 key_key.ae2.portable_item_cell:key.keyboard.unknown
 key_key.ae2.portable_fluid_cell:key.keyboard.unknown
 key_key.ae2.wireless_terminal:key.keyboard.unknown
-key_key.wildfire_gender.gender_menu:key.keyboard.g
+key_key.wildfire_gender.gender_menu:key.keyboard.h
 key_key.mount_jump:key.keyboard.f7
 key_gui.xaero_switch_waypoint_set:key.keyboard.unknown
 key_gui.xaero_instant_waypoint:key.keyboard.keypad.add
@@ -150,11 +150,11 @@ key_gui.xaero_toggle_grid:key.keyboard.unknown
 key_gui.xaero_toggle_waypoints:key.keyboard.unknown
 key_gui.xaero_toggle_map_waypoints:key.keyboard.unknown
 key_gui.xaero_toggle_map:key.keyboard.unknown
-key_gui.xaero_enlarge_map:key.keyboard.z
+key_gui.xaero_enlarge_map:key.keyboard.unknown
 key_gui.xaero_waypoints_key:key.keyboard.u
 key_gui.xaero_zoom_in:key.keyboard.unknown
 key_gui.xaero_zoom_out:key.keyboard.unknown
-key_gui.xaero_new_waypoint:key.keyboard.b
+key_gui.xaero_new_waypoint:key.keyboard.t
 key_gui.xaero_display_all_sets:key.keyboard.unknown
 key_gui.xaero_toggle_light_overlay:key.keyboard.unknown
 key_gui.xaero_toggle_entity_radar:key.keyboard.unknown
@@ -163,9 +163,9 @@ key_gui.xaero_toggle_manual_cave_mode:key.keyboard.unknown
 key_gui.xaero_alternative_list_players:key.keyboard.unknown
 key_gui.xaero_toggle_tracked_players:key.keyboard.unknown
 key_gui.xaero_toggle_pac_chunk_claims:key.keyboard.unknown
-key_gui.xaero_minimap_settings:key.keyboard.y
+key_gui.xaero_minimap_settings:key.keyboard.unknown
 key_cos.key.opencosarmorinventory:key.keyboard.unknown
-key_key.aether.open_accessories.desc:key.keyboard.i
+key_key.aether.open_accessories.desc:key.keyboard.unknown
 key_key.aether.gravitite_jump_ability.desc:key.keyboard.space
 key_key.aether.invisibility_toggle.desc:key.keyboard.v
 key_key.deep_aether.stratus_dash_ability.desc:key.keyboard.r
@@ -177,17 +177,17 @@ key_gui.xaero_map_zoom_in:key.keyboard.unknown
 key_gui.xaero_map_zoom_out:key.keyboard.unknown
 key_gui.xaero_quick_confirm:key.keyboard.right.shift
 key_gui.xaero_toggle_dimension:key.keyboard.unknown
-key_placebo.toggleTrails:key.keyboard.keypad.9
-key_placebo.toggleWings:key.keyboard.keypad.8
+key_placebo.toggleTrails:key.keyboard.unknown
+key_placebo.toggleWings:key.keyboard.unknown
 key_keybind.sophisticatedbackpacks.open_backpack:key.keyboard.b
 key_keybind.sophisticatedbackpacks.inventory_interaction:key.keyboard.c
 key_keybind.sophisticatedbackpacks.tool_swap:key.keyboard.unknown
-key_keybind.sophisticatedbackpacks.sort:key.mouse.middle
-key_keybind.sophisticatedbackpacks.toggle_upgrade_1:key.keyboard.z:ALT
-key_keybind.sophisticatedbackpacks.toggle_upgrade_2:key.keyboard.x:ALT
-key_keybind.sophisticatedbackpacks.toggle_upgrade_3:key.keyboard.unknown
-key_keybind.sophisticatedbackpacks.toggle_upgrade_4:key.keyboard.unknown
+key_keybind.sophisticatedbackpacks.sort:key.keyboard.unknown
 key_keybind.sophisticatedbackpacks.toggle_upgrade_5:key.keyboard.unknown
+key_keybind.sophisticatedbackpacks.toggle_upgrade_4:key.keyboard.unknown
+key_keybind.sophisticatedbackpacks.toggle_upgrade_3:key.keyboard.unknown
+key_keybind.sophisticatedbackpacks.toggle_upgrade_2:key.keyboard.x:ALT
+key_keybind.sophisticatedbackpacks.toggle_upgrade_1:key.keyboard.z:ALT
 key_railways.keyinfo.bogey_menu:key.keyboard.left.alt
 key_railways.keyinfo.cycle_menu:key.keyboard.left.alt
 key_fpsreducer.key.openGui:key.keyboard.end
@@ -201,7 +201,7 @@ key_create.keyinfo.toolmenu:key.keyboard.left.alt
 key_create.keyinfo.toolbelt:key.keyboard.left.alt
 key_key.configured.open_mod_list:key.keyboard.unknown
 key_key.toastcontrol.clear:key.keyboard.j
-key_key.special_ability:key.keyboard.g
+key_key.special_ability:key.keyboard.unknown
 key_key.easy_villagers.pick_up:key.keyboard.v
 key_key.easy_villagers.cycle_trades:key.keyboard.c
 key_quark.keybind.autorun:key.keyboard.unknown
@@ -228,14 +228,14 @@ key_quark.keybind.patreon_emote.dab:key.keyboard.unknown
 key_quark.keybind.patreon_emote.jet:key.keyboard.unknown
 key_quark.keybind.patreon_emote.exorcist:key.keyboard.unknown
 key_quark.keybind.patreon_emote.zombie:key.keyboard.unknown
-key_quark.keybind.change_hotbar:key.keyboard.backslash
+key_quark.keybind.change_hotbar:key.keyboard.unknown
 key_quark.keybind.sort_player:key.keyboard.unknown
 key_quark.keybind.sort_container:key.keyboard.unknown
 key_quark.keybind.lock_rotation:key.keyboard.k
 key_quark.keybind.narrator_readout:key.keyboard.unknown
 key_quark.keybind.narrator_full_readout:key.keyboard.unknown
 key_quark.keybind.variant_selector:key.keyboard.r
-key_supplementaries.keybind.quiver:key.keyboard.v
+key_supplementaries.keybind.quiver:key.keyboard.unknown
 key_key.irons_spellbooks.spell_wheel:key.keyboard.r
 key_key.irons_spellbooks.spellbook_cast:key.keyboard.v
 key_key.irons_spellbooks.spell_bar_modifier:key.keyboard.left.alt
@@ -254,7 +254,7 @@ key_key.irons_spellbooks.spell_quick_cast_12:key.keyboard.unknown
 key_key.irons_spellbooks.spell_quick_cast_13:key.keyboard.unknown
 key_key.irons_spellbooks.spell_quick_cast_14:key.keyboard.unknown
 key_key.irons_spellbooks.spell_quick_cast_15:key.keyboard.unknown
-key_key.inventoryhud.toggle:key.keyboard.i
+key_key.inventoryhud.toggle:key.keyboard.unknown
 key_key.inventoryhud.openconfig:key.keyboard.o
 key_key.inventoryhud.togglepot:key.keyboard.unknown
 key_key.inventoryhud.togglearm:key.keyboard.unknown
