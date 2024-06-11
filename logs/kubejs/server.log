@@ -1,28 +1,28 @@
-[12:46:41] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
-[12:46:41] [INIT] Loaded plugins:
-[12:46:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[12:46:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[12:46:41] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[12:46:41] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[12:46:41] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[12:46:41] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[12:46:41] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[12:46:41] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[12:46:41] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[12:46:41] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[12:46:41] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[12:46:41] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[12:46:41] [INIT] - com.probejs.ProbeJSPlugin
-[12:46:41] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[12:46:41] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
-[12:46:41] [INFO] Loaded script server_scripts:loot.js in 0.0 s
-[12:46:41] [INFO] Loaded script server_scripts:recipe_remove.js in 0.0 s
-[12:46:41] [INFO] Loaded script server_scripts:starter_kit.js in 0.001 s
-[12:46:41] [INFO] Loaded script server_scripts:tags.js in 0.0 s
-[12:46:41] [INFO] Loaded 5/5 KubeJS server scripts in 0.011 s with 0 errors and 0 warnings
-[12:46:41] [INFO] Scripts loaded
-[12:46:41] [INFO] Initializing recipe event...
-[12:46:41] [WARN] Due to the way Minecraft resource loading works, KubeJS' server.log may not contain everything that happened in your server scripts on initial world creation.
-[12:46:41] [WARN] You can still see the full log (including past reloads) in your latest.log file.
-[12:47:03] [INFO] Server resource reload complete!
-[12:48:44] [ERROR] ! starter_kit.js#3: Error in 'PlayerEvents.loggedIn': TypeError: Cannot call method "add" of undefined
+[20:38:48] [INIT] KubeJS 2001.6.5-build.7; MC 2001 forge
+[20:38:48] [INIT] Loaded plugins:
+[20:38:48] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[20:38:48] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[20:38:48] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[20:38:48] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[20:38:48] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[20:38:48] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[20:38:48] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[20:38:48] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[20:38:48] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[20:38:48] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[20:38:48] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[20:38:48] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[20:38:48] [INIT] - com.probejs.ProbeJSPlugin
+[20:38:48] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[20:38:48] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
+[20:38:48] [INFO] Loaded script server_scripts:loot.js in 0.001 s
+[20:38:48] [INFO] Loaded script server_scripts:recipe_remove.js in 0.001 s
+[20:38:48] [INFO] Loaded script server_scripts:starter_kit.js in 0.0 s
+[20:38:48] [INFO] Loaded script server_scripts:tags.js in 0.001 s
+[20:38:48] [INFO] Loaded 5/5 KubeJS server scripts in 0.012 s with 0 errors and 0 warnings
+[20:38:48] [INFO] Scripts loaded
+[20:38:48] [INFO] Initializing recipe event...
+[20:38:48] [WARN] Due to the way Minecraft resource loading works, KubeJS' server.log may not contain everything that happened in your server scripts on initial world creation.
+[20:38:48] [WARN] You can still see the full log (including past reloads) in your latest.log file.
+[20:40:17] [INFO] Server resource reload complete!
+[20:41:29] [ERROR] ! starter_kit.js#3: Error in 'PlayerEvents.loggedIn': TypeError: Cannot call method "add" of undefined
