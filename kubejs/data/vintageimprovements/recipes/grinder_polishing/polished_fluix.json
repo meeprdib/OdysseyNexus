@@ -1,0 +1,16 @@
+{
+	"type":"vintageimprovements:polishing",
+	"speed_limits": 1,
+	"ingredients": [
+		{
+			"tag": "forge:gems/certus_quartz"
+		}
+	],
+	"results": [
+		{
+			"item": "kubejs:polished_certus_quartz",
+			"count": 2
+		}
+	],
+	"processingTime": 20
+}
