@@ -22,8 +22,33 @@ import crafttweaker.api.recipe.IRecipeManager;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.ingredient.IIngredient;
 import mods.create.SplashingManager;
+import crafttweaker.api.recipe.FurnaceRecipeManager;
+import mods.create.SandPaperPolishingManager;
 
 # Misc
+
+furnace.addRecipe("silicon", <item:ae2:silicon>, <tag:items:ae2:all_quartz>, 1.0, 200);
+
+<recipetype:create:pressing>.addRecipe("silicon_sheet", [<item:kubejs:silicon_sheet>], <item:ae2:silicon>, 200);
+<recipetype:create:pressing>.addRecipe("certus_quartz_sheet", [<item:kubejs:certus_quartz_sheet>], <item:kubejs:polished_certus_quartz>, 200);
+<recipetype:create:pressing>.addRecipe("fluix_sheet", [<item:kubejs:fluix_sheet>], <item:kubejs:polished_fluix>, 200);
+
+<recipetype:create:sandpaper_polishing>.addRecipe("polished_certus_quartz", <item:kubejs:polished_certus_quartz>, <tag:items:ae2:all_certus_quartz>, 200);
+<recipetype:create:sandpaper_polishing>.addRecipe("polished_fluix", <item:kubejs:polished_fluix>, <item:ae2:fluix_crystal>, 200);
+
+craftingTable.addShaped("network_tool", <item:ae2:network_tool>, [
+	[<item:create_dd:inductive_mechanism>],
+	[<item:minecraft:stick>]
+]);
+
+<recipetype:create:sequenced_assembly>.addRecipe(<recipetype:create:sequenced_assembly>.builder("integrated_circuit")
+.transitionTo(<item:create_dd:incomplete_integrated_circuit>)
+.require(<item:create:copper_sheet>)
+.loops(5)
+.addOutput(<item:create_dd:integrated_circuit> * 1, 1)
+.addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:ae2:silicon>))
+.addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:create_dd:lapis_alloy>))
+.addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:gold_nugget>)));
 
 <recipetype:create_dd:superheating>.removeAll();
 <recipetype:estrogen:centrifuging>.removeAll();
