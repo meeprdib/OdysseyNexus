@@ -185,10 +185,18 @@ ServerEvents.recipes(event => {
             'apotheosis:sigil_of_socketing',
             'apotheosis:superior_sigil_of_socketing',
             'estrogen:centrifuge',
+            'createaddition:capacitor',
         ]
     })
 })
 ServerEvents.recipes(event => {
     // event.remove({ not: { output: ['ae2:flawed_budding_quartz', 'ae2:damaged_budding_quartz', 'ae2:small_quartz_bud', 'ae2:quartz_block', 'ae2:quartz_cluster', 'ae2:large_quartz_bud', 'ae2:medium_quartz_bud', 'ae2:chipped_budding_quartz', 'ae2:flawless_budding_quartz', 'ae2:fluix_slab', 'ae2:chiseled_quartz_wall', 'ae2:smooth_quartz_slab', 'ae2:quartz_brick_slab', 'ae2:cut_quartz_wall', 'ae2:quartz_wall', 'ae2:quartz_stairs', 'ae2:cut_quartz_stairs', 'ae2:smooth_quartz_stairs', 'ae2:fluix_wall', 'ae2:quartz_pillar_stairs', 'ae2:chiseled_quartz_stairs', 'ae2:quartz_brick_stairs', 'ae2:smooth_quartz_wall', 'ae2:quartz_brick_wall', 'ae2:quartz_pillar_wall', 'ae2:quartz_slab', 'ae2:cut_quartz_slab', 'ae2:fluix_stairs', 'ae2:fluix_block', 'ae2:quartz_vibrant_glass', 'ae2:quartz_glass', 'ae2:chiseled_quartz_block', 'ae2:quartz_pillar', 'ae2:quartz_bricks', 'ae2:smooth_quartz_block', 'ae2:cut_quartz_block', 'ae2:quartz_pillar_slab', 'ae2:chiseled_quartz_slab', 'ae2:light_gray_smart_cable', 'ae2:gray_smart_cable', 'ae2:pink_smart_cable', 'ae2:lime_smart_cable', 'ae2:yellow_smart_cable', 'ae2:light_blue_smart_cable', 'ae2:magenta_smart_cable', 'ae2:orange_smart_cable', 'ae2:white_smart_cable', 'ae2:purple_smart_dense_cable', 'ae2:blue_smart_dense_cable', 'ae2:brown_smart_dense_cable', 'ae2:green_smart_dense_cable', 'ae2:red_smart_dense_cable', 'ae2:black_smart_dense_cable', 'ae2:fluix_smart_dense_cable', 'ae2:cyan_smart_dense_cable', 'ae2:light_gray_smart_dense_cable', 'ae2:gray_smart_dense_cable', 'ae2:pink_smart_dense_cable', 'ae2:lime_smart_dense_cable', 'ae2:yellow_smart_dense_cable', 'ae2:light_blue_smart_dense_cable', 'ae2:magenta_smart_dense_cable', 'ae2:orange_smart_dense_cable', 'ae2:cyan_smart_cable', 'ae2:purple_smart_cable', 'ae2:blue_smart_cable', 'ae2:brown_smart_cable', 'ae2:green_smart_cable', 'ae2:red_smart_cable', 'ae2:black_smart_cable', 'ae2:fluix_smart_cable', 'ae2:white_smart_dense_cable'] }, mod: 'ae2' })
     event.remove({ not: { output: ['vintageimprovements:belt_grinder'] }, mod: 'vintageimprovements' })
+})
+
+ServerEvents.recipes(event => {
+event.replaceInput(
+    { input: 'createaddition:capacitor' },
+    'createaddition:capacitor',
+    'create:electron_tube')
 })
