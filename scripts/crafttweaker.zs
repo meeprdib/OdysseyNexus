@@ -52,22 +52,35 @@ craftingTable.addShaped("network_tool", <item:ae2:network_tool>, [
 
 <recipetype:create_dd:superheating>.removeAll();
 <recipetype:estrogen:centrifuging>.removeAll();
-<recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
+// <recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
 <recipetype:vintageimprovements:vacuumizing>.removeAll();
 <recipetype:vintageimprovements:pressurizing>.removeAll();
 <recipetype:vintageimprovements:coiling>.removeAll();
 
 craftingTable.remove(<item:createaddition:iron_rod>);
-blastFurnace.remove(<item:create_dd:steel_ingot>);
+// blastFurnace.remove(<item:create_dd:steel_ingot>);
 
 craftingTable.addShaped("bundle_with_leather", <item:minecraft:bundle>, [
 	[<item:minecraft:string>, <item:minecraft:leather>, <item:minecraft:string>], 
 	[<item:minecraft:leather>, <item:minecraft:air>, <item:minecraft:leather>], 
-	[<item:minecraft:leather>, <item:minecraft:leather>, <item:minecraft:leather>]]);
+	[<item:minecraft:leather>, <item:minecraft:leather>, <item:minecraft:leather>]
+]);
 craftingTable.addShaped("bundle_with_rabbit", <item:minecraft:bundle>, [
 	[<item:minecraft:string>, <item:minecraft:rabbit_hide>, <item:minecraft:string>], 
 	[<item:minecraft:rabbit_hide>, <item:minecraft:air>, <item:minecraft:rabbit_hide>], 
-	[<item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>]]);
+	[<item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>]
+]);
+
+craftingTable.addShaped("item_cell_housing", <item:ae2:item_cell_housing>, [
+	[<item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>],
+	[<item:ae2:silicon>, <item:minecraft:air>, <item:ae2:silicon>],
+	[<item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>]
+]);
+craftingTable.addShaped("fluid_cell_housing", <item:ae2:fluid_cell_housing>, [
+	[<item:create:copper_sheet>, <item:create:copper_sheet>, <item:create:copper_sheet>],
+	[<item:minecraft:copper_ingot>, <item:minecraft:air>, <item:minecraft:copper_ingot>],
+	[<item:create:copper_sheet>, <item:create:copper_sheet>, <item:create:copper_sheet>]
+]);
 
 craftingTable.remove(<item:cataclysm:ignitium_upgrade_smithing_template>);
 
@@ -158,6 +171,7 @@ furnace.removeByName("spelunkery:zinc_ore_smelting");
 <recipetype:create:crushing>.remove(<item:create:crushed_raw_zinc>);
 <recipetype:create:crushing>.remove(<item:minecraft:lapis_lazuli>);
 <recipetype:create:crushing>.remove(<item:minecraft:redstone>);
+<recipetype:create:crushing>.remove(<item:minecraft:coal>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_cinnabar>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond_shard>);
 <recipetype:create:crushing>.remove(<item:spelunkery:rough_diamond>);
@@ -175,6 +189,7 @@ furnace.removeByName("spelunkery:zinc_ore_smelting");
 <recipetype:create:crushing>.addRecipe("crushed_redstone_ore", [<item:spelunkery:rough_cinnabar> * 5], <tag:items:forge:ores/redstone>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_silver_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_silver> * 3], <tag:items:forge:ores/silver>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_zinc_ore", [<item:create:experience_nugget> % 75, <item:create:crushed_raw_zinc> * 3], <tag:items:forge:ores/zinc>, 200);
+<recipetype:create:crushing>.addRecipe("crushed_coal_ore", [<item:create:experience_nugget> % 75, <item:minecraft:coal> * 3], <tag:items:forge:ores/coal>, 200);
 
 <recipetype:create:crushing>.addRecipe("crushed_copper_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_copper> * 18], <item:minecraft:raw_copper_block>, 1800);
 <recipetype:create:crushing>.addRecipe("crushed_gold_block", [(<item:create:experience_nugget> * 9) % 75, <item:create:crushed_raw_gold> * 18], <item:minecraft:raw_gold_block>, 1800);

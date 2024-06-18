@@ -10,4 +10,7 @@ StartupEvents.registry('item', event => {
     event.create('certus_quartz_sheet').displayName('Certus Quartz Sheet')
     event.create('polished_fluix').displayName('Polished Fluix')
     event.create('fluix_sheet').displayName('Fluix Sheet')
+    event.create('silicon_sheet').displayName('Silicon Sheet')
+    event.create('mushroom_paste').displayName('Mushroom Paste')
+    event.create('mycelial_blend').displayName('Mycelial Blend')
 })

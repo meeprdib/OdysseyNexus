@@ -14,6 +14,7 @@
     "spelunkery",
     "vintagedelight",
     "alexscaves",
+    "architects_palette",
     "iceandfire",
     "createaddition",
     "ratatoullie",
@@ -45,7 +46,8 @@
     "on:cake_base",
     "c:salt_dust",
     "on:salt_bucket",
-    "on:salt_block"
+    "on:salt_block",
+    "forge:bones/wither"
   ],
   "materials": [
     "aeternium",
@@ -95,7 +97,8 @@
     "tin",
     "tungsten",
     "uranium",
-    "zinc"
+    "zinc",
+    "shadow_steel"
   ],
   "priorityOverrides": {},
   "customTags": {},

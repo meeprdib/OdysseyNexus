@@ -25,7 +25,7 @@ _version = 2
 				maxHorizontalResolution = "BLOCK"
 				# The radius of the mod's render distance. (measured in chunks)
 				# 
-				lodChunkRenderDistanceRadius = 128
+				lodChunkRenderDistanceRadius = 32
 				# This indicates how well LODs will represent 
 				# overhangs, caves, floating islands, etc. 
 				# Higher options will make the world more accurate, butwill increase memory and GPU usage. 
@@ -330,7 +330,7 @@ _version = 2
 			#  Note: when on a server, distant generation isn't supported 
 			#  and will always be disabled.
 			# 
-			enableDistantGeneration = false
+			enableDistantGeneration = true
 			# How detailed should LODs be generated outside the vanilla render distance? 
 			# 
 			# PRE_EXISTING_ONLY 
@@ -650,7 +650,7 @@ _version = 2
 			# DEBUG: Debug testing renderer 
 			# DISABLED: Disable rendering
 			# 
-			rendererMode = "DISABLED"
+			rendererMode = "DEFAULT"
 			# Should specialized colors/rendering modes be used? 
 			# 
 			# OFF: LODs will be drawn with their normal colors. 

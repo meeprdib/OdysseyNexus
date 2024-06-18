@@ -34,18 +34,5 @@
             },
             "value": 1.0
         }
-    ],
-    "properties": {
-        "axe": {
-            "attributes": [
-                {
-                    "attribute": "alembic:fire_damage",
-                    "value": "10",
-                    "operation": "+",
-                    "slot": "mainhand",
-                    "seperateOnItem":true
-                }
-            ]
-        }
-    }
+    ]
 }

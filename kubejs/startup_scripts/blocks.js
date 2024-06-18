@@ -5,5 +5,12 @@ StartupEvents.registry('block', event => {
     .hardness(5)
     .resistance(5)
     .tagBlock('minecraft:mineable/pickaxe')
-    .requiresTool(true)
+    .requiresTool(true),
+    event.create('quartz_casing')
+    .displayName('Quartz Casing')
+    .soundType('stone')
+    .hardness(5)
+    .resistance(5)
+    .tagBlock('minecraft:mineable/pickaxe')
+    .requiresTool(false)
 })

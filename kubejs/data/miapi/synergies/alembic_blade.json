@@ -1,0 +1,71 @@
+{
+    "type": "tag",
+    "blade": {
+        "condition": {
+            "type": "true"
+        },
+        "merge": {
+            "attribute_split": {
+                "minecraft:generic.attack_damage": {
+                    "mainhand": [
+                        {
+                            "attribute": "minecraft:generic.attack_damage",
+                            "percentage": "[material.alembic:physical_damage]"
+                        },
+                        {
+                            "attribute": "alembic:alchemical_damage",
+                            "percentage": "[material.alembic:alchemical_damage]"
+                        },
+                        {
+                            "attribute": "alembic:arcane_damage",
+                            "percentage": "[material.alembic:arcane_damage]"
+                        },
+                        {
+                            "attribute": "alembic:fire_damage",
+                            "percentage": "[material.alembic:fire_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.alembic:true_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:cold_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:blood_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:eldritch_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:end_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:evocation_damage]"
+                        },                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:holy_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:lightning_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:nature_damage]"
+                        },
+                        {
+                            "attribute": "alembic:true_damage",
+                            "percentage": "[material.odysseynexus:abyssal_damage]"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

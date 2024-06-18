@@ -86,5 +86,7 @@ to make editing this file much easier.
 	*/
 	"swapper": {
 		"spelunkery:rock_salt_block": "galosphere:pink_salt",
+		// "galosphere:lumiere_block": "ae2:quartz_block",
+		// "galosphere:lumiere_cluster": "ae2:quartz_cluster",
 	}
 }

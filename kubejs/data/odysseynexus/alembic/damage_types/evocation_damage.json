@@ -10,7 +10,7 @@
             "tag_type": "alembic:particle_tag",
             "scale_with_damage": true,
             "particle_options": {
-                "type": "aether_redux:spark"
+                "type": "ae2:lightning_fx"
             }
         }
     ]

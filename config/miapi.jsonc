@@ -11,6 +11,10 @@
             "animated_materials": true,
             // Whether Miapi displays "Modular Material" when no groups are present
             "inject_lore_without_material_group": false,
+            // Whether Miapi displays "Modular Item" at all
+            "inject_lore_modular item": true,
+            // Whether Miapi displays "Modular Material" at all
+            "inject_lore_material": true,
             // The color Miapi uses for its enchanting glint
             "enchanting_glint_colors": [
                 "ff00ffff"

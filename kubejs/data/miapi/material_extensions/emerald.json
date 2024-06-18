@@ -1,0 +1,6 @@
+{
+    "key": "emerald",
+	"alembic:physical_damage": "-0.5",
+	"alembic:alchemical_damage": "0.0",
+	"alembic:true_damage": "0.5"
+}

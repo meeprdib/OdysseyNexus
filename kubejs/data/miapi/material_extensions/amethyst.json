@@ -1,0 +1,6 @@
+{
+	"key": "amethyst",
+	"alembic:physical_damage": "-1.0",
+	"alembic:alchemical_damage": "1.0",
+	"alembic:true_damage": "0.0"
+}
