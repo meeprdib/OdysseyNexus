@@ -41,3 +41,8 @@ ServerEvents.tags('item', event => {
 
     event.remove('forge:ores/redstone', 'regions_unexplored:raw_redstone_block')
 })
+
+ServerEvents.tags('block', event => {
+    event.add('create:tree_attachments', 'spelunkery:conk_fungus_block')
+    event.add('minecraft:logs', 'spelunkery:conk_fungus_block')
+  })

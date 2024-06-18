@@ -127,6 +127,7 @@ JEIEvents.hideItems(event => {
     'apotheosis:sigil_of_socketing',
     'apotheosis:superior_sigil_of_socketing',
     'estrogen:centrifuge',
+    'createaddition:capacitor',
     ])
 })
 

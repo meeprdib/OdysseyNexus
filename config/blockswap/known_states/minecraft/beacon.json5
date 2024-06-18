@@ -10,12 +10,5 @@ to make editing this file much easier.
 [
 	{
 		"Name": "minecraft:beacon"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "false"
-		},
-		"Name": "minecraft:beacon"
 	}
 ]

@@ -51,7 +51,7 @@ craftingTable.addShaped("network_tool", <item:ae2:network_tool>, [
 .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:gold_nugget>)));
 
 <recipetype:create_dd:superheating>.removeAll();
-<recipetype:estrogen:centrifuging>.removeAll();
+<recipetype:estrogen:centrifuging>.removeAll();	
 // <recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
 <recipetype:vintageimprovements:vacuumizing>.removeAll();
 <recipetype:vintageimprovements:pressurizing>.removeAll();
