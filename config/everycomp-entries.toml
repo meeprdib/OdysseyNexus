@@ -15,9 +15,6 @@
 		[types.wood_type.architects_palette]
 			twisted = true
 
-		[types.wood_type.iceandfire]
-			dreadwood = true
-
 		[types.wood_type.cataclysm]
 			chorus = true
 
