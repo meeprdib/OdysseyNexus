@@ -22,8 +22,8 @@ constructor(arg0: $ResourceLocation$Type)
 
 public "createObject"(): $Block
 public "hasLeftovers"(arg0: boolean): $FeastBlockBuilder
-public "servingsAmount"(arg0: integer): $FeastBlockBuilder
 public "servingItems"(arg0: ($ResourceLocation$Type)[]): $FeastBlockBuilder
+public "servingsAmount"(arg0: integer): $FeastBlockBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -41,8 +41,8 @@ static readonly "ID": $ResourceLocation
 
 constructor()
 
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $SpawnerRecipe
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SpawnerRecipe
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $SpawnerRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $SpawnerRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $SpawnerRecipe
@@ -65,8 +65,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$IRotate$SpeedLevel, $IRotate$SpeedLevel$Type} from "packages/com/simibubi/create/content/kinetics/base/$IRotate$SpeedLevel"
+import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
@@ -79,8 +79,8 @@ import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -117,25 +117,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "getBlockEntityClass"(): $Class<($SpawnerBlockEntity)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "getBlockEntityClass"(): $Class<($SpawnerBlockEntity)>
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $SpawnerBlockEntity
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($SpawnerBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($SpawnerBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($SpawnerBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $SpawnerBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($SpawnerBlockEntity)>
-get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+get "blockEntityClass"(): $Class<($SpawnerBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -196,53 +196,53 @@ constructor(arg0: $SpawnerRecipeBuilder$SpawnerRecipeParams$Type)
 public "matches"(arg0: $SimpleContainer$Type, arg1: $Level$Type): boolean
 public "matches"(arg0: $FluidStack$Type): boolean
 public "matches"(arg0: $SpawnerRecipe$SpawnerRecipeWrapper$Type, arg1: $Level$Type): boolean
-public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
-public "getSerializer"(): $RecipeSerializer<(any)>
-public "assemble"(arg0: $SimpleContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getFluidAmount"(): integer
-public "getProcessingTime"(): integer
-public "getFluidIngredient"(): $FluidIngredient
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "getId"(): $ResourceLocation
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "getProcessingTime"(): integer
+public "assemble"(arg0: $SimpleContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getMob"(): $EntityType<(any)>
+public "getSerializer"(): $RecipeSerializer<(any)>
+public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "getFluidAmount"(): integer
+public "getFluidIngredient"(): $FluidIngredient
+public "isSpecial"(): boolean
 public "getRemainingItems"(arg0: $SimpleContainer$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
+public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
 public "getId"(): $ResourceLocation
 public "getType"<T extends $RecipeType<(any)>>(): T
 public "getSerializer"<T extends $RecipeSerializer<(any)>>(): T
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
-public "setGroup"(group: string): void
-public "getGroup"(): string
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
+public "getGroup"(): string
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasInput"(match: $ReplacementMatch$Type): boolean
+get "id"(): $ResourceLocation
+get "processingTime"(): integer
+get "mob"(): $EntityType<(any)>
 get "serializer"(): $RecipeSerializer<(any)>
 get "fluidAmount"(): integer
-get "processingTime"(): integer
 get "fluidIngredient"(): $FluidIngredient
-get "id"(): $ResourceLocation
-get "mob"(): $EntityType<(any)>
+get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
 get "id"(): $ResourceLocation
 get "type"(): T
 get "serializer"(): T
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
 get "type"(): $ResourceLocation
 get "mod"(): string
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -285,15 +285,15 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "getRange"(): integer
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
-public "spawnParticles"(): void
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "getProcessingSpeed"(): integer
-public "getSpawnBlockPosition"(arg0: $Direction$Type, arg1: boolean): $List<($BlockPos)>
+public "spawnParticles"(): void
+public "tick"(): void
 public static "getCapacityMultiplier"(): integer
+public "getSpawnBlockPosition"(arg0: $Direction$Type, arg1: boolean): $List<($BlockPos)>
 public "collectSpawnGroup"(): $List<($SpawnerBlockEntity)>
 public "getProgressPercent"(): integer
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 get "range"(): integer
 get "processingSpeed"(): integer
 get "capacityMultiplier"(): integer

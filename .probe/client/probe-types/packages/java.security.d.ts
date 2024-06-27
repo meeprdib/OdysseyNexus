@@ -62,14 +62,14 @@ public "toString"(): string
 public "newInstance"(arg0: any): any
 public "getType"(): string
 public "getClassName"(): string
-public "getProvider"(): $Provider
 public "getAttribute"(arg0: string): string
 public "getAlgorithm"(): string
+public "getProvider"(): $Provider
 public "supportsParameter"(arg0: any): boolean
 get "type"(): string
 get "className"(): string
-get "provider"(): $Provider
 get "algorithm"(): string
+get "provider"(): $Provider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -106,32 +106,32 @@ public "update"(arg0: byte): void
 public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "update"(arg0: $ByteBuffer$Type): void
 public static "getInstance"(arg0: string): $Signature
-public static "getInstance"(arg0: string, arg1: string): $Signature
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $Signature
+public static "getInstance"(arg0: string, arg1: string): $Signature
 public "getParameters"(): $AlgorithmParameters
-public "getProvider"(): $Provider
 public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
 public "verify"(arg0: (byte)[]): boolean
-public "getAlgorithm"(): string
-public "initVerify"(arg0: $Certificate$Type): void
-public "initVerify"(arg0: $PublicKey$Type): void
-public "initSign"(arg0: $PrivateKey$Type): void
-public "initSign"(arg0: $PrivateKey$Type, arg1: $SecureRandom$Type): void
-public "setParameter"(arg0: $AlgorithmParameterSpec$Type): void
 /**
  * 
  * @deprecated
  */
 public "setParameter"(arg0: string, arg1: any): void
+public "setParameter"(arg0: $AlgorithmParameterSpec$Type): void
 /**
  * 
  * @deprecated
  */
 public "getParameter"(arg0: string): any
+public "getAlgorithm"(): string
+public "getProvider"(): $Provider
+public "initVerify"(arg0: $Certificate$Type): void
+public "initVerify"(arg0: $PublicKey$Type): void
+public "initSign"(arg0: $PrivateKey$Type): void
+public "initSign"(arg0: $PrivateKey$Type, arg1: $SecureRandom$Type): void
 get "parameters"(): $AlgorithmParameters
-get "provider"(): $Provider
-get "algorithm"(): string
 set "parameter"(value: $AlgorithmParameterSpec$Type)
+get "algorithm"(): string
+get "provider"(): $Provider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -158,10 +158,10 @@ public "toString"(): string
 public "hashCode"(): integer
 public "getType"(): string
 public "getEncoded"(): (byte)[]
-public "getPublicKey"(): $PublicKey
 public "verify"(arg0: $PublicKey$Type): void
 public "verify"(arg0: $PublicKey$Type, arg1: string): void
 public "verify"(arg0: $PublicKey$Type, arg1: $Provider$Type): void
+public "getPublicKey"(): $PublicKey
 get "type"(): string
 get "encoded"(): (byte)[]
 get "publicKey"(): $PublicKey
@@ -197,11 +197,11 @@ public static "getInstance"(arg0: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $SecureRandom
 public "getParameters"(): $SecureRandomParameters
-public "getProvider"(): $Provider
 public "getAlgorithm"(): string
-public static "getSeed"(arg0: integer): (byte)[]
+public "getProvider"(): $Provider
 public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$Type): void
 public "nextBytes"(arg0: (byte)[]): void
+public static "getSeed"(arg0: integer): (byte)[]
 public "setSeed"(arg0: long): void
 public "setSeed"(arg0: (byte)[]): void
 public "generateSeed"(arg0: integer): (byte)[]
@@ -211,8 +211,8 @@ public "reseed"(): void
 public static "getDefault"(): $RandomGenerator
 public static "of"(arg0: string): $RandomGenerator
 get "parameters"(): $SecureRandomParameters
-get "provider"(): $Provider
 get "algorithm"(): string
+get "provider"(): $Provider
 set "seed"(value: long)
 set "seed"(value: (byte)[])
 get "instanceStrong"(): $SecureRandom
@@ -602,12 +602,12 @@ public "init"(arg0: (byte)[], arg1: string): void
 public "init"(arg0: $AlgorithmParameterSpec$Type): void
 public "getEncoded"(): (byte)[]
 public "getEncoded"(arg0: string): (byte)[]
-public "getProvider"(): $Provider
 public "getAlgorithm"(): string
+public "getProvider"(): $Provider
 public "getParameterSpec"<T extends $AlgorithmParameterSpec>(arg0: $Class$Type<(T)>): T
 get "encoded"(): (byte)[]
-get "provider"(): $Provider
 get "algorithm"(): string
+get "provider"(): $Provider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

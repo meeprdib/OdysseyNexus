@@ -76,7 +76,6 @@ net.minecraft.core.HolderLookup$RegistryLookup
 net.minecraft.network.protocol.game.ClientboundHurtAnimationPacket
 moe.wolfgirl.probejs.lang.typescript.code.type.TSClassType
 com.railwayteam.railways.content.custom_bogeys.blocks.base.be.CRBogeyBlockEntity
-uwu.lopyluna.create_dd.block.BlockProperties.magic.OverchargedAlloyBlock
 com.copycatsplus.copycats.content.copycat.stairs.WrappedStairsBlock
 com.negodya1.vintageimprovements.content.kinetics.curving_press.CurvingBehaviour$CurvingBehaviourSpecifics
 xaero.pac.common.server.claims.api.IServerRegionClaimsAPI
@@ -87,6 +86,7 @@ net.minecraft.network.FriendlyByteBuf
 org.violetmoon.quark.content.world.block.MonsterBoxBlock
 net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer
 org.lwjgl.system.Struct
+net.minecraft.client.multiplayer.ClientChunkCache
 com.simibubi.create.foundation.mixin.accessor.DispenserBlockAccessor
 xaero.map.core.IWorldMapClientPlayNetHandler
 net.minecraft.world.entity.schedule.Schedule
@@ -216,6 +216,7 @@ net.minecraft.world.inventory.HopperMenu
 com.jozufozu.flywheel.util.transform.TransformStack
 net.ribs.vintagedelight.block.custom.GoldenEggBlock
 net.minecraft.world.MenuProvider
+uwu.lopyluna.create_dd.content.blocks.kinetics.furnace_engine.PoweredFlywheelBlock
 dev.latvian.mods.kubejs.level.ExplosionEventJS$Before
 com.google.common.collect.ImmutableSetMultimap$Builder
 io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile
@@ -327,7 +328,6 @@ net.minecraft.world.entity.SpawnPlacements$Type
 com.mojang.serialization.codecs.RecordCodecBuilder
 java.util.Spliterator$OfInt
 net.minecraft.world.level.levelgen.DensityFunction$FunctionContext
-uwu.lopyluna.create_dd.item.ItemProperties.compound.ChromaticCompound
 dev.tr7zw.skinlayers.accessor.PlayerSettings
 net.minecraft.client.renderer.RenderType$CompositeRenderType
 com.simibubi.create.content.fluids.tank.FluidTankItem
@@ -407,7 +407,6 @@ java.util.concurrent.ThreadFactory
 moe.wolfgirl.probejs.lang.java.clazz.Clazz
 com.ordana.spelunkery.blocks.rock_salt.RockSaltStairs
 net.mehvahdjukaar.supplementaries.common.items.RopeArrowItem
-uwu.lopyluna.create_dd.block.BlockProperties.ReversedGearboxBlock
 org.violetmoon.quark.api.IRuneColorProvider
 dev.latvian.mods.kubejs.core.ComponentKJS
 net.mehvahdjukaar.supplementaries.common.block.blocks.ClockBlock
@@ -490,7 +489,6 @@ com.blamejared.crafttweaker.api.data.ListData
 com.almostreliable.ponderjs.particles.ParticleDataBuilder$Static
 dev.latvian.mods.kubejs.block.custom.FenceBlockBuilder
 com.copycatsplus.copycats.content.copycat.layer.CopycatLayerBlock
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnFenceGateBlock
 net.minecraftforge.forgespi.language.IModInfo
 appeng.crafting.pattern.CraftingPatternItem
 com.github.alexmodguy.alexscaves.server.item.RaygunItem
@@ -547,9 +545,9 @@ net.minecraft.world.level.entity.EntitySectionStorage
 net.minecraft.server.level.FullChunkStatus
 net.minecraft.world.level.Level$ExplosionInteraction
 net.azurune.tipsylib.common.effect.HeartBreakEffect
+uwu.lopyluna.create_dd.content.items.equipment.gilded_rose_tools.GRSwordItem
 de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinEditBox
 com.github.alexmodguy.alexscaves.server.item.InkBombItem
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.FlywheelBlockEntity
 java.util.OptionalLong
 com.mojang.datafixers.kinds.Applicative
 net.minecraft.world.entity.monster.Monster
@@ -565,7 +563,7 @@ net.minecraft.world.level.block.state.properties.Tilt
 com.mojang.datafixers.OpticFinder
 net.minecraft.world.level.levelgen.DensityFunction
 net.minecraft.network.PacketListener
-net.mehvahdjukaar.amendments.common.item.DyeBottleItem
+com.teamabnormals.autumnity.common.block.SnailGooFullBlock
 net.ribs.vintagedelight.item.custom.GlowBerryJamItem
 com.simibubi.create.content.schematics.cannon.MaterialChecklist
 xaero.map.file.export.PNGExporter
@@ -633,6 +631,7 @@ net.minecraft.world.level.biome.MobSpawnSettings$SpawnerData
 org.apache.commons.lang3.function.TriFunction
 it.unimi.dsi.fastutil.shorts.ShortConsumer
 de.keksuccino.fancymenu.util.rendering.ui.widget.CustomizableWidget$CustomBackgroundResetBehavior
+com.teamabnormals.autumnity.common.block.PancakeBlock
 com.github.alexmodguy.alexscaves.server.item.RadiationRemovingFoodItem
 net.minecraft.world.inventory.SmokerMenu
 vectorwing.farmersdelight.common.block.PieBlock
@@ -645,6 +644,7 @@ com.simibubi.create.foundation.blockEntity.behaviour.ValueSettingsBehaviour
 dev.latvian.mods.kubejs.player.PlayerEventJS
 net.minecraft.world.level.material.LavaFluid
 net.irisshaders.batchedentityrendering.impl.BufferBuilderExt
+com.teamabnormals.autumnity.common.block.properties.CarvedSide
 net.mehvahdjukaar.supplementaries.common.block.blocks.WildFlaxBlock
 com.simibubi.create.content.contraptions.MountedStorageManager
 net.orcinus.galosphere.items.SterlingArmorItem
@@ -673,7 +673,6 @@ net.blay09.mods.waystones.item.WarpScrollItem
 net.ribs.vintagedelight.block.custom.salt_lamps.YellowSaltLampBlock
 com.google.common.collect.AbstractMultimap
 net.orcinus.galosphere.blocks.RotatableChiseledBlock
-uwu.lopyluna.create_dd.block.BlockProperties.drill.shadow.ShadowDrillBlock
 net.minecraftforge.registries.IForgeRegistry
 java.util.concurrent.locks.Condition
 com.railwayteam.railways.content.buffer.WideTrackBufferBlock
@@ -709,6 +708,7 @@ net.mehvahdjukaar.moonlight.api.client.ModFluidRenderProperties
 net.minecraft.client.gui.components.Button$CreateNarration
 net.minecraftforge.event.level.ChunkEvent
 net.brnbrd.delightful.common.item.knife.compat.nethers_exoticism.KiwanoKnifeItem
+com.teamabnormals.autumnity.common.levelgen.feature.PumpkinFieldsPumpkinFeature
 net.mehvahdjukaar.supplementaries.common.items.QuiverItem
 it.unimi.dsi.fastutil.booleans.Boolean2IntFunction
 com.copycatsplus.copycats.content.copycat.ladder.CopycatLadderBlock
@@ -724,7 +724,6 @@ com.mangomilk.design_decor.registry.CDDDirectionalBlock
 com.google.gson.TypeAdapter
 net.minecraft.network.protocol.game.ServerboundSetJigsawBlockPacket
 net.minecraft.world.entity.boss.enderdragon.phases.EnderDragonPhaseManager
-uwu.lopyluna.create_dd.block.BlockProperties.magic.OverchargedBlockcasing
 net.minecraft.network.protocol.game.ClientboundBlockDestructionPacket
 net.minecraft.commands.SharedSuggestionProvider$ElementSuggestionType
 net.minecraft.resources.RegistryOps$RegistryInfoLookup
@@ -744,6 +743,7 @@ com.railwayteam.railways.content.buffer.TrackBufferBlockEntity
 net.minecraftforge.client.model.data.ModelDataManager
 appeng.helpers.IPriorityHost
 net.minecraft.world.entity.monster.Illusioner
+uwu.lopyluna.create_dd.content.items.equipment.gilded_rose_tools.GRHoeItem
 net.minecraft.world.level.block.BaseRailBlock
 net.minecraft.world.level.block.AzaleaBlock
 it.unimi.dsi.fastutil.doubles.DoubleSpliterator
@@ -754,11 +754,9 @@ net.minecraftforge.eventbus.api.EventPriority
 io.netty.util.Attribute
 net.minecraft.world.level.material.FluidState
 dev.shadowsoffire.apotheosis.adventure.gen.RogueSpawnerFeature
-uwu.lopyluna.create_dd.item.ItemProperties.compound.RefinedRadiance
 net.minecraft.network.protocol.game.ClientboundContainerClosePacket
 net.minecraftforge.common.ToolAction
 net.minecraftforge.common.extensions.IForgeBlockGetter
-uwu.lopyluna.create_dd.block.BlockProperties.kinetic_motor.KineticMotorBlock
 net.mehvahdjukaar.supplementaries.common.block.blocks.StructureTempBlock
 net.minecraft.client.multiplayer.ServerData
 net.minecraft.world.level.levelgen.feature.AbstractHugeMushroomFeature
@@ -778,6 +776,7 @@ dev.latvian.mods.rhino.WrapFactory
 net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer
 top.theillusivec4.curios.api.SlotContext
 net.minecraft.client.resources.sounds.Sound
+uwu.lopyluna.create_dd.content.blocks.kinetics.industrial_fan_block.IndustrialFanBlockEntity
 com.ordana.spelunkery.worldgen.features.HugeConkFungusFeature
 vectorwing.farmersdelight.common.crafting.CuttingBoardRecipe$Serializer
 com.jozufozu.flywheel.util.transform.Translate
@@ -811,6 +810,7 @@ net.minecraft.network.protocol.game.ServerboundRecipeBookChangeSettingsPacket
 net.minecraft.client.gui.components.tabs.TabNavigationBar$Builder
 net.minecraft.client.gui.components.spectator.SpectatorGui
 com.hlysine.create_power_loader.content.trains.StationChunkLoader$AttachedLoader
+com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesMapleTreeFeature
 net.minecraft.world.item.EnchantedGoldenAppleItem
 com.mojang.authlib.yggdrasil.request.AbuseReportRequest$RealmInfo
 net.minecraft.client.renderer.item.ItemPropertyFunction
@@ -820,7 +820,6 @@ dev.latvian.mods.rhino.mod.wrapper.DirectionWrapper
 net.minecraft.advancements.AdvancementRewards$Builder
 net.minecraft.world.entity.monster.SpellcasterIllager$IllagerSpell
 org.apache.logging.log4j.spi.StandardLevel
-uwu.lopyluna.create_dd.block.BlockProperties.drill.shadow.ShadowDrillBlockEntity
 appeng.items.tools.powered.MatterCannonItem
 dev.xkmc.fruitsdelight.content.block.PineappleRiceBlock
 com.supermartijn642.fusion.api.texture.SpritePreparationContext
@@ -837,9 +836,7 @@ smartin.miapi.item.MaterialSmithingRecipe
 net.minecraft.network.protocol.game.ClientboundLevelChunkPacketData$BlockEntityTagOutput
 net.regions_unexplored.world.level.feature.tree.EucalyptusTreeFeature
 net.minecraft.world.item.ArrowItem
-uwu.lopyluna.create_dd.item.ItemProperties.milkshakes.GlowberryMilkshake
 net.minecraft.client.GuiMessage$Line
-uwu.lopyluna.create_dd.item.ItemProperties.sawtool.DeforesterAxeItem
 net.minecraftforge.common.extensions.IForgeFluidState
 org.violetmoon.zeta.block.ZetaSlabBlock
 net.minecraft.world.item.Vanishable
@@ -907,6 +904,7 @@ net.minecraft.commands.arguments.EntityArgument$Info
 com.simibubi.create.content.redstone.link.controller.LecternControllerBlockEntity
 com.simibubi.create.content.redstone.link.controller.LinkedControllerItem
 net.minecraft.commands.CommandSigningContext
+uwu.lopyluna.create_dd.content.items.equipment.gilded_rose_tools.GRShovelItem
 com.copycatsplus.copycats.content.copycat.bytes.CopycatByteBlock
 com.jozufozu.flywheel.backend.instancing.AbstractInstance
 smartin.miapi.item.modular.ModularItemPart
@@ -1000,7 +998,6 @@ net.minecraft.world.level.levelgen.feature.ReplaceBlockFeature
 com.oierbravo.create_mechanical_spawner.content.components.SpawnerRecipe$Serializer
 xaero.common.gui.widget.WidgetLoadingHandler
 xaero.map.file.export.PNGExportResultType
-net.mehvahdjukaar.amendments.common.block.WallLanternBlock
 vice.satisfying_buttons.accessors.IAbstractButtonAccessor
 org.violetmoon.quark.api.ITrowelable
 net.minecraft.world.level.storage.loot.entries.SequentialEntry$Builder
@@ -1150,7 +1147,6 @@ net.minecraft.world.level.block.state.properties.BambooLeaves
 smartin.miapi.mixin.ConduitBlockEntityAccessor
 com.simibubi.create.content.kinetics.crafter.MechanicalCrafterBlockEntity$Inventory
 net.minecraft.server.players.UserBanListEntry
-dev.mayaqq.estrogen.registry.enchantments.UwufyCurseEnchantment
 dev.latvian.mods.rhino.mod.util.NBTUtils
 com.railwayteam.railways.content.buffer.headstock.HeadstockStyle
 com.simibubi.create.content.kinetics.gantry.GantryShaftBlockEntity
@@ -1160,6 +1156,7 @@ com.illusivesoulworks.polymorph.mixin.core.AccessorSmithingTrimRecipe
 java.util.concurrent.TimeUnit
 com.github.alexmodguy.alexscaves.server.block.QuarryBlock
 appeng.items.tools.fluix.FluixSwordItem
+com.teamabnormals.autumnity.common.block.properties.SnailShellOrientation
 net.liopyu.entityjs.builders.living.entityjs.MobBuilder
 net.minecraft.world.level.block.PowderSnowBlock
 net.regions_unexplored.world.level.feature.WaterEdgeFeature
@@ -1171,6 +1168,7 @@ com.github.alexthe666.iceandfire.item.ItemDragonEgg
 net.minecraft.network.protocol.game.ServerboundRenameItemPacket
 xaero.common.validator.NumericFieldValidator
 qinomed.kubejsdelight.block.custom.FeastBlockBuilder
+com.teamabnormals.autumnity.common.item.SnailShellChestplateItem
 dev.shadowsoffire.apotheosis.adventure.affix.socket.ExtractionRecipe$Serializer
 io.netty.util.concurrent.SingleThreadEventExecutor
 com.teamabnormals.upgrade_aquatic.common.item.GlowSquidBucketItem
@@ -1191,7 +1189,6 @@ dev.shadowsoffire.attributeslib.impl.BooleanAttribute
 net.minecraft.client.gui.screens.Overlay
 com.github.alexmodguy.alexscaves.server.item.RadioactiveBlockItem
 com.simibubi.create.content.trains.track.BezierTrackPointLocation
-net.mehvahdjukaar.amendments.common.block.ModCauldronBlock
 net.minecraft.client.server.IntegratedServer
 dev.latvian.mods.kubejs.fluid.OutputFluid
 appeng.api.util.AEColor
@@ -1257,6 +1254,7 @@ io.netty.buffer.AbstractByteBuf
 io.redspace.ironsspellbooks.item.CastingItem
 net.minecraft.world.level.levelgen.feature.SpringFeature
 net.minecraft.client.renderer.texture.Stitcher$Entry
+com.teamabnormals.autumnity.common.block.AutumnityJackOLanternBlock
 com.simibubi.create.content.contraptions.bearing.ClockworkBearingBlockEntity
 net.minecraft.commands.arguments.ScoreHolderArgument
 com.simibubi.create.content.processing.basin.BasinOperatingBlockEntity
@@ -1306,7 +1304,6 @@ net.minecraft.world.level.levelgen.feature.PointedDripstoneFeature
 net.minecraft.world.level.block.state.properties.Property$Value
 javax.sound.sampled.AudioFormat
 com.simibubi.create.content.equipment.clipboard.ClipboardBlockEntity
-net.mehvahdjukaar.amendments.common.CakeRegistry$CakeType
 net.minecraftforge.common.extensions.IForgeBlock
 net.minecraftforge.client.event.ModelEvent$RegisterAdditional
 net.minecraft.world.level.lighting.LayerLightSectionStorage$SectionType
@@ -1318,6 +1315,7 @@ net.mehvahdjukaar.supplementaries.common.worldgen.BasaltAshFeature
 plus.dragons.createdragonlib.mixin.CreateAdvancementConstructor
 it.unimi.dsi.fastutil.bytes.ByteIterable
 com.github.alexmodguy.alexscaves.server.item.BlockItemWithScaffolding
+com.teamabnormals.autumnity.common.block.MapleLeavesBlock
 net.minecraft.world.entity.ai.sensing.VillagerBabiesSensor
 net.minecraftforge.forgespi.locating.IModFile$Type
 net.minecraft.util.StringRepresentable
@@ -1353,7 +1351,6 @@ com.simibubi.create.content.schematics.SchematicItem
 com.github.alexthe666.iceandfire.world.feature.SpawnDragonSkeleton
 dev.xkmc.l2library.base.effects.api.ClientRenderEffect
 dev.xkmc.fruitsdelight.init.plants.FruitPlant
-dev.mayaqq.estrogen.config.PlayerEntityExtension
 com.blamejared.crafttweaker.mixin.common.access.food.AccessFoodPropertiesForge
 java.lang.reflect.AnnotatedType
 dev.latvian.mods.rhino.mod.util.NBTSerializable
@@ -1366,7 +1363,6 @@ net.p3pp3rf1y.sophisticatedcore.renderdata.IUpgradeRenderData
 net.ribs.vintagedelight.item.custom.OrganicMashItem
 net.minecraft.world.entity.monster.ElderGuardian
 com.jagrosh.discordipc.entities.RichPresence
-net.mehvahdjukaar.amendments.common.IBellConnections
 net.liopyu.entityjs.util.ContextUtils$EntityFluidStateContext
 com.squoshi.irons_spells_js.item.StaffItemBuilderJS
 net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket$Parameters
@@ -1408,6 +1404,7 @@ com.simibubi.create.content.kinetics.mechanicalArm.ArmBlockEntity$Phase
 net.brnbrd.delightful.common.item.ICompat
 com.mangomilk.design_decor.blocks.large_boiler.copper.CopperBoilerStructure
 appeng.crafting.execution.ElapsedTimeTracker
+uwu.lopyluna.create_dd.content.blocks.kinetics.furnace_engine.FurnaceEngineBlockEntity
 dev.latvian.mods.kubejs.item.custom.BasicItemJS
 com.railwayteam.railways.mixin_interfaces.IMonorailBezier
 net.minecraft.world.entity.boss.enderdragon.phases.AbstractDragonPhaseInstance
@@ -1439,7 +1436,6 @@ java.nio.IntBuffer
 com.blamejared.crafttweaker.api.ingredient.transform.serializer.TransformCustomSerializer
 com.jozufozu.flywheel.api.vertex.VertexWriter
 com.blamejared.crafttweaker.api.item.tooltip.ITooltipFunction
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.engine.EngineBlockEntity
 net.minecraft.client.resources.model.ModelBaker
 com.mangomilk.design_decor.blocks.large_boiler.brass.BrassLargeBoilerBlockItem
 net.minecraftforge.common.capabilities.ICapabilityProviderImpl
@@ -1477,6 +1473,7 @@ com.github.alexthe666.iceandfire.world.feature.SpawnDeathWorm
 com.ordana.spelunkery.blocks.nephrite.NephriteDiodeBlock
 net.minecraft.client.CameraType
 dev.shadowsoffire.gateways.gate.Failure
+uwu.lopyluna.create_dd.content.blocks.kinetics.transmission.InverseBoxBlock
 com.mrh0.createaddition.recipe.CARecipeSerializer
 moe.wolfgirl.probejs.lang.java.clazz.Clazz$ClassType
 dev.xkmc.fruitsdelight.content.effects.EmptyEffect
@@ -1503,7 +1500,6 @@ architectspalette.content.blocks.SunstoneBlock
 net.minecraft.util.random.SimpleWeightedRandomList$Builder
 net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration
 net.minecraftforge.common.data.ExistingFileHelper
-earth.terrarium.botarium.forge.regsitry.fluid.BotariumFluidType
 com.simibubi.create.content.trains.signal.SignalBoundary
 net.p3pp3rf1y.sophisticatedbackpacks.upgrades.toolswapper.ToolSwapperUpgradeItem
 xaero.pac.common.server.player.localization.api.IAdaptiveLocalizerAPI
@@ -1580,6 +1576,7 @@ net.regions_unexplored.world.level.feature.WaterCattailFeature
 com.simibubi.create.content.schematics.SchematicPrinter$EntityTargetHandler
 com.simibubi.create.content.legacy.RefinedRadianceItem
 org.embeddedt.modernfix.duck.IChunkGenerator
+uwu.lopyluna.create_dd.content.blocks.kinetics.giant_gear.GiantGearBlockEntity
 net.regions_unexplored.world.level.block.plant.grass.RuCobaltPlantBlock
 dev.latvian.mods.rhino.mod.wrapper.UUIDWrapper
 appeng.api.networking.IGridService
@@ -1647,7 +1644,6 @@ com.simibubi.create.content.logistics.depot.DepotBlock
 net.regions_unexplored.world.level.block.plant.nether.GlisteringIvyPlantBlock
 com.copycatsplus.copycats.content.copycat.board.CopycatCatwalkItem
 net.minecraft.world.entity.ai.behavior.MoveToTargetSink
-net.mehvahdjukaar.amendments.common.block.LiquidCauldronBlock
 dev.latvian.mods.kubejs.block.DetectorBlockEventJS
 net.minecraft.world.entity.player.Player$BedSleepingProblem
 org.joml.Quaternionfc
@@ -1701,7 +1697,7 @@ net.minecraft.util.OptionEnum
 net.minecraft.util.Unit
 java.lang.Module
 xaero.common.category.serialization.data.FilterObjectCategoryData
-net.mehvahdjukaar.amendments.common.tile.LiquidCauldronBlockTile
+com.teamabnormals.autumnity.common.block.FoulBerryBushBlock
 com.oierbravo.create_mechanical_spawner.content.components.SpawnerBlock
 net.liopyu.entityjs.builders.nonliving.BaseEntityBuilder$IAnimationPredicateJS
 net.minecraft.world.entity.Pose
@@ -1719,7 +1715,6 @@ net.azurune.tipsylib.common.effect.GravityResistanceEffect
 net.minecraft.client.renderer.debug.GameTestDebugRenderer
 mezz.jei.api.runtime.IIngredientVisibility
 xaero.map.pool.TextureUploadPool$SubsequentNormal
-uwu.lopyluna.create_dd.block.BlockProperties.drill.bronze.BronzeDrillBlockEntity
 net.minecraft.world.level.block.state.BlockBehaviour$Properties
 net.liopyu.entityjs.util.ContextUtils$Vec3Context
 net.minecraft.network.protocol.game.ServerboundSetCreativeModeSlotPacket
@@ -1839,7 +1834,6 @@ it.unimi.dsi.fastutil.bytes.ByteCollection
 net.minecraft.commands.CommandSourceStack
 com.simibubi.create.content.contraptions.AbstractContraptionEntity
 com.simibubi.create.content.trains.entity.TrainStatus
-uwu.lopyluna.create_dd.item.ItemProperties.milkshakes.StrawberryMilkshake
 net.regions_unexplored.world.level.block.other_dirt.ArgilliteGrassBlock
 com.mojang.brigadier.suggestion.Suggestion
 net.mehvahdjukaar.supplementaries.common.block.blocks.UrnBlock
@@ -1871,7 +1865,6 @@ net.minecraft.world.level.block.state.properties.EnumProperty
 net.minecraft.world.level.SpawnData
 xaero.map.file.worldsave.biome.WorldDataBiomeManager
 appeng.api.behaviors.GenericInternalInventory
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnFenceBlock
 io.netty.channel.EventLoopTaskQueueFactory
 net.p3pp3rf1y.sophisticatedcore.upgrades.voiding.VoidUpgradeConfig
 com.squoshi.irons_spells_js.util.ISSKJSUtils$ResourceHolder
@@ -2005,6 +1998,7 @@ java.time.zone.ZoneOffsetTransition
 net.minecraft.world.item.WritableBookItem
 net.minecraft.world.entity.Entity$MoveFunction
 com.railwayteam.railways.content.conductor.whistle.ConductorWhistleFlagBlock
+uwu.lopyluna.create_dd.content.blocks.kinetics.industrial_fan_block.IndustrialFanBlock
 java.util.function.DoubleToIntFunction
 xaero.map.file.export.PNGExportResult
 net.minecraft.server.packs.repository.RepositorySource
@@ -2034,14 +2028,12 @@ com.simibubi.create.content.decoration.bracket.BracketBlock
 xaero.common.controls.ControlsRegister
 com.github.L_Ender.cataclysm.items.CataclysmSkullItem
 net.minecraft.client.model.geom.EntityModelSet
-earth.terrarium.botarium.common.fluid.base.FluidSnapshot
 net.regions_unexplored.world.level.feature.ObsidianSpireFeature
 net.minecraft.world.level.block.CakeBlock
 vectorwing.farmersdelight.common.block.CookingPotBlock
 java.security.cert.Certificate
 net.minecraftforge.client.model.geometry.BlockGeometryBakingContext$VisibilityData
 net.mehvahdjukaar.supplementaries.common.items.BubbleBlockItem
-uwu.lopyluna.create_dd.block.BlockProperties.magic.BlazeGoldBlock
 plus.dragons.createcentralkitchen.foundation.item.ConditionedItem
 net.minecraft.world.entity.ai.behavior.LongJumpToRandomPos
 net.minecraft.client.renderer.block.model.ItemOverrides$BakedOverride
@@ -2124,8 +2116,6 @@ net.regions_unexplored.world.level.feature.HangingEarlightFeature
 plus.dragons.createcentralkitchen.content.logistics.item.guide.cooking.CookingGuideItem
 appeng.api.networking.crafting.CraftingJobStatus
 appeng.api.networking.IGridNodeService
-net.mehvahdjukaar.amendments.common.block.FloorCandleSkullBlock
-dev.mayaqq.estrogen.registry.items.UwUItem
 net.minecraft.world.item.PotionItem
 com.railwayteam.railways.mixin_interfaces.IStrictSignalTrain
 org.violetmoon.quark.content.world.block.MyaliteBlock
@@ -2138,7 +2128,6 @@ net.regions_unexplored.world.level.block.cave.PointedRedstoneBlock
 com.github.alexthe666.iceandfire.entity.EntityMyrmexBase
 com.izofar.bygonenether.block.NetheriteBellBlock
 appeng.decorative.solid.CertusQuartzClusterBlock
-uwu.lopyluna.create_dd.block.BlockProperties.bronze_saw.BronzeSawBlock
 com.blamejared.searchables.mixin.AccessEditBox
 dev.shadowsoffire.gateways.gate.Reward
 software.bernie.geckolib.cache.object.GeoCube
@@ -2221,12 +2210,12 @@ net.liopyu.entityjs.util.ContextUtils$ArrowBlockHitContext
 org.violetmoon.zeta.util.RegistryUtil
 net.irisshaders.iris.parsing.ExtendedBiome
 com.simibubi.create.foundation.ponder.instruction.PonderInstruction
-uwu.lopyluna.create_dd.block.BlockProperties.hydraulic_press.HydraulicPressBlock
 net.liopyu.entityjs.events.ModifyAttributeEventJS$AttributeModificationHelper
 com.simibubi.create.content.decoration.steamWhistle.WhistleExtenderBlock
 net.minecraft.world.level.levelgen.feature.stateproviders.DualNoiseProvider
 mod.crend.dynamiccrosshair.mixin.ShovelItemAccessor
 net.minecraft.world.level.block.TurtleEggBlock
+com.teamabnormals.autumnity.common.block.LargeJackOLanternSliceBlock
 net.minecraft.world.item.crafting.BlastingRecipe
 net.minecraft.world.level.storage.loot.entries.ComposableEntryContainer
 com.mojang.blaze3d.shaders.Program
@@ -2244,6 +2233,7 @@ net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 net.mehvahdjukaar.moonlight.api.block.ItemDisplayTile
 com.mojang.blaze3d.vertex.VertexFormatElement
 lol.bai.badpackets.api.PacketSender
+uwu.lopyluna.create_dd.content.blocks.kinetics.multimeter.MultiMeterBlock
 net.minecraft.world.entity.EntityType$EntityFactory
 appeng.block.misc.CellWorkbenchBlock
 appeng.blockentity.networking.EnergyCellBlockEntity
@@ -2262,6 +2252,7 @@ it.unimi.dsi.fastutil.booleans.Boolean2ReferenceFunction
 dev.xkmc.l2library.base.effects.api.DelayedEntityRender
 net.minecraft.commands.arguments.TimeArgument$Info
 me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryBlock
+uwu.lopyluna.create_dd.content.blocks.contraptions.bore_block.BoreBlock
 net.minecraft.client.particle.SingleQuadParticle
 net.minecraft.world.item.enchantment.FireAspectEnchantment
 net.minecraft.network.protocol.game.ClientboundSoundEntityPacket
@@ -2400,7 +2391,6 @@ com.jozufozu.flywheel.util.transform.Transform
 com.unascribed.ears.api.Slice
 io.redspace.ironsspellbooks.api.item.weapons.MagicSwordItem
 com.github.alexmodguy.alexscaves.server.block.PottedFlytrapBlock
-earth.terrarium.botarium.common.fluid.base.BotariumFluidItem
 net.liopyu.entityjs.entities.living.vanilla.BlazeEntityJS
 org.violetmoon.zeta.network.IZetaNetworkEventContext
 com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlock
@@ -2443,6 +2433,7 @@ java.security.Permission
 java.nio.charset.CodingErrorAction
 net.mehvahdjukaar.supplementaries.common.worldgen.BasaltAshFeature$Config
 net.minecraft.world.level.levelgen.placement.RepeatingPlacement
+uwu.lopyluna.create_dd.content.blocks.kinetics.giant_gear.GiantGearStructuralBlock
 dev.latvian.mods.kubejs.entity.EntitySpawnedEventJS
 com.simibubi.create.content.contraptions.bearing.ClockworkBearingBlock
 xaero.common.PlatformContextLoaderClientOnly
@@ -2585,7 +2576,6 @@ com.simibubi.create.content.contraptions.Contraption
 com.simibubi.create.foundation.ponder.element.PonderOverlayElement
 moe.wolfgirl.probejs.lang.typescript.code.member.ParamDecl
 com.copycatsplus.copycats.content.copycat.block.CopycatBlockBlock
-net.mehvahdjukaar.amendments.common.block.BoilingWaterCauldronBlock
 com.github.alexthe666.iceandfire.item.IProtectAgainstDragonItem
 net.minecraft.world.level.levelgen.feature.FillLayerFeature
 net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer
@@ -2609,8 +2599,7 @@ com.redpxnda.nucleus.forge.mixin.ParticleEngineAccessor
 net.minecraft.world.level.block.CactusBlock
 com.mangomilk.design_decor.blocks.large_boiler.industrial_iron.IndustrialIronLargeBoilerBlockItem
 net.orcinus.galosphere.blocks.StrandedMembraneBlock
-uwu.lopyluna.create_dd.item.ItemProperties.compound.BlazeGold
-uwu.lopyluna.create_dd.block.BlockProperties.drill.radiant.RadiantDrillBlockEntity
+io.redspace.ironsspellbooks.item.SpellSlotUpgradeItem
 org.violetmoon.zeta.event.bus.IZetaPlayEvent
 net.minecraft.world.level.levelgen.feature.MonsterRoomFeature
 com.simibubi.create.content.equipment.bell.AbstractBellBlockEntity
@@ -2667,7 +2656,6 @@ appeng.api.implementations.blockentities.IWirelessAccessPoint
 xaero.map.MapWriter
 dev.latvian.mods.rhino.Script
 com.github.alexmodguy.alexscaves.server.potion.DeepsightEffect
-uwu.lopyluna.create_dd.block.BlockProperties.fan.FourBladeFanBlockEntity
 java.nio.file.WatchKey
 net.regions_unexplored.world.level.block.plant.food.DuskmelonBlock
 com.github.alexthe666.iceandfire.item.ItemDeathwormArmor
@@ -2712,12 +2700,12 @@ smartin.miapi.mixin.SmithingTransformRecipeAccessor
 net.minecraft.world.entity.vehicle.MinecartSpawner
 net.minecraft.network.chat.HoverEvent$EntityTooltipInfo
 java.lang.invoke.TypeDescriptor
+com.teamabnormals.autumnity.common.block.LargePumpkinSliceBlock
 xaero.hud.preset.HudPresetManager
 com.mangomilk.design_decor.blocks.large_boiler.andesite.AndesiteBoilerStructure
 net.brnbrd.delightful.common.item.DItem
 net.minecraft.world.level.levelgen.GeodeLayerSettings
 net.mehvahdjukaar.supplementaries.common.block.IWaxable
-earth.terrarium.botarium.common.registry.fluid.BotariumLiquidBlock
 com.simibubi.create.content.decoration.palettes.LayeredBlock
 net.minecraft.world.level.border.WorldBorder
 com.simibubi.create.content.processing.recipe.HeatCondition
@@ -2755,7 +2743,6 @@ com.blamejared.crafttweaker.mixin.common.access.block.AccessBlockStateBase
 org.violetmoon.quark.content.building.recipe.MixedExclusionRecipe
 net.darkhax.bookshelf.api.commands.args.SingletonArgumentInfo$Template
 net.minecraft.world.level.levelgen.feature.KelpFeature
-dev.mayaqq.estrogen.registry.items.HorseUrineBottleItem
 net.minecraft.nbt.IntArrayTag
 net.p3pp3rf1y.sophisticatedcore.upgrades.tank.TankUpgradeWrapper
 dev.architectury.registry.registries.DeferredSupplier
@@ -2774,14 +2761,12 @@ com.simibubi.create.content.redstone.link.RedstoneLinkNetworkHandler$Frequency
 com.railwayteam.railways.content.switches.TrackSwitchBlockEntity
 dev.latvian.mods.kubejs.recipe.CompostableRecipesEventJS
 net.p3pp3rf1y.sophisticatedbackpacks.upgrades.toolswapper.ToolSwapMode
-net.mehvahdjukaar.amendments.common.block.DyeCauldronBlock
 it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap
 com.teamabnormals.upgrade_aquatic.common.item.BoiledPickerelweedItem
 java.lang.module.ModuleDescriptor$Version
 net.minecraft.world.level.block.SeaPickleBlock
 com.jozufozu.flywheel.util.Color
 net.regions_unexplored.world.level.block.other_dirt.TillableDirtBlock
-net.mehvahdjukaar.amendments.common.block.CarpetSlabBlock
 net.tslat.effectslib.api.EffectOverlayRenderer
 net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate$Palette
 it.unimi.dsi.fastutil.objects.ObjectListIterator
@@ -2796,6 +2781,7 @@ net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneCon
 com.mrh0.createaddition.index.CAFluids$NoColorFluidAttributes
 dev.shadowsoffire.attributeslib.mobfx.FlyingEffect
 net.liopyu.entityjs.entities.living.vanilla.CamelEntityJS
+com.teamabnormals.autumnity.common.block.ColoredMapleLeavesBlock
 com.mojang.brigadier.arguments.LongArgumentType
 terrablender.worldgen.IExtendedNoiseGeneratorSettings
 com.teamabnormals.upgrade_aquatic.common.block.ConduitFrameBlock
@@ -2811,6 +2797,7 @@ com.github.alexthe666.iceandfire.item.ItemGorgonHead
 net.minecraft.world.entity.monster.Evoker
 org.violetmoon.zeta.module.IDisableable
 net.minecraft.world.level.levelgen.feature.configurations.EndGatewayConfiguration
+uwu.lopyluna.create_dd.registry.DesiresFluids$TintedFluidType
 appeng.recipes.handlers.InscriberRecipeSerializer
 io.redspace.ironsspellbooks.item.armor.PlaguedArmorItem
 net.mehvahdjukaar.every_compat.modules.quark.CompatTrappedChestBlock
@@ -2855,7 +2842,6 @@ net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfigu
 net.minecraftforge.entity.PartEntity
 net.ribs.vintagedelight.block.custom.mason_jars.PepperJamBlock
 net.minecraft.world.entity.ReputationEventHandler
-uwu.lopyluna.create_dd.block.BlockProperties.copycat.BlockcopycatSlab
 net.ribs.vintagedelight.block.custom.SaltLayerBlock
 com.mojang.blaze3d.shaders.Shader
 net.minecraft.world.level.block.TrapDoorBlock
@@ -2904,9 +2890,7 @@ net.minecraft.world.entity.monster.Enemy
 net.minecraft.world.level.levelgen.heightproviders.HeightProviderType
 xaero.common.core.IXaeroMinimapClientPlayNetHandler
 net.minecraft.world.entity.player.Player
-dev.mayaqq.estrogen.registry.items.DreamBottleItem
 com.github.alexmodguy.alexscaves.server.item.OrtholanceItem
-uwu.lopyluna.create_dd.block.BlockProperties.ponder_box.PonderBoxBlockEntity
 vazkii.patchouli.mixin.client.AccessorKeyMapping
 net.minecraft.network.protocol.status.ServerStatus
 net.minecraft.client.gui.screens.inventory.MenuAccess
@@ -2926,7 +2910,6 @@ xaero.pac.common.parties.party.member.PartyMemberRank
 net.minecraft.commands.arguments.ResourceArgument$Info$Template
 net.minecraft.client.telemetry.WorldSessionTelemetryManager
 net.darkhax.bookshelf.mixin.accessors.item.AccessorItem
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.FlywheelBlock
 xaero.common.minimap.render.radar.element.RadarRenderer
 dev.latvian.mods.kubejs.block.predicate.BlockIDPredicate$PropertyObject
 nonamecrackers2.endertrigon.common.util.DragonStrafeExtension
@@ -2970,6 +2953,7 @@ dev.latvian.mods.kubejs.block.callbacks.BlockStateModifyPlacementCallbackJS
 com.blamejared.crafttweaker.api.recipe.serializer.CTShapedRecipeSerializer
 com.github.alexmodguy.alexscaves.server.level.feature.SulfurStackFeature
 net.mehvahdjukaar.moonlight.api.block.IBlockHolder
+cn.foggyhillside.ends_delight.item.EndermanGristleItem
 com.copycatsplus.copycats.content.copycat.pressure_plate.CopycatStonePressurePlate
 net.minecraft.world.level.levelgen.structure.BoundingBox
 com.simibubi.create.content.kinetics.mechanicalArm.ArmBlock
@@ -3079,6 +3063,7 @@ net.minecraft.world.entity.projectile.ThrownExperienceBottle
 net.liopyu.entityjs.util.ContextUtils$EMayInteractContext
 org.violetmoon.quark.content.world.block.GlowLichenGrowthBlock
 net.minecraft.world.item.ItemDisplayContext
+uwu.lopyluna.create_dd.content.blocks.logistics.item_stockpile.ItemStockpileItem
 appeng.api.implementations.blockentities.IChestOrDrive
 dev.latvian.mods.kubejs.item.ItemBuilder$ReleaseUsingCallback
 net.minecraft.world.level.block.TargetBlock
@@ -3097,6 +3082,7 @@ net.minecraft.world.level.Level
 net.minecraft.world.level.block.state.BlockState
 com.github.alexthe666.iceandfire.block.BlockSeaSerpentScales
 net.blay09.mods.waystones.api.IFOVOnUse
+uwu.lopyluna.create_dd.content.blocks.kinetics.giant_gear.GiantGearBlock
 dev.latvian.mods.kubejs.forge.GenericForgeEventConsumer
 com.simibubi.create.content.fluids.pipes.valve.FluidValveBlock
 net.minecraft.world.item.ShieldItem
@@ -3125,7 +3111,6 @@ appeng.thirdparty.fabric.SpriteFinderImpl
 xaero.hud.render.module.ModuleRenderContext
 dev.shadowsoffire.attributeslib.mobfx.KnowledgeEffect
 software.bernie.geckolib.core.animation.Animation$LoopType
-uwu.lopyluna.create_dd.block.BlockProperties.fan.TwoBladeFanBlockEntity
 net.mehvahdjukaar.supplementaries.common.items.CandyItem
 dev.latvian.mods.kubejs.event.IEventHandler
 com.github.alexthe666.citadel.item.ItemCustomRender
@@ -3193,7 +3178,6 @@ net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature
 com.railwayteam.railways.content.smokestack.block.be.DieselSmokeStackBlockEntity
 com.teamabnormals.blueprint.common.item.BEWLRBlockItem
 it.unimi.dsi.fastutil.objects.Object2FloatMap$Entry
-earth.terrarium.botarium.common.registry.fluid.BotariumFlowingFluid
 com.jozufozu.flywheel.core.materials.model.ModelData
 xaero.pac.common.claims.api.IDimensionClaimsManagerAPI
 com.github.alexmodguy.alexscaves.server.block.NeodymiumPillarBlock
@@ -3238,7 +3222,6 @@ xaero.common.server.radar.tracker.SyncedPlayerTrackerSystemManager
 net.regions_unexplored.world.level.block.plant.aquatic.FloweringLilyBlock
 appeng.api.networking.pathing.ChannelMode
 net.minecraft.client.gui.screens.social.PlayerSocialManager
-uwu.lopyluna.create_dd.block.BlockProperties.wood.HazardBlock
 appeng.items.tools.MemoryCardItem
 dev.latvian.mods.kubejs.block.callbacks.BlockStateRotateCallbackJS
 com.google.common.reflect.TypeCapture
@@ -3298,13 +3281,13 @@ net.minecraft.world.entity.animal.Bee$BeePollinateGoal
 net.minecraft.client.StringSplitter$LinePosConsumer
 org.violetmoon.quark.api.IUsageTickerOverride
 java.nio.charset.CharsetEncoder
-uwu.lopyluna.create_dd.item.ItemProperties.sawtool.RavagerAxeItem
 com.mojang.datafixers.types.Type$TypeMatcher
 dev.latvian.mods.kubejs.integration.forge.jei.HideJEIEventJS
 com.github.L_Ender.cataclysm.items.Khopesh
 org.spongepowered.asm.mixin.injection.callback.CallbackInfo
 net.orcinus.galosphere.world.gen.features.config.CrystalSpikeConfig
 net.minecraft.server.level.WorldGenRegion
+uwu.lopyluna.create_dd.content.blocks.kinetics.hydraulic_press.HydraulicPressBlockEntity
 it.unimi.dsi.fastutil.shorts.ShortUnaryOperator
 com.github.alexmodguy.alexscaves.server.block.NeodymiumNodeBlock
 com.tterrag.registrate.builders.MenuBuilder$MenuFactory
@@ -3409,6 +3392,7 @@ net.p3pp3rf1y.sophisticatedcore.upgrades.cooking.BlastingUpgradeItem
 moe.wolfgirl.probejs.lang.typescript.code.type.js.JSJoinedType$Intersection
 net.mehvahdjukaar.moonlight.api.fluids.SoftFluid$TintMethod
 xaero.common.category.ui.data.GuiCategoryUIEditorCategoryData
+uwu.lopyluna.create_dd.content.blocks.kinetics.kinetic_motor.KineticMotorBlockEntity
 io.redspace.ironsspellbooks.effect.guiding_bolt.GuidingBoltEffect
 dev.shadowsoffire.apotheosis.ench.enchantments.InertEnchantment
 dev.latvian.mods.kubejs.util.NotificationBuilder
@@ -3427,7 +3411,6 @@ io.netty.channel.EventLoopGroup
 com.github.alexmodguy.alexscaves.server.level.feature.config.WhalefallFeatureConfiguration
 dev.kosmx.playerAnim.api.layered.IAnimation
 xaero.hud.event.HudEventHandler
-dev.mayaqq.estrogen.registry.blocks.fluids.LavaLikeLiquidBlock
 java.security.spec.AlgorithmParameterSpec
 com.mojang.realmsclient.dto.RealmsServerPing
 com.almostreliable.ponderjs.api.SceneBuildingUtilDelegate
@@ -3474,6 +3457,7 @@ io.redspace.ironsspellbooks.damage.SpellDamageSource
 net.minecraft.world.level.gameevent.GameEvent
 xaero.map.pool.buffer.PoolTextureDirectBufferUnit
 appeng.debug.PhantomNodeBlockEntity
+uwu.lopyluna.create_dd.content.blocks.kinetics.transmission.redstone_divider.RedstoneDividerBlock
 net.minecraft.world.level.material.LavaFluid$Flowing
 net.mehvahdjukaar.supplementaries.common.block.blocks.BambooSpikesBlock
 dev.shadowsoffire.apotheosis.ench.enchantments.twisted.ExploitationEnchant
@@ -3537,7 +3521,6 @@ com.copycatsplus.copycats.content.copycat.button.CopycatStoneButtonBlock
 net.minecraft.server.packs.resources.ResourceMetadata
 net.minecraftforge.event.entity.living.ShieldBlockEvent
 net.minecraft.client.renderer.blockentity.BlockEntityRenderer
-uwu.lopyluna.create_dd.block.BlockProperties.RubberLeavesBlock
 xaero.hud.compat.OldSystemCompatibility
 java.nio.file.Path
 net.minecraft.world.level.block.JigsawBlock
@@ -3599,20 +3582,17 @@ net.minecraftforge.common.extensions.IForgeCommandSourceStack
 com.mangomilk.design_decor.blocks.screws.ScrewBlock
 java.util.concurrent.Callable
 net.minecraft.world.level.block.entity.CommandBlockEntity
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnBlock
 net.regions_unexplored.world.level.feature.tree.SmallOakTreeFeature
 net.minecraft.world.item.InkSacItem
 net.brnbrd.delightful.common.item.knife.compat.twilightforest.SteeleafKnifeItem
 vectorwing.farmersdelight.common.block.OrganicCompostBlock
 dev.latvian.mods.kubejs.level.LevelEventJS
 de.keksuccino.fancymenu.util.rendering.ui.widget.CustomizableWidget
-uwu.lopyluna.create_dd.item.ItemProperties.milkshakes.VanillaMilkshake
 com.railwayteam.railways.content.buffer.IDyedBuffer
 net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
 com.simibubi.create.content.trains.schedule.ScheduleDataEntry
 net.minecraft.world.level.block.BucketPickup
 com.mrh0.createaddition.blocks.electric_motor.ElectricMotorBlockEntity
-uwu.lopyluna.create_dd.block.BlockProperties.magic.ShadowBlockcasing
 net.ribs.vintagedelight.block.custom.SaltPillarBlock
 com.almostreliable.lootjs.core.LootEntry$Generator
 net.brnbrd.delightful.common.item.food.GoatMeatItem
@@ -3624,7 +3604,6 @@ net.minecraftforge.event.entity.living.LivingEvent
 net.minecraft.WorldVersion
 dev.latvian.mods.kubejs.core.MessageSenderKJS
 net.minecraft.world.level.levelgen.feature.BlockBlobFeature
-uwu.lopyluna.create_dd.block.BlockProperties.copycat.BlockcopycatBlock
 net.brnbrd.delightful.common.item.food.RockCandyItem
 dev.architectury.extensions.injected.InjectedLiquidBlockExtension
 dev.latvian.mods.kubejs.loot.FunctionContainer
@@ -3655,7 +3634,6 @@ com.simibubi.create.content.fluids.hosePulley.HosePulleyBlockEntity
 com.hlysine.create_power_loader.content.brasschunkloader.BrassChunkLoaderBlock
 java.lang.AutoCloseable
 net.minecraft.world.level.block.RedStoneOreBlock
-uwu.lopyluna.create_dd.block.BlockProperties.secondary_encased_chain_drive.ChainDriveBlock2
 net.minecraft.world.item.armortrim.TrimMaterial
 net.minecraft.client.Camera$NearPlane
 net.minecraft.world.level.block.BaseCoralWallFanBlock
@@ -3675,7 +3653,6 @@ com.simibubi.create.content.kinetics.press.PressingBehaviour
 com.simibubi.create.content.kinetics.steamEngine.SteamEngineBlock
 net.minecraft.world.level.levelgen.structure.templatesystem.ProtectedBlockProcessor
 java.text.NumberFormat$Style
-uwu.lopyluna.create_dd.block.BlockProperties.fan.EightBladeFanBlockEntity
 net.minecraft.client.gui.Font$DisplayMode
 dzwdz.chat_heads.mixinterface.PlayerChatMessageAccessor
 com.squoshi.irons_spells_js.compat.entityjs.entity.SpellProjectileJS$OnAntiMagicContext
@@ -3702,7 +3679,6 @@ xaero.common.gui.GuiHelper
 java.util.HashMap
 net.mehvahdjukaar.moonlight.api.fluids.ModFlowingFluid$Properties
 net.minecraft.network.chat.HoverEvent$Action
-uwu.lopyluna.create_dd.block.BlockProperties.magic.RadiantBlockcasing
 com.simibubi.create.content.contraptions.elevator.ElevatorColumn
 net.minecraft.commands.synchronization.brigadier.DoubleArgumentInfo
 net.brnbrd.delightful.common.item.food.IceCreamItem
@@ -3728,7 +3704,6 @@ net.mehvahdjukaar.supplementaries.common.misc.mob_container.MobContainer
 com.simibubi.create.content.processing.AssemblyOperatorBlockItem
 com.llamalad7.mixinextras.sugar.ref.LocalIntRef
 java.util.function.BooleanSupplier
-uwu.lopyluna.create_dd.block.BlockProperties.MysteriousCarpetBlock
 net.minecraft.world.scores.criteria.ObjectiveCriteria
 java.util.BitSet
 com.mojang.brigadier.tree.RootCommandNode
@@ -3836,7 +3811,6 @@ org.lwjgl.stb.STBTTFontinfo
 appeng.crafting.pattern.SmithingTablePatternItem
 net.minecraft.world.level.levelgen.BitRandomSource
 com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData
-uwu.lopyluna.create_dd.block.BlockProperties.magic.StargazeBlock
 moe.wolfgirl.probejs.lang.java.type.TypeDescriptor
 com.simibubi.create.foundation.collision.Matrix3d
 dev.xkmc.fruitsdelight.content.effects.RangeSearchEffect
@@ -3883,7 +3857,6 @@ net.mehvahdjukaar.supplementaries.common.block.blocks.GunpowderBlock
 java.nio.channels.ServerSocketChannel
 java.text.Format
 net.minecraft.client.GuiMessageTag
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnRotatedBlockPillar
 net.minecraft.client.renderer.debug.PathfindingRenderer
 com.teamabnormals.blueprint.common.world.storage.tracking.SyncType
 xaero.map.misc.CaveStartCalculator
@@ -3902,7 +3875,6 @@ com.mojang.authlib.minecraft.TelemetrySession
 com.mangomilk.design_decor.blocks.large_boiler.capitalism.CapitalismLargeBoilerBlockItem
 appeng.api.networking.IGrid
 com.blamejared.crafttweaker.api.data.IData
-net.mehvahdjukaar.amendments.common.block.ToolHookBlock
 it.unimi.dsi.fastutil.objects.Reference2ReferenceMap$Entry
 com.github.alexthe666.iceandfire.block.BlockMyrmexConnectedResin
 dev.latvian.mods.kubejs.recipe.schema.RecipeSchema
@@ -4034,6 +4006,7 @@ com.simibubi.create.content.trains.entity.CarriageSounds
 com.mangomilk.design_decor.blocks.containers.red.RedContainerBlock
 org.violetmoon.quark.content.building.block.VerticalSlabBlock
 it.unimi.dsi.fastutil.longs.LongSortedSet
+dev.latvian.mods.kubejs.block.custom.CarpetBlockBuilder
 software.bernie.geckolib.core.keyframe.event.data.ParticleKeyframeData
 net.minecraft.client.renderer.GpuWarnlistManager$Preparations
 it.unimi.dsi.fastutil.longs.Long2LongFunction
@@ -4130,6 +4103,7 @@ net.minecraft.network.protocol.game.ServerboundSignUpdatePacket
 com.yungnickyoung.minecraft.betterdeserttemples.world.state.ITempleStateCacheProvider
 com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronLargeBoilerBlockItem
 dev.xkmc.fruitsdelight.init.plants.FDMelons
+appeng.items.contents.PortableCellMenuHost
 com.copycatsplus.copycats.content.copycat.base.multistate.ICTMultiStateCopycatBlock
 net.minecraft.core.particles.SimpleParticleType
 net.minecraft.world.entity.RiderShieldingMount
@@ -4222,7 +4196,6 @@ it.unimi.dsi.fastutil.objects.ObjectSpliterator
 net.minecraftforge.network.IContainerFactory
 net.minecraft.world.entity.vehicle.ContainerEntity
 appeng.client.render.cablebus.CableCoreType
-earth.terrarium.botarium.common.fluid.impl.WrappedItemFluidContainer
 xaero.map.highlight.MapRegionHighlightsPreparer
 com.copycatsplus.copycats.content.copycat.beam.CopycatBeamBlock
 dev.latvian.mods.kubejs.item.ItemTooltipEventJS
@@ -4232,6 +4205,7 @@ net.minecraft.nbt.LongArrayTag
 vectorwing.farmersdelight.common.block.CanvasRugBlock
 com.github.L_Ender.cataclysm.effects.EffectBone_Fracture
 com.google.common.cache.CacheStats
+uwu.lopyluna.create_dd.content.blocks.logistics.fluid_reservoir.FluidReservoirItem
 net.p3pp3rf1y.sophisticatedcore.upgrades.IUpgradeWrapper
 net.liopyu.entityjs.client.living.model.GeoLayerJS
 software.bernie.geckolib.core.keyframe.AnimationPointQueue
@@ -4280,7 +4254,6 @@ net.minecraft.network.protocol.game.ClientboundChangeDifficultyPacket
 appeng.api.parts.SelectedPart
 com.github.alexmodguy.alexscaves.server.level.feature.config.FillBiomeAboveConfiguration
 net.minecraft.client.renderer.LevelRenderer
-uwu.lopyluna.create_dd.item.ItemProperties.exp.ExperienceNuggetItemTwo
 net.minecraft.client.gui.components.Tooltip
 com.simibubi.create.content.schematics.requirement.ItemRequirement
 net.minecraft.world.level.chunk.PalettedContainer$Configuration
@@ -4305,9 +4278,7 @@ net.minecraft.world.level.material.EmptyFluid
 net.minecraft.commands.arguments.EntityArgument
 com.github.L_Ender.cataclysm.effects.EffectBlazing_Brand
 net.minecraft.core.Direction$AxisDirection
-uwu.lopyluna.create_dd.block.BlockProperties.SpectralRubyLampBlock
 dev.latvian.mods.kubejs.core.LazyComponentKJS
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnSlabBlock
 com.github.talrey.createdeco.blocks.CatwalkBlock
 it.unimi.dsi.fastutil.objects.ReferenceSet
 net.minecraft.commands.arguments.ResourceOrTagArgument
@@ -4347,7 +4318,6 @@ net.minecraft.world.level.block.PowderSnowCauldronBlock
 net.mehvahdjukaar.supplementaries.common.block.blocks.JarBlock
 com.github.L_Ender.cataclysm.items.Necklace_Of_The_Desert
 appeng.api.implementations.items.MemoryCardMessages
-uwu.lopyluna.create_dd.block.BlockProperties.kinetic_motor.KineticMotorBlockEntity
 dev.latvian.mods.kubejs.item.creativetab.CreativeTabBuilder
 net.minecraft.advancements.critereon.MinMaxBounds$Ints
 malte0811.ferritecore.mixin.blockstatecache.DiscreteVSAccess
@@ -4406,7 +4376,6 @@ net.minecraft.world.item.crafting.SmokingRecipe
 net.minecraft.core.Position
 net.minecraft.world.entity.vehicle.MinecartTNT
 net.mehvahdjukaar.moonlight.api.entity.ImprovedProjectileEntity
-dev.mayaqq.estrogen.registry.blocks.CookieJarBlock
 com.redpxnda.nucleus.mixin.client.WorldRendererAccessor
 appeng.blockentity.misc.CondenserBlockEntity
 java.util.function.UnaryOperator
@@ -4423,9 +4392,9 @@ net.minecraft.world.item.crafting.SmithingTransformRecipe$Serializer
 java.util.function.ObjLongConsumer
 com.github.alexmodguy.alexscaves.server.block.CaveSaplingBlock
 net.brnbrd.delightful.common.item.knife.compat.botania.ElementiumKnifeItem
-float
 net.minecraftforge.client.model.generators.ConfiguredModel$Builder
 xaero.common.controls.event.KeyEventHandler
+float
 net.minecraft.network.protocol.game.ServerboundResourcePackPacket
 xaero.map.biome.BiomeColorCalculator
 xaero.pac.common.claims.api.IRegionClaimsAPI
@@ -4433,7 +4402,6 @@ net.minecraft.world.level.block.state.properties.AttachFace
 com.github.alexmodguy.alexscaves.server.block.EnigmaticEngineBlock
 net.brnbrd.delightful.common.item.knife.compat.lolenderite.ObsdianInfusedEnderiteKnifeItem
 com.simibubi.create.foundation.gui.AllIcons
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.engine.EngineBlock
 com.simibubi.create.content.kinetics.mixer.MechanicalMixerBlockEntity
 net.darkhax.bookshelf.mixin.accessors.client.AccessorMinecraft
 com.blamejared.crafttweaker.api.ingredient.type.IIngredientTransformed
@@ -4458,6 +4426,7 @@ com.github.L_Ender.cataclysm.items.Wither_Assault_SHoulder_Weapon
 xaero.map.executor.Executor
 io.netty.channel.EventLoop
 dev.latvian.mods.kubejs.block.predicate.BlockEntityPredicate
+uwu.lopyluna.create_dd.content.items.port.ConversionItem
 com.railwayteam.railways.content.switches.TrackSwitchBlockItem
 com.simibubi.create.content.kinetics.transmission.sequencer.SequencedGearshiftBlock
 org.violetmoon.zeta.block.ZetaButtonBlock
@@ -4507,7 +4476,6 @@ net.blay09.mods.waystones.block.PortstoneBlock
 java.io.FilterInputStream
 net.minecraft.world.InteractionResultHolder
 com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock
-uwu.lopyluna.create_dd.block.BlockProperties.drill.bronze.BronzeDrillBlock
 net.minecraft.world.item.enchantment.TridentRiptideEnchantment
 com.copycatsplus.copycats.content.copycat.base.ICopycatWithWrappedBlock
 net.minecraft.world.level.levelgen.feature.FossilFeature
@@ -4516,6 +4484,7 @@ com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.SwampArchFeature
 dev.architectury.extensions.injected.InjectedGameEventExtension
 dev.shadowsoffire.apotheosis.village.fletching.arrows.IApothArrowItem
 com.github.alexthe666.iceandfire.block.BlockDreadStoneFace
+uwu.lopyluna.create_dd.content.items.equipment.excavation_drill.ExcavationDrillItem
 net.regions_unexplored.world.level.block.leaves.EnchantedBirchLeavesBlock
 com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation
 net.minecraft.world.level.block.CrossCollisionBlock
@@ -4538,10 +4507,8 @@ xaero.common.gui.IXaeroNarratableWidget
 com.copycatsplus.copycats.content.copycat.half_panel.CopycatHalfPanelBlock
 com.mangomilk.design_decor.blocks.ceiling_fan.CeilingFanBlockEntity
 java.util.Dictionary
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.IndustrialAirCurrentSource
 com.soytutta.mynethersdelight.common.block.MNDStandingSignBlock
 net.minecraft.world.level.saveddata.maps.MapItemSavedData$MapPatch
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.Processing.InterfaceIndustrialProcessingType
 io.redspace.ironsspellbooks.block.inscription_table.InscriptionTableBlock
 appeng.api.storage.AEKeyFilter
 com.simibubi.create.foundation.ponder.element.AnimatedSceneElement
@@ -4571,6 +4538,7 @@ dev.latvian.mods.kubejs.misc.PotionBuilder
 com.railwayteam.railways.mixin.AccessorToolboxBlockEntity
 com.simibubi.create.foundation.mixin.accessor.NbtAccounterAccessor
 net.blay09.mods.defaultoptions.mixin.ForgeKeyMappingAccessor
+uwu.lopyluna.create_dd.registry.DesiresFluids$SolidRenderedPlaceableFluidType
 xaero.map.server.radar.tracker.SyncedPlayerTrackerSystemManager
 io.redspace.ironsspellbooks.item.armor.GoldCrownArmorItem
 org.violetmoon.quark.content.tools.recipe.SmithingRuneRecipe
@@ -4636,12 +4604,10 @@ net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer
 net.minecraftforge.network.ServerStatusPing$ChannelData
 dev.latvian.mods.kubejs.block.custom.FenceGateBlockBuilder
 net.liopyu.entityjs.builders.living.vanilla.IllusionerJSBuilder
-uwu.lopyluna.create_dd.block.BlockProperties.accelerator_motor.AcceleratorMotorBlock
 com.mojang.realmsclient.dto.Backup
 com.teamabnormals.upgrade_aquatic.common.block.PickerelweedDoublePlantBlock
 dev.latvian.mods.kubejs.generator.AssetJsonGenerator
 net.minecraft.client.sounds.WeighedSoundEvents
-uwu.lopyluna.create_dd.item.ItemProperties.compound.ShadowSteel
 com.ordana.spelunkery.blocks.TangleRootsBlock
 net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket
 net.p3pp3rf1y.sophisticatedbackpacks.upgrades.deposit.DepositUpgradeWrapper
@@ -4758,7 +4724,6 @@ com.google.common.collect.ImmutableMap
 net.minecraft.world.level.block.DecoratedPotBlock
 net.regions_unexplored.world.level.feature.tree.AspenTreeFeature
 net.p3pp3rf1y.sophisticatedcore.upgrades.cooking.CookingUpgradeWrapper
-net.mehvahdjukaar.amendments.common.block.WaterloggedLilyBlock
 net.minecraft.world.level.block.grower.AbstractTreeGrower
 net.minecraft.world.level.levelgen.SurfaceSystem
 appeng.blockentity.spatial.SpatialPylonBlockEntity$ClientState
@@ -4772,6 +4737,7 @@ net.minecraft.network.protocol.game.ClientboundLoginPacket
 net.minecraft.network.chat.LocalChatSession
 net.minecraft.client.renderer.RenderType$CompositeState$CompositeStateBuilder
 net.minecraft.server.level.ChunkHolder$PlayerProvider
+appeng.api.implementations.menuobjects.IPortableTerminal
 net.minecraft.client.model.ArmedModel
 net.minecraft.network.protocol.game.ClientboundAddExperienceOrbPacket
 com.tterrag.registrate.AbstractRegistrate
@@ -4811,7 +4777,6 @@ net.mehvahdjukaar.supplementaries.common.items.SlingshotItem
 net.minecraft.world.entity.ambient.AmbientCreature
 com.mojang.authlib.minecraft.UserApiService$UserFlag
 it.unimi.dsi.fastutil.chars.Char2ShortFunction
-uwu.lopyluna.create_dd.item.ItemProperties.sawtool.ForestRavagerItem
 org.violetmoon.quark.mixin.mixins.accessor.AccessorBlockItem
 net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement
 net.minecraft.network.chat.Style
@@ -4864,6 +4829,7 @@ com.ordana.spelunkery.blocks.PortalFluidCauldronBlock
 com.railwayteam.railways.mixin_interfaces.IHasTrackCasing
 net.brnbrd.delightful.common.item.food.JamJarItem
 xaero.common.HudMod
+com.teamabnormals.autumnity.common.block.MapleLogBlock
 com.mojang.serialization.Encoder
 com.mrh0.createaddition.energy.BaseElectricBlockEntity
 dev.latvian.mods.kubejs.recipe.JsonRecipeJS
@@ -4873,6 +4839,7 @@ net.minecraft.network.protocol.game.ClientboundTabListPacket
 net.minecraft.world.food.FoodProperties
 com.simibubi.create.foundation.ponder.element.WorldSectionElement
 it.unimi.dsi.fastutil.longs.LongPredicate
+it.unimi.dsi.fastutil.longs.Long2ObjectMap$FastEntrySet
 net.ribs.vintagedelight.block.custom.mason_jars.GearoBerryJamBlock
 com.teamabnormals.blueprint.common.block.thatch.ThatchStairBlock
 com.railwayteam.railways.content.buffer.NarrowTrackBufferBlock
@@ -4885,7 +4852,6 @@ com.github.alexthe666.iceandfire.block.BlockGhostChest
 org.violetmoon.zeta.module.ZetaCategory
 net.minecraft.world.level.chunk.PalettedContainer$CountConsumer
 com.blamejared.crafttweaker.api.ingredient.transform.serializer.IIngredientTransformerSerializer
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnPressurePlateBlock
 net.liopyu.entityjs.entities.living.vanilla.CatEntityJS
 com.almostreliable.lootjs.loot.AddAttributesFunction$Modifier$Builder
 net.minecraft.world.level.block.CauldronBlock
@@ -4897,6 +4863,7 @@ com.teamabnormals.upgrade_aquatic.common.block.ToothDoorBlock
 com.hlysine.create_power_loader.content.ChunkLoadManager$LoadedChunkPos
 com.github.alexthe666.iceandfire.item.ItemStoneStatue
 com.copycatsplus.copycats.content.copycat.base.CTCopycatBlock
+it.unimi.dsi.fastutil.longs.Long2ObjectSortedMap$FastSortedEntrySet
 net.minecraft.world.entity.boss.enderdragon.phases.DragonPhaseInstance
 com.github.alexmodguy.alexscaves.server.block.CopperValveBlock
 com.simibubi.create.content.equipment.zapper.terrainzapper.PlacementOptions
@@ -4978,6 +4945,7 @@ mezz.jei.api.recipe.transfer.IRecipeTransferHandler
 dev.xkmc.fruitsdelight.content.block.WildPineappleBlock
 net.blay09.mods.waystones.block.WaystoneBlockBase
 net.minecraft.world.level.gameevent.PositionSource
+uwu.lopyluna.create_dd.content.blocks.logistics.item_stockpile.ItemStockpileBlockEntity
 net.minecraft.client.multiplayer.chat.report.ReportEnvironment
 net.minecraft.client.multiplayer.chat.LoggedChatEvent$Type
 dev.shadowsoffire.placebo.reload.WeightedDynamicRegistry$IDimensional
@@ -5019,7 +4987,6 @@ org.violetmoon.zeta.item.ZetaMobBucketItem
 java.nio.file.spi.FileSystemProvider
 net.minecraft.client.renderer.ShaderInstance
 dev.xkmc.fruitsdelight.content.item.DurianHelmetItem
-net.mehvahdjukaar.amendments.reg.ModBlockProperties$BlockAttachment
 io.netty.channel.ChannelOption
 com.simibubi.create.content.trains.track.BezierConnection$GirderAngles
 net.minecraft.world.inventory.CraftingContainer
@@ -5048,7 +5015,6 @@ net.minecraft.world.entity.player.ProfilePublicKey$Data
 com.simibubi.create.foundation.item.ItemHelper$ExtractionCountMode
 me.jellysquid.mods.sodium.mixin.features.textures.animations.tracking.SpriteContentsAnimationFrameAccessor
 java.lang.module.ModuleReference
-earth.terrarium.botarium.common.registry.fluid.FluidSounds
 xaero.common.category.ui.GuiCategoryUIEditorDataConverter
 net.liopyu.entityjs.entities.nonliving.entityjs.IAnimatableJSNL
 java.nio.file.OpenOption
@@ -5059,6 +5025,7 @@ net.minecraft.network.protocol.game.ClientboundSetSimulationDistancePacket
 de.keksuccino.fancymenu.util.rendering.ui.widget.UniqueLabeledSwitchCycleButton
 net.regions_unexplored.world.level.block.plant.tall.AshenShrubBlock
 net.minecraft.client.telemetry.TelemetryProperty$Exporter
+net.raphimc.immediatelyfast.injection.interfaces.IBufferBuilder
 net.minecraftforge.fml.config.ConfigFileTypeHandler
 dev.latvian.mods.kubejs.command.ArgumentTypeWrappers
 dev.latvian.mods.kubejs.client.ClientEventJS
@@ -5072,7 +5039,6 @@ net.mehvahdjukaar.every_compat.modules.quark.CompatChestBlock
 appeng.helpers.patternprovider.PatternProviderLogicHost
 net.minecraft.world.entity.ai.sensing.GolemSensor
 net.minecraft.world.entity.ai.behavior.warden.ForceUnmount
-net.mehvahdjukaar.amendments.reg.ModBlockProperties$PostType
 dev.latvian.mods.kubejs.create.custom.SandpaperItemBuilder
 net.minecraft.world.inventory.Slot
 net.minecraft.world.level.block.state.properties.SculkSensorPhase
@@ -5120,7 +5086,6 @@ net.minecraft.world.level.timers.TimerCallback$Serializer
 dev.latvian.mods.kubejs.fluid.FluidStackJS
 com.almostreliable.lootjs.loot.LootActionsContainer
 com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.SwampOgreFeature
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.engine.FurnaceEngineBlock
 net.minecraft.client.renderer.entity.layers.RenderLayer
 com.ordana.spelunkery.blocks.rock_salt.RockSaltCrystalBlock
 com.github.L_Ender.cataclysm.mixin.StructureManagerAccessor
@@ -5141,6 +5106,7 @@ xaero.common.category.ui.data.options.GuiCategoryUIEditorOptionData$Builder
 net.minecraft.network.chat.LastSeenMessages$Packed
 net.regions_unexplored.world.level.feature.SmoulderingDirtFeature
 net.minecraft.world.item.UseAnim
+net.minecraft.client.multiplayer.ClientChunkCache$Storage
 architectspalette.content.blocks.NubBlock
 com.github.alexthe666.iceandfire.item.ItemModShovel
 vectorwing.farmersdelight.common.item.SkilletItem
@@ -5211,7 +5177,6 @@ net.minecraft.world.entity.animal.Pufferfish
 dev.architectury.event.EventResult
 net.minecraft.server.packs.PackResources
 net.minecraft.world.entity.boss.enderdragon.phases.DragonChargePlayerPhase
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.Processing.InterfaceIndustrialProcessingType$DDAirFlowParticleAccess
 net.minecraft.world.level.LevelAccessor
 com.blamejared.crafttweaker.mixin.common.access.item.AccessIngredient
 net.minecraft.nbt.CompoundTag
@@ -5224,6 +5189,7 @@ net.minecraft.network.protocol.game.ClientboundOpenBookPacket
 com.ordana.spelunkery.items.NephriteSiphonItem
 net.minecraft.client.gui.screens.worldselection.WorldCreationContext$DimensionsUpdater
 net.minecraft.world.level.GameRules$Value
+com.teamabnormals.autumnity.common.block.AbstractLargePumpkinSliceBlock
 vectorwing.farmersdelight.common.block.ShepherdsPieBlock
 moe.wolfgirl.probejs.lang.typescript.code.type.js.JSLambdaType
 com.mangomilk.design_decor.blocks.containers.blue.BlueContainerItem
@@ -5235,6 +5201,7 @@ io.redspace.ironsspellbooks.item.armor.CryomancerArmorItem
 moe.wolfgirl.probejs.lang.typescript.code.type.js.JSLambdaType$Builder
 mezz.jei.api.ingredients.IIngredientTypeWithSubtypes
 io.netty.channel.ChannelFuture
+uwu.lopyluna.create_dd.content.items.equipment.BackTankPickaxeItem
 net.minecraft.world.level.block.WitherRoseBlock
 it.unimi.dsi.fastutil.objects.Object2ByteSortedMap
 xaero.map.biome.BiomeGetter
@@ -5280,6 +5247,8 @@ io.redspace.ironsspellbooks.item.armor.ArmorCapeProvider
 dev.latvian.mods.rhino.util.SpecialEquality
 net.minecraft.client.multiplayer.chat.LoggedChatEvent
 io.netty.channel.ChannelInboundHandlerAdapter
+com.teamabnormals.blueprint.common.block.BlueprintFallingBlock
+com.teamabnormals.autumnity.common.block.CarvedLargePumpkinSliceBlock
 net.liopyu.entityjs.util.ContextUtils$LineOfSightContext
 net.minecraft.commands.arguments.ResourceOrTagKeyArgument$Info$Template
 dev.xkmc.fruitsdelight.content.block.FigPuddingBlock
@@ -5289,7 +5258,6 @@ noobanidus.mods.lootr.block.LootrChestBlock
 com.jozufozu.flywheel.core.model.ShadeSeparatedBufferedData
 net.orcinus.galosphere.blocks.GlintedClusterBlock
 com.github.L_Ender.cataclysm.crafting.WeaponfusionRecipe$Serializer
-uwu.lopyluna.create_dd.block.BlockProperties.accelerator_motor.AcceleratorMotorBlockEntity
 io.redspace.ironsspellbooks.capabilities.magic.PlayerRecasts
 net.minecraft.network.protocol.game.ClientboundSetChunkCacheCenterPacket
 io.redspace.ironsrpgtweaks.enchantment_module.item.IdentificationScroll
@@ -5302,7 +5270,6 @@ com.github.alexmodguy.alexscaves.server.block.DinosaurChopBlock
 com.llamalad7.mixinextras.sugar.ref.LocalRef
 java.net.NetworkInterface
 dev.latvian.mods.kubejs.recipe.ReplacementMatch
-earth.terrarium.botarium.common.registry.fluid.FluidBucketItem
 net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest
 dev.xkmc.fruitsdelight.content.block.BushFruitItem
 org.violetmoon.zeta.registry.IZetaItemColorProvider
@@ -5322,6 +5289,7 @@ net.minecraft.world.level.block.SporeBlossomBlock
 mezz.jei.api.recipe.transfer.IRecipeTransferManager
 dev.latvian.mods.rhino.ScriptableObject
 com.github.alexthe666.iceandfire.item.ItemAmbrosia
+uwu.lopyluna.create_dd.content.items.equipment.gilded_rose_tools.GRAxeItem
 net.regions_unexplored.world.level.block.plant.sapling.CactusSaplingBlock
 net.irisshaders.iris.mixin.rendertype.RenderTypeAccessor
 com.google.common.collect.ImmutableBiMapFauxverideShim
@@ -5343,6 +5311,7 @@ net.minecraft.world.entity.ai.gossip.GossipContainer$EntityGossips
 com.simibubi.create.content.kinetics.fan.EncasedFanBlockEntity
 mezz.jei.api.gui.ingredient.IRecipeSlotsView
 net.minecraft.world.level.block.MultifaceBlock
+uwu.lopyluna.create_dd.content.blocks.kinetics.industrial_fan_block.extended.IAirCurrentSourceExtended
 dev.latvian.mods.kubejs.recipe.component.ComponentRole
 com.mrh0.createaddition.blocks.rolling_mill.RollingMillBlockEntity
 com.simibubi.create.content.equipment.armor.CapacityEnchantment$ICapacityEnchantable
@@ -5414,7 +5383,6 @@ malte0811.ferritecore.mixin.blockstatecache.VoxelShapeAccess
 it.unimi.dsi.fastutil.objects.ReferenceCollection
 net.minecraft.world.level.levelgen.structure.templatesystem.NopProcessor
 net.p3pp3rf1y.sophisticatedbackpacks.upgrades.toolswapper.ToolSwapperUpgradeWrapper
-uwu.lopyluna.create_dd.block.BlockProperties.magic.BlazeGoldBlockcasing
 com.github.alexmodguy.alexscaves.server.item.DreadbowItem
 appeng.api.networking.crafting.ICraftingCPU
 com.ordana.spelunkery.worldgen.features.WallMushroomFeature
@@ -5491,13 +5459,10 @@ net.minecraftforge.common.extensions.IForgeHolderSet$SerializationType
 net.minecraft.client.renderer.block.model.BlockModel
 it.unimi.dsi.fastutil.objects.Object2IntMap$Entry
 net.minecraftforge.registries.IForgeRegistryInternal
-net.mehvahdjukaar.amendments.common.block.CeilingBannerBlock
-uwu.lopyluna.create_dd.fluid.DDFluids$TintedFluidType
 lol.bai.badpackets.impl.handler.ClientPacketHandler
 net.minecraftforge.client.model.generators.ModelBuilder
 com.mangomilk.design_decor.blocks.large_boiler.cast_iron.CastIronLargeBoilerBlock
 net.regions_unexplored.world.level.block.plant.tall.BrimwoodShrubBlock
-uwu.lopyluna.create_dd.block.BlockProperties.ponder_box.PonderBoxBlock
 net.minecraft.world.level.block.state.BlockBehaviour
 net.minecraft.sounds.Music
 net.minecraft.world.level.entity.LevelCallback
@@ -5523,7 +5488,6 @@ com.mojang.brigadier.builder.LiteralArgumentBuilder
 org.violetmoon.zeta.block.ZetaCeilingHangingSignBlock
 com.copycatsplus.copycats.content.copycat.pressure_plate.WrappedPressurePlate$HeavyWeighted
 dev.latvian.mods.rhino.ScriptStackElement
-net.mehvahdjukaar.amendments.common.block.WallCandleSkullBlock
 com.simibubi.create.foundation.item.TagDependentIngredientItem
 net.minecraft.world.entity.MoverType
 java.util.function.ObjIntConsumer
@@ -5578,6 +5542,7 @@ net.minecraft.world.level.levelgen.blockpredicates.StateTestingPredicate
 vectorwing.farmersdelight.common.item.DogFoodItem
 net.brnbrd.delightful.common.block.WildSalmonberriesBlock
 vectorwing.farmersdelight.common.item.CookingPotItem
+uwu.lopyluna.create_dd.content.blocks.kinetics.cog_crank.CogCrankBlock
 net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher
 net.minecraft.network.protocol.game.ClientboundUpdateTagsPacket
 net.liopyu.entityjs.util.ContextUtils$ProjectileEntityHitContext
@@ -5621,6 +5586,7 @@ net.minecraft.world.level.chunk.BlockColumn
 com.github.alexthe666.iceandfire.recipe.DragonForgeRecipe$Serializer
 com.simibubi.create.content.processing.burner.BlazeBurnerBlock
 net.liopyu.entityjs.util.ContextUtils$EntityItemEntityContext
+com.teamabnormals.autumnity.common.item.TurkeyEggItem
 architectspalette.core.registry.util.IBlockSetBase
 cpw.mods.jarhandling.impl.SimpleJarMetadata
 net.minecraft.world.item.HoneycombItem
@@ -5665,6 +5631,7 @@ net.minecraftforge.common.ForgeConfigSpec$ConfigValue
 it.unimi.dsi.fastutil.ints.Int2DoubleMap
 dev.latvian.mods.kubejs.loot.ConditionContainer
 net.minecraft.world.entity.animal.horse.Variant
+com.teamabnormals.autumnity.common.block.SnailShellBlock
 net.p3pp3rf1y.sophisticatedcore.upgrades.UpgradeItemBase
 it.unimi.dsi.fastutil.doubles.Double2FloatFunction
 me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer
@@ -5708,6 +5675,7 @@ net.minecraft.world.level.block.MultifaceSpreader$SpreadPos
 com.simibubi.create.content.kinetics.gearbox.VerticalGearboxItem
 com.simibubi.create.content.logistics.crate.CreativeCrateBlock
 dev.latvian.mods.kubejs.loot.EntityLootEventJS
+uwu.lopyluna.create_dd.access.AccessGearshiftBlock
 dev.latvian.mods.kubejs.core.IngredientSupplierKJS
 java.lang.reflect.Method
 com.teamabnormals.upgrade_aquatic.common.item.JellyfishBucketItem
@@ -5719,6 +5687,7 @@ net.regions_unexplored.world.level.block.plant.other.BioshroomBlock
 com.simibubi.create.content.kinetics.waterwheel.LargeWaterWheelBlock
 java.lang.Enum
 net.minecraft.world.level.block.TallFlowerBlock
+com.teamabnormals.autumnity.common.block.SappyLogBlock
 net.brnbrd.delightful.common.item.knife.compat.oresabovediamonds.LargeAmethystKnifeItem
 io.redspace.ironsspellbooks.item.armor.ImbuableChestplateArmorItem
 com.simibubi.create.foundation.mixin.accessor.LivingEntityAccessor
@@ -5743,6 +5712,7 @@ com.yungnickyoung.minecraft.yungsextras.world.feature.desert.DesertWellFeature
 dev.latvian.mods.kubejs.entity.EntityPotionEffectsJS
 net.p3pp3rf1y.sophisticatedbackpacks.upgrades.inception.InceptionUpgradeWrapper
 net.regions_unexplored.world.level.feature.tree.YellowBioshroomShrubFeature
+com.teamabnormals.blueprint.common.entity.BlueprintFallingBlockEntity
 it.unimi.dsi.fastutil.shorts.ShortComparator
 com.railwayteam.railways.content.custom_bogeys.blocks.standard.medium.MediumTripleWheelBogeyBlock
 xaero.common.category.ui.data.GuiCategoryUIEditorExpandableData$Builder
@@ -5775,8 +5745,8 @@ org.violetmoon.quark.content.building.block.BambooMatBlock
 software.bernie.geckolib.core.keyframe.KeyframeStack
 com.ordana.spelunkery.fluids.PortalFluid$Flowing
 net.minecraft.client.renderer.debug.BeeDebugRenderer
-boolean
 com.railwayteam.railways.content.coupling.coupler.TrackCouplerBlockEntity$OperationInfo
+boolean
 net.minecraft.world.level.block.NyliumBlock
 net.ribs.vintagedelight.block.custom.MasonJarBlock
 net.minecraft.network.protocol.game.ClientboundRecipePacket
@@ -5827,7 +5797,6 @@ net.minecraft.world.level.storage.loot.functions.LootItemFunction
 net.minecraft.world.item.ProjectileWeaponItem
 net.minecraft.client.model.HumanoidModel$ArmPose
 xaero.common.minimap.info.render.InfoDisplayRenderer
-uwu.lopyluna.create_dd.item.ItemProperties.milkshakes.CaramelMilkshake
 net.minecraft.network.chat.MutableComponent
 appeng.api.util.DimensionalBlockPos
 net.minecraftforge.client.extensions.IForgeDimensionSpecialEffects
@@ -5972,7 +5941,6 @@ com.simibubi.create.content.trains.graph.TrackEdgeIntersection
 net.minecraft.client.renderer.EffectInstance
 xaero.common.misc.ListFactory
 net.minecraft.client.ClientRecipeBook
-dev.mayaqq.estrogen.config.ChestConfig
 vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab
 net.minecraft.world.item.FireworkRocketItem
 net.minecraft.world.entity.animal.Rabbit
@@ -6007,7 +5975,6 @@ net.minecraft.core.BlockSourceImpl
 vectorwing.farmersdelight.common.item.MilkBottleItem
 com.mangomilk.design_decor.blocks.railings.RailingBlock
 net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData
-uwu.lopyluna.create_dd.block.BlockProperties.drill.radiant.RadiantDrillBlockBreakingKineticBlockEntity
 java.util.function.IntPredicate
 com.teamabnormals.upgrade_aquatic.common.block.JellyTorchBlock$JellyTorchType
 dev.shadowsoffire.apotheosis.ench.library.EnchLibraryBlock
@@ -6063,7 +6030,6 @@ java.util.IntSummaryStatistics
 net.brnbrd.delightful.common.item.food.DConsumableItem
 net.minecraft.client.renderer.RenderStateShard$OutputStateShard
 noobanidus.mods.lootr.block.TrophyBlock
-net.mehvahdjukaar.amendments.common.block.HangingFlowerPotBlock
 com.simibubi.create.foundation.config.ConfigBase$ConfigGroup
 java.security.Guard
 net.mehvahdjukaar.supplementaries.common.block.blocks.CrankBlock
@@ -6164,6 +6130,7 @@ net.minecraft.world.level.block.WallSkullBlock
 com.github.alexmodguy.alexscaves.server.block.StrippableLogBlock
 com.simibubi.create.content.trains.graph.EdgeData
 net.minecraft.client.renderer.debug.GoalSelectorDebugRenderer$DebugGoal
+uwu.lopyluna.create_dd.content.blocks.kinetics.multimeter.GaugeShaper
 net.minecraft.client.renderer.RenderStateShard$DepthTestStateShard
 pregenerator.base.mixins.common.storage.ChunkLoaderMixin
 dev.latvian.mods.kubejs.client.VariantBlockStateGenerator
@@ -6215,6 +6182,7 @@ net.minecraftforge.event.entity.living.LivingHealEvent
 net.minecraft.world.level.block.SoulSandBlock
 net.minecraft.world.entity.animal.Rabbit$Variant
 net.minecraft.world.entity.ai.behavior.Swim
+com.teamabnormals.autumnity.common.levelgen.feature.MapleTreeFeature
 com.blamejared.crafttweaker.api.util.random.Percentaged
 dev.shadowsoffire.apotheosis.adventure.affix.socket.SocketingRecipe
 net.minecraft.nbt.ByteArrayTag
@@ -6227,7 +6195,6 @@ net.mehvahdjukaar.moonlight.api.item.additional_placements.AdditionalItemPlaceme
 net.minecraft.world.inventory.EnchantmentMenu
 net.minecraft.world.level.block.MagmaBlock
 org.violetmoon.quark.content.building.module.VariantChestsModule$IVariantChest
-net.mehvahdjukaar.amendments.common.block.DirectionalCakeBlock
 xaero.map.pool.TextureUploadPool$Compressed
 com.izofar.bygonenether.util.random.ModWeightedEntry
 net.minecraft.world.SimpleContainer
@@ -6292,7 +6259,6 @@ net.minecraft.world.entity.AnimationState
 com.simibubi.create.content.trains.entity.Carriage$DimensionalCarriageEntity
 com.simibubi.create.content.trains.observer.TrackObserverBlock
 com.github.alexmodguy.alexscaves.server.item.CustomArmorPostRender
-dev.mayaqq.estrogen.registry.blocks.DreamBlock
 org.joml.Vector2dc
 net.minecraftforge.common.extensions.IForgeEnchantment
 com.github.alexmodguy.alexscaves.server.level.feature.GalenaHexagonFeature
@@ -6327,11 +6293,10 @@ net.blay09.mods.waystones.api.IAttunementItem
 net.minecraft.client.renderer.block.model.FaceBakery
 net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeItem
 cn.foggyhillside.ends_delight.item.ChorusFruitPieSliceItem
-net.mehvahdjukaar.amendments.common.block.CarpetStairBlock
 xaero.common.patreon.PatreonMod
 net.minecraft.server.packs.repository.PackRepository
 com.railwayteam.railways.mixin_interfaces.IIndexedSchedule
-uwu.lopyluna.create_dd.block.BlockProperties.potato_turret.PotatoTurretBlock
+uwu.lopyluna.create_dd.mixins.AccessorMountedFluidStorage
 software.bernie.geckolib.network.SerializableDataTicket
 net.regions_unexplored.world.level.feature.GlisteringIvyFeature
 net.minecraft.world.entity.animal.Bee$BaseBeeGoal
@@ -6356,7 +6321,6 @@ net.minecraft.world.level.block.state.pattern.BlockPattern
 net.minecraft.world.level.biome.BiomeManager$NoiseBiomeSource
 xaero.map.biome.BlockTintProvider
 net.orcinus.galosphere.blocks.CrystalSlabBlock
-uwu.lopyluna.create_dd.block.BlockProperties.door.YIPPEESlidingDoorBlock
 dev.latvian.mods.kubejs.integration.forge.jei.JEISubtypesEventJS$Interpreter
 net.p3pp3rf1y.sophisticatedcore.upgrades.IOverflowResponseUpgrade
 appeng.thirdparty.fabric.SpriteFinderImpl$SpriteFinderAccess
@@ -6380,7 +6344,6 @@ net.minecraft.world.phys.AABB
 com.github.alexthe666.iceandfire.item.ItemMyrmexEgg
 net.liopyu.entityjs.entities.living.vanilla.EvokerEntityJS
 net.minecraft.client.renderer.debug.DebugRenderer
-uwu.lopyluna.create_dd.item.ItemProperties.ItemDisabled
 net.minecraftforge.common.world.ModifiableStructureInfo$StructureInfo$Builder
 net.minecraft.world.level.block.Block$BlockStatePairKey
 net.minecraft.world.level.ClipBlockStateContext
@@ -6399,7 +6362,6 @@ xaero.common.graphics.renderer.multitexture.MultiTextureRenderTypeRenderer
 net.minecraft.world.item.ItemCooldowns
 com.simibubi.create.content.kinetics.transmission.ClutchBlock
 net.minecraft.world.entity.npc.Npc
-uwu.lopyluna.create_dd.block.BlockProperties.potato_turret.PotatoTurretBlockEntity
 com.mojang.blaze3d.vertex.VertexFormatElement$Type
 net.minecraft.world.level.block.SlimeBlock
 it.unimi.dsi.fastutil.ints.IntListIterator
@@ -6438,7 +6400,6 @@ net.regions_unexplored.world.level.feature.tree.LargeJoshuaTreeFeature
 net.ribs.vintagedelight.block.custom.salt_lamps.LimeSaltLampBlock
 net.blay09.mods.waystones.item.AbstractAttunedShardItem
 architectspalette.content.blocks.abyssaline.AbyssalinePillarBlock
-dev.mayaqq.estrogen.registry.items.EstrogenCookieItem
 java.time.chrono.ChronoZonedDateTime
 com.simibubi.create.foundation.block.render.SpriteShiftEntry
 com.mojang.brigadier.arguments.DoubleArgumentType
@@ -6486,7 +6447,6 @@ com.simibubi.create.content.kinetics.drill.DrillBlock
 net.liopyu.entityjs.entities.nonliving.vanilla.BoatEntityJS
 com.railwayteam.railways.content.custom_bogeys.special.monobogey.MonoBogeyBlockEntity
 net.regions_unexplored.world.level.block.sign.RuWallSignBlock
-uwu.lopyluna.create_dd.block.BlockProperties.fan.EightBladeFanBlock
 net.minecraft.world.entity.ai.memory.WalkTarget
 com.ordana.spelunkery.worldgen.feature_configs.WallMushroomFeatureConfig
 dev.shadowsoffire.apotheosis.adventure.affix.Affix
@@ -6547,6 +6507,7 @@ com.blamejared.crafttweaker.api.ingredient.condition.serializer.ConditionAnyDama
 vectorwing.farmersdelight.common.world.feature.WildRiceFeature
 com.github.L_Ender.cataclysm.mixin.StructureProcessorAccessor
 net.minecraft.client.gui.navigation.ScreenPosition
+com.teamabnormals.autumnity.common.block.TurkeyBlock
 net.regions_unexplored.world.level.block.forest_dirt.PeatGrassBlock
 net.minecraft.world.level.levelgen.carver.NetherWorldCarver
 java.nio.channels.spi.SelectorProvider
@@ -6593,7 +6554,6 @@ com.mojang.authlib.properties.Property
 net.mehvahdjukaar.moonlight.api.set.wood.WoodType
 net.minecraft.client.renderer.ItemInHandRenderer
 net.minecraft.client.model.geom.ModelPart$Cube
-uwu.lopyluna.create_dd.block.BlockProperties.door.YIPPEESlidingDoorBlockEntity
 com.google.common.collect.ImmutableSetMultimap
 io.redspace.ironsspellbooks.block.ArmorPileBlock
 net.minecraftforge.common.capabilities.CapabilityProvider
@@ -6602,6 +6562,7 @@ net.minecraft.world.level.levelgen.feature.SpikeFeature
 com.simibubi.create.content.trains.graph.TrackNode
 com.github.alexmodguy.alexscaves.server.level.feature.TeslaBulbFeature
 java.security.CodeSource
+com.teamabnormals.autumnity.common.block.RedstoneJackOLanternBlock
 com.jozufozu.flywheel.api.MaterialGroup
 mod.crend.dynamiccrosshair.mixin.BlockItemAccessor
 dev.latvian.mods.kubejs.item.ItemBuilder$NameCallback
@@ -6651,6 +6612,7 @@ it.unimi.dsi.fastutil.floats.FloatIterable
 vectorwing.farmersdelight.common.block.OnionBlock
 dev.latvian.mods.kubejs.core.BlockBuilderProvider
 com.railwayteam.railways.forge.mixin.ChunkMapAccessor$TrackedEntityAccessor
+uwu.lopyluna.create_dd.content.blocks.functional.FanSailBlock
 com.tterrag.registrate.builders.EntityBuilder
 com.simibubi.create.infrastructure.worldgen.LayerPattern$Layer
 com.github.alexthe666.iceandfire.block.BlockReturningState
@@ -6670,6 +6632,7 @@ net.minecraft.world.level.block.state.properties.BlockSetType
 net.minecraft.world.level.block.HugeMushroomBlock
 java.lang.Package
 io.redspace.ironsspellbooks.api.registry.SchoolRegistry
+com.teamabnormals.autumnity.common.levelgen.feature.FallenLeavesFeature
 com.yungnickyoung.minecraft.betterdungeons.mixin.accessor.StructureProcessorAccessor
 mcjty.theoneprobe.items.Probe
 org.lwjgl.system.StructBuffer
@@ -6683,7 +6646,6 @@ com.mojang.blaze3d.vertex.VertexSorting$DistanceFunction
 net.minecraft.world.entity.ai.sensing.NearestLivingEntitySensor
 net.minecraft.world.level.levelgen.carver.CarverDebugSettings
 dev.xkmc.l2library.serial.recipe.AbstractShapelessRecipe$Serializer
-uwu.lopyluna.create_dd.block.BlockProperties.wood.NormalLogRotatedBlockPillar
 appeng.api.stacks.AmountFormat
 it.unimi.dsi.fastutil.doubles.Double2ByteFunction
 appeng.block.networking.CrystalResonanceGeneratorBlock
@@ -6781,7 +6743,6 @@ vazkii.patchouli.api.IComponentProcessor
 net.minecraft.server.PlayerAdvancements
 net.minecraft.network.protocol.game.ServerboundPlayerActionPacket
 org.violetmoon.quark.content.building.block.VariantTrappedChestBlock
-dev.mayaqq.estrogen.registry.items.EstrogenPatchesItem
 net.p3pp3rf1y.sophisticatedcore.upgrades.FilterLogic$ObservableFilterItemStackHandler
 net.orcinus.galosphere.items.PreservedSmithingTemplateItem
 com.github.alexthe666.iceandfire.item.ItemStymphalianFeatherBundle
@@ -6811,6 +6772,7 @@ com.github.L_Ender.cataclysm.items.CuriosItem.CuriosItem
 org.lwjgl.stb.STBTTFontinfo$Buffer
 org.violetmoon.quark.content.building.recipe.MixedExclusionRecipe$Serializer
 net.minecraft.world.item.crafting.ShapelessRecipe
+uwu.lopyluna.create_dd.content.blocks.kinetics.multimeter.MultiMeterBlockEntity
 net.minecraft.network.protocol.game.ClientboundBlockChangedAckPacket
 com.github.talrey.createdeco.items.CatwalkBlockItem
 net.liopyu.entityjs.item.ArrowItemBuilder
@@ -6891,6 +6853,7 @@ com.simibubi.create.content.redstone.link.RedstoneLinkBlockEntity
 net.minecraft.world.ticks.SavedTick
 com.railwayteam.railways.mixin_interfaces.ILimited
 java.lang.StringBuffer
+java.util.concurrent.atomic.AtomicReferenceArray
 net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration
 com.mojang.brigadier.arguments.FloatArgumentType
 com.github.L_Ender.cataclysm.items.zweiender
@@ -6900,7 +6863,6 @@ java.util.jar.Attributes$Name
 com.mojang.authlib.yggdrasil.ServicesKeyInfo
 net.blay09.mods.waystones.item.CrumblingAttunedShardItem
 dev.shadowsoffire.apotheosis.ench.enchantments.ChromaticEnchant
-earth.terrarium.botarium.common.registry.fluid.FluidInformation
 net.minecraft.world.item.ItemNameBlockItem
 top.theillusivec4.curios.api.type.capability.ICurio$SoundInfo
 dev.latvian.mods.kubejs.script.ScriptManager
@@ -6912,6 +6874,7 @@ com.copycatsplus.copycats.content.copycat.wall.CopycatWallBlock
 appeng.facade.FacadePart
 org.lwjgl.system.CustomBuffer
 net.minecraft.world.level.block.CropBlock
+uwu.lopyluna.create_dd.content.blocks.kinetics.transmission.redstone_divider.RedstoneDividerBlockEntity
 com.simibubi.create.content.logistics.tunnel.BeltTunnelItem
 software.bernie.geckolib.core.keyframe.event.SoundKeyframeEvent
 dev.latvian.mods.kubejs.client.ModelGenerator
@@ -6987,6 +6950,7 @@ com.github.L_Ender.cataclysm.blocks.Cataclysm_Skull_Block$Type
 java.util.function.BiConsumer
 net.minecraft.world.level.EntityGetter
 net.minecraft.world.entity.animal.camel.Camel
+me.jellysquid.mods.sodium.mixin.core.render.MinecraftAccessor
 net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer
 net.minecraft.client.renderer.debug.BrainDebugRenderer
 vazkii.patchouli.client.book.BookCategory
@@ -7009,10 +6973,10 @@ dev.architectury.event.forge.EventHandlerImplCommon$LevelEventAttachment
 com.tterrag.registrate.builders.EnchantmentBuilder$EnchantmentFactory
 com.negodya1.vintageimprovements.content.kinetics.vibration.VibratingTableBlockEntity
 java.math.BigInteger
+net.raphimc.immediatelyfast.injection.interfaces.IMapRenderer
 it.unimi.dsi.fastutil.objects.ObjectIterator
 xaero.map.region.Overlay
 net.minecraft.data.DataGenerator
-uwu.lopyluna.create_dd.item.ItemProperties.StargazeInfiniteBlock
 dev.latvian.mods.kubejs.platform.IngredientPlatformHelper
 net.minecraftforge.client.extensions.IForgeMinecraft
 io.redspace.ironsspellbooks.item.armor.WanderingMagicianArmorItem
@@ -7087,7 +7051,6 @@ net.minecraft.world.level.storage.loot.LootDataManager
 java.net.Proxy$Type
 net.minecraft.world.level.levelgen.synth.NormalNoise
 net.minecraft.world.level.storage.loot.SerializerType
-uwu.lopyluna.create_dd.block.BlockProperties.drill.shadow.ShadowDrillBlockBreakingKineticBlockEntity
 net.minecraft.world.level.saveddata.maps.MapBanner
 top.theillusivec4.curios.api.type.capability.ICurio
 org.apache.logging.log4j.util.MessageSupplier
@@ -7203,6 +7166,7 @@ com.mojang.brigadier.tree.CommandNode
 net.minecraft.world.entity.PathfinderMob
 com.ordana.spelunkery.items.PortalFluidBottleitem
 net.minecraft.nbt.CollectionTag
+uwu.lopyluna.create_dd.content.blocks.kinetics.kinetic_motor.KineticMotorBlock
 org.violetmoon.quark.content.building.block.SturdyStoneBlock
 net.minecraft.world.level.block.GrassBlock
 java.lang.IllegalStateException
@@ -7240,15 +7204,15 @@ net.blay09.mods.balm.mixin.AbstractContainerScreenAccessor
 java.net.URLConnection
 dev.latvian.mods.kubejs.misc.ParticleTypeBuilder
 tech.alexnijjar.endermanoverhaul.common.items.tools.CorruptedBladeItem
-net.mehvahdjukaar.amendments.common.tile.HangingSignTileExtension
 net.minecraft.advancements.AdvancementList$Listener
-byte
 it.unimi.dsi.fastutil.ints.IntSpliterator
+byte
 org.joml.Vector4f
 org.violetmoon.zeta.block.ZetaBushBlock
 org.joml.Vector4i
 appeng.me.helpers.IGridConnectedBlockEntity
 org.joml.Vector4d
+uwu.lopyluna.create_dd.content.blocks.kinetics.furnace_engine.PoweredFlywheelBlockEntity
 com.teamabnormals.upgrade_aquatic.common.block.ToothLanternBlock
 com.soytutta.mynethersdelight.common.block.MNDHangingSignBlock
 net.regions_unexplored.world.level.block.plant.flower.CaveFlowerBlock
@@ -7256,7 +7220,6 @@ org.lwjgl.CLongBuffer
 appeng.api.parts.IPartHost
 xaero.common.effect.NoRadarEffect
 net.minecraft.world.level.block.entity.BeehiveBlockEntity$BeeReleaseStatus
-uwu.lopyluna.create_dd.item.ItemProperties.compound.OverchargeAlloy
 appeng.items.storage.StorageTier
 de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinScreen
 org.joml.Vector3i
@@ -7302,7 +7265,6 @@ dev.shadowsoffire.apotheosis.util.INBTSensitiveFallingBlock
 com.faboslav.friendsandfoes.entity.ZombieHorseEntityAccess
 net.minecraft.client.renderer.debug.BeeDebugRenderer$HiveInfo
 com.chunksending.IChunksendingPlayer
-net.mehvahdjukaar.amendments.common.block.AbstractCandleSkullBlock
 appeng.api.storage.cells.IBasicCellItem
 com.simibubi.create.content.trains.schedule.Schedule
 net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket
@@ -7337,8 +7299,6 @@ dev.latvian.mods.kubejs.registry.RegistryInfo
 net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration$TargetBlockState
 net.minecraft.world.level.levelgen.feature.UnderwaterMagmaFeature
 com.github.alexmodguy.alexscaves.server.block.AbyssmarineSlabBlock
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.IndustrialFanBlock
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.FlywheelBlock$ConnectionState
 java.util.stream.IntStream$IntMapMultiConsumer
 net.mehvahdjukaar.supplementaries.common.block.blocks.NetheriteTrapdoorBlock
 net.regions_unexplored.world.level.block.leaves.AppleLeavesBlock
@@ -7412,7 +7372,6 @@ net.minecraftforge.event.entity.EntityAttributeModificationEvent
 net.minecraft.world.level.storage.loot.parameters.LootContextParam
 com.teamabnormals.blueprint.core.endimator.Endimatable
 dev.shadowsoffire.apotheosis.adventure.gen.BossDungeonFeature2
-dev.mayaqq.estrogen.registry.blocks.fluids.EstrogenLiquidBlock
 net.minecraft.core.BlockSource
 dev.latvian.mods.kubejs.loot.BlockLootEventJS
 net.minecraft.world.level.entity.EntityLookup
@@ -7475,7 +7434,6 @@ org.violetmoon.zeta.registry.BrewingRegistry
 net.minecraft.world.entity.projectile.ThrownPotion
 com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock
 dev.latvian.mods.kubejs.block.callbacks.EntitySteppedOnBlockCallbackJS
-earth.terrarium.botarium.util.Serializable
 net.minecraft.client.Minecraft$ChatStatus
 com.mojang.authlib.GameProfileRepository
 net.minecraftforge.client.model.generators.ModelBuilder$ElementBuilder
@@ -7513,7 +7471,6 @@ net.minecraft.world.level.chunk.ChunkGeneratorStructureState
 net.mehvahdjukaar.supplementaries.common.block.blocks.PlanterBlock
 net.mehvahdjukaar.moonlight.api.block.MimicBlock
 net.minecraft.world.entity.animal.Cod
-uwu.lopyluna.create_dd.item.ItemProperties.exp.ExperienceNuggetItemOne
 appeng.parts.automation.AnnihilationPlanePart
 net.minecraft.world.level.SpawnData$CustomSpawnRules
 org.violetmoon.quark.content.building.block.CutVineBlock
@@ -7540,7 +7497,6 @@ net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize
 com.teamabnormals.upgrade_aquatic.common.block.coralstone.CoralstoneSlabBlock
 java.nio.MappedByteBuffer
 org.violetmoon.quark.content.world.block.CorundumBlock
-net.mehvahdjukaar.amendments.common.ExtendedHangingSign
 java.time.LocalTime
 net.minecraft.network.protocol.game.ClientboundAddEntityPacket
 net.minecraft.network.protocol.game.ClientboundForgetLevelChunkPacket
@@ -7548,6 +7504,7 @@ net.minecraftforge.event.entity.living.LootingLevelEvent
 net.minecraft.client.renderer.block.model.BlockElement
 vectorwing.farmersdelight.common.item.HotCocoaItem
 com.github.alexmodguy.alexscaves.server.level.feature.config.AbyssalFloraFeatureConfiguration
+cn.foggyhillside.ends_delight.item.DragonToothKnifeItem
 net.liopyu.entityjs.entities.living.vanilla.GhastEntityJS
 net.liopyu.entityjs.util.ContextUtils$ArrowEntityHitContext
 net.minecraft.world.item.Rarity
@@ -7588,7 +7545,6 @@ net.minecraft.stats.RecipeBook
 dev.architectury.hooks.level.biome.BiomeProperties
 net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation
 net.minecraft.world.level.block.FungusBlock
-earth.terrarium.botarium.common.registry.fluid.FluidData
 io.netty.channel.WriteBufferWaterMark
 net.minecraft.world.entity.monster.Endermite
 dev.latvian.mods.kubejs.level.FireworksJS
@@ -7627,7 +7583,6 @@ net.minecraft.client.telemetry.events.GameLoadTimesEvent$Measurement
 net.minecraft.world.entity.EquipmentSlot
 com.railwayteam.railways.content.smokestack.block.SmokeStackBlock$SmokeStackType
 net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator
-uwu.lopyluna.create_dd.block.BlockProperties.FanSailBlock
 net.minecraft.client.KeyboardHandler
 com.mojang.authlib.Agent
 net.minecraft.world.level.levelgen.feature.trunkplacers.UpwardsBranchingTrunkPlacer
@@ -7686,6 +7641,7 @@ com.github.L_Ender.cataclysm.items.Remnant_Skull
 net.minecraft.world.entity.animal.Dolphin
 it.unimi.dsi.fastutil.objects.AbstractObject2ByteSortedMap
 mezz.jei.api.gui.handlers.IGhostIngredientHandler
+uwu.lopyluna.create_dd.content.items.equipment.deforester_saw.DeforesterSawItem
 net.minecraft.world.inventory.GrindstoneMenu
 com.railwayteam.railways.mixin_interfaces.ILimitedGlobalStation
 net.minecraft.world.level.biome.BiomeResolver
@@ -7779,6 +7735,7 @@ net.minecraft.tags.TagManager
 io.redspace.ironsspellbooks.effect.InstantManaEffect
 net.minecraft.world.level.levelgen.structure.structures.NetherFortressStructure
 net.minecraft.client.renderer.block.BlockModelShaper
+uwu.lopyluna.create_dd.content.blocks.kinetics.furnace_engine.FurnaceEngineBlock
 net.minecraft.world.entity.monster.Zoglin
 it.unimi.dsi.fastutil.shorts.ShortPredicate
 net.minecraftforge.client.model.generators.ModelBuilder$ElementBuilder$FaceBuilder
@@ -7856,6 +7813,7 @@ net.minecraft.world.level.block.SnifferEggBlock
 net.minecraft.world.item.enchantment.VanishingCurseEnchantment
 net.brnbrd.delightful.common.item.knife.compat.undergarden.UtheriumKnifeItem
 net.minecraft.world.level.levelgen.feature.BlockColumnFeature
+com.teamabnormals.autumnity.common.block.ChiseledMapleBookShelfBlock
 net.minecraft.world.level.levelgen.blockpredicates.NotPredicate
 com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour
 dev.shadowsoffire.apotheosis.ench.enchantments.masterwork.EarthsBoonEnchant
@@ -7882,11 +7840,11 @@ net.minecraftforge.event.entity.player.PlayerDestroyItemEvent
 net.minecraft.world.item.SignItem
 net.minecraftforge.client.IArmPoseTransformer
 net.liopyu.entityjs.entities.living.vanilla.CreeperEntityJS
-earth.terrarium.botarium.util.Updatable
 net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$ChunkTaskResult
 mezz.jei.api.gui.drawable.IDrawableStatic
 org.apache.maven.artifact.repository.ArtifactRepository
 com.teamabnormals.upgrade_aquatic.common.block.ScuteBlock
+io.redspace.ironsspellbooks.item.EnergizedCoreItem
 net.mehvahdjukaar.supplementaries.common.block.ILavaAndWaterLoggable
 net.minecraft.network.protocol.game.ServerboundChatAckPacket
 net.minecraft.world.entity.decoration.HangingEntity
@@ -8012,7 +7970,6 @@ net.minecraft.world.level.levelgen.feature.DripstoneClusterFeature
 smartin.miapi.item.modular.items.ExampleModularItem
 net.mehvahdjukaar.supplementaries.common.block.blocks.FaucetBlock
 dev.latvian.mods.kubejs.recipe.InputReplacementTransformer$Replacement
-uwu.lopyluna.create_dd.block.BlockProperties.cog_crank.CogCrankBlock
 net.minecraftforge.client.ExtendedServerListData
 com.simibubi.create.content.trains.entity.CarriageContraption
 cn.foggyhillside.ends_delight.block.DragonLegBlock
@@ -8036,9 +7993,7 @@ net.minecraft.world.level.dimension.end.EndDragonFight
 com.railwayteam.railways.content.extended_sliding_doors.SlidingDoorMode$IHasDoorMode
 com.yungnickyoung.minecraft.bettermineshafts.mixin.BoundingBoxAccessor
 net.mehvahdjukaar.moonlight.api.block.IColored
-dev.mayaqq.estrogen.registry.blockEntities.CentrifugeBlockEntity
 org.violetmoon.quark.content.automation.block.RedstoneRandomizerBlock
-net.mehvahdjukaar.amendments.common.block.DoubleSkullBlock
 net.orcinus.galosphere.mixin.LootTableAccessor
 dev.latvian.mods.kubejs.core.CreativeModeTabKJS
 net.regions_unexplored.world.level.feature.FenCattailFeature
@@ -8056,7 +8011,6 @@ net.minecraft.world.BossEvent
 net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity
 net.mehvahdjukaar.moonlight.api.item.WoodBasedItem
 net.regions_unexplored.world.level.block.alpha.SpreadingAlphaDirtBlock
-uwu.lopyluna.create_dd.item.ItemProperties.compound.NoGravMagical
 net.minecraftforge.client.model.geometry.IGeometryBakingContext
 appeng.block.storage.SkyChestBlock
 it.unimi.dsi.fastutil.bytes.Byte2IntFunction
@@ -8090,7 +8044,6 @@ net.minecraft.world.level.levelgen.feature.configurations.LargeDripstoneConfigur
 net.irisshaders.iris.compat.sodium.mixin.vertex_format.CommonVertexAttributeAccessor
 net.minecraftforge.registries.ForgeRegistry
 net.minecraft.world.level.biome.Climate$ParameterPoint
-dev.mayaqq.estrogen.registry.blocks.EstrogenPillBlock
 net.minecraft.world.level.block.BasePressurePlateBlock
 com.mojang.datafixers.TypedOptic
 net.minecraft.world.entity.monster.AbstractIllager$IllagerArmPose
@@ -8129,10 +8082,9 @@ net.caffeinemc.mods.sodium.api.vertex.format.VertexFormatDescription
 net.minecraft.advancements.critereon.DeserializationContext
 dev.latvian.mods.kubejs.player.PlayerRespawnedEventJS
 nonamecrackers2.crackerslib.common.command.argument.ConfigArgument$Serializer$Template
-earth.terrarium.botarium.common.registry.fluid.BotariumSourceFluid
-earth.terrarium.botarium.common.registry.fluid.FluidProperties$Builder
 com.railwayteam.railways.content.buffer.StandardTrackBufferBlock
 com.almostreliable.lootjs.kube.LootContextJS
+com.teamabnormals.autumnity.common.block.TallFoulBerryBushBlock
 com.hlysine.create_power_loader.content.ChunkLoader
 net.minecraft.world.level.block.CocoaBlock
 net.minecraft.advancements.CriterionTriggerInstance
@@ -8235,10 +8187,8 @@ io.netty.util.concurrent.EventExecutorChooserFactory$EventExecutorChooser
 java.util.random.RandomGenerator
 net.minecraftforge.fml.loading.progress.Message
 net.mehvahdjukaar.supplementaries.common.block.blocks.CageBlock
-uwu.lopyluna.create_dd.item.ItemProperties.compound.UnchargedStargazeSingularity
 net.minecraft.data.PackOutput
 xaero.common.minimap.info.render.compile.InfoDisplayOnCompile
-uwu.lopyluna.create_dd.item.ItemProperties.sawtool.DeforesterItem
 appeng.recipes.mattercannon.MatterCannonAmmo
 java.text.SimpleDateFormat
 software.bernie.geckolib.animatable.GeoItem
@@ -8258,6 +8208,7 @@ net.minecraftforge.server.command.EnumArgument$Info$Template
 net.minecraft.world.level.border.WorldBorder$Settings
 net.brnbrd.delightful.common.item.food.CoconutCurryItem
 software.bernie.geckolib.core.keyframe.BoneAnimationQueue
+uwu.lopyluna.create_dd.content.blocks.logistics.fluid_reservoir.FluidReservoirBlockEntity
 net.minecraft.client.resources.model.ModelManager
 net.regions_unexplored.world.level.block.plant.other.DropleafBlock
 com.teamabnormals.blueprint.core.endimator.EndimatablePart
@@ -8287,6 +8238,7 @@ net.minecraft.world.effect.MobEffectCategory
 dev.shadowsoffire.apotheosis.ench.enchantments.ReboundingEnchant
 dev.latvian.mods.kubejs.recipe.InputReplacement
 net.minecraft.commands.arguments.ResourceOrTagArgument$Info
+uwu.lopyluna.create_dd.content.blocks.logistics.fluid_reservoir.FluidReservoirBlock
 com.railwayteam.railways.mixin.AccessorScheduleRuntime
 org.violetmoon.zeta.event.play.loading.ZGatherHints
 dev.latvian.mods.kubejs.util.WrappedJS
@@ -8302,14 +8254,13 @@ net.p3pp3rf1y.sophisticatedcore.upgrades.FilteredUpgradeConfigBase
 java.nio.charset.CoderResult
 java.nio.channels.Pipe$SinkChannel
 com.mojang.datafixers.types.Type$Mu
-earth.terrarium.botarium.common.fluid.base.FluidHolder
 net.mehvahdjukaar.moonlight.api.misc.Triplet
+net.raphimc.immediatelyfast.feature.map_atlas_generation.MapAtlasTexture
 com.simibubi.create.content.contraptions.piston.MechanicalPistonBlock$PistonState
 net.liopyu.entityjs.util.ContextUtils$NLRenderContext
 net.p3pp3rf1y.sophisticatedcore.common.gui.UpgradeSlotChangeResult
 net.minecraft.client.renderer.block.BlockRenderDispatcher
 com.railwayteam.railways.mixin.AccessorCarriageContraptionEntity
-uwu.lopyluna.create_dd.block.BlockProperties.wood.CanBurnTrapDoorBlock
 xaero.map.gui.dropdown.IDropDownContainer
 com.mrh0.createaddition.blocks.alternator.AlternatorBlock
 software.bernie.geckolib.core.object.DataTicket
@@ -8333,6 +8284,7 @@ com.simibubi.create.content.trains.graph.TrackGraphBounds
 net.minecraft.world.level.levelgen.feature.treedecorators.CocoaDecorator
 net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer
 com.mojang.brigadier.arguments.StringArgumentType
+uwu.lopyluna.create_dd.content.blocks.kinetics.hydraulic_press.HydraulicPressBlock
 net.irisshaders.iris.texture.pbr.PBRAtlasTexture
 dev.latvian.mods.kubejs.block.custom.HorizontalDirectionalBlockBuilder
 net.minecraft.world.entity.ai.sensing.NearestBedSensor
@@ -8464,10 +8416,8 @@ net.minecraft.client.telemetry.TelemetryEventSender
 dev.latvian.mods.kubejs.event.StartupEventJS
 java.lang.CharSequence
 com.google.gson.stream.JsonToken
-uwu.lopyluna.create_dd.item.ItemProperties.SequencedCraftingItem.SequencedCraftingItem1
 com.mojang.brigadier.context.ParsedArgument
 net.minecraft.world.level.chunk.ProtoChunk
-uwu.lopyluna.create_dd.item.ItemProperties.SequencedCraftingItem.SequencedCraftingItem2
 org.violetmoon.zeta.Zeta
 xaero.hud.pushbox.PushboxManager
 net.minecraft.network.protocol.game.ServerboundEditBookPacket
@@ -8520,12 +8470,10 @@ net.minecraft.advancements.critereon.ContextAwarePredicate
 com.squoshi.irons_spells_js.events.SpellSelectionEventJS
 appeng.items.storage.CreativeCellItem
 com.ordana.spelunkery.blocks.rock_salt.SaltBlockBlock
-uwu.lopyluna.create_dd.block.BlockProperties.fan.FourBladeFanBlock
 net.regions_unexplored.world.level.feature.FloorIcicleFeature
 net.brnbrd.delightful.common.item.knife.compat.spirit.SoulSteelKnifeItem
 com.github.alexmodguy.alexscaves.server.block.TubeWormBlock$TubeShape
 net.minecraft.world.inventory.ContainerSynchronizer
-uwu.lopyluna.create_dd.block.BlockProperties.fan.TwoBladeFanBlock
 foundry.alembic.mobeffect.mobeffects.FireMobEffect
 net.minecraft.world.level.validation.PathAllowList$EntryType
 net.minecraft.client.player.AbstractClientPlayer
@@ -8685,6 +8633,7 @@ org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
 plus.dragons.createdragonlib.advancement.critereon.SimpleTrigger
 net.minecraft.world.level.block.ChorusFlowerBlock
 net.mehvahdjukaar.moonlight.api.map.ExpandedMapData
+uwu.lopyluna.create_dd.content.items.equipment.gilded_rose_tools.GRPickaxeItem
 net.minecraft.world.entity.monster.Vex
 java.util.jar.Manifest
 net.regions_unexplored.world.level.block.leaves.BlueMagnoliaLeavesBlock
@@ -8762,6 +8711,7 @@ net.p3pp3rf1y.sophisticatedbackpacks.crafting.BackpackUpgradeRecipe
 java.lang.invoke.TypeDescriptor$OfMethod
 net.minecraft.world.inventory.ChestMenu
 java.lang.invoke.MethodHandle
+cn.foggyhillside.ends_delight.item.EndermanGristleStewItem
 net.minecraft.world.level.saveddata.maps.MapDecoration
 java.util.concurrent.ConcurrentHashMap
 com.simibubi.create.content.kinetics.belt.BeltBlock
@@ -8782,7 +8732,6 @@ xaero.pac.common.capability.ICapabilityProvider
 net.minecraft.client.StringSplitter
 net.minecraft.data.recipes.ShapelessRecipeBuilder
 net.minecraft.world.item.enchantment.FrostWalkerEnchantment
-uwu.lopyluna.create_dd.block.BlockProperties.magic.ShadowBlock
 com.yungnickyoung.minecraft.betterdeserttemples.world.state.TempleStateRegion
 net.minecraft.server.players.UserWhiteList
 dev.xkmc.fruitsdelight.content.cauldrons.FruitCauldronBlock
@@ -8818,7 +8767,6 @@ net.minecraftforge.event.entity.player.AttackEntityEvent
 net.minecraft.world.entity.raid.Raider
 net.minecraft.world.level.block.AbstractGlassBlock
 com.mangomilk.design_decor.blocks.containers.green.GreenContainerBlockEntity
-dev.mayaqq.estrogen.registry.effects.EstrogenEffect
 com.mangomilk.design_decor.blocks.millstone.block.DeepslateDecoMillStoneBlock
 net.mehvahdjukaar.supplementaries.common.block.ModBlockProperties$PostType
 net.minecraftforge.client.settings.KeyModifier
@@ -8840,7 +8788,6 @@ dev.latvian.mods.kubejs.loot.GiftLootEventJS
 pregenerator.base.mixins.common.forge.StructureModifierRemoverMixin
 com.negodya1.vintageimprovements.content.kinetics.helve_hammer.HelveKineticBlockEntity
 net.minecraft.data.DataProvider
-uwu.lopyluna.create_dd.block.BlockProperties.magic.RadiantBlock
 net.minecraftforge.client.model.generators.ModelBuilder$RootTransformsBuilder
 net.minecraft.world.level.block.ShulkerBoxBlock
 net.ribs.vintagedelight.block.custom.salt_lamps.LightGraySaltLampBlock
@@ -8906,7 +8853,6 @@ org.violetmoon.zeta.util.zetalist.IZeta
 com.github.alexthe666.citadel.item.ItemCitadelDebug
 moe.wolfgirl.probejs.lang.typescript.code.type.TSVariableType
 com.railwayteam.railways.content.fuel.psi.PortableFuelInterfaceBlockEntity
-earth.terrarium.botarium.common.fluid.base.ItemFluidContainer
 vazkii.patchouli.mixin.client.AccessorClientAdvancements
 com.squoshi.irons_spells_js.entity.attribute.SpellAttributeBuilderJS
 com.simibubi.create.content.equipment.armor.BacktankItem$BacktankBlockItem
@@ -8960,6 +8906,7 @@ net.minecraft.world.level.levelgen.GenerationStep$Decoration
 net.minecraft.client.searchtree.SearchTree
 dev.architectury.extensions.injected.InjectedRegistryEntryExtension
 it.unimi.dsi.fastutil.objects.Reference2CharFunction
+uwu.lopyluna.create_dd.content.items.equipment.BackTankAxeItem
 net.minecraft.commands.arguments.ResourceArgument
 net.minecraft.world.level.pathfinder.Node
 dev.latvian.mods.kubejs.create.SequencedAssemblyItemBuilder
@@ -8973,7 +8920,6 @@ mod.crend.dynamiccrosshair.mixin.FurnaceMinecartEntityAccessor
 com.mojang.blaze3d.shaders.Effect
 com.mrh0.createaddition.blocks.modular_accumulator.ModularAccumulatorBlockItem
 net.liopyu.entityjs.events.GoalEventJS
-uwu.lopyluna.create_dd.block.BlockProperties.drill.radiant.RadiantDrillBlock
 appeng.api.networking.events.GridEvent
 io.netty.util.concurrent.MultithreadEventExecutorGroup
 vazkii.patchouli.common.recipe.BookRecipeSerializer
@@ -9004,7 +8950,6 @@ net.p3pp3rf1y.sophisticatedcore.upgrades.tank.TankUpgradeItem
 java.io.BufferedReader
 net.minecraft.world.level.block.entity.TrappedChestBlockEntity
 mezz.jei.api.recipe.vanilla.IJeiAnvilRecipe
-net.mehvahdjukaar.amendments.common.block.DoubleCakeBlock
 it.unimi.dsi.fastutil.ints.Int2IntMap
 io.redspace.ironsspellbooks.api.registry.SpellRegistry
 net.minecraft.world.level.chunk.ChunkStatus$ChunkType
@@ -9012,7 +8957,6 @@ com.railwayteam.railways.content.semaphore.SemaphoreItem
 com.teamabnormals.blueprint.common.item.FuelBlockItem
 com.github.alexmodguy.alexscaves.server.item.MarineSnowItem
 com.simibubi.create.content.contraptions.bearing.MechanicalBearingBlockEntity
-net.mehvahdjukaar.amendments.common.IBetterJukebox
 java.lang.Class
 com.railwayteam.railways.content.custom_bogeys.special.invisible.InvisibleBogeyBlockEntity
 com.simibubi.create.content.trains.observer.TrackObserver
@@ -9023,6 +8967,7 @@ appeng.debug.EraserItem
 com.simibubi.create.content.kinetics.press.PressingBehaviour$PressingBehaviourSpecifics
 javax.security.auth.Subject
 com.blamejared.crafttweaker.api.data.visitor.DataVisitor
+uwu.lopyluna.create_dd.content.items.equipment.magnet.MagnetItem
 software.bernie.geckolib.core.object.PlayState
 dev.emi.emi.mixin.accessor.SmithingTrimRecipeAccessor
 net.minecraft.world.entity.monster.piglin.AbstractPiglin
@@ -9040,7 +8985,6 @@ net.minecraft.network.protocol.game.ClientboundDamageEventPacket
 net.minecraft.world.level.pathfinder.PathComputationType
 org.violetmoon.quark.content.tools.item.AbacusItem
 xaero.map.core.IWorldMapServerLevel
-net.mehvahdjukaar.amendments.common.IBellConnections$BellConnection
 xaero.hud.module.ModuleSession
 com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.SwampPillarFeature
 net.minecraft.world.level.pathfinder.Target
@@ -9051,7 +8995,6 @@ software.bernie.geckolib.renderer.layer.GeoRenderLayer
 io.netty.channel.Channel
 de.keksuccino.fancymenu.mixin.mixins.common.client.IMixinAbstractSelectionList
 com.craisinlord.integrated_api.mixins.structures.ListPoolElementAccessor
-uwu.lopyluna.create_dd.block.BlockProperties.secondary_encased_chain_drive.ChainGearshiftBlock2
 net.p3pp3rf1y.sophisticatedcore.api.ISlotChangeResponseUpgrade
 com.github.L_Ender.cataclysm.items.Bulwark_of_the_flame
 java.net.SocketOptions
@@ -9083,7 +9026,6 @@ com.google.common.reflect.Invokable
 com.blamejared.crafttweaker.api.recipe.MirrorAxis
 com.simibubi.create.content.logistics.vault.ItemVaultItem
 com.mojang.authlib.yggdrasil.request.AbuseReportRequest$ThirdPartyServerInfo
-uwu.lopyluna.create_dd.block.BlockProperties.OverchargedScaffoldingBlock
 net.minecraft.client.renderer.block.model.ItemModelGenerator
 net.mehvahdjukaar.supplementaries.common.block.blocks.BlockGeneratorBlock
 net.minecraft.world.phys.EntityHitResult
@@ -9181,6 +9123,7 @@ appeng.block.misc.InterfaceBlock
 dev.latvian.mods.kubejs.recipe.schema.minecraft.ShapelessRecipeSchema$ShapelessRecipeJS
 net.minecraft.world.level.block.entity.CommandBlockEntity$Mode
 net.minecraft.world.entity.animal.allay.Allay
+dev.shadowsoffire.apotheosis.ench.table.KeepNBTEnchantingRecipe
 java.util.Spliterator$OfPrimitive
 net.minecraft.world.level.block.ObserverBlock
 com.github.alexthe666.iceandfire.world.gen.WorldGenSirenIsland
@@ -9295,7 +9238,6 @@ com.simibubi.create.content.contraptions.mounted.MinecartContraptionItem
 xaero.common.minimap.write.MinimapWriterHelper
 net.minecraft.world.item.CreativeModeTab$Row
 com.ordana.spelunkery.worldgen.features.CrystalFeature
-earth.terrarium.botarium.common.fluid.base.FluidContainer
 net.minecraft.world.level.entity.EntityPersistentStorage
 net.orcinus.galosphere.blocks.PinkSalt
 com.github.L_Ender.cataclysm.blocks.Altar_Of_Abyss_Block
@@ -9358,6 +9300,7 @@ com.simibubi.create.content.kinetics.chainDrive.ChainDriveBlock
 net.minecraft.world.entity.boss.enderdragon.phases.DragonHoldingPatternPhase
 net.minecraft.world.item.BannerItem
 com.simibubi.create.foundation.utility.animation.LerpedFloat$Interpolator
+com.teamabnormals.autumnity.common.block.SnailGooBlock
 net.minecraft.client.renderer.PostChain
 com.github.alexthe666.iceandfire.recipe.DragonForgeRecipe
 com.github.alexthe666.iceandfire.item.ItemDeathwormGauntlet
@@ -9374,7 +9317,6 @@ com.simibubi.create.content.kinetics.base.KineticBlock
 net.minecraft.world.level.lighting.LayerLightEventListener
 net.minecraft.client.telemetry.TelemetryEventType$Builder
 com.soytutta.mynethersdelight.common.block.ResurgentSoilBlock
-earth.terrarium.baubly.common.SlotInfo
 appeng.crafting.CraftingLink
 com.railwayteam.railways.mixin.client.AccessorLevelRenderer
 com.squoshi.irons_spells_js.spell.school.SchoolTypeJSBuilder
@@ -9391,7 +9333,6 @@ appeng.items.tools.powered.AbstractPortableCell
 net.minecraftforge.client.extensions.IForgeModelBaker
 it.unimi.dsi.fastutil.bytes.Byte2FloatFunction
 com.simibubi.create.content.contraptions.gantry.GantryCarriageBlock
-uwu.lopyluna.create_dd.item.ItemProperties.milkshakes.HotChocolate
 net.minecraft.client.renderer.block.model.BlockElementFace
 com.github.alexthe666.citadel.server.world.ModifiableTickRateServer
 net.minecraft.world.level.block.ChestBlock
@@ -9401,6 +9342,7 @@ net.minecraft.world.level.block.BambooStalkBlock
 net.minecraftforge.registries.IForgeRegistry$BakeCallback
 xaero.pac.common.server.core.accessor.ICreateContraptionEntity
 java.util.function.IntFunction
+uwu.lopyluna.create_dd.content.items.equipment.NameableRecordItem
 org.violetmoon.quark.content.world.block.GlowShroomBlock
 com.google.common.collect.ImmutableCollection
 appeng.parts.automation.PlaneConnections
@@ -9415,7 +9357,6 @@ net.p3pp3rf1y.sophisticatedcore.renderdata.TankPosition
 com.mojang.realmsclient.gui.task.RepeatedDelayStrategy
 appeng.crafting.CraftingLinkNexus
 java.lang.module.ModuleDescriptor$Opens
-earth.terrarium.baubly.common.DropRule
 appeng.api.networking.IGridNode
 net.minecraftforge.event.entity.player.PlayerInteractEvent$EntityInteractSpecific
 moe.wolfgirl.probejs.lang.typescript.code.ts.Wrapped$Global
@@ -9431,6 +9372,7 @@ dev.latvian.mods.rhino.regexp.RegExp
 net.mehvahdjukaar.supplementaries.common.block.blocks.StatueBlock
 xaero.common.minimap.render.MinimapFBORenderer
 com.mojang.blaze3d.platform.Monitor
+com.teamabnormals.blueprint.common.effect.BlueprintMobEffect
 net.minecraft.world.level.storage.loot.predicates.LootItemConditionType
 net.ribs.vintagedelight.block.custom.mason_jars.GlowBerryJamBlock
 dev.latvian.mods.kubejs.client.DebugInfoEventJS
@@ -9455,7 +9397,6 @@ net.minecraft.world.entity.projectile.AbstractArrow
 net.minecraft.network.protocol.game.ServerboundSetCommandBlockPacket
 com.simibubi.create.foundation.outliner.Outliner$OutlineEntry
 com.squoshi.irons_spells_js.spell.CustomSpell$CastContext
-net.mehvahdjukaar.amendments.common.block.StructureCauldronHack
 com.yungnickyoung.minecraft.betterjungletemples.mixin.accessor.StructureProcessorAccessor
 xaero.common.minimap.waypoints.render.WaypointFilterParams
 plus.dragons.createcentralkitchen.content.contraptions.blazeStove.BlazeStoveGuide
@@ -9473,7 +9414,6 @@ net.minecraftforge.client.model.generators.ItemModelBuilder$OverrideBuilder
 net.minecraft.world.entity.Display$FloatInterpolator
 net.minecraft.world.level.chunk.ChunkAccess
 io.redspace.ironsspellbooks.api.util.AnimationHolder
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.IndustrialAirCurrent$AirCurrentSegment
 net.minecraft.world.level.material.LavaFluid$Source
 net.minecraft.world.entity.vehicle.Minecart
 com.mrh0.createaddition.blocks.connector.ConnectorType
@@ -9508,7 +9448,6 @@ org.violetmoon.zeta.item.IZetaItem
 dev.xkmc.fruitsdelight.content.item.IFDFoodItem
 com.github.alexthe666.iceandfire.block.BlockDragonBone
 net.minecraft.world.entity.monster.Witch
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.IndustrialAirCurrent
 dev.shadowsoffire.apotheosis.ench.enchantments.TemptingEnchant
 com.negodya1.vintageimprovements.content.kinetics.lathe.LatheMovingBlockEntity
 com.simibubi.create.content.trains.bogey.BogeyRenderer
@@ -9549,12 +9488,12 @@ net.minecraftforge.common.world.BiomeModifier
 com.yungnickyoung.minecraft.yungsextras.world.config.ResourceLocationFeatureConfiguration
 com.negodya1.vintageimprovements.VintageFluids$SolidRenderedPlaceableFluidType
 dev.latvian.mods.rhino.BaseFunction
-uwu.lopyluna.create_dd.item.ItemProperties.compound.StargazeSingularity
 net.minecraft.world.level.block.WeightedPressurePlateBlock
 java.text.AttributedCharacterIterator
 dev.latvian.mods.kubejs.block.predicate.BlockIDPredicate
 dev.latvian.mods.kubejs.generator.ResourceGenerator
 io.netty.channel.ChannelMetadata
+com.teamabnormals.autumnity.common.item.SyrupBottleItem
 dev.latvian.mods.kubejs.recipe.OutputReplacement
 com.soytutta.mynethersdelight.common.block.LetiosCompostBlock
 net.minecraftforge.eventbus.api.Event
@@ -9580,7 +9519,6 @@ xaero.common.effect.MinimapStatusEffect
 java.util.LinkedList
 net.minecraft.world.level.block.WaterlilyBlock
 net.minecraft.world.entity.Display$RenderState
-uwu.lopyluna.create_dd.fluid.DDFluids$NoColorFluidAttributes
 moe.wolfgirl.probejs.lang.typescript.Declaration
 net.p3pp3rf1y.sophisticatedcore.upgrades.cooking.CookingLogic
 com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder$ProcessingRecipeParams
@@ -9594,6 +9532,7 @@ com.github.alexmodguy.alexscaves.server.block.GalenaSpireBlock
 net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration
 net.minecraft.world.level.block.entity.BeaconBlockEntity
 de.keksuccino.melody.mixin.mixins.common.client.IMixinSoundEngine
+com.teamabnormals.autumnity.common.block.LargeRedstoneJackOlanternSliceBlock
 appeng.api.implementations.menuobjects.ItemMenuHost
 org.violetmoon.zeta.config.Definition
 com.github.alexmodguy.alexscaves.server.block.MothBallBlock
@@ -9655,6 +9594,7 @@ java.lang.constant.DirectMethodHandleDesc$Kind
 appeng.me.cluster.IAEMultiBlock
 com.yungnickyoung.minecraft.yungsextras.world.feature.desert.DesertObeliskFeature
 plus.dragons.createcentralkitchen.content.logistics.item.guide.cooking.CookingGuide
+uwu.lopyluna.create_dd.content.blocks.logistics.item_stockpile.ItemStockpileBlock
 com.yungnickyoung.minecraft.yungsextras.world.feature.swamp.SwampCubbyFeature
 net.irisshaders.batchedentityrendering.impl.MemoryTrackingBuffer
 net.minecraftforge.common.crafting.ConditionalRecipe$Serializer
@@ -9824,7 +9764,6 @@ net.minecraft.world.entity.animal.Panda$Gene
 com.mangomilk.design_decor.blocks.large_boiler.aluminum.AluminumLargeBoilerBlockItem
 com.mangomilk.design_decor.blocks.industrial_gear.ShaftBlock
 io.redspace.ironsspellbooks.api.magic.SpellSelectionManager$SelectionOption
-uwu.lopyluna.create_dd.block.BlockProperties.drill.bronze.BronzeDrillBlockBreakingKineticBlockEntity
 net.minecraft.network.chat.MessageSignatureCache
 net.minecraft.world.level.biome.MobSpawnSettings
 net.minecraft.network.protocol.game.ClientboundOpenSignEditorPacket
@@ -9873,7 +9812,6 @@ com.negodya1.vintageimprovements.content.kinetics.lathe.TurningRecipe
 com.mojang.datafixers.functions.PointFree
 com.simibubi.create.content.processing.basin.BasinInventory
 appeng.debug.CubeGeneratorBlock
-dev.mayaqq.estrogen.registry.blocks.CentrifugeBlock
 net.minecraft.core.Vec3i
 net.irisshaders.iris.compat.sodium.mixin.shadow_map.SodiumWorldRendererAccessor
 moe.wolfgirl.probejs.lang.typescript.code.type.js.JSObjectType
@@ -9881,7 +9819,6 @@ appeng.util.SettingsFrom
 dev.xkmc.l2library.serial.recipe.AbstractShapelessRecipe$RecipeFactory
 java.nio.charset.Charset
 net.minecraft.client.player.Input
-uwu.lopyluna.create_dd.block.BlockProperties.industrial_fan.IndustrialFanBlockEntity
 net.liopyu.entityjs.builders.living.vanilla.PiglinJSBuilder
 com.negodya1.vintageimprovements.content.kinetics.vibration.VibratingTableBlock
 net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket
@@ -9899,7 +9836,6 @@ net.minecraft.world.entity.HumanoidArm
 java.lang.ref.Reference
 com.ordana.spelunkery.worldgen.feature_configs.util.StoneEntry
 net.minecraft.network.protocol.BundlerInfo$Bundler
-earth.terrarium.baubly.common.Bauble
 net.p3pp3rf1y.sophisticatedcore.upgrades.UpgradeGroup
 net.minecraft.util.profiling.ProfileResults
 java.lang.reflect.AnnotatedTypeVariable
@@ -9964,7 +9900,6 @@ net.minecraft.world.level.levelgen.feature.HugeRedMushroomFeature
 net.minecraft.world.entity.animal.PolarBear
 net.minecraftforge.fluids.ForgeFlowingFluid
 net.p3pp3rf1y.sophisticatedcore.upgrades.cooking.CookingUpgradeConfig
-net.mehvahdjukaar.amendments.common.SwingAnimation
 dev.xkmc.fruitsdelight.content.block.DurianLeavesBlock$Leaf
 net.minecraft.world.level.PathNavigationRegion
 net.minecraft.world.level.block.TrappedChestBlock
@@ -10096,7 +10031,6 @@ net.minecraft.network.protocol.game.ClientboundUpdateEnabledFeaturesPacket
 net.ribs.vintagedelight.block.custom.mason_jars.VinegarBlock
 com.simibubi.create.content.decoration.steamWhistle.WhistleExtenderBlock$WhistleExtenderShape
 net.minecraftforge.event.entity.player.PlayerInteractEvent$LeftClickEmpty
-earth.terrarium.botarium.common.registry.fluid.FluidProperties
 com.simibubi.create.content.contraptions.render.ActorInstance
 com.negodya1.vintageimprovements.content.kinetics.lathe.LatheRotatingBlockEntity
 dev.architectury.registry.registries.RegistrySupplier
@@ -10106,7 +10040,6 @@ java.security.Principal
 architectspalette.content.blocks.PipeBlock
 net.blay09.mods.waystones.block.WaystoneBlock
 appeng.blockentity.misc.CellWorkbenchBlockEntity
-uwu.lopyluna.create_dd.block.BlockProperties.flywheel.engine.FurnaceEngineBlockEntity
 net.minecraft.client.gui.components.toasts.Toast$Visibility
 xaero.pac.common.claims.tracker.api.IClaimsManagerTrackerAPI
 com.blamejared.crafttweaker.api.ingredient.condition.type.ConditionDamaged
@@ -10185,6 +10118,7 @@ dev.latvian.mods.kubejs.item.ItemModelPropertiesEventJS
 net.minecraft.network.protocol.game.ServerboundMoveVehiclePacket
 com.railwayteam.railways.content.buffer.BlockStateBlockItem
 net.minecraft.world.entity.ai.memory.ExpirableValue
+com.teamabnormals.autumnity.common.block.CookedTurkeyBlock
 appeng.recipes.handlers.InscriberRecipe
 dev.latvian.mods.kubejs.block.custom.MultipartShapedBlockBuilder
 net.minecraft.world.level.timers.TimerCallback
@@ -10216,6 +10150,7 @@ dev.latvian.mods.unit.function.FunctionFactory$Arg3
 it.unimi.dsi.fastutil.ints.Int2IntFunction
 dev.latvian.mods.unit.function.FunctionFactory$Arg2
 net.mehvahdjukaar.supplementaries.common.block.blocks.EndermanSkullWallBlock
+uwu.lopyluna.create_dd.content.blocks.kinetics.giant_gear.GiantGearBlockItem
 com.mojang.serialization.DataResult
 dev.shadowsoffire.apotheosis.village.fletching.ApothFletchingBlock
 net.orcinus.galosphere.items.GlowFlareItem
@@ -10246,13 +10181,11 @@ com.simibubi.create.foundation.gui.element.StencilElement
 com.github.alexmodguy.alexscaves.server.item.DivingArmorItem
 com.mangomilk.design_decor.blocks.gas_tank.GasTankBlock
 net.mehvahdjukaar.supplementaries.common.entities.BombEntity$BreakingMode
-uwu.lopyluna.create_dd.item.ItemProperties.milkshakes.ChocolateMilkshake
 net.minecraft.world.level.levelgen.structure.StructureStart
 net.regions_unexplored.world.level.feature.FallenSnowTreeFeature
 dev.shadowsoffire.apotheosis.village.fletching.FletchingRecipe$Serializer
 java.lang.AbstractStringBuilder
 com.simibubi.create.content.processing.recipe.ProcessingRecipe
-earth.terrarium.botarium.common.item.ItemStackHolder
 com.railwayteam.railways.content.smokestack.block.AbstractSmokeStackBlock
 com.simibubi.create.content.kinetics.base.DirectionalKineticBlock
 com.github.L_Ender.cataclysm.items.CMBlockItem
@@ -10270,7 +10203,6 @@ com.mangomilk.design_decor.blocks.large_boiler.zinc.ZincLargeBoilerBlock
 net.minecraft.world.item.crafting.SimpleCookingSerializer$CookieBaker
 net.minecraft.client.renderer.RenderStateShard$ColorLogicStateShard
 it.unimi.dsi.fastutil.objects.Object2ObjectMap$Entry
-uwu.lopyluna.create_dd.block.BlockProperties.magic.StargazeBlockcasing
 net.minecraft.world.food.FoodData
 com.google.common.reflect.TypeToken$TypeSet
 vectorwing.farmersdelight.common.block.TatamiMatBlock
@@ -10279,7 +10211,6 @@ com.simibubi.create.content.equipment.armor.BacktankBlock
 com.simibubi.create.foundation.ponder.PonderTag
 com.github.alexmodguy.alexscaves.server.level.carver.WaterBubbleCarver
 net.mehvahdjukaar.supplementaries.common.block.blocks.SconceWallBlock
-dev.mayaqq.estrogen.registry.blocks.DormantDreamBlock
 com.faboslav.friendsandfoes.block.OxidizableLightningRodBlock
 com.ordana.spelunkery.blocks.rock_salt.SaltLampBlock
 dev.shadowsoffire.apotheosis.ench.table.EnchantingRecipe

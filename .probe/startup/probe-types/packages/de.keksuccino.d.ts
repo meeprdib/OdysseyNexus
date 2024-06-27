@@ -5,8 +5,8 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 
 export interface $IMixinOptions {
 
- "getModelPartsFancyMenu"(): $Set<($PlayerModelPart)>
  "invokeProcessOptionsFancyMenu"(arg0: $Options$FieldAccess$Type): void
+ "getModelPartsFancyMenu"(): $Set<($PlayerModelPart)>
 }
 
 export namespace $IMixinOptions {
@@ -28,9 +28,9 @@ declare module "packages/de/keksuccino/konkrete/mixin/client/$IMixinEditBox" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IMixinEditBox {
 
- "onValueChangeKonkrete"(arg0: string): void
  "getHightlightPosKonkrete"(): integer
  "getMaxLengthKonkrete"(): integer
+ "onValueChangeKonkrete"(arg0: string): void
  "getIsEditableKonkrete"(): boolean
 }
 
@@ -57,21 +57,21 @@ import {$BiFunction, $BiFunction$Type} from "packages/java/util/function/$BiFunc
 
 export interface $IMixinEditBox {
 
- "getIsEditableFancyMenu"(): boolean
- "getDisplayPosFancyMenu"(): integer
- "getMaxLengthFancyMenu"(): integer
- "getSuggestionFancyMenu"(): string
- "invokeDeleteTextFancyMenu"(arg0: integer): void
- "getHighlightPosFancyMenu"(): integer
- "getTextColorUneditableFancyMenu"(): integer
- "setShiftPressedFancyMenu"(arg0: boolean): void
- "getTextColorFancyMenu"(): integer
- "setDisplayPosFancyMenu"(arg0: integer): void
- "getBorderedFancyMenu"(): boolean
  "invokeRenderHighlightFancyMenu"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+ "setDisplayPosFancyMenu"(arg0: integer): void
+ "getIsEditableFancyMenu"(): boolean
+ "getBorderedFancyMenu"(): boolean
+ "getMaxLengthFancyMenu"(): integer
  "getFormatterFancyMenu"(): $BiFunction<(string), (integer), ($FormattedCharSequence)>
- "getFrameFancyMenu"(): integer
+ "setShiftPressedFancyMenu"(arg0: boolean): void
+ "getDisplayPosFancyMenu"(): integer
+ "getHighlightPosFancyMenu"(): integer
+ "invokeDeleteTextFancyMenu"(arg0: integer): void
+ "getTextColorFancyMenu"(): integer
+ "getTextColorUneditableFancyMenu"(): integer
+ "getSuggestionFancyMenu"(): string
  "getHintFancyMenu"(): $Component
+ "getFrameFancyMenu"(): integer
 }
 
 export namespace $IMixinEditBox {
@@ -122,11 +122,11 @@ export interface $Resource extends $Closeable {
 
  "open"(): $InputStream
  "isClosed"(): boolean
- "isReady"(): boolean
- "waitForReady"(arg0: long): void
  "waitForLoadingCompletedOrFailed"(arg0: long): void
- "isLoadingFailed"(): boolean
  "isLoadingCompleted"(): boolean
+ "isLoadingFailed"(): boolean
+ "waitForReady"(arg0: long): void
+ "isReady"(): boolean
  "close"(): void
 }
 
@@ -177,64 +177,64 @@ import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$CustomizableWidget$CustomBackgroundResetBehavior, $CustomizableWidget$CustomBackgroundResetBehavior$Type} from "packages/de/keksuccino/fancymenu/util/rendering/ui/widget/$CustomizableWidget$CustomBackgroundResetBehavior"
 import {$RenderableResource, $RenderableResource$Type} from "packages/de/keksuccino/fancymenu/util/resource/$RenderableResource"
-import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
+import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export interface $CustomizableWidget {
 
- "addHoverStateListenerFancyMenu"(arg0: $Consumer$Type<(boolean)>): void
- "setCustomLabelFancyMenu"(arg0: $Component$Type): void
- "setHoverLabelFancyMenu"(arg0: $Component$Type): void
- "getLastHoverOrFocusStateFancyMenu"(): boolean
- "getCustomBackgroundNormalFancyMenu"(): $RenderableResource
- "setCustomWidthFancyMenu"(arg0: integer): void
- "getCustomClickSoundFancyMenu"(): $IAudio
- "getLastFocusStateFancyMenu"(): boolean
- "getCustomLabelFancyMenu"(): $Component
- "setNineSliceBorderX_FancyMenu"(arg0: integer): void
- "getCustomWidthFancyMenu"(): integer
- "setNineSliceBorderY_FancyMenu"(arg0: integer): void
- "setCustomBackgroundHoverFancyMenu"(arg0: $RenderableResource$Type): void
- "resetWidgetCustomizationsFancyMenu"(): void
- "getCustomBackgroundHoverFancyMenu"(): $RenderableResource
- "getCustomXFancyMenu"(): integer
- "getFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
- "setLastHoverStateFancyMenu"(arg0: boolean): void
- "setLastFocusStateFancyMenu"(arg0: boolean): void
- "setLastHoverOrFocusStateFancyMenu"(arg0: boolean): void
- "setCustomHeightFancyMenu"(arg0: integer): void
- "setCustomXFancyMenu"(arg0: integer): void
- "getHoverLabelFancyMenu"(): $Component
- "getHoverSoundFancyMenu"(): $IAudio
- "getCustomHeightFancyMenu"(): integer
- "setCustomClickSoundFancyMenu"(arg0: $IAudio$Type): void
- "tickFocusStateListenersFancyMenu"(arg0: boolean): void
- "tickHoverStateListenersFancyMenu"(arg0: boolean): void
- "getLastHoverStateFancyMenu"(): boolean
- "setCustomBackgroundNormalFancyMenu"(arg0: $RenderableResource$Type): void
- "setCustomYFancyMenu"(arg0: integer): void
- "setHoverSoundFancyMenu"(arg0: $IAudio$Type): void
- "getCustomYFancyMenu"(): integer
- "getHoverStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
- "addFocusStateListenerFancyMenu"(arg0: $Consumer$Type<(boolean)>): void
- "getOriginalMessageFancyMenu"(): $Component
- "renderCustomBackgroundFancyMenu"(arg0: $AbstractWidget$Type, arg1: $GuiGraphics$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
- "isHiddenFancyMenu"(): boolean
- "setHiddenFancyMenu"(arg0: boolean): void
- "getResetCustomizationsListenersFancyMenu"(): $List<($Runnable)>
- "addHoverOrFocusStateListenerFancyMenu"(arg0: $Consumer$Type<(boolean)>): void
- "getHoverOrFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
- "setCustomBackgroundResetBehaviorFancyMenu"(arg0: $CustomizableWidget$CustomBackgroundResetBehavior$Type): void
- "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
- "resetWidgetSizeAndPositionFancyMenu"(): void
- "setNineSliceCustomBackground_FancyMenu"(arg0: boolean): void
  "addResetCustomizationsListenerFancyMenu"(arg0: $Runnable$Type): void
- "isNineSliceCustomBackgroundTexture_FancyMenu"(): boolean
+ "addHoverOrFocusStateListenerFancyMenu"(arg0: $Consumer$Type<(boolean)>): void
  "getCustomBackgroundInactiveFancyMenu"(): $RenderableResource
- "setCustomBackgroundInactiveFancyMenu"(arg0: $RenderableResource$Type): void
+ "isNineSliceCustomBackgroundTexture_FancyMenu"(): boolean
+ "getResetCustomizationsListenersFancyMenu"(): $List<($Runnable)>
+ "setCustomBackgroundResetBehaviorFancyMenu"(arg0: $CustomizableWidget$CustomBackgroundResetBehavior$Type): void
  "getCustomBackgroundResetBehaviorFancyMenu"(): $CustomizableWidget$CustomBackgroundResetBehavior
  "getNineSliceCustomBackgroundBorderY_FancyMenu"(): integer
+ "setCustomBackgroundInactiveFancyMenu"(arg0: $RenderableResource$Type): void
  "getNineSliceCustomBackgroundBorderX_FancyMenu"(): integer
+ "resetWidgetSizeAndPositionFancyMenu"(): void
+ "getHoverOrFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+ "setNineSliceCustomBackground_FancyMenu"(arg0: boolean): void
+ "tickHoverOrFocusStateListenersFancyMenu"(arg0: boolean): void
+ "isHiddenFancyMenu"(): boolean
+ "setHiddenFancyMenu"(arg0: boolean): void
+ "tickHoverStateListenersFancyMenu"(arg0: boolean): void
+ "setLastHoverStateFancyMenu"(arg0: boolean): void
+ "getHoverLabelFancyMenu"(): $Component
+ "getLastHoverStateFancyMenu"(): boolean
+ "getHoverSoundFancyMenu"(): $IAudio
+ "getCustomClickSoundFancyMenu"(): $IAudio
+ "resetWidgetCustomizationsFancyMenu"(): void
+ "setCustomBackgroundNormalFancyMenu"(arg0: $RenderableResource$Type): void
+ "getCustomBackgroundHoverFancyMenu"(): $RenderableResource
+ "setHoverSoundFancyMenu"(arg0: $IAudio$Type): void
+ "setLastHoverOrFocusStateFancyMenu"(arg0: boolean): void
+ "setCustomHeightFancyMenu"(arg0: integer): void
+ "setNineSliceBorderX_FancyMenu"(arg0: integer): void
+ "setCustomWidthFancyMenu"(arg0: integer): void
+ "getLastFocusStateFancyMenu"(): boolean
+ "setCustomLabelFancyMenu"(arg0: $Component$Type): void
+ "setNineSliceBorderY_FancyMenu"(arg0: integer): void
+ "getFocusStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+ "setCustomYFancyMenu"(arg0: integer): void
+ "getCustomHeightFancyMenu"(): integer
+ "getCustomYFancyMenu"(): integer
+ "setCustomBackgroundHoverFancyMenu"(arg0: $RenderableResource$Type): void
+ "getLastHoverOrFocusStateFancyMenu"(): boolean
+ "getCustomLabelFancyMenu"(): $Component
+ "getCustomXFancyMenu"(): integer
+ "setHoverLabelFancyMenu"(arg0: $Component$Type): void
+ "getCustomBackgroundNormalFancyMenu"(): $RenderableResource
+ "getHoverStateListenersFancyMenu"(): $List<($Consumer<(boolean)>)>
+ "tickFocusStateListenersFancyMenu"(arg0: boolean): void
+ "addHoverStateListenerFancyMenu"(arg0: $Consumer$Type<(boolean)>): void
+ "setCustomClickSoundFancyMenu"(arg0: $IAudio$Type): void
+ "getCustomWidthFancyMenu"(): integer
+ "getOriginalMessageFancyMenu"(): $Component
+ "setCustomXFancyMenu"(arg0: integer): void
+ "setLastFocusStateFancyMenu"(arg0: boolean): void
+ "addFocusStateListenerFancyMenu"(arg0: $Consumer$Type<(boolean)>): void
+ "renderCustomBackgroundFancyMenu"(arg0: $AbstractWidget$Type, arg1: $GuiGraphics$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
 }
 
 export namespace $CustomizableWidget {
@@ -282,14 +282,14 @@ export class $AspectRatio {
 
 constructor(arg0: integer, arg1: integer)
 
-public "getAspectRatioSizeByMinimumSize"(arg0: integer, arg1: integer): (integer)[]
-public "getAspectRatioSizeByMaximumSize"(arg0: integer, arg1: integer): (integer)[]
 public "getAspectRatioHeight"(arg0: integer): integer
 public "getAspectRatioWidth"(arg0: integer): integer
-public "getInputHeight"(): integer
+public "getAspectRatioSizeByMaximumSize"(arg0: integer, arg1: integer): (integer)[]
+public "getAspectRatioSizeByMinimumSize"(arg0: integer, arg1: integer): (integer)[]
 public "getInputWidth"(): integer
-get "inputHeight"(): integer
+public "getInputHeight"(): integer
 get "inputWidth"(): integer
+get "inputHeight"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -308,8 +308,8 @@ import {$AbstractWidget, $AbstractWidget$Type} from "packages/net/minecraft/clie
 
 export interface $UniqueWidget {
 
- "getWidgetIdentifierFancyMenu"(): string
  "setWidgetIdentifierFancyMenu"(arg0: string): $AbstractWidget
+ "getWidgetIdentifierFancyMenu"(): string
 }
 
 export namespace $UniqueWidget {
@@ -362,8 +362,8 @@ import {$List, $List$Type} from "packages/java/util/$List"
 export interface $IMixinScreen {
 
  "setFontKonkrete"(arg0: $Font$Type): void
- "getRenderablesKonkrete"(): $List<($Renderable)>
  "getChildrenKonkrete"(): $List<($GuiEventListener)>
+ "getRenderablesKonkrete"(): $List<($Renderable)>
 }
 
 export namespace $IMixinScreen {
@@ -389,11 +389,11 @@ import {$NarratableEntry, $NarratableEntry$Type} from "packages/net/minecraft/cl
 
 export interface $IMixinScreen {
 
+ "getRenderablesFancyMenu"(): $List<($Renderable)>
  "get_initialized_FancyMenu"(): boolean
- "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$Type): void
  "getChildrenFancyMenu"(): $List<($GuiEventListener)>
  "getNarratablesFancyMenu"(): $List<($NarratableEntry)>
- "getRenderablesFancyMenu"(): $List<($Renderable)>
+ "invokeRemoveWidgetFancyMenu"(arg0: $GuiEventListener$Type): void
 }
 
 export namespace $IMixinScreen {
@@ -416,9 +416,9 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 
 export interface $IMixinAbstractWidget {
 
- "setMessageFieldFancyMenu"(arg0: $Component$Type): void
- "setHeightFancyMenu"(arg0: integer): void
  "getAlphaFancyMenu"(): float
+ "setHeightFancyMenu"(arg0: integer): void
+ "setMessageFieldFancyMenu"(arg0: $Component$Type): void
 }
 
 export namespace $IMixinAbstractWidget {
@@ -445,17 +445,17 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export interface $RenderableResource extends $Resource {
 
  "reset"(): void
+ "getResourceLocation"(): $ResourceLocation
  "getAspectRatio"(): $AspectRatio
  "getWidth"(): integer
  "getHeight"(): integer
- "getResourceLocation"(): $ResourceLocation
  "open"(): $InputStream
  "isClosed"(): boolean
- "isReady"(): boolean
- "waitForReady"(arg0: long): void
  "waitForLoadingCompletedOrFailed"(arg0: long): void
- "isLoadingFailed"(): boolean
  "isLoadingCompleted"(): boolean
+ "isLoadingFailed"(): boolean
+ "waitForReady"(arg0: long): void
+ "isReady"(): boolean
  "close"(): void
 }
 
@@ -529,11 +529,11 @@ declare module "packages/de/keksuccino/fancymenu/mixin/mixins/common/client/$IMi
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IMixinAbstractSelectionList {
 
- "getY1FancyMenu"(): integer
- "getY0FancyMenu"(): integer
- "getX0FancyMenu"(): integer
  "getWidthFancyMenu"(): integer
+ "getY1FancyMenu"(): integer
  "getX1FancyMenu"(): integer
+ "getX0FancyMenu"(): integer
+ "getY0FancyMenu"(): integer
  "getHeightFancyMenu"(): integer
 }
 
@@ -582,9 +582,9 @@ import {$ResourceLoadStateTracker, $ResourceLoadStateTracker$Type} from "package
 
 export interface $IMixinMinecraft {
 
- "openChatScreenFancyMenu"(arg0: string): void
- "getPausePartialTickFancyMenu"(): float
  "getReloadStateTrackerFancyMenu"(): $ResourceLoadStateTracker
+ "getPausePartialTickFancyMenu"(): float
+ "openChatScreenFancyMenu"(arg0: string): void
 }
 
 export namespace $IMixinMinecraft {
@@ -608,20 +608,20 @@ import {$PlayableResource, $PlayableResource$Type} from "packages/de/keksuccino/
 
 export interface $PlayableResourceWithAudio extends $PlayableResource {
 
- "getVolume"(): float
  "setVolume"(arg0: float): void
+ "getVolume"(): float
  "stop"(): void
- "isPlaying"(): boolean
- "play"(): void
- "pause"(): void
  "isPaused"(): boolean
+ "play"(): void
+ "isPlaying"(): boolean
+ "pause"(): void
  "open"(): $InputStream
  "isClosed"(): boolean
- "isReady"(): boolean
- "waitForReady"(arg0: long): void
  "waitForLoadingCompletedOrFailed"(arg0: long): void
- "isLoadingFailed"(): boolean
  "isLoadingCompleted"(): boolean
+ "isLoadingFailed"(): boolean
+ "waitForReady"(arg0: long): void
+ "isReady"(): boolean
  "close"(): void
 }
 
@@ -671,17 +671,17 @@ import {$InputStream, $InputStream$Type} from "packages/java/io/$InputStream"
 export interface $PlayableResource extends $Resource {
 
  "stop"(): void
- "isPlaying"(): boolean
- "play"(): void
- "pause"(): void
  "isPaused"(): boolean
+ "play"(): void
+ "isPlaying"(): boolean
+ "pause"(): void
  "open"(): $InputStream
  "isClosed"(): boolean
- "isReady"(): boolean
- "waitForReady"(arg0: long): void
  "waitForLoadingCompletedOrFailed"(arg0: long): void
- "isLoadingFailed"(): boolean
  "isLoadingCompleted"(): boolean
+ "isLoadingFailed"(): boolean
+ "waitForReady"(arg0: long): void
+ "isReady"(): boolean
  "close"(): void
 }
 
@@ -707,22 +707,22 @@ import {$SoundSource, $SoundSource$Type} from "packages/net/minecraft/sounds/$So
 
 export interface $IAudio extends $PlayableResourceWithAudio {
 
- "play"(): void
  "setSoundChannel"(arg0: $SoundSource$Type): void
  "getSoundChannel"(): $SoundSource
- "getVolume"(): float
+ "play"(): void
  "setVolume"(arg0: float): void
+ "getVolume"(): float
  "stop"(): void
+ "isPaused"(): boolean
  "isPlaying"(): boolean
  "pause"(): void
- "isPaused"(): boolean
  "open"(): $InputStream
  "isClosed"(): boolean
- "isReady"(): boolean
- "waitForReady"(arg0: long): void
  "waitForLoadingCompletedOrFailed"(arg0: long): void
- "isLoadingFailed"(): boolean
  "isLoadingCompleted"(): boolean
+ "isLoadingFailed"(): boolean
+ "waitForReady"(arg0: long): void
+ "isReady"(): boolean
  "close"(): void
 }
 

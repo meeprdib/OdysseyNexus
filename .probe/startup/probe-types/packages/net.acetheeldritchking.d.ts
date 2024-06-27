@@ -34,8 +34,8 @@ constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
 public static "getId"(arg0: $ItemStack$Type): long
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -86,8 +86,8 @@ constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
 public static "getId"(arg0: $ItemStack$Type): long
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -123,19 +123,19 @@ static readonly "LIGHTNING_DRAGON_PRIEST": $DragonArmorMaterials
 public static "values"(): ($DragonArmorMaterials)[]
 public static "valueOf"(arg0: string): $DragonArmorMaterials
 public static "makeArmorMap"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $EnumMap<($ArmorItem$Type), (integer)>
-public "getDefenseForType"(arg0: $ArmorItem$Type$Type): integer
-public "getEnchantmentValue"(): integer
 public "getEquipSound"(): $SoundEvent
 public "getKnockbackResistance"(): float
+public "getEnchantmentValue"(): integer
 public "getName"(): string
 public "getRepairIngredient"(): $Ingredient
-public "getDurabilityForType"(arg0: $ArmorItem$Type$Type): integer
 public "getToughness"(): float
+public "getDefenseForType"(arg0: $ArmorItem$Type$Type): integer
+public "getDurabilityForType"(arg0: $ArmorItem$Type$Type): integer
 public "getDurabilityForSlot"(arg0: $EquipmentSlot$Type): integer
 public "getSlotToAttributeMap"(): $EnumMap<($EquipmentSlot), ($Multimap<($Attribute), ($AttributeModifier)>)>
-get "enchantmentValue"(): integer
 get "equipSound"(): $SoundEvent
 get "knockbackResistance"(): float
+get "enchantmentValue"(): integer
 get "name"(): string
 get "repairIngredient"(): $Ingredient
 get "toughness"(): float
@@ -189,8 +189,8 @@ constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
 public static "getId"(arg0: $ItemStack$Type): long
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -241,11 +241,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $DragonArmorMaterials$Type, arg1: $ArmorItem$Type$Type, arg2: $Item$Properties$Type)
 
-public "initializeSpellContainer"(arg0: $ItemStack$Type): void
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
+public "initializeSpellContainer"(arg0: $ItemStack$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -304,28 +304,28 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $DragonArmorMaterials$Type, arg1: $ArmorItem$Type$Type, arg2: $Item$Properties$Type)
 
-public "getMaterial"(): $DragonArmorMaterials
 public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "supplyRenderer"(): $GeoArmorRenderer<(any)>
+public "getMaterial"(): $DragonArmorMaterials
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "supplyRenderer"(): $GeoArmorRenderer<(any)>
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public static "getId"(arg0: $ItemStack$Type): long
-public "getTick"(arg0: any): double
-public "animatableCacheOverride"(): $AnimatableInstanceCache
-public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
-public "isPerspectiveAware"(): boolean
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
-public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
+public "animatableCacheOverride"(): $AnimatableInstanceCache
+public "getTick"(arg0: any): double
+public "isPerspectiveAware"(): boolean
+public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
 public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
 public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
 public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
-public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "getBoneResetTime"(): double
-get "material"(): $DragonArmorMaterials
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
+get "material"(): $DragonArmorMaterials
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
 }

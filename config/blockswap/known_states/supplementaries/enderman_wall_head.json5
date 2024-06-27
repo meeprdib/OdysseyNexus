@@ -11,7 +11,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "0",
 			"facing": "north"
@@ -19,32 +18,11 @@ to make editing this file much easier.
 		"Name": "supplementaries:enderman_wall_head"
 	},
 	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "0",
-			"facing": "north"
-		},
 		"Name": "supplementaries:enderman_wall_head"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "true",
-			"watched": "false",
-			"power": "0",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "1",
 			"facing": "north"
@@ -54,17 +32,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "1",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "1",
 			"facing": "north"
@@ -74,17 +41,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "1",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "2",
 			"facing": "north"
@@ -94,17 +50,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "2",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "2",
 			"facing": "north"
@@ -114,17 +59,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "2",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "3",
 			"facing": "north"
@@ -134,17 +68,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "3",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "3",
 			"facing": "north"
@@ -154,17 +77,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "3",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "4",
 			"facing": "north"
@@ -174,17 +86,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "4",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "4",
 			"facing": "north"
@@ -194,17 +95,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "4",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "5",
 			"facing": "north"
@@ -214,17 +104,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "5",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "5",
 			"facing": "north"
@@ -234,17 +113,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "5",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "6",
 			"facing": "north"
@@ -254,17 +122,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "6",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "6",
 			"facing": "north"
@@ -274,17 +131,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "6",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "7",
 			"facing": "north"
@@ -294,17 +140,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "7",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "7",
 			"facing": "north"
@@ -314,17 +149,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "7",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "8",
 			"facing": "north"
@@ -334,17 +158,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "8",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "8",
 			"facing": "north"
@@ -354,17 +167,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "8",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "9",
 			"facing": "north"
@@ -374,17 +176,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "9",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "9",
 			"facing": "north"
@@ -394,17 +185,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "9",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "10",
 			"facing": "north"
@@ -414,17 +194,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "10",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "10",
 			"facing": "north"
@@ -434,17 +203,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "10",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "11",
 			"facing": "north"
@@ -454,17 +212,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "11",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "11",
 			"facing": "north"
@@ -474,17 +221,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "11",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "12",
 			"facing": "north"
@@ -494,17 +230,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "12",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "12",
 			"facing": "north"
@@ -514,17 +239,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "12",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "13",
 			"facing": "north"
@@ -534,17 +248,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "13",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "13",
 			"facing": "north"
@@ -554,17 +257,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "13",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "14",
 			"facing": "north"
@@ -574,17 +266,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "14",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "14",
 			"facing": "north"
@@ -594,17 +275,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "14",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "15",
 			"facing": "north"
@@ -614,17 +284,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "15",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "15",
 			"facing": "north"
@@ -634,17 +293,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "15",
-			"facing": "north"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "0",
 			"facing": "south"
@@ -654,17 +302,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "0",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "0",
 			"facing": "south"
@@ -674,17 +311,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "0",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "1",
 			"facing": "south"
@@ -694,17 +320,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "1",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "1",
 			"facing": "south"
@@ -714,17 +329,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "1",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "2",
 			"facing": "south"
@@ -734,17 +338,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "2",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "2",
 			"facing": "south"
@@ -754,17 +347,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "2",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "3",
 			"facing": "south"
@@ -774,17 +356,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "3",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "3",
 			"facing": "south"
@@ -794,17 +365,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "3",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "4",
 			"facing": "south"
@@ -814,17 +374,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "4",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "4",
 			"facing": "south"
@@ -834,17 +383,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "4",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "5",
 			"facing": "south"
@@ -854,17 +392,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "5",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "5",
 			"facing": "south"
@@ -874,17 +401,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "5",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "6",
 			"facing": "south"
@@ -894,17 +410,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "6",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "6",
 			"facing": "south"
@@ -914,17 +419,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "6",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "7",
 			"facing": "south"
@@ -934,17 +428,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "7",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "7",
 			"facing": "south"
@@ -954,17 +437,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "7",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "8",
 			"facing": "south"
@@ -974,17 +446,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "8",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "8",
 			"facing": "south"
@@ -994,17 +455,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "8",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "9",
 			"facing": "south"
@@ -1014,17 +464,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "9",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "9",
 			"facing": "south"
@@ -1034,17 +473,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "9",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "10",
 			"facing": "south"
@@ -1054,17 +482,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "10",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "10",
 			"facing": "south"
@@ -1074,17 +491,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "10",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "11",
 			"facing": "south"
@@ -1094,17 +500,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "11",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "11",
 			"facing": "south"
@@ -1114,17 +509,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "11",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "12",
 			"facing": "south"
@@ -1134,17 +518,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "12",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "12",
 			"facing": "south"
@@ -1154,17 +527,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "12",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "13",
 			"facing": "south"
@@ -1174,17 +536,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "13",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "13",
 			"facing": "south"
@@ -1194,17 +545,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "13",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "14",
 			"facing": "south"
@@ -1214,17 +554,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "14",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "14",
 			"facing": "south"
@@ -1234,17 +563,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "14",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "15",
 			"facing": "south"
@@ -1254,17 +572,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "15",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "15",
 			"facing": "south"
@@ -1274,17 +581,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "15",
-			"facing": "south"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "0",
 			"facing": "west"
@@ -1294,17 +590,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "0",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "0",
 			"facing": "west"
@@ -1314,17 +599,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "0",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "1",
 			"facing": "west"
@@ -1334,17 +608,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "1",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "1",
 			"facing": "west"
@@ -1354,17 +617,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "1",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "2",
 			"facing": "west"
@@ -1374,17 +626,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "2",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "2",
 			"facing": "west"
@@ -1394,17 +635,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "2",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "3",
 			"facing": "west"
@@ -1414,17 +644,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "3",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "3",
 			"facing": "west"
@@ -1434,17 +653,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "3",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "4",
 			"facing": "west"
@@ -1454,17 +662,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "4",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "4",
 			"facing": "west"
@@ -1474,17 +671,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "4",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "5",
 			"facing": "west"
@@ -1494,17 +680,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "5",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "5",
 			"facing": "west"
@@ -1514,17 +689,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "5",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "6",
 			"facing": "west"
@@ -1534,17 +698,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "6",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "6",
 			"facing": "west"
@@ -1554,17 +707,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "6",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "7",
 			"facing": "west"
@@ -1574,17 +716,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "7",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "7",
 			"facing": "west"
@@ -1594,17 +725,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "7",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "8",
 			"facing": "west"
@@ -1614,17 +734,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "8",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "8",
 			"facing": "west"
@@ -1634,17 +743,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "8",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "9",
 			"facing": "west"
@@ -1654,17 +752,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "9",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "9",
 			"facing": "west"
@@ -1674,17 +761,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "9",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "10",
 			"facing": "west"
@@ -1694,17 +770,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "10",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "10",
 			"facing": "west"
@@ -1714,17 +779,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "10",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "11",
 			"facing": "west"
@@ -1734,17 +788,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "11",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "11",
 			"facing": "west"
@@ -1754,17 +797,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "11",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "12",
 			"facing": "west"
@@ -1774,17 +806,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "12",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "12",
 			"facing": "west"
@@ -1794,17 +815,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "12",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "13",
 			"facing": "west"
@@ -1814,17 +824,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "13",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "13",
 			"facing": "west"
@@ -1834,17 +833,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "13",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "14",
 			"facing": "west"
@@ -1854,17 +842,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "14",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "14",
 			"facing": "west"
@@ -1874,17 +851,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "14",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "15",
 			"facing": "west"
@@ -1894,17 +860,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "15",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "15",
 			"facing": "west"
@@ -1914,17 +869,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "15",
-			"facing": "west"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "0",
 			"facing": "east"
@@ -1934,17 +878,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "0",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "0",
 			"facing": "east"
@@ -1954,17 +887,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "0",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "1",
 			"facing": "east"
@@ -1974,17 +896,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "1",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "1",
 			"facing": "east"
@@ -1994,17 +905,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "1",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "2",
 			"facing": "east"
@@ -2014,17 +914,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "2",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "2",
 			"facing": "east"
@@ -2034,17 +923,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "2",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "3",
 			"facing": "east"
@@ -2054,17 +932,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "3",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "3",
 			"facing": "east"
@@ -2074,17 +941,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "3",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "4",
 			"facing": "east"
@@ -2094,17 +950,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "4",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "4",
 			"facing": "east"
@@ -2114,17 +959,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "4",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "5",
 			"facing": "east"
@@ -2134,17 +968,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "5",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "5",
 			"facing": "east"
@@ -2154,17 +977,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "5",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "6",
 			"facing": "east"
@@ -2174,17 +986,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "6",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "6",
 			"facing": "east"
@@ -2194,17 +995,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "6",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "7",
 			"facing": "east"
@@ -2214,17 +1004,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "7",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "7",
 			"facing": "east"
@@ -2234,17 +1013,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "7",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "8",
 			"facing": "east"
@@ -2254,17 +1022,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "8",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "8",
 			"facing": "east"
@@ -2274,17 +1031,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "8",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "9",
 			"facing": "east"
@@ -2294,17 +1040,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "9",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "9",
 			"facing": "east"
@@ -2314,17 +1049,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "9",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "10",
 			"facing": "east"
@@ -2334,17 +1058,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "10",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "10",
 			"facing": "east"
@@ -2354,17 +1067,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "10",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "11",
 			"facing": "east"
@@ -2374,17 +1076,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "11",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "11",
 			"facing": "east"
@@ -2394,17 +1085,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "11",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "12",
 			"facing": "east"
@@ -2414,17 +1094,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "12",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "12",
 			"facing": "east"
@@ -2434,17 +1103,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "12",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "13",
 			"facing": "east"
@@ -2454,17 +1112,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "13",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "13",
 			"facing": "east"
@@ -2474,17 +1121,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "13",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "14",
 			"facing": "east"
@@ -2494,17 +1130,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "14",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "false",
 			"power": "14",
 			"facing": "east"
@@ -2514,17 +1139,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "false",
-			"power": "14",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"watched": "true",
 			"power": "15",
 			"facing": "east"
@@ -2534,27 +1148,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"watched": "true",
-			"power": "15",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
-			"watched": "false",
-			"power": "15",
-			"facing": "east"
-		},
-		"Name": "supplementaries:enderman_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "false",
 			"watched": "false",
 			"power": "15",
 			"facing": "east"

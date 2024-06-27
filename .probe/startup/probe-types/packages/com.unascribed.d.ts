@@ -115,59 +115,59 @@ import {$EarsFeatures$TailMode, $EarsFeatures$TailMode$Type} from "packages/com/
 import {$Slice, $Slice$Type} from "packages/com/unascribed/ears/api/$Slice"
 import {$EarsFeatures$WingMode, $EarsFeatures$WingMode$Type} from "packages/com/unascribed/ears/api/features/$EarsFeatures$WingMode"
 import {$AlfalfaData, $AlfalfaData$Type} from "packages/com/unascribed/ears/api/features/$AlfalfaData"
-import {$EarsFeatures$EarMode, $EarsFeatures$EarMode$Type} from "packages/com/unascribed/ears/api/features/$EarsFeatures$EarMode"
 import {$EarsFeatures$EarAnchor, $EarsFeatures$EarAnchor$Type} from "packages/com/unascribed/ears/api/features/$EarsFeatures$EarAnchor"
+import {$EarsFeatures$EarMode, $EarsFeatures$EarMode$Type} from "packages/com/unascribed/ears/api/features/$EarsFeatures$EarMode"
 import {$EarsFeatures, $EarsFeatures$Type} from "packages/com/unascribed/ears/api/features/$EarsFeatures"
 
 export class $EarsFeatures$Builder {
 
 
 public "build"(): $EarsFeatures
-public "emissive"(arg0: boolean): $EarsFeatures$Builder
-public "earMode"(arg0: $EarsFeatures$EarMode$Type): $EarsFeatures$Builder
-public "claws"(arg0: boolean): $EarsFeatures$Builder
-public "horn"(arg0: boolean): $EarsFeatures$Builder
-public "tailMode"(arg0: $EarsFeatures$TailMode$Type): $EarsFeatures$Builder
-public "earAnchor"(arg0: $EarsFeatures$EarAnchor$Type): $EarsFeatures$Builder
-public "tailSegments"(arg0: integer): $EarsFeatures$Builder
-public "snoutHeight"(arg0: integer): $EarsFeatures$Builder
-public "tailBend2"(arg0: float): $EarsFeatures$Builder
-public "chestSize"(arg0: float): $EarsFeatures$Builder
-public "tailBend1"(arg0: float): $EarsFeatures$Builder
-public "snoutOffset"(arg0: integer): $EarsFeatures$Builder
-public "emissiveSkin"(arg0: $Slice$Type): $EarsFeatures$Builder
-public "alfalfa"(arg0: $AlfalfaData$Type): $EarsFeatures$Builder
-public "tailBend3"(arg0: float): $EarsFeatures$Builder
-public "capeEnabled"(arg0: boolean): $EarsFeatures$Builder
-public "animateWings"(arg0: boolean): $EarsFeatures$Builder
-public "tailBend0"(arg0: float): $EarsFeatures$Builder
-public "snoutDepth"(arg0: integer): $EarsFeatures$Builder
-public "snoutWidth"(arg0: integer): $EarsFeatures$Builder
-public "wingMode"(arg0: $EarsFeatures$WingMode$Type): $EarsFeatures$Builder
-public "emissiveWing"(arg0: $Slice$Type): $EarsFeatures$Builder
 public "isHorn"(): boolean
+public "emissive"(arg0: boolean): $EarsFeatures$Builder
+public "tailBends"(arg0: float, arg1: float, arg2: float, arg3: float): $EarsFeatures$Builder
+public "getTailBend2"(): float
 public "getTailBend3"(): float
 public "getSnoutOffset"(): integer
-public "getSnoutWidth"(): integer
-public "getTailBend0"(): float
-public "getSnoutHeight"(): integer
 public "isClaws"(): boolean
 public "getTailSegments"(): integer
-public "getTailMode"(): $EarsFeatures$TailMode
-public "getEarAnchor"(): $EarsFeatures$EarAnchor
-public "tailBends"(arg0: float, arg1: float, arg2: float, arg3: float): $EarsFeatures$Builder
-public "getEarMode"(): $EarsFeatures$EarMode
 public "getTailBend1"(): float
-public "getTailBend2"(): float
-public "isEmissive"(): boolean
-public "getWingMode"(): $EarsFeatures$WingMode
-public "getSnoutDepth"(): integer
+public "getSnoutWidth"(): integer
+public "getEarAnchor"(): $EarsFeatures$EarAnchor
+public "getTailMode"(): $EarsFeatures$TailMode
+public "getTailBend0"(): float
+public "getEarMode"(): $EarsFeatures$EarMode
 public "getEmissiveWing"(): $Slice
-public "getEmissiveSkin"(): $Slice
-public "isAnimateWings"(): boolean
+public "getSnoutHeight"(): integer
 public "isCapeEnabled"(): boolean
+public "isEmissive"(): boolean
 public "getChestSize"(): float
+public "getSnoutDepth"(): integer
 public "getAlfalfa"(): $AlfalfaData
+public "getEmissiveSkin"(): $Slice
+public "getWingMode"(): $EarsFeatures$WingMode
+public "isAnimateWings"(): boolean
+public "tailBend1"(arg0: float): $EarsFeatures$Builder
+public "claws"(arg0: boolean): $EarsFeatures$Builder
+public "snoutOffset"(arg0: integer): $EarsFeatures$Builder
+public "earMode"(arg0: $EarsFeatures$EarMode$Type): $EarsFeatures$Builder
+public "tailMode"(arg0: $EarsFeatures$TailMode$Type): $EarsFeatures$Builder
+public "tailSegments"(arg0: integer): $EarsFeatures$Builder
+public "earAnchor"(arg0: $EarsFeatures$EarAnchor$Type): $EarsFeatures$Builder
+public "tailBend2"(arg0: float): $EarsFeatures$Builder
+public "snoutWidth"(arg0: integer): $EarsFeatures$Builder
+public "snoutHeight"(arg0: integer): $EarsFeatures$Builder
+public "snoutDepth"(arg0: integer): $EarsFeatures$Builder
+public "wingMode"(arg0: $EarsFeatures$WingMode$Type): $EarsFeatures$Builder
+public "tailBend3"(arg0: float): $EarsFeatures$Builder
+public "horn"(arg0: boolean): $EarsFeatures$Builder
+public "tailBend0"(arg0: float): $EarsFeatures$Builder
+public "chestSize"(arg0: float): $EarsFeatures$Builder
+public "animateWings"(arg0: boolean): $EarsFeatures$Builder
+public "capeEnabled"(arg0: boolean): $EarsFeatures$Builder
+public "emissiveWing"(arg0: $Slice$Type): $EarsFeatures$Builder
+public "alfalfa"(arg0: $AlfalfaData$Type): $EarsFeatures$Builder
+public "emissiveSkin"(arg0: $Slice$Type): $EarsFeatures$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

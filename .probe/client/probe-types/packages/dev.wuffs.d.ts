@@ -37,9 +37,9 @@ public "toString"(): string
 public "version"(): string
 public "hashCode"(): integer
 public "versionId"(): integer
+public "releaseType"(): string
 public "projectId"(): integer
 public "isMetaData"(): boolean
-public "releaseType"(): string
 get "metaData"(): boolean
 }
 /**

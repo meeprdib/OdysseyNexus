@@ -14,7 +14,88 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"stage": "1"
+			"stage": "1",
+			"quality_food": "0"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "0",
+			"quality_food": "1"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "1",
+			"quality_food": "1"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "0",
+			"quality_food": "2"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "1",
+			"quality_food": "2"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "0",
+			"quality_food": "3"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "1",
+			"quality_food": "3"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "0",
+			"quality_food": "4"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "1",
+			"quality_food": "4"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "0",
+			"quality_food": "5"
+		},
+		"Name": "create_dd:rubber_sapling"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"stage": "1",
+			"quality_food": "5"
 		},
 		"Name": "create_dd:rubber_sapling"
 	}

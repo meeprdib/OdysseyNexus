@@ -12,6 +12,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"powered": "true",
+			"inverted": "true",
 			"axis": "x"
 		},
 		"Name": "create:gearshift"
@@ -20,6 +21,7 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"powered": "false",
+			"inverted": "true",
 			"axis": "x"
 		},
 		"Name": "create:gearshift"
@@ -28,6 +30,25 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"powered": "true",
+			"inverted": "false",
+			"axis": "x"
+		},
+		"Name": "create:gearshift"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"inverted": "false",
+			"axis": "x"
+		},
+		"Name": "create:gearshift"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"inverted": "true",
 			"axis": "y"
 		},
 		"Name": "create:gearshift"
@@ -39,6 +60,25 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"powered": "true",
+			"inverted": "false",
+			"axis": "y"
+		},
+		"Name": "create:gearshift"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"inverted": "false",
+			"axis": "y"
+		},
+		"Name": "create:gearshift"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"inverted": "true",
 			"axis": "z"
 		},
 		"Name": "create:gearshift"
@@ -47,6 +87,25 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"powered": "false",
+			"inverted": "true",
+			"axis": "z"
+		},
+		"Name": "create:gearshift"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "true",
+			"inverted": "false",
+			"axis": "z"
+		},
+		"Name": "create:gearshift"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"powered": "false",
+			"inverted": "false",
 			"axis": "z"
 		},
 		"Name": "create:gearshift"

@@ -42,18 +42,18 @@ export interface $DataInput {
  "readLine"(): string
  "readInt"(): integer
  "readUTF"(): string
- "readChar"(): character
  "readFloat"(): float
+ "readChar"(): character
+ "readLong"(): long
+ "readByte"(): byte
+ "readShort"(): short
  "readUnsignedShort"(): integer
- "readFully"(arg0: (byte)[]): void
  "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
+ "readFully"(arg0: (byte)[]): void
  "skipBytes"(arg0: integer): integer
  "readBoolean"(): boolean
  "readUnsignedByte"(): integer
  "readDouble"(): double
- "readLong"(): long
- "readByte"(): byte
- "readShort"(): short
 }
 
 export namespace $DataInput {
@@ -263,8 +263,8 @@ export interface $ObjectOutput extends $DataOutput, $AutoCloseable {
  "writeInt"(arg0: integer): void
  "writeUTF"(arg0: string): void
  "writeBytes"(arg0: string): void
- "writeChar"(arg0: integer): void
  "writeFloat"(arg0: float): void
+ "writeChar"(arg0: integer): void
  "writeLong"(arg0: long): void
  "writeBoolean"(arg0: boolean): void
  "writeByte"(arg0: integer): void
@@ -481,8 +481,8 @@ public "write"(arg0: integer): void
 public "writeInt"(arg0: integer): void
 public "writeUTF"(arg0: string): void
 public "writeBytes"(arg0: string): void
-public "writeChar"(arg0: integer): void
 public "writeFloat"(arg0: float): void
+public "writeChar"(arg0: integer): void
 public "writeLong"(arg0: long): void
 public "writeBoolean"(arg0: boolean): void
 public "writeByte"(arg0: integer): void
@@ -735,8 +735,8 @@ export interface $DataOutput {
  "writeInt"(arg0: integer): void
  "writeUTF"(arg0: string): void
  "writeBytes"(arg0: string): void
- "writeChar"(arg0: integer): void
  "writeFloat"(arg0: float): void
+ "writeChar"(arg0: integer): void
  "writeLong"(arg0: long): void
  "writeBoolean"(arg0: boolean): void
  "writeByte"(arg0: integer): void
@@ -784,8 +784,11 @@ public "readLine"(): string
 public "readInt"(): integer
 public static "readUTF"(arg0: $DataInput$Type): string
 public "readUTF"(): string
-public "readChar"(): character
 public "readFloat"(): float
+public "readChar"(): character
+public "readLong"(): long
+public "readByte"(): byte
+public "readShort"(): short
 public "readUnsignedShort"(): integer
 public "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "readFully"(arg0: (byte)[]): void
@@ -793,9 +796,6 @@ public "skipBytes"(arg0: integer): integer
 public "readBoolean"(): boolean
 public "readUnsignedByte"(): integer
 public "readDouble"(): double
-public "readLong"(): long
-public "readByte"(): byte
-public "readShort"(): short
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -899,18 +899,18 @@ export interface $ObjectInput extends $DataInput, $AutoCloseable {
  "readLine"(): string
  "readInt"(): integer
  "readUTF"(): string
- "readChar"(): character
  "readFloat"(): float
+ "readChar"(): character
+ "readLong"(): long
+ "readByte"(): byte
+ "readShort"(): short
  "readUnsignedShort"(): integer
- "readFully"(arg0: (byte)[]): void
  "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
+ "readFully"(arg0: (byte)[]): void
  "skipBytes"(arg0: integer): integer
  "readBoolean"(): boolean
  "readUnsignedByte"(): integer
  "readDouble"(): double
- "readLong"(): long
- "readByte"(): byte
- "readShort"(): short
 }
 
 export namespace $ObjectInput {

@@ -54,11 +54,8 @@
 			willow = true
 			yellow_bioshroom = true
 
-		[types.wood_type.create_dd]
-			rose = true
-			smoked = true
-			spirit = true
-			rubber = true
+		[types.wood_type.autumnity]
+			maple = true
 
 	[types.leaves_type]
 
@@ -127,14 +124,11 @@
 			yellow_blossom = true
 			red_blossom = true
 
-		[types.leaves_type.create_dd]
-			rubber = true
-
-	[types.cake]
-
-		[types.cake.createaddition]
-			chocolate_cake = true
-			honey_cake = true
+		[types.leaves_type.autumnity]
+			maple = true
+			yellow_maple = true
+			orange_maple = true
+			red_maple = true
 
 #Disables specific entries
 [entries]

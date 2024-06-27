@@ -208,10 +208,10 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 
 export interface $StructurePoolAccessor {
 
- "integratedapi_setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
- "integratedapi_getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
  "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "integratedapi_getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
+ "integratedapi_getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
+ "integratedapi_setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
 }
 
 export namespace $StructurePoolAccessor {
@@ -340,8 +340,8 @@ import {$StructureTemplate, $StructureTemplate$Type} from "packages/net/minecraf
 export interface $SinglePoolElementAccessor {
 
  "callGetTemplate"(arg0: $StructureTemplateManager$Type): $StructureTemplate
- "integratedapi_getProcessors"(): $Holder<($StructureProcessorList)>
  "integratedapi_getTemplate"(): $Either<($ResourceLocation), ($StructureTemplate)>
+ "integratedapi_getProcessors"(): $Holder<($StructureProcessorList)>
 }
 
 export namespace $SinglePoolElementAccessor {

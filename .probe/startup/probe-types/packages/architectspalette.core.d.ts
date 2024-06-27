@@ -132,10 +132,10 @@ constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "setBurnTime"(arg0: integer): $APBlockItem
 public "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 set "burnTime"(value: integer)
 }
 /**
@@ -163,8 +163,8 @@ export class $WarpingRecipe$Serializer implements $RecipeSerializer<($WarpingRec
 
 constructor()
 
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $WarpingRecipe
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $WarpingRecipe
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $WarpingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $WarpingRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $WarpingRecipe
@@ -204,46 +204,46 @@ static "TYPE": $WarpingRecipe$WarpRecipeType
 
 constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: $ItemStack$Type, arg3: $ResourceLocation$Type)
 
-public "getResult"(): $ItemStack
 public "getInput"(): $Ingredient
+public "getResult"(): $ItemStack
+public "getId"(): $ResourceLocation
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "isSpecial"(): boolean
 public "getDimension"(): $ResourceLocation
-public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
-public "isSpecial"(): boolean
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "getId"(): $ResourceLocation
+public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
-public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
+public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
-public "setGroup"(group: string): void
-public "getGroup"(): string
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
-get "result"(): $ItemStack
+public "getGroup"(): string
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasInput"(match: $ReplacementMatch$Type): boolean
 get "input"(): $Ingredient
+get "result"(): $ItemStack
+get "id"(): $ResourceLocation
+get "special"(): boolean
 get "dimension"(): $ResourceLocation
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
-get "id"(): $ResourceLocation
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
 get "type"(): $ResourceLocation
 get "mod"(): string
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -265,8 +265,8 @@ import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Blo
 
 export interface $IBlockSetBase {
 
- "getBlockForType"(arg0: $BlockNode$BlockType$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
  "getBlockForPart"(arg0: $StoneBlockSet$SetComponent$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
+ "getBlockForType"(arg0: $BlockNode$BlockType$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
 }
 
 export namespace $IBlockSetBase {

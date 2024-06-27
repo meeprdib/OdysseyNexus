@@ -9,20 +9,11 @@ to make editing this file much easier.
 */
 [
 	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
-			"rotation": "0"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
 		"Name": "minecraft:piglin_head"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "true",
 			"rotation": "1"
 		},
 		"Name": "minecraft:piglin_head"
@@ -30,15 +21,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "1"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "2"
 		},
 		"Name": "minecraft:piglin_head"
@@ -46,15 +28,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "2"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "3"
 		},
 		"Name": "minecraft:piglin_head"
@@ -62,15 +35,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "3"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "4"
 		},
 		"Name": "minecraft:piglin_head"
@@ -78,15 +42,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "4"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "5"
 		},
 		"Name": "minecraft:piglin_head"
@@ -94,15 +49,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "5"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "6"
 		},
 		"Name": "minecraft:piglin_head"
@@ -110,15 +56,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "6"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "7"
 		},
 		"Name": "minecraft:piglin_head"
@@ -126,15 +63,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "7"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "8"
 		},
 		"Name": "minecraft:piglin_head"
@@ -142,15 +70,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "8"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "9"
 		},
 		"Name": "minecraft:piglin_head"
@@ -158,15 +77,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "9"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "10"
 		},
 		"Name": "minecraft:piglin_head"
@@ -174,15 +84,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "10"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "11"
 		},
 		"Name": "minecraft:piglin_head"
@@ -190,15 +91,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "11"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "12"
 		},
 		"Name": "minecraft:piglin_head"
@@ -206,15 +98,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "12"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "13"
 		},
 		"Name": "minecraft:piglin_head"
@@ -222,15 +105,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "13"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"rotation": "14"
 		},
 		"Name": "minecraft:piglin_head"
@@ -238,23 +112,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"rotation": "14"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
-			"rotation": "15"
-		},
-		"Name": "minecraft:piglin_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "false",
 			"rotation": "15"
 		},
 		"Name": "minecraft:piglin_head"

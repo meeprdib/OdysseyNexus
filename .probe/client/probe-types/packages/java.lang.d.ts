@@ -1529,8 +1529,8 @@ export class $VarHandle$VarHandleDesc extends $DynamicConstantDesc<($VarHandle)>
 public "toString"(): string
 public static "ofField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public "varType"(): $ClassDesc
-public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public static "ofArray"(arg0: $ClassDesc$Type): $VarHandle$VarHandleDesc
+public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2492,8 +2492,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $ModuleDescriptor$Requires$Type): integer
-public "compiledVersion"(): $Optional<($ModuleDescriptor$Version)>
 public "rawCompiledVersion"(): $Optional<(string)>
+public "compiledVersion"(): $Optional<($ModuleDescriptor$Version)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3699,8 +3699,8 @@ import {$AnnotatedType, $AnnotatedType$Type} from "packages/java/lang/reflect/$A
  */
 export interface $AnnotatedTypeVariable extends $AnnotatedType {
 
- "getAnnotatedOwnerType"(): $AnnotatedType
  "getAnnotatedBounds"(): ($AnnotatedType)[]
+ "getAnnotatedOwnerType"(): $AnnotatedType
  "getAnnotation"<T extends $Annotation>(arg0: $Class$Type<(T)>): T
  "getAnnotations"(): ($Annotation)[]
  "getDeclaredAnnotations"(): ($Annotation)[]

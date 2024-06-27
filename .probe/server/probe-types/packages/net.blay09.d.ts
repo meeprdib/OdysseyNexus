@@ -1,31 +1,31 @@
 declare module "packages/net/blay09/mods/waystones/api/$IWaystone" {
 import {$WaystoneOrigin, $WaystoneOrigin$Type} from "packages/net/blay09/mods/waystones/api/$WaystoneOrigin"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$TeleportDestination, $TeleportDestination$Type} from "packages/net/blay09/mods/waystones/api/$TeleportDestination"
-import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 
 export interface $IWaystone {
 
  "getName"(): string
  "isValid"(): boolean
- "getDimension"(): $ResourceKey<($Level)>
  "isGlobal"(): boolean
- "isOwner"(arg0: $Player$Type): boolean
- "resolveDestination"(arg0: $ServerLevel$Type): $TeleportDestination
+ "getPos"(): $BlockPos
+ "hasName"(): boolean
  "getWaystoneUid"(): $UUID
  "wasGenerated"(): boolean
- "getWaystoneType"(): $ResourceLocation
+ "isOwner"(arg0: $Player$Type): boolean
  "getOwnerUid"(): $UUID
- "hasOwner"(): boolean
  "isValidInLevel"(arg0: $ServerLevel$Type): boolean
+ "hasOwner"(): boolean
+ "getWaystoneType"(): $ResourceLocation
+ "resolveDestination"(arg0: $ServerLevel$Type): $TeleportDestination
  "getOrigin"(): $WaystoneOrigin
- "hasName"(): boolean
- "getPos"(): $BlockPos
+ "getDimension"(): $ResourceKey<($Level)>
 }
 
 export namespace $IWaystone {
@@ -131,10 +131,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $DyeColor$Type)
 
-public "getColor"(): $DyeColor
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getColor"(): $DyeColor
 get "color"(): $DyeColor
 }
 /**
@@ -178,10 +178,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "isFoil"(arg0: $ItemStack$Type): boolean
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -198,8 +198,8 @@ export type $WarpScrollItem_ = $WarpScrollItem$Type;
 declare module "packages/net/blay09/mods/waystones/block/$WarpPlateBlock$WarpPlateStatus" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 
@@ -212,9 +212,9 @@ static readonly "INVALID": $WarpPlateBlock$WarpPlateStatus
 public static "values"(): ($WarpPlateBlock$WarpPlateStatus)[]
 public static "valueOf"(arg0: string): $WarpPlateBlock$WarpPlateStatus
 public "getSerializedName"(): string
-public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 get "serializedName"(): string
 }
 /**
@@ -233,8 +233,8 @@ declare module "packages/net/blay09/mods/balm/mixin/$MouseHandlerAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MouseHandlerAccessor {
 
- "getMouseX"(): double
  "getMouseY"(): double
+ "getMouseX"(): double
 }
 
 export namespace $MouseHandlerAccessor {
@@ -337,8 +337,8 @@ export type $KeyMappingAccessor_ = $KeyMappingAccessor$Type;
 declare module "packages/net/blay09/mods/waystones/api/$WaystoneOrigin" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 
@@ -353,9 +353,9 @@ static readonly "PLAYER": $WaystoneOrigin
 public static "values"(): ($WaystoneOrigin)[]
 public static "valueOf"(arg0: string): $WaystoneOrigin
 public "getSerializedName"(): string
-public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 get "serializedName"(): string
 }
 /**
@@ -428,11 +428,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -564,24 +564,24 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getDestroyProgress"(arg0: $BlockState$Type, arg1: $Player$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type): float
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "playerDestroy"(arg0: $Level$Type, arg1: $Player$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $BlockEntity$Type, arg5: $ItemStack$Type): void
 public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "getDestroyProgress"(arg0: $BlockState$Type, arg1: $Player$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type): float
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
-public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -605,10 +605,10 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 
 export interface $StructureTemplatePoolAccessor {
 
- "setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
  "getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
- "setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
+ "setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
+ "setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
 }
 
 export namespace $StructureTemplatePoolAccessor {
@@ -669,40 +669,40 @@ export class $WarpPlateRecipe implements $Recipe<($Container)> {
 
 constructor(arg0: $ResourceLocation$Type, arg1: $ItemStack$Type, arg2: $Ingredient$Type, arg3: $NonNullList$Type<($Ingredient$Type)>)
 
-public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
-public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getToastSymbol"(): $ItemStack
-public "getSerializer"(): $RecipeSerializer<(any)>
-public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
-public "isSpecial"(): boolean
-public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "getId"(): $ResourceLocation
+public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "isSpecial"(): boolean
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "getIngredients"(): $NonNullList<($Ingredient)>
+public "getSerializer"(): $RecipeSerializer<(any)>
+public "getToastSymbol"(): $ItemStack
+public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "showNotification"(): boolean
 public "isIncomplete"(): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
-public "setGroup"(group: string): void
-public "getGroup"(): string
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "toastSymbol"(): $ItemStack
-get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
+public "getGroup"(): string
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasInput"(match: $ReplacementMatch$Type): boolean
 get "id"(): $ResourceLocation
+get "special"(): boolean
+get "ingredients"(): $NonNullList<($Ingredient)>
+get "serializer"(): $RecipeSerializer<(any)>
+get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
 get "type"(): $ResourceLocation
 get "mod"(): string
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -728,8 +728,8 @@ import {$Recipe, $Recipe$Type} from "packages/net/minecraft/world/item/crafting/
 export class $WarpPlateRecipe$Serializer implements $RecipeSerializer<($WarpPlateRecipe)> {
 
 
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $WarpPlateRecipe
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $WarpPlateRecipe
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $WarpPlateRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $WarpPlateRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $WarpPlateRecipe
@@ -753,8 +753,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IAttunementItem {
 
- "setWaystoneAttunedTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
  "getWaystoneAttunedTo"(arg0: $MinecraftServer$Type, arg1: $ItemStack$Type): $IWaystone
+ "setWaystoneAttunedTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
 }
 
 export namespace $IAttunementItem {
@@ -810,18 +810,18 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "setWaystoneAttunedTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
 public "getWaystoneAttunedTo"(arg0: $MinecraftServer$Type, arg1: $ItemStack$Type): $IWaystone
+public "setWaystoneAttunedTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
 /**
  * 
  * @deprecated
  */
 public static "setBoundTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
+public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -864,10 +864,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "isFoil"(arg0: $ItemStack$Type): boolean
-public "setWaystoneAttunedTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
 public "getWaystoneAttunedTo"(arg0: $MinecraftServer$Type, arg1: $ItemStack$Type): $IWaystone
+public "setWaystoneAttunedTo"(arg0: $ItemStack$Type, arg1: $IWaystone$Type): void
+public "isFoil"(arg0: $ItemStack$Type): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1015,13 +1015,13 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public static "getGalacticName"(arg0: $IWaystone$Type): $Component
 public static "getColorForName"(arg0: string): $ChatFormatting
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1042,12 +1042,12 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 export interface $AbstractContainerScreenAccessor {
 
  "getTopPos"(): integer
- "getImageWidth"(): integer
- "getImageHeight"(): integer
  "getHoveredSlot"(): $Slot
- "getLeftPos"(): integer
  "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
  "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
+ "getImageHeight"(): integer
+ "getLeftPos"(): integer
+ "getImageWidth"(): integer
 }
 
 export namespace $AbstractContainerScreenAccessor {
@@ -1160,8 +1160,8 @@ import {$NarratableEntry, $NarratableEntry$Type} from "packages/net/minecraft/cl
 export interface $ScreenAccessor {
 
  "balm_getChildren"(): $List<($GuiEventListener)>
- "balm_getNarratables"(): $List<($NarratableEntry)>
  "balm_getRenderables"(): $List<($Renderable)>
+ "balm_getNarratables"(): $List<($NarratableEntry)>
 }
 
 export namespace $ScreenAccessor {
@@ -1211,15 +1211,15 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "onUseTick"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): void
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
-public "isBarVisible"(arg0: $ItemStack$Type): boolean
 public "getBarWidth"(arg0: $ItemStack$Type): integer
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "isBarVisible"(arg0: $ItemStack$Type): boolean
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isFoil"(arg0: $ItemStack$Type): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1465,9 +1465,9 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

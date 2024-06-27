@@ -11,16 +11,16 @@ export class $FacadePart implements $IFacadePart {
 constructor(arg0: $ItemStack$Type, arg1: $Direction$Type)
 
 public "getItem"(): $Item
-public "getTextureItem"(): $ItemStack
 public "getSide"(): $Direction
-public "getItemStack"(): $ItemStack
 public "getBlockState"(): $BlockState
+public "getTextureItem"(): $ItemStack
+public "getItemStack"(): $ItemStack
 public "getBoxes"(arg0: $IPartCollisionHelper$Type, arg1: boolean): void
 get "item"(): $Item
-get "textureItem"(): $ItemStack
 get "side"(): $Direction
-get "itemStack"(): $ItemStack
 get "blockState"(): $BlockState
+get "textureItem"(): $ItemStack
+get "itemStack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

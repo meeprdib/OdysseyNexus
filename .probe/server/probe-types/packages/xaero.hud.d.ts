@@ -68,29 +68,29 @@ constructor(arg0: $ResourceLocation$Type, arg1: $Component$Type, arg2: $BiFuncti
 public "getId"(): $ResourceLocation
 public "isActive"(): boolean
 public "getDisplayName"(): $Component
-public "getRenderer"(): $IModuleRenderer<(MS)>
-public "getCurrentSession"(): MS
 public "setActive"(arg0: boolean): void
-public "setTransform"(arg0: $ModuleTransform$Type): void
+public "getRenderer"(): $IModuleRenderer<(MS)>
 public "cancelTransform"(): void
 public "confirmTransform"(): void
-public "getConfirmedTransform"(): $ModuleTransform
+public "setTransform"(arg0: $ModuleTransform$Type): void
+public "getCurrentSession"(): MS
 public "getConfigScreenFactory"(): $Function<($Screen), ($Screen)>
 public "getUnconfirmedTransform"(): $ModuleTransform
-public "getUsedTransform"(): $ModuleTransform
+public "getConfirmedTransform"(): $ModuleTransform
 public "getPushState"(): $PushboxHandler$State
+public "getUsedTransform"(): $ModuleTransform
 get "id"(): $ResourceLocation
 get "active"(): boolean
 get "displayName"(): $Component
-get "renderer"(): $IModuleRenderer<(MS)>
-get "currentSession"(): MS
 set "active"(value: boolean)
+get "renderer"(): $IModuleRenderer<(MS)>
 set "transform"(value: $ModuleTransform$Type)
-get "confirmedTransform"(): $ModuleTransform
+get "currentSession"(): MS
 get "configScreenFactory"(): $Function<($Screen), ($Screen)>
 get "unconfirmedTransform"(): $ModuleTransform
-get "usedTransform"(): $ModuleTransform
+get "confirmedTransform"(): $ModuleTransform
 get "pushState"(): $PushboxHandler$State
+get "usedTransform"(): $ModuleTransform
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -190,8 +190,8 @@ public "getName"(): $Component
 public "apply"(): void
 public "getId"(): $ResourceLocation
 public "cancel"(): void
-public "applyAndConfirm"(): void
 public "confirm"(): void
+public "applyAndConfirm"(): void
 get "name"(): $Component
 get "id"(): $ResourceLocation
 }
@@ -244,38 +244,38 @@ import {$InfoDisplayRenderer, $InfoDisplayRenderer$Type} from "packages/xaero/co
 import {$InfoDisplayIO, $InfoDisplayIO$Type} from "packages/xaero/common/minimap/info/$InfoDisplayIO"
 import {$IXaeroMinimap, $IXaeroMinimap$Type} from "packages/xaero/common/$IXaeroMinimap"
 import {$MinimapElementOverMapRendererHandler, $MinimapElementOverMapRendererHandler$Type} from "packages/xaero/common/minimap/element/render/over/$MinimapElementOverMapRendererHandler"
-import {$WaypointsIngameRenderer, $WaypointsIngameRenderer$Type} from "packages/xaero/common/minimap/waypoints/render/$WaypointsIngameRenderer"
 import {$CompassRenderer, $CompassRenderer$Type} from "packages/xaero/common/minimap/waypoints/render/$CompassRenderer"
+import {$WaypointsIngameRenderer, $WaypointsIngameRenderer$Type} from "packages/xaero/common/minimap/waypoints/render/$WaypointsIngameRenderer"
 import {$WaypointsGuiRenderer, $WaypointsGuiRenderer$Type} from "packages/xaero/common/minimap/waypoints/render/$WaypointsGuiRenderer"
 
 export class $Minimap {
 
 constructor(arg0: $IXaeroMinimap$Type)
 
-public "getWaypointsIngameRenderer"(): $WaypointsIngameRenderer
+public "getCrashedWith"(): $Throwable
+public "checkCrashes"(): void
+public "usingFBO"(): boolean
+public "getCompassRenderer"(): $CompassRenderer
+public "getInfoDisplayIO"(): $InfoDisplayIO
 public "getMinimapFBORenderer"(): $MinimapFBORenderer
-public "getInfoDisplayRenderer"(): $InfoDisplayRenderer
 public "getMinimapSafeModeRenderer"(): $MinimapSafeModeRenderer
+public "getWaypointsIngameRenderer"(): $WaypointsIngameRenderer
+public "getInfoDisplayRenderer"(): $InfoDisplayRenderer
 public "getWaypointsGuiRenderer"(): $WaypointsGuiRenderer
 public "setCrashedWith"(arg0: $Throwable$Type): void
 public "getOverMapRendererHandler"(): $MinimapElementOverMapRendererHandler
 public "getInfoDisplayManager"(): $InfoDisplayManager
-public "usingFBO"(): boolean
-public "getCompassRenderer"(): $CompassRenderer
-public "getCrashedWith"(): $Throwable
-public "checkCrashes"(): void
-public "getInfoDisplayIO"(): $InfoDisplayIO
-get "waypointsIngameRenderer"(): $WaypointsIngameRenderer
+get "crashedWith"(): $Throwable
+get "compassRenderer"(): $CompassRenderer
+get "infoDisplayIO"(): $InfoDisplayIO
 get "minimapFBORenderer"(): $MinimapFBORenderer
-get "infoDisplayRenderer"(): $InfoDisplayRenderer
 get "minimapSafeModeRenderer"(): $MinimapSafeModeRenderer
+get "waypointsIngameRenderer"(): $WaypointsIngameRenderer
+get "infoDisplayRenderer"(): $InfoDisplayRenderer
 get "waypointsGuiRenderer"(): $WaypointsGuiRenderer
 set "crashedWith"(value: $Throwable$Type)
 get "overMapRendererHandler"(): $MinimapElementOverMapRendererHandler
 get "infoDisplayManager"(): $InfoDisplayManager
-get "compassRenderer"(): $CompassRenderer
-get "crashedWith"(): $Throwable
-get "infoDisplayIO"(): $InfoDisplayIO
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -297,10 +297,10 @@ export class $PushboxHandler {
 
 constructor()
 
+public "applyPushboxes"(arg0: $PushboxManager$Type, arg1: $PushboxHandler$State$Type, arg2: integer, arg3: integer, arg4: double): void
 public "updateAll"(arg0: $PushboxManager$Type): void
 public "postUpdateAll"(arg0: $PushboxManager$Type): void
 public "applyScreenEdges"(arg0: $PushboxHandler$State$Type, arg1: integer, arg2: integer, arg3: double): void
-public "applyPushboxes"(arg0: $PushboxManager$Type, arg1: $PushboxHandler$State$Type, arg2: integer, arg3: integer, arg4: double): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -351,13 +351,13 @@ constructor(arg0: $HudMod$Type)
 
 public "init"(arg0: $ClientPacketListener$Type): void
 public "getMultiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
-public static "getCurrentSession"(): $HudSession
-public "tryCleanup"(): void
 public "getHudMod"(): $HudMod
+public "tryCleanup"(): void
 public static "getForPlayer"(arg0: $LocalPlayer$Type): $HudSession
+public static "getCurrentSession"(): $HudSession
 get "multiTextureRenderTypeRenderers"(): $MultiTextureRenderTypeRendererProvider
-get "currentSession"(): $HudSession
 get "hudMod"(): $HudMod
+get "currentSession"(): $HudSession
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -429,10 +429,10 @@ export class $HudRenderer {
 constructor(arg0: $PushboxHandler$Type)
 
 public "render"(arg0: $Hud$Type, arg1: $GuiGraphics$Type, arg2: float): void
-public "getCustomVertexConsumers"(): $CustomVertexConsumers
 public "getPushboxHandler"(): $PushboxHandler
-get "customVertexConsumers"(): $CustomVertexConsumers
+public "getCustomVertexConsumers"(): $CustomVertexConsumers
 get "pushboxHandler"(): $PushboxHandler
+get "customVertexConsumers"(): $CustomVertexConsumers
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -458,18 +458,18 @@ public "isActive"(): boolean
 public "push"(arg0: $PushboxHandler$State$Type, arg1: integer, arg2: integer): void
 public "getY"(arg0: integer, arg1: integer): integer
 public "setActive"(arg0: boolean): void
-public "getX"(arg0: integer, arg1: integer): integer
 public "getW"(arg0: integer, arg1: integer): integer
-public "getH"(arg0: integer, arg1: integer): integer
-public "postUpdate"(): void
 public "getAnchorX"(): float
-public "getAnchorY"(): float
 public "getVerticalBias"(): integer
+public "getAnchorY"(): float
+public "postUpdate"(): void
+public "getX"(arg0: integer, arg1: integer): integer
+public "getH"(arg0: integer, arg1: integer): integer
 get "active"(): boolean
 set "active"(value: boolean)
 get "anchorX"(): float
-get "anchorY"(): float
 get "verticalBias"(): integer
+get "anchorY"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -494,22 +494,22 @@ constructor(arg0: $HudMod$Type, arg1: $HudModule$Type<(MS)>)
 public "getModule"(): $HudModule<(MS)>
 public "close"(): void
 public "isActive"(): boolean
+public "isFlippedHor"(): boolean
+public "getEffectiveY"(arg0: integer, arg1: double): integer
+public "isCentered"(): boolean
+public "isFlippedVer"(): boolean
+public "getEffectiveX"(arg0: integer, arg1: double): integer
 public "getWidth"(arg0: double): integer
 public "getHeight"(arg0: double): integer
-public "getEffectiveY"(arg0: integer, arg1: double): integer
-public "getEffectiveX"(arg0: integer, arg1: double): integer
-public "isFlippedHor"(): boolean
-public "isFlippedVer"(): boolean
-public "isCentered"(): boolean
+public "prePotentialRender"(): void
 public "shouldFlipVertically"(arg0: integer, arg1: double): boolean
 public "shouldFlipHorizontally"(arg0: integer, arg1: double): boolean
 public "onPostGameOverlay"(): void
-public "prePotentialRender"(): void
 get "module"(): $HudModule<(MS)>
 get "active"(): boolean
 get "flippedHor"(): boolean
-get "flippedVer"(): boolean
 get "centered"(): boolean
+get "flippedVer"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -562,17 +562,17 @@ export class $Hud {
 
 constructor(arg0: $ModuleManager$Type, arg1: $PushboxManager$Type, arg2: $HudPresetManager$Type, arg3: $HudEventHandler$Type, arg4: $ModuleSessionHandler$Type, arg5: $OldSystemCompatibility$Type)
 
+public "getPresetManager"(): $HudPresetManager
 public "getEventHandler"(): $HudEventHandler
+public "getSessionHandler"(): $ModuleSessionHandler
 public "getModuleManager"(): $ModuleManager
 public "getPushboxManager"(): $PushboxManager
-public "getPresetManager"(): $HudPresetManager
-public "getSessionHandler"(): $ModuleSessionHandler
 public "getOldSystemCompatibility"(): $OldSystemCompatibility
+get "presetManager"(): $HudPresetManager
 get "eventHandler"(): $HudEventHandler
+get "sessionHandler"(): $ModuleSessionHandler
 get "moduleManager"(): $ModuleManager
 get "pushboxManager"(): $PushboxManager
-get "presetManager"(): $HudPresetManager
-get "sessionHandler"(): $ModuleSessionHandler
 get "oldSystemCompatibility"(): $OldSystemCompatibility
 }
 /**
@@ -595,8 +595,8 @@ export class $ModuleSessionHandler {
 
 constructor(arg0: $ModuleManager$Type)
 
-public "closeSessions"(arg0: $HudMod$Type): void
 public "resetSessions"(arg0: $HudMod$Type): void
+public "closeSessions"(arg0: $HudMod$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

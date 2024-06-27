@@ -82,55 +82,55 @@ readonly "random": $RandomSource
 constructor(pParentMob: T, pName: string, pWidth: float, pHeight: float, builder: $PartBuilder$Type<(T)>)
 
 public "getParent"(): T
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "isPickable"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(player: $Player$Type): void
 public "tick"(): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
-public "entityName"(): string
-public "getDimensions"(pPose: $Pose$Type): $EntityDimensions
-public "shouldBeSaved"(): boolean
-public "isPushable"(): boolean
-public "movePart"(pX: double, pY: double, pZ: double, pYRot: float, pXRot: float): void
+public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
 public "is"(pEntity: $Entity$Type): boolean
-public "isPickable"(): boolean
+public "rideTick"(): void
+public "stopRiding"(): void
 public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
 public "isAttackable"(): boolean
 public "setSprinting"(sprinting: boolean): void
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "getDimensions"(pPose: $Pose$Type): $EntityDimensions
+public "shouldBeSaved"(): boolean
+public "isPushable"(): boolean
+public "canChangeDimensions"(): boolean
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "onRemovedFromWorld"(): void
+public "getPickResult"(): $ItemStack
+public "isGlowing"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "getControllingPassenger"(): $LivingEntity
 public "canFreeze"(): boolean
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "canChangeDimensions"(): boolean
-public "getPickResult"(): $ItemStack
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "getMaxFallDistance"(): integer
-public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "stopRiding"(): void
-public "rideTick"(): void
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "movePart"(pX: double, pY: double, pZ: double, pYRot: float, pXRot: float): void
 public static "of"(holder: any): $FacetHolder
 get "parent"(): T
-get "pushable"(): boolean
 get "pickable"(): boolean
-get "attackable"(): boolean
-set "sprinting"(value: boolean)
-get "controllingPassenger"(): $LivingEntity
-get "pickResult"(): $ItemStack
-get "maxFallDistance"(): integer
 get "addEntityPacket"(): $Packet<($ClientGamePacketListener)>
 get "freezing"(): boolean
+get "maxFallDistance"(): integer
+get "attackable"(): boolean
+set "sprinting"(value: boolean)
+get "pushable"(): boolean
+get "pickResult"(): $ItemStack
 get "glowing"(): boolean
+get "controllingPassenger"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -184,8 +184,8 @@ import {$RegistryInfo, $RegistryInfo$Type} from "packages/dev/latvian/mods/kubej
 import {$BuilderBase, $BuilderBase$Type} from "packages/dev/latvian/mods/kubejs/registry/$BuilderBase"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$ContextUtils$MovementContext, $ContextUtils$MovementContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$MovementContext"
-import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$ContextUtils$EntitySqrDistanceContext, $ContextUtils$EntitySqrDistanceContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntitySqrDistanceContext"
 import {$ContextUtils$EntityPlayerContext, $ContextUtils$EntityPlayerContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntityPlayerContext"
 import {$ContextUtils$EMayInteractContext, $ContextUtils$EMayInteractContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EMayInteractContext"
@@ -221,41 +221,17 @@ constructor(i: $ResourceLocation$Type)
  */
 public "move"(consumer: $Consumer$Type<($ContextUtils$MovementContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity falls and takes damage.
- * The provided Consumer accepts a {@link ContextUtils.EEntityFallDamageContext} parameter,
- * representing the context of the entity falling and taking fall damage.
+ * Defines in what condition the entity will start freezing.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onFall(context => {
- *     // Define custom logic for handling when the entity falls and takes damage
- *     // Use information about the EEntityFallDamageContext provided by the context.
+ * entityBuilder.isFreezing(entity => {
+ *     return true;
  * });
  * ```
  */
-public "onFall"(c: $Consumer$Type<($ContextUtils$EEntityFallDamageContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "isFreezing"(isFreezing: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 public "createObject"(): $EntityType<(T)>
-/**
- * Defines logic to render the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.render(context => {
- *     // Define logic to render the entity
- *     context.poseStack.scale(0.5, 0.5, 0.5);
- * });
- * ```
- */
-public "render"(render: $Consumer$Type<($ContextUtils$NLRenderContext$Type<(T)>)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets whether the entity can spawn far from the player.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canSpawnFarFromPlayer(true);
- * ```
- */
-public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Determines if the entity should serialize its data. Defaults to true.
  * 
@@ -265,34 +241,6 @@ public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseNonAnimatableEntityBu
  * ```
  */
 public "saves"(shouldSave: boolean): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed from the world.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is being removed from the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onRemovedFromWorld(entity => {
- *     // Define custom logic for handling the removal of the entity from the world
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onRemovedFromWorld"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is added to the world.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is added to the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onAddedToWorld(entity => {
- *     // Define custom logic for handling when the entity is added to the world
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed on each tick for the entity.
  * 
@@ -307,55 +255,138 @@ public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>):
  * ```
  */
 public "tick"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "getRegistryType"(): $RegistryInfo<(any)>
 /**
- * Defines in what condition the entity will start freezing.
+ * Defines logic to render the entity.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isFreezing(entity => {
- *     return true;
+ * entityBuilder.render(context => {
+ *     // Define logic to render the entity
+ *     context.poseStack.scale(0.5, 0.5, 0.5);
  * });
  * ```
  */
-public "isFreezing"(isFreezing: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "render"(render: $Consumer$Type<($ContextUtils$NLRenderContext$Type<(T)>)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets the update interval in ticks of the entity.
- * Defaults to 1 tick.
- * 
- * @param updateInterval The update interval in ticks.
+ * Sets a predicate function to determine whether the entity is currently glowing.
+ * The provided Predicate accepts a {@link Entity} parameter,
+ * representing the entity that may be checked for its glowing state.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.updateInterval(5);
- * ```
- */
-public "updateInterval"(updateInterval: integer): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets the mob category for the entity.
- * Available options: 'monster', 'creature', 'ambient', 'water_creature', 'misc'.
- * Defaults to 'misc'.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.mobCategory('monster');
- * ```
- */
-public "mobCategory"(category: string): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can trample or step on something.
- * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
- * representing the context of the potential trampling action, and returns a boolean.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canTrample(context => {
- *     // Define conditions for the entity to be allowed to trample
- *     // Use information about the CanTrampleContext provided by the context.
- *     return false // Some boolean condition indicating if the entity can trample;
+ * entityBuilder.isCurrentlyGlowing(entity => {
+ *     // Define the conditions to check if the entity is currently glowing
+ *     // Use information about the Entity provided by the context.
+ *     const isGlowing = // Some boolean condition to check if the entity is glowing;
+ *     return isGlowing;
  * });
  * ```
  */
-public "canTrample"(predicate: $Function$Type<($ContextUtils$ECanTrampleContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "isCurrentlyGlowing"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is hurt by lava.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is affected by lava.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.lavaHurt(entity => {
+ *     // Define custom logic for handling the entity being hurt by lava
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "lavaHurt"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * @param positionRider A consumer determining the position of rider/riders.
+ * 
+ *     Example usage:
+ *     ```javascript
+ *     entityBuilder.positionRider(context => {
+ *         const {entity, passenger, moveFunction} = context
+ *     });
+ *     ```
+ */
+public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets whether the entity is pushable.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isPushable(true);
+ * ```
+ */
+public "isPushable"(b: boolean): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine whether the living entity dampens vibrations.
+ * 
+ * @param predicate The predicate to determine whether the living entity dampens vibrations.
+ * 
+ * The predicate should take a Entity as a parameter and return a boolean value indicating whether the living entity dampens vibrations.
+ * 
+ * Example usage:
+ * ```javascript
+ * baseEntityBuilder.dampensVibrations(entity => {
+ *     // Determine whether the living entity dampens vibrations
+ *     // Return true if the entity dampens vibrations, false otherwise
+ * });
+ * ```
+ */
+public "dampensVibrations"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Function determining if the entity may collide with another entity
+ * using the ContextUtils.CollidingEntityContext which has this entity and the
+ * one colliding with this entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canCollideWith(context => {
+ *     return true //Some Boolean value determining whether the entity may collide with another
+ * });
+ * ```
+ */
+public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$ECollidingEntityContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Boolean determining if the part entity is pickable.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isPickable(true)
+ * ```
+ */
+public "isPickable"(isPickable: boolean): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine whether to show the vehicle health for the living entity.
+ * 
+ * @param predicate The predicate to determine whether to show the vehicle health.
+ * 
+ * The predicate should take a Entity as a parameter and return a boolean value indicating whether to show the vehicle health.
+ * 
+ * Example usage:
+ * ```javascript
+ * baseEntityBuilder.showVehicleHealth(entity => {
+ *     // Determine whether to show the vehicle health for the living entity
+ *     // Return true to show the vehicle health, false otherwise
+ * });
+ * ```
+ */
+public "showVehicleHealth"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
+ * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
+ * representing the context of the damage, and returns a boolean indicating invulnerability.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isInvulnerableTo(context => {
+ *     // Define conditions for the entity to be invulnerable to the specific type of damage
+ *     // Use information about the DamageContext provided by the context.
+ *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
+ * });
+ * ```
+ */
+public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity is attackable.
  * The provided Predicate accepts a {@link Entity} parameter,
@@ -383,21 +414,6 @@ public "isAttackable"(predicate: boolean): $BaseNonAnimatableEntityBuilder<(T)>
  */
 public "isAttackable"(b: boolean): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
- * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
- * representing the context of the damage, and returns a boolean indicating invulnerability.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isInvulnerableTo(context => {
- *     // Define conditions for the entity to be invulnerable to the specific type of damage
- *     // Use information about the DamageContext provided by the context.
- *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
- * });
- * ```
- */
-public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
  * Sets a predicate function to determine whether the entity can undergo freezing.
  * The provided Predicate accepts a {@link Entity} parameter,
  * representing the entity that may be subjected to freezing.
@@ -423,7 +439,100 @@ public "canFreeze"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAn
  * ```
  */
 public "clientTrackingRange"(trackingRange: integer): $BaseNonAnimatableEntityBuilder<(T)>
-public "getRegistryType"(): $RegistryInfo<(any)>
+/**
+ * Sets the update interval in ticks of the entity.
+ * Defaults to 1 tick.
+ * 
+ * @param updateInterval The update interval in ticks.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.updateInterval(5);
+ * ```
+ */
+public "updateInterval"(updateInterval: integer): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets whether the entity is immune to fire damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.fireImmune(true);
+ * ```
+ */
+public "fireImmune"(isFireImmune: boolean): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity falls and takes damage.
+ * The provided Consumer accepts a {@link ContextUtils.EEntityFallDamageContext} parameter,
+ * representing the context of the entity falling and taking fall damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onFall(context => {
+ *     // Define custom logic for handling when the entity falls and takes damage
+ *     // Use information about the EEntityFallDamageContext provided by the context.
+ * });
+ * ```
+ */
+public "onFall"(c: $Consumer$Type<($ContextUtils$EEntityFallDamageContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a function to determine whether the entity should render at a squared distance.
+ * 
+ * @param shouldRenderAtSqrDistance Function accepting a {@link ContextUtils.EntitySqrDistanceContext} parameter,
+ *                  defining the conditions under which the entity should render.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.shouldRenderAtSqrDistance(context => {
+ *     // Custom logic to determine whether the entity should render
+ *     // Access information about the distance using the provided context.
+ *     return true;
+ * });
+ * ```
+ */
+public "shouldRenderAtSqrDistance"(func: $Function$Type<($ContextUtils$EntitySqrDistanceContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can trample or step on something.
+ * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
+ * representing the context of the potential trampling action, and returns a boolean.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canTrample(context => {
+ *     // Define conditions for the entity to be allowed to trample
+ *     // Use information about the CanTrampleContext provided by the context.
+ *     return false // Some boolean condition indicating if the entity can trample;
+ * });
+ * ```
+ */
+public "canTrample"(predicate: $Function$Type<($ContextUtils$ECanTrampleContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is added to the world.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is added to the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onAddedToWorld(entity => {
+ *     // Define custom logic for handling when the entity is added to the world
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed from the world.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is being removed from the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onRemovedFromWorld(entity => {
+ *     // Define custom logic for handling the removal of the entity from the world
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onRemovedFromWorld"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets whether to reposition the entity after loading.
  * 
@@ -449,134 +558,25 @@ public "repositionEntityAfterLoad"(customRepositionEntityAfterLoad: boolean): $B
  */
 public "canChangeDimensions"(supplier: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a function to determine whether the entity should render at a squared distance.
- * 
- * @param shouldRenderAtSqrDistance Function accepting a {@link ContextUtils.EntitySqrDistanceContext} parameter,
- *                  defining the conditions under which the entity should render.
+ * Sets whether the entity can spawn far from the player.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.shouldRenderAtSqrDistance(context => {
- *     // Custom logic to determine whether the entity should render
- *     // Access information about the distance using the provided context.
- *     return true;
- * });
+ * entityBuilder.canSpawnFarFromPlayer(true);
  * ```
  */
-public "shouldRenderAtSqrDistance"(func: $Function$Type<($ContextUtils$EntitySqrDistanceContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a predicate function to determine whether the entity is currently glowing.
- * The provided Predicate accepts a {@link Entity} parameter,
- * representing the entity that may be checked for its glowing state.
+ * Sets the mob category for the entity.
+ * Available options: 'monster', 'creature', 'ambient', 'water_creature', 'misc'.
+ * Defaults to 'misc'.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isCurrentlyGlowing(entity => {
- *     // Define the conditions to check if the entity is currently glowing
- *     // Use information about the Entity provided by the context.
- *     const isGlowing = // Some boolean condition to check if the entity is glowing;
- *     return isGlowing;
- * });
+ * entityBuilder.mobCategory('monster');
  * ```
  */
-public "isCurrentlyGlowing"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets whether the entity is immune to fire damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.fireImmune(true);
- * ```
- */
-public "fireImmune"(isFireImmune: boolean): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hurt by lava.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is affected by lava.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.lavaHurt(entity => {
- *     // Define custom logic for handling the entity being hurt by lava
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "lavaHurt"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a predicate to determine whether the living entity dampens vibrations.
- * 
- * @param predicate The predicate to determine whether the living entity dampens vibrations.
- * 
- * The predicate should take a Entity as a parameter and return a boolean value indicating whether the living entity dampens vibrations.
- * 
- * Example usage:
- * ```javascript
- * baseEntityBuilder.dampensVibrations(entity => {
- *     // Determine whether the living entity dampens vibrations
- *     // Return true if the entity dampens vibrations, false otherwise
- * });
- * ```
- */
-public "dampensVibrations"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets whether the entity is pushable.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isPushable(true);
- * ```
- */
-public "isPushable"(b: boolean): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * @param positionRider A consumer determining the position of rider/riders.
- * 
- *     Example usage:
- *     ```javascript
- *     entityBuilder.positionRider(context => {
- *         const {entity, passenger, moveFunction} = context
- *     });
- *     ```
- */
-public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a predicate to determine whether to show the vehicle health for the living entity.
- * 
- * @param predicate The predicate to determine whether to show the vehicle health.
- * 
- * The predicate should take a Entity as a parameter and return a boolean value indicating whether to show the vehicle health.
- * 
- * Example usage:
- * ```javascript
- * baseEntityBuilder.showVehicleHealth(entity => {
- *     // Determine whether to show the vehicle health for the living entity
- *     // Return true to show the vehicle health, false otherwise
- * });
- * ```
- */
-public "showVehicleHealth"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Function determining if the entity may collide with another entity
- * using the ContextUtils.CollidingEntityContext which has this entity and the
- * one colliding with this entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canCollideWith(context => {
- *     return true //Some Boolean value determining whether the entity may collide with another
- * });
- * ```
- */
-public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$ECollidingEntityContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Boolean determining if the part entity is pickable.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isPickable(true)
- * ```
- */
-public "isPickable"(isPickable: boolean): $BaseNonAnimatableEntityBuilder<(T)>
+public "mobCategory"(category: string): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets the list of block names to which the entity is immune.
  * 
@@ -586,6 +586,22 @@ public "isPickable"(isPickable: boolean): $BaseNonAnimatableEntityBuilder<(T)>
  * ```
  */
 public "immuneTo"(...blockNames: (string)[]): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a function to determine whether the entity is currently flapping.
+ * The provided Function accepts a {@link Entity} parameter,
+ * representing the entity whose flapping status is being determined.
+ * It returns a Boolean indicating whether the entity is flapping.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isFlapping(entity => {
+ *     // Define logic to determine whether the entity is currently flapping
+ *     // Use information about the Entity provided by the context.
+ *     return // Some Boolean value indicating whether the entity is flapping;
+ * });
+ * ```
+ */
+public "isFlapping"(b: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets the swim splash sound for the entity using either a string representation or a ResourceLocation object.
  * 
@@ -621,21 +637,31 @@ public "nextStep"(nextStep: $Function$Type<($Entity$Type), (any)>): $BaseNonAnim
  */
 public "setSwimSound"(sound: any): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a function to determine the block speed factor of the entity.
- * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose block speed factor is being determined.
- * It returns a Float representing the block speed factor.
+ * Sets a predicate to determine if a passenger can be added to the entity.
+ * 
+ * @param predicate The predicate to check if a passenger can be added.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.blockSpeedFactor(entity => {
- *     // Define logic to calculate and return the block speed factor for the entity
- *     // Use information about the Entity provided by the context.
- *     return // Some Float value representing the block speed factor;
+ * entityBuilder.canAddPassenger(context => {
+ *     // Custom logic to determine if a passenger can be added to the entity
+ *     return true;
  * });
  * ```
  */
-public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEntityContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets the block jump factor for the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setBlockJumpFactor(entity => {
+ *     //Set the jump factor for the entity through context
+ *     return 1 //some float value;
+ * });
+ * ```
+ */
+public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a consumer to handle lerping (linear interpolation) of the entity's position.
  * 
@@ -652,47 +678,21 @@ public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $Bas
  */
 public "lerpTo"(consumer: $Consumer$Type<($ContextUtils$LerpToContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a function to determine whether the entity is currently flapping.
+ * Sets a function to determine the block speed factor of the entity.
  * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose flapping status is being determined.
- * It returns a Boolean indicating whether the entity is flapping.
+ * representing the entity whose block speed factor is being determined.
+ * It returns a Float representing the block speed factor.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isFlapping(entity => {
- *     // Define logic to determine whether the entity is currently flapping
+ * entityBuilder.blockSpeedFactor(entity => {
+ *     // Define logic to calculate and return the block speed factor for the entity
  *     // Use information about the Entity provided by the context.
- *     return // Some Boolean value indicating whether the entity is flapping;
+ *     return // Some Float value representing the block speed factor;
  * });
  * ```
  */
-public "isFlapping"(b: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets the block jump factor for the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setBlockJumpFactor(entity => {
- *     //Set the jump factor for the entity through context
- *     return 1 //some float value;
- * });
- * ```
- */
-public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a predicate to determine if a passenger can be added to the entity.
- * 
- * @param predicate The predicate to check if a passenger can be added.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canAddPassenger(context => {
- *     // Custom logic to determine if a passenger can be added to the entity
- *     return true;
- * });
- * ```
- */
-public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEntityContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity stops riding.
  * The provided Consumer accepts a {@link Entity} parameter,
@@ -708,18 +708,19 @@ public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEnti
  */
 public "onStopRiding"(callback: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets the minimum fall distance for the entity before taking damage.
+ * Sets a callback function to be executed when the entity is hit by thunder.
+ * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
+ * representing the context of the entity being hit by thunder.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.setMaxFallDistance(entity => {
- *     // Define custom logic to determine the maximum fall distance
- *     // Use information about the Entity provided by the context.
- *     return 3;
+ * entityBuilder.thunderHit(context => {
+ *     // Define custom logic for handling the entity being hit by thunder
+ *     // Use information about the ThunderHitContext provided by the context.
  * });
  * ```
  */
-public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$EThunderHitContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when a player touches the entity.
  * The provided Consumer accepts a {@link ContextUtils.EntityPlayerContext} parameter,
@@ -735,6 +736,20 @@ public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any
  */
 public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$EntityPlayerContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
+ * Sets a callback function to be executed when the entity starts sprinting.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that has started sprinting.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onSprint(entity => {
+ *     // Define custom logic for handling when the entity starts sprinting
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onSprint"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
  * Sets a callback function to be executed during each tick when the entity is being ridden.
  * The provided Consumer accepts a {@link Entity} parameter,
  * representing the entity that is being ridden.
@@ -748,6 +763,20 @@ public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$EntityPlayerContext
  * ```
  */
 public "rideTick"(callback: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed on the client side.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is being removed on the client side.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onClientRemoval(entity => {
+ *     // Define custom logic for handling the removal of the entity on the client side
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onClientRemoval"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity may interact with something.
  * The provided Predicate accepts a {@link ContextUtils.MayInteractContext} parameter,
@@ -764,47 +793,18 @@ public "rideTick"(callback: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableE
  */
 public "mayInteract"(predicate: $Function$Type<($ContextUtils$EMayInteractContext$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity starts sprinting.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that has started sprinting.
+ * Sets the minimum fall distance for the entity before taking damage.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onSprint(entity => {
- *     // Define custom logic for handling when the entity starts sprinting
+ * entityBuilder.setMaxFallDistance(entity => {
+ *     // Define custom logic to determine the maximum fall distance
  *     // Use information about the Entity provided by the context.
+ *     return 3;
  * });
  * ```
  */
-public "onSprint"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hit by thunder.
- * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
- * representing the context of the entity being hit by thunder.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.thunderHit(context => {
- *     // Define custom logic for handling the entity being hit by thunder
- *     // Use information about the ThunderHitContext provided by the context.
- * });
- * ```
- */
-public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$EThunderHitContext$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed on the client side.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is being removed on the client side.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onClientRemoval(entity => {
- *     // Define custom logic for handling the removal of the entity on the client side
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onClientRemoval"(consumer: $Consumer$Type<($Entity$Type)>): $BaseNonAnimatableEntityBuilder<(T)>
+public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any)>): $BaseNonAnimatableEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity performs a flap action.
  * The provided Consumer accepts a {@link Entity} parameter,
@@ -952,36 +952,12 @@ export class $AddGoalSelectorsEventJS<T extends $Mob> extends $GoalEventJS<(T)> 
 constructor(mob: T, selector: $GoalSelector$Type)
 
 /**
- * Adds a `MoveTowardsTargetGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- * @param distanceWithin - The distance the target must be within to move towards it
- */
-public "moveTowardsTarget"(priority: integer, speedModifier: double, distanceWithin: float): void
-/**
- * Adds a `UseItemGoal` to the entity
- * 
- * @param priority - The priority of the goal
- * @param itemToUse - The item that will be used
- * @param soundEvent - The registry name of a sound event that should play when the item is used, may be null to indicate not sound event should play
- * @param canUseSelector - Determines when the item may be used
- */
-public "useItem"(priority: integer, itemToUse: $ItemStack$Type, soundEvent: $ResourceLocation$Type, canUseSelector: $Predicate$Type<(T)>): void
-/**
  * Adds a `PanicGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
  * @param speedModifier - Sets the speed at which the mob should try to move
  */
 public "panic"(priority: integer, speedModifier: double): void
-/**
- * Adds a `OpenDoorGoal` to the entity
- * 
- * @param priority - The priority of the goal
- * @param closeDoor - If the entity should also close doors
- */
-public "openDoor"(priority: integer, closeDoor: boolean): void
 /**
  * Adds a `RemoveBlockGoal` to the entity, only applicable to **pathfinder** mobs
  * 
@@ -992,6 +968,14 @@ public "openDoor"(priority: integer, closeDoor: boolean): void
  */
 public "removeBlock"(priority: integer, block: $ResourceLocation$Type, speedModifier: double, verticalSearchRange: integer): void
 /**
+ * Adds a `MoveTowardsTargetGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ * @param distanceWithin - The distance the target must be within to move towards it
+ */
+public "moveTowardsTarget"(priority: integer, speedModifier: double, distanceWithin: float): void
+/**
  * Adds a `TemptGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
@@ -1001,25 +985,21 @@ public "removeBlock"(priority: integer, block: $ResourceLocation$Type, speedModi
  */
 public "tempt"(priority: integer, speedModifier: double, temptItems: $Ingredient$Type, canScare: boolean): void
 /**
- * Adds a `ClimbOnTopOfPowderSnowGoal` to the entity
+ * Adds a `OpenDoorGoal` to the entity
  * 
  * @param priority - The priority of the goal
+ * @param closeDoor - If the entity should also close doors
  */
-public "climbOnTopOfPowderedSnow"(priority: integer): void
+public "openDoor"(priority: integer, closeDoor: boolean): void
 /**
- * Adds a `RunAroundLikeCrazyGoal` to the entity, only applicable to **horse** mobs
+ * Adds a `UseItemGoal` to the entity
  * 
  * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
+ * @param itemToUse - The item that will be used
+ * @param soundEvent - The registry name of a sound event that should play when the item is used, may be null to indicate not sound event should play
+ * @param canUseSelector - Determines when the item may be used
  */
-public "horseRunAroundLikeCrazy"(priority: integer, speedModifier: double): void
-/**
- * Adds a `WaterAvoidingRandomFlyingGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- */
-public "waterAvoidingRandomFlying"(priority: integer, speedModifier: double): void
+public "useItem"(priority: integer, itemToUse: $ItemStack$Type, soundEvent: $ResourceLocation$Type, canUseSelector: $Predicate$Type<(T)>): void
 /**
  * Adds a `WaterAvoidRandomStrollingGoal` to the entity, only applicable to **pathfinder** mobs
  * 
@@ -1029,6 +1009,26 @@ public "waterAvoidingRandomFlying"(priority: integer, speedModifier: double): vo
  */
 public "waterAvoidingRandomStroll"(priority: integer, speedModifier: double, probability: float): void
 /**
+ * Adds a `StrollThroughVillageGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param interval - Sets how often the goal 'refreshes'
+ */
+public "strollThroughVillage"(priority: integer, interval: integer): void
+/**
+ * Adds a `ClimbOnTopOfPowderSnowGoal` to the entity
+ * 
+ * @param priority - The priority of the goal
+ */
+public "climbOnTopOfPowderedSnow"(priority: integer): void
+/**
+ * Adds a `WaterAvoidingRandomFlyingGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ */
+public "waterAvoidingRandomFlying"(priority: integer, speedModifier: double): void
+/**
  * Adds a `MoveTowardsRestrictionGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
@@ -1036,12 +1036,12 @@ public "waterAvoidingRandomStroll"(priority: integer, speedModifier: double, pro
  */
 public "moveTowardsRestriction"(priority: integer, speedModifier: double): void
 /**
- * Adds a `StrollThroughVillageGoal` to the entity, only applicable to **pathfinder** mobs
+ * Adds a `RunAroundLikeCrazyGoal` to the entity, only applicable to **horse** mobs
  * 
  * @param priority - The priority of the goal
- * @param interval - Sets how often the goal 'refreshes'
+ * @param speedModifier - Sets the speed at which the mob should try to move
  */
-public "strollThroughVillage"(priority: integer, interval: integer): void
+public "horseRunAroundLikeCrazy"(priority: integer, speedModifier: double): void
 /**
  * Adds a custom goal to the entity
  * 
@@ -1057,17 +1057,21 @@ public "strollThroughVillage"(priority: integer, interval: integer): void
  */
 public "customGoal"(name: string, priority: integer, canUse: $Predicate$Type<(T)>, canContinueToUse: $Predicate$Type<(T)>, isInterruptable: boolean, start: $Consumer$Type<(T)>, stop: $Consumer$Type<(T)>, requiresUpdateEveryTick: boolean, tick: $Consumer$Type<(T)>): void
 /**
- * Adds a `AvoidEntityGoal` to the entity, only applicable to **pathfinder** mobs
+ * Adds a `BreedGoal` to the entity, only applicable to **animal** mobs
  * 
  * @param priority - The priority of the goal
- * @param entityClassToAvoid - The class of entity to avoid
- * @param avoidPredicate - The conditions under which an entity will be avoided
- * @param maxDist - The maximum distance from a entity the mob will detect and flee from it
- * @param walkSpeedModifier - Modifies the mob's speed when avoiding an entity
- * @param sprintSpeedModifier - Modifies the mob's speed when avoiding an entity at close range
- * @param onAvoidEntityPredicate - An additional predicate for entity avoidance
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ * @param partnerClass - The class of animal that this entity breeds with, may be null to specify it be the same class as this entity
  */
-public "avoidEntity"<E extends $LivingEntity>(priority: integer, entityClassToAvoid: $Class$Type<(E)>, avoidPredicate: $Predicate$Type<($LivingEntity$Type)>, maxDist: float, walkSpeedModifier: double, sprintSpeedModifier: double, onAvoidEntityPredicate: $Predicate$Type<($LivingEntity$Type)>): void
+public "breed"(priority: integer, speedModifier: double, partnerClass: $Class$Type<(any)>): void
+/**
+ * Adds a `BreakDoorGoal` to the entity
+ * 
+ * @param priority - The priority of the goal
+ * @param doorBreakTime - The time it takes to break a door, limited to 240 ticks
+ * @param validDifficulties - Determines what difficulties are valid for the goal
+ */
+public "breakDoor"(priority: integer, doorBreakTime: integer, validDifficulties: $Predicate$Type<($Difficulty$Type)>): void
 /**
  * Enables the addition of arbitrary goals to an entity
  * 
@@ -1086,19 +1090,30 @@ public "avoidEntity"<E extends $LivingEntity>(priority: integer, entityClassToAv
  */
 public "arbitraryGoal"(priority: integer, goalSupplier: $Function$Type<(T), ($Goal$Type)>): void
 /**
- * Adds a `FloatGoal` to the entity
+ * Adds a `AvoidEntityGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
+ * @param entityClassToAvoid - The class of entity to avoid
+ * @param avoidPredicate - The conditions under which an entity will be avoided
+ * @param maxDist - The maximum distance from a entity the mob will detect and flee from it
+ * @param walkSpeedModifier - Modifies the mob's speed when avoiding an entity
+ * @param sprintSpeedModifier - Modifies the mob's speed when avoiding an entity at close range
+ * @param onAvoidEntityPredicate - An additional predicate for entity avoidance
  */
-public "floatSwim"(priority: integer): void
+public "avoidEntity"<E extends $LivingEntity>(priority: integer, entityClassToAvoid: $Class$Type<(E)>, avoidPredicate: $Predicate$Type<($LivingEntity$Type)>, maxDist: float, walkSpeedModifier: double, sprintSpeedModifier: double, onAvoidEntityPredicate: $Predicate$Type<($LivingEntity$Type)>): void
 /**
- * Adds a `BreakDoorGoal` to the entity
+ * Adds a `BreathAirGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
- * @param doorBreakTime - The time it takes to break a door, limited to 240 ticks
- * @param validDifficulties - Determines what difficulties are valid for the goal
  */
-public "breakDoor"(priority: integer, doorBreakTime: integer, validDifficulties: $Predicate$Type<($Difficulty$Type)>): void
+public "breathAir"(priority: integer): void
+/**
+ * Adds a `FollowParentGoal` to the entity, only applicable to **animal** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ */
+public "followParent"(priority: integer, speedModifier: double): void
 /**
  * Adds a `EatBlockGoal` to the entity
  * 
@@ -1114,42 +1129,6 @@ public "eatGrass"(priority: integer): void
  */
 public "meleeAttack"(priority: integer, speedModifier: double, followTargetEvenIfNotSeen: boolean): void
 /**
- * Adds a `BreedGoal` to the entity, only applicable to **animal** mobs
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- * @param partnerClass - The class of animal that this entity breeds with, may be null to specify it be the same class as this entity
- */
-public "breed"(priority: integer, speedModifier: double, partnerClass: $Class$Type<(any)>): void
-/**
- * Adds a `FollowBoatGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- */
-public "followBoat"(priority: integer): void
-/**
- * Adds a `FollowMobGoal` to the entity
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- * @param stopDistance - The distance away from the target the mob will stop
- * @param areaSize - The distance away from the mob, that will be searched for mobs to follow
- */
-public "followMob"(priority: integer, speedModifier: double, stopDistance: float, areaSize: float): void
-/**
- * Adds a `FleeSunGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- */
-public "fleeSun"(priority: integer, speedModifier: double): void
-/**
- * Adds a `BreathAirGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- */
-public "breathAir"(priority: integer): void
-/**
  * Adds a `FollowOwnerGoal` to the entity, only applicable to **tamable** mobs
  * 
  * @param priority - The priority of the goal
@@ -1159,32 +1138,6 @@ public "breathAir"(priority: integer): void
  * @param canFly - If the mob can teleport into leaves
  */
 public "followOwner"(priority: integer, speedModifier: double, startDistance: float, stopDistance: float, canFly: boolean): void
-/**
- * Adds a `LeapAtTargetGoal` to the entity
- * 
- * @param priority - The priority of the goal
- * @param deltaY - Sets the delta movement of the animal in the y-axis
- */
-public "leapAtTarget"(priority: integer, deltaY: float): void
-/**
- * Adds a `RandomStrollGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- * @param interval - Sets the interval at which the goal will be 'refreshed, any values below 1 will be 1.'
- * @param checkNoActionTime - Determines if the mob's noActionTime property should be checked
- */
-public "randomStroll"(priority: integer, speedModifier: double, interval: integer, checkNoActionTime: boolean): void
-/**
- * Adds a `MoveThroughVillageGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- * @param speedModifier - Sets the speed at which the mob should try to move
- * @param onlyAtNight - If this goal should only apply at night
- * @param distanceToPoi - The minimum distance to a poi the mob must be to have it be considered 'visited'
- * @param canDealWithDoors - If doors can be opened to navigate as part of this goal
- */
-public "moveThroughVillage"(priority: integer, speedModifier: double, onlyAtNight: boolean, distanceToPoi: integer, canDealWithDoors: $Supplier$Type<(boolean)>): void
 /**
  * Adds a `LookAtPlayerGoal` to the entity
  * 
@@ -1196,12 +1149,40 @@ public "moveThroughVillage"(priority: integer, speedModifier: double, onlyAtNigh
  */
 public "lookAtEntity"<E extends $LivingEntity>(priority: integer, targetClass: $Class$Type<(E)>, lookDistance: float, probability: float, onlyHorizontal: boolean): void
 /**
- * Adds a `FollowParentGoal` to the entity, only applicable to **animal** mobs
+ * Adds a `LeapAtTargetGoal` to the entity
+ * 
+ * @param priority - The priority of the goal
+ * @param deltaY - Sets the delta movement of the animal in the y-axis
+ */
+public "leapAtTarget"(priority: integer, deltaY: float): void
+/**
+ * Adds a `FollowBoatGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ */
+public "followBoat"(priority: integer): void
+/**
+ * Adds a `FloatGoal` to the entity
+ * 
+ * @param priority - The priority of the goal
+ */
+public "floatSwim"(priority: integer): void
+/**
+ * Adds a `FleeSunGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
  * @param speedModifier - Sets the speed at which the mob should try to move
  */
-public "followParent"(priority: integer, speedModifier: double): void
+public "fleeSun"(priority: integer, speedModifier: double): void
+/**
+ * Adds a `FollowMobGoal` to the entity
+ * 
+ * @param priority - The priority of the goal
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ * @param stopDistance - The distance away from the target the mob will stop
+ * @param areaSize - The distance away from the mob, that will be searched for mobs to follow
+ */
+public "followMob"(priority: integer, speedModifier: double, stopDistance: float, areaSize: float): void
 /**
  * Adds a `MoveBackToVillageGoal` to the entity, only applicable to **pathfinder** mobs
  * 
@@ -1211,11 +1192,30 @@ public "followParent"(priority: integer, speedModifier: double): void
  */
 public "moveBackToVillage"(priority: integer, speedModifier: double, checkNoActionTime: boolean): void
 /**
- * Adds a `RandomLookAroundGoal` to the entity
+ * Adds a `RestrictSunGoal` to the entity, only applicable to **pathfinder** mobs
  * 
  * @param priority - The priority of the goal
  */
-public "randomLookAround"(priority: integer): void
+public "restrictSun"(priority: integer): void
+/**
+ * Adds a `MoveThroughVillageGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ * @param onlyAtNight - If this goal should only apply at night
+ * @param distanceToPoi - The minimum distance to a poi the mob must be to have it be considered 'visited'
+ * @param canDealWithDoors - If doors can be opened to navigate as part of this goal
+ */
+public "moveThroughVillage"(priority: integer, speedModifier: double, onlyAtNight: boolean, distanceToPoi: integer, canDealWithDoors: $Supplier$Type<(boolean)>): void
+/**
+ * Adds a `RandomStrollGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param speedModifier - Sets the speed at which the mob should try to move
+ * @param interval - Sets the interval at which the goal will be 'refreshed, any values below 1 will be 1.'
+ * @param checkNoActionTime - Determines if the mob's noActionTime property should be checked
+ */
+public "randomStroll"(priority: integer, speedModifier: double, interval: integer, checkNoActionTime: boolean): void
 /**
  * Adds a `RandomSwimmingGoal` to the entity, only applicable to **pathfinder** mobs
  * 
@@ -1225,17 +1225,11 @@ public "randomLookAround"(priority: integer): void
  */
 public "randomSwimming"(priority: integer, speedModifier: double, interval: integer): void
 /**
- * Adds a `SitWhenOrderedToGoal` to the entity, only applicable to **tamable** mobs
+ * Adds a `RandomLookAroundGoal` to the entity
  * 
  * @param priority - The priority of the goal
  */
-public "sitWhenOrdered"(priority: integer): void
-/**
- * Adds a `TryFindWaterGoal` to the entity, only applicable to **pathfinder** mobs
- * 
- * @param priority - The priority of the goal
- */
-public "tryFindWater"(priority: integer): void
+public "randomLookAround"(priority: integer): void
 /**
  * Adds a `RangedAttackGoal` to the entity, only applicable to **ranged attack** mobs
  * 
@@ -1253,11 +1247,17 @@ public "rangedAttack"<E extends ($Mob) & ($RangedAttackMob)>(priority: integer, 
  */
 public "ocelotAttack"(priority: integer): void
 /**
- * Adds a `RestrictSunGoal` to the entity, only applicable to **pathfinder** mobs
+ * Adds a `SitWhenOrderedToGoal` to the entity, only applicable to **tamable** mobs
  * 
  * @param priority - The priority of the goal
  */
-public "restrictSun"(priority: integer): void
+public "sitWhenOrdered"(priority: integer): void
+/**
+ * Adds a `TryFindWaterGoal` to the entity, only applicable to **pathfinder** mobs
+ * 
+ * @param priority - The priority of the goal
+ */
+public "tryFindWater"(priority: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1288,8 +1288,8 @@ constructor(biomes: $List$Type<($Either$Type<($ResourceLocation$Type), ($TagKey$
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "biomes"(): $List<($Either<($ResourceLocation), ($TagKey<($Biome)>)>)>
 public "spawnerData"(): $Supplier<($MobSpawnSettings$SpawnerData)>
+public "biomes"(): $List<($Either<($ResourceLocation), ($TagKey<($Biome)>)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1357,7 +1357,6 @@ import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
-import {$AgeableMob, $AgeableMob$Type} from "packages/net/minecraft/world/entity/$AgeableMob"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$PartEntityJS, $PartEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$PartEntityJS"
@@ -1371,8 +1370,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$Bee$BeePollinateGoal, $Bee$BeePollinateGoal$Type} from "packages/net/minecraft/world/entity/animal/$Bee$BeePollinateGoal"
@@ -1505,170 +1504,169 @@ readonly "random": $RandomSource
 constructor(builder: $BeeJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "isFlapping"(): boolean
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Bee
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public "getTarget"(): $LivingEntity
 public "setLastHurtByMob"(arg0: $LivingEntity$Type): void
 public "setLastHurtByPlayer"(arg0: $Player$Type): void
 public "getLastHurtByMob"(): $LivingEntity
-public "getTarget"(): $LivingEntity
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "flapping"(): boolean
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
+get "target"(): $LivingEntity
 set "lastHurtByMob"(value: $LivingEntity$Type)
 set "lastHurtByPlayer"(value: $Player$Type)
 get "lastHurtByMob"(): $LivingEntity
-get "target"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1749,9 +1747,9 @@ export type $ContextUtils$ScaleModelRenderContextNL_<T> = $ContextUtils$ScaleMod
 }}
 declare module "packages/net/liopyu/entityjs/util/$EntityJSUtils" {
 import {$AmphibiousPathNavigation, $AmphibiousPathNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$AmphibiousPathNavigation"
-import {$WallClimberNavigation, $WallClimberNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$WallClimberNavigation"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
 import {$GroundPathNavigation, $GroundPathNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$GroundPathNavigation"
+import {$WallClimberNavigation, $WallClimberNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$WallClimberNavigation"
 import {$WaterBoundPathNavigation, $WaterBoundPathNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$WaterBoundPathNavigation"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$FlyingPathNavigation, $FlyingPathNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$FlyingPathNavigation"
@@ -1761,11 +1759,11 @@ export interface $EntityJSUtils {
 }
 
 export namespace $EntityJSUtils {
-function createWallClimberNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $WallClimberNavigation
 function createWaterBoundPathNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $WaterBoundPathNavigation
-function createAmphibiousPathNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $AmphibiousPathNavigation
 function createGroundPathNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $GroundPathNavigation
+function createWallClimberNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $WallClimberNavigation
 function createFlyingPathNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $FlyingPathNavigation
+function createAmphibiousPathNavigation(pMob: $Mob$Type, pLevel: $Level$Type): $AmphibiousPathNavigation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1914,8 +1912,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$EnderMan, $EnderMan$Type} from "packages/net/minecraft/world/entity/monster/$EnderMan"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
@@ -2037,161 +2035,161 @@ readonly "random": $RandomSource
 constructor(builder: $EnderManJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public "getTarget"(): $LivingEntity
 public "setLastHurtByMob"(arg0: $LivingEntity$Type): void
 public "setLastHurtByPlayer"(arg0: $Player$Type): void
 public "getLastHurtByMob"(): $LivingEntity
-public "getTarget"(): $LivingEntity
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
+get "target"(): $LivingEntity
 set "lastHurtByMob"(value: $LivingEntity$Type)
 set "lastHurtByPlayer"(value: $Player$Type)
 get "lastHurtByMob"(): $LivingEntity
-get "target"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2279,18 +2277,250 @@ export class $Behaviors extends $Enum<($Behaviors)> {
 static readonly "INSTANCE": $Behaviors
 
 
-public static "values"(): ($Behaviors)[]
-public static "valueOf"(name: string): $Behaviors
 /**
- * Creates a `WakeUp` behavior
+ * Creates an `AcquirePoi` behavior, only applicable to **pathfinder** entities
+ * 
+ * @param poiType - A predicate for pois the entity will attempt to acquire
+ * @param memoryKey - The memory type that may not be present for this behavior to be enabled, villagers use `minecraft:job_site` here
+ * @param memoryToAcquire - The memory type to use when a poi is acquired, villagers use `minecraft:potential_job_site` here
+ * @param onlyIfAdult - If this behavior should only apply when the entity is an adult
+ * @param onPoiAcquisitionEvent - The entity event to be sent to the entity when it acquires the poi, may be null to not send a client bound packet. This value is handled by an entity's implementation of the `handleEntityEvent` method
  */
-public "wakeUp"(): $BehaviorControl<($LivingEntity)>
+public "acquirePoi"(poiType: $Predicate$Type<($Holder$Type<($PoiType$Type)>)>, memoryKey: $MemoryModuleType$Type<($GlobalPos$Type)>, memoryToAcquire: $MemoryModuleType$Type<($GlobalPos$Type)>, onlyIfAdult: boolean, onPoiAcquisitionEvent: byte): $BehaviorControl<($PathfinderMob)>
 /**
- * Creates a `Mount` behavior
+ * Creates an `BabyFollowAdult` behavior, only applicable to **ageable** mobs
+ * 
+ * @param minFollowRange - The minimum follow distance of the baby
+ * @param maxFollowRange - The maximum follow distance of the baby
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "babyFollowAdult"(minFollowRange: integer, maxFollowRange: integer, speedModifier: $Function$Type<($LivingEntity$Type), (float)>): $OneShot<($AgeableMob)>
+/**
+ * Creates an `AnimalMakeLove` behavior, only applicable to **animal** entities
+ * 
+ * @param partnerType - The entity type the animal can breed with, note: both animals must have the same class unless their `canBreed` methods have been overridden
+ * @param speedModifier - The modifier to the animal's speed when this behavior is active
+ */
+public "animalMakeLove"(partnerType: $EntityType$Type<(any)>, speedModifier: float): $AnimalMakeLove
+/**
+ * Creates an `AnimalPanic` behavior, only applicable to **pathfinder** entities
+ * 
+ * @param speedModifier - The modifier to the animal's speed when this behavior is active
+ */
+public "animalPanic"(speedMultiplier: float): $AnimalPanic
+/**
+ * Creates a `FollowTemptation` behavior, only applicable to **pathfinder** mobs
  * 
  * @param speedModifier - The modifier to the mob's speed when this behavior is active
  */
-public "mount"(speedModifier: float): $BehaviorControl<($LivingEntity)>
+public "followTemptation"(speedModifier: $Function$Type<($LivingEntity$Type), (float)>): $FollowTemptation
+/**
+ * Creates a `FlyingRandomStroll` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "flyingRandomStroll"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
+/**
+ * Creates an `InteractWith` behavior
+ * 
+ * @param typeToInteractWith - The entity type to interact with
+ * @param interactionRange - The range the entity will interact with the other entity
+ * @param selfFilter - A self-predicate which determines when this behavior can be used
+ * @param targetFilter - A target-predicate which determines when this behavior can be used
+ * @param memory - The memory type to use for this behavior
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param maxDistance - The maximum distance they entity may acquire an interaction target from
+ */
+public "interactWith"<E extends $LivingEntity, T extends $LivingEntity>(typeToInteractWith: $EntityType$Type<(any)>, interactionRange: integer, selfFilter: $Predicate$Type<(E)>, targetFilter: $Predicate$Type<(T)>, memory: $MemoryModuleType$Type<(T)>, speedModifier: float, maxDistance: integer): $BehaviorControl<(E)>
+/**
+ * Creates a `GoToTargetLocation` behavior, only applicable to **mob** entities
+ * 
+ * @param locationMemory - The memory type to use to store the target location
+ * @param closeEnoughDistance - The distance that is close enough to the location for the entity to consider it 'at' the target location
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "gotoTargetLocation"<E extends $Mob>(locationMemory: $MemoryModuleType$Type<($BlockPos$Type)>, closeEnoughDistance: integer, speedModifier: float): $OneShot<(E)>
+/**
+ * Creates a `GoToWantedItem` behavior
+ * 
+ * @param predicate - The predicate that is checked to determine if the entity may use this behavior
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param maxDistToWalk - The maximum distance the entity will walk to go to the wanted item
+ * @param hasWlkTargetMemoryModuleType - If the entity has the `minecraft:walk_target` memory type
+ */
+public "goToWantedItem"<E extends $LivingEntity>(predicate: $Predicate$Type<(E)>, speedModifier: float, maxDistToWalk: integer, hasWalkTargetMemoryModuleType: boolean): $BehaviorControl<(E)>
+/**
+ * Creates a `ForceUnmount` behavior
+ */
+public "forceUnmount"(): $ForceUnmount
+/**
+ * Creates a `InsideBrownianWalk` behavior, only applicable to **pathfinder** entities
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "insideBrownianWalk"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
+/**
+ * Creates a `JumpOnBed` behavior, only applicable to **mob** entities
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "jumpOnBed"(speedModifier: float): $JumpOnBed
+/**
+ * Creates an `InteractWithDoor` behavior
+ */
+public "interactWithDoor"(): $InteractWithDoor
+/**
+ * Creates a `LocateHidingPlace` behavior
+ * 
+ * @param radius - The maximum radius a hiding place will be searched for
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param closeEnoughDistance - The distance at which the entity considers itself close enough to the hiding place
+ */
+public "locateHidingPlace"(radius: integer, speedModifier: float, closeEnoughDistance: integer): $OneShot<($LivingEntity)>
+/**
+ * Creates a `LongJumpMidJump` behavior, only applicable to **mob** entities
+ * 
+ * @param minTicksBetweenJumps - The minimum number of ticks that must pass before the entity must jump
+ * @param maxTicksBetweenJumps - The maximum number of ticks that must pass before the entity must jump
+ * @param landingSound - The sound event that will be broadcast when the entity lands
+ */
+public "longJumpMidJump"(minTicksBetweenJumps: integer, maxTicksBetweenJumps: integer, landingSound: $SoundEvent$Type): $LongJumpMidJump
+/**
+ * Creates a `BackUpIfTooClose` behavior, only applicable to **mob** entities
+ * 
+ * @param tooCloseDistance - The distance at which the mob will begin to backup
+ * @param strafeSpeed - The speed at which the entity will back away
+ */
+public "backUpIfTooClose"(tooCloseDistance: integer, strafeSpeed: float): $OneShot<($Mob)>
+/**
+ * Creates a `EraseMemoryIf` behavior
+ * 
+ * @param predicate - When to erase the memory
+ * @param memoryType - The memory type to be erased
+ */
+public "eraseMemoryIf"<E extends $LivingEntity>(predicate: $Predicate$Type<(E)>, memoryType: $MemoryModuleType$Type<(any)>): $BehaviorControl<(E)>
+/**
+ * Creates a `MoveToTargetSink` behavior, only applicable to **mob** entities
+ * 
+ * @param minDuration - The minimum duration of the behavior
+ * @param maxDuration - The maximum duration of the behavior
+ */
+public "moveToTargetSink"(minDuration: integer, maxDuration: integer): $MoveToTargetSink
+/**
+ * Creates a `LookAtTargetSink` behavior, only applicable to **mob** entities
+ * 
+ * @param minDuration - The minimum duration of the behavior
+ * @param maxDuration - The maximum duration of the behavior
+ */
+public "lookAtTargetSink"(minDuration: integer, maxDuration: integer): $LookAtTargetSink
+/**
+ * Creates a `SetLookAndInteract` behavior
+ * 
+ * @param type - The entity type that the entity interacts with
+ * @param interactionRange - The range that the entity will interact with the target
+ */
+public "setLookAndInteract"(type: $EntityType$Type<(any)>, interactionRange: integer): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `RandomSwim` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "randomSwim"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
+/**
+ * Creates a `ReactToBell` behavior
+ */
+public "reactToBell"(): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `RingBell` behavior
+ */
+public "ringBell"(): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `SetHiddenState` behavior
+ * 
+ * @param stayHiddenSeconds - How long the entity should be hidden for
+ * @param closeEnoughDist - The distance that is considered close enough to a hiding place
+ */
+public "setHiddenState"(stayHiddenSeconds: integer, closeEnoughDist: integer): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `ResetRaidStatus` behavior
+ */
+public "resetRaidStatus"(): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `StartAttacking` behavior, only applicable to **mob** entities
+ * 
+ * @param canAttackPredicate - A predicate for if the mob can attack
+ * @param targetFinder - A function that finds a target to attack
+ * @param duration - The number of ticks that the behavior should be active for
+ */
+public "startAttacking"<E extends $Mob>(canAttackPredicate: $Predicate$Type<(E)>, targetFinder: $Function$Type<(E), ($LivingEntity$Type)>): $BehaviorControl<(E)>
+/**
+ * Creates a `SocializeAtBell` behavior
+ */
+public "socializeAtBell"(): $OneShot<($LivingEntity)>
+/**
+ * Creates a `SetRaidStatus` behavior
+ */
+public "setRaidStatus"(): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `SleepInBed` behavior
+ */
+public "sleepInBed"(): $SleepInBed
+/**
+ * Creates a `StayCloseToTarget` behavior
+ * 
+ * @param targetPositionTracker - A function that returns the position tracker for the entity, the returned tracker may be null, see `.blockPosTracker()` and `.entityPosTracker()`
+ * @param pPredicate - The predicate to use with the living Entity as an argument
+ * @param closeEnough - The distance that is close enough to the target
+ * @param tooFar - The distance that is too far from the target
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "stayCloseToTarget"(targetPositionGetter: $Function$Type<($LivingEntity$Type), ($PositionTracker$Type)>, pPredicate: $Predicate$Type<($LivingEntity$Type)>, closeEnough: integer, tooFar: integer, speedModifier: float): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates an `EntityTracker` for use in `.stayCloseToTarget()`
+ * 
+ * @param entity - The target entity
+ * @param trackEyeHeight - If the eye height of the target should be considered
+ */
+public "entityPosTracker"(entity: $Entity$Type, trackEyeHeight: boolean): $EntityTracker
+/**
+ * Creates a `BlockPosTracker` for use in `.stayCloseToTarget()`
+ * 
+ * @param pos - THe position that is to be tracked
+ */
+public "blockPosTracker"(pos: $BlockPos$Type): $BlockPosTracker
+/**
+ * Creates a `TryFindLand` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param range - The range, in all directions, at which the mob will search for land
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "tryFindLand"(range: integer, speedModifier: float): $BehaviorControl<($PathfinderMob)>
+/**
+ * Creates a `ValidateNearbyPoi` behavior
+ * 
+ * @param poiPredicate - The predicate that is used to validate the poi
+ * @param memoryType - The memory that is used for the poi
+ */
+public "validateNearbyPoi"(poiPredicate: $Predicate$Type<($Holder$Type<($PoiType$Type)>)>, memoryType: $MemoryModuleType$Type<($GlobalPos$Type)>): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `StrollAroundPoi` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param memoryType - The memory that is used for the poi
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param maxDistanceFromPoi - The maximum distance away from the poi that the mob may go while strolling
+ */
+public "strollAroundPoi"(memoryType: $MemoryModuleType$Type<($GlobalPos$Type)>, speedModifier: float, maxDistanceFromPoi: integer): $OneShot<($PathfinderMob)>
+/**
+ * Creates a `StrollToPoi` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param memoryType - The memory that is used for the poi
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param closeEnoughDist - The distance that is considered close enough to the poi
+ * @param maxDistanceFromPoi - The maximum distance away from the poi that this behavior will apply
+ */
+public "strollToPoi"(memoryType: $MemoryModuleType$Type<($GlobalPos$Type)>, speedModifier: float, closeEnoughDist: integer, maxDistanceFromPoi: integer): $BehaviorControl<($PathfinderMob)>
+public static "values"(): ($Behaviors)[]
+public static "valueOf"(name: string): $Behaviors
 /**
  * Creates a `Swim` behavior, only applicable to **mob** entities
  * 
@@ -2298,12 +2528,15 @@ public "mount"(speedModifier: float): $BehaviorControl<($LivingEntity)>
  */
 public "swim"(chance: float): $Swim
 /**
- * Creates a `DoNothing` behavior
+ * Creates a behavior which sets the entity's attack target to its walk target if the target is out of reach
  * 
- * @param minTime - The minimum amount of time to do nothing for
- * @param maxTime - The maximum amount of time to do nothing for
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
  */
-public "doNothing"(minTime: integer, maxTime: integer): $DoNothing
+public "setWalkTargetFromAttackTargetIfTargetOutOfReach"(speedModifier: $Function$Type<($LivingEntity$Type), (float)>): $BehaviorControl<($Mob)>
+/**
+ * Creates a `WakeUp` behavior
+ */
+public "wakeUp"(): $BehaviorControl<($LivingEntity)>
 /**
  * Creates a new `TargetingConditions` for use in `.prepareRamNearestTarget()`
  * 
@@ -2315,11 +2548,31 @@ public "doNothing"(minTime: integer, maxTime: integer): $DoNothing
  */
 public "targetingConditions"(isForCombat: boolean, range: double, ignoreLineOfSight: boolean, ignoreInvisibilityTesting: boolean, selector: $Predicate$Type<($LivingEntity$Type)>): $TargetingConditions
 /**
- * Creates a behavior which sets the entity's attack target to its walk target if the target is out of reach
+ * Creates a `Mount` behavior
  * 
  * @param speedModifier - The modifier to the mob's speed when this behavior is active
  */
-public "setWalkTargetFromAttackTargetIfTargetOutOfReach"(speedModifier: $Function$Type<($LivingEntity$Type), (float)>): $BehaviorControl<($Mob)>
+public "mount"(speedModifier: float): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `DoNothing` behavior
+ * 
+ * @param minTime - The minimum amount of time to do nothing for
+ * @param maxTime - The maximum amount of time to do nothing for
+ */
+public "doNothing"(minTime: integer, maxTime: integer): $DoNothing
+/**
+ * Creates a `MoveToSkySeeingSpot` behavior
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "moveToSkySeeingSpot"(speedModifier: float): $OneShot<($LivingEntity)>
+/**
+ * Creates a `BecomePassiveIfMemoryPresent` behavior
+ * 
+ * @param memoryType - The memory type that will pacify the entity
+ * @param pacifyDuration - How long the entity will be pacified for
+ */
+public "becomePassiveIfMemoryPresent"(memoryType: $MemoryModuleType$Type<(any)>, pacifyDuration: integer): $BehaviorControl<($LivingEntity)>
 /**
  * Creates a `CountCooldownTicks` behavior
  * 
@@ -2334,6 +2587,35 @@ public "countDownCooldownTicks"(coolDownTicks: $MemoryModuleType$Type<(integer)>
  */
 public "dismountOrSkipMounting"<E extends $LivingEntity>(maxWalkDistToRideTarget: integer, dontRideIf: $BiPredicate$Type<(E), ($Entity$Type)>): $BehaviorControl<(E)>
 /**
+ * Creates a `PlayTagWithOtherKids` behavior, only applicable to **pathfinder** mobs
+ */
+public "playTagWithOtherKids"(): $PlayTagWithOtherKids
+/**
+ * Creates a `UpdateActivityFromSchedule` behavior
+ */
+public "updateActivityFromSchedule"(): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `VillageBoundRandomStroll` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param radius - The radius around the village the mob will stroll
+ * @param maxyDist - The vertical range the mob will wander in
+ */
+public "villageBoundRandomStroll"(speedModifier: float, radius: integer, maxYDist: integer): $OneShot<($PathfinderMob)>
+/**
+ * Creates a `TryFindLandNearWater` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param range - The range, in all directions, at which the mob will search for land
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "tryFindLandNearWater"(range: integer, speedModifier: float): $BehaviorControl<($PathfinderMob)>
+/**
+ * Creates a `SetClosestHomeAsWalkTarget` behavior
+ * 
+ * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ */
+public "setClosestHomeAsWalkTarget"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
+/**
  * Creates a `StopAttackingIfTargetInvalid` behavior, only applicable to **mob** entities
  * 
  * @param stopAttackingWhen - A predicate for when the target is no longer valid
@@ -2341,24 +2623,6 @@ public "dismountOrSkipMounting"<E extends $LivingEntity>(maxWalkDistToRideTarget
  * @param canGetTiredOfTryingToReachTarget - If the attacker can get tired of trying to reach its target
  */
 public "stopAttackingIfTargetInvalid"<E extends $Mob>(stopAttackingWhen: $Predicate$Type<($LivingEntity$Type)>, onTargetErased: $BiConsumer$Type<(E), ($LivingEntity$Type)>, canGetTiredOfTryingToReachTarget: boolean): $BehaviorControl<(E)>
-/**
- * Creates a `BecomePassiveIfMemoryPresent` behavior
- * 
- * @param memoryType - The memory type that will pacify the entity
- * @param pacifyDuration - How long the entity will be pacified for
- */
-public "becomePassiveIfMemoryPresent"(memoryType: $MemoryModuleType$Type<(any)>, pacifyDuration: integer): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `PlayTagWithOtherKids` behavior, only applicable to **pathfinder** mobs
- */
-public "playTagWithOtherKids"(): $PlayTagWithOtherKids
-/**
- * Creates a `setEntityLookTarget` behavior
- * 
- * @param predicate - A predicate for valid target entities
- * @param maxDist - The maximum distance a target may be
- */
-public "setEntityLookTarget"(predicate: $Predicate$Type<($LivingEntity$Type)>, maxDist: float): $BehaviorControl<($LivingEntity)>
 /**
  * Creates a `PrepareRanNearestTarget` behavior, only applicable to **pathfinder** mobs
  * 
@@ -2372,15 +2636,33 @@ public "setEntityLookTarget"(predicate: $Predicate$Type<($LivingEntity$Type)>, m
  */
 public "prepareRamNearestTarget"<E extends $PathfinderMob>(cooldownOnFall: $ToIntFunction$Type<(E)>, minRamDistance: integer, maxRamDistance: integer, walkSpeed: float, targetingConditions: $TargetingConditions$Type, ramPrepareTime: integer, prepareRamSound: $Function$Type<(E), ($SoundEvent$Type)>): $PrepareRamNearestTarget<(E)>
 /**
- * Creates a `UpdateActivityFromSchedule` behavior
- */
-public "updateActivityFromSchedule"(): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `MoveToSkySeeingSpot` behavior
+ * Creates a `LongJumpToRandomPos` behavior, only applicable to **mob** entities
  * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * @param minTimeBetweenJumps - The minimum number of ticks between jumps
+ * @param maxTimeBetweenJumps - The maximum number of ticks between jumps
+ * @param maxJumpHeight - The maximum vertical distance the mob will attempt to jump between
+ * @param maxJumpWidth - the maximum horizontal distance the mob will attempt to jump
+ * @param maxJumpVelocity - The maximum velocity the mob may jump at
+ * @param jumpSound - The sound that is played when the mob jumps
+ * @param acceptableLandingSpot - A filter for what blocks are acceptable to land on
  */
-public "moveToSkySeeingSpot"(speedModifier: float): $OneShot<($LivingEntity)>
+public "longJumpToRandomPos"<E extends $Mob>(minTimeBetweenJumps: integer, maxTimeBetweenJumps: integer, maxJumpHeight: integer, maxJumpWidth: integer, maxJumpVelocity: float, jumpSound: $Function$Type<(E), ($SoundEvent$Type)>, acceptableLandingSpot: $BiPredicate$Type<(E), ($BlockPos$Type)>): $LongJumpToRandomPos<(E)>
+/**
+ * Creates a `StartCelebratingIfTargetDead` behavior
+ * 
+ * @param celebrationDuration - The number of ticks the entity should celebrate for
+ * @param dancePredicate - A predicate for if the entity should dance. The first entity provided is the entity that will dance, the second is the target
+ */
+public "startCelebratingIfTargetDead"(celebrationDuration: integer, dancePredicate: $BiPredicate$Type<($LivingEntity$Type), ($LivingEntity$Type)>): $BehaviorControl<($LivingEntity)>
+/**
+ * Creates a `SetWalkTargetAwayFrom` behavior, only applicable to **pathfinder** mobs
+ * 
+ * @param pWalkTargetAwayFromMemory - The memory type to use as the walk away from target
+ * @param pSpeedModifier - The modifier to the mob's speed when this behavior is active
+ * @param pDesiredDistance - The desired distance away from the target the entity will attempt to be
+ * @param pHasTarget - If the entity needs the `minecraft:walk_target` memory type
+ */
+public "setWalkTargetAwayFrom"(pWalkTargetAwayFromMemory: $MemoryModuleType$Type<(any)>, pSpeedModifier: float, pDesiredDistance: integer, pHasTarget: boolean): $OneShot<($PathfinderMob)>
 /**
  * Creates a `LongJumpToPreferredBlock` behavior, only applicable to **mob** entities
  * 
@@ -2396,30 +2678,6 @@ public "moveToSkySeeingSpot"(speedModifier: float): $OneShot<($LivingEntity)>
  */
 public "longJumpToPreferredBlock"<E extends $Mob>(minTimeBetweenJumps: integer, maxTimeBetweenJumps: integer, maxJumpHeight: integer, maxJumpWidth: integer, maxJumpVelocity: float, jumpSound: $Function$Type<(E), ($SoundEvent$Type)>, preferredBlockTag: $ResourceLocation$Type, preferredBlockChance: float, acceptableLandingSpot: $BiPredicate$Type<(E), ($BlockPos$Type)>): $LongJumpToPreferredBlock<(E)>
 /**
- * Creates a `StopBeingAngryIfTargetDead` behavior, only applicable to **mob** entities
- */
-public "stopBeingAngryIfTargetDead"(): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `VillageBoundRandomStroll` behavior, only applicable to **pathfinder** mobs
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- * @param radius - The radius around the village the mob will stroll
- * @param maxyDist - The vertical range the mob will wander in
- */
-public "villageBoundRandomStroll"(speedModifier: float, radius: integer, maxYDist: integer): $OneShot<($PathfinderMob)>
-/**
- * Creates a `LongJumpToRandomPos` behavior, only applicable to **mob** entities
- * 
- * @param minTimeBetweenJumps - The minimum number of ticks between jumps
- * @param maxTimeBetweenJumps - The maximum number of ticks between jumps
- * @param maxJumpHeight - The maximum vertical distance the mob will attempt to jump between
- * @param maxJumpWidth - the maximum horizontal distance the mob will attempt to jump
- * @param maxJumpVelocity - The maximum velocity the mob may jump at
- * @param jumpSound - The sound that is played when the mob jumps
- * @param acceptableLandingSpot - A filter for what blocks are acceptable to land on
- */
-public "longJumpToRandomPos"<E extends $Mob>(minTimeBetweenJumps: integer, maxTimeBetweenJumps: integer, maxJumpHeight: integer, maxJumpWidth: integer, maxJumpVelocity: float, jumpSound: $Function$Type<(E), ($SoundEvent$Type)>, acceptableLandingSpot: $BiPredicate$Type<(E), ($BlockPos$Type)>): $LongJumpToRandomPos<(E)>
-/**
  * Creates a `SetWalkTargetFromLookTarget` behavior
  * 
  * @param predicate - The predicate for setting the walk target
@@ -2428,34 +2686,16 @@ public "longJumpToRandomPos"<E extends $Mob>(minTimeBetweenJumps: integer, maxTi
  */
 public "setWalkTargetFromLookTarget"(predicate: $Predicate$Type<($LivingEntity$Type)>, speedModifier: $Function$Type<($LivingEntity$Type), (float)>, closeEnoughDistance: integer): $OneShot<($LivingEntity)>
 /**
- * Creates a `SetClosestHomeAsWalkTarget` behavior
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
+ * Creates a `StopBeingAngryIfTargetDead` behavior, only applicable to **mob** entities
  */
-public "setClosestHomeAsWalkTarget"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
+public "stopBeingAngryIfTargetDead"(): $BehaviorControl<($LivingEntity)>
 /**
- * Creates a `SetWalkTargetAwayFrom` behavior, only applicable to **pathfinder** mobs
+ * Creates a `setEntityLookTarget` behavior
  * 
- * @param pWalkTargetAwayFromMemory - The memory type to use as the walk away from target
- * @param pSpeedModifier - The modifier to the mob's speed when this behavior is active
- * @param pDesiredDistance - The desired distance away from the target the entity will attempt to be
- * @param pHasTarget - If the entity needs the `minecraft:walk_target` memory type
+ * @param predicate - A predicate for valid target entities
+ * @param maxDist - The maximum distance a target may be
  */
-public "setWalkTargetAwayFrom"(pWalkTargetAwayFromMemory: $MemoryModuleType$Type<(any)>, pSpeedModifier: float, pDesiredDistance: integer, pHasTarget: boolean): $OneShot<($PathfinderMob)>
-/**
- * Creates a `TryFindLandNearWater` behavior, only applicable to **pathfinder** mobs
- * 
- * @param range - The range, in all directions, at which the mob will search for land
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "tryFindLandNearWater"(range: integer, speedModifier: float): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates a `StartCelebratingIfTargetDead` behavior
- * 
- * @param celebrationDuration - The number of ticks the entity should celebrate for
- * @param dancePredicate - A predicate for if the entity should dance. The first entity provided is the entity that will dance, the second is the target
- */
-public "startCelebratingIfTargetDead"(celebrationDuration: integer, dancePredicate: $BiPredicate$Type<($LivingEntity$Type), ($LivingEntity$Type)>): $BehaviorControl<($LivingEntity)>
+public "setEntityLookTarget"(predicate: $Predicate$Type<($LivingEntity$Type)>, maxDist: float): $BehaviorControl<($LivingEntity)>
 /**
  * Creates a `MeleeAttack` behavior, only applicable to **mob** entities
  * 
@@ -2477,248 +2717,6 @@ public "randomStroll"(speedModifier: float, maxHorizontalDistance: integer, maxV
  * @param speedModifier - The modifier to the mob's speed when this behavior is active
  */
 public "tryFindWater"(range: integer, speedModifier: float): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates an `AcquirePoi` behavior, only applicable to **pathfinder** entities
- * 
- * @param poiType - A predicate for pois the entity will attempt to acquire
- * @param memoryKey - The memory type that may not be present for this behavior to be enabled, villagers use `minecraft:job_site` here
- * @param memoryToAcquire - The memory type to use when a poi is acquired, villagers use `minecraft:potential_job_site` here
- * @param onlyIfAdult - If this behavior should only apply when the entity is an adult
- * @param onPoiAcquisitionEvent - The entity event to be sent to the entity when it acquires the poi, may be null to not send a client bound packet. This value is handled by an entity's implementation of the `handleEntityEvent` method
- */
-public "acquirePoi"(poiType: $Predicate$Type<($Holder$Type<($PoiType$Type)>)>, memoryKey: $MemoryModuleType$Type<($GlobalPos$Type)>, memoryToAcquire: $MemoryModuleType$Type<($GlobalPos$Type)>, onlyIfAdult: boolean, onPoiAcquisitionEvent: byte): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates an `AnimalMakeLove` behavior, only applicable to **animal** entities
- * 
- * @param partnerType - The entity type the animal can breed with, note: both animals must have the same class unless their `canBreed` methods have been overridden
- * @param speedModifier - The modifier to the animal's speed when this behavior is active
- */
-public "animalMakeLove"(partnerType: $EntityType$Type<(any)>, speedModifier: float): $AnimalMakeLove
-/**
- * Creates an `AnimalPanic` behavior, only applicable to **pathfinder** entities
- * 
- * @param speedModifier - The modifier to the animal's speed when this behavior is active
- */
-public "animalPanic"(speedMultiplier: float): $AnimalPanic
-/**
- * Creates an `BabyFollowAdult` behavior, only applicable to **ageable** mobs
- * 
- * @param minFollowRange - The minimum follow distance of the baby
- * @param maxFollowRange - The maximum follow distance of the baby
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "babyFollowAdult"(minFollowRange: integer, maxFollowRange: integer, speedModifier: $Function$Type<($LivingEntity$Type), (float)>): $OneShot<($AgeableMob)>
-/**
- * Creates a `FollowTemptation` behavior, only applicable to **pathfinder** mobs
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "followTemptation"(speedModifier: $Function$Type<($LivingEntity$Type), (float)>): $FollowTemptation
-/**
- * Creates a `FlyingRandomStroll` behavior, only applicable to **pathfinder** mobs
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "flyingRandomStroll"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates a `ForceUnmount` behavior
- */
-public "forceUnmount"(): $ForceUnmount
-/**
- * Creates a `GoToTargetLocation` behavior, only applicable to **mob** entities
- * 
- * @param locationMemory - The memory type to use to store the target location
- * @param closeEnoughDistance - The distance that is close enough to the location for the entity to consider it 'at' the target location
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "gotoTargetLocation"<E extends $Mob>(locationMemory: $MemoryModuleType$Type<($BlockPos$Type)>, closeEnoughDistance: integer, speedModifier: float): $OneShot<(E)>
-/**
- * Creates a `GoToWantedItem` behavior
- * 
- * @param predicate - The predicate that is checked to determine if the entity may use this behavior
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- * @param maxDistToWalk - The maximum distance the entity will walk to go to the wanted item
- * @param hasWlkTargetMemoryModuleType - If the entity has the `minecraft:walk_target` memory type
- */
-public "goToWantedItem"<E extends $LivingEntity>(predicate: $Predicate$Type<(E)>, speedModifier: float, maxDistToWalk: integer, hasWalkTargetMemoryModuleType: boolean): $BehaviorControl<(E)>
-/**
- * Creates a `InsideBrownianWalk` behavior, only applicable to **pathfinder** entities
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "insideBrownianWalk"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates an `InteractWith` behavior
- * 
- * @param typeToInteractWith - The entity type to interact with
- * @param interactionRange - The range the entity will interact with the other entity
- * @param selfFilter - A self-predicate which determines when this behavior can be used
- * @param targetFilter - A target-predicate which determines when this behavior can be used
- * @param memory - The memory type to use for this behavior
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- * @param maxDistance - The maximum distance they entity may acquire an interaction target from
- */
-public "interactWith"<E extends $LivingEntity, T extends $LivingEntity>(typeToInteractWith: $EntityType$Type<(any)>, interactionRange: integer, selfFilter: $Predicate$Type<(E)>, targetFilter: $Predicate$Type<(T)>, memory: $MemoryModuleType$Type<(T)>, speedModifier: float, maxDistance: integer): $BehaviorControl<(E)>
-/**
- * Creates an `InteractWithDoor` behavior
- */
-public "interactWithDoor"(): $InteractWithDoor
-/**
- * Creates a `BackUpIfTooClose` behavior, only applicable to **mob** entities
- * 
- * @param tooCloseDistance - The distance at which the mob will begin to backup
- * @param strafeSpeed - The speed at which the entity will back away
- */
-public "backUpIfTooClose"(tooCloseDistance: integer, strafeSpeed: float): $OneShot<($Mob)>
-/**
- * Creates a `LocateHidingPlace` behavior
- * 
- * @param radius - The maximum radius a hiding place will be searched for
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- * @param closeEnoughDistance - The distance at which the entity considers itself close enough to the hiding place
- */
-public "locateHidingPlace"(radius: integer, speedModifier: float, closeEnoughDistance: integer): $OneShot<($LivingEntity)>
-/**
- * Creates a `JumpOnBed` behavior, only applicable to **mob** entities
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "jumpOnBed"(speedModifier: float): $JumpOnBed
-/**
- * Creates a `EraseMemoryIf` behavior
- * 
- * @param predicate - When to erase the memory
- * @param memoryType - The memory type to be erased
- */
-public "eraseMemoryIf"<E extends $LivingEntity>(predicate: $Predicate$Type<(E)>, memoryType: $MemoryModuleType$Type<(any)>): $BehaviorControl<(E)>
-/**
- * Creates a `LongJumpMidJump` behavior, only applicable to **mob** entities
- * 
- * @param minTicksBetweenJumps - The minimum number of ticks that must pass before the entity must jump
- * @param maxTicksBetweenJumps - The maximum number of ticks that must pass before the entity must jump
- * @param landingSound - The sound event that will be broadcast when the entity lands
- */
-public "longJumpMidJump"(minTicksBetweenJumps: integer, maxTicksBetweenJumps: integer, landingSound: $SoundEvent$Type): $LongJumpMidJump
-/**
- * Creates a `MoveToTargetSink` behavior, only applicable to **mob** entities
- * 
- * @param minDuration - The minimum duration of the behavior
- * @param maxDuration - The maximum duration of the behavior
- */
-public "moveToTargetSink"(minDuration: integer, maxDuration: integer): $MoveToTargetSink
-/**
- * Creates a `LookAtTargetSink` behavior, only applicable to **mob** entities
- * 
- * @param minDuration - The minimum duration of the behavior
- * @param maxDuration - The maximum duration of the behavior
- */
-public "lookAtTargetSink"(minDuration: integer, maxDuration: integer): $LookAtTargetSink
-/**
- * Creates a `ReactToBell` behavior
- */
-public "reactToBell"(): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `ResetRaidStatus` behavior
- */
-public "resetRaidStatus"(): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `RandomSwim` behavior, only applicable to **pathfinder** mobs
- * 
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "randomSwim"(speedModifier: float): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates a `SetLookAndInteract` behavior
- * 
- * @param type - The entity type that the entity interacts with
- * @param interactionRange - The range that the entity will interact with the target
- */
-public "setLookAndInteract"(type: $EntityType$Type<(any)>, interactionRange: integer): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `RingBell` behavior
- */
-public "ringBell"(): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `SetHiddenState` behavior
- * 
- * @param stayHiddenSeconds - How long the entity should be hidden for
- * @param closeEnoughDist - The distance that is considered close enough to a hiding place
- */
-public "setHiddenState"(stayHiddenSeconds: integer, closeEnoughDist: integer): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `SetRaidStatus` behavior
- */
-public "setRaidStatus"(): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `BlockPosTracker` for use in `.stayCloseToTarget()`
- * 
- * @param pos - THe position that is to be tracked
- */
-public "blockPosTracker"(pos: $BlockPos$Type): $BlockPosTracker
-/**
- * Creates a `StartAttacking` behavior, only applicable to **mob** entities
- * 
- * @param canAttackPredicate - A predicate for if the mob can attack
- * @param targetFinder - A function that finds a target to attack
- * @param duration - The number of ticks that the behavior should be active for
- */
-public "startAttacking"<E extends $Mob>(canAttackPredicate: $Predicate$Type<(E)>, targetFinder: $Function$Type<(E), ($LivingEntity$Type)>): $BehaviorControl<(E)>
-/**
- * Creates an `EntityTracker` for use in `.stayCloseToTarget()`
- * 
- * @param entity - The target entity
- * @param trackEyeHeight - If the eye height of the target should be considered
- */
-public "entityPosTracker"(entity: $Entity$Type, trackEyeHeight: boolean): $EntityTracker
-/**
- * Creates a `SleepInBed` behavior
- */
-public "sleepInBed"(): $SleepInBed
-/**
- * Creates a `SocializeAtBell` behavior
- */
-public "socializeAtBell"(): $OneShot<($LivingEntity)>
-/**
- * Creates a `StrollAroundPoi` behavior, only applicable to **pathfinder** mobs
- * 
- * @param memoryType - The memory that is used for the poi
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- * @param maxDistanceFromPoi - The maximum distance away from the poi that the mob may go while strolling
- */
-public "strollAroundPoi"(memoryType: $MemoryModuleType$Type<($GlobalPos$Type)>, speedModifier: float, maxDistanceFromPoi: integer): $OneShot<($PathfinderMob)>
-/**
- * Creates a `StrollToPoi` behavior, only applicable to **pathfinder** mobs
- * 
- * @param memoryType - The memory that is used for the poi
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- * @param closeEnoughDist - The distance that is considered close enough to the poi
- * @param maxDistanceFromPoi - The maximum distance away from the poi that this behavior will apply
- */
-public "strollToPoi"(memoryType: $MemoryModuleType$Type<($GlobalPos$Type)>, speedModifier: float, closeEnoughDist: integer, maxDistanceFromPoi: integer): $BehaviorControl<($PathfinderMob)>
-/**
- * Creates a `StayCloseToTarget` behavior
- * 
- * @param targetPositionTracker - A function that returns the position tracker for the entity, the returned tracker may be null, see `.blockPosTracker()` and `.entityPosTracker()`
- * @param pPredicate - The predicate to use with the living Entity as an argument
- * @param closeEnough - The distance that is close enough to the target
- * @param tooFar - The distance that is too far from the target
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "stayCloseToTarget"(targetPositionGetter: $Function$Type<($LivingEntity$Type), ($PositionTracker$Type)>, pPredicate: $Predicate$Type<($LivingEntity$Type)>, closeEnough: integer, tooFar: integer, speedModifier: float): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `ValidateNearbyPoi` behavior
- * 
- * @param poiPredicate - The predicate that is used to validate the poi
- * @param memoryType - The memory that is used for the poi
- */
-public "validateNearbyPoi"(poiPredicate: $Predicate$Type<($Holder$Type<($PoiType$Type)>)>, memoryType: $MemoryModuleType$Type<($GlobalPos$Type)>): $BehaviorControl<($LivingEntity)>
-/**
- * Creates a `TryFindLand` behavior, only applicable to **pathfinder** mobs
- * 
- * @param range - The range, in all directions, at which the mob will search for land
- * @param speedModifier - The modifier to the mob's speed when this behavior is active
- */
-public "tryFindLand"(range: integer, speedModifier: float): $BehaviorControl<($PathfinderMob)>
 set "walkTargetFromAttackTargetIfTargetOutOfReach"(value: $Function$Type<($LivingEntity$Type), (float)>)
 set "closestHomeAsWalkTarget"(value: float)
 }
@@ -2828,17 +2826,6 @@ constructor(i: $ResourceLocation$Type)
  */
 public "ate"(ate: $Consumer$Type<($LivingEntity$Type)>): $MobBuilder<(T)>
 /**
- * Sets whether the entity should despawn in peaceful difficulty.
- * 
- * @param shouldDespawnInPeaceful A boolean indicating whether the entity should despawn in peaceful difficulty.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.shouldDespawnInPeaceful(true);
- * ```
- */
-public "shouldDespawnInPeaceful"(shouldDespawnInPeaceful: boolean): $MobBuilder<(T)>
-/**
  * Sets a predicate to determine whether the entity can fire a projectile weapon.
  * 
  * @param canFireProjectileWeaponPredicate A Predicate accepting a
@@ -2871,57 +2858,16 @@ public "canFireProjectileWeaponPredicate"(canFireProjectileWeaponPredicate: $Fun
  */
 public "meleeAttackRangeSqr"(meleeAttackRangeSqr: $Function$Type<($Mob$Type), (any)>): $MobBuilder<(T)>
 /**
- * Sets the interval in ticks between ambient sounds for the mob entity.
+ * Sets whether the entity should despawn in peaceful difficulty.
  * 
- * @param ambientSoundInterval The interval in ticks between ambient sounds.
- * Defaults to 120.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.ambientSoundInterval(100);
- * ```
- */
-public "ambientSoundInterval"(ambientSoundInterval: integer): $MobBuilder<(T)>
-/**
- * Sets the ingredient required for the entity to fire a projectile weapon.
- * 
- * @param canFireProjectileWeapon An Ingredient representing the required item for firing a projectile weapon.
+ * @param shouldDespawnInPeaceful A boolean indicating whether the entity should despawn in peaceful difficulty.
  * 
  * Example usage:
  * ```javascript
- * mobBuilder.canFireProjectileWeapon([
- *     'minecraft:bow',
- *     'minecraft:crossbow'
- * ]);
+ * mobBuilder.shouldDespawnInPeaceful(true);
  * ```
  */
-public "canFireProjectileWeapon"(canFireProjectileWeapon: $Ingredient$Type): $MobBuilder<(T)>
-/**
- * Sets whether persistence is required for the entity.
- * 
- * @param isPersistenceRequired A boolean indicating whether persistence is required.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.isPersistenceRequired(true);
- * ```
- */
-public "isPersistenceRequired"(isPersistenceRequired: boolean): $MobBuilder<(T)>
-/**
- * Sets the function to determine whether the entity can pick up loot.
- * 
- * @param canPickUpLoot A Function accepting a {@link Mob} parameter,
- *                      defining the condition for the entity to pick up loot.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.canPickUpLoot(entity => {
- *     // Custom logic to determine whether the entity can pick up loot based on the provided mob.
- *     return true;
- * });
- * ```
- */
-public "canPickUpLoot"(canPickUpLoot: $Function$Type<($Mob$Type), (any)>): $MobBuilder<(T)>
+public "shouldDespawnInPeaceful"(shouldDespawnInPeaceful: boolean): $MobBuilder<(T)>
 /**
  * Sets the function to determine whether the entity can hold an item.
  * 
@@ -2938,6 +2884,21 @@ public "canPickUpLoot"(canPickUpLoot: $Function$Type<($Mob$Type), (any)>): $MobB
  */
 public "canHoldItem"(canHoldItem: $Function$Type<($ContextUtils$EntityItemStackContext$Type), (any)>): $MobBuilder<(T)>
 /**
+ * Sets the function to determine whether the entity can pick up loot.
+ * 
+ * @param canPickUpLoot A Function accepting a {@link Mob} parameter,
+ *                      defining the condition for the entity to pick up loot.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.canPickUpLoot(entity => {
+ *     // Custom logic to determine whether the entity can pick up loot based on the provided mob.
+ *     return true;
+ * });
+ * ```
+ */
+public "canPickUpLoot"(canPickUpLoot: $Function$Type<($Mob$Type), (any)>): $MobBuilder<(T)>
+/**
  * Sets a function to determine if the entity can be leashed.
  * 
  * @param canBeLeashed A Function accepting a ContextUtils.PlayerEntityContext parameter
@@ -2951,35 +2912,42 @@ public "canHoldItem"(canHoldItem: $Function$Type<($ContextUtils$EntityItemStackC
  */
 public "canBeLeashed"(canBeLeashed: $Function$Type<($ContextUtils$PlayerEntityContext$Type), (any)>): $MobBuilder<(T)>
 /**
- * Sets the callback function to be executed when the entity ticks while leashed.
+ * Sets the ingredient required for the entity to fire a projectile weapon.
  * 
- * @param consumer A Consumer accepting a {@link ContextUtils.PlayerEntityContext} parameter,
- *                 defining the behavior to be executed when the entity ticks while leashed.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.tickLeash(context => {
- *     // Custom logic to handle the entity's behavior while leashed.
- *     // Access information about the player and entity using the provided context.
- * });
- * ```
- */
-public "tickLeash"(consumer: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type)>): $MobBuilder<(T)>
-/**
- * Creates a spawn egg item for this entity type
- */
-public "eggItem"(eggItem: $Consumer$Type<($SpawnEggItemBuilder$Type)>): $MobBuilder<(T)>
-/**
- * Sets whether the entity can jump.
- * 
- * @param canJump A boolean indicating whether the entity can jump.
+ * @param canFireProjectileWeapon An Ingredient representing the required item for firing a projectile weapon.
  * 
  * Example usage:
  * ```javascript
- * mobBuilder.canJump(true);
+ * mobBuilder.canFireProjectileWeapon([
+ *     'minecraft:bow',
+ *     'minecraft:crossbow'
+ * ]);
  * ```
  */
-public "canJump"(canJump: boolean): $MobBuilder<(T)>
+public "canFireProjectileWeapon"(canFireProjectileWeapon: $Ingredient$Type): $MobBuilder<(T)>
+/**
+ * Sets the interval in ticks between ambient sounds for the mob entity.
+ * 
+ * @param ambientSoundInterval The interval in ticks between ambient sounds.
+ * Defaults to 120.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.ambientSoundInterval(100);
+ * ```
+ */
+public "ambientSoundInterval"(ambientSoundInterval: integer): $MobBuilder<(T)>
+/**
+ * Sets whether persistence is required for the entity.
+ * 
+ * @param isPersistenceRequired A boolean indicating whether persistence is required.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.isPersistenceRequired(true);
+ * ```
+ */
+public "isPersistenceRequired"(isPersistenceRequired: boolean): $MobBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity's target changes.
  * 
@@ -2996,14 +2964,23 @@ public "canJump"(canJump: boolean): $MobBuilder<(T)>
  */
 public "onTargetChanged"(setTarget: $Consumer$Type<($ContextUtils$TargetChangeContext$Type)>): $MobBuilder<(T)>
 /**
- * Sets the sound to play when the entity is ambient using either a string representation or a ResourceLocation object.
+ * Creates a spawn egg item for this entity type
+ */
+public "eggItem"(eggItem: $Consumer$Type<($SpawnEggItemBuilder$Type)>): $MobBuilder<(T)>
+/**
+ * Sets a function to determine the PathNavigation of the entity.
+ * 
+ * @param createNavigation A Function accepting an EntityLevelContext parameter
  * 
  * Example usage:
  * ```javascript
- * mobBuilder.setAmbientSound("minecraft:entity.zombie.ambient");
+ * mobBuilder.createNavigation(context => {
+ *     const {entity, level} = context
+ *     return EntityJSUtils.createWallClimberNavigation(entity, level) // Return some path navigation
+ * });
  * ```
  */
-public "setAmbientSound"(ambientSound: any): $MobBuilder<(T)>
+public "createNavigation"(createNavigation: $Function$Type<($ContextUtils$EntityLevelContext$Type), (any)>): $MobBuilder<(T)>
 /**
  * Sets a predicate to determine if the entity should be removed when far away from the player.
  * 
@@ -3020,19 +2997,40 @@ public "setAmbientSound"(ambientSound: any): $MobBuilder<(T)>
  */
 public "removeWhenFarAway"(removeWhenFarAway: $Function$Type<($ContextUtils$EntityDistanceToPlayerContext$Type), (any)>): $MobBuilder<(T)>
 /**
- * Sets a function to determine the PathNavigation of the entity.
+ * Sets whether the entity can jump.
  * 
- * @param createNavigation A Function accepting an EntityLevelContext parameter
+ * @param canJump A boolean indicating whether the entity can jump.
  * 
  * Example usage:
  * ```javascript
- * mobBuilder.createNavigation(context => {
- *     const {entity, level} = context
- *     return EntityJSUtils.createWallClimberNavigation(entity, level) // Return some path navigation
+ * mobBuilder.canJump(true);
+ * ```
+ */
+public "canJump"(canJump: boolean): $MobBuilder<(T)>
+/**
+ * Sets the sound to play when the entity is ambient using either a string representation or a ResourceLocation object.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.setAmbientSound("minecraft:entity.zombie.ambient");
+ * ```
+ */
+public "setAmbientSound"(ambientSound: any): $MobBuilder<(T)>
+/**
+ * Sets the callback function to be executed when the entity ticks while leashed.
+ * 
+ * @param consumer A Consumer accepting a {@link ContextUtils.PlayerEntityContext} parameter,
+ *                 defining the behavior to be executed when the entity ticks while leashed.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.tickLeash(context => {
+ *     // Custom logic to handle the entity's behavior while leashed.
+ *     // Access information about the player and entity using the provided context.
  * });
  * ```
  */
-public "createNavigation"(createNavigation: $Function$Type<($ContextUtils$EntityLevelContext$Type), (any)>): $MobBuilder<(T)>
+public "tickLeash"(consumer: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type)>): $MobBuilder<(T)>
 /**
  * Function which sets the offset for riding on the mob entity.
  * 
@@ -3090,7 +3088,6 @@ import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
-import {$AgeableMob, $AgeableMob$Type} from "packages/net/minecraft/world/entity/$AgeableMob"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$PartEntityJS, $PartEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$PartEntityJS"
@@ -3105,8 +3102,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -3236,157 +3233,156 @@ readonly "random": $RandomSource
 constructor(builder: $ChickenJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Chicken
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -3475,20 +3471,7 @@ export class $GeoLayerJSBuilder<T extends ($LivingEntity) & ($IAnimatableJS)> {
 constructor(builder: $BaseLivingEntityBuilder$Type<(T)>)
 
 public "build"(entityRendererIn: $KubeJSEntityRenderer$Type<(T)>, builder: $BaseLivingEntityBuilder$Type<(T)>): $GeoLayerJS<(T)>
-/**
- * Defines logic to preRender the newGeoLayer.
- * 
- * Example usage:
- * ```javascript
- * geoBuilder.preRender(context => {
- *     // Define logic to render the newGeoLayer
- *     if (context.entity.isBaby()) {
- *         context.poseStack.scale(0.5, 0.5, 0.5);
- *     }
- * });
- * ```
- */
-public "preRender"(preRender: $Consumer$Type<($ContextUtils$PreRenderContext$Type<(T)>)>): $GeoLayerJSBuilder<(T)>
+public "getBuilder"(): $BaseLivingEntityBuilder<(T)>
 /**
  * Defines logic to render the newGeoLayer.
  * By default this will render the flat texture set in textureResource
@@ -3506,7 +3489,20 @@ public "preRender"(preRender: $Consumer$Type<($ContextUtils$PreRenderContext$Typ
  * ```
  */
 public "render"(render: $Consumer$Type<($ContextUtils$PreRenderContext$Type<(T)>)>): $GeoLayerJSBuilder<(T)>
-public "getBuilder"(): $BaseLivingEntityBuilder<(T)>
+/**
+ * Defines logic to preRender the newGeoLayer.
+ * 
+ * Example usage:
+ * ```javascript
+ * geoBuilder.preRender(context => {
+ *     // Define logic to render the newGeoLayer
+ *     if (context.entity.isBaby()) {
+ *         context.poseStack.scale(0.5, 0.5, 0.5);
+ *     }
+ * });
+ * ```
+ */
+public "preRender"(preRender: $Consumer$Type<($ContextUtils$PreRenderContext$Type<(T)>)>): $GeoLayerJSBuilder<(T)>
 /**
  * Sets a function to determine the texture resource for the entity.
  * The provided Function accepts a parameter of type T (the entity),
@@ -3564,7 +3560,6 @@ import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
-import {$AgeableMob, $AgeableMob$Type} from "packages/net/minecraft/world/entity/$AgeableMob"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$PartEntityJS, $PartEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$PartEntityJS"
@@ -3578,8 +3573,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -3706,157 +3701,156 @@ readonly "random": $RandomSource
 constructor(builder: $GoatJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Goat
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -3883,6 +3877,13 @@ export class $BiomeSpawnsEventJS extends $EventJS {
 constructor()
 
 /**
+ * Removes the given entity type spawns from the given biomes
+ * 
+ * @param entityType - The entity type to remove spawns from
+ * @param biomes - A list of biomes and biome tags to remove the spawns from
+ */
+public "removeSpawn"(entityType: $EntityType$Type<(any)>, biomes: $List$Type<(string)>): void
+/**
  * Adds a spawn to the given entity type in the given biomes
  * 
  * @param entityType - The entity type to add a spawn to
@@ -3892,13 +3893,6 @@ constructor()
  * @param maxCount - The maximum number of entities to spawn
  */
 public "addSpawn"(entityType: $EntityType$Type<(any)>, biomes: $List$Type<(string)>, weight: integer, minCount: integer, maxCount: integer): void
-/**
- * Removes the given entity type spawns from the given biomes
- * 
- * @param entityType - The entity type to remove spawns from
- * @param biomes - A list of biomes and biome tags to remove the spawns from
- */
-public "removeSpawn"(entityType: $EntityType$Type<(any)>, biomes: $List$Type<(string)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4095,6 +4089,16 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
+ * Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.defaultGoals(false);
+ * ```
+ */
+public "defaultGoals"(defaultGoals: boolean): $WitherJSBuilder
+/**
  * @param attackProjectile Sets the projectile shot by the wither.
  * Defaults to a wither skull.
  * 
@@ -4114,16 +4118,6 @@ public "attackProjectile"(attackProjectile: string): $WitherJSBuilder
  * ```
  */
 public "customServerAiStep"(customServerAiStep: boolean): $WitherJSBuilder
-/**
- * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
- * Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * builder.defaultGoals(false);
- * ```
- */
-public "defaultGoals"(defaultGoals: boolean): $WitherJSBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4210,8 +4204,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -4343,162 +4337,162 @@ readonly "random": $RandomSource
 constructor(builder: $HorseJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "tameWithName"(pPlayer: $Player$Type): boolean
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "canJump"(): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "isImmobile"(): boolean
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "isImmobile"(): boolean
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "tameWithName"(pPlayer: $Player$Type): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canJump"(): boolean
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
+get "immobile"(): boolean
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
-get "immobile"(): boolean
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -4597,16 +4591,15 @@ declare global {
 export type $ProjectileItemBuilder_ = $ProjectileItemBuilder$Type;
 }}
 declare module "packages/net/liopyu/entityjs/builders/nonliving/entityjs/$ProjectileEntityBuilder" {
+import {$ContextUtils$CollidingProjectileEntityContext, $ContextUtils$CollidingProjectileEntityContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$CollidingProjectileEntityContext"
+import {$ContextUtils$ProjectileBlockHitContext, $ContextUtils$ProjectileBlockHitContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$ProjectileBlockHitContext"
 import {$BaseNonAnimatableEntityBuilder, $BaseNonAnimatableEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/$BaseNonAnimatableEntityBuilder"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$IProjectileEntityJS, $IProjectileEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$IProjectileEntityJS"
-import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
-import {$ContextUtils$ProjectileBlockHitContext, $ContextUtils$ProjectileBlockHitContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$ProjectileBlockHitContext"
-import {$ContextUtils$CollidingProjectileEntityContext, $ContextUtils$CollidingProjectileEntityContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$CollidingProjectileEntityContext"
-import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$IProjectileEntityJS, $IProjectileEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$IProjectileEntityJS"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$ContextUtils$ProjectileEntityHitContext, $ContextUtils$ProjectileEntityHitContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$ProjectileEntityHitContext"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 
@@ -4619,50 +4612,48 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
-public "createObject"(): $EntityType<(T)>
 /**
- * Sets a callback function to be executed when the projectile hits an entity.
- * The provided Consumer accepts a {@link ContextUtils.ProjectileEntityHitContext} parameter,
- * representing the context of the projectile's interaction with a specific entity.
+ * Sets a callback function to be executed when the projectile
+ * collides with an entity.
  * 
  * Example usage:
  * ```javascript
- * projectileBuilder.onHitEntity(context -> {
- *     // Custom logic to handle the projectile hitting an entity.
- *     // Access information about the entity and projectile using the provided context.
+ * arrowEntityBuilder.onEntityCollision(context => {
+ *     const { entity, target } = context
+ *     console.log(entity)
  * });
  * ```
  */
-public "onHitEntity"(consumer: $Consumer$Type<($ContextUtils$ProjectileEntityHitContext$Type)>): $ProjectileEntityBuilder<(T)>
+public "onEntityCollision"(consumer: $Consumer$Type<($ContextUtils$CollidingProjectileEntityContext$Type)>): $ProjectileEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the projectile hits a block.
- * The provided Consumer accepts a {@link ContextUtils.ProjectileBlockHitContext} parameter,
- * representing the context of the projectile's interaction with a specific block.
+ * Sets the scale for rendering the projectile entity.
+ * 
+ * @param pX The X-axis scale.
+ * 
+ * @param pY The Y-axis scale.
+ * 
+ * @param pZ The Z-axis scale.
  * 
  * Example usage:
  * ```javascript
- * projectileBuilder.onHitBlock(context -> {
- *     // Custom logic to handle the projectile hitting a block.
- *     // Access information about the block and projectile using the provided context.
+ * projectileEntityBuilder.renderScale(1.5, 1.5, 1.5);
+ * ```
+ */
+public "renderScale"(pX: float, pY: float, pZ: float): $ProjectileEntityBuilder<(T)>
+/**
+ * Sets a function to determine if the projectile entity can hit a specific entity.
+ * 
+ * @param canHitEntity The predicate to check if the arrow can hit the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * projectileEntityBuilder.canHitEntity(entity -> {
+ *     // Custom logic to determine if the projectile can hit the specified entity
+ *     // Return true if the arrow can hit, false otherwise.
  * });
  * ```
  */
-public "onHitBlock"(consumer: $Consumer$Type<($ContextUtils$ProjectileBlockHitContext$Type)>): $ProjectileEntityBuilder<(T)>
-/**
- * Sets the offset for rendering the projectile entity.
- * 
- * @param vX The X-axis offset.
- * 
- * @param vY The Y-axis offset.
- * 
- * @param vZ The Z-axis offset.
- * 
- * Example usage:
- * ```javascript
- * projectileEntityBuilder.renderOffset(0.5, 1.0, -0.5);
- * ```
- */
-public "renderOffset"(vX: float, vY: float, vZ: float): $ProjectileEntityBuilder<(T)>
+public "canHitEntity"(arg0: $Function$Type<($Entity$Type), (any)>): $ProjectileEntityBuilder<(T)>
 /**
  * Sets a function to determine the texture resource for the entity.
  * The provided Function accepts a parameter of type T (the entity),
@@ -4680,47 +4671,48 @@ public "renderOffset"(vX: float, vY: float, vZ: float): $ProjectileEntityBuilder
  */
 public "textureLocation"(arg0: $Function$Type<(T), (any)>): $ProjectileEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the projectile
- * collides with an entity.
+ * Sets a callback function to be executed when the projectile hits a block.
+ * The provided Consumer accepts a {@link ContextUtils.ProjectileBlockHitContext} parameter,
+ * representing the context of the projectile's interaction with a specific block.
  * 
  * Example usage:
  * ```javascript
- * arrowEntityBuilder.onEntityCollision(context => {
- *     const { entity, target } = context
- *     console.log(entity)
+ * projectileBuilder.onHitBlock(context -> {
+ *     // Custom logic to handle the projectile hitting a block.
+ *     // Access information about the block and projectile using the provided context.
  * });
  * ```
  */
-public "onEntityCollision"(consumer: $Consumer$Type<($ContextUtils$CollidingProjectileEntityContext$Type)>): $ProjectileEntityBuilder<(T)>
+public "onHitBlock"(consumer: $Consumer$Type<($ContextUtils$ProjectileBlockHitContext$Type)>): $ProjectileEntityBuilder<(T)>
 /**
- * Sets a function to determine if the projectile entity can hit a specific entity.
- * 
- * @param canHitEntity The predicate to check if the arrow can hit the entity.
+ * Sets a callback function to be executed when the projectile hits an entity.
+ * The provided Consumer accepts a {@link ContextUtils.ProjectileEntityHitContext} parameter,
+ * representing the context of the projectile's interaction with a specific entity.
  * 
  * Example usage:
  * ```javascript
- * projectileEntityBuilder.canHitEntity(entity -> {
- *     // Custom logic to determine if the projectile can hit the specified entity
- *     // Return true if the arrow can hit, false otherwise.
+ * projectileBuilder.onHitEntity(context -> {
+ *     // Custom logic to handle the projectile hitting an entity.
+ *     // Access information about the entity and projectile using the provided context.
  * });
  * ```
  */
-public "canHitEntity"(arg0: $Function$Type<($Entity$Type), (any)>): $ProjectileEntityBuilder<(T)>
+public "onHitEntity"(consumer: $Consumer$Type<($ContextUtils$ProjectileEntityHitContext$Type)>): $ProjectileEntityBuilder<(T)>
 /**
- * Sets the scale for rendering the projectile entity.
+ * Sets the offset for rendering the projectile entity.
  * 
- * @param pX The X-axis scale.
+ * @param vX The X-axis offset.
  * 
- * @param pY The Y-axis scale.
+ * @param vY The Y-axis offset.
  * 
- * @param pZ The Z-axis scale.
+ * @param vZ The Z-axis offset.
  * 
  * Example usage:
  * ```javascript
- * projectileEntityBuilder.renderScale(1.5, 1.5, 1.5);
+ * projectileEntityBuilder.renderOffset(0.5, 1.0, -0.5);
  * ```
  */
-public "renderScale"(pX: float, pY: float, pZ: float): $ProjectileEntityBuilder<(T)>
+public "renderOffset"(vX: float, vY: float, vZ: float): $ProjectileEntityBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4904,13 +4896,31 @@ export class $BaseEntityBuilder$AnimationEventJS<E extends ($Entity) & ($IAnimat
 constructor(parent: $AnimationState$Type<(E)>)
 
 /**
+ * Adds an animation to the current animation list
+ */
+public "then"(animationName: string, loopType: $Animation$LoopType$Type): $BaseEntityBuilder$AnimationEventJS<(E)>
+/**
+ * Returns the number of ticks the entity has been animating for
+ */
+public "getAnimationTick"(): double
+public "getLimbSwing"(): float
+public "getLimbSwingAmount"(): float
+/**
+ * Wait a certain amount of ticks before starting the next animation
+ */
+public "thenWait"(ticks: integer): $PlayState
+/**
+ * Sets an animation to play an x amount of times
+ */
+public "thenPlayXTimes"(animationName: string, times: integer): $PlayState
+/**
+ * Sets an animation to play and hold on the last frame
+ */
+public "thenPlayAndHold"(animationName: string): $PlayState
+/**
  * Returns the entity that is being animated
  */
 public "getEntity"(): E
-/**
- * Sets an animation to play in a loop
- */
-public "thenLoop"(animationName: string): $PlayState
 /**
  * Returns any extra data that the event may have
  * 
@@ -4918,31 +4928,9 @@ public "thenLoop"(animationName: string): $PlayState
  */
 public "getExtraData"(): $Map<($DataTicket<(any)>), (any)>
 /**
- * Adds an animation to the current animation list
- */
-public "then"(animationName: string, loopType: $Animation$LoopType$Type): $BaseEntityBuilder$AnimationEventJS<(E)>
-/**
  * If the entity is moving
  */
 public "isMoving"(): boolean
-public "getLimbSwingAmount"(): float
-public "getLimbSwing"(): float
-/**
- * Sets an animation to play an x amount of times
- */
-public "thenPlayXTimes"(animationName: string, times: integer): $PlayState
-/**
- * Wait a certain amount of ticks before starting the next animation
- */
-public "thenWait"(ticks: integer): $PlayState
-/**
- * Sets an animation to play and hold on the last frame
- */
-public "thenPlayAndHold"(animationName: string): $PlayState
-/**
- * Returns the number of ticks the entity has been animating for
- */
-public "getAnimationTick"(): double
 /**
  * Returns a number, in the range [0, 1], how far through the tick it currently is
  */
@@ -4951,6 +4939,10 @@ public "getPartialTick"(): float
  * Returns the animation controller this event is part of
  */
 public "getController"(): $AnimationController<(E)>
+/**
+ * Sets an animation to play in a loop
+ */
+public "thenLoop"(animationName: string): $PlayState
 /**
  * Sets an animation to play defaulting to the animations.json file loop type
  */
@@ -4966,12 +4958,12 @@ public "thenPlay"(animationName: string): $PlayState
  *  ```
  */
 public "addTriggerableAnimation"(animationName: string, triggerableAnimationID: string, loopTypeEnum: any): $PlayState
+get "animationTick"(): double
+get "limbSwing"(): float
+get "limbSwingAmount"(): float
 get "entity"(): E
 get "extraData"(): $Map<($DataTicket<(any)>), (any)>
 get "moving"(): boolean
-get "limbSwingAmount"(): float
-get "limbSwing"(): float
-get "animationTick"(): double
 get "partialTick"(): float
 get "controller"(): $AnimationController<(E)>
 }
@@ -5124,8 +5116,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -5246,150 +5238,150 @@ readonly "random": $RandomSource
 constructor(builder: $GuardianJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -5473,8 +5465,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -5596,150 +5588,150 @@ readonly "random": $RandomSource
 constructor(builder: $BlazeJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -5762,8 +5754,8 @@ import {$DataTicket, $DataTicket$Type} from "packages/software/bernie/geckolib/c
 import {$AnimationController, $AnimationController$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationController"
 import {$AnimationState, $AnimationState$Type} from "packages/software/bernie/geckolib/core/animation/$AnimationState"
 import {$Animation$LoopType, $Animation$LoopType$Type} from "packages/software/bernie/geckolib/core/animation/$Animation$LoopType"
-import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$PlayState, $PlayState$Type} from "packages/software/bernie/geckolib/core/object/$PlayState"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $BaseLivingEntityBuilder$AnimationEventJS<E extends ($LivingEntity) & ($IAnimatableJS)> {
@@ -5771,13 +5763,31 @@ export class $BaseLivingEntityBuilder$AnimationEventJS<E extends ($LivingEntity)
 constructor(parent: $AnimationState$Type<(E)>)
 
 /**
+ * Adds an animation to the current animation list
+ */
+public "then"(animationName: string, loopType: $Animation$LoopType$Type): $BaseLivingEntityBuilder$AnimationEventJS<(E)>
+/**
+ * Returns the number of ticks the entity has been animating for
+ */
+public "getAnimationTick"(): double
+public "getLimbSwing"(): float
+public "getLimbSwingAmount"(): float
+/**
+ * Wait a certain amount of ticks before starting the next animation
+ */
+public "thenWait"(ticks: integer): $PlayState
+/**
+ * Sets an animation to play an x amount of times
+ */
+public "thenPlayXTimes"(animationName: string, times: integer): $PlayState
+/**
+ * Sets an animation to play and hold on the last frame
+ */
+public "thenPlayAndHold"(animationName: string): $PlayState
+/**
  * Returns the entity that is being animated
  */
 public "getEntity"(): E
-/**
- * Sets an animation to play in a loop
- */
-public "thenLoop"(animationName: string): $PlayState
 /**
  * Returns any extra data that the event may have
  * 
@@ -5785,31 +5795,9 @@ public "thenLoop"(animationName: string): $PlayState
  */
 public "getExtraData"(): $Map<($DataTicket<(any)>), (any)>
 /**
- * Adds an animation to the current animation list
- */
-public "then"(animationName: string, loopType: $Animation$LoopType$Type): $BaseLivingEntityBuilder$AnimationEventJS<(E)>
-/**
  * If the entity is moving
  */
 public "isMoving"(): boolean
-public "getLimbSwingAmount"(): float
-public "getLimbSwing"(): float
-/**
- * Sets an animation to play an x amount of times
- */
-public "thenPlayXTimes"(animationName: string, times: integer): $PlayState
-/**
- * Wait a certain amount of ticks before starting the next animation
- */
-public "thenWait"(ticks: integer): $PlayState
-/**
- * Sets an animation to play and hold on the last frame
- */
-public "thenPlayAndHold"(animationName: string): $PlayState
-/**
- * Returns the number of ticks the entity has been animating for
- */
-public "getAnimationTick"(): double
 /**
  * Returns a number, in the range [0, 1], how far through the tick it currently is
  */
@@ -5818,6 +5806,10 @@ public "getPartialTick"(): float
  * Returns the animation controller this event is part of
  */
 public "getController"(): $AnimationController<(E)>
+/**
+ * Sets an animation to play in a loop
+ */
+public "thenLoop"(animationName: string): $PlayState
 /**
  * Sets an animation to play defaulting to the animations.json file loop type
  */
@@ -5833,12 +5825,12 @@ public "thenPlay"(animationName: string): $PlayState
  *  ```
  */
 public "addTriggerableAnimation"(animationName: string, triggerableAnimationID: string, loopTypeEnum: any): $PlayState
+get "animationTick"(): double
+get "limbSwing"(): float
+get "limbSwingAmount"(): float
 get "entity"(): E
 get "extraData"(): $Map<($DataTicket<(any)>), (any)>
 get "moving"(): boolean
-get "limbSwingAmount"(): float
-get "limbSwing"(): float
-get "animationTick"(): double
 get "partialTick"(): float
 get "controller"(): $AnimationController<(E)>
 }
@@ -5989,8 +5981,8 @@ import {$Axolotl, $Axolotl$Type} from "packages/net/minecraft/world/entity/anima
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -6116,124 +6108,124 @@ readonly "random": $RandomSource
 constructor(builder: $AxolotlJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
 public "getBucketItemStack"(): $ItemStack
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public static "bucketMobPickup"<T extends ($LivingEntity) & ($Bucketable)>(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: T): $Optional<($InteractionResult)>
@@ -6241,45 +6233,45 @@ public static "bucketMobPickup"<T extends ($LivingEntity) & ($Bucketable)>(arg0:
  * 
  * @deprecated
  */
-public static "saveDefaultDataToBucketTag"(arg0: $Mob$Type, arg1: $ItemStack$Type): void
+public static "loadDefaultDataFromBucketTag"(arg0: $Mob$Type, arg1: $CompoundTag$Type): void
 /**
  * 
  * @deprecated
  */
-public static "loadDefaultDataFromBucketTag"(arg0: $Mob$Type, arg1: $CompoundTag$Type): void
+public static "saveDefaultDataToBucketTag"(arg0: $Mob$Type, arg1: $ItemStack$Type): void
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
 get "bucketItemStack"(): $ItemStack
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -6338,8 +6330,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -6460,117 +6452,117 @@ readonly "random": $RandomSource
 constructor(builder: $WaterEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getBucketItemStack"(): $ItemStack
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "getBucketItemStack"(): $ItemStack
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public static "bucketMobPickup"<T extends ($LivingEntity) & ($Bucketable)>(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: T): $Optional<($InteractionResult)>
@@ -6578,45 +6570,45 @@ public static "bucketMobPickup"<T extends ($LivingEntity) & ($Bucketable)>(arg0:
  * 
  * @deprecated
  */
-public static "saveDefaultDataToBucketTag"(arg0: $Mob$Type, arg1: $ItemStack$Type): void
+public static "loadDefaultDataFromBucketTag"(arg0: $Mob$Type, arg1: $CompoundTag$Type): void
 /**
  * 
  * @deprecated
  */
-public static "loadDefaultDataFromBucketTag"(arg0: $Mob$Type, arg1: $CompoundTag$Type): void
+public static "saveDefaultDataToBucketTag"(arg0: $Mob$Type, arg1: $ItemStack$Type): void
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
 get "bucketItemStack"(): $ItemStack
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -6678,8 +6670,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -6822,163 +6814,163 @@ readonly "random": $RandomSource
 constructor(builder: $CamelJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "tameWithName"(pPlayer: $Player$Type): boolean
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "canJump"(): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Camel
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "isImmobile"(): boolean
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "isImmobile"(): boolean
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "tameWithName"(pPlayer: $Player$Type): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Camel
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canJump"(): boolean
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
-public "equipSaddle"(arg0: $SoundSource$Type): void
 public "isSaddled"(): boolean
+public "equipSaddle"(arg0: $SoundSource$Type): void
 public "isSaddleable"(): boolean
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
+get "immobile"(): boolean
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
-get "immobile"(): boolean
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -7184,8 +7176,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -7307,157 +7299,157 @@ readonly "random": $RandomSource
 constructor(builder: $AnimalEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -7697,8 +7689,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$HumanoidArm, $HumanoidArm$Type} from "packages/net/minecraft/world/entity/$HumanoidArm"
 import {$MobEffectInstance, $MobEffectInstance$Type} from "packages/net/minecraft/world/effect/$MobEffectInstance"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
 import {$InventoryCarrier, $InventoryCarrier$Type} from "packages/net/minecraft/world/entity/npc/$InventoryCarrier"
@@ -7716,8 +7708,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -7841,150 +7833,150 @@ readonly "random": $RandomSource
 constructor(builder: $AllayJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "isFlapping"(): boolean
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
 public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
 public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
 public "onClimbable"(): boolean
+public "getMobType"(): $MobType
 public "setSprinting"(sprinting: boolean): void
 public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
 public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
 public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public static "pickUpItem"(arg0: $Mob$Type, arg1: $InventoryCarrier$Type, arg2: $ItemEntity$Type): void
 public static "getResonanceEventByFrequency"(arg0: integer): $GameEvent
-public static "getGameEventFrequency"(arg0: $GameEvent$Type): integer
 public static "getRedstoneStrengthForDistance"(arg0: float, arg1: integer): integer
+public static "getGameEventFrequency"(arg0: $GameEvent$Type): integer
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "flapping"(): boolean
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -8083,8 +8075,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$HumanoidArm, $HumanoidArm$Type} from "packages/net/minecraft/world/entity/$HumanoidArm"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$MobEffectInstance, $MobEffectInstance$Type} from "packages/net/minecraft/world/effect/$MobEffectInstance"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
@@ -8197,129 +8189,129 @@ readonly "random": $RandomSource
 constructor(builder: $BaseLivingEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "shouldJump"(): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "interact"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "onClimbable"(): boolean
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "interact"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "onJump"(): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
+set "sprinting"(value: boolean)
+get "experienceReward"(): integer
 get "armorSlots"(): $Iterable<($ItemStack)>
 get "handSlots"(): $Iterable<($ItemStack)>
-set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
-get "experienceReward"(): integer
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -8449,6 +8441,7 @@ export type $BaseEntityBuilder$IParticleListenerJS_<E> = $BaseEntityBuilder$IPar
 declare module "packages/net/liopyu/entityjs/builders/nonliving/vanilla/$EyeOfEnderEntityBuilder" {
 import {$BaseNonAnimatableEntityBuilder, $BaseNonAnimatableEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/$BaseNonAnimatableEntityBuilder"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$IProjectileEntityJS, $IProjectileEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$IProjectileEntityJS"
@@ -8464,21 +8457,22 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
+public "createObject"(): $EntityType<(T)>
 /**
- * Sets the offset for rendering the projectile entity.
+ * Sets the scale for rendering the projectile entity.
  * 
- * @param vX The X-axis offset.
+ * @param pX The X-axis scale.
  * 
- * @param vY The Y-axis offset.
+ * @param pY The Y-axis scale.
  * 
- * @param vZ The Z-axis offset.
+ * @param pZ The Z-axis scale.
  * 
  * Example usage:
  * ```javascript
- * projectileEntityBuilder.renderOffset(0.5, 1.0, -0.5);
+ * projectileEntityBuilder.renderScale(1.5, 1.5, 1.5);
  * ```
  */
-public "renderOffset"(vX: float, vY: float, vZ: float): $EyeOfEnderEntityBuilder<(T)>
+public "renderScale"(pX: float, pY: float, pZ: float): $EyeOfEnderEntityBuilder<(T)>
 /**
  * Sets a function to determine the texture resource for the entity.
  * The provided Function accepts a parameter of type T (the entity),
@@ -8496,20 +8490,20 @@ public "renderOffset"(vX: float, vY: float, vZ: float): $EyeOfEnderEntityBuilder
  */
 public "textureLocation"(arg0: $Function$Type<(T), (any)>): $EyeOfEnderEntityBuilder<(T)>
 /**
- * Sets the scale for rendering the projectile entity.
+ * Sets the offset for rendering the projectile entity.
  * 
- * @param pX The X-axis scale.
+ * @param vX The X-axis offset.
  * 
- * @param pY The Y-axis scale.
+ * @param vY The Y-axis offset.
  * 
- * @param pZ The Z-axis scale.
+ * @param vZ The Z-axis offset.
  * 
  * Example usage:
  * ```javascript
- * projectileEntityBuilder.renderScale(1.5, 1.5, 1.5);
+ * projectileEntityBuilder.renderOffset(0.5, 1.0, -0.5);
  * ```
  */
-public "renderScale"(pX: float, pY: float, pZ: float): $EyeOfEnderEntityBuilder<(T)>
+public "renderOffset"(vX: float, vY: float, vZ: float): $EyeOfEnderEntityBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8617,8 +8611,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -8753,159 +8747,159 @@ readonly "random": $RandomSource
 constructor(builder: $DonkeyJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "canJump"(): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "isImmobile"(): boolean
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "isImmobile"(): boolean
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canJump"(): boolean
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
+get "immobile"(): boolean
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
-get "immobile"(): boolean
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -8943,9 +8937,9 @@ readonly "builder": $BaseLivingEntityBuilder<(T)>
 
 constructor(entityRendererIn: $KubeJSEntityRenderer$Type<(T)>, geoBuilder: $GeoLayerJSBuilder$Type<(T)>, builder: $BaseLivingEntityBuilder$Type<(T)>)
 
-public "preRender"(poseStack: $PoseStack$Type, animatable: T, bakedModel: $BakedGeoModel$Type, renderType: $RenderType$Type, bufferSource: $MultiBufferSource$Type, buffer: $VertexConsumer$Type, partialTick: float, packedLight: integer, packedOverlay: integer): void
-public "render"(poseStack: $PoseStack$Type, animatable: T, bakedModel: $BakedGeoModel$Type, renderType: $RenderType$Type, bufferSource: $MultiBufferSource$Type, buffer: $VertexConsumer$Type, partialTicks: float, packedLightIn: integer, packedOverlay: integer): void
 public "entityName"(): string
+public "render"(poseStack: $PoseStack$Type, animatable: T, bakedModel: $BakedGeoModel$Type, renderType: $RenderType$Type, bufferSource: $MultiBufferSource$Type, buffer: $VertexConsumer$Type, partialTicks: float, packedLightIn: integer, packedOverlay: integer): void
+public "preRender"(poseStack: $PoseStack$Type, animatable: T, bakedModel: $BakedGeoModel$Type, renderType: $RenderType$Type, bufferSource: $MultiBufferSource$Type, buffer: $VertexConsumer$Type, partialTick: float, packedLight: integer, packedOverlay: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9000,6 +8994,16 @@ constructor(i: $ResourceLocation$Type)
  */
 public "defaultBehaviourGoals"(defaultBehaviourGoals: boolean): $ZombieJSBuilder
 /**
+ * @param isSunSensitive Sets whether the mob should convert in water to another mob
+ * Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.convertsInWater(false);
+ * ```
+ */
+public "convertsInWater"(convertsInWater: boolean): $ZombieJSBuilder
+/**
  * @param isSunSensitive Sets whether the mob should burn in daylight
  * Defaults to true.
  * 
@@ -9019,16 +9023,6 @@ public "isSunSensitive"(isSunSensitive: boolean): $ZombieJSBuilder
  * ```
  */
 public "defaultGoals"(defaultGoals: boolean): $ZombieJSBuilder
-/**
- * @param isSunSensitive Sets whether the mob should convert in water to another mob
- * Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * builder.convertsInWater(false);
- * ```
- */
-public "convertsInWater"(convertsInWater: boolean): $ZombieJSBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9071,17 +9065,6 @@ constructor(i: $ResourceLocation$Type)
  */
 public "setShadowRadius"(f: float): $BoatEntityBuilder<(T)>
 /**
- * Sets a function to determine the speed of the boat when in reverse.
- * Example usage:
- * ```javascript
- * builder.backwardsBoatSpeed(entity => {
- *     // Use information about the entity provided by the context.
- *     return 1 // Some Float
- * });
- * ```
- */
-public "backwardsBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntityBuilder<(T)>
-/**
  * Sets a function to determine the Item the entity drops when it
  * turns back into an item.
  * Defaults to Boat super method.
@@ -9095,17 +9078,6 @@ public "backwardsBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEnt
  */
 public "getDropItem"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntityBuilder<(T)>
 /**
- * Sets a function to determine the speed of the boat when going forward.
- * Example usage:
- * ```javascript
- * builder.forwardBoatSpeed(entity => {
- *     // Use information about the entity provided by the context.
- *     return 1 // Some Float
- * });
- * ```
- */
-public "forwardBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntityBuilder<(T)>
-/**
  * Sets a function to determine the speed of the boat when it turns.
  * Example usage:
  * ```javascript
@@ -9116,6 +9088,28 @@ public "forwardBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntit
  * ```
  */
 public "turningBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntityBuilder<(T)>
+/**
+ * Sets a function to determine the speed of the boat when in reverse.
+ * Example usage:
+ * ```javascript
+ * builder.backwardsBoatSpeed(entity => {
+ *     // Use information about the entity provided by the context.
+ *     return 1 // Some Float
+ * });
+ * ```
+ */
+public "backwardsBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntityBuilder<(T)>
+/**
+ * Sets a function to determine the speed of the boat when going forward.
+ * Example usage:
+ * ```javascript
+ * builder.forwardBoatSpeed(entity => {
+ *     // Use information about the entity provided by the context.
+ *     return 1 // Some Float
+ * });
+ * ```
+ */
+public "forwardBoatSpeed"(arg0: $Function$Type<($Boat$Type), (any)>): $BoatEntityBuilder<(T)>
 set "shadowRadius"(value: float)
 }
 /**
@@ -9195,15 +9189,6 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
- * Sets the sound to play when the entity is celebrating using either a string representation or a ResourceLocation object.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.setCelebrateSound("minecraft:entity.zombie.ambient");
- * ```
- */
-public "setCelebrateSound"(ambientSound: any): $IllusionerJSBuilder
-/**
  * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
  * Defaults to true.
  * 
@@ -9213,6 +9198,15 @@ public "setCelebrateSound"(ambientSound: any): $IllusionerJSBuilder
  * ```
  */
 public "defaultGoals"(defaultGoals: boolean): $IllusionerJSBuilder
+/**
+ * Sets the sound to play when the entity is celebrating using either a string representation or a ResourceLocation object.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.setCelebrateSound("minecraft:entity.zombie.ambient");
+ * ```
+ */
+public "setCelebrateSound"(ambientSound: any): $IllusionerJSBuilder
 set "celebrateSound"(value: any)
 }
 /**
@@ -9326,8 +9320,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -9452,194 +9446,194 @@ readonly "random": $RandomSource
 constructor(builder: $CatJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "tame"(pPlayer: $Player$Type): void
+public "wantsToAttack"(pTarget: $LivingEntity$Type, pOwner: $LivingEntity$Type): boolean
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "tamableFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "tamableFood"(pStack: $ItemStack$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "setRemainingPersistentAngerTime"(pTime: integer): void
+public "getRemainingPersistentAngerTime"(): integer
+public "setPersistentAngerTarget"(pTarget: $UUID$Type): void
+public "getPersistentAngerTarget"(): $UUID
+public "startPersistentAngerTimer"(): void
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Cat
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "startPersistentAngerTimer"(): void
-public "setPersistentAngerTarget"(pTarget: $UUID$Type): void
-public "getRemainingPersistentAngerTime"(): integer
-public "setRemainingPersistentAngerTime"(pTime: integer): void
-public "getPersistentAngerTarget"(): $UUID
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "tamableFood"(pStack: $ItemStack$Type): boolean
-public "shouldJump"(): boolean
-public "tame"(pPlayer: $Player$Type): void
-public "wantsToAttack"(pTarget: $LivingEntity$Type, pOwner: $LivingEntity$Type): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Cat
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
-public "tamableFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
 public "getOwnerUUID"(): $UUID
+public "getTarget"(): $LivingEntity
+public "playerDied"(arg0: $Player$Type): void
+public "readPersistentAngerSaveData"(arg0: $Level$Type, arg1: $CompoundTag$Type): void
+public "updatePersistentAnger"(arg0: $ServerLevel$Type, arg1: boolean): void
+public "addPersistentAngerSaveData"(arg0: $CompoundTag$Type): void
+public "isAngryAt"(arg0: $LivingEntity$Type): boolean
+public "isAngry"(): boolean
+public "stopBeingAngry"(): void
+public "forgetCurrentTargetAndRefreshUniversalAnger"(): void
+public "isAngryAtAllPlayers"(arg0: $Level$Type): boolean
 public "setLastHurtByMob"(arg0: $LivingEntity$Type): void
 public "setLastHurtByPlayer"(arg0: $Player$Type): void
 public "getLastHurtByMob"(): $LivingEntity
-public "playerDied"(arg0: $Player$Type): void
-public "getTarget"(): $LivingEntity
-public "isAngryAt"(arg0: $LivingEntity$Type): boolean
-public "updatePersistentAnger"(arg0: $ServerLevel$Type, arg1: boolean): void
-public "readPersistentAngerSaveData"(arg0: $Level$Type, arg1: $CompoundTag$Type): void
-public "addPersistentAngerSaveData"(arg0: $CompoundTag$Type): void
-public "stopBeingAngry"(): void
-public "isAngryAtAllPlayers"(arg0: $Level$Type): boolean
-public "isAngry"(): boolean
-public "forgetCurrentTargetAndRefreshUniversalAnger"(): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "persistentAngerTarget"(value: $UUID$Type)
-get "remainingPersistentAngerTime"(): integer
 set "remainingPersistentAngerTime"(value: integer)
+get "remainingPersistentAngerTime"(): integer
+set "persistentAngerTarget"(value: $UUID$Type)
 get "persistentAngerTarget"(): $UUID
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "ownerUUID"(): $UUID
+get "target"(): $LivingEntity
+get "angry"(): boolean
 set "lastHurtByMob"(value: $LivingEntity$Type)
 set "lastHurtByPlayer"(value: $Player$Type)
 get "lastHurtByMob"(): $LivingEntity
-get "target"(): $LivingEntity
-get "angry"(): boolean
 get "boneResetTime"(): double
 }
 /**
@@ -9723,6 +9717,32 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * Sets the function to determine whether the entity should stay close to its leash holder.
+ * 
+ * @param predicate A Function accepting a {@link Mob} parameter,
+ *                  defining the condition for the entity to stay close to its leash holder.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.shouldStayCloseToLeashHolder(entity => {
+ *     // Custom logic to determine whether the entity should stay close to its leash holder.
+ *     return true;
+ * });
+ * ```
+ */
+public "shouldStayCloseToLeashHolder"(predicate: $Function$Type<($Mob$Type), (any)>): $PathfinderMobBuilder<(T)>
+/**
+ * Sets the follow leash speed for the entity.
+ * 
+ * @param speed The follow leash speed.
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.followLeashSpeed(1.5);
+ * ```
+ */
+public "followLeashSpeed"(speed: double): $PathfinderMobBuilder<(T)>
+/**
  * Sets the walk target value function for the entity.
  * 
  * @param function A Function accepting a {@link ContextUtils.EntityBlockPosLevelContext} parameter,
@@ -9738,32 +9758,6 @@ constructor(i: $ResourceLocation$Type)
  * ```
  */
 public "walkTargetValue"(arg0: $Function$Type<($ContextUtils$EntityBlockPosLevelContext$Type), (any)>): $PathfinderMobBuilder<(T)>
-/**
- * Sets the follow leash speed for the entity.
- * 
- * @param speed The follow leash speed.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.followLeashSpeed(1.5);
- * ```
- */
-public "followLeashSpeed"(speed: double): $PathfinderMobBuilder<(T)>
-/**
- * Sets the function to determine whether the entity should stay close to its leash holder.
- * 
- * @param predicate A Function accepting a {@link Mob} parameter,
- *                  defining the condition for the entity to stay close to its leash holder.
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.shouldStayCloseToLeashHolder(entity => {
- *     // Custom logic to determine whether the entity should stay close to its leash holder.
- *     return true;
- * });
- * ```
- */
-public "shouldStayCloseToLeashHolder"(predicate: $Function$Type<($Mob$Type), (any)>): $PathfinderMobBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9899,17 +9893,17 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $IAnimatableJSNL extends $GeoAnimatable, $GeoEntity {
 
- "getBuilder"(): $BaseEntityBuilder<(any)>
- "getTypeId"(): string
- "getTick"(entity: any): double
  "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+ "getTypeId"(): string
+ "getBuilder"(): $BaseEntityBuilder<(any)>
+ "triggerAnim"(controllerName: string, animName: string): void
+ "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
+ "getTick"(entity: any): double
  "m_6095_"(): $EntityType<(any)>
  "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
- "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
- "triggerAnim"(controllerName: string, animName: string): void
+ "getBoneResetTime"(): double
  "animatableCacheOverride"(): $AnimatableInstanceCache
  "shouldPlayAnimsWhileGamePaused"(): boolean
- "getBoneResetTime"(): double
  "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
  "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 }
@@ -9971,8 +9965,8 @@ import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$ContextUtils$EntityHealContext, $ContextUtils$EntityHealContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntityHealContext"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$BaseLivingEntityBuilder$ICustomInstructionListenerJS, $BaseLivingEntityBuilder$ICustomInstructionListenerJS$Type} from "packages/net/liopyu/entityjs/builders/living/$BaseLivingEntityBuilder$ICustomInstructionListenerJS"
 import {$ContextUtils$PositionRiderContext, $ContextUtils$PositionRiderContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$PositionRiderContext"
+import {$BaseLivingEntityBuilder$ICustomInstructionListenerJS, $BaseLivingEntityBuilder$ICustomInstructionListenerJS$Type} from "packages/net/liopyu/entityjs/builders/living/$BaseLivingEntityBuilder$ICustomInstructionListenerJS"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$BaseLivingEntityBuilder$IAnimationPredicateJS, $BaseLivingEntityBuilder$IAnimationPredicateJS$Type} from "packages/net/liopyu/entityjs/builders/living/$BaseLivingEntityBuilder$IAnimationPredicateJS"
 import {$ContextUtils$EntityEquipmentContext, $ContextUtils$EntityEquipmentContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntityEquipmentContext"
@@ -10004,9 +9998,9 @@ import {$ContextUtils$MayInteractContext, $ContextUtils$MayInteractContext$Type}
 import {$ContextUtils$DeathContext, $ContextUtils$DeathContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$DeathContext"
 import {$ContextUtils$CanTrampleContext, $ContextUtils$CanTrampleContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$CanTrampleContext"
 import {$ContextUtils$ScaleModelRenderContext, $ContextUtils$ScaleModelRenderContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$ScaleModelRenderContext"
-import {$ContextUtils$EntityFallDamageContext, $ContextUtils$EntityFallDamageContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntityFallDamageContext"
 import {$ContextUtils$VisualContext, $ContextUtils$VisualContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$VisualContext"
 import {$PartBuilder, $PartBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/entityjs/$PartBuilder"
+import {$ContextUtils$EntityFallDamageContext, $ContextUtils$EntityFallDamageContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntityFallDamageContext"
 import {$ContextUtils$HurtContext, $ContextUtils$HurtContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$HurtContext"
 import {$ContextUtils$EntityFluidStateContext, $ContextUtils$EntityFluidStateContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$EntityFluidStateContext"
 import {$ContextUtils$LineOfSightContext, $ContextUtils$LineOfSightContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$LineOfSightContext"
@@ -10046,223 +10040,6 @@ constructor(i: $ResourceLocation$Type)
  */
 public "scale"(customScale: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed during the living entity's AI step.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * allowing customization of the AI behavior.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.aiStep(entity => {
- *     // Custom logic to be executed during the living entity's AI step
- *     // Access and modify information about the entity using the provided context.
- * });
- * ```
- */
-public "aiStep"(aiStep: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity picks up an item.
- * The provided Consumer accepts a {@link ContextUtils.EntityItemEntityContext} parameter,
- * representing the context of the entity picking up an item with another entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onItemPickup(context => {
- *     // Define custom logic for handling the entity picking up an item
- *     // Use information about the EntityItemEntityContext provided by the context.
- * });
- * ```
- */
-public "onItemPickup"(consumer: $Consumer$Type<($ContextUtils$EntityItemEntityContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Defines the Mob's Type
- * Examples: 'undead', 'water', 'arthropod', 'undefined', 'illager'
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.mobType('undead');
- * ```
- */
-public "mobType"(mt: any): $BaseLivingEntityBuilder<(T)>
-/**
- * Defines logic to render the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.render(context => {
- *     // Define logic to render the entity
- *     if (context.entity.isBaby()) {
- *         context.poseStack.scale(0.5, 0.5, 0.5);
- *     }
- * });
- * ```
- */
-public "render"(render: $Consumer$Type<($ContextUtils$RenderContext$Type<(T)>)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is affected by potions.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity that may be checked for its susceptibility to potions.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isAffectedByPotions(entity => {
- *     // Define conditions to check if the entity is affected by potions
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some boolean condition indicating if the entity is affected by potions;
- * });
- * ```
- */
-public "isAffectedByPotions"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets whether the entity can spawn far from the player.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canSpawnFarFromPlayer(true);
- * ```
- */
-public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets whether the entity can breathe underwater.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canBreatheUnderwater(true);
- * ```
- */
-public "canBreatheUnderwater"(canBreatheUnderwater: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the spawn placement of the entity type
- * entityBuilder.spawnPlacement('on_ground', 'world_surface', (entitypredicate, levelaccessor, spawntype, blockpos, randomsource) => {
- *     if (levelaccessor.getLevel().getBiome(blockpos) == 'minecraft:plains') return true;
- *     return false
- * })
- * 
- * @param placementType - The placement type of the spawn, accepts 'on_ground', 'in_water', 'no_restrictions', 'in_lava'
- * @param heightMap - The height map used for the spawner
- * @param spawnPredicate - The predicate that determines if the entity will spawn
- */
-public "spawnPlacement"(placementType: $SpawnPlacements$Type$Type, heightMap: $Heightmap$Types$Type, spawnPredicate: $SpawnPlacements$SpawnPredicate$Type<(T)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Determines if the entity should serialize its data. Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.saves(false);
- * ```
- */
-public "saves"(shouldSave: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed from the world.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that is being removed from the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onRemovedFromWorld(entity => {
- *     // Define custom logic for handling the removal of the entity from the world
- *     // Use information about the LivingEntity provided by the context.
- * });
- * ```
- */
-public "onRemovedFromWorld"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is added to the world.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that is added to the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onAddedToWorld(entity => {
- *     // Define custom logic for handling when the entity is added to the world
- *     // Use information about the LivingEntity provided by the context.
- * });
- * ```
- */
-public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed during each tick of the entity.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that is being ticked.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.tick(entity => {
- *     // Define custom logic for handling during each tick of the entity
- *     // Use information about the LivingEntity provided by the context.
- * });
- * ```
- */
-public "tick"(tickCallback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity receives healing.
- * The provided Consumer accepts a {@link ContextUtils.EntityHealContext} parameter,
- * representing the context of the entity receiving healing.
- * Very similar to {@link ForgeEventFactory.onLivingHeal}
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onLivingHeal(context => {
- *     // Define custom logic for handling when the entity receives healing
- *     // Use information about the EntityHealContext provided by the context.
- * });
- * ```
- */
-public "onLivingHeal"(callback: $Consumer$Type<($ContextUtils$EntityHealContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity performs an eating action.
- * The provided Consumer accepts a {@link ContextUtils.EntityItemLevelContext} parameter,
- * representing the context of the entity's interaction with a specific item during eating.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.eat(context => {
- *     // Custom logic to handle the entity's eating action
- *     // Access information about the item being consumed using the provided context.
- * });
- * ```
- */
-public "eat"(arg0: $Consumer$Type<($ContextUtils$EntityItemLevelContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Boolean determining if the entity will turn sideways on death.
- * Defaults to true.
- * Example usage:
- * ```javascript
- * entityBuilder.defaultDeathPose(false);
- * ```
- */
-public "defaultDeathPose"(defaultDeathPose: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is currently sleeping.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity that may be checked for its sleeping state.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isSleeping(entity => {
- *     // Define conditions to check if the entity is currently sleeping
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some boolean condition indicating if the entity is sleeping;
- * });
- * ```
- */
-public "isSleeping"(supplier: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to determine the texture resource for the entity.
- * The provided Function accepts a parameter of type T (the entity),
- * allowing changing the texture based on information about the entity.
- * The default behavior returns <namespace>:textures/entity/<path>.png.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.textureResource(entity => {
- *     // Define logic to determine the texture resource for the entity
- *     // Use information about the entity provided by the context.
- *     return "kubejs:textures/entity/wyrm.png" // Some ResourceLocation representing the texture resource;
- * });
- * ```
- */
-public "textureResource"(arg0: $Function$Type<(T), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
  * Defines in what condition the entity will start freezing.
  * 
  * Example usage:
@@ -10289,14 +10066,55 @@ public "isFreezing"(isFreezing: $Function$Type<($LivingEntity$Type), (any)>): $B
  */
 public "scaleModelForRender"(scaleModelForRender: $Consumer$Type<($ContextUtils$ScaleModelRenderContext$Type<(T)>)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets the update interval for the entity.
- * Defaults to 1 tick.
+ * Sets a predicate function to determine whether the rider of the entity should face forward.
+ * The provided Predicate accepts a {@link ContextUtils.PlayerEntityContext} parameter,
+ * representing the context of the player entity riding the main entity.
+ * 
  * Example usage:
  * ```javascript
- * entityBuilder.updateInterval(20); // Set the update interval to 20 ticks
+ * entityBuilder.shouldRiderFaceForward(context => {
+ *     // Define the conditions for the rider to face forward
+ *     // Use information about the player entity provided by the context.
+ *     return true //someBoolean;
+ * });
  * ```
  */
-public "updateInterval"(i: integer): $BaseLivingEntityBuilder<(T)>
+public "shouldRiderFaceForward"(predicate: $Function$Type<($ContextUtils$PlayerEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the spawn placement of the entity type
+ * entityBuilder.spawnPlacement('on_ground', 'world_surface', (entitypredicate, levelaccessor, spawntype, blockpos, randomsource) => {
+ *     if (levelaccessor.getLevel().getBiome(blockpos) == 'minecraft:plains') return true;
+ *     return false
+ * })
+ * 
+ * @param placementType - The placement type of the spawn, accepts 'on_ground', 'in_water', 'no_restrictions', 'in_lava'
+ * @param heightMap - The height map used for the spawner
+ * @param spawnPredicate - The predicate that determines if the entity will spawn
+ */
+public "spawnPlacement"(placementType: $SpawnPlacements$Type$Type, heightMap: $Heightmap$Types$Type, spawnPredicate: $SpawnPlacements$SpawnPredicate$Type<(T)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Determines if the entity should serialize its data. Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.saves(false);
+ * ```
+ */
+public "saves"(shouldSave: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity dies.
+ * The provided Consumer accepts a {@link ContextUtils.DeathContext} parameter,
+ * representing the context of the entity's death.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onDeath(context => {
+ *     // Define custom logic for handling the entity's death
+ *     // Use information about the DeathContext provided by the context.
+ * });
+ * ```
+ */
+public "onDeath"(consumer: $Consumer$Type<($ContextUtils$DeathContext$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets the main arm of the entity. Defaults to 'right'.
  * 
@@ -10309,136 +10127,15 @@ public "updateInterval"(i: integer): $BaseLivingEntityBuilder<(T)>
  */
 public "mainArm"(arm: any): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets the mob category for the entity.
- * Available options: 'monster', 'creature', 'ambient', 'water_creature', 'misc'.
- * Defaults to 'misc'.
+ * Defines the Mob's Type
+ * Examples: 'undead', 'water', 'arthropod', 'undefined', 'illager'
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.mobCategory('monster');
+ * entityBuilder.mobType('undead');
  * ```
  */
-public "mobCategory"(category: string): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to determine whether the entity can disable its target's shield.
- * The provided Predicate accepts a {@link LivingEntity} parameter.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canDisableShield(entity => {
- *     // Define the conditions to check if the entity can disable its shield
- *     // Use information about the LivingEntity provided by the context.
- *     return true;
- * });
- * ```
- */
-public "canDisableShield"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the living entity falls and takes damage.
- * The provided Consumer accepts a {@link ContextUtils.EntityFallDamageContext} parameter,
- * representing the context of the entity falling and taking fall damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onLivingFall(context => {
- *     // Define custom logic for handling when the living entity falls and takes damage
- *     // Use information about the EntityFallDamageContext provided by the context.
- * });
- * ```
- */
-public "onLivingFall"(c: $Consumer$Type<($ContextUtils$EntityFallDamageContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity jumps.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onLivingJump(entity => {
- *     // Custom logic to handle the entity's jump action
- * });
- * ```
- */
-public "onLivingJump"(onJump: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Consumer determining travel logic for the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.travel(context => {
- *     const {entity, vec3} = context
- *     // Use the vec3 and entity to determine the travel logic of the entity
- * });
- * ```
- */
-public "travel"(travel: $Consumer$Type<($ContextUtils$Vec3Context$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can trample or step on something.
- * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
- * representing the context of the potential trampling action, and returns a boolean.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canTrample(context => {
- *     // Define conditions for the entity to be allowed to trample
- *     // Use information about the CanTrampleContext provided by the context.
- *     return false // Some boolean condition indicating if the entity can trample;
- * });
- * ```
- */
-public "canTrample"(predicate: $Function$Type<($ContextUtils$CanTrampleContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is attackable.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity that may be checked for its attackability.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isAttackable(entity => {
- *     // Define conditions to check if the entity is attackable
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some boolean condition indicating if the entity is attackable;
- * });
- * ```
- */
-public "isAttackable"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
- * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
- * representing the context of the damage, and returns a boolean indicating invulnerability.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isInvulnerableTo(context => {
- *     // Define conditions for the entity to be invulnerable to the specific type of damage
- *     // Use information about the DamageContext provided by the context.
- *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
- * });
- * ```
- */
-public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$DamageContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can undergo freezing.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity that may be subjected to freezing.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canFreeze(entity => {
- *     // Define the conditions for the entity to be able to freeze
- *     // Use information about the LivingEntity provided by the context.
- *     return true //someBoolean;
- * });
- * ```
- */
-public "canFreeze"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the client tracking range for the entity.
- * Defaults to 5.
- * Example usage:
- * ```javascript
- * entityBuilder.clientTrackingRange(64); // Set the client tracking range to 64 blocks
- * ```
- */
-public "clientTrackingRange"(i: integer): $BaseLivingEntityBuilder<(T)>
+public "mobType"(mt: any): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a consumer to handle the interaction with the entity.
  * The provided Consumer accepts a {@link ContextUtils.MobInteractContext} parameter,
@@ -10456,298 +10153,77 @@ public "clientTrackingRange"(i: integer): $BaseLivingEntityBuilder<(T)>
  */
 public "onInteract"(c: $Consumer$Type<($ContextUtils$MobInteractContext$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a predicate function to determine whether the rider of the entity should face forward.
- * The provided Predicate accepts a {@link ContextUtils.PlayerEntityContext} parameter,
- * representing the context of the player entity riding the main entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.shouldRiderFaceForward(context => {
- *     // Define the conditions for the rider to face forward
- *     // Use information about the player entity provided by the context.
- *     return true //someBoolean;
- * });
- * ```
- */
-public "shouldRiderFaceForward"(predicate: $Function$Type<($ContextUtils$PlayerEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity has line of sight to another entity.
- * The provided Function accepts a {@link LineOfSightContext} parameter,
- * representing the entity to check for line of sight.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.hasLineOfSight(context => {
- *     // Define conditions to check if the entity has line of sight to the target entity
- *     // Use information about the Entity provided by the context.
- *     return // Some boolean condition indicating if there is line of sight;
- * });
- * ```
- */
-public "hasLineOfSight"(f: $Function$Type<($ContextUtils$LineOfSightContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the render type for the entity.
- * 
- * @param type The render type to be set. Acceptable values are:
- *              - "solid
- *              - "cutout"
- *              - "translucent"
- *              - RenderType.SOLID
- *              - RenderType.CUTOUT
- *              - RenderType.TRANSLUCENT
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setRenderType("translucent");
- * ```
- */
-public "setRenderType"(type: any): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity's air supply decreases.
+ * Sets a callback function to be executed during each tick of the entity.
  * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity whose air supply is being decreased.
+ * representing the entity that is being ticked.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onDecreaseAirSupply(entity => {
- *     // Define custom logic for handling when the entity's air supply decreases
+ * entityBuilder.tick(entity => {
+ *     // Define custom logic for handling during each tick of the entity
  *     // Use information about the LivingEntity provided by the context.
  * });
  * ```
  */
-public "onDecreaseAirSupply"(onDecreaseAirSupply: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+public "tick"(tickCallback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Boolean determining whether the entity can jump while mounted by a player.
- * (Currently experimental jumping logic subject to change in the future)
- * Defaults to false.
- * Example usage:
- * ```javascript
- * entityBuilder.mountJumpingEnabled(true);
- * ```
- */
-public "mountJumpingEnabled"(mountJumpingEnabled: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets whether to reposition the entity after loading.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.repositionEntityAfterLoad(true);
- * ```
- */
-public "repositionEntityAfterLoad"(customRepositionEntityAfterLoad: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity automatically attacks on touch.
- * The provided Consumer accepts a {@link ContextUtils.AutoAttackContext} parameter,
- * representing the context of the auto-attack when the entity touches another entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.doAutoAttackOnTouch(context => {
- *     // Define custom logic for handling when the entity automatically attacks on touch
- *     // Use information about the AutoAttackContext provided by the context.
- * });
- * ```
- */
-public "doAutoAttackOnTouch"(doAutoAttackOnTouch: $Consumer$Type<($ContextUtils$AutoAttackContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity's air supply increases.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity whose air supply is being increased.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onIncreaseAirSupply(entity => {
- *     // Define custom logic for handling when the entity's air supply increases
- *     // Use information about the LivingEntity provided by the context.
- * });
- * ```
- */
-public "onIncreaseAirSupply"(onIncreaseAirSupply: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate to determine if the entity has inverted heal and harm behavior.
- * 
- * @param invertedHealAndHarm The predicate to check for inverted heal and harm behavior.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.invertedHealAndHarm(entity => {
- *     // Custom logic to determine if the entity has inverted heal and harm behavior
- *     return true; // Replace with your custom boolean condition
- * });
- * ```
- */
-public "invertedHealAndHarm"(invertedHealAndHarm: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity drops custom loot upon death.
- * The provided Consumer accepts a {@link ContextUtils.EntityLootContext} parameter,
- * representing the context of the entity's death and loot dropping.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.dropCustomDeathLoot(context => {
- *     // Define custom logic for handling the entity dropping custom loot upon death
- *     // Use information about the EntityLootContext provided by the context.
- * });
- * ```
- */
-public "dropCustomDeathLoot"(consumer: $Consumer$Type<($ContextUtils$EntityLootContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to calculate fall damage for the entity.
- * The provided Function accepts a {@link ContextUtils.CalculateFallDamageContext} parameter,
- * representing the context of the fall damage calculation.
- * It returns an Integer representing the calculated fall damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.calculateFallDamage(context => {
- *     // Define logic to calculate and return the fall damage for the entity
- *     // Use information about the CalculateFallDamageContext provided by the context.
- *     return // Some Integer value representing the calculated fall damage;
- * });
- * ```
- */
-public "calculateFallDamage"(calculation: $Function$Type<($ContextUtils$CalculateFallDamageContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can change dimensions.
+ * Sets a predicate function to determine whether the entity is currently sleeping.
  * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity that may attempt to change dimensions.
+ * representing the entity that may be checked for its sleeping state.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.canChangeDimensions(entity => {
- *     // Define the conditions for the entity to be able to change dimensions
+ * entityBuilder.isSleeping(entity => {
+ *     // Define conditions to check if the entity is currently sleeping
  *     // Use information about the LivingEntity provided by the context.
- *     return false // Some boolean condition indicating if the entity can change dimensions;
+ *     return // Some boolean condition indicating if the entity is sleeping;
  * });
  * ```
  */
-public "canChangeDimensions"(supplier: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+public "isSleeping"(supplier: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Adds an animation controller to the entity with the specified parameters.
- * 
- * @param name The name of the animation controller.
- * @param translationTicksLength The length of translation ticks for the animation.
- * @param predicate The animation predicate defining the conditions for the animation to be played.
+ * Sets a callback function to be executed when the entity picks up an item.
+ * The provided Consumer accepts a {@link ContextUtils.EntityItemEntityContext} parameter,
+ * representing the context of the entity picking up an item with another entity.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.addAnimationController('exampleController', 5, event => {
- *     // Define conditions for the animation to be played based on the entity.
- *     if (event.entity.hurtTime > 0) {
- *         event.thenLoop('spawn');
- *     } else {
- *         event.thenPlayAndHold('idle');
+ * entityBuilder.onItemPickup(context => {
+ *     // Define custom logic for handling the entity picking up an item
+ *     // Use information about the EntityItemEntityContext provided by the context.
+ * });
+ * ```
+ */
+public "onItemPickup"(consumer: $Consumer$Type<($ContextUtils$EntityItemEntityContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Defines logic to render the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.render(context => {
+ *     // Define logic to render the entity
+ *     if (context.entity.isBaby()) {
+ *         context.poseStack.scale(0.5, 0.5, 0.5);
  *     }
- *     return true; // Some boolean condition indicating if the animation should be played;
  * });
  * ```
  */
-public "addAnimationController"(name: string, translationTicksLength: integer, predicate: $BaseLivingEntityBuilder$IAnimationPredicateJS$Type<(T)>): $BaseLivingEntityBuilder<(T)>
+public "render"(render: $Consumer$Type<($ContextUtils$RenderContext$Type<(T)>)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets whether the entity is always considered as an experience dropper.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isAlwaysExperienceDropper(true);
- * ```
- */
-public "isAlwaysExperienceDropper"(b: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to determine the standing eye height of the entity.
- * The provided Function accepts a {@link ContextUtils.EntityPoseDimensionsContext} parameter,
- * representing the context of the entity's pose and dimensions when standing.
- * It returns a Float representing the standing eye height.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setStandingEyeHeight(context => {
- *     // Define logic to calculate and return the standing eye height for the entity
- *     // Use information about the EntityPoseDimensionsContext provided by the context.
- *     return // Some Float value representing the standing eye height;
- * });
- * ```
- */
-public "setStandingEyeHeight"(setStandingEyeHeight: $Function$Type<($ContextUtils$EntityPoseDimensionsContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity should drop experience upon death.
+ * Sets a predicate function to determine whether the entity is sensitive to water.
  * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity whose experience drop is being determined.
+ * representing the entity that may be checked for sensitivity to water.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.shouldDropExperience(entity => {
- *     // Define conditions to check if the entity should drop experience upon death
+ * entityBuilder.isSensitiveToWater(entity => {
+ *     // Define conditions to check if the entity is sensitive to water
  *     // Use information about the LivingEntity provided by the context.
- *     return // Some boolean condition indicating if the entity should drop experience;
+ *     return // Some boolean condition indicating if the entity is sensitive to water;
  * });
  * ```
  */
-public "shouldDropExperience"(p: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Adds a new AnimationController to the entity, with the ability to add event listeners
- * 
- * @param name - The name of the controller
- * @param translationTicksLength - How many ticks it takes to transition between different animations
- * @param predicate - The predicate for the controller, determines if an animation should continue or not
- * @param soundListener - A sound listener, used to execute actions when the json requests a sound to play. May be null
- * @param particleListener - A particle listener, used to execute actions when the json requests a particle. May be null
- * @param instructionListener - A custom instruction listener, used to execute actions based on arbitrary instructions provided by the json. May be null
- */
-public "addKeyAnimationController"(name: string, translationTicksLength: integer, predicate: $BaseLivingEntityBuilder$IAnimationPredicateJS$Type<(T)>, soundListener: $BaseLivingEntityBuilder$ISoundListenerJS$Type<(T)>, particleListener: $BaseLivingEntityBuilder$IParticleListenerJS$Type<(T)>, instructionListener: $BaseLivingEntityBuilder$ICustomInstructionListenerJS$Type<(T)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Adds a triggerable AnimationController to the entity callable off the entity's methods anywhere.
- * 
- * @param name - The name of the controller
- * @param translationTicksLength - How many ticks it takes to transition between different animations
- * @param triggerableAnimationID - The unique identifier of the triggerable animation(sets it apart from other triggerable animations)
- * @param triggerableAnimationName - The name of the animation defined in the animations.json
- * @param loopType - The loop type for the triggerable animation, either 'LOOP' or 'PLAY_ONCE' or 'HOLD_ON_LAST_FRAME' or 'DEFAULT'
- */
-public "addTriggerableAnimationController"(name: string, translationTicksLength: integer, triggerableAnimationName: string, triggerableAnimationID: string, loopType: string): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hurt.
- * The provided Consumer accepts a {@link ContextUtils.EntityDamageContext} parameter,
- * representing the context of the entity being hurt.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onHurt(context => {
- *     // Define custom logic for handling when the entity is hurt
- *     // Use information about the EntityDamageContext provided by the context.
- * });
- * ```
- */
-public "onHurt"(predicate: $Consumer$Type<($ContextUtils$EntityDamageContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can attack another entity.
- * The provided Predicate accepts a {@link ContextUtils.LivingEntityContext} parameter,
- * representing the entity that may be attacked.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canAttack(context => {
- *     // Define conditions to check if the entity can attack the targetEntity
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some boolean condition indicating if the entity can attack the targetEntity;
- * });
- * ```
- */
-public "canAttack"(customCanAttack: $Function$Type<($ContextUtils$LivingEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can be affected by an effect.
- * The provided Predicate accepts a {@link ContextUtils.OnEffectContext} parameter,
- * representing the context of the effect that may affect the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canBeAffected(context => {
- *     // Define conditions to check if the entity can be affected by the effect
- *     // Use information about the OnEffectContext provided by the context.
- *     return // Some boolean condition indicating if the entity can be affected by an effect;
- * });
- * ```
- */
-public "canBeAffected"(predicate: $Function$Type<($ContextUtils$OnEffectContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+public "isSensitiveToWater"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity can stand on a fluid.
  * The provided Predicate accepts a {@link ContextUtils.EntityFluidStateContext} parameter,
@@ -10774,21 +10250,6 @@ public "canStandOnFluid"(predicate: $Function$Type<($ContextUtils$EntityFluidSta
  * ```
  */
 public "jumpBoostPower"(jumpBoostPower: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is sensitive to water.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity that may be checked for sensitivity to water.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isSensitiveToWater(entity => {
- *     // Define conditions to check if the entity is sensitive to water
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some boolean condition indicating if the entity is sensitive to water;
- * });
- * ```
- */
-public "isSensitiveToWater"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity can take an item.
  * The provided Predicate accepts a {@link ContextUtils.EntityItemLevelContext} parameter,
@@ -10821,15 +10282,6 @@ public "canTakeItem"(predicate: $Function$Type<($ContextUtils$EntityItemLevelCon
  */
 public "isCurrentlyGlowing"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets whether the entity is immune to fire damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.fireImmune(true);
- * ```
- */
-public "fireImmune"(isFireImmune: boolean): $BaseLivingEntityBuilder<(T)>
-/**
  * Sets a callback function to be executed when the entity is hurt by lava.
  * The provided Consumer accepts a {@link LivingEntity} parameter,
  * representing the entity that is affected by lava.
@@ -10843,6 +10295,26 @@ public "fireImmune"(isFireImmune: boolean): $BaseLivingEntityBuilder<(T)>
  * ```
  */
 public "lavaHurt"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * @param positionRider A consumer determining the position of rider/riders.
+ * 
+ *     Example usage:
+ *     ```javascript
+ *     entityBuilder.positionRider(context => {
+ *         const {entity, passenger, moveFunction} = context
+ *     });
+ *     ```
+ */
+public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets whether the entity is pushable.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isPushable(true);
+ * ```
+ */
+public "isPushable"(b: boolean): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a predicate to determine whether the living entity dampens vibrations.
  * 
@@ -10860,25 +10332,18 @@ public "lavaHurt"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEn
  */
 public "dampensVibrations"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets whether the entity is pushable.
+ * Function determining if the entity may collide with another entity
+ * using the ContextUtils.CollidingEntityContext which has this entity and the
+ * one colliding with this entity.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isPushable(true);
+ * entityBuilder.canCollideWith(context => {
+ *     return true //Some Boolean value determining whether the entity may collide with another
+ * });
  * ```
  */
-public "isPushable"(b: boolean): $BaseLivingEntityBuilder<(T)>
-/**
- * @param positionRider A consumer determining the position of rider/riders.
- * 
- *     Example usage:
- *     ```javascript
- *     entityBuilder.positionRider(context => {
- *         const {entity, passenger, moveFunction} = context
- *     });
- *     ```
- */
-public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $BaseLivingEntityBuilder<(T)>
+public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$CollidingEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a predicate to determine whether to show the vehicle health for the living entity.
  * 
@@ -10896,32 +10361,510 @@ public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRi
  */
 public "showVehicleHealth"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Function determining if the entity may collide with another entity
- * using the ContextUtils.CollidingEntityContext which has this entity and the
- * one colliding with this entity.
+ * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
+ * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
+ * representing the context of the damage, and returns a boolean indicating invulnerability.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.canCollideWith(context => {
- *     return true //Some Boolean value determining whether the entity may collide with another
+ * entityBuilder.isInvulnerableTo(context => {
+ *     // Define conditions for the entity to be invulnerable to the specific type of damage
+ *     // Use information about the DamageContext provided by the context.
+ *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
  * });
  * ```
  */
-public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$CollidingEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$DamageContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity dies.
- * The provided Consumer accepts a {@link ContextUtils.DeathContext} parameter,
- * representing the context of the entity's death.
+ * Sets a predicate function to determine whether the entity is attackable.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity that may be checked for its attackability.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onDeath(context => {
- *     // Define custom logic for handling the entity's death
- *     // Use information about the DeathContext provided by the context.
+ * entityBuilder.isAttackable(entity => {
+ *     // Define conditions to check if the entity is attackable
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some boolean condition indicating if the entity is attackable;
  * });
  * ```
  */
-public "onDeath"(consumer: $Consumer$Type<($ContextUtils$DeathContext$Type)>): $BaseLivingEntityBuilder<(T)>
+public "isAttackable"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can undergo freezing.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity that may be subjected to freezing.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canFreeze(entity => {
+ *     // Define the conditions for the entity to be able to freeze
+ *     // Use information about the LivingEntity provided by the context.
+ *     return true //someBoolean;
+ * });
+ * ```
+ */
+public "canFreeze"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the render type for the entity.
+ * 
+ * @param type The render type to be set. Acceptable values are:
+ *              - "solid
+ *              - "cutout"
+ *              - "translucent"
+ *              - RenderType.SOLID
+ *              - RenderType.CUTOUT
+ *              - RenderType.TRANSLUCENT
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setRenderType("translucent");
+ * ```
+ */
+public "setRenderType"(type: any): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a function to determine whether the entity can disable its target's shield.
+ * The provided Predicate accepts a {@link LivingEntity} parameter.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canDisableShield(entity => {
+ *     // Define the conditions to check if the entity can disable its shield
+ *     // Use information about the LivingEntity provided by the context.
+ *     return true;
+ * });
+ * ```
+ */
+public "canDisableShield"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the client tracking range for the entity.
+ * Defaults to 5.
+ * Example usage:
+ * ```javascript
+ * entityBuilder.clientTrackingRange(64); // Set the client tracking range to 64 blocks
+ * ```
+ */
+public "clientTrackingRange"(i: integer): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is hurt.
+ * The provided Consumer accepts a {@link ContextUtils.EntityDamageContext} parameter,
+ * representing the context of the entity being hurt.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onHurt(context => {
+ *     // Define custom logic for handling when the entity is hurt
+ *     // Use information about the EntityDamageContext provided by the context.
+ * });
+ * ```
+ */
+public "onHurt"(predicate: $Consumer$Type<($ContextUtils$EntityDamageContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the update interval for the entity.
+ * Defaults to 1 tick.
+ * Example usage:
+ * ```javascript
+ * entityBuilder.updateInterval(20); // Set the update interval to 20 ticks
+ * ```
+ */
+public "updateInterval"(i: integer): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity performs an eating action.
+ * The provided Consumer accepts a {@link ContextUtils.EntityItemLevelContext} parameter,
+ * representing the context of the entity's interaction with a specific item during eating.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.eat(context => {
+ *     // Custom logic to handle the entity's eating action
+ *     // Access information about the item being consumed using the provided context.
+ * });
+ * ```
+ */
+public "eat"(arg0: $Consumer$Type<($ContextUtils$EntityItemLevelContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can attack another entity.
+ * The provided Predicate accepts a {@link ContextUtils.LivingEntityContext} parameter,
+ * representing the entity that may be attacked.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canAttack(context => {
+ *     // Define conditions to check if the entity can attack the targetEntity
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some boolean condition indicating if the entity can attack the targetEntity;
+ * });
+ * ```
+ */
+public "canAttack"(customCanAttack: $Function$Type<($ContextUtils$LivingEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can be affected by an effect.
+ * The provided Predicate accepts a {@link ContextUtils.OnEffectContext} parameter,
+ * representing the context of the effect that may affect the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canBeAffected(context => {
+ *     // Define conditions to check if the entity can be affected by the effect
+ *     // Use information about the OnEffectContext provided by the context.
+ *     return // Some boolean condition indicating if the entity can be affected by an effect;
+ * });
+ * ```
+ */
+public "canBeAffected"(predicate: $Function$Type<($ContextUtils$OnEffectContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets whether the entity is immune to fire damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.fireImmune(true);
+ * ```
+ */
+public "fireImmune"(isFireImmune: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a function to determine the texture resource for the entity.
+ * The provided Function accepts a parameter of type T (the entity),
+ * allowing changing the texture based on information about the entity.
+ * The default behavior returns <namespace>:textures/entity/<path>.png.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.textureResource(entity => {
+ *     // Define logic to determine the texture resource for the entity
+ *     // Use information about the entity provided by the context.
+ *     return "kubejs:textures/entity/wyrm.png" // Some ResourceLocation representing the texture resource;
+ * });
+ * ```
+ */
+public "textureResource"(arg0: $Function$Type<(T), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Boolean determining if the entity will turn sideways on death.
+ * Defaults to true.
+ * Example usage:
+ * ```javascript
+ * entityBuilder.defaultDeathPose(false);
+ * ```
+ */
+public "defaultDeathPose"(defaultDeathPose: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can trample or step on something.
+ * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
+ * representing the context of the potential trampling action, and returns a boolean.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canTrample(context => {
+ *     // Define conditions for the entity to be allowed to trample
+ *     // Use information about the CanTrampleContext provided by the context.
+ *     return false // Some boolean condition indicating if the entity can trample;
+ * });
+ * ```
+ */
+public "canTrample"(predicate: $Function$Type<($ContextUtils$CanTrampleContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is added to the world.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that is added to the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onAddedToWorld(entity => {
+ *     // Define custom logic for handling when the entity is added to the world
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed from the world.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that is being removed from the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onRemovedFromWorld(entity => {
+ *     // Define custom logic for handling the removal of the entity from the world
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onRemovedFromWorld"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets whether the entity is always considered as an experience dropper.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isAlwaysExperienceDropper(true);
+ * ```
+ */
+public "isAlwaysExperienceDropper"(b: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity automatically attacks on touch.
+ * The provided Consumer accepts a {@link ContextUtils.AutoAttackContext} parameter,
+ * representing the context of the auto-attack when the entity touches another entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.doAutoAttackOnTouch(context => {
+ *     // Define custom logic for handling when the entity automatically attacks on touch
+ *     // Use information about the AutoAttackContext provided by the context.
+ * });
+ * ```
+ */
+public "doAutoAttackOnTouch"(doAutoAttackOnTouch: $Consumer$Type<($ContextUtils$AutoAttackContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a function to determine the standing eye height of the entity.
+ * The provided Function accepts a {@link ContextUtils.EntityPoseDimensionsContext} parameter,
+ * representing the context of the entity's pose and dimensions when standing.
+ * It returns a Float representing the standing eye height.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setStandingEyeHeight(context => {
+ *     // Define logic to calculate and return the standing eye height for the entity
+ *     // Use information about the EntityPoseDimensionsContext provided by the context.
+ *     return // Some Float value representing the standing eye height;
+ * });
+ * ```
+ */
+public "setStandingEyeHeight"(setStandingEyeHeight: $Function$Type<($ContextUtils$EntityPoseDimensionsContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity's air supply decreases.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity whose air supply is being decreased.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onDecreaseAirSupply(entity => {
+ *     // Define custom logic for handling when the entity's air supply decreases
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onDecreaseAirSupply"(onDecreaseAirSupply: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets whether to reposition the entity after loading.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.repositionEntityAfterLoad(true);
+ * ```
+ */
+public "repositionEntityAfterLoad"(customRepositionEntityAfterLoad: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity's air supply increases.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity whose air supply is being increased.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onIncreaseAirSupply(entity => {
+ *     // Define custom logic for handling when the entity's air supply increases
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onIncreaseAirSupply"(onIncreaseAirSupply: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity should drop experience upon death.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity whose experience drop is being determined.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.shouldDropExperience(entity => {
+ *     // Define conditions to check if the entity should drop experience upon death
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some boolean condition indicating if the entity should drop experience;
+ * });
+ * ```
+ */
+public "shouldDropExperience"(p: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a function to calculate fall damage for the entity.
+ * The provided Function accepts a {@link ContextUtils.CalculateFallDamageContext} parameter,
+ * representing the context of the fall damage calculation.
+ * It returns an Integer representing the calculated fall damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.calculateFallDamage(context => {
+ *     // Define logic to calculate and return the fall damage for the entity
+ *     // Use information about the CalculateFallDamageContext provided by the context.
+ *     return // Some Integer value representing the calculated fall damage;
+ * });
+ * ```
+ */
+public "calculateFallDamage"(calculation: $Function$Type<($ContextUtils$CalculateFallDamageContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Adds an animation controller to the entity with the specified parameters.
+ * 
+ * @param name The name of the animation controller.
+ * @param translationTicksLength The length of translation ticks for the animation.
+ * @param predicate The animation predicate defining the conditions for the animation to be played.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.addAnimationController('exampleController', 5, event => {
+ *     // Define conditions for the animation to be played based on the entity.
+ *     if (event.entity.hurtTime > 0) {
+ *         event.thenLoop('spawn');
+ *     } else {
+ *         event.thenPlayAndHold('idle');
+ *     }
+ *     return true; // Some boolean condition indicating if the animation should be played;
+ * });
+ * ```
+ */
+public "addAnimationController"(name: string, translationTicksLength: integer, predicate: $BaseLivingEntityBuilder$IAnimationPredicateJS$Type<(T)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can change dimensions.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity that may attempt to change dimensions.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canChangeDimensions(entity => {
+ *     // Define the conditions for the entity to be able to change dimensions
+ *     // Use information about the LivingEntity provided by the context.
+ *     return false // Some boolean condition indicating if the entity can change dimensions;
+ * });
+ * ```
+ */
+public "canChangeDimensions"(supplier: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity drops custom loot upon death.
+ * The provided Consumer accepts a {@link ContextUtils.EntityLootContext} parameter,
+ * representing the context of the entity's death and loot dropping.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.dropCustomDeathLoot(context => {
+ *     // Define custom logic for handling the entity dropping custom loot upon death
+ *     // Use information about the EntityLootContext provided by the context.
+ * });
+ * ```
+ */
+public "dropCustomDeathLoot"(consumer: $Consumer$Type<($ContextUtils$EntityLootContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Adds a new AnimationController to the entity, with the ability to add event listeners
+ * 
+ * @param name - The name of the controller
+ * @param translationTicksLength - How many ticks it takes to transition between different animations
+ * @param predicate - The predicate for the controller, determines if an animation should continue or not
+ * @param soundListener - A sound listener, used to execute actions when the json requests a sound to play. May be null
+ * @param particleListener - A particle listener, used to execute actions when the json requests a particle. May be null
+ * @param instructionListener - A custom instruction listener, used to execute actions based on arbitrary instructions provided by the json. May be null
+ */
+public "addKeyAnimationController"(name: string, translationTicksLength: integer, predicate: $BaseLivingEntityBuilder$IAnimationPredicateJS$Type<(T)>, soundListener: $BaseLivingEntityBuilder$ISoundListenerJS$Type<(T)>, particleListener: $BaseLivingEntityBuilder$IParticleListenerJS$Type<(T)>, instructionListener: $BaseLivingEntityBuilder$ICustomInstructionListenerJS$Type<(T)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine if the entity has inverted heal and harm behavior.
+ * 
+ * @param invertedHealAndHarm The predicate to check for inverted heal and harm behavior.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.invertedHealAndHarm(entity => {
+ *     // Custom logic to determine if the entity has inverted heal and harm behavior
+ *     return true; // Replace with your custom boolean condition
+ * });
+ * ```
+ */
+public "invertedHealAndHarm"(invertedHealAndHarm: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Adds a triggerable AnimationController to the entity callable off the entity's methods anywhere.
+ * 
+ * @param name - The name of the controller
+ * @param translationTicksLength - How many ticks it takes to transition between different animations
+ * @param triggerableAnimationID - The unique identifier of the triggerable animation(sets it apart from other triggerable animations)
+ * @param triggerableAnimationName - The name of the animation defined in the animations.json
+ * @param loopType - The loop type for the triggerable animation, either 'LOOP' or 'PLAY_ONCE' or 'HOLD_ON_LAST_FRAME' or 'DEFAULT'
+ */
+public "addTriggerableAnimationController"(name: string, translationTicksLength: integer, triggerableAnimationName: string, triggerableAnimationID: string, loopType: string): $BaseLivingEntityBuilder<(T)>
+/**
+ * Boolean determining whether the entity can jump while mounted by a player.
+ * (Currently experimental jumping logic subject to change in the future)
+ * Defaults to false.
+ * Example usage:
+ * ```javascript
+ * entityBuilder.mountJumpingEnabled(true);
+ * ```
+ */
+public "mountJumpingEnabled"(mountJumpingEnabled: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets whether the entity can breathe underwater.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canBreatheUnderwater(true);
+ * ```
+ */
+public "canBreatheUnderwater"(canBreatheUnderwater: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets whether the entity can spawn far from the player.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canSpawnFarFromPlayer(true);
+ * ```
+ */
+public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the mob category for the entity.
+ * Available options: 'monster', 'creature', 'ambient', 'water_creature', 'misc'.
+ * Defaults to 'misc'.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.mobCategory('monster');
+ * ```
+ */
+public "mobCategory"(category: string): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed during the living entity's AI step.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * allowing customization of the AI behavior.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.aiStep(entity => {
+ *     // Custom logic to be executed during the living entity's AI step
+ *     // Access and modify information about the entity using the provided context.
+ * });
+ * ```
+ */
+public "aiStep"(aiStep: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity is affected by potions.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity that may be checked for its susceptibility to potions.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isAffectedByPotions(entity => {
+ *     // Define conditions to check if the entity is affected by potions
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some boolean condition indicating if the entity is affected by potions;
+ * });
+ * ```
+ */
+public "isAffectedByPotions"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine whether the entity should drop loot upon death.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity whose loot dropping behavior is being determined.
+ * It returns a Boolean indicating whether the entity should drop loot.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.shouldDropLoot(entity => {
+ *     // Define logic to determine whether the entity should drop loot
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some Boolean value indicating whether the entity should drop loot;
+ * });
+ * ```
+ */
+public "shouldDropLoot"(b: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets the list of block names to which the entity is immune.
  * 
@@ -10965,132 +10908,6 @@ public "modelResource"(arg0: $Function$Type<(T), (any)>): $BaseLivingEntityBuild
  */
 public "animationResource"(arg0: $Function$Type<(T), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a predicate to determine whether the entity should drop loot upon death.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity whose loot dropping behavior is being determined.
- * It returns a Boolean indicating whether the entity should drop loot.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.shouldDropLoot(entity => {
- *     // Define logic to determine whether the entity should drop loot
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some Boolean value indicating whether the entity should drop loot;
- * });
- * ```
- */
-public "shouldDropLoot"(b: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the swim splash sound for the entity using either a string representation or a ResourceLocation object.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setSwimSplashSound("minecraft:entity.generic.splash");
- * ```
- */
-public "setSwimSplashSound"(sound: any): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to determine the next step distance for the entity.
- * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose next step distance is being determined.
- * It returns a Float representing the next step distance.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.nextStep(entity => {
- *     // Define logic to calculate and return the next step distance for the entity
- *     // Use information about the Entity provided by the context.
- *     return // Some Float value representing the next step distance;
- * });
- * ```
- */
-public "nextStep"(nextStep: $Function$Type<($Entity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to determine the experience reward for killing the entity.
- * The provided Function accepts a {@link LivingEntity} parameter,
- * representing the entity whose experience reward is being determined.
- * It returns an Integer representing the experience reward.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.experienceReward(killedEntity => {
- *     // Define logic to calculate and return the experience reward for the killedEntity
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some Integer value representing the experience reward;
- * });
- * ```
- */
-public "experienceReward"(experienceReward: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the swim sound for the entity using a string representation.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setSwimSound("minecraft:entity.generic.swim");
- * ```
- */
-public "setSwimSound"(sound: any): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a predicate to determine whether the entity is immobile.
- * The provided Predicate accepts a {@link LivingEntity} parameter,
- * representing the entity whose immobility is being determined.
- * It returns a Boolean indicating whether the entity is immobile.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isImmobile(entity => {
- *     // Define logic to determine whether the entity is immobile
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some Boolean value indicating whether the entity is immobile;
- * });
- * ```
- */
-public "isImmobile"(b: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the overall sound volume for the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setSoundVolume(0.5);
- * ```
- */
-public "setSoundVolume"(volume: float): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a function to determine the block speed factor of the entity.
- * The provided Function accepts a {@link LivingEntity} parameter,
- * representing the entity whose block speed factor is being determined.
- * It returns a Float representing the block speed factor.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.blockSpeedFactor(entity => {
- *     // Define logic to calculate and return the block speed factor for the entity
- *     // Use information about the LivingEntity provided by the context.
- *     return // Some Float value representing the block speed factor;
- * });
- * ```
- */
-public "blockSpeedFactor"(callback: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a consumer to handle custom lerping logic for the living entity.
- * 
- * @param lerpTo The consumer to handle the custom lerping logic.
- * 
- * The consumer should take a LerpToContext as a parameter, providing information about the lerping operation, including the target position, yaw, pitch, increment count, teleport flag, and the entity itself.
- * 
- * Example usage:
- * ```javascript
- * baseLivingEntityBuilder.lerpTo(context => {
- *     // Custom lerping logic for the living entity
- *     const { x, y, z, yaw, pitch, posRotationIncrements, teleport, entity } = context;
- *     // Perform custom lerping operations using the provided context
- *     // For example, you can smoothly move the entity from its current position to the target position
- *     entity.setPositionAndRotation(x, y, z, yaw, pitch);
- * });
- * ```
- */
-public "lerpTo"(lerpTo: $Consumer$Type<($ContextUtils$LerpToContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
  * Sets a function to determine whether the entity is currently flapping.
  * The provided Function accepts a {@link LivingEntity} parameter,
  * representing the entity whose flapping status is being determined.
@@ -11121,14 +10938,37 @@ public "isFlapping"(b: $Function$Type<($LivingEntity$Type), (any)>): $BaseLiving
  */
 public "onBlockedByShield"(onBlockedByShield: $Consumer$Type<($ContextUtils$LivingEntityContext$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets the water slowdown factor for the entity. Defaults to 0.8.
+ * Sets a callback function to be executed when an effect is removed from the entity.
+ * The provided Consumer accepts a {@link ContextUtils.OnEffectContext} parameter,
+ * representing the context of the effect being removed from the entity.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.setWaterSlowDown(0.6);
+ * entityBuilder.onEffectRemoved(context => {
+ *     // Define custom logic for handling when an effect is removed from the entity
+ *     // Use information about the OnEffectContext provided by the context.
+ * });
  * ```
  */
-public "setWaterSlowDown"(slowdownFactor: float): $BaseLivingEntityBuilder<(T)>
+public "onEffectRemoved"(consumer: $Consumer$Type<($ContextUtils$OnEffectContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the swim splash sound for the entity using either a string representation or a ResourceLocation object.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setSwimSplashSound("minecraft:entity.generic.splash");
+ * ```
+ */
+public "setSwimSplashSound"(sound: any): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the overall sound volume for the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setSoundVolume(0.5);
+ * ```
+ */
+public "setSoundVolume"(volume: float): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets the death sound for the entity.
  * 
@@ -11155,31 +10995,46 @@ public "setDeathSound"(sound: any): $BaseLivingEntityBuilder<(T)>
  */
 public "isAffectedByFluids"(b: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity equips an item.
- * The provided Consumer accepts a {@link ContextUtils.EntityEquipmentContext} parameter,
- * representing the context of the entity equipping an item.
+ * Sets a function to determine the next step distance for the entity.
+ * The provided Function accepts a {@link Entity} parameter,
+ * representing the entity whose next step distance is being determined.
+ * It returns a Float representing the next step distance.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onEquipItem(context => {
- *     // Define custom logic for handling when the entity equips an item
- *     // Use information about the EntityEquipmentContext provided by the context.
+ * entityBuilder.nextStep(entity => {
+ *     // Define logic to calculate and return the next step distance for the entity
+ *     // Use information about the Entity provided by the context.
+ *     return // Some Float value representing the next step distance;
  * });
  * ```
  */
-public "onEquipItem"(onEquipItem: $Consumer$Type<($ContextUtils$EntityEquipmentContext$Type)>): $BaseLivingEntityBuilder<(T)>
+public "nextStep"(nextStep: $Function$Type<($Entity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets the block jump factor for the entity.
+ * Sets a predicate to determine whether the entity is immobile.
+ * The provided Predicate accepts a {@link LivingEntity} parameter,
+ * representing the entity whose immobility is being determined.
+ * It returns a Boolean indicating whether the entity is immobile.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.setBlockJumpFactor(entity => {
- *     //Set the jump factor for the entity through context
- *     return 1 //some float value;
+ * entityBuilder.isImmobile(entity => {
+ *     // Define logic to determine whether the entity is immobile
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some Boolean value indicating whether the entity is immobile;
  * });
  * ```
  */
-public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+public "isImmobile"(b: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the water slowdown factor for the entity. Defaults to 0.8.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setWaterSlowDown(0.6);
+ * ```
+ */
+public "setWaterSlowDown"(slowdownFactor: float): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a function to determine the custom hurt sound of the entity.
  * The provided Function accepts a {@link ContextUtils.HurtContext} parameter,
@@ -11221,20 +11076,6 @@ public "setHurtSound"(sound: $Function$Type<($ContextUtils$HurtContext$Type), (a
  */
 public "canAttackType"(canAttackType: $Function$Type<($ContextUtils$EntityTypeEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a predicate to determine if a passenger can be added to the entity.
- * 
- * @param predicate The predicate to check if a passenger can be added.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canAddPassenger(context => {
- *     // Custom logic to determine if a passenger can be added to the entity
- *     return true;
- * });
- * ```
- */
-public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$PassengerEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
  * Sets a function to determine the visibility percentage of the entity.
  * The provided Function accepts a {@link ContextUtils.VisualContext} parameter,
  * representing both the entity whose visibility percentage is being determined
@@ -11252,84 +11093,119 @@ public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$PassengerEntit
  */
 public "visibilityPercent"(visibilityPercent: $Function$Type<($ContextUtils$VisualContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets the sound resource locations for small and large falls of the entity using either string representations or ResourceLocation objects.
+ * Sets a function to determine the experience reward for killing the entity.
+ * The provided Function accepts a {@link LivingEntity} parameter,
+ * representing the entity whose experience reward is being determined.
+ * It returns an Integer representing the experience reward.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.fallSounds("minecraft:entity.generic.small_fall",
- *     "minecraft:entity.generic.large_fall");
- * ```
- */
-public "fallSounds"(smallFallSound: any, largeFallSound: any): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity leaves combat.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that has left combat.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onLeaveCombat(entity => {
- *     // Define custom logic for handling the entity leaving combat
+ * entityBuilder.experienceReward(killedEntity => {
+ *     // Define logic to calculate and return the experience reward for the killedEntity
  *     // Use information about the LivingEntity provided by the context.
+ *     return // Some Integer value representing the experience reward;
  * });
  * ```
  */
-public "onLeaveCombat"(runnable: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+public "experienceReward"(experienceReward: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity stops sleeping.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that has stopped sleeping.
+ * Sets a callback function to be executed when the entity equips an item.
+ * The provided Consumer accepts a {@link ContextUtils.EntityEquipmentContext} parameter,
+ * representing the context of the entity equipping an item.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onStopSleeping(entity => {
- *     // Define custom logic for handling the entity stopping sleeping
- *     // Use information about the LivingEntity provided by the context.
+ * entityBuilder.onEquipItem(context => {
+ *     // Define custom logic for handling when the entity equips an item
+ *     // Use information about the EntityEquipmentContext provided by the context.
  * });
  * ```
  */
-public "onStopSleeping"(runnable: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+public "onEquipItem"(onEquipItem: $Consumer$Type<($ContextUtils$EntityEquipmentContext$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity stops riding.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that has stopped being ridden.
+ * Sets the swim sound for the entity using a string representation.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onStopRiding(entity => {
- *     // Define custom logic for handling when the entity stops being ridden
- *     // Use information about the LivingEntity provided by the context.
- * });
+ * entityBuilder.setSwimSound("minecraft:entity.generic.swim");
  * ```
  */
-public "onStopRiding"(callback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+public "setSwimSound"(sound: any): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets the minimum fall distance for the entity before taking damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setMaxFallDistance(entity => {
- *     // Define custom logic to determine the maximum fall distance
- *     // Use information about the LivingEntity provided by the context.
- *     return 3;
- * });
- * ```
- */
-public "setMaxFallDistance"(maxFallDistance: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when an effect is removed from the entity.
+ * Sets a callback function to be executed when an effect is added to the entity.
  * The provided Consumer accepts a {@link ContextUtils.OnEffectContext} parameter,
- * representing the context of the effect being removed from the entity.
+ * representing the context of the effect being added to the entity.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onEffectRemoved(context => {
- *     // Define custom logic for handling when an effect is removed from the entity
+ * entityBuilder.onEffectAdded(context => {
+ *     // Define custom logic for handling when an effect is added to the entity
  *     // Use information about the OnEffectContext provided by the context.
  * });
  * ```
  */
-public "onEffectRemoved"(consumer: $Consumer$Type<($ContextUtils$OnEffectContext$Type)>): $BaseLivingEntityBuilder<(T)>
+public "onEffectAdded"(consumer: $Consumer$Type<($ContextUtils$OnEffectContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine if a passenger can be added to the entity.
+ * 
+ * @param predicate The predicate to check if a passenger can be added.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canAddPassenger(context => {
+ *     // Custom logic to determine if a passenger can be added to the entity
+ *     return true;
+ * });
+ * ```
+ */
+public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$PassengerEntityContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the block jump factor for the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setBlockJumpFactor(entity => {
+ *     //Set the jump factor for the entity through context
+ *     return 1 //some float value;
+ * });
+ * ```
+ */
+public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a consumer to handle custom lerping logic for the living entity.
+ * 
+ * @param lerpTo The consumer to handle the custom lerping logic.
+ * 
+ * The consumer should take a LerpToContext as a parameter, providing information about the lerping operation, including the target position, yaw, pitch, increment count, teleport flag, and the entity itself.
+ * 
+ * Example usage:
+ * ```javascript
+ * baseLivingEntityBuilder.lerpTo(context => {
+ *     // Custom lerping logic for the living entity
+ *     const { x, y, z, yaw, pitch, posRotationIncrements, teleport, entity } = context;
+ *     // Perform custom lerping operations using the provided context
+ *     // For example, you can smoothly move the entity from its current position to the target position
+ *     entity.setPositionAndRotation(x, y, z, yaw, pitch);
+ * });
+ * ```
+ */
+public "lerpTo"(lerpTo: $Consumer$Type<($ContextUtils$LerpToContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a function to determine the block speed factor of the entity.
+ * The provided Function accepts a {@link LivingEntity} parameter,
+ * representing the entity whose block speed factor is being determined.
+ * It returns a Float representing the block speed factor.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.blockSpeedFactor(entity => {
+ *     // Define logic to calculate and return the block speed factor for the entity
+ *     // Use information about the LivingEntity provided by the context.
+ *     return // Some Float value representing the block speed factor;
+ * });
+ * ```
+ */
+public "blockSpeedFactor"(callback: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity is on a climbable surface.
  * The provided Predicate accepts a {@link LivingEntity} parameter,
@@ -11346,6 +11222,62 @@ public "onEffectRemoved"(consumer: $Consumer$Type<($ContextUtils$OnEffectContext
  */
 public "onClimbable"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
+ * Sets a callback function to be executed when the entity stops riding.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that has stopped being ridden.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onStopRiding(entity => {
+ *     // Define custom logic for handling when the entity stops being ridden
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onStopRiding"(callback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity stops sleeping.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that has stopped sleeping.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onStopSleeping(entity => {
+ *     // Define custom logic for handling the entity stopping sleeping
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onStopSleeping"(runnable: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is hit by thunder.
+ * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
+ * representing the context of the entity being hit by thunder.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.thunderHit(context => {
+ *     // Define custom logic for handling the entity being hit by thunder
+ *     // Use information about the ThunderHitContext provided by the context.
+ * });
+ * ```
+ */
+public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$ThunderHitContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity leaves combat.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that has left combat.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onLeaveCombat(entity => {
+ *     // Define custom logic for handling the entity leaving combat
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onLeaveCombat"(runnable: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
  * Sets a callback function to be executed when a player interacts with the entity.
  * The provided Consumer accepts a {@link ContextUtils.PlayerEntityContext} parameter,
  * representing the context of the player's interaction with the entity.
@@ -11360,6 +11292,34 @@ public "onClimbable"(predicate: $Function$Type<($LivingEntity$Type), (any)>): $B
  */
 public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
+ * Sets a callback function to be executed when the entity starts sprinting.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that has started sprinting.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onSprint(entity => {
+ *     // Define custom logic for handling when the entity starts sprinting
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onSprint"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity enters combat.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that has entered combat.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onEnterCombat(entity => {
+ *     // Define custom logic for handling the entity entering combat
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onEnterCombat"(c: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
  * Sets a callback function to be executed during each tick when the entity is being ridden.
  * The provided Consumer accepts a {@link LivingEntity} parameter,
  * representing the entity that is being ridden.
@@ -11373,6 +11333,39 @@ public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$PlayerEntityContext
  * ```
  */
 public "rideTick"(callback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed on the client side.
+ * The provided Consumer accepts a {@link LivingEntity} parameter,
+ * representing the entity that is being removed on the client side.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onClientRemoval(entity => {
+ *     // Define custom logic for handling the removal of the entity on the client side
+ *     // Use information about the LivingEntity provided by the context.
+ * });
+ * ```
+ */
+public "onClientRemoval"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the sound resource locations for small and large falls of the entity using either string representations or ResourceLocation objects.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.fallSounds("minecraft:entity.generic.small_fall",
+ *     "minecraft:entity.generic.large_fall");
+ * ```
+ */
+public "fallSounds"(smallFallSound: any, largeFallSound: any): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets the sound resource location for the entity's eating sound using either a string representation or a ResourceLocation object.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.eatingSound("minecraft:entity.zombie.ambient");
+ * ```
+ */
+public "eatingSound"(sound: any): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity may interact with something.
  * The provided Predicate accepts a {@link ContextUtils.MayInteractContext} parameter,
@@ -11389,98 +11382,18 @@ public "rideTick"(callback: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEn
  */
 public "mayInteract"(predicate: $Function$Type<($ContextUtils$MayInteractContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity starts sprinting.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that has started sprinting.
+ * Sets the minimum fall distance for the entity before taking damage.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onSprint(entity => {
- *     // Define custom logic for handling when the entity starts sprinting
+ * entityBuilder.setMaxFallDistance(entity => {
+ *     // Define custom logic to determine the maximum fall distance
  *     // Use information about the LivingEntity provided by the context.
+ *     return 3;
  * });
  * ```
  */
-public "onSprint"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets the sound resource location for the entity's eating sound using either a string representation or a ResourceLocation object.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.eatingSound("minecraft:entity.zombie.ambient");
- * ```
- */
-public "eatingSound"(sound: any): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hit by thunder.
- * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
- * representing the context of the entity being hit by thunder.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.thunderHit(context => {
- *     // Define custom logic for handling the entity being hit by thunder
- *     // Use information about the ThunderHitContext provided by the context.
- * });
- * ```
- */
-public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$ThunderHitContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity enters combat.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that has entered combat.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onEnterCombat(entity => {
- *     // Define custom logic for handling the entity entering combat
- *     // Use information about the LivingEntity provided by the context.
- * });
- * ```
- */
-public "onEnterCombat"(c: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity starts sleeping.
- * The provided Consumer accepts a {@link ContextUtils.EntityBlockPosContext} parameter,
- * representing the context of the entity starting to sleep at a specific block position.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onStartSleeping(context => {
- *     // Define custom logic for handling the entity starting to sleep
- *     // Use information about the EntityBlockPosContext provided by the context.
- * });
- * ```
- */
-public "onStartSleeping"(consumer: $Consumer$Type<($ContextUtils$EntityBlockPosContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when an effect is added to the entity.
- * The provided Consumer accepts a {@link ContextUtils.OnEffectContext} parameter,
- * representing the context of the effect being added to the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onEffectAdded(context => {
- *     // Define custom logic for handling when an effect is added to the entity
- *     // Use information about the OnEffectContext provided by the context.
- * });
- * ```
- */
-public "onEffectAdded"(consumer: $Consumer$Type<($ContextUtils$OnEffectContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed on the client side.
- * The provided Consumer accepts a {@link LivingEntity} parameter,
- * representing the entity that is being removed on the client side.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onClientRemoval(entity => {
- *     // Define custom logic for handling the removal of the entity on the client side
- *     // Use information about the LivingEntity provided by the context.
- * });
- * ```
- */
-public "onClientRemoval"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+public "setMaxFallDistance"(maxFallDistance: $Function$Type<($LivingEntity$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity performs a flap action.
  * The provided Consumer accepts a {@link LivingEntity} parameter,
@@ -11496,27 +11409,19 @@ public "onClientRemoval"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseL
  */
 public "onFlap"(consumer: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
- * Adds an extra hitbox to the mob. Aka part-entities.
- * Vanilla ticks extra hitboxes(for example the ender dragon's) with the
- * .tickPart method which specifies which hitbox to move to the entity and
- * its offset. This method is available off of the parent entity anywhere
- * including non EntityJS callbacks. (Usually used in the entity's aiStep method)
- * For example: `entity.tickPart("head", 0, 1, 0)`
+ * Sets a callback function to be executed when the entity starts sleeping.
+ * The provided Consumer accepts a {@link ContextUtils.EntityBlockPosContext} parameter,
+ * representing the context of the entity starting to sleep at a specific block position.
  * 
- * Creation of the hitbox:
+ * Example usage:
  * ```javascript
- * entityBuilder.addPartEntity("head", 1, 2, builder => {
- *     // Can also be null
- *     builder.isPickable(true)
+ * entityBuilder.onStartSleeping(context => {
+ *     // Define custom logic for handling the entity starting to sleep
+ *     // Use information about the EntityBlockPosContext provided by the context.
  * });
  * ```
- * 
- * @param name - The name of the part
- * @param width - The width of the part
- * @param height - The height of the part
- * @param builderConsumer - The builder for the part, very similar to the normal builder callbacks
  */
-public "addPartEntity"(name: string, width: float, height: float, builderConsumer: $Consumer$Type<($PartBuilder$Type<(T)>)>): $BaseLivingEntityBuilder<(T)>
+public "onStartSleeping"(consumer: $Consumer$Type<($ContextUtils$EntityBlockPosContext$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Boolean determining whether the passenger is able to steer the entity while riding.
  * Defaults to true.
@@ -11535,6 +11440,18 @@ public "canSteer"(canSteer: boolean): $BaseLivingEntityBuilder<(T)>
  * ```
  */
 public "modelSize"(scaleHeight: float, scaleWidth: float): $BaseLivingEntityBuilder<(T)>
+/**
+ * Consumer overriding the tickDeath responsible to counting down
+ * the ticks it takes to remove the entity when it dies.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.tickDeath(entity => {
+ *     // Override the tickDeath method in the entity
+ * });
+ * ```
+ */
+public "tickDeath"(tickDeath: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Adds an extra render layer to the mob.
  * @param newGeoLayer The builder Consumer for the new render layer.
@@ -11562,6 +11479,28 @@ public "newGeoLayer"(builderConsumer: $Consumer$Type<($GeoLayerJSBuilder$Type<(T
  */
 public "isAlliedTo"(isAlliedTo: $Function$Type<($ContextUtils$LineOfSightContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 /**
+ * Adds an extra hitbox to the mob. Aka part-entities.
+ * Vanilla ticks extra hitboxes(for example the ender dragon's) with the
+ * .tickPart method which specifies which hitbox to move to the entity and
+ * its offset. This method is available off of the parent entity anywhere
+ * including non EntityJS callbacks. (Usually used in the entity's aiStep method)
+ * For example: `entity.tickPart("head", 0, 1, 0)`
+ * 
+ * Creation of the hitbox:
+ * ```javascript
+ * entityBuilder.addPartEntity("head", 1, 2, builder => {
+ *     // Can also be null
+ *     builder.isPickable(true)
+ * });
+ * ```
+ * 
+ * @param name - The name of the part
+ * @param width - The width of the part
+ * @param height - The height of the part
+ * @param builderConsumer - The builder for the part, very similar to the normal builder callbacks
+ */
+public "addPartEntity"(name: string, width: float, height: float, builderConsumer: $Consumer$Type<($PartBuilder$Type<(T)>)>): $BaseLivingEntityBuilder<(T)>
+/**
  * @param onHurtTarget A Consumer to execute when the mob attacks its target
  * 
  * Example usage:
@@ -11573,18 +11512,6 @@ public "isAlliedTo"(isAlliedTo: $Function$Type<($ContextUtils$LineOfSightContext
  * ```
  */
 public "onHurtTarget"(onHurtTarget: $Consumer$Type<($ContextUtils$LineOfSightContext$Type)>): $BaseLivingEntityBuilder<(T)>
-/**
- * Consumer overriding the tickDeath responsible to counting down
- * the ticks it takes to remove the entity when it dies.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.tickDeath(entity => {
- *     // Override the tickDeath method in the entity
- * });
- * ```
- */
-public "tickDeath"(tickDeath: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
 /**
  * Sets the hit box of the entity type.
  * 
@@ -11615,15 +11542,82 @@ public "setSummonable"(b: boolean): $BaseLivingEntityBuilder<(T)>
  * @param maxCount - The maximum number of entities that can spawn at a time
  */
 public "biomeSpawn"(biomes: $List$Type<(string)>, weight: integer, minCount: integer, maxCount: integer): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity receives healing.
+ * The provided Consumer accepts a {@link ContextUtils.EntityHealContext} parameter,
+ * representing the context of the entity receiving healing.
+ * Very similar to {@link ForgeEventFactory.onLivingHeal}
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onLivingHeal(context => {
+ *     // Define custom logic for handling when the entity receives healing
+ *     // Use information about the EntityHealContext provided by the context.
+ * });
+ * ```
+ */
+public "onLivingHeal"(callback: $Consumer$Type<($ContextUtils$EntityHealContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the living entity falls and takes damage.
+ * The provided Consumer accepts a {@link ContextUtils.EntityFallDamageContext} parameter,
+ * representing the context of the entity falling and taking fall damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onLivingFall(context => {
+ *     // Define custom logic for handling when the living entity falls and takes damage
+ *     // Use information about the EntityFallDamageContext provided by the context.
+ * });
+ * ```
+ */
+public "onLivingFall"(c: $Consumer$Type<($ContextUtils$EntityFallDamageContext$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity jumps.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onLivingJump(entity => {
+ *     // Custom logic to handle the entity's jump action
+ * });
+ * ```
+ */
+public "onLivingJump"(onJump: $Consumer$Type<($LivingEntity$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Consumer determining travel logic for the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.travel(context => {
+ *     const {entity, vec3} = context
+ *     // Use the vec3 and entity to determine the travel logic of the entity
+ * });
+ * ```
+ */
+public "travel"(travel: $Consumer$Type<($ContextUtils$Vec3Context$Type)>): $BaseLivingEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity has line of sight to another entity.
+ * The provided Function accepts a {@link LineOfSightContext} parameter,
+ * representing the entity to check for line of sight.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.hasLineOfSight(context => {
+ *     // Define conditions to check if the entity has line of sight to the target entity
+ *     // Use information about the Entity provided by the context.
+ *     return // Some boolean condition indicating if there is line of sight;
+ * });
+ * ```
+ */
+public "hasLineOfSight"(f: $Function$Type<($ContextUtils$LineOfSightContext$Type), (any)>): $BaseLivingEntityBuilder<(T)>
 set "renderType"(value: any)
 set "standingEyeHeight"(value: $Function$Type<($ContextUtils$EntityPoseDimensionsContext$Type), (any)>)
 set "swimSplashSound"(value: any)
-set "swimSound"(value: any)
 set "soundVolume"(value: float)
-set "waterSlowDown"(value: float)
 set "deathSound"(value: any)
-set "blockJumpFactor"(value: $Function$Type<($LivingEntity$Type), (any)>)
+set "waterSlowDown"(value: float)
 set "hurtSound"(value: $Function$Type<($ContextUtils$HurtContext$Type), (any)>)
+set "swimSound"(value: any)
+set "blockJumpFactor"(value: $Function$Type<($LivingEntity$Type), (any)>)
 set "maxFallDistance"(value: $Function$Type<($LivingEntity$Type), (any)>)
 set "summonable"(value: boolean)
 }
@@ -11686,11 +11680,11 @@ export class $BuildBrainProviderEventJS<T extends $LivingEntity> extends $EventJ
 
 constructor()
 
-public "provide"(): $Brain$Provider<(T)>
 /**
  * Adds the provided `SensorType` to the entity type's sensors
  */
 public "addSensor"(sensor: $SensorType$Type<(any)>): void
+public "provide"(): $Brain$Provider<(T)>
 /**
  * Adds the provided `MemoryModuleType` to the entity type's memories
  */
@@ -11883,8 +11877,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -12009,157 +12003,157 @@ readonly "random": $RandomSource
 constructor(builder: $PandaJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -12474,8 +12468,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$HumanoidArm, $HumanoidArm$Type} from "packages/net/minecraft/world/entity/$HumanoidArm"
 import {$MobEffectInstance, $MobEffectInstance$Type} from "packages/net/minecraft/world/effect/$MobEffectInstance"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
 import {$Piglin, $Piglin$Type} from "packages/net/minecraft/world/entity/monster/piglin/$Piglin"
@@ -12494,8 +12488,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -12616,159 +12610,159 @@ readonly "random": $RandomSource
 constructor(builder: $PiglinJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "isDancing"(): boolean
+public "setDancing"(pDancing: boolean): void
+public "setChargingCrossbow"(pIsCharging: boolean): void
+public "isConverting"(): boolean
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "isBaby"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "setBaby"(pChildZombie: boolean): void
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "getProjectile"(pShootable: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "setBaby"(pChildZombie: boolean): void
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
 public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
 public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
 public "onClimbable"(): boolean
+public "getMobType"(): $MobType
 public "setSprinting"(sprinting: boolean): void
 public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
 public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
 public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "getProjectile"(pShootable: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
 public "onSyncedDataUpdated"(pKey: $EntityDataAccessor$Type<(any)>): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "setChargingCrossbow"(pIsCharging: boolean): void
-public "setDancing"(pDancing: boolean): void
-public "isDancing"(): boolean
-public "isConverting"(): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "isBaby"(): boolean
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public "getTarget"(): $LivingEntity
 public static "pickUpItem"(arg0: $Mob$Type, arg1: $InventoryCarrier$Type, arg2: $ItemEntity$Type): void
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "baby"(): boolean
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "dancing"(): boolean
+set "dancing"(value: boolean)
+set "chargingCrossbow"(value: boolean)
+get "converting"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
 set "baby"(value: boolean)
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
+get "baby"(): boolean
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-set "chargingCrossbow"(value: boolean)
-set "dancing"(value: boolean)
-get "dancing"(): boolean
-get "converting"(): boolean
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -12844,7 +12838,6 @@ import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
-import {$AgeableMob, $AgeableMob$Type} from "packages/net/minecraft/world/entity/$AgeableMob"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$PartEntityJS, $PartEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$PartEntityJS"
@@ -12857,8 +12850,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -12980,157 +12973,156 @@ readonly "random": $RandomSource
 constructor(builder: $CowJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "canBeCollidedWith"(): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $Cow
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -13302,8 +13294,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$BatJSBuilder, $BatJSBuilder$Type} from "packages/net/liopyu/entityjs/builders/living/vanilla/$BatJSBuilder"
@@ -13426,153 +13418,153 @@ readonly "random": $RandomSource
 constructor(builder: $BatJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "getAmbientSound"(): $SoundEvent
 public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "isFlapping"(): boolean
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
 public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
 public "getArmorSlots"(): $Iterable<($ItemStack)>
 public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSound"(): $SoundEvent
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "flapping"(): boolean
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -13835,8 +13827,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -13958,150 +13950,150 @@ readonly "random": $RandomSource
 constructor(builder: $EvokerJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -14238,64 +14230,64 @@ readonly "random": $RandomSource
 
 constructor(builder: $BoatJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
-public "setInput"(pInputLeft: boolean, pInputRight: boolean, pInputUp: boolean, pInputDown: boolean): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "getDropItem"(): $Item
+public "m_38366_"(pBubbleTime: integer): void
+public "m_38396_"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(player: $Player$Type): void
 public "tick"(): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "setInput"(pInputLeft: boolean, pInputRight: boolean, pInputUp: boolean, pInputDown: boolean): void
 public "getBuilder"(): $BaseEntityBuilder<(any)>
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
-public "entityName"(): string
-public "isPushable"(): boolean
-public "getDropItem"(): $Item
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "rideTick"(): void
+public "stopRiding"(): void
 public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
 public "isAttackable"(): boolean
 public "setSprinting"(sprinting: boolean): void
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "isPushable"(): boolean
 public "canChangeDimensions"(): boolean
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "m_38396_"(): void
-public "m_38366_"(pBubbleTime: integer): void
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "onRemovedFromWorld"(): void
 public "isGlowing"(): boolean
-public "stopRiding"(): void
-public "rideTick"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "getControllingPassenger"(): $LivingEntity
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public static "of"(holder: any): $FacetHolder
-get "builder"(): $BaseEntityBuilder<(any)>
-get "pushable"(): boolean
 get "dropItem"(): $Item
 get "animatableInstanceCache"(): $AnimatableInstanceCache
+get "freezing"(): boolean
+get "builder"(): $BaseEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "attackable"(): boolean
 set "sprinting"(value: boolean)
-get "controllingPassenger"(): $LivingEntity
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
+get "pushable"(): boolean
 get "glowing"(): boolean
+get "controllingPassenger"(): $LivingEntity
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -14353,8 +14345,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -14475,150 +14467,150 @@ readonly "random": $RandomSource
 constructor(builder: $MobEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -14992,48 +14984,48 @@ readonly "random": $RandomSource
 constructor(builder: $EyeOfEnderJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 constructor(builder: $EyeOfEnderJSBuilder$Type, pLevel: $Level$Type, pEntityType: $EntityType$Type<(any)>, pX: double, pY: double, pZ: double)
 
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(player: $Player$Type): void
 public "tick"(): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
-public "entityName"(): string
-public "isPushable"(): boolean
+public "getItem"(): $ItemStack
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getProjectileBuilder"(): $BaseNonAnimatableEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "rideTick"(): void
+public "stopRiding"(): void
 public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
 public "isAttackable"(): boolean
 public "setSprinting"(sprinting: boolean): void
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "isPushable"(): boolean
 public "canChangeDimensions"(): boolean
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "getProjectileBuilder"(): $BaseNonAnimatableEntityBuilder<(any)>
-public "getItem"(): $ItemStack
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "onRemovedFromWorld"(): void
 public "isGlowing"(): boolean
-public "stopRiding"(): void
-public "rideTick"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "getControllingPassenger"(): $LivingEntity
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "pushable"(): boolean
+get "item"(): $ItemStack
+get "freezing"(): boolean
+get "projectileBuilder"(): $BaseNonAnimatableEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "attackable"(): boolean
 set "sprinting"(value: boolean)
-get "controllingPassenger"(): $LivingEntity
-get "projectileBuilder"(): $BaseNonAnimatableEntityBuilder<(any)>
-get "item"(): $ItemStack
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
+get "pushable"(): boolean
 get "glowing"(): boolean
+get "controllingPassenger"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15086,35 +15078,35 @@ declare global {
 export type $ContextUtils$PartHurtContext_<T> = $ContextUtils$PartHurtContext$Type<(T)>;
 }}
 declare module "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$ProjectileEntityJS" {
+import {$ProjectileEntityJSBuilder, $ProjectileEntityJSBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/entityjs/$ProjectileEntityJSBuilder"
 import {$FacetHolder, $FacetHolder$Type} from "packages/com/redpxnda/nucleus/facet/$FacetHolder"
+import {$ThrowableItemProjectile, $ThrowableItemProjectile$Type} from "packages/net/minecraft/world/entity/projectile/$ThrowableItemProjectile"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
+import {$IProjectileEntityJS, $IProjectileEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$IProjectileEntityJS"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Entity$RemovalReason, $Entity$RemovalReason$Type} from "packages/net/minecraft/world/entity/$Entity$RemovalReason"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$ItemSupplier, $ItemSupplier$Type} from "packages/net/minecraft/world/entity/projectile/$ItemSupplier"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$EntityDimensions, $EntityDimensions$Type} from "packages/net/minecraft/world/entity/$EntityDimensions"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$MoverType, $MoverType$Type} from "packages/net/minecraft/world/entity/$MoverType"
-import {$ProjectileEntityJSBuilder, $ProjectileEntityJSBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/entityjs/$ProjectileEntityJSBuilder"
-import {$ThrowableItemProjectile, $ThrowableItemProjectile$Type} from "packages/net/minecraft/world/entity/projectile/$ThrowableItemProjectile"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$IProjectileEntityJS, $IProjectileEntityJS$Type} from "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$IProjectileEntityJS"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
-import {$ProjectileEntityBuilder, $ProjectileEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/entityjs/$ProjectileEntityBuilder"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$EntityDimensions, $EntityDimensions$Type} from "packages/net/minecraft/world/entity/$EntityDimensions"
 
 export class $ProjectileEntityJS extends $ThrowableItemProjectile implements $IProjectileEntityJS, $ItemSupplier {
  "builder": $ProjectileEntityJSBuilder
  "ownerUUID": $UUID
  "cachedOwner": $Entity
+ "leftOwner": boolean
  "hasBeenShot": boolean
 static readonly "ID_TAG": string
 static readonly "PASSENGERS_TAG": string
@@ -15171,50 +15163,48 @@ readonly "random": $RandomSource
 constructor(builder: $ProjectileEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 constructor(builder: $ProjectileEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pShooter: $LivingEntity$Type, pLevel: $Level$Type)
 
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(player: $Player$Type): void
 public "tick"(): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
+public "getItem"(): $ItemStack
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
 public "shootFromRotation"(pShooter: $Entity$Type, pX: float, pY: float, pZ: float, pVelocity: float, pInaccuracy: float): void
-public "entityName"(): string
-public "isPushable"(): boolean
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "rideTick"(): void
+public "stopRiding"(): void
 public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
 public "isAttackable"(): boolean
 public "setSprinting"(sprinting: boolean): void
-public "causeFallDamage"(pFallDistance: float, pMultiplier: float, pSource: $DamageSource$Type): boolean
+public "isPushable"(): boolean
+public "canChangeDimensions"(): boolean
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "onRemovedFromWorld"(): void
+public "isGlowing"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "push"(pEntity: $Entity$Type): void
 public "getControllingPassenger"(): $LivingEntity
 public "canFreeze"(): boolean
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "canChangeDimensions"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "getProjectileBuilder"(): $ProjectileEntityBuilder<(any)>
-public "getItem"(): $ItemStack
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "stopRiding"(): void
-public "rideTick"(): void
+public "causeFallDamage"(pFallDistance: float, pMultiplier: float, pSource: $DamageSource$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "pushable"(): boolean
+get "item"(): $ItemStack
+get "freezing"(): boolean
+get "maxFallDistance"(): integer
 get "attackable"(): boolean
 set "sprinting"(value: boolean)
-get "controllingPassenger"(): $LivingEntity
-get "projectileBuilder"(): $ProjectileEntityBuilder<(any)>
-get "item"(): $ItemStack
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
+get "pushable"(): boolean
 get "glowing"(): boolean
+get "controllingPassenger"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -15232,6 +15222,7 @@ declare module "packages/net/liopyu/entityjs/entities/nonliving/entityjs/$ArrowE
 import {$FacetHolder, $FacetHolder$Type} from "packages/com/redpxnda/nucleus/facet/$FacetHolder"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
+import {$ArrowEntityBuilder, $ArrowEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/entityjs/$ArrowEntityBuilder"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
@@ -15264,6 +15255,7 @@ readonly "builder": $ArrowEntityJSBuilder
  "piercingIgnoreEntityIds": $IntOpenHashSet
  "ownerUUID": $UUID
  "cachedOwner": $Entity
+ "leftOwner": boolean
  "hasBeenShot": boolean
 static readonly "ID_TAG": string
 static readonly "PASSENGERS_TAG": string
@@ -15320,60 +15312,62 @@ readonly "random": $RandomSource
 constructor(builder: $ArrowEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 constructor(level: $Level$Type, shooter: $LivingEntity$Type, builder: $ArrowEntityJSBuilder$Type)
 
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "setEnchantmentEffectsFromEntity"(pShooter: $LivingEntity$Type, pVelocity: float): void
+public "getBaseDamage"(): double
+public "getKnockback"(): integer
+public "setBaseDamage"(pBaseDamage: double): void
+public "setKnockback"(pKnockback: integer): void
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(player: $Player$Type): void
 public "tick"(): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
-public "setBaseDamage"(pBaseDamage: double): void
-public "getBaseDamage"(): double
-public "setKnockback"(pKnockback: integer): void
-public "setEnchantmentEffectsFromEntity"(pShooter: $LivingEntity$Type, pVelocity: float): void
-public "getKnockback"(): integer
-public "entityName"(): string
-public "isPushable"(): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "isMoving"(): boolean
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isMoving"(): boolean
+public "rideTick"(): void
+public "stopRiding"(): void
+public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
 public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
 public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
 public "isAttackable"(): boolean
 public "setSprinting"(sprinting: boolean): void
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "isPushable"(): boolean
+public "setDamageFunction"(): double
+public "getArrowBuilder"(): $ArrowEntityBuilder<(any)>
+public "canChangeDimensions"(): boolean
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "onRemovedFromWorld"(): void
+public "isGlowing"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "push"(pEntity: $Entity$Type): void
 public "getControllingPassenger"(): $LivingEntity
 public "canFreeze"(): boolean
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "canChangeDimensions"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "setDamageFunction"(): double
-public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "stopRiding"(): void
-public "rideTick"(): void
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "setPickUpItem"(stack: $ItemStack$Type): void
 public static "of"(holder: any): $FacetHolder
-set "baseDamage"(value: double)
 get "baseDamage"(): double
-set "knockback"(value: integer)
 get "knockback"(): integer
-get "pushable"(): boolean
+set "baseDamage"(value: double)
+set "knockback"(value: integer)
+get "freezing"(): boolean
 get "moving"(): boolean
+get "maxFallDistance"(): integer
 get "attackable"(): boolean
 set "sprinting"(value: boolean)
-get "controllingPassenger"(): $LivingEntity
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
+get "pushable"(): boolean
+get "arrowBuilder"(): $ArrowEntityBuilder<(any)>
 get "glowing"(): boolean
+get "controllingPassenger"(): $LivingEntity
 set "pickUpItem"(value: $ItemStack$Type)
 }
 /**
@@ -15429,8 +15423,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -15552,150 +15546,150 @@ readonly "random": $RandomSource
 constructor(builder: $DolphinJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -15806,8 +15800,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -15936,165 +15930,165 @@ readonly "random": $RandomSource
 constructor(builder: $ParrotJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "tame"(pPlayer: $Player$Type): void
+public "wantsToAttack"(pTarget: $LivingEntity$Type, pOwner: $LivingEntity$Type): boolean
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "tamableFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "tamableFood"(pStack: $ItemStack$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "getAmbientSound"(): $SoundEvent
+public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "getAmbientSound"(): $SoundEvent
-public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "tamableFood"(pStack: $ItemStack$Type): boolean
-public "shouldJump"(): boolean
-public "tame"(pPlayer: $Player$Type): void
-public "wantsToAttack"(pTarget: $LivingEntity$Type, pOwner: $LivingEntity$Type): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
-public "tamableFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSound"(): $SoundEvent
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -16150,8 +16144,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$Ghast, $Ghast$Type} from "packages/net/minecraft/world/entity/monster/$Ghast"
@@ -16272,151 +16266,150 @@ readonly "random": $RandomSource
 constructor(builder: $GhastJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_7515_"(): $SoundEvent
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "getAmbientSound"(): $SoundEvent
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
-get "ambientSound"(): $SoundEvent
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -16500,6 +16493,34 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * Sets a function to determine if the player's current itemstack will tame the mob.
+ * 
+ * @param tamableFoodPredicate A Function accepting a ContextUtils.EntityItemStackContext parameter
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.tamableFoodPredicate(context => {
+ *     const { entity, item } = context
+ *     return item.id == 'minecraft:diamond' // Return true if the player's current itemstack will tame the mob.
+ * });
+ * ```
+ */
+public "tamableFoodPredicate"(tamableFoodPredicate: $Function$Type<($ContextUtils$EntityItemStackContext$Type), (any)>): $MobBuilder<(T)>
+/**
+ * Sets a function to determine if the player's current itemstack will tame the mob.
+ * 
+ * @param tamableFoodPredicate A Function accepting a ContextUtils.EntityItemStackContext parameter
+ * 
+ * Example usage:
+ * ```javascript
+ * mobBuilder.tamableFood([
+ *     'minecraft:diamond',
+ *     'minecraft:wheat'
+ * ]);
+ * ```
+ */
+public "tamableFood"(tamableFood: $Ingredient$Type): $MobBuilder<(T)>
+/**
  * Sets a Consumer with the parameter of ContextUtils.PlayerEntityContext callback
  * This is fired after the entity is tamed and all tame logic has already taken place.
  * Useful if you don't want to mess with the UUID logic in the tameOverride method.
@@ -16531,34 +16552,6 @@ public "onTamed"(onTamed: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type
  * ```
  */
 public "tameOverride"(tameOverride: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type)>): $MobBuilder<(T)>
-/**
- * Sets a function to determine if the player's current itemstack will tame the mob.
- * 
- * @param tamableFoodPredicate A Function accepting a ContextUtils.EntityItemStackContext parameter
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.tamableFood([
- *     'minecraft:diamond',
- *     'minecraft:wheat'
- * ]);
- * ```
- */
-public "tamableFood"(tamableFood: $Ingredient$Type): $MobBuilder<(T)>
-/**
- * Sets a function to determine if the player's current itemstack will tame the mob.
- * 
- * @param tamableFoodPredicate A Function accepting a ContextUtils.EntityItemStackContext parameter
- * 
- * Example usage:
- * ```javascript
- * mobBuilder.tamableFoodPredicate(context => {
- *     const { entity, item } = context
- *     return item.id == 'minecraft:diamond' // Return true if the player's current itemstack will tame the mob.
- * });
- * ```
- */
-public "tamableFoodPredicate"(tamableFoodPredicate: $Function$Type<($ContextUtils$EntityItemStackContext$Type), (any)>): $MobBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -16616,8 +16609,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$TamableAnimal, $TamableAnimal$Type} from "packages/net/minecraft/world/entity/$TamableAnimal"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
@@ -16739,194 +16732,194 @@ readonly "random": $RandomSource
 constructor(builder: $TameableMobJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "tame"(pPlayer: $Player$Type): void
+public "wantsToAttack"(pTarget: $LivingEntity$Type, pOwner: $LivingEntity$Type): boolean
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "tamableFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "tamableFood"(pStack: $ItemStack$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "setRemainingPersistentAngerTime"(pTime: integer): void
+public "getRemainingPersistentAngerTime"(): integer
+public "setPersistentAngerTarget"(pTarget: $UUID$Type): void
+public "getPersistentAngerTarget"(): $UUID
+public "startPersistentAngerTimer"(): void
+public "isFood"(pStack: $ItemStack$Type): boolean
+public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
+public "canMate"(pOtherAnimal: $Animal$Type): boolean
+public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
+public "canBreed"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "mobInteract"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "startPersistentAngerTimer"(): void
-public "setPersistentAngerTarget"(pTarget: $UUID$Type): void
-public "getRemainingPersistentAngerTime"(): integer
-public "setRemainingPersistentAngerTime"(pTime: integer): void
-public "getPersistentAngerTarget"(): $UUID
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "tamableFood"(pStack: $ItemStack$Type): boolean
-public "shouldJump"(): boolean
-public "tame"(pPlayer: $Player$Type): void
-public "wantsToAttack"(pTarget: $LivingEntity$Type, pOwner: $LivingEntity$Type): boolean
-public "isFood"(pStack: $ItemStack$Type): boolean
-public "getBreedOffspring"(serverLevel: $ServerLevel$Type, ageableMob: $AgeableMob$Type): $AgeableMob
-public "spawnChildFromBreeding"(pLevel: $ServerLevel$Type, pMate: $Animal$Type): void
-public "canMate"(pOtherAnimal: $Animal$Type): boolean
-public "canBreed"(): boolean
-public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
-public "isFoodPredicate"(pStack: $ItemStack$Type): boolean
-public "tamableFoodPredicate"(pStack: $ItemStack$Type): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
 public "getOwnerUUID"(): $UUID
+public "getTarget"(): $LivingEntity
+public "playerDied"(arg0: $Player$Type): void
+public "readPersistentAngerSaveData"(arg0: $Level$Type, arg1: $CompoundTag$Type): void
+public "updatePersistentAnger"(arg0: $ServerLevel$Type, arg1: boolean): void
+public "addPersistentAngerSaveData"(arg0: $CompoundTag$Type): void
+public "isAngryAt"(arg0: $LivingEntity$Type): boolean
+public "isAngry"(): boolean
+public "stopBeingAngry"(): void
+public "forgetCurrentTargetAndRefreshUniversalAnger"(): void
+public "isAngryAtAllPlayers"(arg0: $Level$Type): boolean
 public "setLastHurtByMob"(arg0: $LivingEntity$Type): void
 public "setLastHurtByPlayer"(arg0: $Player$Type): void
 public "getLastHurtByMob"(): $LivingEntity
-public "playerDied"(arg0: $Player$Type): void
-public "getTarget"(): $LivingEntity
-public "isAngryAt"(arg0: $LivingEntity$Type): boolean
-public "updatePersistentAnger"(arg0: $ServerLevel$Type, arg1: boolean): void
-public "readPersistentAngerSaveData"(arg0: $Level$Type, arg1: $CompoundTag$Type): void
-public "addPersistentAngerSaveData"(arg0: $CompoundTag$Type): void
-public "stopBeingAngry"(): void
-public "isAngryAtAllPlayers"(arg0: $Level$Type): boolean
-public "isAngry"(): boolean
-public "forgetCurrentTargetAndRefreshUniversalAnger"(): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "persistentAngerTarget"(value: $UUID$Type)
-get "remainingPersistentAngerTime"(): integer
 set "remainingPersistentAngerTime"(value: integer)
+get "remainingPersistentAngerTime"(): integer
+set "persistentAngerTarget"(value: $UUID$Type)
 get "persistentAngerTarget"(): $UUID
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "ownerUUID"(): $UUID
+get "target"(): $LivingEntity
+get "angry"(): boolean
 set "lastHurtByMob"(value: $LivingEntity$Type)
 set "lastHurtByPlayer"(value: $Player$Type)
 get "lastHurtByMob"(): $LivingEntity
-get "target"(): $LivingEntity
-get "angry"(): boolean
 get "boneResetTime"(): double
 }
 /**
@@ -16947,8 +16940,8 @@ import {$GeoEntityRenderer, $GeoEntityRenderer$Type} from "packages/software/ber
 import {$EntityRendererProvider$Context, $EntityRendererProvider$Context$Type} from "packages/net/minecraft/client/renderer/entity/$EntityRendererProvider$Context"
 import {$BaseLivingEntityBuilder, $BaseLivingEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/living/$BaseLivingEntityBuilder"
 import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
-import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 import {$BakedGeoModel, $BakedGeoModel$Type} from "packages/software/bernie/geckolib/cache/object/$BakedGeoModel"
+import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$RenderType, $RenderType$Type} from "packages/net/minecraft/client/renderer/$RenderType"
@@ -16958,13 +16951,13 @@ export class $KubeJSEntityRenderer<T extends ($LivingEntity) & ($IAnimatableJS)>
 
 constructor(renderManager: $EntityRendererProvider$Context$Type, builder: $BaseLivingEntityBuilder$Type<(T)>)
 
-public "render"(animatable: T, entityYaw: float, partialTick: float, poseStack: $PoseStack$Type, bufferSource: $MultiBufferSource$Type, packedLight: integer): void
 public "entityName"(): string
+public "scaleModelForRender"(widthScale: float, heightScale: float, poseStack: $PoseStack$Type, animatable: T, model: $BakedGeoModel$Type, isReRender: boolean, partialTick: float, packedLight: integer, packedOverlay: integer): void
+public "render"(animatable: T, entityYaw: float, partialTick: float, poseStack: $PoseStack$Type, bufferSource: $MultiBufferSource$Type, packedLight: integer): void
+public "getRenderType"(animatable: T, texture: $ResourceLocation$Type, bufferSource: $MultiBufferSource$Type, partialTick: float): $RenderType
 public "getTextureLocation"(entity: T): $ResourceLocation
 public "getScaleHeight"(): float
 public "getScaleWidth"(): float
-public "scaleModelForRender"(widthScale: float, heightScale: float, poseStack: $PoseStack$Type, animatable: T, model: $BakedGeoModel$Type, isReRender: boolean, partialTick: float, packedLight: integer, packedOverlay: integer): void
-public "getRenderType"(animatable: T, texture: $ResourceLocation$Type, bufferSource: $MultiBufferSource$Type, partialTick: float): $RenderType
 get "scaleHeight"(): float
 get "scaleWidth"(): float
 }
@@ -17020,8 +17013,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -17142,150 +17135,150 @@ readonly "random": $RandomSource
 constructor(builder: $IllusionerJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -17357,21 +17350,6 @@ constructor(i: $ResourceLocation$Type)
  */
 public "onSpawnChildFromBreeding"(consumer: $Consumer$Type<($ContextUtils$LevelAnimalContext$Type)>): $AnimalEntityBuilder<(T)>
 /**
- * Sets the ingredient representing the list of items that the animal entity can eat.
- * 
- * @param isFood An {@link Ingredient} specifying the items that the entity can eat.
- * 
- * Example usage:
- * ```javascript
- * animalBuilder.isFood([
- *     "#minecraft:apple",
- *     "minecraft:golden_apple",
- *     "minecraft:diamond"
- * ]);
- * ```
- */
-public "isFood"(isFood: $Ingredient$Type): $AnimalEntityBuilder<(T)>
-/**
  * Sets a predicate to determine if the entity can mate.
  * 
  * @param predicate A Function accepting a ContextUtils.EntityAnimalContext parameter,
@@ -17387,19 +17365,20 @@ public "isFood"(isFood: $Ingredient$Type): $AnimalEntityBuilder<(T)>
  */
 public "canMate"(predicate: $Function$Type<($ContextUtils$EntityAnimalContext$Type), (any)>): $AnimalEntityBuilder<(T)>
 /**
- * Sets a predicate to determine if the animal entity can breed.
+ * Sets the ingredient representing the list of items that the animal entity can eat.
  * 
- * @param canBreed A Function that defines the conditions for breeding.
+ * @param isFood An {@link Ingredient} specifying the items that the entity can eat.
  * 
  * Example usage:
  * ```javascript
- * animalBuilder.canBreed(entity => {
- *     // Custom logic to determine if the entity can breed
- *     // Return true if the entity can breed, false otherwise.
- * });
+ * animalBuilder.isFood([
+ *     "#minecraft:apple",
+ *     "minecraft:golden_apple",
+ *     "minecraft:diamond"
+ * ]);
  * ```
  */
-public "canBreed"(canBreed: $Function$Type<($LivingEntity$Type), (any)>): $AnimalEntityBuilder<(T)>
+public "isFood"(isFood: $Ingredient$Type): $AnimalEntityBuilder<(T)>
 /**
  * Sets the predicate to determine if an entity item stack is considered as food for the animal entity.
  * 
@@ -17431,6 +17410,20 @@ public "isFoodPredicate"(isFoodPredicate: $Function$Type<($ContextUtils$EntityIt
  * ```
  */
 public "setBreedOffspring"(breedOffspring: $Function$Type<($ContextUtils$BreedableEntityContext$Type), (any)>): $AnimalEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine if the animal entity can breed.
+ * 
+ * @param canBreed A Function that defines the conditions for breeding.
+ * 
+ * Example usage:
+ * ```javascript
+ * animalBuilder.canBreed(entity => {
+ *     // Custom logic to determine if the entity can breed
+ *     // Return true if the entity can breed, false otherwise.
+ * });
+ * ```
+ */
+public "canBreed"(canBreed: $Function$Type<($LivingEntity$Type), (any)>): $AnimalEntityBuilder<(T)>
 set "breedOffspring"(value: $Function$Type<($ContextUtils$BreedableEntityContext$Type), (any)>)
 }
 /**
@@ -17485,8 +17478,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -17607,150 +17600,150 @@ readonly "random": $RandomSource
 constructor(builder: $CreeperJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -17862,6 +17855,16 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * @param defaultBehaviourGoals Sets whether the mob should inherit it's goal behavior from it's superclass
+ * Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.defaultBehaviourGoals(false);
+ * ```
+ */
+public "defaultBehaviourGoals"(defaultBehaviourGoals: boolean): $CamelJSBuilder
+/**
  * Sets a Consumer with the parameter of ContextUtils.PlayerEntityContext callback
  * This is fired after the entity is tamed and all tame logic has already taken place.
  * Useful if you don't want to mess with the UUID logic in the tameOverride method.
@@ -17893,16 +17896,6 @@ public "onTamed"(onTamed: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type
  * ```
  */
 public "tameOverride"(tameOverride: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type)>): $CamelJSBuilder
-/**
- * @param defaultBehaviourGoals Sets whether the mob should inherit it's goal behavior from it's superclass
- * Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * builder.defaultBehaviourGoals(false);
- * ```
- */
-public "defaultBehaviourGoals"(defaultBehaviourGoals: boolean): $CamelJSBuilder
 /**
  * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
  * Defaults to true.
@@ -18058,11 +18051,11 @@ constructor(i: $ResourceLocation$Type)
  * Creates the arrow item for this entity type
  */
 public "item"(item: $Consumer$Type<($ProjectileItemBuilder$Type)>): $ProjectileEntityJSBuilder
-public "createAdditionalObjects"(): void
 /**
  * Indicates that no projectile item should be created for this entity type
  */
 public "noItem"(): $ProjectileEntityJSBuilder
+public "createAdditionalObjects"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -18141,17 +18134,17 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $IAnimatableJS extends $GeoAnimatable, $GeoEntity {
 
- "getBuilder"(): $BaseLivingEntityBuilder<(any)>
- "getTypeId"(): string
- "getTick"(entity: any): double
  "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+ "getTypeId"(): string
+ "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+ "triggerAnim"(controllerName: string, animName: string): void
+ "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
+ "getTick"(entity: any): double
  "m_6095_"(): $EntityType<(any)>
  "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
- "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
- "triggerAnim"(controllerName: string, animName: string): void
+ "getBoneResetTime"(): double
  "animatableCacheOverride"(): $AnimatableInstanceCache
  "shouldPlayAnimsWhileGamePaused"(): boolean
- "getBoneResetTime"(): double
  "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
  "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 }
@@ -18209,47 +18202,16 @@ constructor()
  */
 public "move"(consumer: $Consumer$Type<($ContextUtils$MovementContext$Type)>): $PartBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity falls and takes damage.
- * The provided Consumer accepts a {@link ContextUtils.EEntityFallDamageContext} parameter,
- * representing the context of the entity falling and taking fall damage.
+ * Defines in what condition the entity will start freezing.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onFall(context => {
- *     // Define custom logic for handling when the entity falls and takes damage
- *     // Use information about the EEntityFallDamageContext provided by the context.
+ * entityBuilder.isFreezing(entity => {
+ *     return true;
  * });
  * ```
  */
-public "onFall"(c: $Consumer$Type<($ContextUtils$EEntityFallDamageContext$Type)>): $PartBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed from the world.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is being removed from the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onRemovedFromWorld(entity => {
- *     // Define custom logic for handling the removal of the entity from the world
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onRemovedFromWorld"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is added to the world.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is added to the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onAddedToWorld(entity => {
- *     // Define custom logic for handling when the entity is added to the world
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
+public "isFreezing"(isFreezing: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
 /**
  * Sets a callback function to be executed on each tick for the entity.
  * 
@@ -18264,117 +18226,6 @@ public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>):
  * ```
  */
 public "tick"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
-/**
- * Defines in what condition the entity will start freezing.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isFreezing(entity => {
- *     return true;
- * });
- * ```
- */
-public "isFreezing"(isFreezing: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can trample or step on something.
- * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
- * representing the context of the potential trampling action, and returns a boolean.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canTrample(context => {
- *     // Define conditions for the entity to be allowed to trample
- *     // Use information about the CanTrampleContext provided by the context.
- *     return false // Some boolean condition indicating if the entity can trample;
- * });
- * ```
- */
-public "canTrample"(predicate: $Function$Type<($ContextUtils$ECanTrampleContext$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is attackable.
- * The provided Predicate accepts a {@link Entity} parameter,
- * representing the entity that may be checked for its attackability.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isAttackable(entity => {
- *     // Define conditions to check if the entity is attackable
- *     // Use information about the Entity provided by the context.
- *     return // Some boolean condition indicating if the entity is attackable;
- * });
- * ```
- */
-public "isAttackable"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
- * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
- * representing the context of the damage, and returns a boolean indicating invulnerability.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isInvulnerableTo(context => {
- *     // Define conditions for the entity to be invulnerable to the specific type of damage
- *     // Use information about the DamageContext provided by the context.
- *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
- * });
- * ```
- */
-public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContext$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can undergo freezing.
- * The provided Predicate accepts a {@link Entity} parameter,
- * representing the entity that may be subjected to freezing.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canFreeze(entity => {
- *     // Define the conditions for the entity to be able to freeze
- *     // Use information about the Entity provided by the context.
- *     return true //someBoolean;
- * });
- * ```
- */
-public "canFreeze"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets whether to reposition the entity after loading.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.repositionEntityAfterLoad(true);
- * ```
- */
-public "repositionEntityAfterLoad"(customRepositionEntityAfterLoad: boolean): $PartBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can change dimensions.
- * The provided Predicate accepts a {@link Entity} parameter,
- * representing the entity that may attempt to change dimensions.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canChangeDimensions(entity => {
- *     // Define the conditions for the entity to be able to change dimensions
- *     // Use information about the Entity provided by the context.
- *     return false // Some boolean condition indicating if the entity can change dimensions;
- * });
- * ```
- */
-public "canChangeDimensions"(supplier: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets a function to determine whether the entity should render at a squared distance.
- * 
- * @param shouldRenderAtSqrDistance Function accepting a {@link ContextUtils.EntitySqrDistanceContext} parameter,
- *                  defining the conditions under which the entity should render.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.shouldRenderAtSqrDistance(context => {
- *     // Custom logic to determine whether the entity should render
- *     // Access information about the distance using the provided context.
- *     return true;
- * });
- * ```
- */
-public "shouldRenderAtSqrDistance"(func: $Function$Type<($ContextUtils$EntitySqrDistanceContext$Type), (any)>): $PartBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity is currently glowing.
  * The provided Predicate accepts a {@link Entity} parameter,
@@ -18406,6 +18257,26 @@ public "isCurrentlyGlowing"(predicate: $Function$Type<($Entity$Type), (any)>): $
  */
 public "lavaHurt"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
 /**
+ * @param positionRider A consumer determining the position of rider/riders.
+ * 
+ *     Example usage:
+ *     ```javascript
+ *     entityBuilder.positionRider(context => {
+ *         const {entity, passenger, moveFunction} = context
+ *     });
+ *     ```
+ */
+public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $PartBuilder<(T)>
+/**
+ * Sets whether the entity is pushable.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isPushable(true);
+ * ```
+ */
+public "isPushable"(b: boolean): $PartBuilder<(T)>
+/**
  * Sets a predicate to determine whether the living entity dampens vibrations.
  * 
  * @param predicate The predicate to determine whether the living entity dampens vibrations.
@@ -18421,42 +18292,6 @@ public "lavaHurt"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
  * ```
  */
 public "dampensVibrations"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets whether the entity is pushable.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isPushable(true);
- * ```
- */
-public "isPushable"(b: boolean): $PartBuilder<(T)>
-/**
- * @param positionRider A consumer determining the position of rider/riders.
- * 
- *     Example usage:
- *     ```javascript
- *     entityBuilder.positionRider(context => {
- *         const {entity, passenger, moveFunction} = context
- *     });
- *     ```
- */
-public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $PartBuilder<(T)>
-/**
- * Sets a predicate to determine whether to show the vehicle health for the living entity.
- * 
- * @param predicate The predicate to determine whether to show the vehicle health.
- * 
- * The predicate should take a Entity as a parameter and return a boolean value indicating whether to show the vehicle health.
- * 
- * Example usage:
- * ```javascript
- * baseEntityBuilder.showVehicleHealth(entity => {
- *     // Determine whether to show the vehicle health for the living entity
- *     // Return true to show the vehicle health, false otherwise
- * });
- * ```
- */
-public "showVehicleHealth"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
 /**
  * Function determining if the entity may collide with another entity
  * using the ContextUtils.CollidingEntityContext which has this entity and the
@@ -18479,6 +18314,180 @@ public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$EColliding
  * ```
  */
 public "isPickable"(isPickable: boolean): $PartBuilder<(T)>
+/**
+ * Sets a predicate to determine whether to show the vehicle health for the living entity.
+ * 
+ * @param predicate The predicate to determine whether to show the vehicle health.
+ * 
+ * The predicate should take a Entity as a parameter and return a boolean value indicating whether to show the vehicle health.
+ * 
+ * Example usage:
+ * ```javascript
+ * baseEntityBuilder.showVehicleHealth(entity => {
+ *     // Determine whether to show the vehicle health for the living entity
+ *     // Return true to show the vehicle health, false otherwise
+ * });
+ * ```
+ */
+public "showVehicleHealth"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
+ * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
+ * representing the context of the damage, and returns a boolean indicating invulnerability.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isInvulnerableTo(context => {
+ *     // Define conditions for the entity to be invulnerable to the specific type of damage
+ *     // Use information about the DamageContext provided by the context.
+ *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
+ * });
+ * ```
+ */
+public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContext$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity is attackable.
+ * The provided Predicate accepts a {@link Entity} parameter,
+ * representing the entity that may be checked for its attackability.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isAttackable(entity => {
+ *     // Define conditions to check if the entity is attackable
+ *     // Use information about the Entity provided by the context.
+ *     return // Some boolean condition indicating if the entity is attackable;
+ * });
+ * ```
+ */
+public "isAttackable"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can undergo freezing.
+ * The provided Predicate accepts a {@link Entity} parameter,
+ * representing the entity that may be subjected to freezing.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canFreeze(entity => {
+ *     // Define the conditions for the entity to be able to freeze
+ *     // Use information about the Entity provided by the context.
+ *     return true //someBoolean;
+ * });
+ * ```
+ */
+public "canFreeze"(predicate: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity falls and takes damage.
+ * The provided Consumer accepts a {@link ContextUtils.EEntityFallDamageContext} parameter,
+ * representing the context of the entity falling and taking fall damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onFall(context => {
+ *     // Define custom logic for handling when the entity falls and takes damage
+ *     // Use information about the EEntityFallDamageContext provided by the context.
+ * });
+ * ```
+ */
+public "onFall"(c: $Consumer$Type<($ContextUtils$EEntityFallDamageContext$Type)>): $PartBuilder<(T)>
+/**
+ * Sets a function to determine whether the entity should render at a squared distance.
+ * 
+ * @param shouldRenderAtSqrDistance Function accepting a {@link ContextUtils.EntitySqrDistanceContext} parameter,
+ *                  defining the conditions under which the entity should render.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.shouldRenderAtSqrDistance(context => {
+ *     // Custom logic to determine whether the entity should render
+ *     // Access information about the distance using the provided context.
+ *     return true;
+ * });
+ * ```
+ */
+public "shouldRenderAtSqrDistance"(func: $Function$Type<($ContextUtils$EntitySqrDistanceContext$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can trample or step on something.
+ * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
+ * representing the context of the potential trampling action, and returns a boolean.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canTrample(context => {
+ *     // Define conditions for the entity to be allowed to trample
+ *     // Use information about the CanTrampleContext provided by the context.
+ *     return false // Some boolean condition indicating if the entity can trample;
+ * });
+ * ```
+ */
+public "canTrample"(predicate: $Function$Type<($ContextUtils$ECanTrampleContext$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is added to the world.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is added to the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onAddedToWorld(entity => {
+ *     // Define custom logic for handling when the entity is added to the world
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed from the world.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is being removed from the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onRemovedFromWorld(entity => {
+ *     // Define custom logic for handling the removal of the entity from the world
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onRemovedFromWorld"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
+/**
+ * Sets whether to reposition the entity after loading.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.repositionEntityAfterLoad(true);
+ * ```
+ */
+public "repositionEntityAfterLoad"(customRepositionEntityAfterLoad: boolean): $PartBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can change dimensions.
+ * The provided Predicate accepts a {@link Entity} parameter,
+ * representing the entity that may attempt to change dimensions.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canChangeDimensions(entity => {
+ *     // Define the conditions for the entity to be able to change dimensions
+ *     // Use information about the Entity provided by the context.
+ *     return false // Some boolean condition indicating if the entity can change dimensions;
+ * });
+ * ```
+ */
+public "canChangeDimensions"(supplier: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets a function to determine whether the entity is currently flapping.
+ * The provided Function accepts a {@link Entity} parameter,
+ * representing the entity whose flapping status is being determined.
+ * It returns a Boolean indicating whether the entity is flapping.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isFlapping(entity => {
+ *     // Define logic to determine whether the entity is currently flapping
+ *     // Use information about the Entity provided by the context.
+ *     return // Some Boolean value indicating whether the entity is flapping;
+ * });
+ * ```
+ */
+public "isFlapping"(b: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
 /**
  * Sets the swim splash sound for the entity using either a string representation or a ResourceLocation object.
  * 
@@ -18514,21 +18523,31 @@ public "nextStep"(nextStep: $Function$Type<($Entity$Type), (any)>): $PartBuilder
  */
 public "setSwimSound"(sound: any): $PartBuilder<(T)>
 /**
- * Sets a function to determine the block speed factor of the entity.
- * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose block speed factor is being determined.
- * It returns a Float representing the block speed factor.
+ * Sets a predicate to determine if a passenger can be added to the entity.
+ * 
+ * @param predicate The predicate to check if a passenger can be added.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.blockSpeedFactor(entity => {
- *     // Define logic to calculate and return the block speed factor for the entity
- *     // Use information about the Entity provided by the context.
- *     return // Some Float value representing the block speed factor;
+ * entityBuilder.canAddPassenger(context => {
+ *     // Custom logic to determine if a passenger can be added to the entity
+ *     return true;
  * });
  * ```
  */
-public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
+public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEntityContext$Type), (any)>): $PartBuilder<(T)>
+/**
+ * Sets the block jump factor for the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setBlockJumpFactor(entity => {
+ *     //Set the jump factor for the entity through context
+ *     return 1 //some float value;
+ * });
+ * ```
+ */
+public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
 /**
  * Sets a consumer to handle lerping (linear interpolation) of the entity's position.
  * 
@@ -18545,47 +18564,21 @@ public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $Par
  */
 public "lerpTo"(consumer: $Consumer$Type<($ContextUtils$LerpToContext$Type)>): $PartBuilder<(T)>
 /**
- * Sets a function to determine whether the entity is currently flapping.
+ * Sets a function to determine the block speed factor of the entity.
  * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose flapping status is being determined.
- * It returns a Boolean indicating whether the entity is flapping.
+ * representing the entity whose block speed factor is being determined.
+ * It returns a Float representing the block speed factor.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isFlapping(entity => {
- *     // Define logic to determine whether the entity is currently flapping
+ * entityBuilder.blockSpeedFactor(entity => {
+ *     // Define logic to calculate and return the block speed factor for the entity
  *     // Use information about the Entity provided by the context.
- *     return // Some Boolean value indicating whether the entity is flapping;
+ *     return // Some Float value representing the block speed factor;
  * });
  * ```
  */
-public "isFlapping"(b: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets the block jump factor for the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setBlockJumpFactor(entity => {
- *     //Set the jump factor for the entity through context
- *     return 1 //some float value;
- * });
- * ```
- */
-public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
-/**
- * Sets a predicate to determine if a passenger can be added to the entity.
- * 
- * @param predicate The predicate to check if a passenger can be added.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canAddPassenger(context => {
- *     // Custom logic to determine if a passenger can be added to the entity
- *     return true;
- * });
- * ```
- */
-public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEntityContext$Type), (any)>): $PartBuilder<(T)>
+public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity stops riding.
  * The provided Consumer accepts a {@link Entity} parameter,
@@ -18601,18 +18594,19 @@ public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEnti
  */
 public "onStopRiding"(callback: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
 /**
- * Sets the minimum fall distance for the entity before taking damage.
+ * Sets a callback function to be executed when the entity is hit by thunder.
+ * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
+ * representing the context of the entity being hit by thunder.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.setMaxFallDistance(entity => {
- *     // Define custom logic to determine the maximum fall distance
- *     // Use information about the Entity provided by the context.
- *     return 3;
+ * entityBuilder.thunderHit(context => {
+ *     // Define custom logic for handling the entity being hit by thunder
+ *     // Use information about the ThunderHitContext provided by the context.
  * });
  * ```
  */
-public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
+public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$EThunderHitContext$Type)>): $PartBuilder<(T)>
 /**
  * Sets a callback function to be executed when a player touches the entity.
  * The provided Consumer accepts a {@link ContextUtils.EntityPlayerContext} parameter,
@@ -18628,6 +18622,20 @@ public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any
  */
 public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$EntityPlayerContext$Type)>): $PartBuilder<(T)>
 /**
+ * Sets a callback function to be executed when the entity starts sprinting.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that has started sprinting.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onSprint(entity => {
+ *     // Define custom logic for handling when the entity starts sprinting
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onSprint"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
+/**
  * Sets a callback function to be executed during each tick when the entity is being ridden.
  * The provided Consumer accepts a {@link Entity} parameter,
  * representing the entity that is being ridden.
@@ -18641,6 +18649,20 @@ public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$EntityPlayerContext
  * ```
  */
 public "rideTick"(callback: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed on the client side.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is being removed on the client side.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onClientRemoval(entity => {
+ *     // Define custom logic for handling the removal of the entity on the client side
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onClientRemoval"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity may interact with something.
  * The provided Predicate accepts a {@link ContextUtils.MayInteractContext} parameter,
@@ -18657,47 +18679,18 @@ public "rideTick"(callback: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
  */
 public "mayInteract"(predicate: $Function$Type<($ContextUtils$EMayInteractContext$Type), (any)>): $PartBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity starts sprinting.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that has started sprinting.
+ * Sets the minimum fall distance for the entity before taking damage.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onSprint(entity => {
- *     // Define custom logic for handling when the entity starts sprinting
+ * entityBuilder.setMaxFallDistance(entity => {
+ *     // Define custom logic to determine the maximum fall distance
  *     // Use information about the Entity provided by the context.
+ *     return 3;
  * });
  * ```
  */
-public "onSprint"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hit by thunder.
- * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
- * representing the context of the entity being hit by thunder.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.thunderHit(context => {
- *     // Define custom logic for handling the entity being hit by thunder
- *     // Use information about the ThunderHitContext provided by the context.
- * });
- * ```
- */
-public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$EThunderHitContext$Type)>): $PartBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed on the client side.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is being removed on the client side.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onClientRemoval(entity => {
- *     // Define custom logic for handling the removal of the entity on the client side
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onClientRemoval"(consumer: $Consumer$Type<($Entity$Type)>): $PartBuilder<(T)>
+public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any)>): $PartBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity performs a flap action.
  * The provided Consumer accepts a {@link Entity} parameter,
@@ -18767,11 +18760,11 @@ constructor(i: $ResourceLocation$Type)
  * Creates the arrow item for this entity type
  */
 public "item"(item: $Consumer$Type<($ArrowItemBuilder$Type)>): $ArrowEntityJSBuilder
-public "createAdditionalObjects"(): void
 /**
  * Indicates that no arrow item should be created for this entity type
  */
 public "noItem"(): $ArrowEntityJSBuilder
+public "createAdditionalObjects"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -18839,108 +18832,6 @@ constructor(i: $ResourceLocation$Type)
  */
 public "move"(consumer: $Consumer$Type<($ContextUtils$MovementContext$Type)>): $BaseEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity falls and takes damage.
- * The provided Consumer accepts a {@link ContextUtils.EEntityFallDamageContext} parameter,
- * representing the context of the entity falling and taking fall damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onFall(context => {
- *     // Define custom logic for handling when the entity falls and takes damage
- *     // Use information about the EEntityFallDamageContext provided by the context.
- * });
- * ```
- */
-public "onFall"(c: $Consumer$Type<($ContextUtils$EEntityFallDamageContext$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Defines logic to render the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.render(context => {
- *     // Define logic to render the entity
- *     context.poseStack.scale(0.5, 0.5, 0.5);
- * });
- * ```
- */
-public "render"(render: $Consumer$Type<($ContextUtils$NLRenderContext$Type<(T)>)>): $BaseEntityBuilder<(T)>
-/**
- * Sets whether the entity can spawn far from the player.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canSpawnFarFromPlayer(true);
- * ```
- */
-public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseEntityBuilder<(T)>
-/**
- * Determines if the entity should serialize its data. Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.saves(false);
- * ```
- */
-public "saves"(shouldSave: boolean): $BaseEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed from the world.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is being removed from the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onRemovedFromWorld(entity => {
- *     // Define custom logic for handling the removal of the entity from the world
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onRemovedFromWorld"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is added to the world.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is added to the world.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onAddedToWorld(entity => {
- *     // Define custom logic for handling when the entity is added to the world
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed on each tick for the entity.
- * 
- * @param tick A Consumer accepting a {@link Entity} parameter, defining the behavior to be executed on each tick.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.tick(entity => {
- *     // Custom logic to be executed on each tick of the entity.
- *     // Access information about the entity using the provided parameter.
- * });
- * ```
- */
-public "tick"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a function to determine the texture resource for the entity.
- * The provided Function accepts a parameter of type T (the entity),
- * allowing changing the texture based on information about the entity.
- * The default behavior returns <namespace>:textures/entity/<path>.png.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.textureResource(entity => {
- *     // Define logic to determine the texture resource for the entity
- *     // Use information about the entity provided by the context.
- *     return "kubejs:textures/entity/wyrm.png" // Some ResourceLocation representing the texture resource;
- * });
- * ```
- */
-public "textureResource"(arg0: $Function$Type<(T), (any)>): $BaseEntityBuilder<(T)>
-/**
  * Defines in what condition the entity will start freezing.
  * 
  * Example usage:
@@ -18965,43 +18856,160 @@ public "isFreezing"(isFreezing: $Function$Type<($Entity$Type), (any)>): $BaseEnt
  */
 public "scaleModelForRender"(scaleModelForRender: $Consumer$Type<($ContextUtils$ScaleModelRenderContextNL$Type<(T)>)>): $BaseEntityBuilder<(T)>
 /**
- * Sets the update interval in ticks of the entity.
- * Defaults to 1 tick.
- * 
- * @param updateInterval The update interval in ticks.
+ * Determines if the entity should serialize its data. Defaults to true.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.updateInterval(5);
+ * entityBuilder.saves(false);
  * ```
  */
-public "updateInterval"(updateInterval: integer): $BaseEntityBuilder<(T)>
+public "saves"(shouldSave: boolean): $BaseEntityBuilder<(T)>
 /**
- * Sets the mob category for the entity.
- * Available options: 'monster', 'creature', 'ambient', 'water_creature', 'misc'.
- * Defaults to 'misc'.
+ * Sets a callback function to be executed on each tick for the entity.
+ * 
+ * @param tick A Consumer accepting a {@link Entity} parameter, defining the behavior to be executed on each tick.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.mobCategory('monster');
- * ```
- */
-public "mobCategory"(category: string): $BaseEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can trample or step on something.
- * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
- * representing the context of the potential trampling action, and returns a boolean.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canTrample(context => {
- *     // Define conditions for the entity to be allowed to trample
- *     // Use information about the CanTrampleContext provided by the context.
- *     return false // Some boolean condition indicating if the entity can trample;
+ * entityBuilder.tick(entity => {
+ *     // Custom logic to be executed on each tick of the entity.
+ *     // Access information about the entity using the provided parameter.
  * });
  * ```
  */
-public "canTrample"(predicate: $Function$Type<($ContextUtils$ECanTrampleContext$Type), (any)>): $BaseEntityBuilder<(T)>
+public "tick"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+public "getRegistryType"(): $RegistryInfo<(any)>
+/**
+ * Defines logic to render the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.render(context => {
+ *     // Define logic to render the entity
+ *     context.poseStack.scale(0.5, 0.5, 0.5);
+ * });
+ * ```
+ */
+public "render"(render: $Consumer$Type<($ContextUtils$NLRenderContext$Type<(T)>)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity is currently glowing.
+ * The provided Predicate accepts a {@link Entity} parameter,
+ * representing the entity that may be checked for its glowing state.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isCurrentlyGlowing(entity => {
+ *     // Define the conditions to check if the entity is currently glowing
+ *     // Use information about the Entity provided by the context.
+ *     const isGlowing = // Some boolean condition to check if the entity is glowing;
+ *     return isGlowing;
+ * });
+ * ```
+ */
+public "isCurrentlyGlowing"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is hurt by lava.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is affected by lava.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.lavaHurt(entity => {
+ *     // Define custom logic for handling the entity being hurt by lava
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "lavaHurt"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+/**
+ * @param positionRider A consumer determining the position of rider/riders.
+ * 
+ *     Example usage:
+ *     ```javascript
+ *     entityBuilder.positionRider(context => {
+ *         const {entity, passenger, moveFunction} = context
+ *     });
+ *     ```
+ */
+public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets whether the entity is pushable.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isPushable(true);
+ * ```
+ */
+public "isPushable"(b: boolean): $BaseEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine whether the living entity dampens vibrations.
+ * 
+ * @param predicate The predicate to determine whether the living entity dampens vibrations.
+ * 
+ * The predicate should take a Entity as a parameter and return a boolean value indicating whether the living entity dampens vibrations.
+ * 
+ * Example usage:
+ * ```javascript
+ * baseEntityBuilder.dampensVibrations(entity => {
+ *     // Determine whether the living entity dampens vibrations
+ *     // Return true if the entity dampens vibrations, false otherwise
+ * });
+ * ```
+ */
+public "dampensVibrations"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Function determining if the entity may collide with another entity
+ * using the ContextUtils.CollidingEntityContext which has this entity and the
+ * one colliding with this entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canCollideWith(context => {
+ *     return true //Some Boolean value determining whether the entity may collide with another
+ * });
+ * ```
+ */
+public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$ECollidingEntityContext$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Boolean determining if the part entity is pickable.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isPickable(true)
+ * ```
+ */
+public "isPickable"(isPickable: boolean): $BaseEntityBuilder<(T)>
+/**
+ * Sets a predicate to determine whether to show the vehicle health for the living entity.
+ * 
+ * @param predicate The predicate to determine whether to show the vehicle health.
+ * 
+ * The predicate should take a Entity as a parameter and return a boolean value indicating whether to show the vehicle health.
+ * 
+ * Example usage:
+ * ```javascript
+ * baseEntityBuilder.showVehicleHealth(entity => {
+ *     // Determine whether to show the vehicle health for the living entity
+ *     // Return true to show the vehicle health, false otherwise
+ * });
+ * ```
+ */
+public "showVehicleHealth"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
+ * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
+ * representing the context of the damage, and returns a boolean indicating invulnerability.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isInvulnerableTo(context => {
+ *     // Define conditions for the entity to be invulnerable to the specific type of damage
+ *     // Use information about the DamageContext provided by the context.
+ *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
+ * });
+ * ```
+ */
+public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContext$Type), (any)>): $BaseEntityBuilder<(T)>
 /**
  * Sets whether the entity is attackable or not.
  * 
@@ -19029,21 +19037,6 @@ public "isAttackable"(b: boolean): $BaseEntityBuilder<(T)>
  */
 public "isAttackable"(predicate: boolean): $BaseEntityBuilder<(T)>
 /**
- * Sets a predicate function to determine whether the entity is invulnerable to a specific type of damage.
- * The provided Predicate accepts a {@link ContextUtils.DamageContext} parameter,
- * representing the context of the damage, and returns a boolean indicating invulnerability.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isInvulnerableTo(context => {
- *     // Define conditions for the entity to be invulnerable to the specific type of damage
- *     // Use information about the DamageContext provided by the context.
- *     return true // Some boolean condition indicating if the entity has invulnerability to the damage type;
- * });
- * ```
- */
-public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContext$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
  * Sets a predicate function to determine whether the entity can undergo freezing.
  * The provided Predicate accepts a {@link Entity} parameter,
  * representing the entity that may be subjected to freezing.
@@ -19058,18 +19051,6 @@ public "isInvulnerableTo"(predicate: $Function$Type<($ContextUtils$EDamageContex
  * ```
  */
 public "canFreeze"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Sets the client tracking range. Defaults to 5.
- * 
- * @param trackingRange The client tracking range.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.clientTrackingRange(8);
- * ```
- */
-public "clientTrackingRange"(trackingRange: integer): $BaseEntityBuilder<(T)>
-public "getRegistryType"(): $RegistryInfo<(any)>
 /**
  * Sets the render type for the entity.
  * 
@@ -19088,6 +19069,127 @@ public "getRegistryType"(): $RegistryInfo<(any)>
  */
 public "setRenderType"(type: any): $BaseEntityBuilder<(T)>
 /**
+ * Sets the client tracking range. Defaults to 5.
+ * 
+ * @param trackingRange The client tracking range.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.clientTrackingRange(8);
+ * ```
+ */
+public "clientTrackingRange"(trackingRange: integer): $BaseEntityBuilder<(T)>
+/**
+ * Sets the update interval in ticks of the entity.
+ * Defaults to 1 tick.
+ * 
+ * @param updateInterval The update interval in ticks.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.updateInterval(5);
+ * ```
+ */
+public "updateInterval"(updateInterval: integer): $BaseEntityBuilder<(T)>
+/**
+ * Sets whether the entity is immune to fire damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.fireImmune(true);
+ * ```
+ */
+public "fireImmune"(isFireImmune: boolean): $BaseEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity falls and takes damage.
+ * The provided Consumer accepts a {@link ContextUtils.EEntityFallDamageContext} parameter,
+ * representing the context of the entity falling and taking fall damage.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onFall(context => {
+ *     // Define custom logic for handling when the entity falls and takes damage
+ *     // Use information about the EEntityFallDamageContext provided by the context.
+ * });
+ * ```
+ */
+public "onFall"(c: $Consumer$Type<($ContextUtils$EEntityFallDamageContext$Type)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a function to determine the texture resource for the entity.
+ * The provided Function accepts a parameter of type T (the entity),
+ * allowing changing the texture based on information about the entity.
+ * The default behavior returns <namespace>:textures/entity/<path>.png.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.textureResource(entity => {
+ *     // Define logic to determine the texture resource for the entity
+ *     // Use information about the entity provided by the context.
+ *     return "kubejs:textures/entity/wyrm.png" // Some ResourceLocation representing the texture resource;
+ * });
+ * ```
+ */
+public "textureResource"(arg0: $Function$Type<(T), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a function to determine whether the entity should render at a squared distance.
+ * 
+ * @param shouldRenderAtSqrDistance Function accepting a {@link ContextUtils.EntitySqrDistanceContext} parameter,
+ *                  defining the conditions under which the entity should render.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.shouldRenderAtSqrDistance(context => {
+ *     // Custom logic to determine whether the entity should render
+ *     // Access information about the distance using the provided context.
+ *     return true;
+ * });
+ * ```
+ */
+public "shouldRenderAtSqrDistance"(func: $Function$Type<($ContextUtils$EntitySqrDistanceContext$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a predicate function to determine whether the entity can trample or step on something.
+ * The provided Predicate accepts a {@link ContextUtils.CanTrampleContext} parameter,
+ * representing the context of the potential trampling action, and returns a boolean.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canTrample(context => {
+ *     // Define conditions for the entity to be allowed to trample
+ *     // Use information about the CanTrampleContext provided by the context.
+ *     return false // Some boolean condition indicating if the entity can trample;
+ * });
+ * ```
+ */
+public "canTrample"(predicate: $Function$Type<($ContextUtils$ECanTrampleContext$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is added to the world.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is added to the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onAddedToWorld(entity => {
+ *     // Define custom logic for handling when the entity is added to the world
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onAddedToWorld"(onAddedToWorldCallback: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed from the world.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is being removed from the world.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onRemovedFromWorld(entity => {
+ *     // Define custom logic for handling the removal of the entity from the world
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onRemovedFromWorld"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+/**
  * Sets whether to reposition the entity after loading.
  * 
  * Example usage:
@@ -19096,21 +19198,6 @@ public "setRenderType"(type: any): $BaseEntityBuilder<(T)>
  * ```
  */
 public "repositionEntityAfterLoad"(customRepositionEntityAfterLoad: boolean): $BaseEntityBuilder<(T)>
-/**
- * Sets a predicate function to determine whether the entity can change dimensions.
- * The provided Predicate accepts a {@link Entity} parameter,
- * representing the entity that may attempt to change dimensions.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canChangeDimensions(entity => {
- *     // Define the conditions for the entity to be able to change dimensions
- *     // Use information about the Entity provided by the context.
- *     return false // Some boolean condition indicating if the entity can change dimensions;
- * });
- * ```
- */
-public "canChangeDimensions"(supplier: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
 /**
  * Adds an animation controller to the entity with the specified parameters.
  * 
@@ -19133,6 +19220,21 @@ public "canChangeDimensions"(supplier: $Function$Type<($Entity$Type), (any)>): $
  */
 public "addAnimationController"(name: string, translationTicksLength: integer, predicate: $BaseEntityBuilder$IAnimationPredicateJS$Type<(T)>): $BaseEntityBuilder<(T)>
 /**
+ * Sets a predicate function to determine whether the entity can change dimensions.
+ * The provided Predicate accepts a {@link Entity} parameter,
+ * representing the entity that may attempt to change dimensions.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.canChangeDimensions(entity => {
+ *     // Define the conditions for the entity to be able to change dimensions
+ *     // Use information about the Entity provided by the context.
+ *     return false // Some boolean condition indicating if the entity can change dimensions;
+ * });
+ * ```
+ */
+public "canChangeDimensions"(supplier: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
  * Adds a new AnimationController to the entity, with the ability to add event listeners
  * 
  * @param name - The name of the controller
@@ -19154,134 +19256,25 @@ public "addKeyAnimationController"(name: string, translationTicksLength: integer
  */
 public "addTriggerableAnimationController"(name: string, translationTicksLength: integer, triggerableAnimationName: string, triggerableAnimationID: string, loopType: string): $BaseEntityBuilder<(T)>
 /**
- * Sets a function to determine whether the entity should render at a squared distance.
- * 
- * @param shouldRenderAtSqrDistance Function accepting a {@link ContextUtils.EntitySqrDistanceContext} parameter,
- *                  defining the conditions under which the entity should render.
+ * Sets whether the entity can spawn far from the player.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.shouldRenderAtSqrDistance(context => {
- *     // Custom logic to determine whether the entity should render
- *     // Access information about the distance using the provided context.
- *     return true;
- * });
+ * entityBuilder.canSpawnFarFromPlayer(true);
  * ```
  */
-public "shouldRenderAtSqrDistance"(func: $Function$Type<($ContextUtils$EntitySqrDistanceContext$Type), (any)>): $BaseEntityBuilder<(T)>
+public "canSpawnFarFromPlayer"(canSpawnFar: boolean): $BaseEntityBuilder<(T)>
 /**
- * Sets a predicate function to determine whether the entity is currently glowing.
- * The provided Predicate accepts a {@link Entity} parameter,
- * representing the entity that may be checked for its glowing state.
+ * Sets the mob category for the entity.
+ * Available options: 'monster', 'creature', 'ambient', 'water_creature', 'misc'.
+ * Defaults to 'misc'.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isCurrentlyGlowing(entity => {
- *     // Define the conditions to check if the entity is currently glowing
- *     // Use information about the Entity provided by the context.
- *     const isGlowing = // Some boolean condition to check if the entity is glowing;
- *     return isGlowing;
- * });
+ * entityBuilder.mobCategory('monster');
  * ```
  */
-public "isCurrentlyGlowing"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Sets whether the entity is immune to fire damage.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.fireImmune(true);
- * ```
- */
-public "fireImmune"(isFireImmune: boolean): $BaseEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hurt by lava.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is affected by lava.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.lavaHurt(entity => {
- *     // Define custom logic for handling the entity being hurt by lava
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "lavaHurt"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a predicate to determine whether the living entity dampens vibrations.
- * 
- * @param predicate The predicate to determine whether the living entity dampens vibrations.
- * 
- * The predicate should take a Entity as a parameter and return a boolean value indicating whether the living entity dampens vibrations.
- * 
- * Example usage:
- * ```javascript
- * baseEntityBuilder.dampensVibrations(entity => {
- *     // Determine whether the living entity dampens vibrations
- *     // Return true if the entity dampens vibrations, false otherwise
- * });
- * ```
- */
-public "dampensVibrations"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Sets whether the entity is pushable.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isPushable(true);
- * ```
- */
-public "isPushable"(b: boolean): $BaseEntityBuilder<(T)>
-/**
- * @param positionRider A consumer determining the position of rider/riders.
- * 
- *     Example usage:
- *     ```javascript
- *     entityBuilder.positionRider(context => {
- *         const {entity, passenger, moveFunction} = context
- *     });
- *     ```
- */
-public "positionRider"(builderConsumer: $Consumer$Type<($ContextUtils$PositionRiderContext$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a predicate to determine whether to show the vehicle health for the living entity.
- * 
- * @param predicate The predicate to determine whether to show the vehicle health.
- * 
- * The predicate should take a Entity as a parameter and return a boolean value indicating whether to show the vehicle health.
- * 
- * Example usage:
- * ```javascript
- * baseEntityBuilder.showVehicleHealth(entity => {
- *     // Determine whether to show the vehicle health for the living entity
- *     // Return true to show the vehicle health, false otherwise
- * });
- * ```
- */
-public "showVehicleHealth"(predicate: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Function determining if the entity may collide with another entity
- * using the ContextUtils.CollidingEntityContext which has this entity and the
- * one colliding with this entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canCollideWith(context => {
- *     return true //Some Boolean value determining whether the entity may collide with another
- * });
- * ```
- */
-public "canCollideWith"(canCollideWith: $Function$Type<($ContextUtils$ECollidingEntityContext$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Boolean determining if the part entity is pickable.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.isPickable(true)
- * ```
- */
-public "isPickable"(isPickable: boolean): $BaseEntityBuilder<(T)>
+public "mobCategory"(category: string): $BaseEntityBuilder<(T)>
 /**
  * Sets the list of block names to which the entity is immune.
  * 
@@ -19325,6 +19318,22 @@ public "modelResource"(arg0: $Function$Type<(T), (any)>): $BaseEntityBuilder<(T)
  */
 public "animationResource"(arg0: $Function$Type<(T), (any)>): $BaseEntityBuilder<(T)>
 /**
+ * Sets a function to determine whether the entity is currently flapping.
+ * The provided Function accepts a {@link Entity} parameter,
+ * representing the entity whose flapping status is being determined.
+ * It returns a Boolean indicating whether the entity is flapping.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.isFlapping(entity => {
+ *     // Define logic to determine whether the entity is currently flapping
+ *     // Use information about the Entity provided by the context.
+ *     return // Some Boolean value indicating whether the entity is flapping;
+ * });
+ * ```
+ */
+public "isFlapping"(b: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
  * Sets the swim splash sound for the entity using either a string representation or a ResourceLocation object.
  * 
  * Example usage:
@@ -19359,21 +19368,31 @@ public "nextStep"(nextStep: $Function$Type<($Entity$Type), (any)>): $BaseEntityB
  */
 public "setSwimSound"(sound: any): $BaseEntityBuilder<(T)>
 /**
- * Sets a function to determine the block speed factor of the entity.
- * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose block speed factor is being determined.
- * It returns a Float representing the block speed factor.
+ * Sets a predicate to determine if a passenger can be added to the entity.
+ * 
+ * @param predicate The predicate to check if a passenger can be added.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.blockSpeedFactor(entity => {
- *     // Define logic to calculate and return the block speed factor for the entity
- *     // Use information about the Entity provided by the context.
- *     return // Some Float value representing the block speed factor;
+ * entityBuilder.canAddPassenger(context => {
+ *     // Custom logic to determine if a passenger can be added to the entity
+ *     return true;
  * });
  * ```
  */
-public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEntityContext$Type), (any)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets the block jump factor for the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.setBlockJumpFactor(entity => {
+ *     //Set the jump factor for the entity through context
+ *     return 1 //some float value;
+ * });
+ * ```
+ */
+public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
 /**
  * Sets a consumer to handle lerping (linear interpolation) of the entity's position.
  * 
@@ -19390,47 +19409,21 @@ public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $Bas
  */
 public "lerpTo"(consumer: $Consumer$Type<($ContextUtils$LerpToContext$Type)>): $BaseEntityBuilder<(T)>
 /**
- * Sets a function to determine whether the entity is currently flapping.
+ * Sets a function to determine the block speed factor of the entity.
  * The provided Function accepts a {@link Entity} parameter,
- * representing the entity whose flapping status is being determined.
- * It returns a Boolean indicating whether the entity is flapping.
+ * representing the entity whose block speed factor is being determined.
+ * It returns a Float representing the block speed factor.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.isFlapping(entity => {
- *     // Define logic to determine whether the entity is currently flapping
+ * entityBuilder.blockSpeedFactor(entity => {
+ *     // Define logic to calculate and return the block speed factor for the entity
  *     // Use information about the Entity provided by the context.
- *     return // Some Boolean value indicating whether the entity is flapping;
+ *     return // Some Float value representing the block speed factor;
  * });
  * ```
  */
-public "isFlapping"(b: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Sets the block jump factor for the entity.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.setBlockJumpFactor(entity => {
- *     //Set the jump factor for the entity through context
- *     return 1 //some float value;
- * });
- * ```
- */
-public "setBlockJumpFactor"(blockJumpFactor: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a predicate to determine if a passenger can be added to the entity.
- * 
- * @param predicate The predicate to check if a passenger can be added.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.canAddPassenger(context => {
- *     // Custom logic to determine if a passenger can be added to the entity
- *     return true;
- * });
- * ```
- */
-public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEntityContext$Type), (any)>): $BaseEntityBuilder<(T)>
+public "blockSpeedFactor"(callback: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity stops riding.
  * The provided Consumer accepts a {@link Entity} parameter,
@@ -19446,18 +19439,19 @@ public "canAddPassenger"(predicate: $Function$Type<($ContextUtils$EPassengerEnti
  */
 public "onStopRiding"(callback: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
 /**
- * Sets the minimum fall distance for the entity before taking damage.
+ * Sets a callback function to be executed when the entity is hit by thunder.
+ * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
+ * representing the context of the entity being hit by thunder.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.setMaxFallDistance(entity => {
- *     // Define custom logic to determine the maximum fall distance
- *     // Use information about the Entity provided by the context.
- *     return 3;
+ * entityBuilder.thunderHit(context => {
+ *     // Define custom logic for handling the entity being hit by thunder
+ *     // Use information about the ThunderHitContext provided by the context.
  * });
  * ```
  */
-public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
+public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$EThunderHitContext$Type)>): $BaseEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when a player touches the entity.
  * The provided Consumer accepts a {@link ContextUtils.EntityPlayerContext} parameter,
@@ -19473,6 +19467,20 @@ public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any
  */
 public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$EntityPlayerContext$Type)>): $BaseEntityBuilder<(T)>
 /**
+ * Sets a callback function to be executed when the entity starts sprinting.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that has started sprinting.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onSprint(entity => {
+ *     // Define custom logic for handling when the entity starts sprinting
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onSprint"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+/**
  * Sets a callback function to be executed during each tick when the entity is being ridden.
  * The provided Consumer accepts a {@link Entity} parameter,
  * representing the entity that is being ridden.
@@ -19486,6 +19494,20 @@ public "playerTouch"(consumer: $Consumer$Type<($ContextUtils$EntityPlayerContext
  * ```
  */
 public "rideTick"(callback: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+/**
+ * Sets a callback function to be executed when the entity is removed on the client side.
+ * The provided Consumer accepts a {@link Entity} parameter,
+ * representing the entity that is being removed on the client side.
+ * 
+ * Example usage:
+ * ```javascript
+ * entityBuilder.onClientRemoval(entity => {
+ *     // Define custom logic for handling the removal of the entity on the client side
+ *     // Use information about the Entity provided by the context.
+ * });
+ * ```
+ */
+public "onClientRemoval"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
 /**
  * Sets a predicate function to determine whether the entity may interact with something.
  * The provided Predicate accepts a {@link ContextUtils.MayInteractContext} parameter,
@@ -19502,47 +19524,18 @@ public "rideTick"(callback: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<
  */
 public "mayInteract"(predicate: $Function$Type<($ContextUtils$EMayInteractContext$Type), (any)>): $BaseEntityBuilder<(T)>
 /**
- * Sets a callback function to be executed when the entity starts sprinting.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that has started sprinting.
+ * Sets the minimum fall distance for the entity before taking damage.
  * 
  * Example usage:
  * ```javascript
- * entityBuilder.onSprint(entity => {
- *     // Define custom logic for handling when the entity starts sprinting
+ * entityBuilder.setMaxFallDistance(entity => {
+ *     // Define custom logic to determine the maximum fall distance
  *     // Use information about the Entity provided by the context.
+ *     return 3;
  * });
  * ```
  */
-public "onSprint"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is hit by thunder.
- * The provided Consumer accepts a {@link ContextUtils.ThunderHitContext} parameter,
- * representing the context of the entity being hit by thunder.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.thunderHit(context => {
- *     // Define custom logic for handling the entity being hit by thunder
- *     // Use information about the ThunderHitContext provided by the context.
- * });
- * ```
- */
-public "thunderHit"(consumer: $Consumer$Type<($ContextUtils$EThunderHitContext$Type)>): $BaseEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the entity is removed on the client side.
- * The provided Consumer accepts a {@link Entity} parameter,
- * representing the entity that is being removed on the client side.
- * 
- * Example usage:
- * ```javascript
- * entityBuilder.onClientRemoval(entity => {
- *     // Define custom logic for handling the removal of the entity on the client side
- *     // Use information about the Entity provided by the context.
- * });
- * ```
- */
-public "onClientRemoval"(consumer: $Consumer$Type<($Entity$Type)>): $BaseEntityBuilder<(T)>
+public "setMaxFallDistance"(maxFallDistance: $Function$Type<($Entity$Type), (any)>): $BaseEntityBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity performs a flap action.
  * The provided Consumer accepts a {@link Entity} parameter,
@@ -19750,16 +19743,21 @@ export class $AddGoalTargetsEventJS<T extends $Mob> extends $GoalEventJS<(T)> {
 constructor(mob: T, selector: $GoalSelector$Type)
 
 /**
- * Adds a `NearestAttackableTargetGoal` to the entity
+ * Adds a `NonTameRandomTargetGoal` to the entity, only applicable to **tamable** mobs
  * 
  * @param priority - The priority of the goal
  * @param targetClass - The entity class that should be targeted
- * @param randomInterval - The interval at which the goal amy be 'refreshed'
  * @param mustSee - If the mob must have line of sight at all times
- * @param mustReach - If the mob must be able to reach the target to attack
  * @param targetConditions - The conditions under which the targeted entity will be targeted, may be null
  */
-public "nearestAttackableTarget"<E extends $LivingEntity>(priority: integer, targetClass: $Class$Type<(E)>, randomInterval: integer, mustSee: boolean, mustReach: boolean, targetConditions: $Predicate$Type<($LivingEntity$Type)>): void
+public "nonTameRandomTarget"<E extends $LivingEntity>(priority: integer, targetClass: $Class$Type<(E)>, mustSee: boolean, targetCondition: $Predicate$Type<($LivingEntity$Type)>): void
+/**
+ * Adds a `ResetUniversalAngerTargetGoal` to the entity, only applicable to **neutral** mobs
+ * 
+ * @param priority - The priority of the goal
+ * @param alertOthersOfSameType - If other mobs of the same type should be alerted
+ */
+public "resetUniversalAngerTarget"<E extends ($Mob) & ($NeutralMob)>(priority: integer, alertOthersOfSameType: boolean): void
 /**
  * Enables the addition of arbitrary goals to an entity
  * 
@@ -19778,27 +19776,16 @@ public "nearestAttackableTarget"<E extends $LivingEntity>(priority: integer, tar
  */
 public "arbitraryTargetGoal"(priority: integer, goalSuppler: $Function$Type<(T), ($Goal$Type)>): void
 /**
- * Adds a `NonTameRandomTargetGoal` to the entity, only applicable to **tamable** mobs
+ * Adds a `NearestAttackableTargetGoal` to the entity
  * 
  * @param priority - The priority of the goal
  * @param targetClass - The entity class that should be targeted
+ * @param randomInterval - The interval at which the goal amy be 'refreshed'
  * @param mustSee - If the mob must have line of sight at all times
+ * @param mustReach - If the mob must be able to reach the target to attack
  * @param targetConditions - The conditions under which the targeted entity will be targeted, may be null
  */
-public "nonTameRandomTarget"<E extends $LivingEntity>(priority: integer, targetClass: $Class$Type<(E)>, mustSee: boolean, targetCondition: $Predicate$Type<($LivingEntity$Type)>): void
-/**
- * Adds a `ResetUniversalAngerTargetGoal` to the entity, only applicable to **neutral** mobs
- * 
- * @param priority - The priority of the goal
- * @param alertOthersOfSameType - If other mobs of the same type should be alerted
- */
-public "resetUniversalAngerTarget"<E extends ($Mob) & ($NeutralMob)>(priority: integer, alertOthersOfSameType: boolean): void
-/**
- * Adds a `OwnerHurtByTargetGoal` to the entity, only applicable to **tamable** mobs
- * 
- * @param priority - The priority of the goal
- */
-public "ownerHurtByTarget"(priority: integer): void
+public "nearestAttackableTarget"<E extends $LivingEntity>(priority: integer, targetClass: $Class$Type<(E)>, randomInterval: integer, mustSee: boolean, mustReach: boolean, targetConditions: $Predicate$Type<($LivingEntity$Type)>): void
 /**
  * Adds s `HurtByTargetGoal` to the entity, only applicable to **pathfinder** mobs
  * 
@@ -19808,6 +19795,12 @@ public "ownerHurtByTarget"(priority: integer): void
  * @param toIgnoreAlert - The entity classes that should not be alerted
  */
 public "hurtByTarget"(priority: integer, toIgnoreDamage: $List$Type<($Class$Type<(any)>)>, alertOthers: boolean, toIgnoreAlert: $List$Type<($Class$Type<(any)>)>): void
+/**
+ * Adds a `OwnerHurtByTargetGoal` to the entity, only applicable to **tamable** mobs
+ * 
+ * @param priority - The priority of the goal
+ */
+public "ownerHurtByTarget"(priority: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -19901,59 +19894,59 @@ readonly "random": $RandomSource
 
 constructor(builder: $BaseEntityJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(player: $Player$Type): void
 public "tick"(): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
 public "getBuilder"(): $BaseEntityBuilder<(any)>
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
-public "entityName"(): string
-public "isPushable"(): boolean
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "rideTick"(): void
+public "stopRiding"(): void
 public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
 public "isAttackable"(): boolean
 public "setSprinting"(sprinting: boolean): void
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "isPushable"(): boolean
 public "canChangeDimensions"(): boolean
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "onRemovedFromWorld"(): void
 public "isGlowing"(): boolean
-public "stopRiding"(): void
-public "rideTick"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "getControllingPassenger"(): $LivingEntity
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public static "of"(holder: any): $FacetHolder
-get "builder"(): $BaseEntityBuilder<(any)>
-get "pushable"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
+get "freezing"(): boolean
+get "builder"(): $BaseEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "attackable"(): boolean
 set "sprinting"(value: boolean)
-get "controllingPassenger"(): $LivingEntity
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
+get "pushable"(): boolean
 get "glowing"(): boolean
+get "controllingPassenger"(): $LivingEntity
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -20042,8 +20035,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -20165,161 +20158,161 @@ readonly "random": $RandomSource
 constructor(builder: $IronGolemJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public "getTarget"(): $LivingEntity
 public "setLastHurtByMob"(arg0: $LivingEntity$Type): void
 public "setLastHurtByPlayer"(arg0: $Player$Type): void
 public "getLastHurtByMob"(): $LivingEntity
-public "getTarget"(): $LivingEntity
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
+get "target"(): $LivingEntity
 set "lastHurtByMob"(value: $LivingEntity$Type)
 set "lastHurtByPlayer"(value: $Player$Type)
 get "lastHurtByMob"(): $LivingEntity
-get "target"(): $LivingEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -20373,8 +20366,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -20499,150 +20492,150 @@ readonly "random": $RandomSource
 constructor(builder: $ZombieJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "shouldJump"(): boolean
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "ate"(): void
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
+public "dampensVibrations"(): boolean
+public "canCollideWith"(pEntity: $Entity$Type): boolean
+public "showVehicleHealth"(): boolean
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "getMyRidingOffset"(): double
+public "onClimbable"(): boolean
+public "getMobType"(): $MobType
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "getExperienceReward"(): integer
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "onLeaveCombat"(): void
+public "onEnterCombat"(): void
+public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
+public "canChangeDimensions"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "onJump"(): void
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
 public "canBreatheUnderwater"(): boolean
 public "getScale"(): float
 public "shouldDropExperience"(): boolean
 public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
 public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getAmbientSoundInterval"(): integer
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "ate"(): void
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
-public "dampensVibrations"(): boolean
-public "canCollideWith"(pEntity: $Entity$Type): boolean
-public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
-public "onClimbable"(): boolean
-public "setSprinting"(sprinting: boolean): void
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "stopSleeping"(): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "hasLineOfSight"(entity: $Entity$Type): boolean
-public "onLeaveCombat"(): void
-public "onEnterCombat"(): void
-public "attackable"(): boolean
-public "isAffectedByPotions"(): boolean
-public "canChangeDimensions"(): boolean
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
-public "canDisableShield"(): boolean
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "heal"(amount: float): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "onJump"(): void
-public "canJump"(): boolean
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
-get "armorSlots"(): $Iterable<($ItemStack)>
-get "handSlots"(): $Iterable<($ItemStack)>
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -20755,6 +20748,16 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * @param defaultBehaviourGoals Sets whether the mob should inherit it's goal behavior from it's superclass
+ * Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.defaultBehaviourGoals(false);
+ * ```
+ */
+public "defaultBehaviourGoals"(defaultBehaviourGoals: boolean): $HorseJSBuilder
+/**
  * Sets a Consumer with the parameter of ContextUtils.PlayerEntityContext callback
  * This is fired after the entity is tamed and all tame logic has already taken place.
  * Useful if you don't want to mess with the UUID logic in the tameOverride method.
@@ -20786,16 +20789,6 @@ public "onTamed"(onTamed: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type
  * ```
  */
 public "tameOverride"(tameOverride: $Consumer$Type<($ContextUtils$PlayerEntityContext$Type)>): $HorseJSBuilder
-/**
- * @param defaultBehaviourGoals Sets whether the mob should inherit it's goal behavior from it's superclass
- * Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * builder.defaultBehaviourGoals(false);
- * ```
- */
-public "defaultBehaviourGoals"(defaultBehaviourGoals: boolean): $HorseJSBuilder
 /**
  * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
  * Defaults to true.
@@ -20841,8 +20834,8 @@ import {$HumanoidArm, $HumanoidArm$Type} from "packages/net/minecraft/world/enti
 import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
 import {$MobEffectInstance, $MobEffectInstance$Type} from "packages/net/minecraft/world/effect/$MobEffectInstance"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
@@ -20860,8 +20853,8 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/entity/ai/control/$LookControl"
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -20982,149 +20975,149 @@ readonly "random": $RandomSource
 constructor(builder: $WitherJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
 public "jump"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
+public "entityName"(): string
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "setTarget"(target: $LivingEntity$Type): void
+public "isInvertedHealAndHarm"(): boolean
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
 public "playerTouch"(p_20081_: $Player$Type): void
 public "aiStep"(): void
 public "die"(damageSource: $DamageSource$Type): void
 public "tick"(): void
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "isSleeping"(): boolean
-public "onRemovedFromWorld"(): void
-public "getParts"(): ($PartEntity<(any)>)[]
-public "isMultipartEntity"(): boolean
-public "onAddedToWorld"(): void
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
+public "startSeenByPlayer"(pPlayer: $ServerPlayer$Type): void
+public "stopSeenByPlayer"(pPlayer: $ServerPlayer$Type): void
+public "isFreezing"(): boolean
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
 public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
 public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
 public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "makeInvulnerable"(): void
+public "shouldJump"(): boolean
 public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "ate"(): void
 public "canHoldItem"(stack: $ItemStack$Type): boolean
 public "isPersistenceRequired"(): boolean
-public "entityName"(): string
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
 public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "makeInvulnerable"(): void
-public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-/**
- * Calls a triggerable animation to be played anywhere.
- */
-public "triggerAnimation"(controllerName: string, animName: string): void
-public "setThisJumping"(value: boolean): void
-public "ableToJump"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
+public "getMaxFallDistance"(): integer
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "setCustomName"(pName: $Component$Type): void
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
 public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
 public "getMyRidingOffset"(): double
-public "getMobType"(): $MobType
 public "onClimbable"(): boolean
+public "getMobType"(): $MobType
 public "setSprinting"(sprinting: boolean): void
 public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "startSleeping"(blockPos: $BlockPos$Type): void
 public "stopSleeping"(): void
+public "startSleeping"(blockPos: $BlockPos$Type): void
 public "travel"(pTravelVector: $Vec3$Type): void
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
 public "getExperienceReward"(): integer
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
-public "getControllingPassenger"(): $LivingEntity
-public "canFreeze"(): boolean
-public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
-public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "getMainArm"(): $HumanoidArm
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "canJump"(): boolean
 public "onLeaveCombat"(): void
 public "onEnterCombat"(): void
-public "attackable"(): boolean
 public "isAffectedByPotions"(): boolean
+public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
 public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "setId"(entityId: integer): void
 public "canDisableShield"(): boolean
+public "setId"(entityId: integer): void
 public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "shouldJump"(): boolean
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
-public "getMaxFallDistance"(): integer
-public "stopSeenByPlayer"(pPlayer: $ServerPlayer$Type): void
-public "startSeenByPlayer"(pPlayer: $ServerPlayer$Type): void
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "onAddedToWorld"(): void
+public "isMultipartEntity"(): boolean
+public "onRemovedFromWorld"(): void
+public "getParts"(): ($PartEntity<(any)>)[]
+public "isSleeping"(): boolean
 public "isGlowing"(): boolean
-public "heal"(amount: float): void
-public "stopRiding"(): void
-public "rideTick"(): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
-public "canJump"(): boolean
+public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "getJumpBoostPower"(): float
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isSensitiveToWater"(): boolean
+public "canFreeze"(): boolean
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
+public "ableToJump"(): boolean
+public "setThisJumping"(value: boolean): void
+/**
+ * Calls a triggerable animation to be played anywhere.
+ */
+public "triggerAnimation"(controllerName: string, animName: string): void
 public "getTypeId"(): string
+public "triggerAnim"(controllerName: string, animName: string): void
+public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
 public "getTick"(entity: any): double
 public "getEntityType"(): $EntityType<(any)>
 public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
-public "triggerAnim"(controllerName: string, animName: string): void
+public "getBoneResetTime"(): double
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public "shouldPlayAnimsWhileGamePaused"(): boolean
-public "getBoneResetTime"(): double
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
-get "scale"(): float
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "sleeping"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "multipartEntity"(): boolean
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+set "target"(value: $LivingEntity$Type)
+get "invertedHealAndHarm"(): boolean
+get "freezing"(): boolean
+get "fallSounds"(): $LivingEntity$Fallsounds
 get "ambientSoundInterval"(): integer
 get "persistenceRequired"(): boolean
-get "mainArm"(): $HumanoidArm
-get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-set "thisJumping"(value: boolean)
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "maxFallDistance"(): integer
 set "customName"(value: $Component$Type)
-get "invertedHealAndHarm"(): boolean
-get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
-get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
+get "mainArm"(): $HumanoidArm
+get "pushable"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "multipartEntity"(): boolean
+get "parts"(): ($PartEntity<(any)>)[]
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "scale"(): float
 get "jumpBoostPower"(): float
 get "controllingPassenger"(): $LivingEntity
 get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-set "id"(value: integer)
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
+set "thisJumping"(value: boolean)
 get "typeId"(): string
 get "entityType"(): $EntityType<(any)>
 get "boneResetTime"(): double
@@ -21192,6 +21185,7 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 import {$ContextUtils$ArrowEntityHitContext, $ContextUtils$ArrowEntityHitContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$ArrowEntityHitContext"
 import {$ContextUtils$ArrowLivingEntityContext, $ContextUtils$ArrowLivingEntityContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$ArrowLivingEntityContext"
 import {$ContextUtils$CollidingProjectileEntityContext, $ContextUtils$CollidingProjectileEntityContext$Type} from "packages/net/liopyu/entityjs/util/$ContextUtils$CollidingProjectileEntityContext"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$AbstractArrow, $AbstractArrow$Type} from "packages/net/minecraft/world/entity/projectile/$AbstractArrow"
@@ -21211,31 +21205,67 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
- * Sets a consumer to be called when the arrow entity hits another entity.
- * 
- * @param onHitEntity The consumer to handle the arrow entity hit context.
+ * Sets a callback function to be executed when the arrow
+ * collides with an entity.
  * 
  * Example usage:
  * ```javascript
- * arrowEntityBuilder.onHitEntity(context => {
- *     // Custom logic to handle the arrow hitting another entity
+ * arrowEntityBuilder.onEntityCollision(context => {
+ *     const { entity, target } = context
+ *     console.log(entity)
  * });
  * ```
  */
-public "onHitEntity"(consumer: $Consumer$Type<($ContextUtils$ArrowEntityHitContext$Type)>): $ArrowEntityBuilder<(T)>
+public "onEntityCollision"(consumer: $Consumer$Type<($ContextUtils$CollidingProjectileEntityContext$Type)>): $ArrowEntityBuilder<(T)>
+public "createObject"(): $EntityType<(T)>
 /**
- * Sets a consumer to be called when the arrow entity hits a block.
+ * Sets the knockback value for the arrow entity when a bow has Punch Enchantment.
  * 
- * @param onHitBlock The consumer to handle the arrow block hit context.
+ * @param setKnockback The knockback value of the Punch Enchantment to be set.
  * 
  * Example usage:
  * ```javascript
- * arrowEntityBuilder.onHitBlock(context => {
- *     // Custom logic to handle the arrow hitting a block
+ * arrowEntityBuilder.setKnockback(2);
+ * ```
+ */
+public "setKnockback"(knockback: integer): $ArrowEntityBuilder<(T)>
+/**
+ * Sets the default sound event played when the arrow hits the ground using a string representation.
+ * 
+ * @param defaultHitGroundSoundEvent A string representing the ResourceLocation of the sound event.
+ * 
+ * Example usage:
+ * ```javascript
+ * // Example to set a custom sound event for the arrow hitting the ground.
+ * arrowEntityBuilder.defaultHitGroundSoundEvent("minecraft:entity.arrow.hit");
+ * ```
+ */
+public "defaultHitGroundSoundEvent"(sound: any): $ArrowEntityBuilder<(T)>
+/**
+ * Sets the base damage value for the arrow entity.
+ * 
+ * @param baseDamage The base damage value to be set.
+ * 
+ * Example usage:
+ * ```javascript
+ * arrowEntityBuilder.setBaseDamage(8.0);
+ * ```
+ */
+public "setBaseDamage"(baseDamage: double): $ArrowEntityBuilder<(T)>
+/**
+ * Sets a function to determine if the arrow entity can hit a specific entity.
+ * 
+ * @param canHitEntity Function to check if the arrow can hit the entity.
+ * 
+ * Example usage:
+ * ```javascript
+ * arrowEntityBuilder.canHitEntity(entity => {
+ *     // Custom logic to determine if the arrow can hit the specified entity
+ *     // Return true if the arrow can hit, false otherwise.
  * });
  * ```
  */
-public "onHitBlock"(consumer: $Consumer$Type<($ContextUtils$ArrowBlockHitContext$Type)>): $ArrowEntityBuilder<(T)>
+public "canHitEntity"(arg0: $Function$Type<($Entity$Type), (any)>): $ArrowEntityBuilder<(T)>
 /**
  * Sets a function to determine the texture resource for the entity.
  * The provided Function accepts a parameter of type T (the entity),
@@ -21252,19 +21282,6 @@ public "onHitBlock"(consumer: $Consumer$Type<($ContextUtils$ArrowBlockHitContext
  * ```
  */
 public "textureLocation"(arg0: $Function$Type<(T), (any)>): $ArrowEntityBuilder<(T)>
-/**
- * Sets a callback function to be executed when the arrow
- * collides with an entity.
- * 
- * Example usage:
- * ```javascript
- * arrowEntityBuilder.onEntityCollision(context => {
- *     const { entity, target } = context
- *     console.log(entity)
- * });
- * ```
- */
-public "onEntityCollision"(consumer: $Consumer$Type<($ContextUtils$CollidingProjectileEntityContext$Type)>): $ArrowEntityBuilder<(T)>
 /**
  * Sets a consumer to be called during each tick to handle arrow entity despawn logic.
  * 
@@ -21317,6 +21334,32 @@ public "setWaterInertia"(waterInertia: float): $ArrowEntityBuilder<(T)>
  */
 public "setDamageFunction"(baseDamage: $Function$Type<($Entity$Type), (any)>): $ArrowEntityBuilder<(T)>
 /**
+ * Sets a consumer to be called when the arrow entity hits a block.
+ * 
+ * @param onHitBlock The consumer to handle the arrow block hit context.
+ * 
+ * Example usage:
+ * ```javascript
+ * arrowEntityBuilder.onHitBlock(context => {
+ *     // Custom logic to handle the arrow hitting a block
+ * });
+ * ```
+ */
+public "onHitBlock"(consumer: $Consumer$Type<($ContextUtils$ArrowBlockHitContext$Type)>): $ArrowEntityBuilder<(T)>
+/**
+ * Sets a consumer to be called when the arrow entity hits another entity.
+ * 
+ * @param onHitEntity The consumer to handle the arrow entity hit context.
+ * 
+ * Example usage:
+ * ```javascript
+ * arrowEntityBuilder.onHitEntity(context => {
+ *     // Custom logic to handle the arrow hitting another entity
+ * });
+ * ```
+ */
+public "onHitEntity"(consumer: $Consumer$Type<($ContextUtils$ArrowEntityHitContext$Type)>): $ArrowEntityBuilder<(T)>
+/**
  * Sets a function to determine if a player can pick up the arrow entity.
  * 
  * @param tryPickup The function to check if a player can pick up the arrow.
@@ -21330,58 +21373,10 @@ public "setDamageFunction"(baseDamage: $Function$Type<($Entity$Type), (any)>): $
  * ```
  */
 public "tryPickup"(arg0: $Function$Type<($ContextUtils$ArrowPlayerContext$Type), (any)>): $ArrowEntityBuilder<(T)>
-/**
- * Sets a function to determine if the arrow entity can hit a specific entity.
- * 
- * @param canHitEntity Function to check if the arrow can hit the entity.
- * 
- * Example usage:
- * ```javascript
- * arrowEntityBuilder.canHitEntity(entity => {
- *     // Custom logic to determine if the arrow can hit the specified entity
- *     // Return true if the arrow can hit, false otherwise.
- * });
- * ```
- */
-public "canHitEntity"(arg0: $Function$Type<($Entity$Type), (any)>): $ArrowEntityBuilder<(T)>
-/**
- * Sets the base damage value for the arrow entity.
- * 
- * @param baseDamage The base damage value to be set.
- * 
- * Example usage:
- * ```javascript
- * arrowEntityBuilder.setBaseDamage(8.0);
- * ```
- */
-public "setBaseDamage"(baseDamage: double): $ArrowEntityBuilder<(T)>
-/**
- * Sets the knockback value for the arrow entity when a bow has Punch Enchantment.
- * 
- * @param setKnockback The knockback value of the Punch Enchantment to be set.
- * 
- * Example usage:
- * ```javascript
- * arrowEntityBuilder.setKnockback(2);
- * ```
- */
-public "setKnockback"(knockback: integer): $ArrowEntityBuilder<(T)>
-/**
- * Sets the default sound event played when the arrow hits the ground using a string representation.
- * 
- * @param defaultHitGroundSoundEvent A string representing the ResourceLocation of the sound event.
- * 
- * Example usage:
- * ```javascript
- * // Example to set a custom sound event for the arrow hitting the ground.
- * arrowEntityBuilder.defaultHitGroundSoundEvent("minecraft:entity.arrow.hit");
- * ```
- */
-public "defaultHitGroundSoundEvent"(sound: any): $ArrowEntityBuilder<(T)>
+set "knockback"(value: integer)
+set "baseDamage"(value: double)
 set "waterInertia"(value: float)
 set "damageFunction"(value: $Function$Type<($Entity$Type), (any)>)
-set "baseDamage"(value: double)
-set "knockback"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -21489,11 +21484,11 @@ public "item"(item: $Consumer$Type<($EyeOfEnderItemBuilder$Type)>): $EyeOfEnderJ
  * ```
  */
 public "getItem"(arg0: $Function$Type<($EyeOfEnder$Type), (any)>): $EyeOfEnderJSBuilder
-public "createAdditionalObjects"(): void
 /**
  * Indicates that no item should be created for this entity type
  */
 public "noItem"(): $EyeOfEnderJSBuilder
+public "createAdditionalObjects"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -21521,8 +21516,8 @@ readonly "behaviors": $Behaviors
 
 constructor(base: $Brain$Type<(T)>)
 
-public "coreActivity"(i: integer, behaviors: $List$Type<($Behavior$Type<(any)>)>): void
 public "idleActivity"(i: integer, behaviors: $List$Type<($Behavior$Type<(any)>)>): void
+public "coreActivity"(i: integer, behaviors: $List$Type<($Behavior$Type<(any)>)>): void
 public "addActivity"(activity: $Activity$Type, i: integer, behaviors: $List$Type<($Behavior$Type<(any)>)>): void
 }
 /**
@@ -21712,6 +21707,7 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
 import {$SoundSource, $SoundSource$Type} from "packages/net/minecraft/sounds/$SoundSource"
 import {$EyeOfEnderJSBuilder, $EyeOfEnderJSBuilder$Type} from "packages/net/liopyu/entityjs/builders/nonliving/vanilla/$EyeOfEnderJSBuilder"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$ArmorMaterial, $ArmorMaterial$Type} from "packages/net/minecraft/world/item/$ArmorMaterial"
@@ -21733,18 +21729,11 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type, parent: $EyeOfEnderJSBuilder$Type)
 
+public "createObject"(): $Item
 /**
- * A function to determine where the thrown ender eye item will head towards.
- * 
- * Example usage:
- * ```javascript
- * builder.signalTo(context => {
- *     const { level, player, hand } = context
- *     return // Some BlockPos for the eye to navigate to when thrown
- * });
- * ```
+ * Sets if the eye of ender triggers the USED_ENDER_EYE Criteria
  */
-public "signalTo"(f: $Function$Type<($ContextUtils$ItemUseContext$Type), (any)>): $EyeOfEnderItemBuilder
+public "triggersCriteria"(triggersCriteria: boolean): $EyeOfEnderItemBuilder
 /**
  * Sets the sound to play when the eye item is thrown at the coordinates of the player
  * 
@@ -21760,9 +21749,17 @@ public "signalTo"(f: $Function$Type<($ContextUtils$ItemUseContext$Type), (any)>)
  */
 public "playSoundOverride"(player: $Player$Type, soundEvent: $SoundEvent$Type, soundSource: $SoundSource$Type, volume: float, pitch: float): $EyeOfEnderItemBuilder
 /**
- * Sets if the eye of ender triggers the USED_ENDER_EYE Criteria
+ * A function to determine where the thrown ender eye item will head towards.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.signalTo(context => {
+ *     const { level, player, hand } = context
+ *     return // Some BlockPos for the eye to navigate to when thrown
+ * });
+ * ```
  */
-public "triggersCriteria"(triggersCriteria: boolean): $EyeOfEnderItemBuilder
+public "signalTo"(f: $Function$Type<($ContextUtils$ItemUseContext$Type), (any)>): $EyeOfEnderItemBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -21801,15 +21798,15 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type, parent: $MobBuilder$Type<(any)>)
 
-/**
- * Sets the highlight color of the egg item
- */
-public "highlightColor"(i: integer): $SpawnEggItemBuilder
+public "generateAssetJsons"(generator: $AssetJsonGenerator$Type): void
 /**
  * Sets the background color of the egg item
  */
 public "backgroundColor"(i: integer): $SpawnEggItemBuilder
-public "generateAssetJsons"(generator: $AssetJsonGenerator$Type): void
+/**
+ * Sets the highlight color of the egg item
+ */
+public "highlightColor"(i: integer): $SpawnEggItemBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -21856,6 +21853,16 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
+ * Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.defaultGoals(false);
+ * ```
+ */
+public "defaultGoals"(defaultGoals: boolean): $ChickenJSBuilder
+/**
  * @param eggTime Sets a function to determine the laying egg time of the entity
  * 
  * Example usage:
@@ -21866,16 +21873,6 @@ constructor(i: $ResourceLocation$Type)
  * ```
  */
 public "eggTime"(eggTime: $Function$Type<($LivingEntity$Type), (any)>): $ChickenJSBuilder
-/**
- * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
- * Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * builder.defaultGoals(false);
- * ```
- */
-public "defaultGoals"(defaultGoals: boolean): $ChickenJSBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -22041,6 +22038,16 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
+ * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
+ * Defaults to true.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.defaultGoals(false);
+ * ```
+ */
+public "defaultGoals"(defaultGoals: boolean): $PiglinJSBuilder
+/**
  * Sets a function to determine if the entity is converting.
  * 
  * @param isConverting A Function accepting an entity parameter
@@ -22068,16 +22075,6 @@ public "isConverting"(isConverting: $Function$Type<($LivingEntity$Type), (any)>)
  * ```
  */
 public "finishConversion"(finishConversion: $Consumer$Type<($ContextUtils$EntityServerLevelContext$Type)>): $PiglinJSBuilder
-/**
- * @param defaultGoals Sets whether the mob should inherit it's goals from it's superclass
- * Defaults to true.
- * 
- * Example usage:
- * ```javascript
- * builder.defaultGoals(false);
- * ```
- */
-public "defaultGoals"(defaultGoals: boolean): $PiglinJSBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

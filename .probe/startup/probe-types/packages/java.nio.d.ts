@@ -17,21 +17,21 @@ static readonly "OP_ACCEPT": integer
 public "attachment"(): any
 public "attach"(arg0: any): any
 public "channel"(): $SelectableChannel
+public "isValid"(): boolean
 public "isReadable"(): boolean
 public "isWritable"(): boolean
-public "isValid"(): boolean
-public "cancel"(): void
+public "readyOps"(): integer
 public "selector"(): $Selector
+public "cancel"(): void
 public "interestOpsOr"(arg0: integer): integer
 public "interestOpsAnd"(arg0: integer): integer
 public "isConnectable"(): boolean
 public "isAcceptable"(): boolean
 public "interestOps"(): integer
 public "interestOps"(arg0: integer): $SelectionKey
-public "readyOps"(): integer
+get "valid"(): boolean
 get "readable"(): boolean
 get "writable"(): boolean
-get "valid"(): boolean
 get "connectable"(): boolean
 get "acceptable"(): boolean
 }
@@ -592,9 +592,9 @@ export interface $WatchKey {
 
  "reset"(): boolean
  "isValid"(): boolean
+ "pollEvents"(): $List<($WatchEvent<(any)>)>
  "watchable"(): $Watchable
  "cancel"(): void
- "pollEvents"(): $List<($WatchEvent<(any)>)>
 }
 
 export namespace $WatchKey {
@@ -741,8 +741,8 @@ export interface $MulticastChannel extends $NetworkChannel {
  "close"(): void
  "bind"(arg0: $SocketAddress$Type): $NetworkChannel
  "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
- "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "supportedOptions"(): $Set<($SocketOption<(any)>)>
+ "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "getLocalAddress"(): $SocketAddress
  "isOpen"(): boolean
 }
@@ -1076,19 +1076,19 @@ export class $FileStore {
 public "name"(): string
 public "type"(): string
 public "isReadOnly"(): boolean
+public "getUnallocatedSpace"(): long
+public "getBlockSize"(): long
+public "supportsFileAttributeView"(arg0: string): boolean
+public "supportsFileAttributeView"(arg0: $Class$Type<(any)>): boolean
+public "getFileStoreAttributeView"<V extends $FileStoreAttributeView>(arg0: $Class$Type<(V)>): V
 public "getTotalSpace"(): long
 public "getUsableSpace"(): long
 public "getAttribute"(arg0: string): any
-public "getUnallocatedSpace"(): long
-public "getBlockSize"(): long
-public "supportsFileAttributeView"(arg0: $Class$Type<(any)>): boolean
-public "supportsFileAttributeView"(arg0: string): boolean
-public "getFileStoreAttributeView"<V extends $FileStoreAttributeView>(arg0: $Class$Type<(V)>): V
 get "readOnly"(): boolean
-get "totalSpace"(): long
-get "usableSpace"(): long
 get "unallocatedSpace"(): long
 get "blockSize"(): long
+get "totalSpace"(): long
+get "usableSpace"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1270,23 +1270,22 @@ public static "open"(arg0: $SocketAddress$Type): $SocketChannel
 public static "open"(arg0: $ProtocolFamily$Type): $SocketChannel
 public static "open"(): $SocketChannel
 public "validOps"(): integer
-public "isConnected"(): boolean
 public "socket"(): $Socket
-public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $SocketChannel
+public "isConnected"(): boolean
 public "shutdownOutput"(): $SocketChannel
 public "shutdownInput"(): $SocketChannel
+public "getLocalAddress"(): $SocketAddress
 public "isConnectionPending"(): boolean
 public "finishConnect"(): boolean
 public "getRemoteAddress"(): $SocketAddress
-public "getLocalAddress"(): $SocketAddress
 public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "isOpen"(): boolean
 public "close"(): void
 get "connected"(): boolean
+get "localAddress"(): $SocketAddress
 get "connectionPending"(): boolean
 get "remoteAddress"(): $SocketAddress
-get "localAddress"(): $SocketAddress
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1437,8 +1436,8 @@ export class $MembershipKey {
 public "group"(): $InetAddress
 public "block"(arg0: $InetAddress$Type): $MembershipKey
 public "channel"(): $MulticastChannel
-public "drop"(): void
 public "isValid"(): boolean
+public "drop"(): void
 public "unblock"(arg0: $InetAddress$Type): $MembershipKey
 public "networkInterface"(): $NetworkInterface
 public "sourceAddress"(): $InetAddress
@@ -1478,8 +1477,8 @@ import {$List, $List$Type} from "packages/java/util/$List"
 import {$InputStream, $InputStream$Type} from "packages/java/io/$InputStream"
 import {$URI, $URI$Type} from "packages/java/net/$URI"
 import {$FileAttribute, $FileAttribute$Type} from "packages/java/nio/file/attribute/$FileAttribute"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 import {$LinkOption, $LinkOption$Type} from "packages/java/nio/file/$LinkOption"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 /**
  * This class is not allowed By KubeJS!
@@ -1495,16 +1494,11 @@ public "checkAccess"(arg0: $Path$Type, ...arg1: ($AccessMode$Type)[]): void
 public "copy"(arg0: $Path$Type, arg1: $Path$Type, ...arg2: ($CopyOption$Type)[]): void
 public "getScheme"(): string
 public "getPath"(arg0: $URI$Type): $Path
-public "createDirectory"(arg0: $Path$Type, ...arg1: ($FileAttribute$Type<(any)>)[]): void
-public "getFileSystem"(arg0: $URI$Type): $FileSystem
-public static "installedProviders"(): $List<($FileSystemProvider)>
-public "newFileSystem"(arg0: $URI$Type, arg1: $Map$Type<(string), (any)>): $FileSystem
-public "newFileSystem"(arg0: $Path$Type, arg1: $Map$Type<(string), (any)>): $FileSystem
 public "newFileChannel"(arg0: $Path$Type, arg1: $Set$Type<(any)>, ...arg2: ($FileAttribute$Type<(any)>)[]): $FileChannel
 public "newAsynchronousFileChannel"(arg0: $Path$Type, arg1: $Set$Type<(any)>, arg2: $ExecutorService$Type, ...arg3: ($FileAttribute$Type<(any)>)[]): $AsynchronousFileChannel
 public "getFileAttributeView"<V extends $FileAttributeView>(arg0: $Path$Type, arg1: $Class$Type<(V)>, ...arg2: ($LinkOption$Type)[]): V
-public "readAttributes"(arg0: $Path$Type, arg1: string, ...arg2: ($LinkOption$Type)[]): $Map<(string), (any)>
 public "readAttributes"<A extends $BasicFileAttributes>(arg0: $Path$Type, arg1: $Class$Type<(A)>, ...arg2: ($LinkOption$Type)[]): A
+public "readAttributes"(arg0: $Path$Type, arg1: string, ...arg2: ($LinkOption$Type)[]): $Map<(string), (any)>
 public "move"(arg0: $Path$Type, arg1: $Path$Type, ...arg2: ($CopyOption$Type)[]): void
 public "isSameFile"(arg0: $Path$Type, arg1: $Path$Type): boolean
 public "newByteChannel"(arg0: $Path$Type, arg1: $Set$Type<(any)>, ...arg2: ($FileAttribute$Type<(any)>)[]): $SeekableByteChannel
@@ -1517,6 +1511,11 @@ public "setAttribute"(arg0: $Path$Type, arg1: string, arg2: any, ...arg3: ($Link
 public "deleteIfExists"(arg0: $Path$Type): boolean
 public "newInputStream"(arg0: $Path$Type, ...arg1: ($OpenOption$Type)[]): $InputStream
 public "newOutputStream"(arg0: $Path$Type, ...arg1: ($OpenOption$Type)[]): $OutputStream
+public "createDirectory"(arg0: $Path$Type, ...arg1: ($FileAttribute$Type<(any)>)[]): void
+public "getFileSystem"(arg0: $URI$Type): $FileSystem
+public static "installedProviders"(): $List<($FileSystemProvider)>
+public "newFileSystem"(arg0: $Path$Type, arg1: $Map$Type<(string), (any)>): $FileSystem
+public "newFileSystem"(arg0: $URI$Type, arg1: $Map$Type<(string), (any)>): $FileSystem
 get "scheme"(): string
 }
 /**
@@ -1728,19 +1727,19 @@ public "provider"(): $FileSystemProvider
 public "close"(): void
 public "getPath"(arg0: string, ...arg1: (string)[]): $Path
 public "isReadOnly"(): boolean
-public "getSeparator"(): string
 public "supportedFileAttributeViews"(): $Set<(string)>
 public "getRootDirectories"(): $Iterable<($Path)>
 public "getFileStores"(): $Iterable<($FileStore)>
 public "getUserPrincipalLookupService"(): $UserPrincipalLookupService
 public "getPathMatcher"(arg0: string): $PathMatcher
 public "newWatchService"(): $WatchService
+public "getSeparator"(): string
 get "open"(): boolean
 get "readOnly"(): boolean
-get "separator"(): string
 get "rootDirectories"(): $Iterable<($Path)>
 get "fileStores"(): $Iterable<($FileStore)>
 get "userPrincipalLookupService"(): $UserPrincipalLookupService
+get "separator"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1779,22 +1778,22 @@ export class $DatagramChannel extends $AbstractSelectableChannel implements $Byt
 
 
 public "write"(arg0: $ByteBuffer$Type): integer
-public "write"(arg0: ($ByteBuffer$Type)[]): long
 public "write"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
+public "write"(arg0: ($ByteBuffer$Type)[]): long
 public "read"(arg0: $ByteBuffer$Type): integer
-public "read"(arg0: ($ByteBuffer$Type)[]): long
 public "read"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
+public "read"(arg0: ($ByteBuffer$Type)[]): long
 public "connect"(arg0: $SocketAddress$Type): $DatagramChannel
-public static "open"(arg0: $ProtocolFamily$Type): $DatagramChannel
 public static "open"(): $DatagramChannel
+public static "open"(arg0: $ProtocolFamily$Type): $DatagramChannel
 public "validOps"(): integer
-public "isConnected"(): boolean
-public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
 public "socket"(): $DatagramSocket
+public "isConnected"(): boolean
 public "disconnect"(): $DatagramChannel
-public "getRemoteAddress"(): $SocketAddress
 public "getLocalAddress"(): $SocketAddress
 public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
+public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
+public "getRemoteAddress"(): $SocketAddress
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
 public "close"(): void
@@ -1802,8 +1801,8 @@ public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
 public "isOpen"(): boolean
 get "connected"(): boolean
-get "remoteAddress"(): $SocketAddress
 get "localAddress"(): $SocketAddress
+get "remoteAddress"(): $SocketAddress
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2042,8 +2041,8 @@ export interface $NetworkChannel extends $Channel {
 
  "bind"(arg0: $SocketAddress$Type): $NetworkChannel
  "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
- "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "supportedOptions"(): $Set<($SocketOption<(any)>)>
+ "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "getLocalAddress"(): $SocketAddress
  "isOpen"(): boolean
  "close"(): void
@@ -2301,8 +2300,8 @@ import {$GroupPrincipal, $GroupPrincipal$Type} from "packages/java/nio/file/attr
 export class $UserPrincipalLookupService {
 
 
-public "lookupPrincipalByName"(arg0: string): $UserPrincipal
 public "lookupPrincipalByGroupName"(arg0: string): $GroupPrincipal
+public "lookupPrincipalByName"(arg0: string): $UserPrincipal
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2363,10 +2362,10 @@ export class $AbstractSelectableChannel extends $SelectableChannel {
 public "isRegistered"(): boolean
 public "register"(arg0: $Selector$Type, arg1: integer, arg2: any): $SelectionKey
 public "provider"(): $SelectorProvider
-public "blockingLock"(): any
-public "keyFor"(arg0: $Selector$Type): $SelectionKey
 public "configureBlocking"(arg0: boolean): $SelectableChannel
 public "isBlocking"(): boolean
+public "blockingLock"(): any
+public "keyFor"(arg0: $Selector$Type): $SelectionKey
 public "isOpen"(): boolean
 public "close"(): void
 get "registered"(): boolean
@@ -2571,14 +2570,14 @@ public "provider"(): $SelectorProvider
 public "close"(): void
 public "keys"(): $Set<($SelectionKey)>
 public static "open"(): $Selector
-public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
-public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
+public "selectedKeys"(): $Set<($SelectionKey)>
+public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
+public "selectNow"(): integer
 public "select"(): integer
 public "select"(arg0: long): integer
+public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
+public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "wakeup"(): $Selector
-public "selectNow"(): integer
-public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
-public "selectedKeys"(): $Set<($SelectionKey)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2611,11 +2610,11 @@ public "isRegistered"(): boolean
 public "register"(arg0: $Selector$Type, arg1: integer): $SelectionKey
 public "register"(arg0: $Selector$Type, arg1: integer, arg2: any): $SelectionKey
 public "provider"(): $SelectorProvider
+public "configureBlocking"(arg0: boolean): $SelectableChannel
+public "isBlocking"(): boolean
 public "blockingLock"(): any
 public "validOps"(): integer
 public "keyFor"(arg0: $Selector$Type): $SelectionKey
-public "configureBlocking"(arg0: boolean): $SelectableChannel
-public "isBlocking"(): boolean
 public "isOpen"(): boolean
 public "close"(): void
 get "registered"(): boolean

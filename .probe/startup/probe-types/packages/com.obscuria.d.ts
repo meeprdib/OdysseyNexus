@@ -106,10 +106,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "isFoil"(arg0: $ItemStack$Type): boolean
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -28,8 +28,8 @@ import {$PlayerInfo, $PlayerInfo$Type} from "packages/net/minecraft/client/multi
 
 export interface $PlayerChatMessageAccessor {
 
- "setPlayerInfo"(arg0: $PlayerInfo$Type): void
  "getPlayerInfo"(): $PlayerInfo
+ "setPlayerInfo"(arg0: $PlayerInfo$Type): void
 }
 
 export namespace $PlayerChatMessageAccessor {

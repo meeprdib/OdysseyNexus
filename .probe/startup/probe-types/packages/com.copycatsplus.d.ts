@@ -103,20 +103,20 @@ public "set"(bottomNegative: boolean, bottomPositive: boolean, topNegative: bool
 public "rotate"(angle: integer): $CopycatStairsBlock$FaceShape
 public "rotate"(angle: float): $CopycatStairsBlock$FaceShape
 public "isFull"(): boolean
-public "canConnect"(): boolean
-public "fillColumn"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
-public "fillAll"(): $CopycatStairsBlock$FaceShape
-public "fillTop"(): $CopycatStairsBlock$FaceShape
-public "fillTop"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
-public "countBlocks"(): integer
-public "fillBottom"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
-public "fillBottom"(): $CopycatStairsBlock$FaceShape
 public "fillRow"(top: boolean): $CopycatStairsBlock$FaceShape
 public "fillRow"(top: boolean, direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
+public "fillTop"(): $CopycatStairsBlock$FaceShape
+public "fillTop"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
+public "fillBottom"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
+public "fillBottom"(): $CopycatStairsBlock$FaceShape
+public "fillAll"(): $CopycatStairsBlock$FaceShape
+public "countBlocks"(): integer
 public "fillPositive"(): $CopycatStairsBlock$FaceShape
-public "fillLeft"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
-public "fillRight"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
 public "fillNegative"(): $CopycatStairsBlock$FaceShape
+public "fillRight"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "fillLeft"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "canConnect"(): boolean
+public "fillColumn"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
 get "full"(): boolean
 }
 /**
@@ -141,13 +141,13 @@ static "EMPTY": $MaterialItemStorage$MaterialItem
 
 constructor(material: $BlockState$Type, consumedItem: $ItemStack$Type)
 
-public "serialize"(): $CompoundTag
-public "setConsumedItem"(stack: $ItemStack$Type): void
-public "setMaterial"(material: $BlockState$Type): void
-public "consumedItem"(): $ItemStack
-public static "deserialize"(tag: $CompoundTag$Type): $MaterialItemStorage$MaterialItem
-public "serializeSafe"(): $CompoundTag
 public "material"(): $BlockState
+public static "deserialize"(tag: $CompoundTag$Type): $MaterialItemStorage$MaterialItem
+public "serialize"(): $CompoundTag
+public "consumedItem"(): $ItemStack
+public "setMaterial"(material: $BlockState$Type): void
+public "setConsumedItem"(stack: $ItemStack$Type): void
+public "serializeSafe"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -283,41 +283,41 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public static "setApparentDirection"(state: $BlockState$Type, direction: $Direction$Type): $BlockState
-public static "getApparentDirection"(state: $BlockState$Type): $Direction
+public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatSlabBlock$FaceShape
+public "getWrappedBlock"(): $Block
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "storageProperties"(): $Set<(string)>
 public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
 public "partExists"(state: $BlockState$Type, property: string): boolean
 public "maxMaterials"(): integer
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public static "getApparentDirection"(state: $BlockState$Type): $Direction
+public static "setApparentDirection"(state: $BlockState$Type, direction: $Direction$Type): $BlockState
 public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "getWrappedBlock"(): $Block
-public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatSlabBlock$FaceShape
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public static "unwrap"<B extends $Block>(block: $Block$Type): $Block
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
 get "wrappedBlock"(): $Block
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -391,29 +391,29 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
 public "useShapeForLightOcclusion"(state: $BlockState$Type): boolean
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "getOcclusionShape"(pState: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): $VoxelShape
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
-public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
 public "getShadeBrightness"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): float
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -485,20 +485,22 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "getWrappedBlock"(): $WrappedLadderBlock
+public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
 public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "unwrap"<B extends $Block>(block: $WrappedLadderBlock$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+get "wrappedBlock"(): $WrappedLadderBlock
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -582,36 +584,36 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public static "byByte"(x: boolean, y: boolean, z: boolean): $BooleanProperty
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "byByte"(bite: $CopycatByteBlock$Byte$Type): $BooleanProperty
-public static "bite"(x: boolean, y: boolean, z: boolean): $CopycatByteBlock$Byte
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "storageProperties"(): $Set<(string)>
-public "vectorScale"(state: $BlockState$Type): $Vec3i
-public "partExists"(state: $BlockState$Type, property: string): boolean
-public "maxMaterials"(): integer
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
-public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public static "byByte"(x: boolean, y: boolean, z: boolean): $BooleanProperty
 public static "getByteFromVec"(vec: $Vec3$Type, pos: $BlockPos$Type): $CopycatByteBlock$Byte
 public static "clampToBlockPos"(vec: $Vec3$Type, pos: $BlockPos$Type): $Vec3
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "partExists"(state: $BlockState$Type, property: string): boolean
+public "maxMaterials"(): integer
+public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public static "bite"(x: boolean, y: boolean, z: boolean): $CopycatByteBlock$Byte
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -680,27 +682,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "isSignalSource"(pState: $BlockState$Type): boolean
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
 public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getWrappedBlock"(): $WrappedPressurePlate$HeavyWeighted
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
+public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
 public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$HeavyWeighted$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $WrappedPressurePlate$HeavyWeighted
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -817,16 +817,16 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
-public "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-get "blockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -849,8 +849,8 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 
 export interface $ICustomCTBlocking {
 
- "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
  "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+ "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
 }
 
 export namespace $ICustomCTBlocking {
@@ -927,28 +927,26 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "getSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public "getDirectSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "getWrappedBlock"(): $WrappedButton$Wood
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "isSignalSource"(pState: $BlockState$Type): boolean
+public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
+public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
+public "getDirectSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
+public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
+public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
 public static "unwrap"<B extends $Block>(block: $WrappedButton$Wood$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $WrappedButton$Wood
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -987,12 +985,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(builder: $Item$Properties$Type)
 
-public "getDescriptionId"(): string
 public "registerBlocks"(map: $Map$Type<($Block$Type), ($Item$Type)>, self: $Item$Type): void
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "getDescriptionId"(): string
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 get "descriptionId"(): string
 }
 /**
@@ -1010,8 +1008,8 @@ export type $CopycatCatwalkItem_ = $CopycatCatwalkItem$Type;
 declare module "packages/com/copycatsplus/copycats/$CCBlockStateProperties$VerticalStairShape" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 
@@ -1028,9 +1026,9 @@ public static "valueOf"(name: string): $CCBlockStateProperties$VerticalStairShap
 public "isTop"(): boolean
 public "getSerializedName"(): string
 public "isOuter"(): boolean
-public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 get "top"(): boolean
 get "serializedName"(): string
 get "outer"(): boolean
@@ -1065,8 +1063,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity"
@@ -1124,63 +1122,63 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getProperty"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hitVec: $Vec3$Type, face: $Direction$Type, targetingSolid: boolean): string
 public "getProperty"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hit: $BlockHitResult$Type, targetingSolid: boolean): string
-public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
-public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public "getProperty"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hitVec: $Vec3$Type, face: $Direction$Type, targetingSolid: boolean): string
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public static "multiPlatformGetAppearance"(block: $MultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public static "multiPlatformGetShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "wrappedColor"(): $BlockColor
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
 public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
-public "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "fallOn"(pLevel: $Level$Type, state: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
-public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "vectorScale"(arg0: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "partExists"(arg0: $BlockState$Type, arg1: string): boolean
+public "maxMaterials"(): integer
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "getTicker"<S extends $BlockEntity>(p_153212_: $Level$Type, p_153213_: $BlockState$Type, p_153214_: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getVectorFromProperty"(arg0: $BlockState$Type, arg1: string): $Vec3i
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getPropertyFromInteraction"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $Vec3i$Type, arg3: $BlockPos$Type, arg4: $Direction$Type, arg5: $Vec3$Type): string
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
 public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
 public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
 public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
-public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "getTicker"<S extends $BlockEntity>(p_153212_: $Level$Type, p_153213_: $BlockState$Type, p_153214_: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
-public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
-public static "wrappedColor"(): $BlockColor
-public "storageProperties"(): $Set<(string)>
-public "vectorScale"(arg0: $BlockState$Type): $Vec3i
-public "partExists"(arg0: $BlockState$Type, arg1: string): boolean
-public "maxMaterials"(): integer
+public "fallOn"(pLevel: $Level$Type, state: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
 public "stateType"(): $StateType
-public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
-public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
-public static "multiPlatformGetAppearance"(block: $MultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "getPropertyFromInteraction"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $Vec3i$Type, arg3: $BlockPos$Type, arg4: $Direction$Type, arg5: $Vec3$Type): string
-public "getVectorFromProperty"(arg0: $BlockState$Type, arg1: string): $Vec3i
-public static "multiPlatformGetShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
-public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isAcceptedRegardless"(material: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $MultiStateCopycatBlockEntity
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MultiStateCopycatBlockEntity)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($MultiStateCopycatBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($MultiStateCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $MultiStateCopycatBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1207,10 +1205,10 @@ static readonly "NONE": $CopycatSlabBlock$FaceShape
 
 public static "values"(): ($CopycatSlabBlock$FaceShape)[]
 public static "valueOf"(name: string): $CopycatSlabBlock$FaceShape
-public static "canConnect"(shape1: $CopycatSlabBlock$FaceShape$Type, shape2: $CopycatSlabBlock$FaceShape$Type): boolean
+public "hasContact"(): boolean
 public static "fullOrNone"(value: boolean): $CopycatSlabBlock$FaceShape
 public static "forSlabSide"(type: $SlabType$Type): $CopycatSlabBlock$FaceShape
-public "hasContact"(): boolean
+public static "canConnect"(shape1: $CopycatSlabBlock$FaceShape$Type, shape2: $CopycatSlabBlock$FaceShape$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1378,11 +1376,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "getWrappedBlock"(): $Block
+public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getWrappedBlock"(): $Block
-public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
 public static "unwrap"<B extends $Block>(block: $Block$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
@@ -1515,28 +1513,28 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1596,12 +1594,12 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "getWrappedBlock"(): $Block
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "unwrap"<B extends $Block>(block: $Block$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
@@ -1733,32 +1731,32 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "storageProperties"(): $Set<(string)>
 public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
 public "partExists"(state: $BlockState$Type, property: string): boolean
 public "maxMaterials"(): integer
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
 public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1827,27 +1825,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "isSignalSource"(pState: $BlockState$Type): boolean
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
 public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getWrappedBlock"(): $WrappedPressurePlate$Stone
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
+public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
 public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$Stone$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $WrappedPressurePlate$Stone
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1910,17 +1906,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
-public "getBlockEntityClass"(): $Class<($CopycatBlockEntity)>
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($CopycatBlockEntity)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<($CopycatBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($CopycatBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1993,28 +1989,26 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "getSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public "getDirectSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "getWrappedBlock"(): $WrappedButton$Stone
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "isSignalSource"(pState: $BlockState$Type): boolean
+public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
+public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
+public "getDirectSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
+public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
+public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
 public static "unwrap"<B extends $Block>(block: $WrappedButton$Stone$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $WrappedButton$Stone
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2053,12 +2047,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(builder: $Item$Properties$Type)
 
-public "getDescriptionId"(): string
 public "registerBlocks"(map: $Map$Type<($Block$Type), ($Item$Type)>, self: $Item$Type): void
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "getDescriptionId"(): string
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 get "descriptionId"(): string
 }
 /**
@@ -2128,27 +2122,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "isSignalSource"(pState: $BlockState$Type): boolean
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
 public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getWrappedBlock"(): $WrappedPressurePlate$Wooden
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
+public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
 public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$Wooden$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $WrappedPressurePlate$Wooden
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2187,16 +2179,16 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 
 export interface $ICTMultiStateCopycatBlock extends $IBE<($MultiStateCopycatBlockEntity)> {
 
- "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
  "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
- "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $MultiStateCopycatBlockEntity
- "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MultiStateCopycatBlockEntity)>
- "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
+ "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
  "getBlockEntityType"(): $BlockEntityType<(any)>
- "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
- "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+ "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
+ "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MultiStateCopycatBlockEntity)>
  "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($MultiStateCopycatBlockEntity$Type)>): void
  "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($MultiStateCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+ "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+ "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+ "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $MultiStateCopycatBlockEntity
  "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 }
 
@@ -2273,25 +2265,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
-public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2330,16 +2322,16 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 
 export interface $ICTCopycatBlock extends $IBE<($CopycatBlockEntity)> {
 
- "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
  "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
- "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CopycatBlockEntity
- "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CopycatBlockEntity)>
- "getBlockEntityClass"(): $Class<($CopycatBlockEntity)>
+ "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
  "getBlockEntityType"(): $BlockEntityType<(any)>
- "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
- "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+ "getBlockEntityClass"(): $Class<($CopycatBlockEntity)>
+ "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CopycatBlockEntity)>
  "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CopycatBlockEntity$Type)>): void
  "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+ "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+ "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+ "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CopycatBlockEntity
  "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 }
 
@@ -2443,28 +2435,28 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public static "getOffsetAxis"(facing: $Direction$Type, offset: $Direction$Type): $Direction$Axis
-public static "getOffsetFacing"(facing: $Direction$Type, offset: $Direction$Type): $Direction
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public static "getOffsetFacing"(facing: $Direction$Type, offset: $Direction$Type): $Direction
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public static "getOffsetAxis"(facing: $Direction$Type, offset: $Direction$Type): $Direction$Axis
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2481,8 +2473,8 @@ export type $CopycatHalfPanelBlock_ = $CopycatHalfPanelBlock$Type;
 declare module "packages/com/copycatsplus/copycats/$CCBlockStateProperties$Side" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 
@@ -2493,15 +2485,15 @@ static readonly "RIGHT": $CCBlockStateProperties$Side
 
 public static "values"(): ($CCBlockStateProperties$Side)[]
 public static "valueOf"(name: string): $CCBlockStateProperties$Side
+public "getOpposite"(): $CCBlockStateProperties$Side
 public "getSerializedName"(): string
 public "isRight"(): boolean
-public "getOpposite"(): $CCBlockStateProperties$Side
-public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+get "opposite"(): $CCBlockStateProperties$Side
 get "serializedName"(): string
 get "right"(): boolean
-get "opposite"(): $CCBlockStateProperties$Side
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2558,10 +2550,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 }
 /**
@@ -2626,14 +2618,14 @@ constructor(properties: $BlockBehaviour$Properties$Type)
 public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "getFluidState"(pState: $BlockState$Type): $FluidState
 public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
+public "fluidState"(arg0: $BlockState$Type): $FluidState
+public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "withWater"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
-public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
-public "fluidState"(arg0: $BlockState$Type): $FluidState
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
-public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
@@ -2779,35 +2771,33 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "getOcclusionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getVisualShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "byDirection"(direction: $Direction$Type): $BooleanProperty
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getOcclusionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
+public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getVisualShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "propagatesSkylightDown"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): boolean
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "getWrappedBlock"(): $WrappedFenceBlock
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
 public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "wrappedBlock"(): $WrappedFenceBlock
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2882,30 +2872,30 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, pos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
+public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "useShapeForLightOcclusion"(pState: $BlockState$Type): boolean
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public static "isStairs"(state: $BlockState$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
-public static "isStairs"(state: $BlockState$Type): boolean
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2980,44 +2970,42 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public "animateTick"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
+public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "animateTick"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
+public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "onPlace"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pOldState: $BlockState$Type, pIsMoving: boolean): void
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "useShapeForLightOcclusion"(pState: $BlockState$Type): boolean
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "randomTick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
 public "attack"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type): void
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "isRandomlyTicking"(pState: $BlockState$Type): boolean
 public "destroy"(pLevel: $LevelAccessor$Type, pPos: $BlockPos$Type, pState: $BlockState$Type): void
 public "wasExploded"(pLevel: $Level$Type, pPos: $BlockPos$Type, pExplosion: $Explosion$Type): void
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
-public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "getWrappedBlock"(): $WrappedStairsBlock
-public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
 public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "wrappedBlock"(): $WrappedStairsBlock
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3094,28 +3082,28 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3157,8 +3145,8 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $CTCopycatBlockEntity {
 
  "isCTEnabled"(): boolean
- "setCTEnabled"(arg0: boolean): void
  "callRedraw"(): void
+ "setCTEnabled"(arg0: boolean): void
 }
 
 export namespace $CTCopycatBlockEntity {
@@ -3283,31 +3271,31 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "byDirection"(direction: $Direction$Type): $EnumProperty<($WallSide)>
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "propagatesSkylightDown"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): boolean
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "propagatesSkylightDown"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): boolean
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
 public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3428,14 +3416,14 @@ public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type
 public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
 public static "unwrap"<B extends $Block>(block: W): $Block
 public "getWrappedBlock"(): W
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 get "wrappedBlock"(): W
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3563,26 +3551,26 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3650,30 +3638,30 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "neighborChanged"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pBlock: $Block$Type, pFromPos: $BlockPos$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "getOcclusionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getOcclusionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
 public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "getBlockSupportShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public "stateType"(): $StateType
 public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3711,15 +3699,15 @@ constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $Blo
 
 public "transform"(transform: $StructureTransform$Type): void
 public static "create"(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type): $MultiStateCopycatBlockEntity
-public "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
+public "getMaterialItemStorage"(): $MaterialItemStorage
 public "migrateData"(copycatBlockEntity: $CopycatBlockEntity$Type): void
+public "setMaterial"(property: string, blockState: $BlockState$Type): void
+public "cycleMaterial"(property: string): boolean
+public "setConsumedItem"(property: string, itemStack: $ItemStack$Type): void
+public "requestModelUpdate"(): void
+public "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
 public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "writeSafe"(tag: $CompoundTag$Type): void
-public "setConsumedItem"(property: string, itemStack: $ItemStack$Type): void
-public "cycleMaterial"(property: string): boolean
-public "setMaterial"(property: string, blockState: $BlockState$Type): void
-public "getMaterialItemStorage"(): $MaterialItemStorage
-public "requestModelUpdate"(): void
 get "materialItemStorage"(): $MaterialItemStorage
 }
 /**
@@ -3788,27 +3776,27 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "neighborChanged"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pBlock: $Block$Type, pFromPos: $BlockPos$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "neighborChanged"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pBlock: $Block$Type, pFromPos: $BlockPos$Type, pIsMoving: boolean): void
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "stateType"(): $StateType
 public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3877,27 +3865,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "isSignalSource"(pState: $BlockState$Type): boolean
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
 public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
 public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getWrappedBlock"(): $WrappedPressurePlate$LightWeighted
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
+public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
 public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$LightWeighted$Type): $Block
 public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $WrappedPressurePlate$LightWeighted
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3978,35 +3964,35 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public static "byDirection"(direction: $Direction$Type): $BooleanProperty
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "storageProperties"(): $Set<(string)>
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
 public "partExists"(state: $BlockState$Type, property: string): boolean
 public "maxMaterials"(): integer
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
-public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
 public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
 public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "getBlockEntityClass"(): $Class<(T)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<(T)>
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-get "blockEntityClass"(): $Class<(T)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4033,19 +4019,19 @@ export class $MaterialItemStorage {
 
 
 public static "create"(maxStorage: integer, properties: $Set$Type<(string)>): $MaterialItemStorage
-public "serialize"(): $CompoundTag
-public "hasCustomMaterial"(property: string): boolean
-public "deserialize"(tag: $CompoundTag$Type): boolean
-public "getMaterialItem"(property: string): $MaterialItemStorage$MaterialItem
-public "getAllMaterials"(): $Set<($BlockState)>
-public "getAllProperties"(): $Set<(string)>
 public "getAllConsumedItems"(): $List<($ItemStack)>
-public "serializeSafe"(): $CompoundTag
+public "deserialize"(tag: $CompoundTag$Type): boolean
+public "serialize"(): $CompoundTag
+public "getAllMaterials"(): $Set<($BlockState)>
+public "getMaterialItem"(property: string): $MaterialItemStorage$MaterialItem
+public "getAllProperties"(): $Set<(string)>
+public "hasCustomMaterial"(property: string): boolean
 public "storeMaterialItem"(property: string, materialItem: $MaterialItemStorage$MaterialItem$Type): void
+public "serializeSafe"(): $CompoundTag
 public "getMaterialMap"(): $Map<(string), ($BlockState)>
+get "allConsumedItems"(): $List<($ItemStack)>
 get "allMaterials"(): $Set<($BlockState)>
 get "allProperties"(): $Set<(string)>
-get "allConsumedItems"(): $List<($ItemStack)>
 get "materialMap"(): $Map<(string), ($BlockState)>
 }
 /**

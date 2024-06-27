@@ -16,23 +16,23 @@ export interface $TransformStack extends $Transform<($TransformStack)>, $TStack<
 
  "transform"(arg0: $Matrix4f$Type, arg1: $Matrix3f$Type): $TransformStack
  "transform"(arg0: $PoseStack$Type): $TransformStack
- "mulNormal"(arg0: $Matrix3f$Type): $TransformStack
  "rotateCentered"(arg0: $Direction$Type, arg1: float): $TransformStack
  "rotateCentered"(arg0: $Quaternionf$Type): $TransformStack
  "mulPose"(arg0: $Matrix4f$Type): $TransformStack
+ "mulNormal"(arg0: $Matrix3f$Type): $TransformStack
  "pushPose"(): $TransformStack
  "popPose"(): $TransformStack
- "translate"(arg0: $Vector3f$Type): $TransformStack
- "translate"(arg0: $Vec3$Type): $TransformStack
- "translate"(arg0: $Vec3i$Type): $TransformStack
- "translate"(arg0: double, arg1: double, arg2: double): $TransformStack
  "centre"(): $TransformStack
+ "translate"(arg0: $Vec3i$Type): $TransformStack
+ "translate"(arg0: $Vec3$Type): $TransformStack
+ "translate"(arg0: $Vector3f$Type): $TransformStack
+ "translate"(arg0: double, arg1: double, arg2: double): $TransformStack
  "translateY"(arg0: double): $TransformStack
  "translateZ"(arg0: double): $TransformStack
- "translateX"(arg0: double): $TransformStack
- "translateAll"(arg0: double): $TransformStack
  "unCentre"(): $TransformStack
  "nudge"(arg0: integer): $TransformStack
+ "translateX"(arg0: double): $TransformStack
+ "translateAll"(arg0: double): $TransformStack
  "translateBack"(arg0: $Vec3$Type): $TransformStack
  "translateBack"(arg0: $Vec3i$Type): $TransformStack
  "translateBack"(arg0: double, arg1: double, arg2: double): $TransformStack
@@ -45,10 +45,10 @@ export interface $TransformStack extends $Transform<($TransformStack)>, $TStack<
  "rotateY"(arg0: double): $TransformStack
  "rotateZ"(arg0: double): $TransformStack
  "rotateToFace"(arg0: $Direction$Type): $TransformStack
- "rotateYRadians"(arg0: double): $TransformStack
  "rotateZRadians"(arg0: double): $TransformStack
- "multiplyRadians"(arg0: $Axis$Type, arg1: double): $TransformStack
  "multiplyRadians"(arg0: $Vector3f$Type, arg1: double): $TransformStack
+ "multiplyRadians"(arg0: $Axis$Type, arg1: double): $TransformStack
+ "rotateYRadians"(arg0: double): $TransformStack
  "rotateXRadians"(arg0: double): $TransformStack
  "scale"(arg0: float, arg1: float, arg2: float): $TransformStack
  "scale"(arg0: float): $TransformStack
@@ -108,13 +108,13 @@ readonly "world": $Level
 
 constructor(arg0: $MaterialManager$Type, arg1: T)
 
+public "getInstancePosition"(): $BlockPos
 public "getWorldPosition"(): $BlockPos
 public "shouldReset"(): boolean
 public "getVolume"(): $ImmutableBox
-public "getInstancePosition"(): $BlockPos
+get "instancePosition"(): $BlockPos
 get "worldPosition"(): $BlockPos
 get "volume"(): $ImmutableBox
-get "instancePosition"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -130,8 +130,8 @@ export type $BlockEntityInstance_<T> = $BlockEntityInstance$Type<(T)>;
 }}
 declare module "packages/com/jozufozu/flywheel/core/$PartialModel" {
 import {$AccessorPartialModel, $AccessorPartialModel$Type} from "packages/com/railwayteam/railways/mixin/client/$AccessorPartialModel"
-import {$ModelEvent$BakingCompleted, $ModelEvent$BakingCompleted$Type} from "packages/net/minecraftforge/client/event/$ModelEvent$BakingCompleted"
 import {$ModelEvent$RegisterAdditional, $ModelEvent$RegisterAdditional$Type} from "packages/net/minecraftforge/client/event/$ModelEvent$RegisterAdditional"
+import {$ModelEvent$BakingCompleted, $ModelEvent$BakingCompleted$Type} from "packages/net/minecraftforge/client/event/$ModelEvent$BakingCompleted"
 import {$BakedModel, $BakedModel$Type} from "packages/net/minecraft/client/resources/model/$BakedModel"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 
@@ -141,8 +141,8 @@ constructor(arg0: $ResourceLocation$Type)
 
 public "get"(): $BakedModel
 public "getLocation"(): $ResourceLocation
-public static "onModelBake"(arg0: $ModelEvent$BakingCompleted$Type): void
 public static "onModelRegistry"(arg0: $ModelEvent$RegisterAdditional$Type): void
+public static "onModelBake"(arg0: $ModelEvent$BakingCompleted$Type): void
 get "location"(): $ResourceLocation
 }
 /**
@@ -167,16 +167,16 @@ export interface $VertexList {
  "getB"(arg0: integer): byte
  "getG"(arg0: integer): byte
  "getY"(arg0: integer): float
- "getX"(arg0: integer): float
- "getZ"(arg0: integer): float
  "getU"(arg0: integer): float
- "getV"(arg0: integer): float
+ "getZ"(arg0: integer): float
  "getLight"(arg0: integer): integer
+ "getNY"(arg0: integer): float
  "getR"(arg0: integer): byte
+ "getVertexCount"(): integer
  "getNX"(arg0: integer): float
  "getNZ"(arg0: integer): float
- "getNY"(arg0: integer): float
- "getVertexCount"(): integer
+ "getX"(arg0: integer): float
+ "getV"(arg0: integer): float
 }
 
 export namespace $VertexList {
@@ -218,10 +218,12 @@ public "setColor"(arg0: byte, arg1: byte, arg2: byte): $BasicData
 public "setColor"(arg0: byte, arg1: byte, arg2: byte, arg3: byte): $BasicData
 public "setColor"(arg0: $Color$Type): $BasicData
 public "getPackedLight"(): integer
+public "setBlockLight"(arg0: integer): $BasicData
 public "updateLight"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type): $BasicData
 set "color"(value: integer)
 set "color"(value: $Color$Type)
 get "packedLight"(): integer
+set "blockLight"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -242,22 +244,22 @@ import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 
 export interface $Translate<Self> {
 
- "translate"(arg0: $Vector3f$Type): Self
- "translate"(arg0: $Vec3$Type): Self
- "translate"(arg0: $Vec3i$Type): Self
- "translate"(arg0: double, arg1: double, arg2: double): Self
  "centre"(): Self
+ "translate"(arg0: $Vec3i$Type): Self
+ "translate"(arg0: $Vec3$Type): Self
+ "translate"(arg0: $Vector3f$Type): Self
+ "translate"(arg0: double, arg1: double, arg2: double): Self
  "translateY"(arg0: double): Self
  "translateZ"(arg0: double): Self
- "translateX"(arg0: double): Self
- "translateAll"(arg0: double): Self
  "unCentre"(): Self
  "nudge"(arg0: integer): Self
+ "translateX"(arg0: double): Self
+ "translateAll"(arg0: double): Self
  "translateBack"(arg0: $Vec3$Type): Self
  "translateBack"(arg0: $Vec3i$Type): Self
  "translateBack"(arg0: double, arg1: double, arg2: double): Self
 
-(arg0: $Vector3f$Type): Self
+(): Self
 }
 
 export namespace $Translate {
@@ -287,8 +289,8 @@ constructor(arg0: $BlockAndTintGetter$Type, arg1: $ImmutableBox$Type)
 public "bind"(): void
 public "delete"(): void
 public "move"(arg0: $ImmutableBox$Type): void
-public "getVolume"(): $ImmutableBox
 public "unbind"(): void
+public "getVolume"(): $ImmutableBox
 get "volume"(): $ImmutableBox
 }
 /**
@@ -321,9 +323,9 @@ constructor(arg0: $MaterialManager$Type, arg1: $Level$Type)
 public "update"(): void
 public "init"(): void
 public "shouldReset"(): boolean
-public "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
 public "isListenerInvalid"(): boolean
 public "removeAndMark"(): void
+public "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
 public "updateLight"(): void
 public "getWorldPosition"(): $BlockPos
 public "getVolume"(): $ImmutableBox
@@ -381,8 +383,8 @@ constructor()
 public "getOwner"(): $Instancer<(any)>
 public "delete"(): void
 public "setOwner"(arg0: $Instancer$Type<(any)>): $InstanceData
-public "isRemoved"(): boolean
 public "markDirty"(): void
+public "isRemoved"(): boolean
 public "checkDirtyAndClear"(): boolean
 get "owner"(): $Instancer<(any)>
 set "owner"(value: $Instancer$Type<(any)>)
@@ -405,10 +407,10 @@ import {$VertexList, $VertexList$Type} from "packages/com/jozufozu/flywheel/api/
 
 export interface $VertexWriter {
 
- "seekToVertex"(arg0: integer): void
- "intoReader"(): $VertexList
  "writeVertex"(arg0: $VertexList$Type, arg1: integer): void
  "writeVertexList"(arg0: $VertexList$Type): void
+ "seekToVertex"(arg0: integer): void
+ "intoReader"(): $VertexList
 }
 
 export namespace $VertexWriter {
@@ -467,10 +469,10 @@ export interface $Rotate<Self> {
  "rotateY"(arg0: double): Self
  "rotateZ"(arg0: double): Self
  "rotateToFace"(arg0: $Direction$Type): Self
- "rotateYRadians"(arg0: double): Self
  "rotateZRadians"(arg0: double): Self
- "multiplyRadians"(arg0: $Axis$Type, arg1: double): Self
  "multiplyRadians"(arg0: $Vector3f$Type, arg1: double): Self
+ "multiplyRadians"(arg0: $Axis$Type, arg1: double): Self
+ "rotateYRadians"(arg0: double): Self
  "rotateXRadians"(arg0: double): Self
 
 (arg0: $Vector3f$Type, arg1: double): Self
@@ -530,10 +532,10 @@ export interface $Model {
  "empty"(): boolean
  "delete"(): void
  "getType"(): $VertexType
- "vertexCount"(): integer
  "getReader"(): $VertexList
- "writeInto"(arg0: $ByteBuffer$Type): void
  "createEBO"(): $ElementBuffer
+ "vertexCount"(): integer
+ "writeInto"(arg0: $ByteBuffer$Type): void
 }
 
 export namespace $Model {
@@ -586,9 +588,9 @@ import {$LightLayer, $LightLayer$Type} from "packages/net/minecraft/world/level/
 export interface $TickingLightListener extends $LightListener {
 
  "tickLightListener"(): boolean
- "getVolume"(): $ImmutableBox
- "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
  "isListenerInvalid"(): boolean
+ "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
+ "getVolume"(): $ImmutableBox
  "onLightPacket"(arg0: integer, arg1: integer): void
 }
 
@@ -648,45 +650,45 @@ public "initialize"(): void
 public "delete"(): void
 public "move"(arg0: $ImmutableBox$Type): void
 public "getPackedLight"(arg0: integer, arg1: integer, arg2: integer): short
-public "getVolume"(): $ImmutableBox
-public "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
-public "isListenerInvalid"(): boolean
-public "onLightPacket"(arg0: integer, arg1: integer): void
-public "getMinY"(): integer
-public "getMaxY"(): integer
-public "getMaxZ"(): integer
 public "getMaxX"(): integer
+public "getMaxZ"(): integer
 public "getMinZ"(): integer
 public "getMinX"(): integer
-public "copyLight"(arg0: $ImmutableBox$Type): void
-public "copySky"(arg0: $ImmutableBox$Type): void
+public "getMinY"(): integer
+public "getMaxY"(): integer
+public "isListenerInvalid"(): boolean
+public "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
+public "getVolume"(): $ImmutableBox
+public "onLightPacket"(arg0: integer, arg1: integer): void
 public "copyBlock"(arg0: $ImmutableBox$Type): void
+public "copySky"(arg0: $ImmutableBox$Type): void
+public "copyLight"(arg0: $ImmutableBox$Type): void
 public "contains"(arg0: integer, arg1: integer, arg2: integer): boolean
 public "contains"(arg0: $ImmutableBox$Type): boolean
 public "empty"(): boolean
 public "copy"(): $GridAlignedBB
 public "union"(arg0: $ImmutableBox$Type): $ImmutableBox
-public "intersect"(arg0: $ImmutableBox$Type): $GridAlignedBB
+public "volume"(): integer
 public "hasPowerOf2Sides"(): boolean
 public "toAABB"(): $AABB
-public "sameAs"(arg0: $ImmutableBox$Type): boolean
+public "isContainedBy"(arg0: $GridAlignedBB$Type): boolean
 public "sameAs"(arg0: $ImmutableBox$Type, arg1: integer): boolean
+public "sameAs"(arg0: $ImmutableBox$Type): boolean
 public "sameAs"(arg0: $AABB$Type): boolean
 public "forEachContained"(arg0: $CoordinateConsumer$Type): void
-public "isContainedBy"(arg0: $GridAlignedBB$Type): boolean
 public "intersects"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
 public "intersects"(arg0: $ImmutableBox$Type): boolean
-public "sizeX"(): integer
 public "sizeY"(): integer
 public "sizeZ"(): integer
-public "volume"(): integer
-get "listenerInvalid"(): boolean
-get "minY"(): integer
-get "maxY"(): integer
-get "maxZ"(): integer
+public "sizeX"(): integer
+public "intersect"(arg0: $ImmutableBox$Type): $GridAlignedBB
 get "maxX"(): integer
+get "maxZ"(): integer
 get "minZ"(): integer
 get "minX"(): integer
+get "minY"(): integer
+get "maxY"(): integer
+get "listenerInvalid"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -719,21 +721,21 @@ export interface $Transform<Self extends $Transform<(Self)>> extends $Translate<
 
  "transform"(arg0: $Matrix4f$Type, arg1: $Matrix3f$Type): Self
  "transform"(arg0: $PoseStack$Type): Self
- "mulNormal"(arg0: $Matrix3f$Type): Self
  "rotateCentered"(arg0: $Direction$Type, arg1: float): Self
  "rotateCentered"(arg0: $Quaternionf$Type): Self
  "mulPose"(arg0: $Matrix4f$Type): Self
- "translate"(arg0: $Vector3f$Type): Self
- "translate"(arg0: $Vec3$Type): Self
- "translate"(arg0: $Vec3i$Type): Self
- "translate"(arg0: double, arg1: double, arg2: double): Self
+ "mulNormal"(arg0: $Matrix3f$Type): Self
  "centre"(): Self
+ "translate"(arg0: $Vec3i$Type): Self
+ "translate"(arg0: $Vec3$Type): Self
+ "translate"(arg0: $Vector3f$Type): Self
+ "translate"(arg0: double, arg1: double, arg2: double): Self
  "translateY"(arg0: double): Self
  "translateZ"(arg0: double): Self
- "translateX"(arg0: double): Self
- "translateAll"(arg0: double): Self
  "unCentre"(): Self
  "nudge"(arg0: integer): Self
+ "translateX"(arg0: double): Self
+ "translateAll"(arg0: double): Self
  "translateBack"(arg0: $Vec3$Type): Self
  "translateBack"(arg0: $Vec3i$Type): Self
  "translateBack"(arg0: double, arg1: double, arg2: double): Self
@@ -746,10 +748,10 @@ export interface $Transform<Self extends $Transform<(Self)>> extends $Translate<
  "rotateY"(arg0: double): Self
  "rotateZ"(arg0: double): Self
  "rotateToFace"(arg0: $Direction$Type): Self
- "rotateYRadians"(arg0: double): Self
  "rotateZRadians"(arg0: double): Self
- "multiplyRadians"(arg0: $Axis$Type, arg1: double): Self
  "multiplyRadians"(arg0: $Vector3f$Type, arg1: double): Self
+ "multiplyRadians"(arg0: $Axis$Type, arg1: double): Self
+ "rotateYRadians"(arg0: double): Self
  "rotateXRadians"(arg0: double): Self
  "scale"(arg0: float, arg1: float, arg2: float): Self
  "scale"(arg0: float): Self
@@ -776,9 +778,9 @@ import {$LightLayer, $LightLayer$Type} from "packages/net/minecraft/world/level/
 
 export interface $LightListener {
 
- "getVolume"(): $ImmutableBox
- "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
  "isListenerInvalid"(): boolean
+ "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
+ "getVolume"(): $ImmutableBox
  "onLightPacket"(arg0: integer, arg1: integer): void
 }
 
@@ -819,35 +821,35 @@ constructor(arg0: integer, arg1: integer, arg2: integer)
 public "setValue"(arg0: integer): $Color
 public "copy"(): $Color
 public "copy"(arg0: boolean): $Color
-public "asVectorF"(): $Vector3f
-public "setImmutable"(): $Color
-public "mixWith"(arg0: $Color$Type, arg1: float): $Color
 public "getRGB"(): integer
 public "getRed"(): integer
 public "getGreen"(): integer
 public "getBlue"(): integer
 public "brighter"(): $Color
 public "darker"(): $Color
+public "setImmutable"(): $Color
 public "getAlpha"(): integer
-public static "mixColors"(arg0: $Color$Type, arg1: $Color$Type, arg2: float): $Color
-public static "mixColors"(arg0: integer, arg1: integer, arg2: float): integer
 public "setAlpha"(arg0: float): $Color
 public "setAlpha"(arg0: integer): $Color
-public "getAlphaAsFloat"(): float
-public "asVector"(): $Vec3
-public "scaleAlpha"(arg0: float): $Color
-public "modifyValue"(arg0: $UnaryOperator$Type<(integer)>): $Color
-public static "rainbowColor"(arg0: integer): $Color
-public static "generateFromLong"(arg0: long): $Color
-public "setRed"(arg0: integer): $Color
-public "setRed"(arg0: float): $Color
 public "setBlue"(arg0: integer): $Color
 public "setBlue"(arg0: float): $Color
-public "setGreen"(arg0: integer): $Color
 public "setGreen"(arg0: float): $Color
-public "getBlueAsFloat"(): float
+public "setGreen"(arg0: integer): $Color
+public "setRed"(arg0: integer): $Color
+public "setRed"(arg0: float): $Color
+public "asVectorF"(): $Vector3f
+public "mixWith"(arg0: $Color$Type, arg1: float): $Color
 public "getRedAsFloat"(): float
+public "getBlueAsFloat"(): float
 public "getGreenAsFloat"(): float
+public "getAlphaAsFloat"(): float
+public "scaleAlpha"(arg0: float): $Color
+public static "generateFromLong"(arg0: long): $Color
+public "modifyValue"(arg0: $UnaryOperator$Type<(integer)>): $Color
+public "asVector"(): $Vec3
+public static "rainbowColor"(arg0: integer): $Color
+public static "mixColors"(arg0: integer, arg1: integer, arg2: float): integer
+public static "mixColors"(arg0: $Color$Type, arg1: $Color$Type, arg2: float): $Color
 set "value"(value: integer)
 get "rGB"(): integer
 get "red"(): integer
@@ -856,16 +858,16 @@ get "blue"(): integer
 get "alpha"(): integer
 set "alpha"(value: float)
 set "alpha"(value: integer)
-get "alphaAsFloat"(): float
-set "red"(value: integer)
-set "red"(value: float)
 set "blue"(value: integer)
 set "blue"(value: float)
-set "green"(value: integer)
 set "green"(value: float)
-get "blueAsFloat"(): float
+set "green"(value: integer)
+set "red"(value: integer)
+set "red"(value: float)
 get "redAsFloat"(): float
+get "blueAsFloat"(): float
 get "greenAsFloat"(): float
+get "alphaAsFloat"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -908,24 +910,23 @@ constructor()
 public "multiply"(arg0: $Quaternionf$Type): $ModelData
 public "scale"(arg0: float, arg1: float, arg2: float): $ModelData
 public "loadIdentity"(): $ModelData
-public "translate"(arg0: double, arg1: double, arg2: double): $ModelData
 public "setTransform"(arg0: $PoseStack$Type): $ModelData
-public "mulPose"(arg0: $Matrix4f$Type): $ModelData
 public "setEmptyTransform"(): $ModelData
+public "mulNormal"(arg0: $Matrix3f$Type): $ModelData
 public "transform"(arg0: $Matrix4f$Type, arg1: $Matrix3f$Type): $ModelData
 public "transform"(arg0: $PoseStack$Type): $ModelData
 public "rotateCentered"(arg0: $Direction$Type, arg1: float): $ModelData
 public "rotateCentered"(arg0: $Quaternionf$Type): $ModelData
-public "translate"(arg0: $Vector3f$Type): $ModelData
-public "translate"(arg0: $Vec3$Type): $ModelData
-public "translate"(arg0: $Vec3i$Type): $ModelData
 public "centre"(): $ModelData
+public "translate"(arg0: $Vec3i$Type): $ModelData
+public "translate"(arg0: $Vec3$Type): $ModelData
+public "translate"(arg0: $Vector3f$Type): $ModelData
 public "translateY"(arg0: double): $ModelData
 public "translateZ"(arg0: double): $ModelData
-public "translateX"(arg0: double): $ModelData
-public "translateAll"(arg0: double): $ModelData
 public "unCentre"(): $ModelData
 public "nudge"(arg0: integer): $ModelData
+public "translateX"(arg0: double): $ModelData
+public "translateAll"(arg0: double): $ModelData
 public "translateBack"(arg0: $Vec3$Type): $ModelData
 public "translateBack"(arg0: $Vec3i$Type): $ModelData
 public "translateBack"(arg0: double, arg1: double, arg2: double): $ModelData
@@ -937,10 +938,10 @@ public "rotateX"(arg0: double): $ModelData
 public "rotateY"(arg0: double): $ModelData
 public "rotateZ"(arg0: double): $ModelData
 public "rotateToFace"(arg0: $Direction$Type): $ModelData
-public "rotateYRadians"(arg0: double): $ModelData
 public "rotateZRadians"(arg0: double): $ModelData
-public "multiplyRadians"(arg0: $Axis$Type, arg1: double): $ModelData
 public "multiplyRadians"(arg0: $Vector3f$Type, arg1: double): $ModelData
+public "multiplyRadians"(arg0: $Axis$Type, arg1: double): $ModelData
+public "rotateYRadians"(arg0: double): $ModelData
 public "rotateXRadians"(arg0: double): $ModelData
 public "scale"(arg0: float): $ModelData
 }
@@ -992,11 +993,11 @@ constructor(arg0: $List$Type<($LayoutItem$Type)>)
 
 public static "builder"(): $BufferLayout$Builder
 public "getAttributeCount"(): integer
-public "getLayoutItems"(): $List<($LayoutItem)>
 public "getStride"(): integer
+public "getLayoutItems"(): $List<($LayoutItem)>
 get "attributeCount"(): integer
-get "layoutItems"(): $List<($LayoutItem)>
 get "stride"(): integer
+get "layoutItems"(): $List<($LayoutItem)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1019,6 +1020,7 @@ import {$TickingLightListener, $TickingLightListener$Type} from "packages/com/jo
 import {$AbstractInstance, $AbstractInstance$Type} from "packages/com/jozufozu/flywheel/backend/instancing/$AbstractInstance"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$GridAlignedBB, $GridAlignedBB$Type} from "packages/com/jozufozu/flywheel/util/box/$GridAlignedBB"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$LightLayer, $LightLayer$Type} from "packages/net/minecraft/world/level/$LightLayer"
 
@@ -1027,14 +1029,16 @@ readonly "world": $Level
 
 constructor(arg0: $MaterialManager$Type, arg1: E)
 
-public "getWorldPosition"(): $BlockPos
-public "getInstancePosition"(): $Vector3f
 public "getInstancePosition"(arg0: float): $Vector3f
+public "getInstancePosition"(): $Vector3f
 public "tickLightListener"(): boolean
-public "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
+public "getWorldPosition"(): $BlockPos
+public "getVolume"(): $GridAlignedBB
 public "isListenerInvalid"(): boolean
-get "worldPosition"(): $BlockPos
+public "onLightUpdate"(arg0: $LightLayer$Type, arg1: $ImmutableBox$Type): void
 get "instancePosition"(): $Vector3f
+get "worldPosition"(): $BlockPos
+get "volume"(): $GridAlignedBB
 get "listenerInvalid"(): boolean
 }
 /**
@@ -1110,9 +1114,9 @@ export interface $ShadeSeparatedBufferedData {
 
  "release"(): void
  "unshadedStartVertex"(): integer
- "indexBuffer"(): $ByteBuffer
- "vertexBuffer"(): $ByteBuffer
  "drawState"(): $BufferBuilder$DrawState
+ "vertexBuffer"(): $ByteBuffer
+ "indexBuffer"(): $ByteBuffer
 }
 
 export namespace $ShadeSeparatedBufferedData {
@@ -1136,8 +1140,8 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $DynamicInstance extends $Instance {
 
- "decreaseFramerateWithDistance"(): boolean
  "beginFrame"(): void
+ "decreaseFramerateWithDistance"(): boolean
  "getWorldPosition"(): $BlockPos
 }
 
@@ -1158,18 +1162,18 @@ export type $DynamicInstance_ = $DynamicInstance$Type;
 }}
 declare module "packages/com/jozufozu/flywheel/api/vertex/$VertexType" {
 import {$VertexList, $VertexList$Type} from "packages/com/jozufozu/flywheel/api/vertex/$VertexList"
-import {$ByteBuffer, $ByteBuffer$Type} from "packages/java/nio/$ByteBuffer"
 import {$VertexWriter, $VertexWriter$Type} from "packages/com/jozufozu/flywheel/api/vertex/$VertexWriter"
+import {$ByteBuffer, $ByteBuffer$Type} from "packages/java/nio/$ByteBuffer"
 import {$BufferLayout, $BufferLayout$Type} from "packages/com/jozufozu/flywheel/core/layout/$BufferLayout"
 
 export interface $VertexType {
 
  "byteOffset"(arg0: integer): integer
- "createReader"(arg0: $ByteBuffer$Type, arg1: integer): $VertexList
- "getLayout"(): $BufferLayout
- "createWriter"(arg0: $ByteBuffer$Type): $VertexWriter
  "getShaderHeader"(): string
  "getStride"(): integer
+ "createWriter"(arg0: $ByteBuffer$Type): $VertexWriter
+ "getLayout"(): $BufferLayout
+ "createReader"(arg0: $ByteBuffer$Type, arg1: integer): $VertexList
 }
 
 export namespace $VertexType {
@@ -1246,8 +1250,8 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 export interface $FlatLit<D extends ($InstanceData) & ($FlatLit<(D)>)> {
 
  "getPackedLight"(): integer
- "setSkyLight"(arg0: integer): D
  "setBlockLight"(arg0: integer): D
+ "setSkyLight"(arg0: integer): D
  "updateLight"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type): D
 }
 
@@ -1298,8 +1302,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $EntityTypeExtension<T extends $Entity> {
 
- "flywheel$getInstancingController"(): $EntityInstancingController<(any)>
  "flywheel$setInstancingController"(arg0: $EntityInstancingController$Type<(any)>): void
+ "flywheel$getInstancingController"(): $EntityInstancingController<(any)>
 }
 
 export namespace $EntityTypeExtension {
@@ -1382,11 +1386,11 @@ import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/
 export interface $Material<D extends $InstanceData> {
 
  "model"(arg0: any, arg1: $Supplier$Type<($Model$Type)>): $Instancer<(D)>
- "getModel"(arg0: $BlockState$Type): $Instancer<(D)>
- "getModel"(arg0: $PartialModel$Type, arg1: $BlockState$Type, arg2: $Direction$Type, arg3: $Supplier$Type<($PoseStack$Type)>): $Instancer<(D)>
- "getModel"(arg0: $PartialModel$Type, arg1: $BlockState$Type): $Instancer<(D)>
- "getModel"(arg0: $PartialModel$Type): $Instancer<(D)>
  "getModel"(arg0: $PartialModel$Type, arg1: $BlockState$Type, arg2: $Direction$Type): $Instancer<(D)>
+ "getModel"(arg0: $PartialModel$Type, arg1: $BlockState$Type, arg2: $Direction$Type, arg3: $Supplier$Type<($PoseStack$Type)>): $Instancer<(D)>
+ "getModel"(arg0: $BlockState$Type): $Instancer<(D)>
+ "getModel"(arg0: $PartialModel$Type): $Instancer<(D)>
+ "getModel"(arg0: $PartialModel$Type, arg1: $BlockState$Type): $Instancer<(D)>
 
 (arg0: any, arg1: $Supplier$Type<($Model$Type)>): $Instancer<(D)>
 }
@@ -1538,13 +1542,13 @@ import {$RenderType, $RenderType$Type} from "packages/net/minecraft/client/rende
 export interface $MaterialManager {
 
  "state"(arg0: $RenderLayer$Type, arg1: $RenderType$Type): $MaterialGroup
- "defaultCutout"(): $MaterialGroup
- "solid"(arg0: $RenderType$Type): $MaterialGroup
  "getOriginCoordinate"(): $Vec3i
- "cutout"(arg0: $RenderType$Type): $MaterialGroup
  "transparent"(arg0: $RenderType$Type): $MaterialGroup
  "defaultSolid"(): $MaterialGroup
  "defaultTransparent"(): $MaterialGroup
+ "defaultCutout"(): $MaterialGroup
+ "solid"(arg0: $RenderType$Type): $MaterialGroup
+ "cutout"(arg0: $RenderType$Type): $MaterialGroup
 }
 
 export namespace $MaterialManager {
@@ -1564,8 +1568,8 @@ export type $MaterialManager_ = $MaterialManager$Type;
 }}
 declare module "packages/com/jozufozu/flywheel/core/virtual/$VirtualRenderWorld" {
 import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$SoundEvent"
-import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
 import {$LevelLightEngine, $LevelLightEngine$Type} from "packages/net/minecraft/world/level/lighting/$LevelLightEngine"
+import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$FlywheelWorld, $FlywheelWorld$Type} from "packages/com/jozufozu/flywheel/api/$FlywheelWorld"
@@ -1592,8 +1596,8 @@ import {$BlockSnapshot, $BlockSnapshot$Type} from "packages/net/minecraftforge/c
 import {$LevelHeightAccessor, $LevelHeightAccessor$Type} from "packages/net/minecraft/world/level/$LevelHeightAccessor"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$ChunkSource, $ChunkSource$Type} from "packages/net/minecraft/world/level/chunk/$ChunkSource"
-import {$ChunkAccess, $ChunkAccess$Type} from "packages/net/minecraft/world/level/chunk/$ChunkAccess"
 import {$Scoreboard, $Scoreboard$Type} from "packages/net/minecraft/world/scores/$Scoreboard"
+import {$ChunkAccess, $ChunkAccess$Type} from "packages/net/minecraft/world/level/chunk/$ChunkAccess"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
@@ -1633,77 +1637,77 @@ constructor(arg0: $Level$Type)
 
 public "clear"(): void
 public "getMaxLocalRawBrightness"(arg0: $BlockPos$Type): integer
-public "levelEvent"(arg0: $Player$Type, arg1: integer, arg2: $BlockPos$Type, arg3: integer): void
+public "getBlockState"(arg0: integer, arg1: integer, arg2: integer): $BlockState
+public "getBlockState"(arg0: $BlockPos$Type): $BlockState
+public "getBiomeManager"(): $BiomeManager
+public "getMaxBuildHeight"(): integer
+public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
+public "setBlock"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: integer, arg3: integer): boolean
+public "updateNeighbourForOutputSignal"(arg0: $BlockPos$Type, arg1: $Block$Type): void
+public "sendBlockUpdated"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: $BlockState$Type, arg3: integer): void
+public "getLightEngine"(): $LevelLightEngine
+public "playSeededSound"(arg0: $Player$Type, arg1: double, arg2: double, arg3: double, arg4: $Holder$Type<($SoundEvent$Type)>, arg5: $SoundSource$Type, arg6: float, arg7: float, arg8: long): void
+public "playSeededSound"(arg0: $Player$Type, arg1: $Entity$Type, arg2: $Holder$Type<($SoundEvent$Type)>, arg3: $SoundSource$Type, arg4: float, arg5: float, arg6: long): void
+public "setBlockEntity"(arg0: $BlockEntity$Type): void
+public "gatherChunkSourceStats"(): string
+public "removeBlockEntity"(arg0: $BlockPos$Type): void
+public "getEntity"(arg0: integer): $Entity
+public "getMapData"(arg0: string): $MapItemSavedData
+public "getFreeMapId"(): integer
+public "setMapData"(arg0: string, arg1: $MapItemSavedData$Type): void
 public "destroyBlockProgress"(arg0: integer, arg1: $BlockPos$Type, arg2: integer): void
 public "getBlockTicks"(): $LevelTickAccess<($Block)>
 public "getFluidTicks"(): $LevelTickAccess<($Fluid)>
-public "getUncachedNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
-public "getNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
-public "isAreaLoaded"(arg0: $BlockPos$Type, arg1: integer): boolean
-public "getShade"(arg0: $Direction$Type, arg1: boolean): float
-public "enabledFeatures"(): $FeatureFlagSet
-public "getMaxBuildHeight"(): integer
-public "getMinBuildHeight"(): integer
-public "getHeight"(): integer
-public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
-public "isOutsideBuildHeight"(arg0: integer): boolean
-public "getSectionIndex"(arg0: integer): integer
-public "getMinSection"(): integer
-public "getSectionIndexFromSectionY"(arg0: integer): integer
-public "getSectionsCount"(): integer
-public "getSectionYFromSectionIndex"(arg0: integer): integer
-public "getMaxSection"(): integer
-public "getChunk"(arg0: $BlockPos$Type): $ChunkAccess
-public "getBlockState"(arg0: $BlockPos$Type): $BlockState
-public "getBlockState"(arg0: integer, arg1: integer, arg2: integer): $BlockState
-public static "nextMultipleOf16"(arg0: integer): integer
-public "setBlock"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: integer, arg3: integer): boolean
-public "sendBlockUpdated"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: $BlockState$Type, arg3: integer): void
-public "updateNeighbourForOutputSignal"(arg0: $BlockPos$Type, arg1: $Block$Type): void
-public "getLightEngine"(): $LevelLightEngine
-public "playSeededSound"(arg0: $Player$Type, arg1: $Entity$Type, arg2: $Holder$Type<($SoundEvent$Type)>, arg3: $SoundSource$Type, arg4: float, arg5: float, arg6: long): void
-public "playSeededSound"(arg0: $Player$Type, arg1: double, arg2: double, arg3: double, arg4: $Holder$Type<($SoundEvent$Type)>, arg5: $SoundSource$Type, arg6: float, arg7: float, arg8: long): void
-public "getMapData"(arg0: string): $MapItemSavedData
-public "setMapData"(arg0: string, arg1: $MapItemSavedData$Type): void
-public "getFreeMapId"(): integer
-public "gatherChunkSourceStats"(): string
-public "removeBlockEntity"(arg0: $BlockPos$Type): void
-public "setBlockEntity"(arg0: $BlockEntity$Type): void
-public "getEntity"(arg0: integer): $Entity
-public "getScoreboard"(): $Scoreboard
+public "levelEvent"(arg0: $Player$Type, arg1: integer, arg2: $BlockPos$Type, arg3: integer): void
 public "gameEvent"(arg0: $GameEvent$Type, arg1: $Vec3$Type, arg2: $GameEvent$Context$Type): void
-public "getFluidState"(arg0: $BlockPos$Type): $FluidState
-public "players"(): $List<(any)>
-public "isLoaded"(arg0: $BlockPos$Type): boolean
-public "runLightEngine"(): void
-public "setBlockEntities"(arg0: $Collection$Type<($BlockEntity$Type)>): void
-public "actuallyGetChunk"(arg0: integer, arg1: integer): $ChunkAccess
-public "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
-public "getBiome"(arg0: $BlockPos$Type): $Holder<($Biome)>
 public "getChunkSource"(): $ChunkSource
 public "getRecipeManager"(): $RecipeManager
-public "getBiomeManager"(): $BiomeManager
-public "getAnyChunkImmediately"(arg0: integer, arg1: integer): $ChunkAccess
+public "getScoreboard"(): $Scoreboard
+public "getMinBuildHeight"(): integer
 public "getChunkAtImmediately"(arg0: integer, arg1: integer): $LevelChunk
+public "getAnyChunkImmediately"(arg0: integer, arg1: integer): $ChunkAccess
+public static "nextMultipleOf16"(arg0: integer): integer
+public "isLoaded"(arg0: $BlockPos$Type): boolean
+public "players"(): $List<(any)>
+public "enabledFeatures"(): $FeatureFlagSet
+public "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+public "getBiome"(arg0: $BlockPos$Type): $Holder<($Biome)>
+public "getUncachedNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
+public "getNoiseBiome"(arg0: integer, arg1: integer, arg2: integer): $Holder<($Biome)>
+public "getHeight"(): integer
+public "getChunk"(arg0: $BlockPos$Type): $ChunkAccess
+public "getShade"(arg0: $Direction$Type, arg1: boolean): float
+public "isAreaLoaded"(arg0: $BlockPos$Type, arg1: integer): boolean
+public "getSectionIndex"(arg0: integer): integer
+public "getSectionIndexFromSectionY"(arg0: integer): integer
+public "isOutsideBuildHeight"(arg0: integer): boolean
+public "getMinSection"(): integer
+public "getMaxSection"(): integer
+public "getSectionsCount"(): integer
+public "getSectionYFromSectionIndex"(arg0: integer): integer
+public "setBlockEntities"(arg0: $Collection$Type<($BlockEntity$Type)>): void
+public "runLightEngine"(): void
+public "actuallyGetChunk"(arg0: integer, arg1: integer): $ChunkAccess
+public "getFluidState"(arg0: $BlockPos$Type): $FluidState
 public "supportsFlywheel"(): boolean
 public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
+get "biomeManager"(): $BiomeManager
+get "maxBuildHeight"(): integer
+get "lightEngine"(): $LevelLightEngine
+set "blockEntity"(value: $BlockEntity$Type)
+get "freeMapId"(): integer
 get "blockTicks"(): $LevelTickAccess<($Block)>
 get "fluidTicks"(): $LevelTickAccess<($Fluid)>
-get "maxBuildHeight"(): integer
+get "chunkSource"(): $ChunkSource
+get "recipeManager"(): $RecipeManager
+get "scoreboard"(): $Scoreboard
 get "minBuildHeight"(): integer
 get "height"(): integer
 get "minSection"(): integer
-get "sectionsCount"(): integer
 get "maxSection"(): integer
-get "lightEngine"(): $LevelLightEngine
-get "freeMapId"(): integer
-set "blockEntity"(value: $BlockEntity$Type)
-get "scoreboard"(): $Scoreboard
+get "sectionsCount"(): integer
 set "blockEntities"(value: $Collection$Type<($BlockEntity$Type)>)
-get "chunkSource"(): $ChunkSource
-get "recipeManager"(): $RecipeManager
-get "biomeManager"(): $BiomeManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1760,75 +1764,75 @@ public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "contains"(arg0: $ImmutableBox$Type): boolean
-public static "from"(arg0: $SectionPos$Type): $GridAlignedBB
 public static "from"(arg0: $AABB$Type): $GridAlignedBB
-public static "from"(arg0: $BlockPos$Type, arg1: $BlockPos$Type): $GridAlignedBB
 public static "from"(arg0: integer, arg1: integer): $GridAlignedBB
+public static "from"(arg0: $SectionPos$Type): $GridAlignedBB
 public static "from"(arg0: $BlockPos$Type): $GridAlignedBB
+public static "from"(arg0: $BlockPos$Type, arg1: $BlockPos$Type): $GridAlignedBB
 public "empty"(): boolean
 public "copy"(): $GridAlignedBB
-public "grow"(arg0: integer): void
 public "grow"(arg0: integer, arg1: integer, arg2: integer): void
+public "grow"(arg0: integer): void
 public "union"(arg0: $ImmutableBox$Type): $ImmutableBox
-public "intersect"(arg0: $ImmutableBox$Type): $GridAlignedBB
+public "translate"(arg0: $Vec3i$Type): void
+public "translate"(arg0: integer, arg1: integer, arg2: integer): void
+public "getMaxX"(): integer
+public "getMaxZ"(): integer
+public "getMinZ"(): integer
+public "getMinX"(): integer
 public "getMinY"(): integer
 public "toAABB"(): $AABB
-public "sameAs"(arg0: $ImmutableBox$Type): boolean
 public "sameAs"(arg0: $AABB$Type): boolean
+public "sameAs"(arg0: $ImmutableBox$Type): boolean
 public "getMaxY"(): integer
 public "forEachContained"(arg0: $CoordinateConsumer$Type): void
 public "intersects"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
-public "sizeX"(): integer
+public "assign"(arg0: $AABB$Type): void
+public "assign"(arg0: $BlockPos$Type, arg1: $BlockPos$Type): $GridAlignedBB
+public "assign"(arg0: $ImmutableBox$Type): void
 public "sizeY"(): integer
 public "sizeZ"(): integer
-public "assign"(arg0: $BlockPos$Type, arg1: $BlockPos$Type): $GridAlignedBB
-public "assign"(arg0: $AABB$Type): void
-public "assign"(arg0: $ImmutableBox$Type): void
-public "translate"(arg0: integer, arg1: integer, arg2: integer): void
-public "translate"(arg0: $Vec3i$Type): void
-public "getMaxZ"(): integer
-public "getMaxX"(): integer
-public "getMinZ"(): integer
-public "getMinX"(): integer
-public static "containingAll"(arg0: $Collection$Type<($BlockPos$Type)>): $ImmutableBox
-public "setMin"(arg0: $Vec3i$Type): $GridAlignedBB
-public "setMin"(arg0: integer, arg1: integer, arg2: integer): $GridAlignedBB
-public "setMax"(arg0: integer, arg1: integer, arg2: integer): $GridAlignedBB
+public "sizeX"(): integer
 public "setMax"(arg0: $Vec3i$Type): $GridAlignedBB
-public "setMinX"(arg0: integer): $GridAlignedBB
-public "setMinY"(arg0: integer): $GridAlignedBB
-public "setMaxY"(arg0: integer): $GridAlignedBB
-public "setMaxX"(arg0: integer): $GridAlignedBB
+public "setMax"(arg0: integer, arg1: integer, arg2: integer): $GridAlignedBB
+public "setMin"(arg0: integer, arg1: integer, arg2: integer): $GridAlignedBB
+public "setMin"(arg0: $Vec3i$Type): $GridAlignedBB
+public "intersect"(arg0: $ImmutableBox$Type): $GridAlignedBB
+public "nextPowerOf2Centered"(): void
+public static "containingAll"(arg0: $Collection$Type<($BlockPos$Type)>): $ImmutableBox
 public "setMinZ"(arg0: integer): $GridAlignedBB
 public "setMaxZ"(arg0: integer): $GridAlignedBB
-public "nextPowerOf2Centered"(): void
+public "setMaxX"(arg0: integer): $GridAlignedBB
+public "setMaxY"(arg0: integer): $GridAlignedBB
+public "setMinY"(arg0: integer): $GridAlignedBB
+public "setMinX"(arg0: integer): $GridAlignedBB
 public "fixMinMax"(): void
-public "mirrorAbout"(arg0: $Direction$Axis$Type): void
-public static "ofRadius"(arg0: integer): $GridAlignedBB
-public "unionAssign"(arg0: $AABB$Type): void
-public "unionAssign"(arg0: $ImmutableBox$Type): void
 public "intersectAssign"(arg0: $ImmutableBox$Type): void
+public static "ofRadius"(arg0: integer): $GridAlignedBB
+public "mirrorAbout"(arg0: $Direction$Axis$Type): void
+public "unionAssign"(arg0: $ImmutableBox$Type): void
+public "unionAssign"(arg0: $AABB$Type): void
 public "nextPowerOf2"(): void
 public "contains"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "hasPowerOf2Sides"(): boolean
-public "sameAs"(arg0: $ImmutableBox$Type, arg1: integer): boolean
-public "isContainedBy"(arg0: $GridAlignedBB$Type): boolean
-public "intersects"(arg0: $ImmutableBox$Type): boolean
 public "volume"(): integer
-get "minY"(): integer
-get "maxY"(): integer
-get "maxZ"(): integer
+public "hasPowerOf2Sides"(): boolean
+public "isContainedBy"(arg0: $GridAlignedBB$Type): boolean
+public "sameAs"(arg0: $ImmutableBox$Type, arg1: integer): boolean
+public "intersects"(arg0: $ImmutableBox$Type): boolean
 get "maxX"(): integer
+get "maxZ"(): integer
 get "minZ"(): integer
 get "minX"(): integer
-set "min"(value: $Vec3i$Type)
+get "minY"(): integer
+get "maxY"(): integer
 set "max"(value: $Vec3i$Type)
-set "minX"(value: integer)
-set "minY"(value: integer)
-set "maxY"(value: integer)
-set "maxX"(value: integer)
+set "min"(value: $Vec3i$Type)
 set "minZ"(value: integer)
 set "maxZ"(value: integer)
+set "maxX"(value: integer)
+set "maxY"(value: integer)
+set "minY"(value: integer)
+set "minX"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1860,30 +1864,30 @@ readonly "startPos": integer
 constructor(arg0: $ByteBuffer$Type, arg1: $VertexFormat$Type, arg2: integer)
 
 public "split"(arg0: integer): $DirectVertexConsumer
-public "hasOverlay"(): boolean
-public "normal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
-public "uv2"(arg0: integer, arg1: integer): $VertexConsumer
-public "color"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
-public "overlayCoords"(arg0: integer, arg1: integer): $VertexConsumer
-public "unsetDefaultColor"(): void
-public "defaultColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "memSetZero"(): void
 public "vertex"(arg0: double, arg1: double, arg2: double): $VertexConsumer
 public "uv"(arg0: float, arg1: float): $VertexConsumer
 public "endVertex"(): void
-public "overlayCoords"(arg0: integer): $VertexConsumer
-public "color"(arg0: integer): $VertexConsumer
-public "vertex"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: integer, arg10: integer, arg11: float, arg12: float, arg13: float): void
+public "hasOverlay"(): boolean
+public "color"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
+public "overlayCoords"(arg0: integer, arg1: integer): $VertexConsumer
+public "normal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+public "uv2"(arg0: integer, arg1: integer): $VertexConsumer
+public "unsetDefaultColor"(): void
+public "defaultColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "memSetZero"(): void
+public "color"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "uv2"(arg0: integer): $VertexConsumer
+public "color"(arg0: integer): $VertexConsumer
+public "overlayCoords"(arg0: integer): $VertexConsumer
+public "vertex"(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float, arg8: float, arg9: integer, arg10: integer, arg11: float, arg12: float, arg13: float): void
 public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: (integer)[], arg7: integer, arg8: boolean): void
-public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: float, arg3: float, arg4: float, arg5: integer, arg6: integer): void
 public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
+public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: float, arg3: float, arg4: float, arg5: integer, arg6: integer): void
 public "vertex"(arg0: $Matrix4f$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "normal"(arg0: $Matrix3f$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
-public "color"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
-public "applyBakedNormals"(arg0: $Vector3f$Type, arg1: $ByteBuffer$Type, arg2: $Matrix3f$Type): void
 public "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$Type): integer
+public "applyBakedNormals"(arg0: $Vector3f$Type, arg1: $ByteBuffer$Type, arg2: $Matrix3f$Type): void
 public "misc"(arg0: $VertexFormatElement$Type, ...arg1: (integer)[]): $VertexConsumer
 }
 /**
@@ -1904,8 +1908,8 @@ import {$BlockEntityInstancingController, $BlockEntityInstancingController$Type}
 
 export interface $BlockEntityTypeExtension<T extends $BlockEntity> {
 
- "flywheel$getInstancingController"(): $BlockEntityInstancingController<(any)>
  "flywheel$setInstancingController"(arg0: $BlockEntityInstancingController$Type<(any)>): void
+ "flywheel$getInstancingController"(): $BlockEntityInstancingController<(any)>
 }
 
 export namespace $BlockEntityTypeExtension {
@@ -1935,26 +1939,26 @@ export interface $ImmutableBox {
  "empty"(): boolean
  "copy"(): $GridAlignedBB
  "union"(arg0: $ImmutableBox$Type): $ImmutableBox
- "intersect"(arg0: $ImmutableBox$Type): $GridAlignedBB
- "hasPowerOf2Sides"(): boolean
+ "volume"(): integer
+ "getMaxX"(): integer
+ "getMaxZ"(): integer
+ "getMinZ"(): integer
+ "getMinX"(): integer
  "getMinY"(): integer
+ "hasPowerOf2Sides"(): boolean
  "toAABB"(): $AABB
- "sameAs"(arg0: $ImmutableBox$Type): boolean
+ "isContainedBy"(arg0: $GridAlignedBB$Type): boolean
  "sameAs"(arg0: $ImmutableBox$Type, arg1: integer): boolean
+ "sameAs"(arg0: $ImmutableBox$Type): boolean
  "sameAs"(arg0: $AABB$Type): boolean
  "getMaxY"(): integer
  "forEachContained"(arg0: $CoordinateConsumer$Type): void
- "isContainedBy"(arg0: $GridAlignedBB$Type): boolean
  "intersects"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): boolean
  "intersects"(arg0: $ImmutableBox$Type): boolean
- "sizeX"(): integer
  "sizeY"(): integer
  "sizeZ"(): integer
- "getMaxZ"(): integer
- "getMaxX"(): integer
- "getMinZ"(): integer
- "getMinX"(): integer
- "volume"(): integer
+ "sizeX"(): integer
+ "intersect"(arg0: $ImmutableBox$Type): $GridAlignedBB
 }
 
 export namespace $ImmutableBox {
@@ -2006,8 +2010,8 @@ export interface $BufferBuilderExtension {
 
  "flywheel$appendBufferUnsafe"(arg0: $ByteBuffer$Type): void
  "flywheel$freeBuffer"(): void
- "flywheel$injectForRender"(arg0: $ByteBuffer$Type, arg1: $VertexFormat$Type, arg2: integer): void
  "flywheel$getVertices"(): integer
+ "flywheel$injectForRender"(arg0: $ByteBuffer$Type, arg1: $VertexFormat$Type, arg2: integer): void
 }
 
 export namespace $BufferBuilderExtension {

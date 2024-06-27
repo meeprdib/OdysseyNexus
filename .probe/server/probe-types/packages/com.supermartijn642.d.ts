@@ -5,11 +5,11 @@ import {$Pair, $Pair$Type} from "packages/com/supermartijn642/fusion/api/util/$P
 export interface $SpritePreparationContext {
 
  "getIdentifier"(): $ResourceLocation
- "getOriginalFrameHeight"(): integer
- "getOriginalFrameWith"(): integer
  "getOriginalFrameSize"(): $Pair<(integer), (integer)>
- "getTextureWidth"(): integer
  "getTextureHeight"(): integer
+ "getTextureWidth"(): integer
+ "getOriginalFrameWith"(): integer
+ "getOriginalFrameHeight"(): integer
 }
 
 export namespace $SpritePreparationContext {
@@ -32,8 +32,8 @@ import {$TextureType, $TextureType$Type} from "packages/com/supermartijn642/fusi
 
 export interface $TextureAtlasSpriteExtension {
 
- "getFusionTextureType"(): $TextureType<(any)>
  "setFusionTextureType"(type: $TextureType$Type<(any)>): void
+ "getFusionTextureType"(): $TextureType<(any)>
 }
 
 export namespace $TextureAtlasSpriteExtension {
@@ -60,18 +60,18 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 export interface $SpriteCreationContext {
 
  "createOriginalSprite"(): $TextureAtlasSprite
- "getTextureIdentifier"(): $ResourceLocation
  "getAtlas"(): $TextureAtlas
- "getSpriteHeight"(): integer
- "getSpriteWidth"(): integer
- "getTextureBuffers"(): ($NativeImage)[]
- "getMipmapLevels"(): integer
- "getAtlasWidth"(): integer
- "getTextureWidth"(): integer
  "getTextureHeight"(): integer
  "getAtlasHeight"(): integer
- "getSpritePositionX"(): integer
+ "getTextureWidth"(): integer
  "getSpritePositionY"(): integer
+ "getAtlasWidth"(): integer
+ "getSpritePositionX"(): integer
+ "getTextureIdentifier"(): $ResourceLocation
+ "getSpriteWidth"(): integer
+ "getSpriteHeight"(): integer
+ "getTextureBuffers"(): ($NativeImage)[]
+ "getMipmapLevels"(): integer
 }
 
 export namespace $SpriteCreationContext {
@@ -100,11 +100,11 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $ModelType<T> extends $Serializer<(T)> {
 
+ "bake"(context: $ModelBakingContext$Type, data: T): $BakedModel
  "getModelDependencies"(data: T): $Collection<($ResourceLocation)>
  "getAsVanillaModel"(data: T): $BlockModel
- "bake"(context: $ModelBakingContext$Type, data: T): $BakedModel
- "serialize"(value: T): $JsonObject
  "deserialize"(json: $JsonObject$Type): T
+ "serialize"(value: T): $JsonObject
 }
 
 export namespace $ModelType {
@@ -127,15 +127,15 @@ import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObjec
 import {$SpritePreparationContext, $SpritePreparationContext$Type} from "packages/com/supermartijn642/fusion/api/texture/$SpritePreparationContext"
 import {$Serializer, $Serializer$Type} from "packages/com/supermartijn642/fusion/api/util/$Serializer"
 import {$SpriteCreationContext, $SpriteCreationContext$Type} from "packages/com/supermartijn642/fusion/api/texture/$SpriteCreationContext"
-import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 import {$Pair, $Pair$Type} from "packages/com/supermartijn642/fusion/api/util/$Pair"
+import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 
 export interface $TextureType<T> extends $Serializer<(T)> {
 
- "createSprite"(context: $SpriteCreationContext$Type, data: T): $TextureAtlasSprite
  "getFrameSize"(context: $SpritePreparationContext$Type, data: T): $Pair<(integer), (integer)>
- "serialize"(value: T): $JsonObject
+ "createSprite"(context: $SpriteCreationContext$Type, data: T): $TextureAtlasSprite
  "deserialize"(json: $JsonObject$Type): T
+ "serialize"(value: T): $JsonObject
 }
 
 export namespace $TextureType {
@@ -165,10 +165,10 @@ export interface $ModelBakingContext {
 
  "getTexture"(atlas: $ResourceLocation$Type, texture: $ResourceLocation$Type): $TextureAtlasSprite
  "getTexture"(identifier: $SpriteIdentifier$Type): $TextureAtlasSprite
+ "getModel"(identifier: $ResourceLocation$Type): $ModelInstance<(any)>
  "getTransformation"(): $ModelState
  "getModelBaker"(): $ModelBaker
  "getModelIdentifier"(): $ResourceLocation
- "getModel"(identifier: $ResourceLocation$Type): $ModelInstance<(any)>
  "getBlockTexture"(texture: $ResourceLocation$Type): $TextureAtlasSprite
 }
 
@@ -192,8 +192,8 @@ import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObjec
 
 export interface $Serializer<T> {
 
- "serialize"(value: T): $JsonObject
  "deserialize"(json: $JsonObject$Type): T
+ "serialize"(value: T): $JsonObject
 }
 
 export namespace $Serializer {
@@ -276,11 +276,11 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $ModelInstance<T> {
 
- "getModelDependencies"(): $Collection<($ResourceLocation)>
- "getModelData"(): T
- "getModelType"(): $ModelType<(T)>
- "getAsVanillaModel"(): $BlockModel
  "bake"(context: $ModelBakingContext$Type): $BakedModel
+ "getModelData"(): T
+ "getModelDependencies"(): $Collection<($ResourceLocation)>
+ "getAsVanillaModel"(): $BlockModel
+ "getModelType"(): $ModelType<(T)>
 }
 
 export namespace $ModelInstance {
@@ -304,8 +304,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $SpriteIdentifier {
 
- "getTexture"(): $ResourceLocation
  "getAtlas"(): $ResourceLocation
+ "getTexture"(): $ResourceLocation
  "toMaterial"(): $Material
 }
 

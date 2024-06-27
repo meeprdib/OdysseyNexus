@@ -2,8 +2,8 @@ declare module "packages/com/connectivity/networkstats/$IWrappedPacket" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IWrappedPacket {
 
- "setOrgMsg"(arg0: any): void
  "getOriginalMsg"(): any
+ "setOrgMsg"(arg0: any): void
 }
 
 export namespace $IWrappedPacket {

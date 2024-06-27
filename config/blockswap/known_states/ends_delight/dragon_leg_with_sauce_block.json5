@@ -63,15 +63,6 @@ to make editing this file much easier.
 		"Name": "ends_delight:dragon_leg_with_sauce_block"
 	},
 	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"servings": "6",
-			"part": "head",
-			"facing": "north"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
 		"Name": "ends_delight:dragon_leg_with_sauce_block"
 	},
 	{
@@ -132,15 +123,6 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"servings": "6",
-			"part": "foot",
-			"facing": "north"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"servings": "7",
 			"part": "foot",
 			"facing": "north"
 		},
@@ -212,15 +194,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"servings": "7",
-			"part": "head",
-			"facing": "south"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
 			"servings": "0",
 			"part": "foot",
 			"facing": "south"
@@ -276,15 +249,6 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"servings": "6",
-			"part": "foot",
-			"facing": "south"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"servings": "7",
 			"part": "foot",
 			"facing": "south"
 		},
@@ -356,15 +320,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"servings": "7",
-			"part": "head",
-			"facing": "west"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
 			"servings": "0",
 			"part": "foot",
 			"facing": "west"
@@ -420,15 +375,6 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"servings": "6",
-			"part": "foot",
-			"facing": "west"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"servings": "7",
 			"part": "foot",
 			"facing": "west"
 		},
@@ -500,15 +446,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"servings": "7",
-			"part": "head",
-			"facing": "east"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
 			"servings": "0",
 			"part": "foot",
 			"facing": "east"
@@ -564,15 +501,6 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"servings": "6",
-			"part": "foot",
-			"facing": "east"
-		},
-		"Name": "ends_delight:dragon_leg_with_sauce_block"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"servings": "7",
 			"part": "foot",
 			"facing": "east"
 		},

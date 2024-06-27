@@ -283,8 +283,8 @@ import {$Long2ObjectLinkedOpenHashMap, $Long2ObjectLinkedOpenHashMap$Type} from 
 
 export interface $RegionFileCacheMixin {
 
- "setRegionCache"(arg0: $Long2ObjectLinkedOpenHashMap$Type<($RegionFile$Type)>): void
  "getRegionCache"(): $Long2ObjectLinkedOpenHashMap<($RegionFile)>
+ "setRegionCache"(arg0: $Long2ObjectLinkedOpenHashMap$Type<($RegionFile$Type)>): void
 }
 
 export namespace $RegionFileCacheMixin {
@@ -309,9 +309,9 @@ import {$IOWorker, $IOWorker$Type} from "packages/net/minecraft/world/level/chun
 
 export interface $RegionSectionCacheMixin<T> {
 
- "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
- "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
  "getIOWorker"(): $IOWorker
+ "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
+ "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
 }
 
 export namespace $RegionSectionCacheMixin {
@@ -386,10 +386,10 @@ import {$ServerStatus, $ServerStatus$Type} from "packages/net/minecraft/network/
 
 export interface $MinecraftServerMixin {
 
- "getCurrentSave"(): $LevelStorageSource$LevelStorageAccess
+ "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
  "setServerTime"(arg0: long): void
  "setPregenStatus"(arg0: $ServerStatus$Type): void
- "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
+ "getCurrentSave"(): $LevelStorageSource$LevelStorageAccess
 }
 
 export namespace $MinecraftServerMixin {

@@ -184,8 +184,8 @@ export class $TraversalEffect extends $InstantenousMobEffect {
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
-public "isInstantenous"(): boolean
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "isInstantenous"(): boolean
 get "instantenous"(): boolean
 }
 /**

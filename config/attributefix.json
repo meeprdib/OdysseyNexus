@@ -209,6 +209,17 @@
         "value": 100
       }
     },
+    "additional_attributes:spell_type_sacrifice": {
+      "enabled": false,
+      "min": {
+        "default": -100,
+        "value": -100
+      },
+      "max": {
+        "default": 100,
+        "value": 100
+      }
+    },
     "additional_attributes:spell_type_ascension": {
       "enabled": false,
       "min": {
@@ -342,6 +353,17 @@
       }
     },
     "irons_spellbooks:holy_spell_power": {
+      "enabled": false,
+      "min": {
+        "default": -100,
+        "value": -100
+      },
+      "max": {
+        "default": 100,
+        "value": 100
+      }
+    },
+    "additional_attributes:spell_type_ball_lightning": {
       "enabled": false,
       "min": {
         "default": -100,
@@ -1791,6 +1813,17 @@
       "max": {
         "default": 1000,
         "value": 1000
+      }
+    },
+    "additional_attributes:spell_type_flaming_barrage": {
+      "enabled": false,
+      "min": {
+        "default": -100,
+        "value": -100
+      },
+      "max": {
+        "default": 100,
+        "value": 100
       }
     },
     "minecraft:zombie.spawn_reinforcements": {

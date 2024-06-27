@@ -9,13 +9,32 @@ to make editing this file much easier.
 */
 [
 	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "north",
+			"face": "floor"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "south",
+			"face": "floor"
+		},
 		"Name": "create_dd:furnace_engine"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
-			"facing": "north"
+			"facing": "south",
+			"face": "floor"
 		},
 		"Name": "create_dd:furnace_engine"
 	},
@@ -23,7 +42,8 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
-			"facing": "south"
+			"facing": "west",
+			"face": "floor"
 		},
 		"Name": "create_dd:furnace_engine"
 	},
@@ -31,7 +51,8 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
-			"facing": "south"
+			"facing": "west",
+			"face": "floor"
 		},
 		"Name": "create_dd:furnace_engine"
 	},
@@ -39,7 +60,8 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
-			"facing": "west"
+			"facing": "east",
+			"face": "floor"
 		},
 		"Name": "create_dd:furnace_engine"
 	},
@@ -47,7 +69,8 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
-			"facing": "west"
+			"facing": "east",
+			"face": "floor"
 		},
 		"Name": "create_dd:furnace_engine"
 	},
@@ -55,7 +78,8 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "true",
-			"facing": "east"
+			"facing": "north",
+			"face": "wall"
 		},
 		"Name": "create_dd:furnace_engine"
 	},
@@ -63,7 +87,134 @@ to make editing this file much easier.
 		// Properties define the state of this block/fluid.
 		"Properties": {
 			"waterlogged": "false",
-			"facing": "east"
+			"facing": "north",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "south",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "west",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "east",
+			"face": "wall"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "north",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "south",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "west",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"facing": "east",
+			"face": "ceiling"
+		},
+		"Name": "create_dd:furnace_engine"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"facing": "east",
+			"face": "ceiling"
 		},
 		"Name": "create_dd:furnace_engine"
 	}

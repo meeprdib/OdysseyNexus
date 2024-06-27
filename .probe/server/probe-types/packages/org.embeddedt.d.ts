@@ -135,12 +135,12 @@ export class $StrongholdLocationCache extends $SavedData {
 constructor()
 
 public static "load"(arg: $CompoundTag$Type): $StrongholdLocationCache
-public "save"(compoundTag: $CompoundTag$Type): $CompoundTag
 public static "getFileId"(dimensionType: $Holder$Type<($DimensionType$Type)>): string
-public "setChunkPosList"(positions: $List$Type<($ChunkPos$Type)>): void
+public "save"(compoundTag: $CompoundTag$Type): $CompoundTag
 public "getChunkPosList"(): $List<($ChunkPos)>
-set "chunkPosList"(value: $List$Type<($ChunkPos$Type)>)
+public "setChunkPosList"(positions: $List$Type<($ChunkPos$Type)>): void
 get "chunkPosList"(): $List<($ChunkPos)>
+set "chunkPosList"(value: $List$Type<($ChunkPos$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -227,41 +227,41 @@ export class $SafeBlockGetter implements $BlockGetter {
 
 constructor(wrapped: $ServerLevel$Type)
 
-public "getMaxBuildHeight"(): integer
-public "getMinBuildHeight"(): integer
-public "getMaxLightLevel"(): integer
-public "getHeight"(): integer
 public "getBlockState"(pos: $BlockPos$Type): $BlockState
+public "getMaxBuildHeight"(): integer
 public "shouldUse"(): boolean
-public "getFluidState"(pos: $BlockPos$Type): $FluidState
+public "getMinBuildHeight"(): integer
 public "getBlockEntity"(pos: $BlockPos$Type): $BlockEntity
+public "getHeight"(): integer
+public "getMaxLightLevel"(): integer
+public "getFluidState"(pos: $BlockPos$Type): $FluidState
 public "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
-public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
-public "getLightEmission"(arg0: $BlockPos$Type): integer
-public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
-public "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
-public "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
-public "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
-public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
 public "clip"(arg0: $ClipContext$Type): $BlockHitResult
-public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
+public "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
+public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
+public "getLightEmission"(arg0: $BlockPos$Type): integer
+public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
+public "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
+public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
+public "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
 public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
-public "isOutsideBuildHeight"(arg0: integer): boolean
 public "getSectionIndex"(arg0: integer): integer
-public "getMinSection"(): integer
 public "getSectionIndexFromSectionY"(arg0: integer): integer
+public "isOutsideBuildHeight"(arg0: integer): boolean
+public "getMinSection"(): integer
+public "getMaxSection"(): integer
 public "getSectionsCount"(): integer
 public "getSectionYFromSectionIndex"(arg0: integer): integer
-public "getMaxSection"(): integer
-public "getModelDataManager"(): $ModelDataManager
+public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
 public "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+public "getModelDataManager"(): $ModelDataManager
 get "maxBuildHeight"(): integer
 get "minBuildHeight"(): integer
-get "maxLightLevel"(): integer
 get "height"(): integer
+get "maxLightLevel"(): integer
 get "minSection"(): integer
-get "sectionsCount"(): integer
 get "maxSection"(): integer
+get "sectionsCount"(): integer
 get "modelDataManager"(): $ModelDataManager
 }
 /**

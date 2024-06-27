@@ -1,7 +1,7 @@
 JEIEvents.hideItems(event => {
   event.hide([
     //'@ae2',
-    '@vintageimprovements',
+    // '@vintageimprovements',
     // 'create_dd:accelerator_motor',
     // 'create_dd:caramel_milkshake',
     // 'create_dd:chocolate_milkshake_bucket',
@@ -138,6 +138,7 @@ JEIEvents.addItems(event => {
   // 'ae2:white_paint_ball',
   // 'ae2:white_lumen_paint_ball',
   // '@architects_palette',
-  ['vintageimprovements:belt_grinder', 'vintageimprovements:grinder_belt']
+  'vintageimprovements:belt_grinder',
+  'vintageimprovements:grinder_belt'
   ])
 })

@@ -11,11 +11,92 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
+			"quality_food": "0",
 			"extended": "true"
 		},
 		"Name": "amendments:water_lily_pad"
 	},
 	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "1",
+			"extended": "true"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "2",
+			"extended": "true"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "3",
+			"extended": "true"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "4",
+			"extended": "true"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "5",
+			"extended": "true"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "1",
+			"extended": "false"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "2",
+			"extended": "false"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "3",
+			"extended": "false"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "4",
+			"extended": "false"
+		},
+		"Name": "amendments:water_lily_pad"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"quality_food": "5",
+			"extended": "false"
+		},
 		"Name": "amendments:water_lily_pad"
 	}
 ]

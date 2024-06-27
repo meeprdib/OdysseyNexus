@@ -31,8 +31,8 @@ import {$ResultContainer, $ResultContainer$Type} from "packages/net/minecraft/wo
 export interface $AccessorInventoryMenu {
 
  "getOwner"(): $Player
- "getResultSlots"(): $ResultContainer
  "getCraftSlots"(): $CraftingContainer
+ "getResultSlots"(): $ResultContainer
 }
 
 export namespace $AccessorInventoryMenu {
@@ -88,23 +88,23 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
-public "getMaxCost"(arg0: integer): integer
-public "getMinCost"(arg0: integer): integer
-public "getRarity"(): $Enchantment$Rarity
-public "canEnchant"(arg0: $ItemStack$Type): boolean
-public "isAllowedOnBooks"(): boolean
-public "isTreasureOnly"(): boolean
+public "getMaxLevel"(): integer
 public "isDiscoverable"(): boolean
 public "isTradeable"(): boolean
-public "getMaxLevel"(): integer
+public "isTreasureOnly"(): boolean
+public "getMaxCost"(arg0: integer): integer
+public "getRarity"(): $Enchantment$Rarity
+public "getMinCost"(arg0: integer): integer
+public "canEnchant"(arg0: $ItemStack$Type): boolean
 public static "canEnchant"(arg0: $Item$Type): boolean
-get "rarity"(): $Enchantment$Rarity
-get "allowedOnBooks"(): boolean
-get "treasureOnly"(): boolean
+public "isAllowedOnBooks"(): boolean
+public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
+get "maxLevel"(): integer
 get "discoverable"(): boolean
 get "tradeable"(): boolean
-get "maxLevel"(): integer
+get "treasureOnly"(): boolean
+get "rarity"(): $Enchantment$Rarity
+get "allowedOnBooks"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -126,8 +126,8 @@ import {$ResultContainer, $ResultContainer$Type} from "packages/net/minecraft/wo
 export interface $AccessorCraftingMenu {
 
  "getPlayer"(): $Player
- "getResultSlots"(): $ResultContainer
  "getCraftSlots"(): $CraftingContainer
+ "getResultSlots"(): $ResultContainer
 }
 
 export namespace $AccessorCraftingMenu {

@@ -26,8 +26,8 @@ declare module "packages/malte0811/ferritecore/mixin/mrl/$ResourceLocationAccess
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ResourceLocationAccess {
 
- "setPath"(arg0: string): void
  "setNamespace"(arg0: string): void
+ "setPath"(arg0: string): void
 }
 
 export namespace $ResourceLocationAccess {
@@ -76,8 +76,8 @@ import {$DiscreteVoxelShape, $DiscreteVoxelShape$Type} from "packages/net/minecr
 export interface $VoxelShapeAccess {
 
  "getShape"(): $DiscreteVoxelShape
- "setShape"(arg0: $DiscreteVoxelShape$Type): void
  "getFaces"(): ($VoxelShape)[]
+ "setShape"(arg0: $DiscreteVoxelShape$Type): void
  "setFaces"(arg0: ($VoxelShape$Type)[]): void
 }
 
@@ -114,11 +114,11 @@ public "getValue"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Typ
 public "getKey"(arg0: integer): $FastMapKey<(any)>
 public "getEntry"(arg0: integer, arg1: integer): $Map$Entry<($Property<(any)>), ($Comparable<(any)>)>
 public "with"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: T): Value
-public "withUnsafe"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: any): Value
 public "numProperties"(): integer
 public "isSingleState"(): boolean
 public "getPropertySet"(): $ImmutableSet<($Property<(any)>)>
 public "getIndexOf"(arg0: $Map$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>)>): integer
+public "withUnsafe"<T extends $Comparable<(T)>>(arg0: integer, arg1: $Property$Type<(T)>, arg2: any): Value
 get "singleState"(): boolean
 get "propertySet"(): $ImmutableSet<($Property<(any)>)>
 }
@@ -144,12 +144,12 @@ import {$ImmutableMap, $ImmutableMap$Type} from "packages/com/google/common/coll
 export interface $FastMapStateHolder<S> {
 
  "replacePropertyMap"(arg0: $ImmutableMap$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>)>): void
- "getStateMap"(): $FastMap<(S)>
- "setStateIndex"(arg0: integer): void
- "setNeighborTable"(arg0: $Table$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>), (S)>): void
  "getStateIndex"(): integer
- "setStateMap"(arg0: $FastMap$Type<(S)>): void
+ "getStateMap"(): $FastMap<(S)>
  "getNeighborTable"(): $Table<($Property<(any)>), ($Comparable<(any)>), (S)>
+ "setNeighborTable"(arg0: $Table$Type<($Property$Type<(any)>), ($Comparable$Type<(any)>), (S)>): void
+ "setStateIndex"(arg0: integer): void
+ "setStateMap"(arg0: $FastMap$Type<(S)>): void
  "getVanillaPropertyMap"(): $ImmutableMap<($Property<(any)>), ($Comparable<(any)>)>
 }
 

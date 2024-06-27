@@ -9,20 +9,11 @@ to make editing this file much easier.
 */
 [
 	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
-			"facing": "north"
-		},
-		"Name": "minecraft:player_wall_head"
-	},
-	{
 		"Name": "minecraft:player_wall_head"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "true",
 			"facing": "south"
 		},
 		"Name": "minecraft:player_wall_head"
@@ -30,15 +21,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"facing": "south"
-		},
-		"Name": "minecraft:player_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
 			"facing": "west"
 		},
 		"Name": "minecraft:player_wall_head"
@@ -46,23 +28,6 @@ to make editing this file much easier.
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"waterlogged": "false",
-			"facing": "west"
-		},
-		"Name": "minecraft:player_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "true",
-			"facing": "east"
-		},
-		"Name": "minecraft:player_wall_head"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"waterlogged": "false",
 			"facing": "east"
 		},
 		"Name": "minecraft:player_wall_head"

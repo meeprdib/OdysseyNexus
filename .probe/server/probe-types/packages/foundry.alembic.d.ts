@@ -49,19 +49,19 @@ constructor(arg0: string, arg1: double, arg2: double, arg3: double)
 
 public static "clearCache"(): void
 public "getBaseUUID"(): $UUID
-public "setMinValue"(arg0: double): void
-public "setMaxValue"(arg0: double): void
 public "setBaseValue"(arg0: double): void
 public "setDescriptionId"(arg0: string): void
-public static "toValueComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
+public "setMaxValue"(arg0: double): void
+public "setMinValue"(arg0: double): void
 public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
-public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
 public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
+public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
+public static "toValueComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
 get "baseUUID"(): $UUID
-set "minValue"(value: double)
-set "maxValue"(value: double)
 set "baseValue"(value: double)
 set "descriptionId"(value: string)
+set "maxValue"(value: double)
+set "minValue"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -77,10 +77,10 @@ export type $AlembicAttribute_ = $AlembicAttribute$Type;
 }}
 declare module "packages/foundry/alembic/util/$TagOrElements" {
 import {$TagOrElements$Lazy, $TagOrElements$Lazy$Type} from "packages/foundry/alembic/util/$TagOrElements$Lazy"
-import {$TagOrElements$BuiltInLazy, $TagOrElements$BuiltInLazy$Type} from "packages/foundry/alembic/util/$TagOrElements$BuiltInLazy"
 import {$ExtraCodecs$TagOrElementLocation, $ExtraCodecs$TagOrElementLocation$Type} from "packages/net/minecraft/util/$ExtraCodecs$TagOrElementLocation"
-import {$Registry, $Registry$Type} from "packages/net/minecraft/core/$Registry"
+import {$TagOrElements$BuiltInLazy, $TagOrElements$BuiltInLazy$Type} from "packages/foundry/alembic/util/$TagOrElements$BuiltInLazy"
 import {$ICondition$IContext, $ICondition$IContext$Type} from "packages/net/minecraftforge/common/crafting/conditions/$ICondition$IContext"
+import {$Registry, $Registry$Type} from "packages/net/minecraft/core/$Registry"
 import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$TagOrElements$Immediate, $TagOrElements$Immediate$Type} from "packages/foundry/alembic/util/$TagOrElements$Immediate"
@@ -89,10 +89,10 @@ export class $TagOrElements<T> {
 
 
 public "toString"(): string
-public static "builtInLazyCodec"<T>(arg0: $Registry$Type<(T)>): $Codec<($TagOrElements$BuiltInLazy<(T)>)>
+public "getTagOrElementLocation"(): $ExtraCodecs$TagOrElementLocation
 public static "codec"<T>(arg0: $ResourceKey$Type<(any)>, arg1: $ICondition$IContext$Type): $Codec<($TagOrElements$Immediate<(T)>)>
 public static "lazyCodec"<T>(arg0: $ResourceKey$Type<(any)>): $Codec<($TagOrElements$Lazy<(T)>)>
-public "getTagOrElementLocation"(): $ExtraCodecs$TagOrElementLocation
+public static "builtInLazyCodec"<T>(arg0: $Registry$Type<(T)>): $Codec<($TagOrElements$BuiltInLazy<(T)>)>
 get "tagOrElementLocation"(): $ExtraCodecs$TagOrElementLocation
 }
 /**
@@ -184,27 +184,27 @@ constructor()
 constructor(arg0: float, arg1: $AttributeModifier$Operation$Type, arg2: boolean, arg3: $Set$Type<($TagOrElements$Lazy$Type<($DamageType$Type)>)>, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $JsonElement$Type)
 
 public "getValue"(): float
-public "getColor"(): integer
 public "getOperation"(): $AttributeModifier$Operation
-public "isVanillaOverride"(): boolean
 public "getRecipe"(): $AlembicPotionRecipe
-public "getImmunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
-public "getUUID"(): $UUID
+public "isVanillaOverride"(): boolean
 public "getBaseDuration"(): integer
 public "getMaxAmplifier"(): integer
+public "getUUID"(): $UUID
+public "getImmunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
 public "getMaxStrengthLevel"(): integer
 public "getAmplifierPerLevel"(): integer
+public "getColor"(): integer
 get "value"(): float
-get "color"(): integer
 get "operation"(): $AttributeModifier$Operation
-get "vanillaOverride"(): boolean
 get "recipe"(): $AlembicPotionRecipe
-get "immunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
-get "uUID"(): $UUID
+get "vanillaOverride"(): boolean
 get "baseDuration"(): integer
 get "maxAmplifier"(): integer
+get "uUID"(): $UUID
+get "immunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
 get "maxStrengthLevel"(): integer
 get "amplifierPerLevel"(): integer
+get "color"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -279,10 +279,10 @@ export class $FrostbiteMobEffect extends $ExtendedMobEffect {
 
 constructor()
 
-public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
-public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "doClientSideEffectTick"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): boolean
+public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
 public "shouldTickEffect"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type, arg2: integer, arg3: integer): boolean
+public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -313,8 +313,8 @@ export class $FireMobEffect extends $ExtendedMobEffect {
 constructor(arg0: $MobEffectCategory$Type, arg1: integer, arg2: string)
 
 public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
-public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "shouldTickEffect"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type, arg2: integer, arg3: integer): boolean
+public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

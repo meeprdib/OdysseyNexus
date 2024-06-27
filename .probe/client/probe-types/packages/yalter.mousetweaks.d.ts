@@ -4,12 +4,12 @@ import {$Slot, $Slot$Type} from "packages/net/minecraft/world/inventory/$Slot"
 
 export interface $AbstractContainerScreenAccessor {
 
- "mousetweaks$setIsQuickCrafting"(arg0: boolean): void
- "mousetweaks$setSkipNextRelease"(arg0: boolean): void
- "mousetweaks$invokeSlotClicked"(arg0: $Slot$Type, arg1: integer, arg2: integer, arg3: $ClickType$Type): void
  "mousetweaks$getQuickCraftingButton"(): integer
  "mousetweaks$invokeFindSlot"(arg0: double, arg1: double): $Slot
  "mousetweaks$getIsQuickCrafting"(): boolean
+ "mousetweaks$setSkipNextRelease"(arg0: boolean): void
+ "mousetweaks$invokeSlotClicked"(arg0: $Slot$Type, arg1: integer, arg2: integer, arg3: $ClickType$Type): void
+ "mousetweaks$setIsQuickCrafting"(arg0: boolean): void
 }
 
 export namespace $AbstractContainerScreenAccessor {

@@ -31,13 +31,13 @@ public "start"(arg0: $ItemStack$Type): void
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "invalidate"(): void
+public "insertItem"(arg0: $ItemEntity$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getSpringColor"(): integer
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
 public "tickAudio"(): void
-public "insertItem"(arg0: $ItemEntity$Type): void
+public "tick"(): void
 public "getItemMovementVec"(): $Vec3
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 get "springColor"(): integer
 get "itemMovementVec"(): $Vec3
 }
@@ -61,11 +61,11 @@ import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity
 
 export interface $CurvingBehaviour$CurvingBehaviourSpecifics {
 
- "canProcessInBulk"(): boolean
- "tryProcessInWorld"(arg0: $ItemEntity$Type, arg1: boolean): boolean
  "getParticleAmount"(): integer
- "tryProcessOnBelt"(arg0: $TransportedItemStack$Type, arg1: $List$Type<($ItemStack$Type)>, arg2: boolean): boolean
+ "tryProcessInWorld"(arg0: $ItemEntity$Type, arg1: boolean): boolean
  "getKineticSpeed"(): float
+ "tryProcessOnBelt"(arg0: $TransportedItemStack$Type, arg1: $List$Type<($ItemStack$Type)>, arg2: boolean): boolean
+ "canProcessInBulk"(): boolean
 }
 
 export namespace $CurvingBehaviour$CurvingBehaviourSpecifics {
@@ -102,12 +102,12 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -147,27 +147,27 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
-public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBlockEntityClass"(): $Class<($CurvingPressBlockEntity)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($CurvingPressBlockEntity)>
+public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
+public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
+public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CurvingPressBlockEntity
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CurvingPressBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CurvingPressBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CurvingPressBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CurvingPressBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($CurvingPressBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($CurvingPressBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -218,18 +218,18 @@ public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "invalidate"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
-public "canProcess"(): boolean
 public "getProcessingSpeed"(): integer
 public "getInputInventory"(): $SmartInventory
+public "canProcess"(): boolean
 public "getOutputInventory"(): $SmartInventory
-public "acceptOutputs"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): boolean
 public "acceptOutputs"(arg0: $ItemStack$Type, arg1: boolean): boolean
-public "resetRecipes"(): void
+public "acceptOutputs"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): boolean
+public "tick"(): void
 public "getSpeed"(): float
 public "getHammerAngle"(): float
+public "resetRecipes"(): void
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 get "processingSpeed"(): integer
 get "inputInventory"(): $SmartInventory
@@ -284,20 +284,20 @@ export class $CurvingPressBlockEntity extends $KineticBlockEntity implements $Cu
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "destroy"(): void
-public "getAnalogSignal"(): integer
-public "addRedstoneApp"(arg0: $ItemStack$Type): boolean
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "onItemPressed"(arg0: $ItemStack$Type, arg1: integer): void
-public "canProcessInBulk"(): boolean
-public "tryProcessInWorld"(arg0: $ItemEntity$Type, arg1: boolean): boolean
-public "getParticleAmount"(): integer
-public "tryProcessOnBelt"(arg0: $TransportedItemStack$Type, arg1: $List$Type<($ItemStack$Type)>, arg2: boolean): boolean
-public "getKineticSpeed"(): float
-public "getPressingBehaviour"(): $CurvingBehaviour
 public "getRecipe"(arg0: $ItemStack$Type): $Optional<($CurvingRecipe)>
+public "addRedstoneApp"(arg0: $ItemStack$Type): boolean
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
+public "getAnalogSignal"(): integer
 public static "canCurve"(arg0: $Recipe$Type<(any)>): boolean
 public static "canCurve"(arg0: $Recipe$Type<(any)>, arg1: integer): boolean
+public "getParticleAmount"(): integer
+public "tryProcessInWorld"(arg0: $ItemEntity$Type, arg1: boolean): boolean
+public "getKineticSpeed"(): float
+public "tryProcessOnBelt"(arg0: $TransportedItemStack$Type, arg1: $List$Type<($ItemStack$Type)>, arg2: boolean): boolean
+public "canProcessInBulk"(): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getPressingBehaviour"(): $CurvingBehaviour
 get "analogSignal"(): integer
 get "particleAmount"(): integer
 get "kineticSpeed"(): float
@@ -373,12 +373,12 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "showBounds"(arg0: $BlockPlaceContext$Type): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "place"(arg0: $BlockPlaceContext$Type): $InteractionResult
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -411,8 +411,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$VoxelShaper, $VoxelShaper$Type} from "packages/com/simibubi/create/foundation/utility/$VoxelShaper"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
@@ -453,25 +453,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($CoilingBlockEntity)>
+public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBlockEntityClass"(): $Class<($CoilingBlockEntity)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "updateEntityAfterFallOn"(arg0: $BlockGetter$Type, arg1: $Entity$Type): void
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CoilingBlockEntity
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CoilingBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CoilingBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CoilingBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CoilingBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($CoilingBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($CoilingBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -579,22 +579,22 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
+public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public static "getSlave"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public static "getMaster"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "stillValid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "initializeClient"(arg0: $Consumer$Type<($IClientBlockExtensions$Type)>): void
-public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
-public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
+public static "getSlave"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
@@ -657,23 +657,23 @@ public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "invalidate"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "getRedstoneApp"(): boolean
-public "isProccesingNow"(): boolean
-public "addRedstoneApp"(arg0: $ItemStack$Type): boolean
-public "getBasins"(): integer
 public "addBasin"(arg0: $ItemStack$Type): boolean
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
+public "addRedstoneApp"(arg0: $ItemStack$Type): boolean
+public "isProccesingNow"(): boolean
+public "getRedstoneApp"(): boolean
+public "getBasins"(): integer
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
-public "canProcess"(): boolean
 public "getProcessingSpeed"(): integer
 public "getInputInventory"(): $SmartInventory
-public "getOutputInventory"(): $SmartInventory
+public "canProcess"(): boolean
 public "getTotalFluidUnits"(arg0: float): float
+public "getOutputInventory"(): $SmartInventory
 public "acceptOutputs"(arg0: $List$Type<($ItemStack$Type)>, arg1: $List$Type<($FluidStack$Type)>, arg2: boolean): boolean
+public "tick"(): void
 public "getTanks"(): $Couple<($SmartFluidTankBehaviour)>
-get "redstoneApp"(): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 get "proccesingNow"(): boolean
+get "redstoneApp"(): boolean
 get "basins"(): integer
 get "processingSpeed"(): integer
 get "inputInventory"(): $SmartInventory
@@ -704,8 +704,8 @@ import {$SequencedAssemblySubCategory, $SequencedAssemblySubCategory$Type} from 
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$ProcessingRecipe, $ProcessingRecipe$Type} from "packages/com/simibubi/create/content/processing/recipe/$ProcessingRecipe"
 import {$FluidIngredient, $FluidIngredient$Type} from "packages/com/simibubi/create/foundation/fluid/$FluidIngredient"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$ItemLike"
@@ -716,23 +716,23 @@ constructor(arg0: $ProcessingRecipeBuilder$ProcessingRecipeParams$Type)
 
 public "matches"(arg0: $RecipeWrapper$Type, arg1: $Level$Type): boolean
 public "getMode"(): integer
-public "addAssemblyIngredients"(arg0: $List$Type<($Ingredient$Type)>): void
-public "addRequiredMachines"(arg0: $Set$Type<($ItemLike$Type)>): void
-public "getDescriptionForAssembly"(): $Component
-public "getItemAsHead"(): $Item
-public "getHeadDamage"(): integer
-public "readAdditional"(arg0: $FriendlyByteBuf$Type): void
 public "readAdditional"(arg0: $JsonObject$Type): void
+public "readAdditional"(arg0: $FriendlyByteBuf$Type): void
 public "writeAdditional"(arg0: $FriendlyByteBuf$Type): void
 public "writeAdditional"(arg0: $JsonObject$Type): void
 public "getJEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
-public "addAssemblyFluidIngredients"(arg0: $List$Type<($FluidIngredient$Type)>): void
+public "getHeadDamage"(): integer
+public "getItemAsHead"(): $Item
+public "addAssemblyIngredients"(arg0: $List$Type<($Ingredient$Type)>): void
+public "getDescriptionForAssembly"(): $Component
+public "addRequiredMachines"(arg0: $Set$Type<($ItemLike$Type)>): void
 public "supportsAssembly"(): boolean
+public "addAssemblyFluidIngredients"(arg0: $List$Type<($FluidIngredient$Type)>): void
 get "mode"(): integer
-get "descriptionForAssembly"(): $Component
-get "itemAsHead"(): $Item
-get "headDamage"(): integer
 get "jEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
+get "headDamage"(): integer
+get "itemAsHead"(): $Item
+get "descriptionForAssembly"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -755,8 +755,8 @@ import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$IRotate$SpeedLevel, $IRotate$SpeedLevel$Type} from "packages/com/simibubi/create/content/kinetics/base/$IRotate$SpeedLevel"
+import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
@@ -771,12 +771,12 @@ import {$VoxelShaper, $VoxelShaper$Type} from "packages/com/simibubi/create/foun
 import {$ICogWheel, $ICogWheel$Type} from "packages/com/simibubi/create/content/kinetics/simpleRelays/$ICogWheel"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$VacuumChamberBlockEntity, $VacuumChamberBlockEntity$Type} from "packages/com/negodya1/vintageimprovements/content/kinetics/vacuum_chamber/$VacuumChamberBlockEntity"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -813,41 +813,41 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "getBlockEntityClass"(): $Class<($VacuumChamberBlockEntity)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBlockEntityClass"(): $Class<($VacuumChamberBlockEntity)>
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $VacuumChamberBlockEntity
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($VacuumChamberBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($VacuumChamberBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($VacuumChamberBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "isLargeCog"(): boolean
-public static "isLargeCog"(arg0: $BlockState$Type): boolean
-public static "isLargeCog"(arg0: $Block$Type): boolean
-public static "isSmallCogItem"(arg0: $ItemStack$Type): boolean
-public static "isLargeCogItem"(arg0: $ItemStack$Type): boolean
-public static "isSmallCog"(arg0: $BlockState$Type): boolean
-public "isSmallCog"(): boolean
-public static "isSmallCog"(arg0: $Block$Type): boolean
-public static "isDedicatedCogItem"(arg0: $ItemStack$Type): boolean
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $VacuumChamberBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "isDedicatedCogWheel"(arg0: $Block$Type): boolean
 public "isDedicatedCogWheel"(): boolean
+public "isLargeCog"(): boolean
+public static "isLargeCog"(arg0: $Block$Type): boolean
+public static "isLargeCog"(arg0: $BlockState$Type): boolean
+public "isSmallCog"(): boolean
+public static "isSmallCog"(arg0: $BlockState$Type): boolean
+public static "isSmallCog"(arg0: $Block$Type): boolean
+public static "isSmallCogItem"(arg0: $ItemStack$Type): boolean
+public static "isDedicatedCogItem"(arg0: $ItemStack$Type): boolean
+public static "isLargeCogItem"(arg0: $ItemStack$Type): boolean
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($VacuumChamberBlockEntity)>
-get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+get "blockEntityClass"(): $Class<($VacuumChamberBlockEntity)>
+get "dedicatedCogWheel"(): boolean
 get "largeCog"(): boolean
 get "smallCog"(): boolean
-get "dedicatedCogWheel"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -890,14 +890,14 @@ constructor<T extends ($SmartBlockEntity) & ($CurvingBehaviour$CurvingBehaviourS
 public "start"(arg0: $CurvingBehaviour$Mode$Type): void
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "read"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "inWorld"(): boolean
-public "makePressingParticleEffect"(arg0: $Vec3$Type, arg1: $ItemStack$Type): void
-public "makePressingParticleEffect"(arg0: $Vec3$Type, arg1: $ItemStack$Type, arg2: integer): void
-public "tick"(): void
 public "getRenderedHeadOffset"(arg0: float): float
 public "onBasin"(): boolean
-public "getRunningTickSpeed"(): integer
+public "tick"(): void
+public "inWorld"(): boolean
+public "makePressingParticleEffect"(arg0: $Vec3$Type, arg1: $ItemStack$Type, arg2: integer): void
+public "makePressingParticleEffect"(arg0: $Vec3$Type, arg1: $ItemStack$Type): void
 public "makeCompactingParticleEffect"(arg0: $Vec3$Type, arg1: $ItemStack$Type): void
+public "getRunningTickSpeed"(): integer
 get "runningTickSpeed"(): integer
 }
 /**
@@ -927,9 +927,9 @@ import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$CentrifugeStructuralBlockEntity, $CentrifugeStructuralBlockEntity$Type} from "packages/com/negodya1/vintageimprovements/content/kinetics/centrifuge/$CentrifugeStructuralBlockEntity"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$CentrifugeStructuralBlockEntity, $CentrifugeStructuralBlockEntity$Type} from "packages/com/negodya1/vintageimprovements/content/kinetics/centrifuge/$CentrifugeStructuralBlockEntity"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$IClientBlockExtensions, $IClientBlockExtensions$Type} from "packages/net/minecraftforge/client/extensions/common/$IClientBlockExtensions"
@@ -938,12 +938,12 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$VoxelShaper, $VoxelShaper$Type} from "packages/com/simibubi/create/foundation/utility/$VoxelShaper"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$IProxyHoveringInformation, $IProxyHoveringInformation$Type} from "packages/com/simibubi/create/content/equipment/goggles/$IProxyHoveringInformation"
@@ -982,41 +982,41 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
-public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getBlockEntityClass"(): $Class<($CentrifugeStructuralBlockEntity)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($CentrifugeStructuralBlockEntity)>
+public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
+public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
+public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
+public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public static "getMaster"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "stillValid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "initializeClient"(arg0: $Consumer$Type<($IClientBlockExtensions$Type)>): void
-public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
-public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "updateEntityAfterFallOn"(arg0: $BlockGetter$Type, arg1: $Entity$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CentrifugeStructuralBlockEntity
+public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CentrifugeStructuralBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CentrifugeStructuralBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CentrifugeStructuralBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CentrifugeStructuralBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($CentrifugeStructuralBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($CentrifugeStructuralBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1038,8 +1038,8 @@ import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packa
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$IRotate$SpeedLevel, $IRotate$SpeedLevel$Type} from "packages/com/simibubi/create/content/kinetics/base/$IRotate$SpeedLevel"
+import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$LatheRotatingBlockEntity, $LatheRotatingBlockEntity$Type} from "packages/com/negodya1/vintageimprovements/content/kinetics/lathe/$LatheRotatingBlockEntity"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
@@ -1057,8 +1057,8 @@ import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$HorizontalKineticBlock, $HorizontalKineticBlock$Type} from "packages/com/simibubi/create/content/kinetics/base/$HorizontalKineticBlock"
@@ -1095,31 +1095,31 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "getBlockEntityClass"(): $Class<($LatheRotatingBlockEntity)>
+public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getBlockEntityClass"(): $Class<($LatheRotatingBlockEntity)>
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public static "getSlave"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public static "isHorizontal"(arg0: $BlockState$Type): boolean
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $LatheRotatingBlockEntity
+public static "getSlave"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($LatheRotatingBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($LatheRotatingBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($LatheRotatingBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $LatheRotatingBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($LatheRotatingBlockEntity)>
-get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+get "blockEntityClass"(): $Class<($LatheRotatingBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1137,8 +1137,8 @@ declare module "packages/com/negodya1/vintageimprovements/content/kinetics/lathe
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$ItemStackHandler, $ItemStackHandler$Type} from "packages/net/minecraftforge/items/$ItemStackHandler"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStackHandler, $ItemStackHandler$Type} from "packages/net/minecraftforge/items/$ItemStackHandler"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -1166,13 +1166,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public static "haveRecipe"(arg0: $ItemStack$Type): boolean
-public static "getFrequencyItems"(arg0: $ItemStack$Type): $ItemStackHandler
-public static "getResultItems"(arg0: $ItemStack$Type): $ItemStackHandler
 public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
-public "getDisplayName"(): $Component
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public static "getResultItems"(arg0: $ItemStack$Type): $ItemStackHandler
+public static "haveRecipe"(arg0: $ItemStack$Type): boolean
+public static "getFrequencyItems"(arg0: $ItemStack$Type): $ItemStackHandler
+public "getDisplayName"(): $Component
 get "displayName"(): $Component
 }
 /**
@@ -1206,12 +1206,12 @@ import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraf
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$HorizontalKineticBlock, $HorizontalKineticBlock$Type} from "packages/com/simibubi/create/content/kinetics/base/$HorizontalKineticBlock"
@@ -1249,26 +1249,26 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($GrinderBlockEntity)>
+public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBlockEntityClass"(): $Class<($GrinderBlockEntity)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "updateEntityAfterFallOn"(arg0: $BlockGetter$Type, arg1: $Entity$Type): void
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $GrinderBlockEntity
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($GrinderBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($GrinderBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($GrinderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $GrinderBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($GrinderBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($GrinderBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1309,8 +1309,8 @@ import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$IProxyHoveringInformation, $IProxyHoveringInformation$Type} from "packages/com/simibubi/create/content/equipment/goggles/$IProxyHoveringInformation"
@@ -1349,36 +1349,36 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "getBlockEntityClass"(): $Class<($LatheMovingBlockEntity)>
+public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
+public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getBlockEntityClass"(): $Class<($LatheMovingBlockEntity)>
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public static "getMaster"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "stillValid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "initializeClient"(arg0: $Consumer$Type<($IClientBlockExtensions$Type)>): void
-public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $LatheMovingBlockEntity
+public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($LatheMovingBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($LatheMovingBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($LatheMovingBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $LatheMovingBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($LatheMovingBlockEntity)>
-get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+get "blockEntityClass"(): $Class<($LatheMovingBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1427,17 +1427,17 @@ public "start"(arg0: $ItemStack$Type): void
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "invalidate"(): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getCurrentSpeedMode"(): integer
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
+public "insertItem"(arg0: $ItemEntity$Type): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "addTexture"(arg0: $ItemStack$Type): boolean
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "tickAudio"(): void
-public "insertItem"(arg0: $ItemEntity$Type): void
-public "canCraft"(arg0: $ItemStack$Type): boolean
-public "addTexture"(arg0: $ItemStack$Type): boolean
+public "tick"(): void
 public "getItemMovementVec"(): $Vec3
 public "getTextureType"(): integer
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "canCraft"(arg0: $ItemStack$Type): boolean
 get "currentSpeedMode"(): integer
 get "itemMovementVec"(): $Vec3
 get "textureType"(): integer
@@ -1473,10 +1473,10 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "destroy"(): void
 public "invalidate"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "canProcess"(): boolean
+public "tick"(): void
 public "getAnalogSignal"(): integer
 public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
-public "canProcess"(): boolean
 get "analogSignal"(): integer
 }
 /**
@@ -1513,12 +1513,12 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$VoxelShaper, $VoxelShaper$Type} from "packages/com/simibubi/create/foundation/utility/$VoxelShaper"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$HelveBlockEntity, $HelveBlockEntity$Type} from "packages/com/negodya1/vintageimprovements/content/kinetics/helve_hammer/$HelveBlockEntity"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
@@ -1553,28 +1553,28 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($HelveBlockEntity)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getBlockEntityClass"(): $Class<($HelveBlockEntity)>
-public static "getSlave"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "updateEntityAfterFallOn"(arg0: $BlockGetter$Type, arg1: $Entity$Type): void
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $HelveBlockEntity
+public static "getSlave"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($HelveBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($HelveBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($HelveBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $HelveBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($HelveBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($HelveBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1612,8 +1612,8 @@ import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$IProxyHoveringInformation, $IProxyHoveringInformation$Type} from "packages/com/simibubi/create/content/equipment/goggles/$IProxyHoveringInformation"
@@ -1652,33 +1652,33 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getBlockEntityClass"(): $Class<($HelveKineticBlockEntity)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($HelveKineticBlockEntity)>
+public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
+public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public static "getMaster"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "stillValid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
-public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "getCloneItemStack"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "initializeClient"(arg0: $Consumer$Type<($IClientBlockExtensions$Type)>): void
-public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getInformationSource"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $BlockPos
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $HelveKineticBlockEntity
+public "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($HelveKineticBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($HelveKineticBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($HelveKineticBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $HelveKineticBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($HelveKineticBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($HelveKineticBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1713,12 +1713,12 @@ import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraf
 import {$VoxelShaper, $VoxelShaper$Type} from "packages/com/simibubi/create/foundation/utility/$VoxelShaper"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
@@ -1754,28 +1754,28 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getBlockEntityClass"(): $Class<($CentrifugeBlockEntity)>
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "getBlockEntityClass"(): $Class<($CentrifugeBlockEntity)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CentrifugeBlockEntity
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CentrifugeBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CentrifugeBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CentrifugeBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CentrifugeBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($CentrifugeBlockEntity)>
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "blockEntityClass"(): $Class<($CentrifugeBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1857,16 +1857,16 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "invalidate"(): void
+public "getRenderedHeadOffset"(arg0: float): float
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "haveRecipe"(): boolean
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
-public "spawnParticles"(): void
 public "tickAudio"(): void
 public "getProcessingSpeed"(): integer
 public "acceptOutputs"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): boolean
-public "getRenderedHeadOffset"(arg0: float): float
+public "spawnParticles"(): void
+public "tick"(): void
 public static "canUnpack"<C extends $Container>(arg0: $Recipe$Type<(C)>): boolean
+public "haveRecipe"(): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 get "processingSpeed"(): integer
 }
 /**
@@ -1910,10 +1910,10 @@ constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "showBounds"(arg0: $BlockPlaceContext$Type): void
 public "place"(arg0: $BlockPlaceContext$Type): $InteractionResult
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1960,12 +1960,12 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "showBounds"(arg0: $BlockPlaceContext$Type): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "place"(arg0: $BlockPlaceContext$Type): $InteractionResult
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2054,17 +2054,17 @@ export class $VacuumChamberBlockEntity extends $BasinOperatingBlockEntity {
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "startProcessingBasin"(): void
 public "continueWithPreviousRecipe"(): boolean
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
-public "changeMode"(): boolean
-public "renderParticles"(): void
+public "getRenderedHeadOffset"(arg0: float): float
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "tickAudio"(): void
 public "acceptOutputs"(arg0: $List$Type<($FluidStack$Type)>, arg1: boolean): boolean
-public "getRenderedHeadOffset"(arg0: float): float
+public "tick"(): void
+public "changeMode"(): boolean
+public "renderParticles"(): void
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2102,10 +2102,10 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "destroy"(): void
 public "invalidate"(): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
+public "tick"(): void
 public "getHammerAngle"(): float
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 get "hammerAngle"(): float
 }
 /**
@@ -2158,22 +2158,22 @@ public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "getIndex"(arg0: $ItemStack$Type): integer
 public "invalidate"(): void
-public "getTemporaryIndex"(): integer
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
-public "tick"(): void
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "getInputInventory"(): $SmartInventory
-public "resetRecipe"(): void
+public "tick"(): void
+public "getTemporaryRecipe"(): $Optional<($TurningRecipe)>
+public "createMenu"(arg0: integer, arg1: $Inventory$Type, arg2: $Player$Type): $AbstractContainerMenu
+public "manualMode"(): boolean
+public "getTemporaryIndex"(): integer
 public "getRecipes"(): $List<($TurningRecipe)>
 public "getDisplayName"(): $Component
-public "getTemporaryRecipe"(): $Optional<($TurningRecipe)>
-public "manualMode"(): boolean
-get "temporaryIndex"(): integer
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "resetRecipe"(): void
 get "inputInventory"(): $SmartInventory
+get "temporaryRecipe"(): $Optional<($TurningRecipe)>
+get "temporaryIndex"(): integer
 get "recipes"(): $List<($TurningRecipe)>
 get "displayName"(): $Component
-get "temporaryRecipe"(): $Optional<($TurningRecipe)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2236,14 +2236,14 @@ export class $TurningRecipe extends $ProcessingRecipe<($RecipeWrapper)> implemen
 constructor(arg0: $ProcessingRecipeBuilder$ProcessingRecipeParams$Type)
 
 public "matches"(arg0: $RecipeWrapper$Type, arg1: $Level$Type): boolean
-public "addAssemblyIngredients"(arg0: $List$Type<($Ingredient$Type)>): void
-public "addRequiredMachines"(arg0: $Set$Type<($ItemLike$Type)>): void
-public "getDescriptionForAssembly"(): $Component
 public "getJEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
-public "addAssemblyFluidIngredients"(arg0: $List$Type<($FluidIngredient$Type)>): void
+public "addAssemblyIngredients"(arg0: $List$Type<($Ingredient$Type)>): void
+public "getDescriptionForAssembly"(): $Component
+public "addRequiredMachines"(arg0: $Set$Type<($ItemLike$Type)>): void
 public "supportsAssembly"(): boolean
-get "descriptionForAssembly"(): $Component
+public "addAssemblyFluidIngredients"(arg0: $List$Type<($FluidIngredient$Type)>): void
 get "jEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
+get "descriptionForAssembly"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2265,8 +2265,8 @@ import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packa
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$IRotate$SpeedLevel, $IRotate$SpeedLevel$Type} from "packages/com/simibubi/create/content/kinetics/base/$IRotate$SpeedLevel"
+import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
@@ -2283,12 +2283,12 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$VoxelShaper, $VoxelShaper$Type} from "packages/com/simibubi/create/foundation/utility/$VoxelShaper"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$HorizontalKineticBlock, $HorizontalKineticBlock$Type} from "packages/com/simibubi/create/content/kinetics/base/$HorizontalKineticBlock"
@@ -2326,29 +2326,29 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "getBlockEntityClass"(): $Class<($VibratingTableBlockEntity)>
+public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBlockEntityClass"(): $Class<($VibratingTableBlockEntity)>
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public static "isHorizontal"(arg0: $BlockState$Type): boolean
 public "updateEntityAfterFallOn"(arg0: $BlockGetter$Type, arg1: $Entity$Type): void
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $VibratingTableBlockEntity
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($VibratingTableBlockEntity)>
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($VibratingTableBlockEntity$Type)>): void
 public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($VibratingTableBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $VibratingTableBlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityClass"(): $Class<($VibratingTableBlockEntity)>
-get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "blockEntityType"(): $BlockEntityType<(any)>
+get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+get "blockEntityClass"(): $Class<($VibratingTableBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2400,25 +2400,25 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "destroy"(): void
 public "invalidate"(): void
+public "getRenderedHeadOffset"(): float
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "calculateSlaveStressApplied"(): float
-public "isSlaveSpeedRequirementFulfilled"(): boolean
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "tick"(): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "addToTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "tickAudio"(): void
 public "getProcessingSpeed"(): float
-public "checkItem"(arg0: $ItemStack$Type): boolean
-public "resetRecipe"(): void
-public "getRenderedHeadOffset"(): float
-public "getRecipes"(): $List<($TurningRecipe)>
+public "tick"(): void
 public "getSlaveSpeed"(): float
-get "slaveSpeedRequirementFulfilled"(): boolean
-get "processingSpeed"(): float
+public "getRecipes"(): $List<($TurningRecipe)>
+public "checkItem"(arg0: $ItemStack$Type): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "isSlaveSpeedRequirementFulfilled"(): boolean
+public "calculateSlaveStressApplied"(): float
+public "resetRecipe"(): void
 get "renderedHeadOffset"(): float
-get "recipes"(): $List<($TurningRecipe)>
+get "processingSpeed"(): float
 get "slaveSpeed"(): float
+get "recipes"(): $List<($TurningRecipe)>
+get "slaveSpeedRequirementFulfilled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -3,9 +3,9 @@ import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/c
 
 export interface $AccessSmithingTrimRecipe {
 
+ "crafttweaker$getBase"(): $Ingredient
  "crafttweaker$getAddition"(): $Ingredient
  "crafttweaker$getTemplate"(): $Ingredient
- "crafttweaker$getBase"(): $Ingredient
 }
 
 export namespace $AccessSmithingTrimRecipe {
@@ -64,10 +64,10 @@ export class $CTShapelessRecipeSerializer implements $RecipeSerializer<($CTShape
 static readonly "INSTANCE": $CTShapelessRecipeSerializer
 
 
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $CTShapelessRecipe
-public "makeRecipe"(arg0: $ResourceLocation$Type, arg1: $IItemStack$Type, arg2: ($IIngredient$Type)[], arg3: $RecipeFunction1D$Type): $CTShapelessRecipe
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $CTShapelessRecipe
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $CTShapelessRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $CTShapelessRecipe$Type): void
+public "makeRecipe"(arg0: $ResourceLocation$Type, arg1: $IItemStack$Type, arg2: ($IIngredient$Type)[], arg3: $RecipeFunction1D$Type): $CTShapelessRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $CTShapelessRecipe
 }
@@ -116,14 +116,15 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "getKeys"(): $Set<(string)>
-public "getAt"(arg0: integer): $IData
-public "copyInternal"(): $IData
+public "asByteArray"(): (byte)[]
 public "equalTo"(arg0: $IData$Type): boolean
-public "asLongArray"(): (long)[]
+public "getAt"(arg0: integer): $IData
+public "getInternal"(): $ListTag
+public "copyInternal"(): $IData
 public "asIntArray"(): (integer)[]
 public "isListable"(): boolean
+public "asLongArray"(): (long)[]
 public "remove"(arg0: string): void
 public "compareTo"(arg0: $IData$Type): integer
 public "isEmpty"(): boolean
@@ -131,37 +132,38 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
-public "asByte"(): byte
-public "asShort"(): short
-public "asLong"(): long
-public "asFloat"(): float
-public "asString"(): string
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: string): $IData
 public "neg"(): $IData
+public "asString"(): string
 public "asBool"(): boolean
 public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "asFloat"(): float
+public "asByte"(): byte
+public "asShort"(): short
+public "asLong"(): long
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
 get "keys"(): $Set<(string)>
+get "internal"(): $ListTag
 get "listable"(): boolean
 get "empty"(): boolean
 get "id"(): byte
@@ -187,10 +189,10 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $AccessRecipeManager {
 
- "crafttweaker$setByName"(arg0: $Map$Type<($ResourceLocation$Type), ($Recipe$Type<(any)>)>): void
- "crafttweaker$setRecipes"(arg0: $Map$Type<($RecipeType$Type<(any)>), ($Map$Type<($ResourceLocation$Type), ($Recipe$Type<(any)>)>)>): void
- "crafttweaker$getRecipes"(): $Map<($RecipeType<(any)>), ($Map<($ResourceLocation), ($Recipe<(any)>)>)>
  "crafttweaker$getByName"(): $Map<($ResourceLocation), ($Recipe<(any)>)>
+ "crafttweaker$setRecipes"(arg0: $Map$Type<($RecipeType$Type<(any)>), ($Map$Type<($ResourceLocation$Type), ($Recipe$Type<(any)>)>)>): void
+ "crafttweaker$setByName"(arg0: $Map$Type<($ResourceLocation$Type), ($Recipe$Type<(any)>)>): void
+ "crafttweaker$getRecipes"(): $Map<($RecipeType<(any)>), ($Map<($ResourceLocation), ($Recipe<(any)>)>)>
 }
 
 export namespace $AccessRecipeManager {
@@ -247,9 +249,9 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $IClumpedOrb {
 
- "clumps$resolve"(): boolean
  "clumps$setClumpedMap"(arg0: $Map$Type<(integer), (integer)>): void
  "clumps$getClumpedMap"(): $Map<(integer), (integer)>
+ "clumps$resolve"(): boolean
 }
 
 export namespace $IClumpedOrb {
@@ -295,24 +297,25 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "shl"(arg0: $IData$Type): $IData
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "getInternal"(): $IntTag
+public "copyInternal"(): $IData
+public "neg"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "neg"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -323,26 +326,27 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
 public "getAsString"(): string
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
+public "asByteArray"(): (byte)[]
 public "asMap"(): $Map<(string), ($IData)>
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "asString"(): string
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
+get "internal"(): $IntTag
 get "empty"(): boolean
 get "id"(): byte
 get "keys"(): $Set<(string)>
@@ -375,12 +379,12 @@ constructor(arg0: $MapData$Type)
 public static "load"(arg0: $CompoundTag$Type): $CraftTweakerSavedData
 public "getData"(): $IData
 public "updateData"(arg0: $IData$Type): void
-public "isDirty"(): boolean
-public "save"(arg0: $CompoundTag$Type): $CompoundTag
 public "setData"(arg0: $MapData$Type): void
+public "save"(arg0: $CompoundTag$Type): $CompoundTag
+public "isDirty"(): boolean
 get "data"(): $IData
-get "dirty"(): boolean
 set "data"(value: $MapData$Type)
+get "dirty"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -458,9 +462,8 @@ static readonly "INSTANCE": $TransformCustomSerializer
 public static "values"(): ($TransformCustomSerializer)[]
 public static "valueOf"(arg0: string): $TransformCustomSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformCustom<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $TransformCustom<(any)>
 public "toJson"(arg0: $TransformCustom$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformCustom<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $TransformCustom$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -623,96 +626,96 @@ export interface $IItemStack extends $IIngredient, $IIngredientWithAmount {
  "getTag"(): $IData
  "getDisplayName"(): $Component
  "withTag"(arg0: $MapData$Type): $IItemStack
+ "getRegistryName"(): $ResourceLocation
+ "asImmutable"(): $IItemStack
+ "shrink"(arg0: integer): $IItemStack
+ "withAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[], arg5: boolean): $IItemStack
+ "withAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[], arg6: boolean): $IItemStack
+ "withAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[], arg6: boolean): $IItemStack
  "isImmutable"(): boolean
  "modify"(arg0: $Consumer$Type<($ItemStack$Type)>): $IItemStack
- "asImmutable"(): $IItemStack
- "isMutable"(): boolean
- "getMaxStackSize"(): integer
- "shrink"(arg0: integer): $IItemStack
- "withAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[], arg6: boolean): $IItemStack
- "withAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[], arg6: boolean): $IItemStack
- "withAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[], arg5: boolean): $IItemStack
- "asWeightedItemStack"(): $Percentaged<($IItemStack)>
- "getImmutableInternal"(): $ItemStack
- "asVanillaIngredient"(): $Ingredient
- "asIIngredientWithAmount"(): $IIngredientWithAmount
- "setRarity"(arg0: $Rarity$Type): void
  "getInternal"(): $ItemStack
- "setAmount"(arg0: integer): $IItemStack
- "getDescriptionId"(): string
- "getRarity"(): $Rarity
- "getEnchantmentLevel"(arg0: $Enchantment$Type): integer
- "getOrCreateTag"(): $IData
- "resetHoverName"(): void
- "withLore"(...arg0: ($Component$Type)[]): $IItemStack
- "isStackable"(): boolean
- "withDisplayName"(arg0: $Component$Type): $IItemStack
- "getHoverName"(): $Component
  "hasDisplayName"(): boolean
- "isEnchanted"(): boolean
  "hasFoil"(): boolean
- "getBaseRepairCost"(): integer
+ "isEnchanted"(): boolean
  "isEnchantable"(): boolean
+ "withDisplayName"(arg0: $Component$Type): $IItemStack
+ "getBaseRepairCost"(): integer
+ "withLore"(...arg0: ($Component$Type)[]): $IItemStack
+ "getHoverName"(): $Component
+ "resetHoverName"(): void
  "withDamage"(arg0: integer): $IItemStack
- "setFireResistant"(arg0: boolean): void
- "useOnRelease"(): boolean
- "getUseDuration"(): integer
- "getFood"(): $FoodProperties
- "setFood"(arg0: $FoodProperties$Type): void
- "isDamageableItem"(): boolean
- "isEdible"(): boolean
- "withoutTag"(): $IItemStack
- "setMaxDamage"(arg0: integer): void
- "asMutable"(): $IItemStack
+ "isStackable"(): boolean
+ "percent"(arg0: double): $Percentaged<($IItemStack)>
  "removeEnchantment"(arg0: $Enchantment$Type): $IItemStack
  "asIData"(): $IData
- "withEnchantment"(arg0: $Enchantment$Type, arg1: integer): $IItemStack
  "asItemLike"(): $ItemLike
+ "asMutable"(): $IItemStack
+ "withEnchantment"(arg0: $Enchantment$Type, arg1: integer): $IItemStack
+ "asWeightedItemStack"(): $Percentaged<($IItemStack)>
+ "asVanillaIngredient"(): $Ingredient
+ "getImmutableInternal"(): $ItemStack
+ "asIIngredientWithAmount"(): $IIngredientWithAmount
+ "getDamage"(): integer
+ "hasTag"(): boolean
+ "isMutable"(): boolean
+ "setAmount"(arg0: integer): $IItemStack
+ "getRarity"(): $Rarity
+ "getUseDuration"(): integer
+ "useOnRelease"(): boolean
+ "setMaxDamage"(arg0: integer): void
+ "isDamageableItem"(): boolean
+ "withoutTag"(): $IItemStack
+ "getFood"(): $FoodProperties
+ "setFood"(arg0: $FoodProperties$Type): void
+ "setFireResistant"(arg0: boolean): void
+ "isEdible"(): boolean
+ "getDescriptionId"(): string
+ "getMaxDamage"(): integer
  "isFireResistant"(): boolean
  "isDamaged"(): boolean
  "getBurnTime"(): integer
- "percent"(arg0: double): $Percentaged<($IItemStack)>
- "setMaxStackSize"(arg0: integer): void
- "getDamage"(): integer
- "getRegistryName"(): $ResourceLocation
- "hasTag"(): boolean
+ "getEnchantmentLevel"(arg0: $Enchantment$Type): integer
  "getAmount"(): integer
- "getMaxDamage"(): integer
- "getCommandString"(): string
- "getEnchantments"(): $Map<($Enchantment), (integer)>
- "setEnchantments"(arg0: $Map$Type<($Enchantment$Type), (integer)>): $IItemStack
+ "setMaxStackSize"(arg0: integer): void
+ "getMaxStackSize"(): integer
  "getIngredient"(): $IItemStack
+ "getOrCreateTag"(): $IData
+ "getCommandString"(): string
+ "setRarity"(arg0: $Rarity$Type): void
+ "setEnchantments"(arg0: $Map$Type<($Enchantment$Type), (integer)>): $IItemStack
+ "getEnchantments"(): $Map<($Enchantment), (integer)>
  "matches"(arg0: $IItemStack$Type): boolean
  "contains"(arg0: $IIngredient$Type): boolean
  "transform"(arg0: $IIngredientTransformer$Type<($IIngredient$Type)>): $IIngredientTransformed<($IIngredient)>
  "or"(arg0: $IIngredient$Type): $IIngredientList
  "mul"(arg0: integer): $IIngredientWithAmount
- "getItems"(): ($IItemStack)[]
+ "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
  "removeGlobalAttributeModifier"(arg0: $UUID$Type, arg1: ($EquipmentSlot$Type)[]): void
  "removeGlobalAttributeModifier"(arg0: string, arg1: ($EquipmentSlot$Type)[]): void
- "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
  "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
+ "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
  "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[]): void
  "removeGlobalAttribute"(arg0: $Attribute$Type, arg1: ($EquipmentSlot$Type)[]): void
- "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
- "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
- "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
- "modifyTooltip"(arg0: $ITooltipFunction$Type): void
- "removeTooltip"(arg0: string): void
- "clearTooltip"(arg0: boolean): void
- "anyDamage"(): $IIngredientConditioned<($IIngredient)>
- "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
- "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
- "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
- "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
- "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
- "asMapData"(): $MapData
- "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
- "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+ "getItems"(): ($IItemStack)[]
  "reuse"(): $IIngredientTransformed<($IIngredient)>
- "setBurnTime"(arg0: integer): void
- "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
+ "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+ "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
+ "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+ "anyDamage"(): $IIngredientConditioned<($IIngredient)>
  "addTooltip"(arg0: $Component$Type): void
+ "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
+ "clearTooltip"(arg0: boolean): void
+ "asMapData"(): $MapData
+ "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
+ "removeTooltip"(arg0: string): void
+ "modifyTooltip"(arg0: $ITooltipFunction$Type): void
+ "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
+ "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+ "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
+ "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
+ "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
+ "setBurnTime"(arg0: integer): void
 }
 
 export namespace $IItemStack {
@@ -792,36 +795,36 @@ export interface $IIngredient extends $CommandStringDisplayable {
  "transform"(arg0: $IIngredientTransformer$Type<($IIngredient$Type)>): $IIngredientTransformed<($IIngredient)>
  "or"(arg0: $IIngredient$Type): $IIngredientList
  "mul"(arg0: integer): $IIngredientWithAmount
- "getItems"(): ($IItemStack)[]
+ "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
  "removeGlobalAttributeModifier"(arg0: $UUID$Type, arg1: ($EquipmentSlot$Type)[]): void
  "removeGlobalAttributeModifier"(arg0: string, arg1: ($EquipmentSlot$Type)[]): void
- "asVanillaIngredient"(): $Ingredient
- "asIIngredientWithAmount"(): $IIngredientWithAmount
- "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
  "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
+ "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
  "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[]): void
  "removeGlobalAttribute"(arg0: $Attribute$Type, arg1: ($EquipmentSlot$Type)[]): void
- "asIData"(): $IData
- "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
- "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
- "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
- "modifyTooltip"(arg0: $ITooltipFunction$Type): void
- "removeTooltip"(arg0: string): void
- "clearTooltip"(arg0: boolean): void
- "anyDamage"(): $IIngredientConditioned<($IIngredient)>
- "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
- "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
- "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
- "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
- "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
- "asMapData"(): $MapData
- "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
- "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+ "getItems"(): ($IItemStack)[]
  "reuse"(): $IIngredientTransformed<($IIngredient)>
- "setBurnTime"(arg0: integer): void
- "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
- "getCommandString"(): string
+ "asIData"(): $IData
+ "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+ "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
+ "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+ "anyDamage"(): $IIngredientConditioned<($IIngredient)>
+ "asVanillaIngredient"(): $Ingredient
+ "asIIngredientWithAmount"(): $IIngredientWithAmount
  "addTooltip"(arg0: $Component$Type): void
+ "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
+ "clearTooltip"(arg0: boolean): void
+ "asMapData"(): $MapData
+ "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
+ "removeTooltip"(arg0: string): void
+ "modifyTooltip"(arg0: $ITooltipFunction$Type): void
+ "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
+ "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+ "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
+ "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
+ "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
+ "setBurnTime"(arg0: integer): void
+ "getCommandString"(): string
 }
 
 export namespace $IIngredient {
@@ -923,12 +926,13 @@ public "getType"(): $IData$Type
 public "copy"(): $IData
 public "asList"(): $List<($IData)>
 public "asByteArray"(): (byte)[]
-public "getAt"(arg0: integer): $IData
-public "copyInternal"(): $IData
 public "equalTo"(arg0: $IData$Type): boolean
-public "asLongArray"(): (long)[]
+public "getAt"(arg0: integer): $IData
+public "getInternal"(): $LongArrayTag
+public "copyInternal"(): $IData
 public "asIntArray"(): (integer)[]
 public "isListable"(): boolean
+public "asLongArray"(): (long)[]
 public "add"(arg0: $IData$Type): $IData
 public "remove"(arg0: string): void
 public "isEmpty"(): boolean
@@ -936,37 +940,38 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
-public "asByte"(): byte
-public "asShort"(): short
-public "asLong"(): long
-public "asFloat"(): float
-public "asString"(): string
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: string): $IData
 public "neg"(): $IData
+public "asString"(): string
 public "asBool"(): boolean
 public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "asFloat"(): float
+public "asByte"(): byte
+public "asShort"(): short
+public "asLong"(): long
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
+get "internal"(): $LongArrayTag
 get "listable"(): boolean
 get "empty"(): boolean
 get "id"(): byte
@@ -1004,15 +1009,15 @@ constructor(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>)
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "matches"(arg0: $IItemStack$Type): boolean
-public "ignoresDamage"(): boolean
-public "getSerializer"(): $IIngredientConditionSerializer<(any)>
 public "getUid"(): string
+public "getSerializer"(): $IIngredientConditionSerializer<(any)>
 public "getCommandString"(arg0: T): string
+public "ignoresDamage"(): boolean
 public "write"(arg0: $FriendlyByteBuf$Type): void
 public "getType"(): $ResourceLocation
 public "toJson"(): $JsonObject
-get "serializer"(): $IIngredientConditionSerializer<(any)>
 get "uid"(): string
+get "serializer"(): $IIngredientConditionSerializer<(any)>
 get "type"(): $ResourceLocation
 }
 /**
@@ -1036,8 +1041,8 @@ export interface $AccessItem {
  "crafttweaker$setMaxDamage"(arg0: integer): void
  "crafttweaker$setFireResistant"(arg0: boolean): void
  "crafttweaker$setMaxStackSize"(arg0: integer): void
- "crafttweaker$setFoodProperties"(arg0: $FoodProperties$Type): void
  "crafttweaker$setRarity"(arg0: $Rarity$Type): void
+ "crafttweaker$setFoodProperties"(arg0: $FoodProperties$Type): void
 }
 
 export namespace $AccessItem {
@@ -1084,18 +1089,18 @@ declare module "packages/com/blamejared/crafttweaker/mixin/common/access/block/$
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessBlockStateBase {
 
- "crafttweaker$setCanOcclude"(arg0: boolean): void
- "crafttweaker$setIsAir"(arg0: boolean): void
- "crafttweaker$setDestroySpeed"(arg0: float): void
- "crafttweaker$getLightEmission"(): integer
+ "crafttweaker$isUseShapeForLightOcclusion"(): boolean
+ "crafttweaker$isRequiresCorrectToolForDrops"(): boolean
+ "crafttweaker$setRequiresCorrectToolForDrops"(arg0: boolean): void
+ "crafttweaker$setUseShapeForLightOcclusion"(arg0: boolean): void
  "crafttweaker$setLightEmission"(arg0: integer): void
  "crafttweaker$isCanOcclude"(): boolean
  "crafttweaker$isIsAir"(): boolean
  "crafttweaker$getDestroySpeed"(): float
- "crafttweaker$setRequiresCorrectToolForDrops"(arg0: boolean): void
- "crafttweaker$isUseShapeForLightOcclusion"(): boolean
- "crafttweaker$setUseShapeForLightOcclusion"(arg0: boolean): void
- "crafttweaker$isRequiresCorrectToolForDrops"(): boolean
+ "crafttweaker$setCanOcclude"(arg0: boolean): void
+ "crafttweaker$getLightEmission"(): integer
+ "crafttweaker$setIsAir"(arg0: boolean): void
+ "crafttweaker$setDestroySpeed"(arg0: float): void
 }
 
 export namespace $AccessBlockStateBase {
@@ -1164,10 +1169,10 @@ export class $CTShapedRecipeSerializer implements $RecipeSerializer<($CTShapedRe
 static readonly "INSTANCE": $CTShapedRecipeSerializer
 
 
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $CTShapedRecipe
-public "makeRecipe"(arg0: $ResourceLocation$Type, arg1: $IItemStack$Type, arg2: (($IIngredient$Type)[])[], arg3: $MirrorAxis$Type, arg4: $RecipeFunction2D$Type): $CTShapedRecipe
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $CTShapedRecipe
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $CTShapedRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $CTShapedRecipe$Type): void
+public "makeRecipe"(arg0: $ResourceLocation$Type, arg1: $IItemStack$Type, arg2: (($IIngredient$Type)[])[], arg3: $MirrorAxis$Type, arg4: $RecipeFunction2D$Type): $CTShapedRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $CTShapedRecipe
 }
@@ -1245,12 +1250,13 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "getKeys"(): $Set<(string)>
+public "boolDataKeys"(): $Set<(string)>
+public "equalTo"(arg0: $IData$Type): boolean
+public "asMap"(): $Map<(string), ($IData)>
 public "getAt"(arg0: integer): $IData
 public "getAt"(arg0: string): $IData
-public "asMap"(): $Map<(string), ($IData)>
+public "getInternal"(): $CompoundTag
 public "copyInternal"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "boolDataKeys"(): $Set<(string)>
 public "isMappable"(): boolean
 public "add"(arg0: $IData$Type): $IData
 public "compareTo"(arg0: $IData$Type): integer
@@ -1259,38 +1265,39 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
 public "asList"(): $List<($IData)>
-public "sub"(arg0: $IData$Type): $IData
-public "asByteArray"(): (byte)[]
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "asByteArray"(): (byte)[]
+public "neg"(): $IData
+public "asString"(): string
+public "asIntArray"(): (integer)[]
+public "asBool"(): boolean
+public "setAt"(arg0: string, arg1: $IData$Type): void
+public "isListable"(): boolean
+public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
 public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "asString"(): string
-public "neg"(): $IData
-public "asBool"(): boolean
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
-public "asIntArray"(): (integer)[]
-public "isListable"(): boolean
-public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
 get "keys"(): $Set<(string)>
+get "internal"(): $CompoundTag
 get "mappable"(): boolean
 get "empty"(): boolean
 get "id"(): byte
@@ -1322,8 +1329,8 @@ static readonly "INSTANCE": $ScriptSerializer
 
 constructor()
 
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ScriptRecipe
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ScriptRecipe
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ScriptRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ScriptRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ScriptRecipe
@@ -1371,12 +1378,13 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "asList"(): $List<($IData)>
 public "asByteArray"(): (byte)[]
-public "getAt"(arg0: integer): $IData
-public "copyInternal"(): $ByteArrayData
 public "equalTo"(arg0: $IData$Type): boolean
-public "asLongArray"(): (long)[]
+public "getAt"(arg0: integer): $IData
+public "getInternal"(): $ByteArrayTag
+public "copyInternal"(): $ByteArrayData
 public "asIntArray"(): (integer)[]
 public "isListable"(): boolean
+public "asLongArray"(): (long)[]
 public "add"(arg0: $IData$Type): $IData
 public "remove"(arg0: string): void
 public "isEmpty"(): boolean
@@ -1384,37 +1392,38 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
-public "asByte"(): byte
-public "asShort"(): short
-public "asLong"(): long
-public "asFloat"(): float
-public "asString"(): string
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: string): $IData
 public "neg"(): $IData
+public "asString"(): string
 public "asBool"(): boolean
 public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "asFloat"(): float
+public "asByte"(): byte
+public "asShort"(): short
+public "asLong"(): long
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
+get "internal"(): $ByteArrayTag
 get "listable"(): boolean
 get "empty"(): boolean
 get "id"(): byte
@@ -1531,34 +1540,34 @@ public "matches"(arg0: $IItemStack$Type): boolean
 public "contains"(arg0: $IIngredient$Type): boolean
 public "transform"(arg0: $IIngredientTransformer$Type<($IIngredient$Type)>): $IIngredientTransformed<($IIngredient)>
 public "mul"(arg0: integer): $IIngredientWithAmount
+public "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
 public "removeGlobalAttributeModifier"(arg0: $UUID$Type, arg1: ($EquipmentSlot$Type)[]): void
 public "removeGlobalAttributeModifier"(arg0: string, arg1: ($EquipmentSlot$Type)[]): void
-public "asIIngredientWithAmount"(): $IIngredientWithAmount
-public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
 public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
+public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
 public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[]): void
 public "removeGlobalAttribute"(arg0: $Attribute$Type, arg1: ($EquipmentSlot$Type)[]): void
-public "asIData"(): $IData
-public "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
-public "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
-public "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
-public "modifyTooltip"(arg0: $ITooltipFunction$Type): void
-public "removeTooltip"(arg0: string): void
-public "clearTooltip"(arg0: boolean): void
-public "anyDamage"(): $IIngredientConditioned<($IIngredient)>
-public "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
-public "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
-public "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
-public "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
-public "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
-public "asMapData"(): $MapData
-public "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
-public static "fromIngredient"(arg0: $Ingredient$Type): $IIngredient
-public "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
 public "reuse"(): $IIngredientTransformed<($IIngredient)>
-public "setBurnTime"(arg0: integer): void
-public "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
+public "asIData"(): $IData
+public "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+public "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
+public "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+public "anyDamage"(): $IIngredientConditioned<($IIngredient)>
+public "asIIngredientWithAmount"(): $IIngredientWithAmount
 public "addTooltip"(arg0: $Component$Type): void
+public "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
+public "clearTooltip"(arg0: boolean): void
+public static "fromIngredient"(arg0: $Ingredient$Type): $IIngredient
+public "asMapData"(): $MapData
+public "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
+public "removeTooltip"(arg0: string): void
+public "modifyTooltip"(arg0: $ITooltipFunction$Type): void
+public "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
+public "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+public "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
+public "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
+public "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
+public "setBurnTime"(arg0: integer): void
 get "empty"(): boolean
 get "items"(): ($IItemStack)[]
 get "ingredients"(): ($IIngredient)[]
@@ -1581,16 +1590,16 @@ declare module "packages/com/blamejared/crafttweaker/mixin/common/access/block/$
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessBlockBehaviour {
 
- "crafttweaker$setSpeedFactor"(arg0: float): void
+ "crafttweaker$getSpeedFactor"(): float
+ "crafttweaker$setJumpFactor"(arg0: float): void
+ "crafttweaker$setHasCollision"(arg0: boolean): void
  "crafttweaker$getFriction"(): float
  "crafttweaker$setFriction"(arg0: float): void
- "crafttweaker$getSpeedFactor"(): float
- "crafttweaker$getHasCollision"(): boolean
- "crafttweaker$setHasCollision"(arg0: boolean): void
+ "crafttweaker$setSpeedFactor"(arg0: float): void
  "crafttweaker$getJumpFactor"(): float
- "crafttweaker$setJumpFactor"(arg0: float): void
- "crafttweaker$setExplosionResistance"(arg0: float): void
+ "crafttweaker$getHasCollision"(): boolean
  "crafttweaker$getExplosionResistance"(): float
+ "crafttweaker$setExplosionResistance"(arg0: float): void
 }
 
 export namespace $AccessBlockBehaviour {
@@ -1636,19 +1645,19 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "mod"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
 public "sub"(arg0: $IData$Type): $IData
 public "mul"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "copyInternal"(): $IData
+public "neg"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "neg"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -1659,27 +1668,27 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "or"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "xor"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "shl"(arg0: $IData$Type): $IData
+public "asByteArray"(): (byte)[]
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "asString"(): string
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
@@ -1735,40 +1744,40 @@ export interface $IData extends $Comparable<($IData)>, $Iterable<($IData)> {
  "copy"(): $IData
  "mod"(arg0: $IData$Type): $IData
  "asList"(): $List<($IData)>
- "sub"(arg0: $IData$Type): $IData
- "asByteArray"(): (byte)[]
  "or"(arg0: $IData$Type): $IData
+ "div"(arg0: $IData$Type): $IData
+ "sub"(arg0: $IData$Type): $IData
  "and"(arg0: $IData$Type): $IData
  "not"(): $IData
  "getKeys"(): $Set<(string)>
  "cat"(arg0: $IData$Type): $IData
- "getAsString"(): string
  "mul"(arg0: $IData$Type): $IData
  "xor"(arg0: $IData$Type): $IData
- "div"(arg0: $IData$Type): $IData
- "getAt"(arg0: string): $IData
- "getAt"(arg0: integer): $IData
- "asMap"(): $Map<(string), ($IData)>
- "shl"(arg0: $IData$Type): $IData
+ "getAsString"(): string
  "shr"(arg0: $IData$Type): $IData
+ "shl"(arg0: $IData$Type): $IData
  "asInt"(): integer
  "asDouble"(): double
- "getInternal"(): $Tag
- "asByte"(): byte
- "asShort"(): short
- "asLong"(): long
- "asFloat"(): float
- "copyInternal"(): $IData
- "asString"(): string
- "neg"(): $IData
+ "asByteArray"(): (byte)[]
  "equalTo"(arg0: $IData$Type): boolean
- "asBool"(): boolean
- "asLongArray"(): (long)[]
- "setAt"(arg0: string, arg1: $IData$Type): void
+ "asMap"(): $Map<(string), ($IData)>
+ "getAt"(arg0: integer): $IData
+ "getAt"(arg0: string): $IData
+ "getInternal"(): $Tag
+ "copyInternal"(): $IData
+ "neg"(): $IData
+ "asString"(): string
  "asIntArray"(): (integer)[]
+ "asBool"(): boolean
+ "setAt"(arg0: string, arg1: $IData$Type): void
  "isListable"(): boolean
  "isMappable"(): boolean
  "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+ "asLongArray"(): (long)[]
+ "asFloat"(): float
+ "asByte"(): byte
+ "asShort"(): short
+ "asLong"(): long
  "spliterator"(): $Spliterator<($IData)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
 }
@@ -1792,11 +1801,11 @@ declare module "packages/com/blamejared/crafttweaker/mixin/common/access/food/$A
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessFoodProperties {
 
- "crafttweaker$setCanAlwaysEat"(arg0: boolean): void
+ "crafttweaker$setNutrition"(arg0: integer): void
  "crafttweaker$setIsMeat"(arg0: boolean): void
  "crafttweaker$setFastFood"(arg0: boolean): void
- "crafttweaker$setNutrition"(arg0: integer): void
  "crafttweaker$setSaturationModifier"(arg0: float): void
+ "crafttweaker$setCanAlwaysEat"(arg0: boolean): void
 }
 
 export namespace $AccessFoodProperties {
@@ -1868,9 +1877,9 @@ constructor(arg0: T, arg1: $IIngredientTransformer$Type<(T)>)
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "matches"(arg0: $IItemStack$Type, arg1: boolean): boolean
-public "getTransformer"(): $IIngredientTransformer<(T)>
 public "getItems"(): ($IItemStack)[]
 public "asVanillaIngredient"(): $Ingredient
+public "getTransformer"(): $IIngredientTransformer<(T)>
 public "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
 public "getBaseIngredient"(): T
 public "getCommandString"(): string
@@ -1880,35 +1889,35 @@ public "contains"(arg0: $IIngredient$Type): boolean
 public "transform"(arg0: $IIngredientTransformer$Type<($IIngredient$Type)>): $IIngredientTransformed<($IIngredient)>
 public "or"(arg0: $IIngredient$Type): $IIngredientList
 public "mul"(arg0: integer): $IIngredientWithAmount
+public "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
 public "removeGlobalAttributeModifier"(arg0: $UUID$Type, arg1: ($EquipmentSlot$Type)[]): void
 public "removeGlobalAttributeModifier"(arg0: string, arg1: ($EquipmentSlot$Type)[]): void
-public "asIIngredientWithAmount"(): $IIngredientWithAmount
-public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
 public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
+public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
 public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[]): void
 public "removeGlobalAttribute"(arg0: $Attribute$Type, arg1: ($EquipmentSlot$Type)[]): void
-public "asIData"(): $IData
-public "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
-public "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
-public "modifyTooltip"(arg0: $ITooltipFunction$Type): void
-public "removeTooltip"(arg0: string): void
-public "clearTooltip"(arg0: boolean): void
-public "anyDamage"(): $IIngredientConditioned<($IIngredient)>
-public "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
-public "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
-public "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
-public "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
-public "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
-public "asMapData"(): $MapData
-public "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
-public static "fromIngredient"(arg0: $Ingredient$Type): $IIngredient
-public "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
 public "reuse"(): $IIngredientTransformed<($IIngredient)>
-public "setBurnTime"(arg0: integer): void
-public "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
+public "asIData"(): $IData
+public "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+public "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
+public "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+public "anyDamage"(): $IIngredientConditioned<($IIngredient)>
+public "asIIngredientWithAmount"(): $IIngredientWithAmount
 public "addTooltip"(arg0: $Component$Type): void
-get "transformer"(): $IIngredientTransformer<(T)>
+public "clearTooltip"(arg0: boolean): void
+public static "fromIngredient"(arg0: $Ingredient$Type): $IIngredient
+public "asMapData"(): $MapData
+public "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
+public "removeTooltip"(arg0: string): void
+public "modifyTooltip"(arg0: $ITooltipFunction$Type): void
+public "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
+public "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+public "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
+public "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
+public "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
+public "setBurnTime"(arg0: integer): void
 get "items"(): ($IItemStack)[]
+get "transformer"(): $IIngredientTransformer<(T)>
 get "baseIngredient"(): T
 get "commandString"(): string
 get "empty"(): boolean
@@ -1940,9 +1949,9 @@ export interface $IIngredientCondition<T extends $IIngredient> {
  "write"(arg0: $FriendlyByteBuf$Type): void
  "getType"(): $ResourceLocation
  "toJson"(): $JsonObject
- "ignoresDamage"(): boolean
  "getSerializer"(): $IIngredientConditionSerializer<(any)>
  "getCommandString"(arg0: T): string
+ "ignoresDamage"(): boolean
 }
 
 export namespace $IIngredientCondition {
@@ -1999,8 +2008,8 @@ export interface $IIngredientTransformer<T extends $IIngredient> {
  "getType"(): $ResourceLocation
  "toJson"(): $JsonObject
  "getSerializer"(): $IIngredientTransformerSerializer<(any)>
- "getCommandString"(arg0: T): string
  "toNetwork"(arg0: $FriendlyByteBuf$Type): void
+ "getCommandString"(arg0: T): string
 }
 
 export namespace $IIngredientTransformer {
@@ -2027,9 +2036,9 @@ import {$IIngredientTransformer, $IIngredientTransformer$Type} from "packages/co
 export interface $IIngredientTransformerSerializer<T extends $IIngredientTransformer<(any)>> {
 
  "getType"(): $ResourceLocation
- "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
  "fromJson"(arg0: $JsonObject$Type): T
  "toJson"(arg0: T): $JsonObject
+ "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
  "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: T): void
 }
 
@@ -2079,12 +2088,13 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "asList"(): $List<($IData)>
 public "asByteArray"(): (byte)[]
-public "getAt"(arg0: integer): $IData
-public "copyInternal"(): $IntArrayData
 public "equalTo"(arg0: $IData$Type): boolean
-public "asLongArray"(): (long)[]
+public "getAt"(arg0: integer): $IData
+public "getInternal"(): $IntArrayTag
+public "copyInternal"(): $IntArrayData
 public "asIntArray"(): (integer)[]
 public "isListable"(): boolean
+public "asLongArray"(): (long)[]
 public "add"(arg0: $IData$Type): $IData
 public "remove"(arg0: string): void
 public "isEmpty"(): boolean
@@ -2092,37 +2102,38 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
-public "asByte"(): byte
-public "asShort"(): short
-public "asLong"(): long
-public "asFloat"(): float
-public "asString"(): string
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: string): $IData
 public "neg"(): $IData
+public "asString"(): string
 public "asBool"(): boolean
 public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "asFloat"(): float
+public "asByte"(): byte
+public "asShort"(): short
+public "asLong"(): long
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
+get "internal"(): $IntArrayTag
 get "listable"(): boolean
 get "empty"(): boolean
 get "id"(): byte
@@ -2174,14 +2185,14 @@ public "not"(): $IData
 public "xor"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "copyInternal"(): $IData
+public "asBool"(): boolean
+public "getByteData"(): $ByteData
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "getByteData"(): $ByteData
-public "asBool"(): boolean
 public "add"(arg0: $IData$Type): $IData
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
@@ -2194,27 +2205,27 @@ public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
 public "asList"(): $List<($IData)>
+public "div"(arg0: $IData$Type): $IData
 public "sub"(arg0: $IData$Type): $IData
-public "asByteArray"(): (byte)[]
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
-public "asString"(): string
+public "shl"(arg0: $IData$Type): $IData
+public "asByteArray"(): (byte)[]
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "neg"(): $IData
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
+public "asString"(): string
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
@@ -2245,8 +2256,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $AccessIngredient {
 
  "crafttweaker$setItemStacks"(arg0: ($ItemStack$Type)[]): void
- "crafttweaker$getValues"(): ($Ingredient$Value)[]
  "crafttweaker$getItemStacks"(): ($ItemStack)[]
+ "crafttweaker$getValues"(): ($Ingredient$Value)[]
 }
 
 export namespace $AccessIngredient {
@@ -2279,9 +2290,8 @@ static readonly "INSTANCE": $TransformReplaceSerializer
 public static "values"(): ($TransformReplaceSerializer)[]
 public static "valueOf"(arg0: string): $TransformReplaceSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformReplace<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $TransformReplace<(any)>
 public "toJson"(arg0: $TransformReplace$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformReplace<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $TransformReplace$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -2339,14 +2349,14 @@ static readonly "knownTransformers": $Map<(string), ($Function<($IItemStack), ($
 constructor(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>)
 
 public "transform"(arg0: $IItemStack$Type): $IItemStack
-public "getSerializer"(): $IIngredientTransformerSerializer<(any)>
 public "getUid"(): string
+public "getSerializer"(): $IIngredientTransformerSerializer<(any)>
 public "getCommandString"(arg0: T): string
 public "getType"(): $ResourceLocation
 public "toJson"(): $JsonObject
 public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
-get "serializer"(): $IIngredientTransformerSerializer<(any)>
 get "uid"(): string
+get "serializer"(): $IIngredientTransformerSerializer<(any)>
 get "type"(): $ResourceLocation
 }
 /**
@@ -2403,9 +2413,9 @@ constructor()
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "matches"(arg0: $IItemStack$Type): boolean
-public "ignoresDamage"(): boolean
 public "getSerializer"(): $IIngredientConditionSerializer<(any)>
 public "getCommandString"(arg0: $IIngredient$Type): string
+public "ignoresDamage"(): boolean
 public "write"(arg0: $FriendlyByteBuf$Type): void
 public "getType"(): $ResourceLocation
 public "toJson"(): $JsonObject
@@ -2435,11 +2445,11 @@ constructor(arg0: T, arg1: double, arg2: $Function$Type<(T), (string)>)
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getData"(): T
-public "getCommandString"(): string
 public "getPercentage"(): double
+public "getCommandString"(): string
 get "data"(): T
-get "commandString"(): string
 get "percentage"(): double
+get "commandString"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2468,9 +2478,8 @@ static readonly "INSTANCE": $TransformerReuseSerializer
 public static "values"(): ($TransformerReuseSerializer)[]
 public static "valueOf"(arg0: string): $TransformerReuseSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformReuse<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $TransformReuse<(any)>
 public "toJson"(arg0: $TransformReuse$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformReuse<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $TransformReuse$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -2527,9 +2536,8 @@ static readonly "INSTANCE": $ConditionCustomSerializer
 public static "values"(): ($ConditionCustomSerializer)[]
 public static "valueOf"(arg0: string): $ConditionCustomSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $ConditionCustom<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $ConditionCustom<(any)>
 public "toJson"(arg0: $ConditionCustom$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $ConditionCustom<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ConditionCustom$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -2560,9 +2568,8 @@ static readonly "INSTANCE": $TransformDamageSerializer
 public static "values"(): ($TransformDamageSerializer)[]
 public static "valueOf"(arg0: string): $TransformDamageSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformDamage<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $TransformDamage<(any)>
 public "toJson"(arg0: $TransformDamage$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $TransformDamage<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $TransformDamage$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -2579,8 +2586,8 @@ declare global {
 export type $TransformDamageSerializer_ = $TransformDamageSerializer$Type;
 }}
 declare module "packages/com/blamejared/crafttweaker/api/ingredient/condition/serializer/$ConditionAnyDamagedSerializer" {
-import {$ConditionAnyDamage, $ConditionAnyDamage$Type} from "packages/com/blamejared/crafttweaker/api/ingredient/condition/type/$ConditionAnyDamage"
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
+import {$ConditionAnyDamage, $ConditionAnyDamage$Type} from "packages/com/blamejared/crafttweaker/api/ingredient/condition/type/$ConditionAnyDamage"
 import {$IIngredientConditionSerializer, $IIngredientConditionSerializer$Type} from "packages/com/blamejared/crafttweaker/api/ingredient/condition/serializer/$IIngredientConditionSerializer"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
@@ -2593,9 +2600,8 @@ static readonly "INSTANCE": $ConditionAnyDamagedSerializer
 public static "values"(): ($ConditionAnyDamagedSerializer)[]
 public static "valueOf"(arg0: string): $ConditionAnyDamagedSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $ConditionAnyDamage<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $ConditionAnyDamage<(any)>
 public "toJson"(arg0: $ConditionAnyDamage$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $ConditionAnyDamage<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ConditionAnyDamage$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -2641,48 +2647,48 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "matches"(arg0: $IItemStack$Type, arg1: boolean): boolean
 public "getItems"(): ($IItemStack)[]
+public "getCondition"(): $IIngredientCondition<(T)>
 public "asVanillaIngredient"(): $Ingredient
 public "getBaseIngredient"(): T
 public "getCommandString"(): string
-public "getCondition"(): $IIngredientCondition<(T)>
 public "isEmpty"(): boolean
 public "matches"(arg0: $IItemStack$Type): boolean
 public "contains"(arg0: $IIngredient$Type): boolean
 public "transform"(arg0: $IIngredientTransformer$Type<($IIngredient$Type)>): $IIngredientTransformed<($IIngredient)>
 public "or"(arg0: $IIngredient$Type): $IIngredientList
 public "mul"(arg0: integer): $IIngredientWithAmount
+public "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
 public "removeGlobalAttributeModifier"(arg0: $UUID$Type, arg1: ($EquipmentSlot$Type)[]): void
 public "removeGlobalAttributeModifier"(arg0: string, arg1: ($EquipmentSlot$Type)[]): void
-public "asIIngredientWithAmount"(): $IIngredientWithAmount
-public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
 public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
+public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: $UUID$Type, arg2: string, arg3: double, arg4: $AttributeModifier$Operation$Type, arg5: ($EquipmentSlot$Type)[]): void
 public "addGlobalAttributeModifier"(arg0: $Attribute$Type, arg1: string, arg2: double, arg3: $AttributeModifier$Operation$Type, arg4: ($EquipmentSlot$Type)[]): void
 public "removeGlobalAttribute"(arg0: $Attribute$Type, arg1: ($EquipmentSlot$Type)[]): void
-public "asIData"(): $IData
-public "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
-public "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
-public "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
-public "modifyTooltip"(arg0: $ITooltipFunction$Type): void
-public "removeTooltip"(arg0: string): void
-public "clearTooltip"(arg0: boolean): void
-public "anyDamage"(): $IIngredientConditioned<($IIngredient)>
-public "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
-public "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
-public "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
-public "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
-public "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
-public "asMapData"(): $MapData
-public "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
-public static "fromIngredient"(arg0: $Ingredient$Type): $IIngredient
-public "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
 public "reuse"(): $IIngredientTransformed<($IIngredient)>
-public "setBurnTime"(arg0: integer): void
-public "only"(arg0: $IIngredientCondition$Type<($IIngredient$Type)>): $IIngredientConditioned<($IIngredient)>
+public "asIData"(): $IData
+public "onlyDamagedAtMost"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+public "onlyIf"(arg0: string, arg1: $Predicate$Type<($IItemStack$Type)>): $IIngredientConditioned<($IIngredient)>
+public "onlyDamagedAtLeast"(arg0: integer): $IIngredientConditioned<($IIngredient)>
+public "anyDamage"(): $IIngredientConditioned<($IIngredient)>
+public "asIIngredientWithAmount"(): $IIngredientWithAmount
 public "addTooltip"(arg0: $Component$Type): void
+public "getRemainingItem"(arg0: $IItemStack$Type): $IItemStack
+public "clearTooltip"(arg0: boolean): void
+public static "fromIngredient"(arg0: $Ingredient$Type): $IIngredient
+public "asMapData"(): $MapData
+public "modifyShiftTooltip"(arg0: $ITooltipFunction$Type, arg1: $ITooltipFunction$Type): void
+public "removeTooltip"(arg0: string): void
+public "modifyTooltip"(arg0: $ITooltipFunction$Type): void
+public "addShiftTooltip"(arg0: $Component$Type, arg1: $Component$Type): void
+public "transformDamage"(arg0: integer): $IIngredientTransformed<($IIngredient)>
+public "transformReplace"(arg0: $IItemStack$Type): $IIngredientTransformed<($IIngredient)>
+public "onlyDamaged"(): $IIngredientConditioned<($IIngredient)>
+public "transformCustom"(arg0: string, arg1: $Function$Type<($IItemStack$Type), ($IItemStack$Type)>): $IIngredientTransformed<($IIngredient)>
+public "setBurnTime"(arg0: integer): void
 get "items"(): ($IItemStack)[]
+get "condition"(): $IIngredientCondition<(T)>
 get "baseIngredient"(): T
 get "commandString"(): string
-get "condition"(): $IIngredientCondition<(T)>
 get "empty"(): boolean
 set "burnTime"(value: integer)
 }
@@ -2719,42 +2725,42 @@ constructor(arg0: $ResourceLocation$Type, arg1: string, arg2: string)
 
 public "getContent"(): string
 public "getFileName"(): string
-public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
-public "getSerializer"(): $RecipeSerializer<(any)>
+public "getId"(): $ResourceLocation
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "getId"(): $ResourceLocation
+public "getSerializer"(): $RecipeSerializer<(any)>
+public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "isSpecial"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
+public "getToastSymbol"(): $ItemStack
 public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
-public "setGroup"(group: string): void
-public "getGroup"(): string
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
+public "getGroup"(): string
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasInput"(match: $ReplacementMatch$Type): boolean
 get "content"(): string
 get "fileName"(): string
-get "serializer"(): $RecipeSerializer<(any)>
 get "id"(): $ResourceLocation
+get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
 get "type"(): $ResourceLocation
 get "mod"(): string
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2783,9 +2789,8 @@ static readonly "INSTANCE": $ConditionDamagedSerializer
 public static "values"(): ($ConditionDamagedSerializer)[]
 public static "valueOf"(arg0: string): $ConditionDamagedSerializer
 public "getType"(): $ResourceLocation
-public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $ConditionDamaged<(any)>
-public "fromJson"(arg0: $JsonObject$Type): $ConditionDamaged<(any)>
 public "toJson"(arg0: $ConditionDamaged$Type<(any)>): $JsonObject
+public "fromNetwork"(arg0: $FriendlyByteBuf$Type): $ConditionDamaged<(any)>
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ConditionDamaged$Type<(any)>): void
 get "type"(): $ResourceLocation
 }
@@ -2868,14 +2873,14 @@ public "copy"(): $IData
 public "cat"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
 public "getInternal"(): $StringTag
+public "copyInternal"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -2886,30 +2891,30 @@ public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "mod"(arg0: $IData$Type): $IData
 public "asList"(): $List<($IData)>
-public "sub"(arg0: $IData$Type): $IData
-public "asByteArray"(): (byte)[]
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
-public "getAsString"(): string
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
-public "asString"(): string
+public "shl"(arg0: $IData$Type): $IData
+public "asByteArray"(): (byte)[]
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "neg"(): $IData
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
+public "asString"(): string
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
@@ -2961,8 +2966,8 @@ declare module "packages/com/blamejared/clumps/mixin/$ExperienceOrbAccess" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ExperienceOrbAccess {
 
- "clumps$setCount"(arg0: integer): void
  "clumps$getAge"(): integer
+ "clumps$setCount"(arg0: integer): void
  "clumps$setAge"(arg0: integer): void
 }
 
@@ -3007,25 +3012,25 @@ constructor(arg0: string, arg1: $CraftingBookCategory$Type, arg2: $IItemStack$Ty
 
 public "getFunction"(): $RecipeFunction2D
 public "isMirrored"(): boolean
-public "getIngredients"(): $NonNullList<($Ingredient)>
-public "isIncomplete"(): boolean
-public "getSerializer"(): $RecipeSerializer<($CTShapedRecipe)>
 public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
+public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getCtOutput"(): $IItemStack
+public "getCtIngredients"(): (($IIngredient)[])[]
+public "getMirrorAxis"(): $MirrorAxis
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
 public "getRemainingItems"(arg0: $CraftingContainer$Type, arg1: $Pair$Type<(integer), (integer)>, arg2: (($IIngredient$Type)[])[]): $NonNullList<($ItemStack)>
-public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "getCtIngredients"(): (($IIngredient)[])[]
-public "getCtOutput"(): $IItemStack
-public "getMirrorAxis"(): $MirrorAxis
+public "getIngredients"(): $NonNullList<($Ingredient)>
+public "getSerializer"(): $RecipeSerializer<($CTShapedRecipe)>
+public "isIncomplete"(): boolean
 get "function"(): $RecipeFunction2D
 get "mirrored"(): boolean
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "incomplete"(): boolean
-get "serializer"(): $RecipeSerializer<($CTShapedRecipe)>
-get "ctIngredients"(): (($IIngredient)[])[]
 get "ctOutput"(): $IItemStack
+get "ctIngredients"(): (($IIngredient)[])[]
 get "mirrorAxis"(): $MirrorAxis
+get "ingredients"(): $NonNullList<($Ingredient)>
+get "serializer"(): $RecipeSerializer<($CTShapedRecipe)>
+get "incomplete"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3067,19 +3072,19 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "mod"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
 public "sub"(arg0: $IData$Type): $IData
 public "mul"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "copyInternal"(): $IData
+public "neg"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "neg"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -3090,27 +3095,27 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "or"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
-public "getAsString"(): string
 public "xor"(arg0: $IData$Type): $IData
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
+public "getAsString"(): string
 public "shr"(arg0: $IData$Type): $IData
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "shl"(arg0: $IData$Type): $IData
+public "asByteArray"(): (byte)[]
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "asString"(): string
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
@@ -3138,9 +3143,9 @@ import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/c
 
 export interface $AccessSmithingTransformRecipe {
 
+ "crafttweaker$getBase"(): $Ingredient
  "crafttweaker$getAddition"(): $Ingredient
  "crafttweaker$getTemplate"(): $Ingredient
- "crafttweaker$getBase"(): $Ingredient
 }
 
 export namespace $AccessSmithingTransformRecipe {
@@ -3181,19 +3186,19 @@ constructor(arg0: string, arg1: $IItemStack$Type, arg2: ($IIngredient$Type)[], a
 constructor(arg0: string, arg1: $CraftingBookCategory$Type, arg2: $IItemStack$Type, arg3: ($IIngredient$Type)[], arg4: $RecipeFunction1D$Type)
 
 public "getFunction"(): $RecipeFunction1D
+public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
+public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getCtOutput"(): $IItemStack
+public "getCtIngredients"(): ($IIngredient)[]
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getSerializer"(): $RecipeSerializer<($CTShapelessRecipe)>
-public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
-public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
-public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "getCtIngredients"(): ($IIngredient)[]
-public "getCtOutput"(): $IItemStack
 get "function"(): $RecipeFunction1D
+get "ctOutput"(): $IItemStack
+get "ctIngredients"(): ($IIngredient)[]
 get "ingredients"(): $NonNullList<($Ingredient)>
 get "serializer"(): $RecipeSerializer<($CTShapelessRecipe)>
-get "ctIngredients"(): ($IIngredient)[]
-get "ctOutput"(): $IItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3221,14 +3226,14 @@ export class $TransformReplace<T extends $IIngredient> implements $IIngredientTr
 constructor(arg0: $IItemStack$Type)
 
 public "transform"(arg0: $IItemStack$Type): $IItemStack
-public "getReplaceWith"(): $IItemStack
 public "getSerializer"(): $IIngredientTransformerSerializer<(any)>
 public "getCommandString"(arg0: T): string
+public "getReplaceWith"(): $IItemStack
 public "getType"(): $ResourceLocation
 public "toJson"(): $JsonObject
 public "toNetwork"(arg0: $FriendlyByteBuf$Type): void
-get "replaceWith"(): $IItemStack
 get "serializer"(): $IIngredientTransformerSerializer<(any)>
+get "replaceWith"(): $IItemStack
 get "type"(): $ResourceLocation
 }
 /**
@@ -3260,19 +3265,19 @@ import {$FloatData, $FloatData$Type} from "packages/com/blamejared/crafttweaker/
 
 export interface $DataVisitor<T> {
 
- "visitByteArray"(arg0: $ByteArrayData$Type): T
  "visitIntArray"(arg0: $IntArrayData$Type): T
- "visitLongArray"(arg0: $LongArrayData$Type): T
- "visitList"(arg0: $ListData$Type): T
+ "visitByteArray"(arg0: $ByteArrayData$Type): T
  "visitBool"(arg0: $BoolData$Type): T
+ "visitList"(arg0: $ListData$Type): T
+ "visitLongArray"(arg0: $LongArrayData$Type): T
  "visitMap"(arg0: $MapData$Type): T
  "visitString"(arg0: $StringData$Type): T
- "visitByte"(arg0: $ByteData$Type): T
- "visitFloat"(arg0: $FloatData$Type): T
  "visitInt"(arg0: $IntData$Type): T
- "visitShort"(arg0: $ShortData$Type): T
+ "visitFloat"(arg0: $FloatData$Type): T
  "visitDouble"(arg0: $DoubleData$Type): T
  "visitLong"(arg0: $LongData$Type): T
+ "visitShort"(arg0: $ShortData$Type): T
+ "visitByte"(arg0: $ByteData$Type): T
 }
 
 export namespace $DataVisitor {
@@ -3305,12 +3310,12 @@ public static "values"(): ($MirrorAxis)[]
 public static "valueOf"(arg0: string): $MirrorAxis
 public "isMirrored"(): boolean
 public "isHorizontal"(): boolean
-public "isVertical"(): boolean
 public "isDiagonal"(): boolean
+public "isVertical"(): boolean
 get "mirrored"(): boolean
 get "horizontal"(): boolean
-get "vertical"(): boolean
 get "diagonal"(): boolean
+get "vertical"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3376,24 +3381,25 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "shl"(arg0: $IData$Type): $IData
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "getInternal"(): $ShortTag
+public "copyInternal"(): $IData
+public "neg"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "neg"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -3404,26 +3410,27 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
 public "getAsString"(): string
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
+public "asByteArray"(): (byte)[]
 public "asMap"(): $Map<(string), ($IData)>
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "asString"(): string
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
+get "internal"(): $ShortTag
 get "empty"(): boolean
 get "id"(): byte
 get "keys"(): $Set<(string)>
@@ -3451,9 +3458,9 @@ import {$IIngredientCondition, $IIngredientCondition$Type} from "packages/com/bl
 export interface $IIngredientConditionSerializer<T extends $IIngredientCondition<(any)>> {
 
  "getType"(): $ResourceLocation
- "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
  "fromJson"(arg0: $JsonObject$Type): T
  "toJson"(arg0: T): $JsonObject
+ "fromNetwork"(arg0: $FriendlyByteBuf$Type): T
  "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: T): void
 }
 
@@ -3500,22 +3507,22 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "copyInternal"(): $IData
+public "neg"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "neg"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -3526,24 +3533,24 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
 public "getAsString"(): string
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
-public "asMap"(): $Map<(string), ($IData)>
-public "shl"(arg0: $IData$Type): $IData
 public "shr"(arg0: $IData$Type): $IData
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "shl"(arg0: $IData$Type): $IData
+public "asByteArray"(): (byte)[]
+public "asMap"(): $Map<(string), ($IData)>
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "asString"(): string
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
@@ -3594,24 +3601,25 @@ public "accept"<T>(arg0: $DataVisitor$Type<(T)>): T
 public "getType"(): $IData$Type
 public "copy"(): $IData
 public "mod"(arg0: $IData$Type): $IData
-public "sub"(arg0: $IData$Type): $IData
 public "or"(arg0: $IData$Type): $IData
+public "div"(arg0: $IData$Type): $IData
+public "sub"(arg0: $IData$Type): $IData
 public "and"(arg0: $IData$Type): $IData
 public "mul"(arg0: $IData$Type): $IData
 public "xor"(arg0: $IData$Type): $IData
-public "div"(arg0: $IData$Type): $IData
-public "shl"(arg0: $IData$Type): $IData
 public "shr"(arg0: $IData$Type): $IData
+public "shl"(arg0: $IData$Type): $IData
 public "asInt"(): integer
 public "asDouble"(): double
+public "equalTo"(arg0: $IData$Type): boolean
+public "getInternal"(): $LongTag
+public "copyInternal"(): $IData
+public "neg"(): $IData
+public "asBool"(): boolean
+public "asFloat"(): float
 public "asByte"(): byte
 public "asShort"(): short
 public "asLong"(): long
-public "asFloat"(): float
-public "copyInternal"(): $IData
-public "neg"(): $IData
-public "equalTo"(arg0: $IData$Type): boolean
-public "asBool"(): boolean
 public "remove"(arg0: integer): void
 public "remove"(arg0: string): void
 public "put"(arg0: string, arg1: $IData$Type): void
@@ -3622,26 +3630,27 @@ public "map"(arg0: $Function$Type<($IData$Type), ($IData$Type)>): $IData
 public "merge"(arg0: $IData$Type): $IData
 public "getId"(): byte
 public "asList"(): $List<($IData)>
-public "asByteArray"(): (byte)[]
 public "not"(): $IData
 public "getKeys"(): $Set<(string)>
 public "cat"(arg0: $IData$Type): $IData
 public "getAsString"(): string
-public "getAt"(arg0: string): $IData
-public "getAt"(arg0: integer): $IData
+public "asByteArray"(): (byte)[]
 public "asMap"(): $Map<(string), ($IData)>
-public static "listOf"(...arg0: ($IData$Type)[]): $IData
+public "getAt"(arg0: integer): $IData
+public "getAt"(arg0: string): $IData
 public "asString"(): string
-public "asLongArray"(): (long)[]
-public "setAt"(arg0: string, arg1: $IData$Type): void
 public "asIntArray"(): (integer)[]
+public "setAt"(arg0: string, arg1: $IData$Type): void
 public "isListable"(): boolean
 public "isMappable"(): boolean
 public "containsList"(arg0: $List$Type<($IData$Type)>): boolean
+public "asLongArray"(): (long)[]
+public static "listOf"(...arg0: ($IData$Type)[]): $IData
 public "spliterator"(): $Spliterator<($IData)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$IData>;
 get "type"(): $IData$Type
+get "internal"(): $LongTag
 get "empty"(): boolean
 get "id"(): byte
 get "keys"(): $Set<(string)>
@@ -3676,9 +3685,9 @@ constructor()
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "matches"(arg0: $IItemStack$Type): boolean
-public "ignoresDamage"(): boolean
 public "getSerializer"(): $IIngredientConditionSerializer<(any)>
 public "getCommandString"(arg0: $IIngredient$Type): string
+public "ignoresDamage"(): boolean
 public "write"(arg0: $FriendlyByteBuf$Type): void
 public "getType"(): $ResourceLocation
 public "toJson"(): $JsonObject

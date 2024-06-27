@@ -13,13 +13,13 @@ constructor(arg0: string, arg1: boolean)
 
 public "toString"(): string
 public "getId"(): string
+public "isCancellable"(): boolean
 public "cancel"(): void
 public "isCancelled"(): boolean
 public static "getCallInfoClassName"(arg0: $Type$Type): string
-public "isCancellable"(): boolean
 get "id"(): string
-get "cancelled"(): boolean
 get "cancellable"(): boolean
+get "cancelled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -42,9 +42,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
  */
 export interface $Cancellable {
 
+ "isCancellable"(): boolean
  "cancel"(): void
  "isCancelled"(): boolean
- "isCancellable"(): boolean
 }
 
 export namespace $Cancellable {
@@ -85,24 +85,24 @@ constructor(arg0: string, arg1: boolean, arg2: double)
 
 public "getReturnValue"(): R
 public "setReturnValue"(arg0: R): void
-public "getReturnValueS"(): short
-public "getReturnValueZ"(): boolean
 public "getReturnValueB"(): byte
-public "getReturnValueJ"(): long
 public "getReturnValueC"(): character
+public "getReturnValueZ"(): boolean
+public "getReturnValueS"(): short
+public "getReturnValueF"(): float
 public "getReturnValueI"(): integer
 public "getReturnValueD"(): double
-public "getReturnValueF"(): float
+public "getReturnValueJ"(): long
 get "returnValue"(): R
 set "returnValue"(value: R)
-get "returnValueS"(): short
-get "returnValueZ"(): boolean
 get "returnValueB"(): byte
-get "returnValueJ"(): long
 get "returnValueC"(): character
+get "returnValueZ"(): boolean
+get "returnValueS"(): short
+get "returnValueF"(): float
 get "returnValueI"(): integer
 get "returnValueD"(): double
-get "returnValueF"(): float
+get "returnValueJ"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

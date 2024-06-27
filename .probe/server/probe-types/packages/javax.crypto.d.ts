@@ -11,15 +11,15 @@ public "getName"(): string
 public static "getInstance"(arg0: string, arg1: string): $ExemptionMechanism
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $ExemptionMechanism
 public static "getInstance"(arg0: string): $ExemptionMechanism
-public "init"(arg0: $Key$Type, arg1: $AlgorithmParameterSpec$Type): void
 public "init"(arg0: $Key$Type): void
 public "init"(arg0: $Key$Type, arg1: $AlgorithmParameters$Type): void
+public "init"(arg0: $Key$Type, arg1: $AlgorithmParameterSpec$Type): void
 public "getProvider"(): $Provider
-public "genExemptionBlob"(arg0: (byte)[]): integer
-public "genExemptionBlob"(): (byte)[]
-public "genExemptionBlob"(arg0: (byte)[], arg1: integer): integer
 public "isCryptoAllowed"(arg0: $Key$Type): boolean
 public "getOutputSize"(arg0: integer): integer
+public "genExemptionBlob"(arg0: (byte)[], arg1: integer): integer
+public "genExemptionBlob"(arg0: (byte)[]): integer
+public "genExemptionBlob"(): (byte)[]
 get "name"(): string
 get "provider"(): $Provider
 }
@@ -75,9 +75,9 @@ public "init"(arg0: integer, arg1: $Certificate$Type, arg2: $SecureRandom$Type):
 public "init"(arg0: integer, arg1: $Key$Type, arg2: $AlgorithmParameters$Type, arg3: $SecureRandom$Type): void
 public "getParameters"(): $AlgorithmParameters
 public "unwrap"(arg0: (byte)[], arg1: string, arg2: integer): $Key
-public "getProvider"(): $Provider
-public "getAlgorithm"(): string
 public "getBlockSize"(): integer
+public "getAlgorithm"(): string
+public "getProvider"(): $Provider
 public "getExemptionMechanism"(): $ExemptionMechanism
 public "updateAAD"(arg0: (byte)[]): void
 public "updateAAD"(arg0: $ByteBuffer$Type): void
@@ -94,9 +94,9 @@ public "doFinal"(arg0: $ByteBuffer$Type, arg1: $ByteBuffer$Type): integer
 public static "getMaxAllowedParameterSpec"(arg0: string): $AlgorithmParameterSpec
 public static "getMaxAllowedKeyLength"(arg0: string): integer
 get "parameters"(): $AlgorithmParameters
-get "provider"(): $Provider
-get "algorithm"(): string
 get "blockSize"(): integer
+get "algorithm"(): string
+get "provider"(): $Provider
 get "exemptionMechanism"(): $ExemptionMechanism
 get "iV"(): (byte)[]
 }

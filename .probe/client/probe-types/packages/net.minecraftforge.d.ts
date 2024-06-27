@@ -70,24 +70,24 @@ export class $PlayerInteractEvent extends $PlayerEvent {
 
 constructor()
 
-public "getHand"(): $InteractionHand
-public "getFace"(): $Direction
-public "getLevel"(): $Level
-public "getListenerList"(): $ListenerList
 public "getSide"(): $LogicalSide
-public "getItemStack"(): $ItemStack
+public "getLevel"(): $Level
+public "getHand"(): $InteractionHand
+public "getPos"(): $BlockPos
+public "getListenerList"(): $ListenerList
+public "getFace"(): $Direction
 public "setCancellationResult"(arg0: $InteractionResult$Type): void
 public "getCancellationResult"(): $InteractionResult
-public "getPos"(): $BlockPos
-get "hand"(): $InteractionHand
-get "face"(): $Direction
-get "level"(): $Level
-get "listenerList"(): $ListenerList
+public "getItemStack"(): $ItemStack
 get "side"(): $LogicalSide
-get "itemStack"(): $ItemStack
+get "level"(): $Level
+get "hand"(): $InteractionHand
+get "pos"(): $BlockPos
+get "listenerList"(): $ListenerList
+get "face"(): $Direction
 set "cancellationResult"(value: $InteractionResult$Type)
 get "cancellationResult"(): $InteractionResult
-get "pos"(): $BlockPos
+get "itemStack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -108,10 +108,10 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $IForgePlayer {
 
+ "isCloseEnough"(arg0: $Entity$Type, arg1: double): boolean
+ "canReach"(arg0: $BlockPos$Type, arg1: double): boolean
  "canReach"(arg0: $Vec3$Type, arg1: double): boolean
  "canReach"(arg0: $Entity$Type, arg1: double): boolean
- "canReach"(arg0: $BlockPos$Type, arg1: double): boolean
- "isCloseEnough"(arg0: $Entity$Type, arg1: double): boolean
  "getBlockReach"(): double
  "getEntityReach"(): double
 }
@@ -136,8 +136,8 @@ import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 
 export interface $INBTSerializable<T extends $Tag> {
 
- "serializeNBT"(): T
  "deserializeNBT"(arg0: T): void
+ "serializeNBT"(): T
 }
 
 export namespace $INBTSerializable {
@@ -262,29 +262,29 @@ import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/
 import {$ClientLevel, $ClientLevel$Type} from "packages/net/minecraft/client/multiplayer/$ClientLevel"
 import {$Minecraft, $Minecraft$Type} from "packages/net/minecraft/client/$Minecraft"
 import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$FogRenderer$FogMode, $FogRenderer$FogMode$Type} from "packages/net/minecraft/client/renderer/$FogRenderer$FogMode"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$FluidType, $FluidType$Type} from "packages/net/minecraftforge/fluids/$FluidType"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
 export interface $IClientFluidTypeExtensions {
 
- "getTintColor"(): integer
- "getTintColor"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
- "getTintColor"(arg0: $FluidStack$Type): integer
+ "getRenderOverlayTexture"(arg0: $Minecraft$Type): $ResourceLocation
  "modifyFogRender"(arg0: $Camera$Type, arg1: $FogRenderer$FogMode$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: $FogShape$Type): void
- "modifyFogColor"(arg0: $Camera$Type, arg1: float, arg2: $ClientLevel$Type, arg3: integer, arg4: float, arg5: $Vector3f$Type): $Vector3f
  "getFlowingTexture"(arg0: $FluidStack$Type): $ResourceLocation
  "getFlowingTexture"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
  "getFlowingTexture"(): $ResourceLocation
- "getOverlayTexture"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
  "getOverlayTexture"(arg0: $FluidStack$Type): $ResourceLocation
+ "getOverlayTexture"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
  "getOverlayTexture"(): $ResourceLocation
  "getStillTexture"(arg0: $FluidStack$Type): $ResourceLocation
- "getStillTexture"(): $ResourceLocation
  "getStillTexture"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): $ResourceLocation
+ "getStillTexture"(): $ResourceLocation
+ "modifyFogColor"(arg0: $Camera$Type, arg1: float, arg2: $ClientLevel$Type, arg3: integer, arg4: float, arg5: $Vector3f$Type): $Vector3f
+ "getTintColor"(): integer
+ "getTintColor"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+ "getTintColor"(arg0: $FluidStack$Type): integer
  "renderOverlay"(arg0: $Minecraft$Type, arg1: $PoseStack$Type): void
- "getRenderOverlayTexture"(arg0: $Minecraft$Type): $ResourceLocation
 }
 
 export namespace $IClientFluidTypeExtensions {
@@ -336,11 +336,11 @@ public "orElseThrow"<X extends $Throwable>(arg0: $Supplier$Type<(any)>): T
 public static "create"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: string): $RegistryObject<(U)>
 public static "create"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $IForgeRegistry$Type<(T)>): $RegistryObject<(U)>
 public static "create"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $ResourceKey$Type<(any)>, arg2: string): $RegistryObject<(U)>
-public "ifPresent"(arg0: $Consumer$Type<(any)>): void
 public "orElseGet"(arg0: $Supplier$Type<(any)>): T
-public static "createOptional"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $ResourceKey$Type<(any)>, arg2: string): $RegistryObject<(U)>
-public static "createOptional"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: string): $RegistryObject<(U)>
+public "ifPresent"(arg0: $Consumer$Type<(any)>): void
 public "getHolder"(): $Optional<($Holder<(T)>)>
+public static "createOptional"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type, arg2: string): $RegistryObject<(U)>
+public static "createOptional"<T, U extends T>(arg0: $ResourceLocation$Type, arg1: $ResourceKey$Type<(any)>, arg2: string): $RegistryObject<(U)>
 public "lazyMap"<U>(arg0: $Function$Type<(any), (any)>): $Supplier<(U)>
 get "key"(): $ResourceKey<(T)>
 get "present"(): boolean
@@ -374,17 +374,17 @@ export interface $IModInfo {
  "getVersion"(): $ArtifactVersion
  "getDisplayName"(): string
  "getDescription"(): string
+ "getConfig"(): $IConfigurable
  "getNamespace"(): string
  "getModId"(): string
+ "getOwningFile"(): $IModFileInfo
+ "getLogoBlur"(): boolean
  "getDependencies"(): $List<(any)>
  "getLogoFile"(): $Optional<(string)>
- "getForgeFeatures"(): $List<(any)>
- "getOwningFile"(): $IModFileInfo
+ "getModProperties"(): $Map<(string), (any)>
  "getUpdateURL"(): $Optional<($URL)>
  "getModURL"(): $Optional<($URL)>
- "getLogoBlur"(): boolean
- "getModProperties"(): $Map<(string), (any)>
- "getConfig"(): $IConfigurable
+ "getForgeFeatures"(): $List<(any)>
 }
 
 export namespace $IModInfo {
@@ -415,13 +415,13 @@ constructor(arg0: integer, arg1: integer)
 constructor(arg0: integer)
 
 public "canExtract"(): boolean
-public "serializeNBT"(): $Tag
 public "deserializeNBT"(arg0: $Tag$Type): void
+public "serializeNBT"(): $Tag
 public "getEnergyStored"(): integer
-public "extractEnergy"(arg0: integer, arg1: boolean): integer
 public "receiveEnergy"(arg0: integer, arg1: boolean): integer
-public "canReceive"(): boolean
 public "getMaxEnergyStored"(): integer
+public "canReceive"(): boolean
+public "extractEnergy"(arg0: integer, arg1: boolean): integer
 get "energyStored"(): integer
 get "maxEnergyStored"(): integer
 }
@@ -446,21 +446,21 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export class $BlockEvent$EntityPlaceEvent extends $BlockEvent {
 
-constructor(arg0: $BlockSnapshot$Type, arg1: $BlockState$Type, arg2: $Entity$Type)
 constructor()
+constructor(arg0: $BlockSnapshot$Type, arg1: $BlockState$Type, arg2: $Entity$Type)
 
-public "getEntity"(): $Entity
-public "getPlacedAgainst"(): $BlockState
 public "isCancelable"(): boolean
 public "getListenerList"(): $ListenerList
-public "getPlacedBlock"(): $BlockState
+public "getPlacedAgainst"(): $BlockState
+public "getEntity"(): $Entity
 public "getBlockSnapshot"(): $BlockSnapshot
-get "entity"(): $Entity
-get "placedAgainst"(): $BlockState
+public "getPlacedBlock"(): $BlockState
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
-get "placedBlock"(): $BlockState
+get "placedAgainst"(): $BlockState
+get "entity"(): $Entity
 get "blockSnapshot"(): $BlockSnapshot
+get "placedBlock"(): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -507,19 +507,19 @@ export interface $IForgeRegistry<V> extends $Iterable<(V)> {
  "getDelegate"(arg0: V): $Optional<($Holder$Reference<(V)>)>
  "getDelegate"(arg0: $ResourceLocation$Type): $Optional<($Holder$Reference<(V)>)>
  "getDelegate"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder$Reference<(V)>)>
- "getValues"(): $Collection<(V)>
- "getCodec"(): $Codec<(V)>
- "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
- "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+ "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+ "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
+ "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
+ "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
+ "getRegistryName"(): $ResourceLocation
+ "getDefaultKey"(): $ResourceLocation
+ "getDelegateOrThrow"(arg0: V): $Holder$Reference<(V)>
  "getDelegateOrThrow"(arg0: $ResourceKey$Type<(V)>): $Holder$Reference<(V)>
  "getDelegateOrThrow"(arg0: $ResourceLocation$Type): $Holder$Reference<(V)>
- "getDelegateOrThrow"(arg0: V): $Holder$Reference<(V)>
- "getRegistryName"(): $ResourceLocation
- "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
- "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
- "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
- "getDefaultKey"(): $ResourceLocation
- "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+ "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
+ "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+ "getCodec"(): $Codec<(V)>
+ "getValues"(): $Collection<(V)>
  "iterator"(): $Iterator<(V)>
  "spliterator"(): $Spliterator<(V)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -576,10 +576,10 @@ constructor()
 constructor(arg0: $ChunkAccess$Type, arg1: $LevelAccessor$Type)
 constructor(arg0: $ChunkAccess$Type)
 
-public "getListenerList"(): $ListenerList
 public "getChunk"(): $ChunkAccess
-get "listenerList"(): $ListenerList
+public "getListenerList"(): $ListenerList
 get "chunk"(): $ChunkAccess
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -606,9 +606,9 @@ export class $ModelDataManager {
 
 constructor(arg0: $Level$Type)
 
+public "requestRefresh"(arg0: $BlockEntity$Type): void
 public "getAt"(arg0: $ChunkPos$Type): $Map<($BlockPos), ($ModelData)>
 public "getAt"(arg0: $BlockPos$Type): $ModelData
-public "requestRefresh"(arg0: $BlockEntity$Type): void
 public static "onChunkUnload"(arg0: $ChunkEvent$Unload$Type): void
 }
 /**
@@ -684,8 +684,8 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IForgeBlockGetter {
 
- "getModelDataManager"(): $ModelDataManager
  "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+ "getModelDataManager"(): $ModelDataManager
 }
 
 export namespace $IForgeBlockGetter {
@@ -722,9 +722,9 @@ readonly "nestedConditionGroups": $List<($MultiPartBlockStateBuilder$PartBuilder
 
 public "condition"<T extends $Comparable<(T)>>(arg0: $Property$Type<(T)>, ...arg1: (T)[]): $MultiPartBlockStateBuilder$PartBuilder
 public "end"(): $MultiPartBlockStateBuilder
-public "nestedGroup"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
 public "canApplyTo"(arg0: $Block$Type): boolean
 public "useOr"(): $MultiPartBlockStateBuilder$PartBuilder
+public "nestedGroup"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -778,8 +778,8 @@ export type $IForgeIntrinsicHolderTagAppender_<T> = $IForgeIntrinsicHolderTagApp
 declare module "packages/net/minecraftforge/common/extensions/$IForgeFluidState" {
 import {$BlockPathTypes, $BlockPathTypes$Type} from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
@@ -792,15 +792,15 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 export interface $IForgeFluidState {
 
  "move"(arg0: $LivingEntity$Type, arg1: $Vec3$Type, arg2: double): boolean
- "canExtinguish"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
- "canHydrate"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockPos$Type): boolean
- "shouldUpdateWhileBoating"(arg0: $Boat$Type, arg1: $Entity$Type): boolean
- "getBlockPathType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Mob$Type, arg3: boolean): $BlockPathTypes
  "canConvertToSource"(arg0: $Level$Type, arg1: $BlockPos$Type): boolean
  "supportsBoating"(arg0: $Boat$Type): boolean
- "getFluidType"(): $FluidType
- "getExplosionResistance"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): float
  "getAdjacentBlockPathType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Mob$Type, arg3: $BlockPathTypes$Type): $BlockPathTypes
+ "getExplosionResistance"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): float
+ "shouldUpdateWhileBoating"(arg0: $Boat$Type, arg1: $Entity$Type): boolean
+ "getBlockPathType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Mob$Type, arg3: boolean): $BlockPathTypes
+ "canHydrate"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockPos$Type): boolean
+ "canExtinguish"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
+ "getFluidType"(): $FluidType
 }
 
 export namespace $IForgeFluidState {
@@ -829,9 +829,9 @@ export interface $IClientMobEffectExtensions {
 
  "renderGuiIcon"(arg0: $MobEffectInstance$Type, arg1: $Gui$Type, arg2: $GuiGraphics$Type, arg3: integer, arg4: integer, arg5: float, arg6: float): boolean
  "isVisibleInGui"(arg0: $MobEffectInstance$Type): boolean
- "renderInventoryIcon"(arg0: $MobEffectInstance$Type, arg1: $EffectRenderingInventoryScreen$Type<(any)>, arg2: $GuiGraphics$Type, arg3: integer, arg4: integer, arg5: integer): boolean
- "renderInventoryText"(arg0: $MobEffectInstance$Type, arg1: $EffectRenderingInventoryScreen$Type<(any)>, arg2: $GuiGraphics$Type, arg3: integer, arg4: integer, arg5: integer): boolean
  "isVisibleInInventory"(arg0: $MobEffectInstance$Type): boolean
+ "renderInventoryText"(arg0: $MobEffectInstance$Type, arg1: $EffectRenderingInventoryScreen$Type<(any)>, arg2: $GuiGraphics$Type, arg3: integer, arg4: integer, arg5: integer): boolean
+ "renderInventoryIcon"(arg0: $MobEffectInstance$Type, arg1: $EffectRenderingInventoryScreen$Type<(any)>, arg2: $GuiGraphics$Type, arg3: integer, arg4: integer, arg5: integer): boolean
 }
 
 export namespace $IClientMobEffectExtensions {
@@ -918,14 +918,14 @@ export class $LevelEvent extends $Event implements $EventHandlerImplCommon$Level
 constructor(arg0: $LevelAccessor$Type)
 constructor()
 
-public "getLevel"(): $LevelAccessor
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
+public "getLevel"(): $LevelAccessor
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 public "architectury$getAttachedLevel"(): $LevelAccessor
 public "architectury$attachLevel"(level: $LevelAccessor$Type): void
-get "level"(): $LevelAccessor
 get "cancelable"(): boolean
+get "level"(): $LevelAccessor
 get "listenerList"(): $ListenerList
 }
 /**
@@ -975,16 +975,16 @@ declare global {
 export type $IForgeRawTagBuilder_ = $IForgeRawTagBuilder$Type;
 }}
 declare module "packages/net/minecraftforge/forgespi/language/$IModLanguageProvider" {
-import {$ILifecycleEvent, $ILifecycleEvent$Type} from "packages/net/minecraftforge/forgespi/language/$ILifecycleEvent"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$ILifecycleEvent, $ILifecycleEvent$Type} from "packages/net/minecraftforge/forgespi/language/$ILifecycleEvent"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$ModFileScanData, $ModFileScanData$Type} from "packages/net/minecraftforge/forgespi/language/$ModFileScanData"
 
 export interface $IModLanguageProvider {
 
  "name"(): string
- "consumeLifecycleEvent"<R extends $ILifecycleEvent<(R)>>(arg0: $Supplier$Type<(R)>): void
  "getFileVisitor"(): $Consumer<($ModFileScanData)>
+ "consumeLifecycleEvent"<R extends $ILifecycleEvent<(R)>>(arg0: $Supplier$Type<(R)>): void
 }
 
 export namespace $IModLanguageProvider {
@@ -1010,10 +1010,10 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $IForgeMobEffectInstance {
 
  "getCurativeItems"(): $List<($ItemStack)>
- "isCurativeItem"(arg0: $ItemStack$Type): boolean
  "writeCurativeItems"(arg0: $CompoundTag$Type): void
  "setCurativeItems"(arg0: $List$Type<($ItemStack$Type)>): void
  "addCurativeItem"(arg0: $ItemStack$Type): void
+ "isCurativeItem"(arg0: $ItemStack$Type): boolean
 }
 
 export namespace $IForgeMobEffectInstance {
@@ -1096,12 +1096,12 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 export interface $IForgeTransformation {
 
  "isIdentity"(): boolean
+ "transformNormal"(arg0: $Vector3f$Type): void
+ "blockCenterToCorner"(): $Transformation
+ "blockCornerToCenter"(): $Transformation
+ "rotateTransform"(arg0: $Direction$Type): $Direction
  "transformPosition"(arg0: $Vector4f$Type): void
  "applyOrigin"(arg0: $Vector3f$Type): $Transformation
- "rotateTransform"(arg0: $Direction$Type): $Direction
- "blockCornerToCenter"(): $Transformation
- "blockCenterToCorner"(): $Transformation
- "transformNormal"(arg0: $Vector3f$Type): void
 }
 
 export namespace $IForgeTransformation {
@@ -1126,8 +1126,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$PushReaction, $PushReaction$Type} from "packages/net/minecraft/world/level/material/$PushReaction"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
-import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
+import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
@@ -1157,60 +1157,60 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 export interface $IForgeBlock {
 
  "rotate"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: $Rotation$Type): $BlockState
- "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
- "getWeakChanges"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
- "onNeighborChange"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): void
+ "shouldCheckWeakPower"(arg0: $BlockState$Type, arg1: $SignalGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "makesOpenTrapdoorAboveClimbable"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
+ "onDestroyedByPlayer"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: boolean, arg5: $FluidState$Type): boolean
+ "supportsExternalFaceHiding"(arg0: $BlockState$Type): boolean
+ "getBeaconColorMultiplier"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): (float)[]
+ "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+ "getEnchantPowerBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
+ "getStateAtViewpoint"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Vec3$Type): $BlockState
+ "getAdjacentBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: $BlockPathTypes$Type): $BlockPathTypes
+ "shouldDisplayFluidOverlay"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type): boolean
+ "canDropFromExplosion"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): boolean
+ "getToolModifiedState"(arg0: $BlockState$Type, arg1: $UseOnContext$Type, arg2: $ToolAction$Type, arg3: boolean): $BlockState
+ "getExplosionResistance"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): float
  "collisionExtendsVertically"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
+ "getMapColor"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $MapColor$Type): $MapColor
+ "canBeHydrated"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type, arg4: $BlockPos$Type): boolean
+ "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "getAppearance"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $BlockState$Type, arg5: $BlockPos$Type): $BlockState
  "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
- "addRunningEffects"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
  "onBlockStateChange"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type): void
+ "onNeighborChange"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): void
+ "getWeakChanges"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+ "onBlockExploded"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): void
  "hidesNeighborFace"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $Direction$Type): boolean
  "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
  "isLadder"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type): boolean
- "isValidSpawn"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $SpawnPlacements$Type$Type, arg4: $EntityType$Type<(any)>): boolean
- "isBurning"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
- "canHarvestBlock"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
- "getExpDrop"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: integer, arg5: integer): integer
- "onTreeGrow"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BiConsumer$Type<($BlockPos$Type), ($BlockState$Type)>, arg3: $RandomSource$Type, arg4: $BlockPos$Type, arg5: $TreeConfiguration$Type): boolean
- "isConduitFrame"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): boolean
- "isPortalFrame"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
  "isFertile"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "onTreeGrow"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BiConsumer$Type<($BlockPos$Type), ($BlockState$Type)>, arg3: $RandomSource$Type, arg4: $BlockPos$Type, arg5: $TreeConfiguration$Type): boolean
+ "isBurning"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "isValidSpawn"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $SpawnPlacements$Type$Type, arg4: $EntityType$Type<(any)>): boolean
+ "canHarvestBlock"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+ "isConduitFrame"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): boolean
  "getBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type): $BlockPathTypes
+ "isPortalFrame"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "getExpDrop"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: integer, arg5: integer): integer
  "isSlimeBlock"(arg0: $BlockState$Type): boolean
+ "getFlammability"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
+ "isFlammable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "onCaughtFire"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $LivingEntity$Type): void
+ "getFireSpreadSpeed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
+ "canEntityDestroy"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
  "canStickTo"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
  "isStickyBlock"(arg0: $BlockState$Type): boolean
- "getFlammability"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
  "isFireSource"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "getFireSpreadSpeed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
- "onBlockExploded"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): void
- "isFlammable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "canEntityDestroy"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
- "onCaughtFire"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $LivingEntity$Type): void
- "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "getAppearance"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $BlockState$Type, arg5: $BlockPos$Type): $BlockState
- "getMapColor"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $MapColor$Type): $MapColor
- "canBeHydrated"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type, arg4: $BlockPos$Type): boolean
+ "addRunningEffects"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
  "getRespawnPosition"(arg0: $BlockState$Type, arg1: $EntityType$Type<(any)>, arg2: $LevelReader$Type, arg3: $BlockPos$Type, arg4: float, arg5: $LivingEntity$Type): $Optional<($Vec3)>
- "getSoundType"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): $SoundType
- "isScaffolding"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type): boolean
+ "isBed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
  "setBedOccupied"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type, arg4: boolean): void
  "getBedDirection"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): $Direction
- "isBed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
  "getFriction"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): float
- "makesOpenTrapdoorAboveClimbable"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
- "supportsExternalFaceHiding"(arg0: $BlockState$Type): boolean
- "onDestroyedByPlayer"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: boolean, arg5: $FluidState$Type): boolean
- "getExplosionResistance"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): float
- "getToolModifiedState"(arg0: $BlockState$Type, arg1: $UseOnContext$Type, arg2: $ToolAction$Type, arg3: boolean): $BlockState
- "canDropFromExplosion"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): boolean
- "getEnchantPowerBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
- "getBeaconColorMultiplier"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): (float)[]
- "getStateAtViewpoint"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Vec3$Type): $BlockState
- "shouldDisplayFluidOverlay"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type): boolean
- "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
- "getAdjacentBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: $BlockPathTypes$Type): $BlockPathTypes
  "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
- "shouldCheckWeakPower"(arg0: $BlockState$Type, arg1: $SignalGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
+ "getSoundType"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): $SoundType
+ "isScaffolding"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type): boolean
 
 (arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: $Rotation$Type): $BlockState
 }
@@ -1305,8 +1305,8 @@ constructor(suppliedVersion: $Supplier$Type<(string)>, remoteVersionTest: $BiPre
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "suppliedVersion"(): $Supplier<(string)>
 public "remoteVersionTest"(): $BiPredicate<(string), (boolean)>
+public "suppliedVersion"(): $Supplier<(string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1358,8 +1358,8 @@ constructor(arg0: $ModLoadingStage$Type)
 
 public static "lookup"(arg0: $Optional$Type<($ModLoadingStage$Type)>): $Optional<($DeferredWorkQueue)>
 public "runTasks"(): void
-public "enqueueWork"(arg0: $ModContainer$Type, arg1: $Runnable$Type): $CompletableFuture<(void)>
 public "enqueueWork"<T>(arg0: $ModContainer$Type, arg1: $Supplier$Type<(T)>): $CompletableFuture<(T)>
+public "enqueueWork"(arg0: $ModContainer$Type, arg1: $Runnable$Type): $CompletableFuture<(void)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1405,32 +1405,32 @@ import {$IConfigSpec, $IConfigSpec$Type} from "packages/net/minecraftforge/fml/c
 import {$ConfigSpec$CorrectionListener, $ConfigSpec$CorrectionListener$Type} from "packages/com/electronwill/nightconfig/core/$ConfigSpec$CorrectionListener"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$UnmodifiableConfigWrapper, $UnmodifiableConfigWrapper$Type} from "packages/com/electronwill/nightconfig/core/utils/$UnmodifiableConfigWrapper"
-import {$CommentedConfig, $CommentedConfig$Type} from "packages/com/electronwill/nightconfig/core/$CommentedConfig"
 import {$UnmodifiableConfig, $UnmodifiableConfig$Type} from "packages/com/electronwill/nightconfig/core/$UnmodifiableConfig"
+import {$CommentedConfig, $CommentedConfig$Type} from "packages/com/electronwill/nightconfig/core/$CommentedConfig"
 
 export class $ForgeConfigSpec extends $UnmodifiableConfigWrapper<($UnmodifiableConfig)> implements $IConfigSpec<($ForgeConfigSpec)> {
 
 
 public "save"(): void
 public "isLoaded"(): boolean
-public "acceptConfig"(arg0: $CommentedConfig$Type): void
-public "afterReload"(): void
-public "isCorrecting"(): boolean
-public "getLevelComment"(arg0: $List$Type<(string)>): string
 public "getValues"(): $UnmodifiableConfig
+public "isCorrect"(arg0: $CommentedConfig$Type): boolean
+public "correct"(arg0: $CommentedConfig$Type, arg1: $ConfigSpec$CorrectionListener$Type, arg2: $ConfigSpec$CorrectionListener$Type): integer
+public "correct"(arg0: $CommentedConfig$Type): integer
+public "correct"(arg0: $CommentedConfig$Type, arg1: $ConfigSpec$CorrectionListener$Type): integer
 public "getSpec"(): $UnmodifiableConfig
 public "setConfig"(arg0: $CommentedConfig$Type): void
-public "correct"(arg0: $CommentedConfig$Type): integer
-public "correct"(arg0: $CommentedConfig$Type, arg1: $ConfigSpec$CorrectionListener$Type, arg2: $ConfigSpec$CorrectionListener$Type): integer
-public "correct"(arg0: $CommentedConfig$Type, arg1: $ConfigSpec$CorrectionListener$Type): integer
-public "isCorrect"(arg0: $CommentedConfig$Type): boolean
+public "afterReload"(): void
+public "isCorrecting"(): boolean
+public "acceptConfig"(arg0: $CommentedConfig$Type): void
 public "getLevelTranslationKey"(arg0: $List$Type<(string)>): string
+public "getLevelComment"(arg0: $List$Type<(string)>): string
 public "self"(): $ForgeConfigSpec
 get "loaded"(): boolean
-get "correcting"(): boolean
 get "values"(): $UnmodifiableConfig
 get "spec"(): $UnmodifiableConfig
 set "config"(value: $CommentedConfig$Type)
+get "correcting"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1446,20 +1446,20 @@ export type $ForgeConfigSpec_ = $ForgeConfigSpec$Type;
 }}
 declare module "packages/net/minecraftforge/common/extensions/$IForgeFriendlyByteBuf" {
 import {$IForgeRegistry, $IForgeRegistry$Type} from "packages/net/minecraftforge/registries/$IForgeRegistry"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$FluidStack, $FluidStack$Type} from "packages/net/minecraftforge/fluids/$FluidStack"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 
 export interface $IForgeFriendlyByteBuf {
 
- "readRegistryIdSafe"<T>(arg0: $Class$Type<(any)>): T
- "writeRegistryId"<T>(arg0: $IForgeRegistry$Type<(T)>, arg1: T): void
- "readFluidStack"(): $FluidStack
+ "readRegistryIdUnsafe"<T>(arg0: $IForgeRegistry$Type<(T)>): T
+ "writeRegistryIdUnsafe"(arg0: $IForgeRegistry$Type<(any)>, arg1: $ResourceLocation$Type): void
+ "writeRegistryIdUnsafe"<T>(arg0: $IForgeRegistry$Type<(T)>, arg1: T): void
  "writeFluidStack"(arg0: $FluidStack$Type): void
  "readRegistryId"<T>(): T
- "writeRegistryIdUnsafe"<T>(arg0: $IForgeRegistry$Type<(T)>, arg1: T): void
- "writeRegistryIdUnsafe"(arg0: $IForgeRegistry$Type<(any)>, arg1: $ResourceLocation$Type): void
- "readRegistryIdUnsafe"<T>(arg0: $IForgeRegistry$Type<(T)>): T
+ "readRegistryIdSafe"<T>(arg0: $Class$Type<(any)>): T
+ "readFluidStack"(): $FluidStack
+ "writeRegistryId"<T>(arg0: $IForgeRegistry$Type<(T)>, arg1: T): void
 }
 
 export namespace $IForgeFriendlyByteBuf {
@@ -1508,10 +1508,10 @@ import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/
 
 export interface $ICapabilityProviderImpl<B extends $ICapabilityProviderImpl<(B)>> extends $ICapabilityProvider {
 
- "reviveCaps"(): void
- "invalidateCaps"(): void
- "areCapsCompatible"(arg0: $CapabilityDispatcher$Type): boolean
  "areCapsCompatible"(arg0: $CapabilityProvider$Type<(B)>): boolean
+ "areCapsCompatible"(arg0: $CapabilityDispatcher$Type): boolean
+ "invalidateCaps"(): void
+ "reviveCaps"(): void
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
@@ -1552,9 +1552,9 @@ public "exists"(arg0: $ResourceLocation$Type, arg1: $PackType$Type, arg2: string
 public "exists"(arg0: $ResourceLocation$Type, arg1: $PackType$Type): boolean
 public "exists"(arg0: $ResourceLocation$Type, arg1: $ExistingFileHelper$IResourceType$Type): boolean
 public "isEnabled"(): boolean
-public "getResourceStack"(arg0: $ResourceLocation$Type, arg1: $PackType$Type): $List<($Resource)>
 public "trackGenerated"(arg0: $ResourceLocation$Type, arg1: $ExistingFileHelper$IResourceType$Type): void
 public "trackGenerated"(arg0: $ResourceLocation$Type, arg1: $PackType$Type, arg2: string, arg3: string): void
+public "getResourceStack"(arg0: $ResourceLocation$Type, arg1: $PackType$Type): $List<($Resource)>
 get "enabled"(): boolean
 }
 /**
@@ -1572,8 +1572,8 @@ export type $ExistingFileHelper_ = $ExistingFileHelper$Type;
 declare module "packages/net/minecraftforge/common/util/$TransformationHelper$TransformOrigin" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -1587,13 +1587,13 @@ static readonly "OPPOSING_CORNER": $TransformationHelper$TransformOrigin
 public static "values"(): ($TransformationHelper$TransformOrigin)[]
 public static "valueOf"(arg0: string): $TransformationHelper$TransformOrigin
 public static "fromString"(arg0: string): $TransformationHelper$TransformOrigin
-public "getVector"(): $Vector3f
 public "getSerializedName"(): string
-public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
+public "getVector"(): $Vector3f
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
-get "vector"(): $Vector3f
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
+public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 get "serializedName"(): string
+get "vector"(): $Vector3f
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1682,8 +1682,8 @@ public "register"<T extends $Entity>(arg0: $EntityType$Type<(T)>, arg1: $SpawnPl
 public "register"<T extends $Entity>(arg0: $EntityType$Type<(T)>, arg1: $SpawnPlacements$SpawnPredicate$Type<(T)>): void
 public "register"<T extends $Entity>(arg0: $EntityType$Type<(T)>, arg1: $SpawnPlacements$SpawnPredicate$Type<(T)>, arg2: $SpawnPlacementRegisterEvent$Operation$Type): void
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
 }
@@ -1730,11 +1730,11 @@ constructor()
 constructor(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: integer, arg3: $ItemStack$Type)
 
 public "getListenerList"(): $ListenerList
-public "getResultStack"(): $ItemStack
 public "setResultStack"(arg0: $ItemStack$Type): void
+public "getResultStack"(): $ItemStack
 get "listenerList"(): $ListenerList
-get "resultStack"(): $ItemStack
 set "resultStack"(value: $ItemStack$Type)
+get "resultStack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1784,15 +1784,15 @@ import {$InputConstants$Key, $InputConstants$Key$Type} from "packages/com/mojang
 export interface $IForgeKeyMapping {
 
  "getKey"(): $InputConstants$Key
- "setToDefault"(): void
- "getKeyModifier"(): $KeyModifier
  "isActiveAndMatches"(arg0: $InputConstants$Key$Type): boolean
+ "setToDefault"(): void
+ "hasKeyModifierConflict"(arg0: $KeyMapping$Type): boolean
  "getKeyConflictContext"(): $IKeyConflictContext
  "getDefaultKeyModifier"(): $KeyModifier
  "setKeyModifierAndCode"(arg0: $KeyModifier$Type, arg1: $InputConstants$Key$Type): void
- "isConflictContextAndModifierActive"(): boolean
  "setKeyConflictContext"(arg0: $IKeyConflictContext$Type): void
- "hasKeyModifierConflict"(arg0: $KeyMapping$Type): boolean
+ "isConflictContextAndModifierActive"(): boolean
+ "getKeyModifier"(): $KeyModifier
 }
 
 export namespace $IForgeKeyMapping {
@@ -1817,8 +1817,8 @@ import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/da
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$FoodProperties, $FoodProperties$Type} from "packages/net/minecraft/world/food/$FoodProperties"
-import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$RecipeType, $RecipeType$Type} from "packages/net/minecraft/world/item/crafting/$RecipeType"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
@@ -1828,85 +1828,85 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 import {$IForgeItemMixin, $IForgeItemMixin$Type} from "packages/org/violetmoon/quark/mixin/mixins/$IForgeItemMixin"
 import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$EnderMan, $EnderMan$Type} from "packages/net/minecraft/world/entity/monster/$EnderMan"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Enchantment, $Enchantment$Type} from "packages/net/minecraft/world/item/enchantment/$Enchantment"
-import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import {$ICapabilityProvider, $ICapabilityProvider$Type} from "packages/net/minecraftforge/common/capabilities/$ICapabilityProvider"
+import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $IForgeItem extends $IForgeItemMixin {
 
- "getHighlightTip"(arg0: $ItemStack$Type, arg1: $Component$Type): $Component
- "getAttributeModifiers"(arg0: $EquipmentSlot$Type, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
- "getCraftingRemainingItem"(arg0: $ItemStack$Type): $ItemStack
- "getEnchantmentValue"(arg0: $ItemStack$Type): integer
- "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
- "makesPiglinsNeutral"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
- "shouldCauseBlockBreakReset"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
- "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
- "getDefaultTooltipHideFlags"(arg0: $ItemStack$Type): integer
- "canWalkOnPowderedSnow"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
- "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
- "isNotReplaceableByPickAction"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: integer): boolean
- "canGrindstoneRepair"(arg0: $ItemStack$Type): boolean
- "createEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $ItemStack$Type): $Entity
  "getAllEnchantments"(arg0: $ItemStack$Type): $Map<($Enchantment), (integer)>
+ "initCapabilities"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): $ICapabilityProvider
+ "isCorrectToolForDrops"(arg0: $ItemStack$Type, arg1: $BlockState$Type): boolean
+ "getHighlightTip"(arg0: $ItemStack$Type, arg1: $Component$Type): $Component
+ "createEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $ItemStack$Type): $Entity
  "getEntityLifespan"(arg0: $ItemStack$Type, arg1: $Level$Type): integer
  "onEntityItemUpdate"(arg0: $ItemStack$Type, arg1: $ItemEntity$Type): boolean
  "onDestroyed"(arg0: $ItemEntity$Type, arg1: $DamageSource$Type): void
- "getMaxStackSize"(arg0: $ItemStack$Type): integer
- "initCapabilities"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): $ICapabilityProvider
- "getEnchantmentLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
- "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
- "onBlockStartBreak"(arg0: $ItemStack$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
- "readShareTag"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): void
- "getXpRepairRatio"(arg0: $ItemStack$Type): float
- "onLeftClickEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): boolean
+ "getDamage"(arg0: $ItemStack$Type): integer
+ "canDisableShield"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type, arg3: $LivingEntity$Type): boolean
+ "canPerformAction"(arg0: $ItemStack$Type, arg1: $ToolAction$Type): boolean
+ "getSweepHitBox"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): $AABB
+ "getMaxDamage"(arg0: $ItemStack$Type): integer
+ "isRepairable"(arg0: $ItemStack$Type): boolean
+ "isDamageable"(arg0: $ItemStack$Type): boolean
  "onDroppedByPlayer"(arg0: $ItemStack$Type, arg1: $Player$Type): boolean
- "getShareTag"(arg0: $ItemStack$Type): $CompoundTag
  "isPiglinCurrency"(arg0: $ItemStack$Type): boolean
+ "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+ "canEquip"(arg0: $ItemStack$Type, arg1: $EquipmentSlot$Type, arg2: $Entity$Type): boolean
+ "onBlockStartBreak"(arg0: $ItemStack$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
+ "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+ "readShareTag"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): void
+ "getShareTag"(arg0: $ItemStack$Type): $CompoundTag
+ "onLeftClickEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): boolean
  "hasCustomEntity"(arg0: $ItemStack$Type): boolean
  "setDamage"(arg0: $ItemStack$Type, arg1: integer): void
- "onInventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type, arg3: integer, arg4: integer): void
+ "getXpRepairRatio"(arg0: $ItemStack$Type): float
  "isDamaged"(arg0: $ItemStack$Type): boolean
- "canEquip"(arg0: $ItemStack$Type, arg1: $EquipmentSlot$Type, arg2: $Entity$Type): boolean
- "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
- "getArmorTexture"(arg0: $ItemStack$Type, arg1: $Entity$Type, arg2: $EquipmentSlot$Type, arg3: string): string
- "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+ "onInventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type, arg3: integer, arg4: integer): void
 /**
  * 
  * @deprecated
  */
  "onArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
+ "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+ "getArmorTexture"(arg0: $ItemStack$Type, arg1: $Entity$Type, arg2: $EquipmentSlot$Type, arg3: string): string
+ "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
  "onHorseArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Mob$Type): void
- "getCreatorModId"(arg0: $ItemStack$Type): string
  "isEnderMask"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $EnderMan$Type): boolean
  "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
- "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
- "getDamage"(arg0: $ItemStack$Type): integer
- "canDisableShield"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type, arg3: $LivingEntity$Type): boolean
- "canPerformAction"(arg0: $ItemStack$Type, arg1: $ToolAction$Type): boolean
- "getSweepHitBox"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): $AABB
- "canElytraFly"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
- "onEntitySwing"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
- "elytraFlightTick"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: integer): boolean
- "canContinueUsing"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+ "getCreatorModId"(arg0: $ItemStack$Type): string
+ "getEnchantmentLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
+ "getMaxStackSize"(arg0: $ItemStack$Type): integer
  "getFoodProperties"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): $FoodProperties
+ "canContinueUsing"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
  "onStopUsing"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: integer): void
  "getEquipmentSlot"(arg0: $ItemStack$Type): $EquipmentSlot
- "getMaxDamage"(arg0: $ItemStack$Type): integer
- "isRepairable"(arg0: $ItemStack$Type): boolean
- "isDamageable"(arg0: $ItemStack$Type): boolean
- "isCorrectToolForDrops"(arg0: $ItemStack$Type, arg1: $BlockState$Type): boolean
+ "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
+ "canWalkOnPowderedSnow"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "shouldCauseBlockBreakReset"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+ "isNotReplaceableByPickAction"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: integer): boolean
+ "getCraftingRemainingItem"(arg0: $ItemStack$Type): $ItemStack
+ "canGrindstoneRepair"(arg0: $ItemStack$Type): boolean
+ "getDefaultTooltipHideFlags"(arg0: $ItemStack$Type): integer
+ "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
+ "makesPiglinsNeutral"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "getAttributeModifiers"(arg0: $EquipmentSlot$Type, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+ "getEnchantmentValue"(arg0: $ItemStack$Type): integer
+ "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
+ "elytraFlightTick"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: integer): boolean
+ "onEntitySwing"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "canElytraFly"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
 
-(arg0: $ItemStack$Type, arg1: $Component$Type): $Component
+(arg0: $ItemStack$Type): $Map<($Enchantment), (integer)>
 }
 
 export namespace $IForgeItem {
@@ -1940,8 +1940,8 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 export interface $IUnbakedGeometry<T extends $IUnbakedGeometry<(T)>> {
 
  "bake"(arg0: $IGeometryBakingContext$Type, arg1: $ModelBaker$Type, arg2: $Function$Type<($Material$Type), ($TextureAtlasSprite$Type)>, arg3: $ModelState$Type, arg4: $ItemOverrides$Type, arg5: $ResourceLocation$Type): $BakedModel
- "getConfigurableComponentNames"(): $Set<(string)>
  "resolveParents"(arg0: $Function$Type<($ResourceLocation$Type), ($UnbakedModel$Type)>, arg1: $IGeometryBakingContext$Type): void
+ "getConfigurableComponentNames"(): $Set<(string)>
 
 (arg0: $IGeometryBakingContext$Type, arg1: $ModelBaker$Type, arg2: $Function$Type<($Material$Type), ($TextureAtlasSprite$Type)>, arg3: $ModelState$Type, arg4: $ItemOverrides$Type, arg5: $ResourceLocation$Type): $BakedModel
 }
@@ -1984,37 +1984,37 @@ public "copy"(): $FluidStack
 public "grow"(arg0: integer): void
 public "getTag"(): $CompoundTag
 public "getDisplayName"(): $Component
+public "setTag"(arg0: $CompoundTag$Type): void
 public "shrink"(arg0: integer): void
 public static "readFromPacket"(arg0: $FriendlyByteBuf$Type): $FluidStack
 public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
-public "setTag"(arg0: $CompoundTag$Type): void
-public "setAmount"(arg0: integer): void
-public "writeToNBT"(arg0: $CompoundTag$Type): $CompoundTag
-public "getRawFluid"(): $Fluid
-public "getOrCreateTag"(): $CompoundTag
-public "removeChildTag"(arg0: string): void
-public "isFluidEqual"(arg0: $FluidStack$Type): boolean
-public "isFluidEqual"(arg0: $ItemStack$Type): boolean
-public "getChildTag"(arg0: string): $CompoundTag
-public "containsFluid"(arg0: $FluidStack$Type): boolean
-public static "areFluidStackTagsEqual"(arg0: $FluidStack$Type, arg1: $FluidStack$Type): boolean
+public "getTranslationKey"(): string
+public static "loadFluidStackFromNBT"(arg0: $CompoundTag$Type): $FluidStack
 public "isFluidStackIdentical"(arg0: $FluidStack$Type): boolean
 public "getOrCreateChildTag"(arg0: string): $CompoundTag
+public static "areFluidStackTagsEqual"(arg0: $FluidStack$Type, arg1: $FluidStack$Type): boolean
+public "writeToNBT"(arg0: $CompoundTag$Type): $CompoundTag
 public "hasTag"(): boolean
-public "getAmount"(): integer
-public static "loadFluidStackFromNBT"(arg0: $CompoundTag$Type): $FluidStack
-public "getTranslationKey"(): string
+public "setAmount"(arg0: integer): void
 public "getFluid"(): $Fluid
+public "getAmount"(): integer
+public "getOrCreateTag"(): $CompoundTag
+public "getChildTag"(arg0: string): $CompoundTag
+public "isFluidEqual"(arg0: $FluidStack$Type): boolean
+public "isFluidEqual"(arg0: $ItemStack$Type): boolean
+public "containsFluid"(arg0: $FluidStack$Type): boolean
+public "getRawFluid"(): $Fluid
+public "removeChildTag"(arg0: string): void
 get "empty"(): boolean
 get "tag"(): $CompoundTag
 get "displayName"(): $Component
 set "tag"(value: $CompoundTag$Type)
-set "amount"(value: integer)
-get "rawFluid"(): $Fluid
-get "orCreateTag"(): $CompoundTag
-get "amount"(): integer
 get "translationKey"(): string
+set "amount"(value: integer)
 get "fluid"(): $Fluid
+get "amount"(): integer
+get "orCreateTag"(): $CompoundTag
+get "rawFluid"(): $Fluid
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2060,8 +2060,8 @@ constructor()
 
 public "copyFrom"(arg0: $BlockGeometryBakingContext$VisibilityData$Type): void
 public "isVisible"(arg0: string, arg1: boolean): boolean
-public "setVisibilityState"(arg0: string, arg1: boolean): void
 public "hasCustomVisibility"(arg0: string): boolean
+public "setVisibilityState"(arg0: string, arg1: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2081,8 +2081,8 @@ import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 
 export interface $IForgeHolderSet<T> {
 
- "addInvalidationListener"(arg0: $Runnable$Type): void
  "serializationType"(): $IForgeHolderSet$SerializationType
+ "addInvalidationListener"(arg0: $Runnable$Type): void
 }
 
 export namespace $IForgeHolderSet {
@@ -2219,8 +2219,8 @@ export class $InputEvent extends $Event {
 
 
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
 }
@@ -2253,30 +2253,30 @@ import {$OutputReplacement, $OutputReplacement$Type} from "packages/dev/latvian/
 
 export interface $IShapedRecipe<T extends $Container> extends $Recipe<(T)> {
 
- "getRecipeHeight"(): integer
  "getRecipeWidth"(): integer
- "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+ "getRecipeHeight"(): integer
+ "getId"(): $ResourceLocation
+ "matches"(arg0: T, arg1: $Level$Type): boolean
+ "assemble"(arg0: T, arg1: $RegistryAccess$Type): $ItemStack
+ "isSpecial"(): boolean
+ "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
  "getRemainingItems"(arg0: T): $NonNullList<($ItemStack)>
  "getIngredients"(): $NonNullList<($Ingredient)>
- "getToastSymbol"(): $ItemStack
- "showNotification"(): boolean
- "isIncomplete"(): boolean
  "getSerializer"(): $RecipeSerializer<(any)>
- "matches"(arg0: T, arg1: $Level$Type): boolean
- "isSpecial"(): boolean
- "assemble"(arg0: T, arg1: $RegistryAccess$Type): $ItemStack
- "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
- "getId"(): $ResourceLocation
- "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
- "getOrCreateId"(): $ResourceLocation
- "getSchema"(): $RecipeSchema
- "setGroup"(group: string): void
- "getGroup"(): string
- "hasInput"(match: $ReplacementMatch$Type): boolean
- "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
- "hasOutput"(match: $ReplacementMatch$Type): boolean
+ "showNotification"(): boolean
+ "getToastSymbol"(): $ItemStack
+ "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+ "isIncomplete"(): boolean
  "getType"(): $ResourceLocation
  "getMod"(): string
+ "getGroup"(): string
+ "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+ "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+ "hasOutput"(match: $ReplacementMatch$Type): boolean
+ "setGroup"(group: string): void
+ "getOrCreateId"(): $ResourceLocation
+ "getSchema"(): $RecipeSchema
+ "hasInput"(match: $ReplacementMatch$Type): boolean
 }
 
 export namespace $IShapedRecipe {
@@ -2295,8 +2295,8 @@ declare global {
 export type $IShapedRecipe_<T> = $IShapedRecipe$Type<(T)>;
 }}
 declare module "packages/net/minecraftforge/registries/$RegisterEvent" {
-import {$ListenerList, $ListenerList$Type} from "packages/net/minecraftforge/eventbus/$ListenerList"
 import {$IForgeRegistry, $IForgeRegistry$Type} from "packages/net/minecraftforge/registries/$IForgeRegistry"
+import {$ListenerList, $ListenerList$Type} from "packages/net/minecraftforge/eventbus/$ListenerList"
 import {$Event, $Event$Type} from "packages/net/minecraftforge/eventbus/api/$Event"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$RegisterEvent$RegisterHelper, $RegisterEvent$RegisterHelper$Type} from "packages/net/minecraftforge/registries/$RegisterEvent$RegisterHelper"
@@ -2311,19 +2311,19 @@ export class $RegisterEvent extends $Event implements $IModBusEvent {
 constructor()
 
 public "toString"(): string
-public "register"<T>(arg0: $ResourceKey$Type<(any)>, arg1: $ResourceLocation$Type, arg2: $Supplier$Type<(T)>): void
 public "register"<T>(arg0: $ResourceKey$Type<(any)>, arg1: $Consumer$Type<($RegisterEvent$RegisterHelper$Type<(T)>)>): void
+public "register"<T>(arg0: $ResourceKey$Type<(any)>, arg1: $ResourceLocation$Type, arg2: $Supplier$Type<(T)>): void
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
 public "getRegistryKey"(): $ResourceKey<(any)>
-public "getVanillaRegistry"<T>(): $Registry<(T)>
 public "getForgeRegistry"<T>(): $IForgeRegistry<(T)>
+public "getVanillaRegistry"<T>(): $Registry<(T)>
+public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
-get "listenerList"(): $ListenerList
 get "registryKey"(): $ResourceKey<(any)>
-get "vanillaRegistry"(): $Registry<(T)>
 get "forgeRegistry"(): $IForgeRegistry<(T)>
+get "vanillaRegistry"(): $Registry<(T)>
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2342,8 +2342,8 @@ import {$PackType, $PackType$Type} from "packages/net/minecraft/server/packs/$Pa
 
 export interface $ExistingFileHelper$IResourceType {
 
- "getSuffix"(): string
  "getPrefix"(): string
+ "getSuffix"(): string
  "getPackType"(): $PackType
 }
 
@@ -2369,8 +2369,8 @@ import {$List, $List$Type} from "packages/java/util/$List"
 import {$ModFileScanData$AnnotationData, $ModFileScanData$AnnotationData$Type} from "packages/net/minecraftforge/forgespi/language/$ModFileScanData$AnnotationData"
 import {$Type, $Type$Type} from "packages/org/objectweb/asm/$Type"
 import {$ModFileScanData$ClassData, $ModFileScanData$ClassData$Type} from "packages/net/minecraftforge/forgespi/language/$ModFileScanData$ClassData"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 import {$IModFileInfo, $IModFileInfo$Type} from "packages/net/minecraftforge/forgespi/language/$IModFileInfo"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $ModFileScanData {
 
@@ -2379,8 +2379,8 @@ constructor()
 public "getClasses"(): $Set<($ModFileScanData$ClassData)>
 public "getAnnotations"(): $Set<($ModFileScanData$AnnotationData)>
 public static "interestingAnnotations"(): $Predicate<($Type)>
-public "addLanguageLoader"(arg0: $Map$Type<(string), (any)>): void
 public "getIModInfoData"(): $List<($IModFileInfo)>
+public "addLanguageLoader"(arg0: $Map$Type<(string), (any)>): void
 public "getTargets"(): $Map<(string), (any)>
 public "addModFileInfo"(arg0: $IModFileInfo$Type): void
 get "classes"(): $Set<($ModFileScanData$ClassData)>
@@ -2454,12 +2454,12 @@ export class $ModelEvent$BakingCompleted extends $ModelEvent implements $IModBus
 constructor()
 constructor(arg0: $ModelManager$Type, arg1: $Map$Type<($ResourceLocation$Type), ($BakedModel$Type)>, arg2: $ModelBakery$Type)
 
-public "getModels"(): $Map<($ResourceLocation), ($BakedModel)>
 public "getListenerList"(): $ListenerList
+public "getModels"(): $Map<($ResourceLocation), ($BakedModel)>
 public "getModelBakery"(): $ModelBakery
 public "getModelManager"(): $ModelManager
-get "models"(): $Map<($ResourceLocation), ($BakedModel)>
 get "listenerList"(): $ListenerList
+get "models"(): $Map<($ResourceLocation), ($BakedModel)>
 get "modelBakery"(): $ModelBakery
 get "modelManager"(): $ModelManager
 }
@@ -2481,10 +2481,10 @@ export interface $IEnergyStorage {
 
  "canExtract"(): boolean
  "getEnergyStored"(): integer
- "extractEnergy"(arg0: integer, arg1: boolean): integer
  "receiveEnergy"(arg0: integer, arg1: boolean): integer
- "canReceive"(): boolean
  "getMaxEnergyStored"(): integer
+ "canReceive"(): boolean
+ "extractEnergy"(arg0: integer, arg1: boolean): integer
 }
 
 export namespace $IEnergyStorage {
@@ -2509,31 +2509,31 @@ import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/en
 
 export class $LivingKnockBackEvent extends $LivingEvent {
 
-constructor(arg0: $LivingEntity$Type, arg1: float, arg2: double, arg3: double)
 constructor()
+constructor(arg0: $LivingEntity$Type, arg1: float, arg2: double, arg3: double)
 
-public "getStrength"(): float
-public "setStrength"(arg0: float): void
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
+public "getOriginalRatioX"(): double
 public "getOriginalRatioZ"(): double
 public "setRatioX"(arg0: double): void
-public "getOriginalRatioX"(): double
 public "setRatioZ"(arg0: double): void
-public "getRatioX"(): double
-public "getRatioZ"(): double
+public "getStrength"(): float
+public "setStrength"(arg0: float): void
+public "getListenerList"(): $ListenerList
 public "getOriginalStrength"(): float
-get "strength"(): float
-set "strength"(value: float)
+public "getRatioZ"(): double
+public "getRatioX"(): double
 get "cancelable"(): boolean
-get "listenerList"(): $ListenerList
+get "originalRatioX"(): double
 get "originalRatioZ"(): double
 set "ratioX"(value: double)
-get "originalRatioX"(): double
 set "ratioZ"(value: double)
-get "ratioX"(): double
-get "ratioZ"(): double
+get "strength"(): float
+set "strength"(value: float)
+get "listenerList"(): $ListenerList
 get "originalStrength"(): float
+get "ratioZ"(): double
+get "ratioX"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2610,30 +2610,30 @@ constructor(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: string, arg3: in
 constructor()
 
 public "getName"(): string
-public "getPlayer"(): $Player
 public "isCancelable"(): boolean
-public "getOutput"(): $ItemStack
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
+public "getPlayer"(): $Player
 public "getRight"(): $ItemStack
 public "getLeft"(): $ItemStack
-public "setMaterialCost"(arg0: integer): void
+public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
+public "getOutput"(): $ItemStack
 public "setCost"(arg0: integer): void
-public "setOutput"(arg0: $ItemStack$Type): void
+public "setMaterialCost"(arg0: integer): void
 public "getCost"(): integer
 public "getMaterialCost"(): integer
+public "setOutput"(arg0: $ItemStack$Type): void
 get "name"(): string
-get "player"(): $Player
 get "cancelable"(): boolean
-get "output"(): $ItemStack
-get "listenerList"(): $ListenerList
+get "player"(): $Player
 get "right"(): $ItemStack
 get "left"(): $ItemStack
-set "materialCost"(value: integer)
+get "listenerList"(): $ListenerList
+get "output"(): $ItemStack
 set "cost"(value: integer)
-set "output"(value: $ItemStack$Type)
+set "materialCost"(value: integer)
 get "cost"(): integer
 get "materialCost"(): integer
+set "output"(value: $ItemStack$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2667,9 +2667,9 @@ public "resolve"(): $Optional<(T)>
 public "isPresent"(): boolean
 public "orElse"(arg0: T): T
 public "orElseThrow"<X extends $Throwable>(arg0: $NonNullSupplier$Type<(any)>): T
-public "ifPresent"(arg0: $NonNullConsumer$Type<(any)>): void
 public "orElseGet"(arg0: $NonNullSupplier$Type<(any)>): T
 public "invalidate"(): void
+public "ifPresent"(arg0: $NonNullConsumer$Type<(any)>): void
 public "removeListener"(arg0: $NonNullConsumer$Type<($LazyOptional$Type<(T)>)>): void
 public "addListener"(arg0: $NonNullConsumer$Type<($LazyOptional$Type<(T)>)>): void
 public "lazyMap"<U>(arg0: $NonNullFunction$Type<(any), (any)>): $LazyOptional<(U)>
@@ -2700,10 +2700,10 @@ constructor()
 constructor(arg0: $BlockColors$Type)
 
 public "register"(arg0: $BlockColor$Type, ...arg1: ($Block$Type)[]): void
-public "getBlockColors"(): $BlockColors
 public "getListenerList"(): $ListenerList
-get "blockColors"(): $BlockColors
+public "getBlockColors"(): $BlockColors
 get "listenerList"(): $ListenerList
+get "blockColors"(): $BlockColors
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2775,18 +2775,18 @@ public "save"(): void
 public "getType"(): $ModConfig$Type
 public "getFileName"(): string
 public "getHandler"(): $ConfigFileTypeHandler
-public "getModId"(): string
-public "getFullPath"(): $Path
 public "acceptSyncedConfig"(arg0: (byte)[]): void
-public "getConfigData"(): $CommentedConfig
 public "getSpec"<T extends $IConfigSpec<(T)>>(): $IConfigSpec<(T)>
+public "getConfigData"(): $CommentedConfig
+public "getFullPath"(): $Path
+public "getModId"(): string
 get "type"(): $ModConfig$Type
 get "fileName"(): string
 get "handler"(): $ConfigFileTypeHandler
-get "modId"(): string
-get "fullPath"(): $Path
-get "configData"(): $CommentedConfig
 get "spec"(): $IConfigSpec<(T)>
+get "configData"(): $CommentedConfig
+get "fullPath"(): $Path
+get "modId"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2810,8 +2810,8 @@ import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/en
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$Lazy, $Lazy$Type} from "packages/net/minecraftforge/common/util/$Lazy"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$Boat, $Boat$Type} from "packages/net/minecraft/world/entity/vehicle/$Boat"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -2820,8 +2820,8 @@ import {$SoundAction, $SoundAction$Type} from "packages/net/minecraftforge/commo
 import {$FluidType$Properties, $FluidType$Properties$Type} from "packages/net/minecraftforge/fluids/$FluidType$Properties"
 import {$BlockPathTypes, $BlockPathTypes$Type} from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
@@ -2837,69 +2837,69 @@ public "toString"(): string
 public "move"(arg0: $FluidState$Type, arg1: $LivingEntity$Type, arg2: $Vec3$Type, arg3: double): boolean
 public "getDescription"(): $Component
 public "getDescription"(arg0: $FluidStack$Type): $Component
-public "setItemMovement"(arg0: $ItemEntity$Type): void
-public "getBucket"(arg0: $FluidStack$Type): $ItemStack
-public "getBlockForFluidState"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type): $BlockState
-public "canPushEntity"(arg0: $Entity$Type): boolean
-public "motionScale"(arg0: $Entity$Type): double
-public "getSound"(arg0: $Entity$Type, arg1: $SoundAction$Type): $SoundEvent
-public "getSound"(arg0: $Player$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $SoundAction$Type): $SoundEvent
-public "getSound"(arg0: $FluidStack$Type, arg1: $SoundAction$Type): $SoundEvent
-public "getSound"(arg0: $SoundAction$Type): $SoundEvent
-public "canExtinguish"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
-public "canExtinguish"(arg0: $Entity$Type): boolean
-public "canHydrate"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $BlockPos$Type): boolean
-public "canHydrate"(arg0: $Entity$Type): boolean
-public "canHydrate"(arg0: $FluidStack$Type): boolean
-public "canSwim"(arg0: $Entity$Type): boolean
-public "isVaporizedOnPlacement"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $FluidStack$Type): boolean
-public "getLightLevel"(): integer
-public "getLightLevel"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
-public "getLightLevel"(arg0: $FluidStack$Type): integer
-public "getDescriptionId"(arg0: $FluidStack$Type): string
-public "getDescriptionId"(): string
-public "canBePlacedInLevel"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidStack$Type): boolean
-public "canBePlacedInLevel"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type): boolean
-public "getRarity"(): $Rarity
-public "getRarity"(arg0: $FluidStack$Type): $Rarity
-public "getDensity"(arg0: $FluidStack$Type): integer
-public "getDensity"(): integer
-public "getDensity"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
-public "isLighterThanAir"(): boolean
-public "getViscosity"(): integer
-public "getViscosity"(arg0: $FluidStack$Type): integer
-public "getViscosity"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
-public "getStateForPlacement"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidStack$Type): $FluidState
-public "shouldUpdateWhileBoating"(arg0: $FluidState$Type, arg1: $Boat$Type, arg2: $Entity$Type): boolean
-public "getTemperature"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
-public "getTemperature"(): integer
-public "getTemperature"(arg0: $FluidStack$Type): integer
-public "initializeClient"(arg0: $Consumer$Type<($IClientFluidTypeExtensions$Type)>): void
-public "getBlockPathType"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: boolean): $BlockPathTypes
 public "canConvertToSource"(arg0: $FluidState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "canConvertToSource"(arg0: $FluidStack$Type): boolean
-public "supportsBoating"(arg0: $FluidState$Type, arg1: $Boat$Type): boolean
 public "supportsBoating"(arg0: $Boat$Type): boolean
-public "isAir"(): boolean
-public "canDrownIn"(arg0: $LivingEntity$Type): boolean
+public "supportsBoating"(arg0: $FluidState$Type, arg1: $Boat$Type): boolean
 public "getRenderPropertiesInternal"(): any
 public "getAdjacentBlockPathType"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: $BlockPathTypes$Type): $BlockPathTypes
-public "onVaporize"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $FluidStack$Type): void
-public "getFallDistanceModifier"(arg0: $Entity$Type): float
 public "canRideVehicleUnder"(arg0: $Entity$Type, arg1: $Entity$Type): boolean
+public "getFallDistanceModifier"(arg0: $Entity$Type): float
 public "isVanilla"(): boolean
+public "getBucket"(arg0: $FluidStack$Type): $ItemStack
+public "isVaporizedOnPlacement"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $FluidStack$Type): boolean
+public "getBlockForFluidState"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type): $BlockState
+public "onVaporize"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $FluidStack$Type): void
+public "getStateForPlacement"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidStack$Type): $FluidState
+public "getDensity"(arg0: $FluidStack$Type): integer
+public "getDensity"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+public "getDensity"(): integer
+public "getViscosity"(arg0: $FluidStack$Type): integer
+public "getViscosity"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+public "getViscosity"(): integer
+public "isLighterThanAir"(): boolean
+public "canBePlacedInLevel"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidStack$Type): boolean
+public "canBePlacedInLevel"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type): boolean
+public "setItemMovement"(arg0: $ItemEntity$Type): void
+public "shouldUpdateWhileBoating"(arg0: $FluidState$Type, arg1: $Boat$Type, arg2: $Entity$Type): boolean
+public "initializeClient"(arg0: $Consumer$Type<($IClientFluidTypeExtensions$Type)>): void
+public "getBlockPathType"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: boolean): $BlockPathTypes
+public "getLightLevel"(arg0: $FluidStack$Type): integer
+public "getLightLevel"(): integer
+public "getLightLevel"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+public "getTemperature"(arg0: $FluidStack$Type): integer
+public "getTemperature"(): integer
+public "getTemperature"(arg0: $FluidState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type): integer
+public "getRarity"(arg0: $FluidStack$Type): $Rarity
+public "getRarity"(): $Rarity
+public "getDescriptionId"(): string
+public "getDescriptionId"(arg0: $FluidStack$Type): string
+public "canDrownIn"(arg0: $LivingEntity$Type): boolean
+public "getSound"(arg0: $SoundAction$Type): $SoundEvent
+public "getSound"(arg0: $Entity$Type, arg1: $SoundAction$Type): $SoundEvent
+public "getSound"(arg0: $FluidStack$Type, arg1: $SoundAction$Type): $SoundEvent
+public "getSound"(arg0: $Player$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $SoundAction$Type): $SoundEvent
+public "motionScale"(arg0: $Entity$Type): double
+public "canHydrate"(arg0: $FluidStack$Type): boolean
+public "canHydrate"(arg0: $Entity$Type): boolean
+public "canHydrate"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $BlockPos$Type): boolean
+public "canPushEntity"(arg0: $Entity$Type): boolean
+public "canSwim"(arg0: $Entity$Type): boolean
+public "canExtinguish"(arg0: $Entity$Type): boolean
+public "canExtinguish"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+public "isAir"(): boolean
 get "description"(): $Component
-set "itemMovement"(value: $ItemEntity$Type)
-get "lightLevel"(): integer
-get "descriptionId"(): string
-get "rarity"(): $Rarity
-get "density"(): integer
-get "lighterThanAir"(): boolean
-get "viscosity"(): integer
-get "temperature"(): integer
-get "air"(): boolean
 get "renderPropertiesInternal"(): any
 get "vanilla"(): boolean
+get "density"(): integer
+get "viscosity"(): integer
+get "lighterThanAir"(): boolean
+set "itemMovement"(value: $ItemEntity$Type)
+get "lightLevel"(): integer
+get "temperature"(): integer
+get "rarity"(): $Rarity
+get "descriptionId"(): string
+get "air"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2938,8 +2938,8 @@ public "partialState"(): $VariantBlockStateBuilder$PartialBlockstate
 public "setModels"(...arg0: ($ConfiguredModel$Type)[]): $VariantBlockStateBuilder
 public "modelForState"(): $ConfiguredModel$Builder<($VariantBlockStateBuilder)>
 public "addModels"(...arg0: ($ConfiguredModel$Type)[]): $VariantBlockStateBuilder$PartialBlockstate
-public static "comparingByProperties"(): $Comparator<($VariantBlockStateBuilder$PartialBlockstate)>
 public "getSetStates"(): $SortedMap<($Property<(any)>), ($Comparable<(any)>)>
+public static "comparingByProperties"(): $Comparator<($VariantBlockStateBuilder$PartialBlockstate)>
 public "or"(arg0: $Predicate$Type<(any)>): $Predicate<($BlockState)>
 public "negate"(): $Predicate<($BlockState)>
 public "and"(arg0: $Predicate$Type<(any)>): $Predicate<($BlockState)>
@@ -3057,13 +3057,13 @@ export class $StructureSettingsBuilder$StructureSpawnOverrideBuilder {
 
 public "build"(): $StructureSpawnOverride
 public static "copyOf"(arg0: $StructureSpawnOverride$Type): $StructureSettingsBuilder$StructureSpawnOverrideBuilder
-public "setBoundingBox"(arg0: $StructureSpawnOverride$BoundingBoxType$Type): void
-public "getBoundingBox"(): $StructureSpawnOverride$BoundingBoxType
-public "addSpawn"(arg0: $MobSpawnSettings$SpawnerData$Type): void
 public "removeSpawn"(arg0: $MobSpawnSettings$SpawnerData$Type): void
+public "getBoundingBox"(): $StructureSpawnOverride$BoundingBoxType
+public "setBoundingBox"(arg0: $StructureSpawnOverride$BoundingBoxType$Type): void
+public "addSpawn"(arg0: $MobSpawnSettings$SpawnerData$Type): void
 public "getSpawns"(): $List<($MobSpawnSettings$SpawnerData)>
-set "boundingBox"(value: $StructureSpawnOverride$BoundingBoxType$Type)
 get "boundingBox"(): $StructureSpawnOverride$BoundingBoxType
+set "boundingBox"(value: $StructureSpawnOverride$BoundingBoxType$Type)
 get "spawns"(): $List<($MobSpawnSettings$SpawnerData)>
 }
 /**
@@ -3089,15 +3089,15 @@ export class $ForgeConfigSpec$ValueSpec {
 public "test"(arg0: any): boolean
 public "getDefault"(): any
 public "getComment"(): string
-public "getClazz"(): $Class<(any)>
 public "getRange"<V extends $Comparable<(any)>>(): $ForgeConfigSpec$Range<(V)>
-public "needsWorldRestart"(): boolean
+public "getClazz"(): $Class<(any)>
 public "correct"(arg0: any): any
 public "getTranslationKey"(): string
+public "needsWorldRestart"(): boolean
 get "default"(): any
 get "comment"(): string
-get "clazz"(): $Class<(any)>
 get "range"(): $ForgeConfigSpec$Range<(V)>
+get "clazz"(): $Class<(any)>
 get "translationKey"(): string
 }
 /**
@@ -3123,18 +3123,18 @@ export class $LivingExperienceDropEvent extends $LivingEvent {
 constructor()
 constructor(arg0: $LivingEntity$Type, arg1: $Player$Type, arg2: integer)
 
-public "getAttackingPlayer"(): $Player
 public "isCancelable"(): boolean
 public "getListenerList"(): $ListenerList
+public "getAttackingPlayer"(): $Player
+public "getOriginalExperience"(): integer
 public "getDroppedExperience"(): integer
 public "setDroppedExperience"(arg0: integer): void
-public "getOriginalExperience"(): integer
-get "attackingPlayer"(): $Player
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
+get "attackingPlayer"(): $Player
+get "originalExperience"(): integer
 get "droppedExperience"(): integer
 set "droppedExperience"(value: integer)
-get "originalExperience"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3167,25 +3167,25 @@ constructor()
 constructor(arg0: $ModContainer$Type, arg1: $DataGenerator$Type, arg2: $GatherDataEvent$DataGeneratorConfig$Type, arg3: $ExistingFileHelper$Type)
 
 public "validate"(): boolean
+public "isCancelable"(): boolean
+public "getLookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
+public "includeServer"(): boolean
+public "includeClient"(): boolean
 public "getGenerator"(): $DataGenerator
 public "getInputs"(): $Collection<($Path)>
-public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
-public "getExistingFileHelper"(): $ExistingFileHelper
-public "includeClient"(): boolean
-public "includeServer"(): boolean
-public "getLookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
-public "getModContainer"(): $ModContainer
+public "getListenerList"(): $ListenerList
 public "includeDev"(): boolean
 public "includeReports"(): boolean
+public "getModContainer"(): $ModContainer
+public "getExistingFileHelper"(): $ExistingFileHelper
+get "cancelable"(): boolean
+get "lookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
 get "generator"(): $DataGenerator
 get "inputs"(): $Collection<($Path)>
-get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
-get "existingFileHelper"(): $ExistingFileHelper
-get "lookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
 get "modContainer"(): $ModContainer
+get "existingFileHelper"(): $ExistingFileHelper
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3207,21 +3207,21 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export class $AnvilRepairEvent extends $PlayerEvent {
 
-constructor(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type)
 constructor()
+constructor(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type, arg3: $ItemStack$Type)
 
-public "getOutput"(): $ItemStack
-public "getListenerList"(): $ListenerList
 public "getRight"(): $ItemStack
 public "getLeft"(): $ItemStack
+public "getListenerList"(): $ListenerList
 public "getBreakChance"(): float
 public "setBreakChance"(arg0: float): void
-get "output"(): $ItemStack
-get "listenerList"(): $ListenerList
+public "getOutput"(): $ItemStack
 get "right"(): $ItemStack
 get "left"(): $ItemStack
+get "listenerList"(): $ListenerList
 get "breakChance"(): float
 set "breakChance"(value: float)
+get "output"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3249,18 +3249,18 @@ export class $ChunkRenderTypeSet implements $Iterable<($RenderType)> {
 
 public "isEmpty"(): boolean
 public "iterator"(): $Iterator<(any)>
-public static "of"(arg0: $Collection$Type<($RenderType$Type)>): $ChunkRenderTypeSet
 public static "of"(...arg0: ($RenderType$Type)[]): $ChunkRenderTypeSet
+public static "of"(arg0: $Collection$Type<($RenderType$Type)>): $ChunkRenderTypeSet
 public "contains"(arg0: $RenderType$Type): boolean
 public "asList"(): $List<(any)>
 public static "all"(): $ChunkRenderTypeSet
-public static "union"(...arg0: ($ChunkRenderTypeSet$Type)[]): $ChunkRenderTypeSet
 public static "union"(arg0: $Iterable$Type<(any)>): $ChunkRenderTypeSet
 public static "union"(arg0: $Collection$Type<($ChunkRenderTypeSet$Type)>): $ChunkRenderTypeSet
+public static "union"(...arg0: ($ChunkRenderTypeSet$Type)[]): $ChunkRenderTypeSet
+public static "none"(): $ChunkRenderTypeSet
+public static "intersection"(arg0: $Collection$Type<($ChunkRenderTypeSet$Type)>): $ChunkRenderTypeSet
 public static "intersection"(arg0: $Iterable$Type<(any)>): $ChunkRenderTypeSet
 public static "intersection"(...arg0: ($ChunkRenderTypeSet$Type)[]): $ChunkRenderTypeSet
-public static "intersection"(arg0: $Collection$Type<($ChunkRenderTypeSet$Type)>): $ChunkRenderTypeSet
-public static "none"(): $ChunkRenderTypeSet
 public "spliterator"(): $Spliterator<($RenderType)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<any>;
@@ -3286,11 +3286,11 @@ export class $ForgeFlowingFluid$Properties {
 constructor(arg0: $Supplier$Type<(any)>, arg1: $Supplier$Type<(any)>, arg2: $Supplier$Type<(any)>)
 
 public "block"(arg0: $Supplier$Type<(any)>): $ForgeFlowingFluid$Properties
-public "bucket"(arg0: $Supplier$Type<(any)>): $ForgeFlowingFluid$Properties
-public "slopeFindDistance"(arg0: integer): $ForgeFlowingFluid$Properties
 public "levelDecreasePerBlock"(arg0: integer): $ForgeFlowingFluid$Properties
-public "tickRate"(arg0: integer): $ForgeFlowingFluid$Properties
 public "explosionResistance"(arg0: float): $ForgeFlowingFluid$Properties
+public "bucket"(arg0: $Supplier$Type<(any)>): $ForgeFlowingFluid$Properties
+public "tickRate"(arg0: integer): $ForgeFlowingFluid$Properties
+public "slopeFindDistance"(arg0: integer): $ForgeFlowingFluid$Properties
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3311,9 +3311,9 @@ import {$TagKey, $TagKey$Type} from "packages/net/minecraft/tags/$TagKey"
 
 export interface $IReverseTag<V> {
 
+ "getTagKeys"(): $Stream<($TagKey<(V)>)>
  "containsTag"(arg0: $TagKey$Type<(V)>): boolean
  "containsTag"(arg0: $ITag$Type<(V)>): boolean
- "getTagKeys"(): $Stream<($TagKey<(V)>)>
 }
 
 export namespace $IReverseTag {
@@ -3347,15 +3347,15 @@ constructor(arg0: $ResourceKey$Type<(any)>, arg1: $IForgeRegistry$Type<(any)>, a
 
 public "getKey"(): $ResourceKey<(any)>
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
+public "getMappings"<T>(arg0: $ResourceKey$Type<(any)>, arg1: string): $List<($MissingMappingsEvent$Mapping<(T)>)>
 public "getRegistry"(): $IForgeRegistry<(any)>
 public "getAllMappings"<T>(arg0: $ResourceKey$Type<(any)>): $List<($MissingMappingsEvent$Mapping<(T)>)>
-public "getMappings"<T>(arg0: $ResourceKey$Type<(any)>, arg1: string): $List<($MissingMappingsEvent$Mapping<(T)>)>
+public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "key"(): $ResourceKey<(any)>
 get "cancelable"(): boolean
-get "listenerList"(): $ListenerList
 get "registry"(): $IForgeRegistry<(any)>
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3516,13 +3516,13 @@ export interface $IModFile {
  "getType"(): $IModFile$Type
  "getFileName"(): string
  "getProvider"(): $IModProvider
- "getLoaders"(): $List<($IModLanguageProvider)>
- "getScanResult"(): $ModFileScanData
- "getModFileInfo"(): $IModFileInfo
  "getSecureJar"(): $SecureJar
  "getModInfos"(): $List<($IModInfo)>
+ "getLoaders"(): $List<($IModLanguageProvider)>
  "setSecurityStatus"(arg0: $SecureJar$Status$Type): void
  "getSubstitutionMap"(): $Supplier<($Map<(string), (any)>)>
+ "getScanResult"(): $ModFileScanData
+ "getModFileInfo"(): $IModFileInfo
  "getFilePath"(): $Path
 }
 
@@ -3578,19 +3578,19 @@ export class $NetworkEvent$Context {
 
 
 public "attr"<T>(arg0: $AttributeKey$Type<(T)>): $Attribute<(T)>
-public "enqueueWork"(arg0: $Runnable$Type): $CompletableFuture<(void)>
-public "getDirection"(): $NetworkDirection
 public "getSender"(): $ServerPlayer
-public "getPacketHandled"(): boolean
-public "getNetworkManager"(): $Connection
 public "setPacketHandled"(arg0: boolean): void
+public "getNetworkManager"(): $Connection
 public "getPacketDispatcher"(): $NetworkEvent$PacketDispatcher
-get "direction"(): $NetworkDirection
+public "getDirection"(): $NetworkDirection
+public "getPacketHandled"(): boolean
+public "enqueueWork"(arg0: $Runnable$Type): $CompletableFuture<(void)>
 get "sender"(): $ServerPlayer
-get "packetHandled"(): boolean
-get "networkManager"(): $Connection
 set "packetHandled"(value: boolean)
+get "networkManager"(): $Connection
 get "packetDispatcher"(): $NetworkEvent$PacketDispatcher
+get "direction"(): $NetworkDirection
+get "packetHandled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3614,13 +3614,13 @@ export class $EntityEvent extends $Event {
 constructor()
 constructor(arg0: $Entity$Type)
 
-public "getEntity"(): $Entity
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
-get "entity"(): $Entity
+public "getListenerList"(): $ListenerList
+public "getEntity"(): $Entity
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
+get "entity"(): $Entity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3737,20 +3737,20 @@ export class $ShieldBlockEvent extends $LivingEvent {
 constructor()
 constructor(arg0: $LivingEntity$Type, arg1: $DamageSource$Type, arg2: float)
 
-public "getDamageSource"(): $DamageSource
 public "isCancelable"(): boolean
+public "setShieldTakesDamage"(arg0: boolean): void
+public "getOriginalBlockedDamage"(): float
 public "setBlockedDamage"(arg0: float): void
 public "getListenerList"(): $ListenerList
+public "getDamageSource"(): $DamageSource
 public "shieldTakesDamage"(): boolean
 public "getBlockedDamage"(): float
-public "getOriginalBlockedDamage"(): float
-public "setShieldTakesDamage"(arg0: boolean): void
-get "damageSource"(): $DamageSource
 get "cancelable"(): boolean
+get "originalBlockedDamage"(): float
 set "blockedDamage"(value: float)
 get "listenerList"(): $ListenerList
+get "damageSource"(): $DamageSource
 get "blockedDamage"(): float
-get "originalBlockedDamage"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3797,10 +3797,10 @@ export class $EnumArgument$Info<T extends $Enum<(T)>> implements $ArgumentTypeIn
 
 constructor()
 
-public "serializeToNetwork"(arg0: $EnumArgument$Info$Template$Type<>, arg1: $FriendlyByteBuf$Type): void
-public "serializeToJson"(arg0: $EnumArgument$Info$Template$Type<>, arg1: $JsonObject$Type): void
 public "unpack"(arg0: $EnumArgument$Type<(T)>): $EnumArgument$Info$Template<>
+public "serializeToJson"(arg0: $EnumArgument$Info$Template$Type<>, arg1: $JsonObject$Type): void
 public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $EnumArgument$Info$Template<>
+public "serializeToNetwork"(arg0: $EnumArgument$Info$Template$Type<>, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3823,10 +3823,10 @@ import {$Advancement, $Advancement$Type} from "packages/net/minecraft/advancemen
 
 export interface $IForgeCommandSourceStack {
 
- "getRecipeManager"(): $RecipeManager
- "getAdvancement"(arg0: $ResourceLocation$Type): $Advancement
- "getScoreboard"(): $Scoreboard
  "getUnsidedLevel"(): $Level
+ "getScoreboard"(): $Scoreboard
+ "getAdvancement"(arg0: $ResourceLocation$Type): $Advancement
+ "getRecipeManager"(): $RecipeManager
 }
 
 export namespace $IForgeCommandSourceStack {
@@ -3860,9 +3860,9 @@ constructor(arg0: $MultiPartBlockStateBuilder$PartBuilder$Type)
 
 public "condition"<T extends $Comparable<(T)>>(arg0: $Property$Type<(T)>, ...arg1: (T)[]): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
 public "end"(): $MultiPartBlockStateBuilder$PartBuilder
-public "nestedGroup"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
-public "endNestedGroup"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
 public "useOr"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
+public "endNestedGroup"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
+public "nestedGroup"(): $MultiPartBlockStateBuilder$PartBuilder$ConditionGroup
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3886,9 +3886,7 @@ export class $LivingEvent extends $EntityEvent {
 constructor()
 constructor(arg0: $LivingEntity$Type)
 
-public "getEntity"(): $LivingEntity
 public "getListenerList"(): $ListenerList
-get "entity"(): $LivingEntity
 get "listenerList"(): $ListenerList
 }
 /**
@@ -3958,22 +3956,22 @@ public static "create"(arg0: $ResourceKey$Type<($Level$Type)>, arg1: $LevelAcces
 public static "create"(arg0: $ResourceKey$Type<($Level$Type)>, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: integer): $BlockSnapshot
 public "getTag"(): $CompoundTag
 public "getLevel"(): $LevelAccessor
-public "restoreToLocation"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: boolean, arg3: boolean): boolean
+public "getPos"(): $BlockPos
 public "getCurrentBlock"(): $BlockState
+public "restoreToLocation"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: boolean, arg3: boolean): boolean
 public "getFlag"(): integer
 public "getBlockEntity"(): $BlockEntity
-public "restore"(arg0: boolean): boolean
-public "restore"(): boolean
-public "restore"(arg0: boolean, arg1: boolean): boolean
 public "getReplacedBlock"(): $BlockState
-public "getPos"(): $BlockPos
+public "restore"(arg0: boolean): boolean
+public "restore"(arg0: boolean, arg1: boolean): boolean
+public "restore"(): boolean
 get "tag"(): $CompoundTag
 get "level"(): $LevelAccessor
+get "pos"(): $BlockPos
 get "currentBlock"(): $BlockState
 get "flag"(): integer
 get "blockEntity"(): $BlockEntity
 get "replacedBlock"(): $BlockState
-get "pos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4087,14 +4085,14 @@ static readonly "LOGIN_TO_CLIENT": $NetworkDirection
 
 public static "values"(): ($NetworkDirection)[]
 public static "valueOf"(arg0: string): $NetworkDirection
+public static "directionFor"<T extends $ICustomPacket<(any)>>(arg0: $Class$Type<(T)>): $NetworkDirection
+public "getReceptionSide"(): $LogicalSide
+public "getOriginationSide"(): $LogicalSide
 public "buildPacket"<T extends $Packet<(any)>>(arg0: $Pair$Type<($FriendlyByteBuf$Type), (integer)>, arg1: $ResourceLocation$Type): $ICustomPacket<(T)>
 public "reply"(): $NetworkDirection
 public "getEvent"(arg0: $ICustomPacket$Type<(any)>, arg1: $Supplier$Type<($NetworkEvent$Context$Type)>): $NetworkEvent
-public static "directionFor"<T extends $ICustomPacket<(any)>>(arg0: $Class$Type<(T)>): $NetworkDirection
-public "getOriginationSide"(): $LogicalSide
-public "getReceptionSide"(): $LogicalSide
-get "originationSide"(): $LogicalSide
 get "receptionSide"(): $LogicalSide
+get "originationSide"(): $LogicalSide
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4125,12 +4123,12 @@ export interface $ITagManager<V> extends $Iterable<($ITag<(V)>)> {
 
  "stream"(): $Stream<($ITag<(V)>)>
  "getTag"(arg0: $TagKey$Type<(V)>): $ITag<(V)>
- "createTagKey"(arg0: $ResourceLocation$Type): $TagKey<(V)>
- "getTagNames"(): $Stream<($TagKey<(V)>)>
- "getReverseTag"(arg0: V): $Optional<($IReverseTag<(V)>)>
- "isKnownTagName"(arg0: $TagKey$Type<(V)>): boolean
  "addOptionalTagDefaults"(arg0: $TagKey$Type<(V)>, arg1: $Set$Type<(any)>): void
  "createOptionalTagKey"(arg0: $ResourceLocation$Type, arg1: $Set$Type<(any)>): $TagKey<(V)>
+ "getReverseTag"(arg0: V): $Optional<($IReverseTag<(V)>)>
+ "isKnownTagName"(arg0: $TagKey$Type<(V)>): boolean
+ "getTagNames"(): $Stream<($TagKey<(V)>)>
+ "createTagKey"(arg0: $ResourceLocation$Type): $TagKey<(V)>
  "iterator"(): $Iterator<($ITag<(V)>)>
  "spliterator"(): $Spliterator<($ITag<(V)>)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -4166,28 +4164,28 @@ export class $EntityEvent$Size extends $EntityEvent {
 
 constructor()
 constructor(arg0: $Entity$Type, arg1: $Pose$Type, arg2: $EntityDimensions$Type, arg3: $EntityDimensions$Type, arg4: float, arg5: float)
-constructor(arg0: $Entity$Type, arg1: $Pose$Type, arg2: $EntityDimensions$Type)
 constructor(arg0: $Entity$Type, arg1: $Pose$Type, arg2: $EntityDimensions$Type, arg3: float)
+constructor(arg0: $Entity$Type, arg1: $Pose$Type, arg2: $EntityDimensions$Type)
 
-public "getNewEyeHeight"(): float
-public "getNewSize"(): $EntityDimensions
 public "getListenerList"(): $ListenerList
+public "setNewEyeHeight"(arg0: float): void
 public "getOldSize"(): $EntityDimensions
 public "setNewSize"(arg0: $EntityDimensions$Type): void
 public "setNewSize"(arg0: $EntityDimensions$Type, arg1: boolean): void
 public "getOldEyeHeight"(): float
-public "setNewEyeHeight"(arg0: float): void
 public "getOriginalSize"(): $EntityDimensions
 public "getPose"(): $Pose
-get "newEyeHeight"(): float
-get "newSize"(): $EntityDimensions
+public "getNewSize"(): $EntityDimensions
+public "getNewEyeHeight"(): float
 get "listenerList"(): $ListenerList
+set "newEyeHeight"(value: float)
 get "oldSize"(): $EntityDimensions
 set "newSize"(value: $EntityDimensions$Type)
 get "oldEyeHeight"(): float
-set "newEyeHeight"(value: float)
 get "originalSize"(): $EntityDimensions
 get "pose"(): $Pose
+get "newSize"(): $EntityDimensions
+get "newEyeHeight"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4214,14 +4212,14 @@ readonly "uvLock": boolean
 readonly "weight": integer
 
 constructor(arg0: $ModelFile$Type, arg1: integer, arg2: integer, arg3: boolean)
-constructor(arg0: $ModelFile$Type)
 constructor(arg0: $ModelFile$Type, arg1: integer, arg2: integer, arg3: boolean, arg4: integer)
+constructor(arg0: $ModelFile$Type)
 
 public static "builder"(): $ConfiguredModel$Builder<(any)>
-public static "allYRotations"(arg0: $ModelFile$Type, arg1: integer, arg2: boolean): ($ConfiguredModel)[]
-public static "allYRotations"(arg0: $ModelFile$Type, arg1: integer, arg2: boolean, arg3: integer): ($ConfiguredModel)[]
 public static "allRotations"(arg0: $ModelFile$Type, arg1: boolean, arg2: integer): ($ConfiguredModel)[]
 public static "allRotations"(arg0: $ModelFile$Type, arg1: boolean): ($ConfiguredModel)[]
+public static "allYRotations"(arg0: $ModelFile$Type, arg1: integer, arg2: boolean, arg3: integer): ($ConfiguredModel)[]
+public static "allYRotations"(arg0: $ModelFile$Type, arg1: integer, arg2: boolean): ($ConfiguredModel)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4312,8 +4310,8 @@ public "getId"(): integer
 public "fail"(): void
 public "ignore"(): void
 public "warn"(): void
-public "remap"(arg0: T): void
 public "getRegistry"(): $IForgeRegistry<(T)>
+public "remap"(arg0: T): void
 get "key"(): $ResourceLocation
 get "id"(): integer
 get "registry"(): $IForgeRegistry<(T)>
@@ -4345,12 +4343,12 @@ constructor(arg0: string, arg1: integer, arg2: integer, arg3: $Message$Type)
 public "name"(): string
 public "increment"(): void
 public "current"(): integer
-public "complete"(): void
-public "steps"(): integer
 public "label"(arg0: string): void
 public "label"(): $Message
-public "setAbsolute"(arg0: integer): void
+public "complete"(): void
+public "steps"(): integer
 public "progress"(): float
+public "setAbsolute"(arg0: integer): void
 set "absolute"(value: integer)
 }
 /**
@@ -4440,8 +4438,8 @@ export class $RegisterColorHandlersEvent extends $Event implements $IModBusEvent
 
 
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
 }
@@ -4496,11 +4494,11 @@ export class $HandshakeMessages$S2CRegistry extends $HandshakeMessages$LoginInde
 constructor(arg0: $ResourceLocation$Type, arg1: $ForgeRegistry$Snapshot$Type)
 
 public static "decode"(arg0: $FriendlyByteBuf$Type): $HandshakeMessages$S2CRegistry
-public "getSnapshot"(): $ForgeRegistry$Snapshot
-public "hasSnapshot"(): boolean
 public "getRegistryName"(): $ResourceLocation
-get "snapshot"(): $ForgeRegistry$Snapshot
+public "hasSnapshot"(): boolean
+public "getSnapshot"(): $ForgeRegistry$Snapshot
 get "registryName"(): $ResourceLocation
+get "snapshot"(): $ForgeRegistry$Snapshot
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4529,8 +4527,8 @@ public "toString"(): string
 public "hashCode"(): integer
 public "isEmpty"(): boolean
 public "block"(): $RenderType
-public "entity"(): $RenderType
 public "entityFabulous"(): $RenderType
+public "entity"(): $RenderType
 get "empty"(): boolean
 }
 /**
@@ -4653,7 +4651,6 @@ import {$InventoryMenu, $InventoryMenu$Type} from "packages/net/minecraft/world/
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$EntityDimensions, $EntityDimensions$Type} from "packages/net/minecraft/world/entity/$EntityDimensions"
-import {$ChestConfig, $ChestConfig$Type} from "packages/dev/mayaqq/estrogen/config/$ChestConfig"
 import {$Spectre, $Spectre$Type} from "packages/net/orcinus/galosphere/entities/$Spectre"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
@@ -4692,7 +4689,6 @@ static readonly "STANDING_DIMENSIONS": $EntityDimensions
  "totalExperience": integer
  "experienceProgress": float
  "fishing": $FishingHook
- "estrogenChestConfig": $ChestConfig
 static readonly "HAND_SLOTS": integer
 static readonly "ARMOR_SLOTS": integer
 static readonly "EQUIPMENT_SLOT_OFFSET": integer
@@ -4788,14 +4784,14 @@ constructor(arg0: $ServerLevel$Type, arg1: $GameProfile$Type)
 public "isInvulnerableTo"(arg0: $DamageSource$Type): boolean
 public "die"(arg0: $DamageSource$Type): void
 public "tick"(): void
-public "displayClientMessage"(arg0: $Component$Type, arg1: boolean): void
+public "updateOptions"(arg0: $ServerboundClientInformationPacket$Type): void
+public "getServer"(): $MinecraftServer
 public "canHarmPlayer"(arg0: $Player$Type): boolean
 public "awardStat"(arg0: $Stat$Type<(any)>, arg1: integer): void
-public "getServer"(): $MinecraftServer
-public "updateOptions"(arg0: $ServerboundClientInformationPacket$Type): void
+public "displayClientMessage"(arg0: $Component$Type, arg1: boolean): void
+public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
-public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "of"(holder: any): $FacetHolder
 get "server"(): $MinecraftServer
 }
@@ -4867,14 +4863,14 @@ export class $ConfiguredModel$Builder<T> {
 
 
 public "build"(): ($ConfiguredModel)[]
-public "nextModel"(): $ConfiguredModel$Builder<(T)>
-public "rotationY"(arg0: integer): $ConfiguredModel$Builder<(T)>
-public "rotationX"(arg0: integer): $ConfiguredModel$Builder<(T)>
+public "addModel"(): T
+public "modelFile"(arg0: $ModelFile$Type): $ConfiguredModel$Builder<(T)>
 public "weight"(arg0: integer): $ConfiguredModel$Builder<(T)>
 public "buildLast"(): $ConfiguredModel
-public "modelFile"(arg0: $ModelFile$Type): $ConfiguredModel$Builder<(T)>
-public "addModel"(): T
 public "uvLock"(arg0: boolean): $ConfiguredModel$Builder<(T)>
+public "rotationX"(arg0: integer): $ConfiguredModel$Builder<(T)>
+public "rotationY"(arg0: integer): $ConfiguredModel$Builder<(T)>
+public "nextModel"(): $ConfiguredModel$Builder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4916,10 +4912,10 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $IMinecartCollisionHandler {
 
- "getBoundingBox"(arg0: $AbstractMinecart$Type): $AABB
  "onEntityCollision"(arg0: $AbstractMinecart$Type, arg1: $Entity$Type): void
- "getCollisionBox"(arg0: $AbstractMinecart$Type, arg1: $Entity$Type): $AABB
  "getMinecartCollisionBox"(arg0: $AbstractMinecart$Type): $AABB
+ "getBoundingBox"(arg0: $AbstractMinecart$Type): $AABB
+ "getCollisionBox"(arg0: $AbstractMinecart$Type, arg1: $Entity$Type): $AABB
 }
 
 export namespace $IMinecartCollisionHandler {
@@ -4957,9 +4953,9 @@ constructor(arg0: $MobSpawnSettings$Type)
 
 public "getSpawnerTypes"(): $Set<($MobCategory)>
 public "getEntityTypes"(): $Set<($EntityType<(any)>)>
+public "getProbability"(): float
 public "getCost"(arg0: $EntityType$Type<(any)>): $MobSpawnSettings$MobSpawnCost
 public "getSpawner"(arg0: $MobCategory$Type): $List<($MobSpawnSettings$SpawnerData)>
-public "getProbability"(): float
 public "disablePlayerSpawn"(): $MobSpawnSettingsBuilder
 get "spawnerTypes"(): $Set<($MobCategory)>
 get "entityTypes"(): $Set<($EntityType<(any)>)>
@@ -5066,23 +5062,23 @@ export interface $IForgeAbstractMinecart {
 
  "getComparatorLevel"(): integer
  "canUseRail"(): boolean
- "getSlopeAdjustment"(): double
- "moveMinecartOnRail"(arg0: $BlockPos$Type): void
  "canBeRidden"(): boolean
+ "getSlopeAdjustment"(): double
  "getDragAir"(): double
- "isPoweredCart"(): boolean
+ "moveMinecartOnRail"(arg0: $BlockPos$Type): void
  "setCanUseRail"(arg0: boolean): void
  "setDragAir"(arg0: double): void
- "getCurrentCartSpeedCapOnRail"(): float
+ "isPoweredCart"(): boolean
  "getMaxSpeedAirVertical"(): float
- "shouldDoRailFunctions"(): boolean
  "setCurrentCartSpeedCapOnRail"(arg0: float): void
- "setMaxSpeedAirLateral"(arg0: float): void
  "setMaxSpeedAirVertical"(arg0: float): void
+ "setMaxSpeedAirLateral"(arg0: float): void
  "getMaxSpeedWithRail"(): double
+ "getCurrentCartSpeedCapOnRail"(): float
+ "shouldDoRailFunctions"(): boolean
  "getMaxSpeedAirLateral"(): float
- "getCurrentRailPosition"(): $BlockPos
  "getMaxCartSpeedOnRail"(): float
+ "getCurrentRailPosition"(): $BlockPos
 }
 
 export namespace $IForgeAbstractMinecart {
@@ -5137,19 +5133,19 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export class $BlockEvent$BreakEvent extends $BlockEvent {
 
-constructor(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type)
 constructor()
+constructor(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type)
 
-public "getPlayer"(): $Player
 public "isCancelable"(): boolean
+public "getPlayer"(): $Player
 public "getListenerList"(): $ListenerList
-public "setExpToDrop"(arg0: integer): void
 public "getExpToDrop"(): integer
-get "player"(): $Player
+public "setExpToDrop"(arg0: integer): void
 get "cancelable"(): boolean
+get "player"(): $Player
 get "listenerList"(): $ListenerList
-set "expToDrop"(value: integer)
 get "expToDrop"(): integer
+set "expToDrop"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5173,23 +5169,23 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export class $PlayerEvent$BreakSpeed extends $PlayerEvent {
 
-constructor(arg0: $Player$Type, arg1: $BlockState$Type, arg2: float, arg3: $BlockPos$Type)
 constructor()
+constructor(arg0: $Player$Type, arg1: $BlockState$Type, arg2: float, arg3: $BlockPos$Type)
 
 public "getState"(): $BlockState
 public "getPosition"(): $Optional<($BlockPos)>
 public "isCancelable"(): boolean
 public "getListenerList"(): $ListenerList
-public "getOriginalSpeed"(): float
-public "setNewSpeed"(arg0: float): void
 public "getNewSpeed"(): float
+public "setNewSpeed"(arg0: float): void
+public "getOriginalSpeed"(): float
 get "state"(): $BlockState
 get "position"(): $Optional<($BlockPos)>
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
-get "originalSpeed"(): float
-set "newSpeed"(value: float)
 get "newSpeed"(): float
+set "newSpeed"(value: float)
+get "originalSpeed"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5220,8 +5216,8 @@ readonly "overrides": $Map<($ResourceLocation), (string)>
 constructor()
 
 public "write"(): $CompoundTag
-public static "read"(arg0: $FriendlyByteBuf$Type): $ForgeRegistry$Snapshot
 public static "read"(arg0: $CompoundTag$Type): $ForgeRegistry$Snapshot
+public static "read"(arg0: $FriendlyByteBuf$Type): $ForgeRegistry$Snapshot
 public "getPacketData"(): $FriendlyByteBuf
 get "packetData"(): $FriendlyByteBuf
 }
@@ -5250,13 +5246,13 @@ export interface $IModFileInfo {
  "moduleName"(): string
  "getFile"(): $IModFile
  "versionString"(): string
+ "getMods"(): $List<($IModInfo)>
+ "getFileProperties"(): $Map<(string), (any)>
+ "getLicense"(): string
+ "usesServices"(): $List<(string)>
+ "showAsResourcePack"(): boolean
  "requiredLanguageLoaders"(): $List<($IModFileInfo$LanguageSpec)>
  "getConfig"(): $IConfigurable
- "getMods"(): $List<($IModInfo)>
- "usesServices"(): $List<(string)>
- "getLicense"(): string
- "showAsResourcePack"(): boolean
- "getFileProperties"(): $Map<(string), (any)>
 }
 
 export namespace $IModFileInfo {
@@ -5401,24 +5397,24 @@ export class $FluidType$Properties {
 
 
 public static "create"(): $FluidType$Properties
-public "fallDistanceModifier"(arg0: float): $FluidType$Properties
-public "sound"(arg0: $SoundAction$Type, arg1: $SoundEvent$Type): $FluidType$Properties
-public "temperature"(arg0: integer): $FluidType$Properties
-public "canPushEntity"(arg0: boolean): $FluidType$Properties
-public "motionScale"(arg0: double): $FluidType$Properties
-public "canExtinguish"(arg0: boolean): $FluidType$Properties
-public "canHydrate"(arg0: boolean): $FluidType$Properties
-public "canSwim"(arg0: boolean): $FluidType$Properties
 public "viscosity"(arg0: integer): $FluidType$Properties
-public "adjacentPathType"(arg0: $BlockPathTypes$Type): $FluidType$Properties
-public "pathType"(arg0: $BlockPathTypes$Type): $FluidType$Properties
-public "canDrown"(arg0: boolean): $FluidType$Properties
-public "lightLevel"(arg0: integer): $FluidType$Properties
-public "rarity"(arg0: $Rarity$Type): $FluidType$Properties
-public "density"(arg0: integer): $FluidType$Properties
-public "descriptionId"(arg0: string): $FluidType$Properties
 public "canConvertToSource"(arg0: boolean): $FluidType$Properties
 public "supportsBoating"(arg0: boolean): $FluidType$Properties
+public "temperature"(arg0: integer): $FluidType$Properties
+public "pathType"(arg0: $BlockPathTypes$Type): $FluidType$Properties
+public "adjacentPathType"(arg0: $BlockPathTypes$Type): $FluidType$Properties
+public "density"(arg0: integer): $FluidType$Properties
+public "descriptionId"(arg0: string): $FluidType$Properties
+public "rarity"(arg0: $Rarity$Type): $FluidType$Properties
+public "lightLevel"(arg0: integer): $FluidType$Properties
+public "canDrown"(arg0: boolean): $FluidType$Properties
+public "motionScale"(arg0: double): $FluidType$Properties
+public "canHydrate"(arg0: boolean): $FluidType$Properties
+public "canPushEntity"(arg0: boolean): $FluidType$Properties
+public "canSwim"(arg0: boolean): $FluidType$Properties
+public "canExtinguish"(arg0: boolean): $FluidType$Properties
+public "sound"(arg0: $SoundAction$Type, arg1: $SoundEvent$Type): $FluidType$Properties
+public "fallDistanceModifier"(arg0: float): $FluidType$Properties
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5441,17 +5437,17 @@ import {$Property, $Property$Type} from "packages/net/minecraft/world/level/bloc
 import {$VariantBlockStateBuilder$PartialBlockstate, $VariantBlockStateBuilder$PartialBlockstate$Type} from "packages/net/minecraftforge/client/model/generators/$VariantBlockStateBuilder$PartialBlockstate"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 import {$ConfiguredModel, $ConfiguredModel$Type} from "packages/net/minecraftforge/client/model/generators/$ConfiguredModel"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $VariantBlockStateBuilder implements $IGeneratedBlockState {
 
 
 public "getOwner"(): $Block
-public "getModels"(): $Map<($VariantBlockStateBuilder$PartialBlockstate), ($BlockStateProvider$ConfiguredModelList)>
 public "toJson"(): $JsonObject
 public "partialState"(): $VariantBlockStateBuilder$PartialBlockstate
 public "setModels"(arg0: $VariantBlockStateBuilder$PartialBlockstate$Type, ...arg1: ($ConfiguredModel$Type)[]): $VariantBlockStateBuilder
+public "getModels"(): $Map<($VariantBlockStateBuilder$PartialBlockstate), ($BlockStateProvider$ConfiguredModelList)>
 public "forAllStates"(arg0: $Function$Type<($BlockState$Type), (($ConfiguredModel$Type)[])>): $VariantBlockStateBuilder
 public "forAllStatesExcept"(arg0: $Function$Type<($BlockState$Type), (($ConfiguredModel$Type)[])>, ...arg1: ($Property$Type<(any)>)[]): $VariantBlockStateBuilder
 public "addModels"(arg0: $VariantBlockStateBuilder$PartialBlockstate$Type, ...arg1: ($ConfiguredModel$Type)[]): $VariantBlockStateBuilder
@@ -5482,8 +5478,8 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 
 export interface $ITextureAtlasSpriteLoader {
 
- "makeSprite"(arg0: $ResourceLocation$Type, arg1: $SpriteContents$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): $TextureAtlasSprite
  "loadContents"(arg0: $ResourceLocation$Type, arg1: $Resource$Type, arg2: $FrameSize$Type, arg3: $NativeImage$Type, arg4: $AnimationMetadataSection$Type, arg5: $ForgeTextureMetadata$Type): $SpriteContents
+ "makeSprite"(arg0: $ResourceLocation$Type, arg1: $SpriteContents$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): $TextureAtlasSprite
 }
 
 export namespace $ITextureAtlasSpriteLoader {
@@ -5513,8 +5509,8 @@ import {$BakedQuad, $BakedQuad$Type} from "packages/net/minecraft/client/rendere
 export interface $IForgeVertexConsumer {
 
  "putBulkData"(arg0: $PoseStack$Pose$Type, arg1: $BakedQuad$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
- "applyBakedNormals"(arg0: $Vector3f$Type, arg1: $ByteBuffer$Type, arg2: $Matrix3f$Type): void
  "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$Type): integer
+ "applyBakedNormals"(arg0: $Vector3f$Type, arg1: $ByteBuffer$Type, arg2: $Matrix3f$Type): void
  "misc"(arg0: $VertexFormatElement$Type, ...arg1: (integer)[]): $VertexConsumer
 }
 
@@ -5586,9 +5582,9 @@ import {$PartEntity, $PartEntity$Type} from "packages/net/minecraftforge/entity/
 
 export interface $IForgeLevel extends $ICapabilityProvider {
 
- "getMaxEntityRadius"(): double
- "getPartEntities"(): $Collection<($PartEntity<(any)>)>
  "increaseMaxEntityRadius"(arg0: double): double
+ "getPartEntities"(): $Collection<($PartEntity<(any)>)>
+ "getMaxEntityRadius"(): double
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
@@ -5669,19 +5665,19 @@ export interface $IForgeRegistryInternal<V> extends $IForgeRegistry<(V)> {
  "getDelegate"(arg0: V): $Optional<($Holder$Reference<(V)>)>
  "getDelegate"(arg0: $ResourceLocation$Type): $Optional<($Holder$Reference<(V)>)>
  "getDelegate"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder$Reference<(V)>)>
- "getValues"(): $Collection<(V)>
- "getCodec"(): $Codec<(V)>
- "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
- "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+ "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+ "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
+ "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
+ "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
+ "getRegistryName"(): $ResourceLocation
+ "getDefaultKey"(): $ResourceLocation
+ "getDelegateOrThrow"(arg0: V): $Holder$Reference<(V)>
  "getDelegateOrThrow"(arg0: $ResourceKey$Type<(V)>): $Holder$Reference<(V)>
  "getDelegateOrThrow"(arg0: $ResourceLocation$Type): $Holder$Reference<(V)>
- "getDelegateOrThrow"(arg0: V): $Holder$Reference<(V)>
- "getRegistryName"(): $ResourceLocation
- "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
- "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
- "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
- "getDefaultKey"(): $ResourceLocation
- "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+ "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
+ "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+ "getCodec"(): $Codec<(V)>
+ "getValues"(): $Collection<(V)>
  "iterator"(): $Iterator<(V)>
  "spliterator"(): $Spliterator<(V)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -5719,18 +5715,18 @@ export class $ModelBuilder<T extends $ModelBuilder<(T)>> extends $ModelFile {
 
 public "parent"(arg0: $ModelFile$Type): T
 public "ao"(arg0: boolean): T
-public "element"(arg0: integer): $ModelBuilder$ElementBuilder<>
 public "element"(): $ModelBuilder$ElementBuilder<>
+public "element"(arg0: integer): $ModelBuilder$ElementBuilder<>
 public "transforms"(): $ModelBuilder$TransformsBuilder<>
+public "texture"(arg0: string, arg1: $ResourceLocation$Type): T
+public "texture"(arg0: string, arg1: string): T
+public "toJson"(): $JsonObject
+public "renderType"(arg0: string): T
+public "renderType"(arg0: $ResourceLocation$Type): T
 public "guiLight"(arg0: $BlockModel$GuiLight$Type): T
 public "rootTransforms"(): $ModelBuilder$RootTransformsBuilder<>
 public "customLoader"<L extends $CustomLoaderBuilder<(T)>>(arg0: $BiFunction$Type<(T), ($ExistingFileHelper$Type), (L)>): L
-public "toJson"(): $JsonObject
-public "texture"(arg0: string, arg1: string): T
-public "texture"(arg0: string, arg1: $ResourceLocation$Type): T
 public "getElementCount"(): integer
-public "renderType"(arg0: string): T
-public "renderType"(arg0: $ResourceLocation$Type): T
 get "elementCount"(): integer
 }
 /**
@@ -5756,8 +5752,8 @@ export interface $IFluidHandler {
  "drain"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
  "getFluidInTank"(arg0: integer): $FluidStack
  "getTanks"(): integer
- "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
  "getTankCapacity"(arg0: integer): integer
+ "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
 }
 
 export namespace $IFluidHandler {
@@ -5787,35 +5783,35 @@ import {$Container, $Container$Type} from "packages/net/minecraft/world/$Contain
 export interface $IItemHandler extends $InventoryKJS {
 
  "getSlots"(): integer
+ "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
+ "getStackInSlot"(arg0: integer): $ItemStack
+ "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+ "getSlotLimit"(arg0: integer): integer
+ "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+ "getBlock"(level: $Level$Type): $BlockContainerJS
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
  "getStackInSlot"(i: integer): $ItemStack
  "insertItem"(i: integer, itemStack: $ItemStack$Type, b: boolean): $ItemStack
- "getSlotLimit"(i: integer): integer
- "isMutable"(): boolean
  "getSlots"(): integer
- "isItemValid"(i: integer, itemStack: $ItemStack$Type): boolean
+ "getSlotLimit"(i: integer): integer
  "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
- "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
- "getBlock"(level: $Level$Type): $BlockContainerJS
- "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
- "getSlotLimit"(arg0: integer): integer
- "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
- "getStackInSlot"(arg0: integer): $ItemStack
- "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+ "isItemValid"(i: integer, itemStack: $ItemStack$Type): boolean
  "kjs$self"(): $IItemHandler
- "getHeight"(): integer
  "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "clear"(ingredient: $Ingredient$Type): void
- "clear"(): void
- "asContainer"(): $Container
- "setChanged"(): void
+ "countNonEmpty"(ingredient: $Ingredient$Type): integer
+ "countNonEmpty"(): integer
+ "getHeight"(): integer
+ "count"(): integer
+ "count"(ingredient: $Ingredient$Type): integer
  "getAllItems"(): $List<($ItemStack)>
+ "setChanged"(): void
+ "getWidth"(): integer
+ "asContainer"(): $Container
+ "clear"(): void
+ "clear"(ingredient: $Ingredient$Type): void
  "find"(): integer
  "find"(ingredient: $Ingredient$Type): integer
- "count"(ingredient: $Ingredient$Type): integer
- "count"(): integer
- "countNonEmpty"(): integer
- "countNonEmpty"(ingredient: $Ingredient$Type): integer
  "isEmpty"(): boolean
 }
 
@@ -5890,69 +5886,69 @@ constructor(arg0: $PackOutput$Type, arg1: string, arg2: string, arg3: $Function$
 
 public "sign"(arg0: string, arg1: $ResourceLocation$Type): T
 public "nested"(): T
-public "cube"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type, arg5: $ResourceLocation$Type, arg6: $ResourceLocation$Type): T
-public "doorBottomRightOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "trapdoorOrientableTop"(arg0: string, arg1: $ResourceLocation$Type): T
-public "trapdoorOrientableBottom"(arg0: string, arg1: $ResourceLocation$Type): T
-public "trapdoorOrientableOpen"(arg0: string, arg1: $ResourceLocation$Type): T
-public "cubeColumnHorizontal"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "orientableWithBottom"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): T
-public "getBuilder"(arg0: string): T
 public "withExistingParent"(arg0: string, arg1: string): T
 public "withExistingParent"(arg0: string, arg1: $ResourceLocation$Type): T
-public "button"(arg0: string, arg1: $ResourceLocation$Type): T
-public "cross"(arg0: string, arg1: $ResourceLocation$Type): T
-public "stairs"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
-public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
-public "slab"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
 public "fenceGate"(arg0: string, arg1: $ResourceLocation$Type): T
+public "slab"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "stairs"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "button"(arg0: string, arg1: $ResourceLocation$Type): T
 public "torch"(arg0: string, arg1: $ResourceLocation$Type): T
-public "singleTexture"(arg0: string, arg1: $ResourceLocation$Type, arg2: string, arg3: $ResourceLocation$Type): T
-public "singleTexture"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "cubeBottomTop"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
-public "getExistingFile"(arg0: $ResourceLocation$Type): $ModelFile$ExistingModelFile
-public "orientable"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
-public "cubeTop"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "cubeColumnHorizontal"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "orientableWithBottom"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): T
 public "mcLoc"(arg0: string): $ResourceLocation
-public "crop"(arg0: string, arg1: $ResourceLocation$Type): T
-public "orientableVertical"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "getExistingFile"(arg0: $ResourceLocation$Type): $ModelFile$ExistingModelFile
+public "singleTexture"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "singleTexture"(arg0: string, arg1: $ResourceLocation$Type, arg2: string, arg3: $ResourceLocation$Type): T
 public "cubeColumn"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "pressurePlate"(arg0: string, arg1: $ResourceLocation$Type): T
-public "fenceInventory"(arg0: string, arg1: $ResourceLocation$Type): T
-public "fencePost"(arg0: string, arg1: $ResourceLocation$Type): T
-public "slabTop"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "cubeBottomTop"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "cubeTop"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "orientableVertical"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "getBuilder"(arg0: string): T
+public "cube"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type, arg5: $ResourceLocation$Type, arg6: $ResourceLocation$Type): T
+public "trapdoorOrientableTop"(arg0: string, arg1: $ResourceLocation$Type): T
+public "doorBottomRightOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "trapdoorOrientableBottom"(arg0: string, arg1: $ResourceLocation$Type): T
+public "trapdoorOrientableOpen"(arg0: string, arg1: $ResourceLocation$Type): T
+public "cubeAll"(arg0: string, arg1: $ResourceLocation$Type): T
+public "modLoc"(arg0: string): $ResourceLocation
+public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
+public "orientable"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
 public "buttonInventory"(arg0: string, arg1: $ResourceLocation$Type): T
+public "stairsInner"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "slabTop"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "crop"(arg0: string, arg1: $ResourceLocation$Type): T
+public "buttonPressed"(arg0: string, arg1: $ResourceLocation$Type): T
+public "pressurePlate"(arg0: string, arg1: $ResourceLocation$Type): T
+public "stairsOuter"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
+public "pressurePlateDown"(arg0: string, arg1: $ResourceLocation$Type): T
+public "fenceInventory"(arg0: string, arg1: $ResourceLocation$Type): T
+public "wallPost"(arg0: string, arg1: $ResourceLocation$Type): T
+public "paneSide"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "paneSideAlt"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "doorBottomLeft"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "wallSideTall"(arg0: string, arg1: $ResourceLocation$Type): T
+public "doorBottomLeftOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "doorBottomRight"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
 public "fenceGateOpen"(arg0: string, arg1: $ResourceLocation$Type): T
 public "fenceGateWall"(arg0: string, arg1: $ResourceLocation$Type): T
-public "stairsOuter"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
-public "wallPost"(arg0: string, arg1: $ResourceLocation$Type): T
-public "buttonPressed"(arg0: string, arg1: $ResourceLocation$Type): T
-public "wallSide"(arg0: string, arg1: $ResourceLocation$Type): T
-public "pressurePlateDown"(arg0: string, arg1: $ResourceLocation$Type): T
-public "wallSideTall"(arg0: string, arg1: $ResourceLocation$Type): T
-public "stairsInner"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): T
-public "fenceSide"(arg0: string, arg1: $ResourceLocation$Type): T
-public "wallInventory"(arg0: string, arg1: $ResourceLocation$Type): T
-public "fenceGateWallOpen"(arg0: string, arg1: $ResourceLocation$Type): T
-public "doorBottomRight"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "paneNoSide"(arg0: string, arg1: $ResourceLocation$Type): T
-public "doorBottomLeft"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "doorTopLeftOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "doorBottomLeftOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "paneSide"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "doorTopRight"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "paneSideAlt"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "panePost"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "doorTopRightOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
-public "trapdoorTop"(arg0: string, arg1: $ResourceLocation$Type): T
-public "trapdoorBottom"(arg0: string, arg1: $ResourceLocation$Type): T
 public "paneNoSideAlt"(arg0: string, arg1: $ResourceLocation$Type): T
+public "wallSide"(arg0: string, arg1: $ResourceLocation$Type): T
+public "fenceSide"(arg0: string, arg1: $ResourceLocation$Type): T
+public "fenceGateWallOpen"(arg0: string, arg1: $ResourceLocation$Type): T
+public "wallInventory"(arg0: string, arg1: $ResourceLocation$Type): T
+public "paneNoSide"(arg0: string, arg1: $ResourceLocation$Type): T
+public "fencePost"(arg0: string, arg1: $ResourceLocation$Type): T
+public "panePost"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "carpet"(arg0: string, arg1: $ResourceLocation$Type): T
 public "doorTopLeft"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "trapdoorTop"(arg0: string, arg1: $ResourceLocation$Type): T
+public "doorTopLeftOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "doorTopRightOpen"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
+public "doorTopRight"(arg0: string, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): T
 public "trapdoorOpen"(arg0: string, arg1: $ResourceLocation$Type): T
 public "torchWall"(arg0: string, arg1: $ResourceLocation$Type): T
-public "carpet"(arg0: string, arg1: $ResourceLocation$Type): T
-public "modLoc"(arg0: string): $ResourceLocation
-public "cubeAll"(arg0: string, arg1: $ResourceLocation$Type): T
+public "trapdoorBottom"(arg0: string, arg1: $ResourceLocation$Type): T
+public "cross"(arg0: string, arg1: $ResourceLocation$Type): T
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
 public "getName"(): string
 get "name"(): string
@@ -6007,26 +6003,26 @@ import {$InputEvent, $InputEvent$Type} from "packages/net/minecraftforge/client/
 
 export class $InputEvent$InteractionKeyMappingTriggered extends $InputEvent {
 
-constructor(arg0: integer, arg1: $KeyMapping$Type, arg2: $InteractionHand$Type)
 constructor()
+constructor(arg0: integer, arg1: $KeyMapping$Type, arg2: $InteractionHand$Type)
 
-public "getHand"(): $InteractionHand
-public "isUseItem"(): boolean
-public "setSwingHand"(arg0: boolean): void
 public "isCancelable"(): boolean
+public "getHand"(): $InteractionHand
 public "getListenerList"(): $ListenerList
-public "shouldSwingHand"(): boolean
+public "isPickBlock"(): boolean
 public "getKeyMapping"(): $KeyMapping
 public "isAttack"(): boolean
-public "isPickBlock"(): boolean
-get "hand"(): $InteractionHand
-get "useItem"(): boolean
-set "swingHand"(value: boolean)
+public "isUseItem"(): boolean
+public "setSwingHand"(arg0: boolean): void
+public "shouldSwingHand"(): boolean
 get "cancelable"(): boolean
+get "hand"(): $InteractionHand
 get "listenerList"(): $ListenerList
+get "pickBlock"(): boolean
 get "keyMapping"(): $KeyMapping
 get "attack"(): boolean
-get "pickBlock"(): boolean
+get "useItem"(): boolean
+set "swingHand"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6046,8 +6042,8 @@ import {$IntSupplier, $IntSupplier$Type} from "packages/java/util/function/$IntS
 import {$ConfigFormat, $ConfigFormat$Type} from "packages/com/electronwill/nightconfig/core/$ConfigFormat"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$OptionalLong, $OptionalLong$Type} from "packages/java/util/$OptionalLong"
+import {$EnumGetMethod, $EnumGetMethod$Type} from "packages/com/electronwill/nightconfig/core/$EnumGetMethod"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -6065,11 +6061,11 @@ import {$UnmodifiableConfig, $UnmodifiableConfig$Type} from "packages/com/electr
 export interface $IConfigSpec<T extends $IConfigSpec<(T)>> extends $UnmodifiableConfig {
 
  "self"(): T
- "acceptConfig"(arg0: $CommentedConfig$Type): void
+ "isCorrect"(arg0: $CommentedConfig$Type): boolean
+ "correct"(arg0: $CommentedConfig$Type): integer
  "afterReload"(): void
  "isCorrecting"(): boolean
- "correct"(arg0: $CommentedConfig$Type): integer
- "isCorrect"(arg0: $CommentedConfig$Type): boolean
+ "acceptConfig"(arg0: $CommentedConfig$Type): void
  "get"<T>(arg0: string): T
  "get"<T>(arg0: $List$Type<(string)>): T
  "getByte"(arg0: $List$Type<(string)>): byte
@@ -6086,55 +6082,55 @@ export interface $IConfigSpec<T extends $IConfigSpec<(T)>> extends $Unmodifiable
  "size"(): integer
  "apply"<T>(arg0: string): T
  "apply"<T>(arg0: $List$Type<(string)>): T
- "contains"(arg0: $List$Type<(string)>): boolean
  "contains"(arg0: string): boolean
+ "contains"(arg0: $List$Type<(string)>): boolean
  "entrySet"(): $Set<(any)>
  "isNull"(arg0: $List$Type<(string)>): boolean
  "isNull"(arg0: string): boolean
- "valueMap"(): $Map<(string), (any)>
- "getRaw"<T>(arg0: $List$Type<(string)>): T
- "getRaw"<T>(arg0: string): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: string, arg1: T): T
- "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
- "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
- "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
- "configFormat"(): $ConfigFormat<(any)>
  "getOptional"<T>(arg0: string): $Optional<(T)>
  "getOptional"<T>(arg0: $List$Type<(string)>): $Optional<(T)>
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
- "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
- "getOptionalInt"(arg0: string): $OptionalInt
- "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
- "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
- "getShortOrElse"(arg0: string, arg1: short): short
+ "getRaw"<T>(arg0: string): T
+ "getRaw"<T>(arg0: $List$Type<(string)>): T
+ "getOrElse"<T>(arg0: string, arg1: T): T
+ "getOrElse"<T>(arg0: string, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>): T
+ "getOrElse"<T>(arg0: $List$Type<(string)>, arg1: T): T
+ "configFormat"(): $ConfigFormat<(any)>
  "getOptionalLong"(arg0: $List$Type<(string)>): $OptionalLong
  "getOptionalLong"(arg0: string): $OptionalLong
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
+ "getLongOrElse"(arg0: string, arg1: long): long
+ "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
+ "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): T
+ "getEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): T
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>): $Optional<(T)>
+ "getOptionalEnum"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>): $Optional<(T)>
  "getIntOrElse"(arg0: string, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: $IntSupplier$Type): integer
  "getIntOrElse"(arg0: $List$Type<(string)>, arg1: integer): integer
  "getIntOrElse"(arg0: string, arg1: integer): integer
- "getLongOrElse"(arg0: string, arg1: long): long
- "getLongOrElse"(arg0: string, arg1: $LongSupplier$Type): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: long): long
- "getLongOrElse"(arg0: $List$Type<(string)>, arg1: $LongSupplier$Type): long
- "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T, arg2: $EnumGetMethod$Type): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: string, arg1: T): T
+ "getEnumOrElse"<T extends $Enum<(T)>>(arg0: $List$Type<(string)>, arg1: $Class$Type<(T)>, arg2: $EnumGetMethod$Type, arg3: $Supplier$Type<(T)>): T
+ "getOptionalInt"(arg0: string): $OptionalInt
+ "getOptionalInt"(arg0: $List$Type<(string)>): $OptionalInt
  "getByteOrElse"(arg0: string, arg1: byte): byte
+ "getByteOrElse"(arg0: $List$Type<(string)>, arg1: byte): byte
+ "getShortOrElse"(arg0: string, arg1: short): short
+ "getShortOrElse"(arg0: $List$Type<(string)>, arg1: short): short
  "getCharOrElse"(arg0: $List$Type<(string)>, arg1: character): character
  "getCharOrElse"(arg0: string, arg1: character): character
+ "valueMap"(): $Map<(string), (any)>
 }
 
 export namespace $IConfigSpec {
@@ -6154,16 +6150,16 @@ export type $IConfigSpec_<T> = $IConfigSpec$Type<(T)>;
 }}
 declare module "packages/net/minecraftforge/common/$IPlantable" {
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$PlantType, $PlantType$Type} from "packages/net/minecraftforge/common/$PlantType"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$PlantType, $PlantType$Type} from "packages/net/minecraftforge/common/$PlantType"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IPlantable {
 
- "getPlantType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PlantType
  "getPlant"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $BlockState
+ "getPlantType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PlantType
 
-(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PlantType
+(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $BlockState
 }
 
 export namespace $IPlantable {
@@ -6223,10 +6219,10 @@ import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 
 export interface $IForgeDimensionSpecialEffects {
 
- "adjustLightmapColors"(arg0: $ClientLevel$Type, arg1: float, arg2: float, arg3: float, arg4: float, arg5: integer, arg6: integer, arg7: $Vector3f$Type): void
- "renderSnowAndRain"(arg0: $ClientLevel$Type, arg1: integer, arg2: float, arg3: $LightTexture$Type, arg4: double, arg5: double, arg6: double): boolean
- "tickRain"(arg0: $ClientLevel$Type, arg1: integer, arg2: $Camera$Type): boolean
  "renderSky"(arg0: $ClientLevel$Type, arg1: integer, arg2: float, arg3: $PoseStack$Type, arg4: $Camera$Type, arg5: $Matrix4f$Type, arg6: boolean, arg7: $Runnable$Type): boolean
+ "tickRain"(arg0: $ClientLevel$Type, arg1: integer, arg2: $Camera$Type): boolean
+ "renderSnowAndRain"(arg0: $ClientLevel$Type, arg1: integer, arg2: float, arg3: $LightTexture$Type, arg4: double, arg5: double, arg6: double): boolean
+ "adjustLightmapColors"(arg0: $ClientLevel$Type, arg1: float, arg2: float, arg3: float, arg4: float, arg5: integer, arg6: integer, arg7: $Vector3f$Type): void
  "renderClouds"(arg0: $ClientLevel$Type, arg1: integer, arg2: float, arg3: $PoseStack$Type, arg4: double, arg5: double, arg6: double, arg7: $Matrix4f$Type): boolean
 }
 
@@ -6287,22 +6283,22 @@ export class $PlayerInteractEvent$RightClickBlock extends $PlayerInteractEvent {
 constructor()
 constructor(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $BlockPos$Type, arg3: $BlockHitResult$Type)
 
-public "getUseBlock"(): $Event$Result
-public "getUseItem"(): $Event$Result
-public "setUseBlock"(arg0: $Event$Result$Type): void
-public "setUseItem"(arg0: $Event$Result$Type): void
 public "isCancelable"(): boolean
 public "setCanceled"(arg0: boolean): void
-public "getHitVec"(): $BlockHitResult
 public "getListenerList"(): $ListenerList
-get "useBlock"(): $Event$Result
-get "useItem"(): $Event$Result
-set "useBlock"(value: $Event$Result$Type)
-set "useItem"(value: $Event$Result$Type)
+public "getHitVec"(): $BlockHitResult
+public "getUseBlock"(): $Event$Result
+public "getUseItem"(): $Event$Result
+public "setUseItem"(arg0: $Event$Result$Type): void
+public "setUseBlock"(arg0: $Event$Result$Type): void
 get "cancelable"(): boolean
 set "canceled"(value: boolean)
-get "hitVec"(): $BlockHitResult
 get "listenerList"(): $ListenerList
+get "hitVec"(): $BlockHitResult
+get "useBlock"(): $Event$Result
+get "useItem"(): $Event$Result
+set "useItem"(value: $Event$Result$Type)
+set "useBlock"(value: $Event$Result$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6375,14 +6371,14 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $IForgeGuiGraphics {
 
- "blitWithBorder"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
- "blitWithBorder"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer): void
- "blitInscribed"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
- "blitInscribed"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
  "getColorFromFormattingCharacter"(arg0: character, arg1: boolean): integer
+ "blitNineSlicedSized"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer): void
  "blitNineSlicedSized"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer, arg13: integer, arg14: integer): void
  "blitNineSlicedSized"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer): void
- "blitNineSlicedSized"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer): void
+ "blitWithBorder"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer): void
+ "blitWithBorder"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: integer, arg10: integer, arg11: integer, arg12: integer): void
+ "blitInscribed"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
+ "blitInscribed"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
 }
 
 export namespace $IForgeGuiGraphics {
@@ -6423,8 +6419,8 @@ constructor()
 constructor(arg0: $TickEvent$Type$Type, arg1: $LogicalSide$Type, arg2: $TickEvent$Phase$Type)
 
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
 }
@@ -6491,25 +6487,25 @@ export class $ModContainer {
 constructor(arg0: $IModInfo$Type)
 
 public "matches"(arg0: any): boolean
-public "getNamespace"(): string
-public "registerExtensionPoint"<T extends ($Record) & ($IExtensionPoint<(T)>)>(arg0: $Class$Type<(any)>, arg1: $Supplier$Type<(T)>): void
-public "getModId"(): string
-public "registerDisplayTest"(arg0: $Supplier$Type<(string)>, arg1: $BiPredicate$Type<(string), (boolean)>): void
+public "registerDisplayTest"(arg0: $IExtensionPoint$DisplayTest$Type): void
 public "registerDisplayTest"(arg0: string, arg1: $BiPredicate$Type<(string), (boolean)>): void
 public "registerDisplayTest"(arg0: $Supplier$Type<($IExtensionPoint$DisplayTest$Type)>): void
-public "registerDisplayTest"(arg0: $IExtensionPoint$DisplayTest$Type): void
-public "getCurrentState"(): $ModLoadingStage
-public "getMod"(): any
+public "registerDisplayTest"(arg0: $Supplier$Type<(string)>, arg1: $BiPredicate$Type<(string), (boolean)>): void
 public "addConfig"(arg0: $ModConfig$Type): void
-public "getModInfo"(): $IModInfo
+public "getCurrentState"(): $ModLoadingStage
 public static "buildTransitionHandler"<T extends ($Event) & ($IModBusEvent)>(arg0: $ModContainer$Type, arg1: $IModStateTransition$EventGenerator$Type<(T)>, arg2: $ProgressMeter$Type, arg3: $BiFunction$Type<($ModLoadingStage$Type), ($Throwable$Type), ($ModLoadingStage$Type)>, arg4: $Executor$Type): $CompletableFuture<(void)>
-public "dispatchConfigEvent"(arg0: $IConfigEvent$Type): void
+public "getNamespace"(): string
+public "registerExtensionPoint"<T extends ($Record) & ($IExtensionPoint<(T)>)>(arg0: $Class$Type<(any)>, arg1: $Supplier$Type<(T)>): void
 public "getCustomExtension"<T extends $Record>(arg0: $Class$Type<(any)>): $Optional<(T)>
-get "namespace"(): string
-get "modId"(): string
+public "getModInfo"(): $IModInfo
+public "getMod"(): any
+public "getModId"(): string
+public "dispatchConfigEvent"(arg0: $IConfigEvent$Type): void
 get "currentState"(): $ModLoadingStage
-get "mod"(): any
+get "namespace"(): string
 get "modInfo"(): $IModInfo
+get "mod"(): any
+get "modId"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6537,20 +6533,20 @@ export class $StructureSettingsBuilder {
 
 public "build"(): $Structure$StructureSettings
 public static "copyOf"(arg0: $Structure$StructureSettings$Type): $StructureSettingsBuilder
-public "getOrAddSpawnOverrides"(arg0: $MobCategory$Type): $StructureSettingsBuilder$StructureSpawnOverrideBuilder
 public "getBiomes"(): $HolderSet<($Biome)>
-public "setTerrainAdaptation"(arg0: $TerrainAdjustment$Type): void
-public "getTerrainAdaptation"(): $TerrainAdjustment
 public "removeSpawnOverrides"(arg0: $MobCategory$Type): void
-public "getDecorationStep"(): $GenerationStep$Decoration
+public "getTerrainAdaptation"(): $TerrainAdjustment
+public "setTerrainAdaptation"(arg0: $TerrainAdjustment$Type): void
+public "getOrAddSpawnOverrides"(arg0: $MobCategory$Type): $StructureSettingsBuilder$StructureSpawnOverrideBuilder
 public "setBiomes"(arg0: $HolderSet$Type<($Biome$Type)>): void
-public "setDecorationStep"(arg0: $GenerationStep$Decoration$Type): void
+public "getDecorationStep"(): $GenerationStep$Decoration
 public "getSpawnOverrides"(arg0: $MobCategory$Type): $StructureSettingsBuilder$StructureSpawnOverrideBuilder
+public "setDecorationStep"(arg0: $GenerationStep$Decoration$Type): void
 get "biomes"(): $HolderSet<($Biome)>
-set "terrainAdaptation"(value: $TerrainAdjustment$Type)
 get "terrainAdaptation"(): $TerrainAdjustment
-get "decorationStep"(): $GenerationStep$Decoration
+set "terrainAdaptation"(value: $TerrainAdjustment$Type)
 set "biomes"(value: $HolderSet$Type<($Biome$Type)>)
+get "decorationStep"(): $GenerationStep$Decoration
 set "decorationStep"(value: $GenerationStep$Decoration$Type)
 }
 /**
@@ -6641,8 +6637,8 @@ public "toString"(): string
 public "create"<V>(arg0: $RegistryBuilder$Type<(V)>): $Supplier<($IForgeRegistry<(V)>)>
 public "create"<V>(arg0: $RegistryBuilder$Type<(V)>, arg1: $Consumer$Type<($IForgeRegistry$Type<(V)>)>): $Supplier<($IForgeRegistry<(V)>)>
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
 }
@@ -6825,14 +6821,14 @@ public "add"(arg0: $Enchantment$Type, arg1: string): void
 public "add"(arg0: $MobEffect$Type, arg1: string): void
 public "add"(arg0: $EntityType$Type<(any)>, arg1: string): void
 public "add"(arg0: $Block$Type, arg1: string): void
-public "addBlock"(arg0: $Supplier$Type<(any)>, arg1: string): void
 public "addItem"(arg0: $Supplier$Type<(any)>, arg1: string): void
+public "addEffect"(arg0: $Supplier$Type<(any)>, arg1: string): void
+public "addEnchantment"(arg0: $Supplier$Type<(any)>, arg1: string): void
+public "addItemStack"(arg0: $Supplier$Type<($ItemStack$Type)>, arg1: string): void
+public "addEntityType"(arg0: $Supplier$Type<(any)>, arg1: string): void
 public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
 public "getName"(): string
-public "addEffect"(arg0: $Supplier$Type<(any)>, arg1: string): void
-public "addItemStack"(arg0: $Supplier$Type<($ItemStack$Type)>, arg1: string): void
-public "addEnchantment"(arg0: $Supplier$Type<(any)>, arg1: string): void
-public "addEntityType"(arg0: $Supplier$Type<(any)>, arg1: string): void
+public "addBlock"(arg0: $Supplier$Type<(any)>, arg1: string): void
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
 get "name"(): string
 }
@@ -6887,10 +6883,10 @@ export class $CapabilityProvider<B extends $ICapabilityProviderImpl<(B)>> implem
 
 
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "reviveCaps"(): void
-public "invalidateCaps"(): void
 public "areCapsCompatible"(arg0: $CapabilityProvider$Type<(B)>): boolean
 public "areCapsCompatible"(arg0: $CapabilityDispatcher$Type): boolean
+public "invalidateCaps"(): void
+public "reviveCaps"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
 /**
@@ -6937,52 +6933,51 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 export interface $IForgeItemStack extends $ICapabilitySerializable<($CompoundTag)>, $IForgeItemStackMixin {
 
  "equals"(arg0: $ItemStack$Type, arg1: boolean): boolean
- "getHighlightTip"(arg0: $Component$Type): $Component
- "getCraftingRemainingItem"(): $ItemStack
- "getEnchantmentValue"(): integer
- "makesPiglinsNeutral"(arg0: $LivingEntity$Type): boolean
- "shouldCauseBlockBreakReset"(arg0: $ItemStack$Type): boolean
- "canApplyAtEnchantingTable"(arg0: $Enchantment$Type): boolean
- "canWalkOnPowderedSnow"(arg0: $LivingEntity$Type): boolean
- "hasCraftingRemainingItem"(): boolean
- "isNotReplaceableByPickAction"(arg0: $Player$Type, arg1: integer): boolean
- "canGrindstoneRepair"(): boolean
  "getAllEnchantments"(): $Map<($Enchantment), (integer)>
+ "getHighlightTip"(arg0: $Component$Type): $Component
  "getEntityLifespan"(arg0: $Level$Type): integer
  "onEntityItemUpdate"(arg0: $ItemEntity$Type): boolean
  "onDestroyed"(arg0: $ItemEntity$Type, arg1: $DamageSource$Type): void
- "getEnchantmentLevel"(arg0: $Enchantment$Type): integer
- "onItemUseFirst"(arg0: $UseOnContext$Type): $InteractionResult
- "onBlockStartBreak"(arg0: $BlockPos$Type, arg1: $Player$Type): boolean
- "readShareTag"(arg0: $CompoundTag$Type): void
- "getXpRepairRatio"(): float
+ "canDisableShield"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: $LivingEntity$Type): boolean
+ "canPerformAction"(arg0: $ToolAction$Type): boolean
+ "getSweepHitBox"(arg0: $Player$Type, arg1: $Entity$Type): $AABB
+ "areShareTagsEqual"(arg0: $ItemStack$Type): boolean
+ "isRepairable"(): boolean
  "onDroppedByPlayer"(arg0: $Player$Type): boolean
- "getShareTag"(): $CompoundTag
  "isPiglinCurrency"(): boolean
- "onInventoryTick"(arg0: $Level$Type, arg1: $Player$Type, arg2: integer, arg3: integer): void
+ "onItemUseFirst"(arg0: $UseOnContext$Type): $InteractionResult
  "canEquip"(arg0: $EquipmentSlot$Type, arg1: $Entity$Type): boolean
+ "onBlockStartBreak"(arg0: $BlockPos$Type, arg1: $Player$Type): boolean
  "isBookEnchantable"(arg0: $ItemStack$Type): boolean
- "doesSneakBypassUse"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
+ "readShareTag"(arg0: $CompoundTag$Type): void
+ "getShareTag"(): $CompoundTag
+ "getXpRepairRatio"(): float
+ "onInventoryTick"(arg0: $Level$Type, arg1: $Player$Type, arg2: integer, arg3: integer): void
 /**
  * 
  * @deprecated
  */
  "onArmorTick"(arg0: $Level$Type, arg1: $Player$Type): void
+ "doesSneakBypassUse"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
  "onHorseArmorTick"(arg0: $Level$Type, arg1: $Mob$Type): void
  "isEnderMask"(arg0: $Player$Type, arg1: $EnderMan$Type): boolean
  "getBurnTime"(arg0: $RecipeType$Type<(any)>): integer
- "areShareTagsEqual"(arg0: $ItemStack$Type): boolean
- "canDisableShield"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: $LivingEntity$Type): boolean
- "canPerformAction"(arg0: $ToolAction$Type): boolean
- "getSweepHitBox"(arg0: $Player$Type, arg1: $Entity$Type): $AABB
- "canElytraFly"(arg0: $LivingEntity$Type): boolean
- "onEntitySwing"(arg0: $LivingEntity$Type): boolean
- "elytraFlightTick"(arg0: $LivingEntity$Type, arg1: integer): boolean
+ "getEnchantmentLevel"(arg0: $Enchantment$Type): integer
  "getFoodProperties"(arg0: $LivingEntity$Type): $FoodProperties
  "onStopUsing"(arg0: $LivingEntity$Type, arg1: integer): void
  "getEquipmentSlot"(): $EquipmentSlot
- "serializeNBT"(): $CompoundTag
- "isRepairable"(): boolean
+ "hasCraftingRemainingItem"(): boolean
+ "canWalkOnPowderedSnow"(arg0: $LivingEntity$Type): boolean
+ "shouldCauseBlockBreakReset"(arg0: $ItemStack$Type): boolean
+ "isNotReplaceableByPickAction"(arg0: $Player$Type, arg1: integer): boolean
+ "getCraftingRemainingItem"(): $ItemStack
+ "canGrindstoneRepair"(): boolean
+ "makesPiglinsNeutral"(arg0: $LivingEntity$Type): boolean
+ "getEnchantmentValue"(): integer
+ "canApplyAtEnchantingTable"(arg0: $Enchantment$Type): boolean
+ "elytraFlightTick"(arg0: $LivingEntity$Type, arg1: integer): boolean
+ "onEntitySwing"(arg0: $LivingEntity$Type): boolean
+ "canElytraFly"(arg0: $LivingEntity$Type): boolean
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
  "deserializeNBT"(arg0: $CompoundTag$Type): void
@@ -7040,19 +7035,19 @@ public "build"(): $Biome$ClimateSettings
 public static "copyOf"(arg0: $Biome$ClimateSettings$Type): $ClimateSettingsBuilder
 public static "create"(arg0: boolean, arg1: float, arg2: $Biome$TemperatureModifier$Type, arg3: float): $ClimateSettingsBuilder
 public "getDownfall"(): float
-public "hasPrecipitation"(): boolean
 public "getTemperature"(): float
-public "setHasPrecipitation"(arg0: boolean): void
 public "getTemperatureModifier"(): $Biome$TemperatureModifier
+public "setHasPrecipitation"(arg0: boolean): void
 public "setTemperatureModifier"(arg0: $Biome$TemperatureModifier$Type): void
-public "setTemperature"(arg0: float): void
+public "hasPrecipitation"(): boolean
 public "setDownfall"(arg0: float): void
+public "setTemperature"(arg0: float): void
 get "downfall"(): float
 get "temperature"(): float
 get "temperatureModifier"(): $Biome$TemperatureModifier
 set "temperatureModifier"(value: $Biome$TemperatureModifier$Type)
-set "temperature"(value: float)
 set "downfall"(value: float)
+set "temperature"(value: float)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7102,11 +7097,11 @@ export class $ModifiableBiomeInfo implements $BiomeModifierRemoverMixin {
 constructor(arg0: $ModifiableBiomeInfo$BiomeInfo$Type)
 
 public "get"(): $ModifiableBiomeInfo$BiomeInfo
-public "getOriginalBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
 public "applyBiomeModifiers"(arg0: $Holder$Type<($Biome$Type)>, arg1: $List$Type<($BiomeModifier$Type)>): void
 public "getModifiedBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
-get "originalBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
+public "getOriginalBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
 get "modifiedBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
+get "originalBiomeInfo"(): $ModifiableBiomeInfo$BiomeInfo
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7156,8 +7151,8 @@ import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
-import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
+import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
@@ -7187,57 +7182,57 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 export interface $IForgeBlockState {
 
  "rotate"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $Rotation$Type): $BlockState
- "addLandingEffects"(arg0: $ServerLevel$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: integer): boolean
- "getWeakChanges"(arg0: $LevelReader$Type, arg1: $BlockPos$Type): boolean
- "onNeighborChange"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
- "canRedstoneConnectTo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
+ "shouldCheckWeakPower"(arg0: $SignalGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
+ "onDestroyedByPlayer"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Player$Type, arg3: boolean, arg4: $FluidState$Type): boolean
+ "supportsExternalFaceHiding"(): boolean
+ "getBeaconColorMultiplier"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): (float)[]
+ "getEnchantPowerBonus"(arg0: $LevelReader$Type, arg1: $BlockPos$Type): float
+ "getStateAtViewpoint"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Vec3$Type): $BlockState
+ "getAdjacentBlockPathType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Mob$Type, arg3: $BlockPathTypes$Type): $BlockPathTypes
+ "shouldDisplayFluidOverlay"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type): boolean
+ "canDropFromExplosion"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): boolean
+ "getToolModifiedState"(arg0: $UseOnContext$Type, arg1: $ToolAction$Type, arg2: boolean): $BlockState
+ "getExplosionResistance"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): float
  "collisionExtendsVertically"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): boolean
+ "canBeHydrated"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type, arg3: $BlockPos$Type): boolean
+ "getAppearance"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $BlockState$Type, arg4: $BlockPos$Type): $BlockState
  "getLightEmission"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): integer
- "addRunningEffects"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): boolean
  "onBlockStateChange"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): void
+ "onNeighborChange"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
+ "getWeakChanges"(arg0: $LevelReader$Type, arg1: $BlockPos$Type): boolean
+ "canRedstoneConnectTo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
+ "onBlockExploded"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): void
  "hidesNeighborFace"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
  "canSustainPlant"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $IPlantable$Type): boolean
  "isLadder"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $LivingEntity$Type): boolean
- "isValidSpawn"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $SpawnPlacements$Type$Type, arg3: $EntityType$Type<(any)>): boolean
- "isBurning"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
- "canHarvestBlock"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
- "getExpDrop"(arg0: $LevelReader$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: integer, arg4: integer): integer
- "onTreeGrow"(arg0: $LevelReader$Type, arg1: $BiConsumer$Type<($BlockPos$Type), ($BlockState$Type)>, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: $TreeConfiguration$Type): boolean
- "isConduitFrame"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): boolean
- "isPortalFrame"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
  "isFertile"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
+ "onTreeGrow"(arg0: $LevelReader$Type, arg1: $BiConsumer$Type<($BlockPos$Type), ($BlockState$Type)>, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: $TreeConfiguration$Type): boolean
+ "isBurning"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
+ "isValidSpawn"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $SpawnPlacements$Type$Type, arg3: $EntityType$Type<(any)>): boolean
+ "canHarvestBlock"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
+ "isConduitFrame"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): boolean
  "getBlockPathType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Mob$Type): $BlockPathTypes
+ "isPortalFrame"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
+ "getExpDrop"(arg0: $LevelReader$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: integer, arg4: integer): integer
  "isSlimeBlock"(): boolean
+ "getFlammability"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): integer
+ "isFlammable"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
+ "onCaughtFire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $LivingEntity$Type): void
+ "getFireSpreadSpeed"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): integer
+ "canEntityDestroy"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): boolean
  "canStickTo"(arg0: $BlockState$Type): boolean
  "isStickyBlock"(): boolean
- "getFlammability"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): integer
  "isFireSource"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
- "getFireSpreadSpeed"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): integer
- "onBlockExploded"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): void
- "isFlammable"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
- "canEntityDestroy"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): boolean
- "onCaughtFire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $LivingEntity$Type): void
- "getAppearance"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $BlockState$Type, arg4: $BlockPos$Type): $BlockState
- "canBeHydrated"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type, arg3: $BlockPos$Type): boolean
+ "addRunningEffects"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): boolean
  "getRespawnPosition"(arg0: $EntityType$Type<(any)>, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: float, arg4: $LivingEntity$Type): $Optional<($Vec3)>
- "getSoundType"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): $SoundType
- "isScaffolding"(arg0: $LivingEntity$Type): boolean
+ "isBed"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $LivingEntity$Type): boolean
  "setBedOccupied"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $LivingEntity$Type, arg3: boolean): void
  "getBedDirection"(arg0: $LevelReader$Type, arg1: $BlockPos$Type): $Direction
- "isBed"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $LivingEntity$Type): boolean
  "getFriction"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): float
- "supportsExternalFaceHiding"(): boolean
- "onDestroyedByPlayer"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Player$Type, arg3: boolean, arg4: $FluidState$Type): boolean
- "getExplosionResistance"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): float
- "getToolModifiedState"(arg0: $UseOnContext$Type, arg1: $ToolAction$Type, arg2: boolean): $BlockState
- "canDropFromExplosion"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Explosion$Type): boolean
- "getEnchantPowerBonus"(arg0: $LevelReader$Type, arg1: $BlockPos$Type): float
- "getBeaconColorMultiplier"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): (float)[]
- "getStateAtViewpoint"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Vec3$Type): $BlockState
- "shouldDisplayFluidOverlay"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $FluidState$Type): boolean
- "getAdjacentBlockPathType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Mob$Type, arg3: $BlockPathTypes$Type): $BlockPathTypes
  "getCloneItemStack"(arg0: $HitResult$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Player$Type): $ItemStack
- "shouldCheckWeakPower"(arg0: $SignalGetter$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): boolean
+ "addLandingEffects"(arg0: $ServerLevel$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: integer): boolean
+ "getSoundType"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $Entity$Type): $SoundType
+ "isScaffolding"(arg0: $LivingEntity$Type): boolean
 }
 
 export namespace $IForgeBlockState {
@@ -7270,31 +7265,31 @@ constructor(arg0: integer, arg1: $Predicate$Type<($FluidStack$Type)>)
 
 public "isEmpty"(): boolean
 public "fill"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): integer
+public "drain"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
+public "drain"(arg0: integer, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
 public "getSpace"(): integer
 public "getCapacity"(): integer
 public "setCapacity"(arg0: integer): $FluidTank
-public "drain"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
-public "drain"(arg0: integer, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
-public "writeToNBT"(arg0: $CompoundTag$Type): $CompoundTag
-public "readFromNBT"(arg0: $CompoundTag$Type): $FluidTank
-public "getFluidAmount"(): integer
-public "setValidator"(arg0: $Predicate$Type<($FluidStack$Type)>): $FluidTank
 public "setFluid"(arg0: $FluidStack$Type): void
 public "getFluidInTank"(arg0: integer): $FluidStack
 public "getTanks"(): integer
+public "getTankCapacity"(arg0: integer): integer
 public "isFluidValid"(arg0: $FluidStack$Type): boolean
 public "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
-public "getTankCapacity"(arg0: integer): integer
+public "writeToNBT"(arg0: $CompoundTag$Type): $CompoundTag
+public "readFromNBT"(arg0: $CompoundTag$Type): $FluidTank
 public "getFluid"(): $FluidStack
+public "getFluidAmount"(): integer
+public "setValidator"(arg0: $Predicate$Type<($FluidStack$Type)>): $FluidTank
 get "empty"(): boolean
 get "space"(): integer
 get "capacity"(): integer
 set "capacity"(value: integer)
-get "fluidAmount"(): integer
-set "validator"(value: $Predicate$Type<($FluidStack$Type)>)
 set "fluid"(value: $FluidStack$Type)
 get "tanks"(): integer
 get "fluid"(): $FluidStack
+get "fluidAmount"(): integer
+set "validator"(value: $Predicate$Type<($FluidStack$Type)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7354,8 +7349,8 @@ export interface $ICapabilitySerializable<T extends $Tag> extends $ICapabilityPr
 
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
- "serializeNBT"(): T
  "deserializeNBT"(arg0: T): void
+ "serializeNBT"(): T
 }
 
 export namespace $ICapabilitySerializable {
@@ -7477,8 +7472,8 @@ import {$Locale, $Locale$Type} from "packages/java/util/$Locale"
 export interface $IForgeMinecraft {
 
  "getLocale"(): $Locale
- "popGuiLayer"(): void
  "pushGuiLayer"(arg0: $Screen$Type): void
+ "popGuiLayer"(): void
 }
 
 export namespace $IForgeMinecraft {
@@ -7520,34 +7515,34 @@ readonly "visibilityData": $BlockGeometryBakingContext$VisibilityData
 constructor(arg0: $BlockModel$Type)
 
 public "copyFrom"(arg0: $BlockGeometryBakingContext$Type): void
-public "getMaterial"(arg0: string): $Material
-public "getTransforms"(): $ItemTransforms
-public "setRenderTypeHint"(arg0: $ResourceLocation$Type): void
-public "setRootTransform"(arg0: $Transformation$Type): void
-public "setCustomGeometry"(arg0: $IUnbakedGeometry$Type<(any)>): void
-public "setGui3d"(arg0: boolean): void
-public "useAmbientOcclusion"(): boolean
 public "bake"(arg0: $ModelBaker$Type, arg1: $Function$Type<($Material$Type), ($TextureAtlasSprite$Type)>, arg2: $ModelState$Type, arg3: $ItemOverrides$Type, arg4: $ResourceLocation$Type): $BakedModel
-public "isGui3d"(): boolean
-public "getModelName"(): string
-public "useBlockLight"(): boolean
+public "getTransforms"(): $ItemTransforms
+public "getRootTransform"(): $Transformation
 public "hasMaterial"(arg0: string): boolean
 public "getRenderTypeHint"(): $ResourceLocation
+public "getModelName"(): string
+public "useBlockLight"(): boolean
+public "isGui3d"(): boolean
 public "isComponentVisible"(arg0: string, arg1: boolean): boolean
-public "getRootTransform"(): $Transformation
-public "getCustomGeometry"(): $IUnbakedGeometry<(any)>
+public "getMaterial"(arg0: string): $Material
+public "useAmbientOcclusion"(): boolean
 public "hasCustomGeometry"(): boolean
+public "getCustomGeometry"(): $IUnbakedGeometry<(any)>
+public "setRootTransform"(arg0: $Transformation$Type): void
+public "setRenderTypeHint"(arg0: $ResourceLocation$Type): void
+public "setCustomGeometry"(arg0: $IUnbakedGeometry$Type<(any)>): void
+public "setGui3d"(arg0: boolean): void
 public "getRenderType"(arg0: $ResourceLocation$Type): $RenderTypeGroup
 get "transforms"(): $ItemTransforms
-set "renderTypeHint"(value: $ResourceLocation$Type)
+get "rootTransform"(): $Transformation
+get "renderTypeHint"(): $ResourceLocation
+get "modelName"(): string
+get "gui3d"(): boolean
+get "customGeometry"(): $IUnbakedGeometry<(any)>
 set "rootTransform"(value: $Transformation$Type)
+set "renderTypeHint"(value: $ResourceLocation$Type)
 set "customGeometry"(value: $IUnbakedGeometry$Type<(any)>)
 set "gui3d"(value: boolean)
-get "gui3d"(): boolean
-get "modelName"(): string
-get "renderTypeHint"(): $ResourceLocation
-get "rootTransform"(): $Transformation
-get "customGeometry"(): $IUnbakedGeometry<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7579,17 +7574,17 @@ public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "mods"(): $Map<(string), (string)>
+public "truncated"(): boolean
+public "getFMLNetworkVersion"(): integer
 public "channels"(): $Map<($ResourceLocation), ($ServerStatusPing$ChannelData)>
 public "fmlNetworkVer"(): integer
 public "toBuf"(): $ByteBuf
-public "truncated"(): boolean
+public "getRemoteChannels"(): $Map<($ResourceLocation), ($ServerStatusPing$ChannelData)>
 public "getRemoteModData"(): $Map<(string), (string)>
 public "isTruncated"(): boolean
-public "getRemoteChannels"(): $Map<($ResourceLocation), ($ServerStatusPing$ChannelData)>
-public "getFMLNetworkVersion"(): integer
-get "remoteModData"(): $Map<(string), (string)>
-get "remoteChannels"(): $Map<($ResourceLocation), ($ServerStatusPing$ChannelData)>
 get "fMLNetworkVersion"(): integer
+get "remoteChannels"(): $Map<($ResourceLocation), ($ServerStatusPing$ChannelData)>
+get "remoteModData"(): $Map<(string), (string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7613,8 +7608,8 @@ import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 
 export interface $StructureModifier {
 
- "modify"(arg0: $Holder$Type<($Structure$Type)>, arg1: $StructureModifier$Phase$Type, arg2: $ModifiableStructureInfo$StructureInfo$Builder$Type): void
  "codec"(): $Codec<(any)>
+ "modify"(arg0: $Holder$Type<($Structure$Type)>, arg1: $StructureModifier$Phase$Type, arg2: $ModifiableStructureInfo$StructureInfo$Builder$Type): void
 }
 
 export namespace $StructureModifier {
@@ -7671,11 +7666,11 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 export interface $IForgeBaseRailBlock {
 
  "getRailDirection"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $AbstractMinecart$Type): $RailShape
- "isFlexibleRail"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
  "canMakeSlopes"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
  "onMinecartPass"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $AbstractMinecart$Type): void
- "isValidRailShape"(arg0: $RailShape$Type): boolean
+ "isFlexibleRail"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
  "getRailMaxSpeed"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $AbstractMinecart$Type): float
+ "isValidRailShape"(arg0: $RailShape$Type): boolean
 }
 
 export namespace $IForgeBaseRailBlock {
@@ -7761,8 +7756,8 @@ public "add"(arg0: $EntityType$Type<(any)>, arg1: $Attribute$Type): void
 public "add"(arg0: $EntityType$Type<(any)>, arg1: $Attribute$Type, arg2: double): void
 public "has"(arg0: $EntityType$Type<(any)>, arg1: $Attribute$Type): boolean
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 public "getTypes"(): $List<($EntityType<(any)>)>
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
@@ -7810,45 +7805,11 @@ import {$PartEntity, $PartEntity$Type} from "packages/net/minecraftforge/entity/
 export interface $IForgeLivingEntity extends $IForgeEntity {
 
  "self"(): $LivingEntity
+ "canDrownInFluidType"(arg0: $FluidType$Type): boolean
+ "canSwimInFluidType"(arg0: $FluidType$Type): boolean
  "sinkInFluid"(arg0: $FluidType$Type): void
  "moveInFluid"(arg0: $FluidState$Type, arg1: $Vec3$Type, arg2: double): boolean
  "jumpInFluid"(arg0: $FluidType$Type): void
- "canSwimInFluidType"(arg0: $FluidType$Type): boolean
- "canDrownInFluidType"(arg0: $FluidType$Type): boolean
- "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>): boolean
- "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>, arg1: boolean): boolean
- "isInFluidType"(): boolean
- "isInFluidType"(arg0: $FluidType$Type): boolean
- "isInFluidType"(arg0: $FluidState$Type): boolean
- "onRemovedFromWorld"(): void
- "getParts"(): ($PartEntity<(any)>)[]
-/**
- * 
- * @deprecated
- */
- "getEyeHeightForge"(arg0: $Pose$Type, arg1: $EntityDimensions$Type): float
- "isMultipartEntity"(): boolean
- "getEyeInFluidType"(): $FluidType
- "canStartSwimming"(): boolean
- "revive"(): void
- "isAddedToWorld"(): boolean
- "onAddedToWorld"(): void
- "isPushedByFluid"(arg0: $FluidType$Type): boolean
- "isEyeInFluidType"(arg0: $FluidType$Type): boolean
- "getStepHeight"(): float
- "getClassification"(arg0: boolean): $MobCategory
- "getPersistentData"(): $CompoundTag
- "captureDrops"(): $Collection<($ItemEntity)>
- "captureDrops"(arg0: $Collection$Type<($ItemEntity$Type)>): $Collection<($ItemEntity)>
- "getFluidTypeHeight"(arg0: $FluidType$Type): double
- "canFluidExtinguish"(arg0: $FluidType$Type): boolean
- "serializeNBT"(): $CompoundTag
- "canRiderInteract"(): boolean
- "canUpdate"(): boolean
- "canUpdate"(arg0: boolean): void
- "shouldRiderSit"(): boolean
- "deserializeNBT"(arg0: $CompoundTag$Type): void
- "canTrample"(arg0: $BlockState$Type, arg1: $BlockPos$Type, arg2: float): boolean
  "getMaxHeightFluidType"(): $FluidType
  "canBeRiddenUnderFluidType"(arg0: $FluidType$Type, arg1: $Entity$Type): boolean
  "getFluidMotionScale"(arg0: $FluidType$Type): double
@@ -7857,7 +7818,41 @@ export interface $IForgeLivingEntity extends $IForgeEntity {
  "getSoundFromFluidType"(arg0: $FluidType$Type, arg1: $SoundAction$Type): $SoundEvent
  "hasCustomOutlineRendering"(arg0: $Player$Type): boolean
  "shouldUpdateFluidWhileBoating"(arg0: $FluidState$Type, arg1: $Boat$Type): boolean
+ "getPersistentData"(): $CompoundTag
+ "canFluidExtinguish"(arg0: $FluidType$Type): boolean
+ "getClassification"(arg0: boolean): $MobCategory
+ "canTrample"(arg0: $BlockState$Type, arg1: $BlockPos$Type, arg2: float): boolean
+ "onAddedToWorld"(): void
+ "deserializeNBT"(arg0: $CompoundTag$Type): void
+ "revive"(): void
+ "isMultipartEntity"(): boolean
+ "onRemovedFromWorld"(): void
+ "canRiderInteract"(): boolean
+ "getParts"(): ($PartEntity<(any)>)[]
+ "isAddedToWorld"(): boolean
+ "getEyeInFluidType"(): $FluidType
+ "shouldRiderSit"(): boolean
+ "canUpdate"(): boolean
+ "canUpdate"(arg0: boolean): void
+ "serializeNBT"(): $CompoundTag
+/**
+ * 
+ * @deprecated
+ */
+ "getEyeHeightForge"(arg0: $Pose$Type, arg1: $EntityDimensions$Type): float
+ "isEyeInFluidType"(arg0: $FluidType$Type): boolean
+ "isPushedByFluid"(arg0: $FluidType$Type): boolean
+ "canStartSwimming"(): boolean
+ "getStepHeight"(): float
  "getPickedResult"(arg0: $HitResult$Type): $ItemStack
+ "isInFluidType"(arg0: $FluidState$Type): boolean
+ "isInFluidType"(arg0: $FluidType$Type): boolean
+ "isInFluidType"(): boolean
+ "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>, arg1: boolean): boolean
+ "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>): boolean
+ "captureDrops"(): $Collection<($ItemEntity)>
+ "captureDrops"(arg0: $Collection$Type<($ItemEntity$Type)>): $Collection<($ItemEntity)>
+ "getFluidTypeHeight"(arg0: $FluidType$Type): double
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
@@ -7880,8 +7875,8 @@ export type $IForgeLivingEntity_ = $IForgeLivingEntity$Type;
 declare module "packages/net/minecraftforge/client/model/generators/$ModelBuilder$ElementBuilder" {
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$ModelBuilder$ElementBuilder$RotationBuilder, $ModelBuilder$ElementBuilder$RotationBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder$ElementBuilder$RotationBuilder"
 import {$ModelBuilder$ElementBuilder$FaceBuilder, $ModelBuilder$ElementBuilder$FaceBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder$ElementBuilder$FaceBuilder"
+import {$ModelBuilder$ElementBuilder$RotationBuilder, $ModelBuilder$ElementBuilder$RotationBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder$ElementBuilder$RotationBuilder"
 import {$ModelBuilder, $ModelBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder"
 
 export class $ModelBuilder$ElementBuilder {
@@ -7893,16 +7888,16 @@ public "to"(arg0: float, arg1: float, arg2: float): $ModelBuilder$ElementBuilder
 public "from"(arg0: float, arg1: float, arg2: float): $ModelBuilder$ElementBuilder<>
 public "ao"(arg0: boolean): $ModelBuilder$ElementBuilder<>
 public "color"(arg0: integer): $ModelBuilder$ElementBuilder<>
-public "rotation"(): $ModelBuilder$ElementBuilder$RotationBuilder<>
-public "emissivity"(arg0: integer, arg1: integer): $ModelBuilder$ElementBuilder<>
-public "shade"(arg0: boolean): $ModelBuilder$ElementBuilder<>
-public "cube"(arg0: string): $ModelBuilder$ElementBuilder<>
-public "allFaces"(arg0: $BiConsumer$Type<($Direction$Type), ($ModelBuilder$ElementBuilder$FaceBuilder$Type<>)>): $ModelBuilder$ElementBuilder<>
-public "faces"(arg0: $BiConsumer$Type<($Direction$Type), ($ModelBuilder$ElementBuilder$FaceBuilder$Type<>)>): $ModelBuilder$ElementBuilder<>
 public "texture"(arg0: string): $ModelBuilder$ElementBuilder<>
+public "emissivity"(arg0: integer, arg1: integer): $ModelBuilder$ElementBuilder<>
 public "calculateNormals"(arg0: boolean): $ModelBuilder$ElementBuilder<>
+public "faces"(arg0: $BiConsumer$Type<($Direction$Type), ($ModelBuilder$ElementBuilder$FaceBuilder$Type<>)>): $ModelBuilder$ElementBuilder<>
+public "cube"(arg0: string): $ModelBuilder$ElementBuilder<>
 public "face"(arg0: $Direction$Type): $ModelBuilder$ElementBuilder$FaceBuilder<>
 public "textureAll"(arg0: string): $ModelBuilder$ElementBuilder<>
+public "rotation"(): $ModelBuilder$ElementBuilder$RotationBuilder<>
+public "shade"(arg0: boolean): $ModelBuilder$ElementBuilder<>
+public "allFaces"(arg0: $BiConsumer$Type<($Direction$Type), ($ModelBuilder$ElementBuilder$FaceBuilder$Type<>)>): $ModelBuilder$ElementBuilder<>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7927,14 +7922,14 @@ export class $LootingLevelEvent extends $LivingEvent {
 constructor()
 constructor(arg0: $LivingEntity$Type, arg1: $DamageSource$Type, arg2: integer)
 
-public "getDamageSource"(): $DamageSource
 public "getListenerList"(): $ListenerList
-public "getLootingLevel"(): integer
 public "setLootingLevel"(arg0: integer): void
-get "damageSource"(): $DamageSource
+public "getDamageSource"(): $DamageSource
+public "getLootingLevel"(): integer
 get "listenerList"(): $ListenerList
-get "lootingLevel"(): integer
 set "lootingLevel"(value: integer)
+get "damageSource"(): $DamageSource
+get "lootingLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -7961,34 +7956,34 @@ export class $PlayMessages$SpawnEntity {
 public static "decode"(arg0: $FriendlyByteBuf$Type): $PlayMessages$SpawnEntity
 public static "encode"(arg0: $PlayMessages$SpawnEntity$Type, arg1: $FriendlyByteBuf$Type): void
 public static "handle"(arg0: $PlayMessages$SpawnEntity$Type, arg1: $Supplier$Type<($NetworkEvent$Context$Type)>): void
-public "getEntity"(): $Entity
+public "getUuid"(): $UUID
+public "getYaw"(): byte
+public "getPitch"(): byte
 public "getHeadYaw"(): byte
 public "getAdditionalData"(): $FriendlyByteBuf
-public "getVelY"(): integer
-public "getVelX"(): integer
 public "getTypeId"(): integer
-public "getVelZ"(): integer
-public "getPosZ"(): double
 public "getEntityId"(): integer
+public "getPosZ"(): double
+public "getVelX"(): integer
+public "getVelY"(): integer
+public "getVelZ"(): integer
+public "getEntity"(): $Entity
 public "getPosX"(): double
 public "getPosY"(): double
-public "getUuid"(): $UUID
-public "getPitch"(): byte
-public "getYaw"(): byte
-get "entity"(): $Entity
+get "uuid"(): $UUID
+get "yaw"(): byte
+get "pitch"(): byte
 get "headYaw"(): byte
 get "additionalData"(): $FriendlyByteBuf
-get "velY"(): integer
-get "velX"(): integer
 get "typeId"(): integer
-get "velZ"(): integer
-get "posZ"(): double
 get "entityId"(): integer
+get "posZ"(): double
+get "velX"(): integer
+get "velY"(): integer
+get "velZ"(): integer
+get "entity"(): $Entity
 get "posX"(): double
 get "posY"(): double
-get "uuid"(): $UUID
-get "pitch"(): byte
-get "yaw"(): byte
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8016,8 +8011,8 @@ export interface $IFluidHandlerItem extends $IFluidHandler {
  "drain"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
  "getFluidInTank"(arg0: integer): $FluidStack
  "getTanks"(): integer
- "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
  "getTankCapacity"(arg0: integer): integer
+ "isFluidValid"(arg0: integer, arg1: $FluidStack$Type): boolean
 }
 
 export namespace $IFluidHandlerItem {
@@ -8072,18 +8067,18 @@ export class $LivingChangeTargetEvent extends $LivingEvent {
 constructor()
 constructor(arg0: $LivingEntity$Type, arg1: $LivingEntity$Type, arg2: $LivingChangeTargetEvent$ILivingTargetType$Type)
 
-public "getOriginalTarget"(): $LivingEntity
-public "setNewTarget"(arg0: $LivingEntity$Type): void
 public "isCancelable"(): boolean
+public "getTargetType"(): $LivingChangeTargetEvent$ILivingTargetType
 public "getListenerList"(): $ListenerList
 public "getNewTarget"(): $LivingEntity
-public "getTargetType"(): $LivingChangeTargetEvent$ILivingTargetType
-get "originalTarget"(): $LivingEntity
-set "newTarget"(value: $LivingEntity$Type)
+public "getOriginalTarget"(): $LivingEntity
+public "setNewTarget"(arg0: $LivingEntity$Type): void
 get "cancelable"(): boolean
+get "targetType"(): $LivingChangeTargetEvent$ILivingTargetType
 get "listenerList"(): $ListenerList
 get "newTarget"(): $LivingEntity
-get "targetType"(): $LivingChangeTargetEvent$ILivingTargetType
+get "originalTarget"(): $LivingEntity
+set "newTarget"(value: $LivingEntity$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8149,56 +8144,56 @@ public "add"(arg0: $IForgeRegistry$ValidateCallback$Type<(T)>): $RegistryBuilder
 public "add"(arg0: $IForgeRegistry$BakeCallback$Type<(T)>): $RegistryBuilder<(T)>
 public "getDefault"(): $ResourceLocation
 public static "of"<T>(): $RegistryBuilder<(T)>
-public static "of"<T>(arg0: string): $RegistryBuilder<(T)>
 public static "of"<T>(arg0: $ResourceLocation$Type): $RegistryBuilder<(T)>
+public static "of"<T>(arg0: string): $RegistryBuilder<(T)>
 public "set"(arg0: $IForgeRegistry$MissingFactory$Type<(T)>): $RegistryBuilder<(T)>
 public "setName"(arg0: $ResourceLocation$Type): $RegistryBuilder<(T)>
-public "missing"(arg0: $IForgeRegistry$MissingFactory$Type<(T)>): $RegistryBuilder<(T)>
 public "disableSaving"(): $RegistryBuilder<(T)>
 public "addCallback"(arg0: any): $RegistryBuilder<(T)>
 public "disableOverrides"(): $RegistryBuilder<(T)>
 public "onValidate"(arg0: $IForgeRegistry$ValidateCallback$Type<(T)>): $RegistryBuilder<(T)>
 public "disableSync"(): $RegistryBuilder<(T)>
-public "setMaxID"(arg0: integer): $RegistryBuilder<(T)>
-public "setIDRange"(arg0: integer, arg1: integer): $RegistryBuilder<(T)>
-public "onAdd"(arg0: $IForgeRegistry$AddCallback$Type<(T)>): $RegistryBuilder<(T)>
 public "setDefaultKey"(arg0: $ResourceLocation$Type): $RegistryBuilder<(T)>
-public "getMinId"(): integer
-public "getMaxId"(): integer
-public "getCreate"(): $IForgeRegistry$CreateCallback<(T)>
+public "setIDRange"(arg0: integer, arg1: integer): $RegistryBuilder<(T)>
+public "setMaxID"(arg0: integer): $RegistryBuilder<(T)>
+public "onAdd"(arg0: $IForgeRegistry$AddCallback$Type<(T)>): $RegistryBuilder<(T)>
+public "getAllowModifications"(): boolean
+public "missing"(arg0: $IForgeRegistry$MissingFactory$Type<(T)>): $RegistryBuilder<(T)>
+public "getAllowOverrides"(): boolean
 public "getAdd"(): $IForgeRegistry$AddCallback<(T)>
+public "getBake"(): $IForgeRegistry$BakeCallback<(T)>
+public "getMissingFactory"(): $IForgeRegistry$MissingFactory<(T)>
 public "getClear"(): $IForgeRegistry$ClearCallback<(T)>
 public "getValidate"(): $IForgeRegistry$ValidateCallback<(T)>
-public "getMissingFactory"(): $IForgeRegistry$MissingFactory<(T)>
-public "getBake"(): $IForgeRegistry$BakeCallback<(T)>
+public "getMinId"(): integer
+public "getMaxId"(): integer
 public "onCreate"(arg0: $IForgeRegistry$CreateCallback$Type<(T)>): $RegistryBuilder<(T)>
-public "getAllowOverrides"(): boolean
+public "getCreate"(): $IForgeRegistry$CreateCallback<(T)>
 public "onBake"(arg0: $IForgeRegistry$BakeCallback$Type<(T)>): $RegistryBuilder<(T)>
 public "onClear"(arg0: $IForgeRegistry$ClearCallback$Type<(T)>): $RegistryBuilder<(T)>
+public "allowModification"(): $RegistryBuilder<(T)>
 public "hasTags"(): $RegistryBuilder<(T)>
 public "getSaveToDisc"(): boolean
-public "getLegacyNames"(): $Set<($ResourceLocation)>
-public "allowModification"(): $RegistryBuilder<(T)>
 public "getSync"(): boolean
+public "getLegacyNames"(): $Set<($ResourceLocation)>
 public "legacyName"(arg0: string): $RegistryBuilder<(T)>
 public "legacyName"(arg0: $ResourceLocation$Type): $RegistryBuilder<(T)>
-public "getAllowModifications"(): boolean
 get "default"(): $ResourceLocation
 set "name"(value: $ResourceLocation$Type)
-set "maxID"(value: integer)
 set "defaultKey"(value: $ResourceLocation$Type)
+set "maxID"(value: integer)
+get "allowModifications"(): boolean
+get "allowOverrides"(): boolean
+get "bake"(): $IForgeRegistry$BakeCallback<(T)>
+get "missingFactory"(): $IForgeRegistry$MissingFactory<(T)>
+get "clear"(): $IForgeRegistry$ClearCallback<(T)>
+get "validate"(): $IForgeRegistry$ValidateCallback<(T)>
 get "minId"(): integer
 get "maxId"(): integer
 get "create"(): $IForgeRegistry$CreateCallback<(T)>
-get "clear"(): $IForgeRegistry$ClearCallback<(T)>
-get "validate"(): $IForgeRegistry$ValidateCallback<(T)>
-get "missingFactory"(): $IForgeRegistry$MissingFactory<(T)>
-get "bake"(): $IForgeRegistry$BakeCallback<(T)>
-get "allowOverrides"(): boolean
 get "saveToDisc"(): boolean
-get "legacyNames"(): $Set<($ResourceLocation)>
 get "sync"(): boolean
-get "allowModifications"(): boolean
+get "legacyNames"(): $Set<($ResourceLocation)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8213,8 +8208,8 @@ declare global {
 export type $RegistryBuilder_<T> = $RegistryBuilder$Type<(T)>;
 }}
 declare module "packages/net/minecraftforge/client/model/generators/$ModelBuilder$ElementBuilder$FaceBuilder" {
-import {$ModelBuilder$FaceRotation, $ModelBuilder$FaceRotation$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder$FaceRotation"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$ModelBuilder$FaceRotation, $ModelBuilder$FaceRotation$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder$FaceRotation"
 import {$ModelBuilder$ElementBuilder, $ModelBuilder$ElementBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$ModelBuilder$ElementBuilder"
 
 export class $ModelBuilder$ElementBuilder$FaceBuilder {
@@ -8223,13 +8218,13 @@ export class $ModelBuilder$ElementBuilder$FaceBuilder {
 public "end"(): $ModelBuilder$ElementBuilder<>
 public "ao"(arg0: boolean): $ModelBuilder$ElementBuilder$FaceBuilder<>
 public "color"(arg0: integer): $ModelBuilder$ElementBuilder$FaceBuilder<>
-public "rotation"(arg0: $ModelBuilder$FaceRotation$Type): $ModelBuilder$ElementBuilder$FaceBuilder<>
+public "texture"(arg0: string): $ModelBuilder$ElementBuilder$FaceBuilder<>
 public "emissivity"(arg0: integer, arg1: integer): $ModelBuilder$ElementBuilder$FaceBuilder<>
+public "calculateNormals"(arg0: boolean): $ModelBuilder$ElementBuilder$FaceBuilder<>
+public "uvs"(arg0: float, arg1: float, arg2: float, arg3: float): $ModelBuilder$ElementBuilder$FaceBuilder<>
 public "cullface"(arg0: $Direction$Type): $ModelBuilder$ElementBuilder$FaceBuilder<>
 public "tintindex"(arg0: integer): $ModelBuilder$ElementBuilder$FaceBuilder<>
-public "texture"(arg0: string): $ModelBuilder$ElementBuilder$FaceBuilder<>
-public "uvs"(arg0: float, arg1: float, arg2: float, arg3: float): $ModelBuilder$ElementBuilder$FaceBuilder<>
-public "calculateNormals"(arg0: boolean): $ModelBuilder$ElementBuilder$FaceBuilder<>
+public "rotation"(arg0: $ModelBuilder$FaceRotation$Type): $ModelBuilder$ElementBuilder$FaceBuilder<>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8290,8 +8285,9 @@ constructor(arg0: $Map$Type<($ResourceLocation$Type), ($ICapabilityProvider$Type
 
 public "invalidate"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "areCompatible"(arg0: $CapabilityDispatcher$Type): boolean
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "serializeNBT"(): $CompoundTag
 public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
 /**
@@ -8342,11 +8338,11 @@ constructor()
 constructor(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: $InteractionHand$Type)
 
 public "getHand"(): $InteractionHand
-public "getOriginal"(): $ItemStack
 public "getListenerList"(): $ListenerList
+public "getOriginal"(): $ItemStack
 get "hand"(): $InteractionHand
-get "original"(): $ItemStack
 get "listenerList"(): $ListenerList
+get "original"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8408,40 +8404,40 @@ export class $BrainBuilder<E extends $LivingEntity> {
 constructor(arg0: $Brain$Type<(E)>)
 
 public "provider"(): $Brain$Provider<(E)>
-public "getSchedule"(): $Schedule
-public "addRequirementsToActivity"(arg0: $Activity$Type, arg1: $Collection$Type<($Pair$Type<($MemoryModuleType$Type<(any)>), ($MemoryStatus$Type)>)>): void
-public "getActivityRequirements"(): $Map<($Activity), ($Set<($Pair<($MemoryModuleType<(any)>), ($MemoryStatus)>)>)>
-public "addBehaviorToActivityByPriority"(arg0: integer, arg1: $Activity$Type, arg2: $BehaviorControl$Type<(any)>): void
-public "addMemoriesToEraseWhenActivityStopped"(arg0: $Activity$Type, arg1: $Collection$Type<($MemoryModuleType$Type<(any)>)>): void
-public "getActivityMemoriesToEraseWhenStopped"(): $Map<($Activity), ($Set<($MemoryModuleType<(any)>)>)>
-public "addAvailableBehaviorsByPriorityFrom"(arg0: $Map$Type<(integer), ($Map$Type<($Activity$Type), ($Set$Type<($BehaviorControl$Type<(any)>)>)>)>): void
-public "addActivityMemoriesToEraseWhenStoppedFrom"(arg0: $Map$Type<($Activity$Type), ($Set$Type<($MemoryModuleType$Type<(any)>)>)>): void
-public "addActivityMemoriesToEraseWhenStoppedTo"(arg0: $Map$Type<($Activity$Type), ($Set$Type<($MemoryModuleType$Type<(any)>)>)>): void
-public "getAvailableBehaviorsByPriority"(): $Map<(integer), ($Map<($Activity), ($Set<($BehaviorControl<(any)>)>)>)>
+public "setSchedule"(arg0: $Schedule$Type): void
+public "setDefaultActivity"(arg0: $Activity$Type): void
+public "getDefaultActivity"(): $Activity
+public "getMemoryTypes"(): $Collection<($MemoryModuleType<(any)>)>
+public "setActiveActivites"(arg0: $Set$Type<($Activity$Type)>): void
+public "getCoreActivities"(): $Set<($Activity)>
+public "getSensorTypes"(): $Collection<($SensorType<(any)>)>
+public "getActiveActivites"(): $Set<($Activity)>
 public "addActivityRequirementsFrom"(arg0: $Map$Type<($Activity$Type), ($Set$Type<($Pair$Type<($MemoryModuleType$Type<(any)>), ($MemoryStatus$Type)>)>)>): void
 public "addAvailableBehaviorsByPriorityTo"(arg0: $Map$Type<(integer), ($Map$Type<($Activity$Type), ($Set$Type<($BehaviorControl$Type<(any)>)>)>)>): void
 public "addActivityRequirementsTo"(arg0: $Map$Type<($Activity$Type), ($Set$Type<($Pair$Type<($MemoryModuleType$Type<(any)>), ($MemoryStatus$Type)>)>)>): void
-public "setSchedule"(arg0: $Schedule$Type): void
+public "getAvailableBehaviorsByPriority"(): $Map<(integer), ($Map<($Activity), ($Set<($BehaviorControl<(any)>)>)>)>
+public "getSchedule"(): $Schedule
 public "makeBrain"(arg0: $Dynamic$Type<(any)>): $Brain<(E)>
-public "setDefaultActivity"(arg0: $Activity$Type): void
-public "getActiveActivites"(): $Set<($Activity)>
-public "setActiveActivites"(arg0: $Set$Type<($Activity$Type)>): void
-public "getMemoryTypes"(): $Collection<($MemoryModuleType<(any)>)>
-public "getDefaultActivity"(): $Activity
-public "getCoreActivities"(): $Set<($Activity)>
-public "getSensorTypes"(): $Collection<($SensorType<(any)>)>
+public "addActivityMemoriesToEraseWhenStoppedTo"(arg0: $Map$Type<($Activity$Type), ($Set$Type<($MemoryModuleType$Type<(any)>)>)>): void
+public "addActivityMemoriesToEraseWhenStoppedFrom"(arg0: $Map$Type<($Activity$Type), ($Set$Type<($MemoryModuleType$Type<(any)>)>)>): void
+public "addAvailableBehaviorsByPriorityFrom"(arg0: $Map$Type<(integer), ($Map$Type<($Activity$Type), ($Set$Type<($BehaviorControl$Type<(any)>)>)>)>): void
+public "addBehaviorToActivityByPriority"(arg0: integer, arg1: $Activity$Type, arg2: $BehaviorControl$Type<(any)>): void
+public "getActivityRequirements"(): $Map<($Activity), ($Set<($Pair<($MemoryModuleType<(any)>), ($MemoryStatus)>)>)>
+public "addRequirementsToActivity"(arg0: $Activity$Type, arg1: $Collection$Type<($Pair$Type<($MemoryModuleType$Type<(any)>), ($MemoryStatus$Type)>)>): void
+public "getActivityMemoriesToEraseWhenStopped"(): $Map<($Activity), ($Set<($MemoryModuleType<(any)>)>)>
+public "addMemoriesToEraseWhenActivityStopped"(arg0: $Activity$Type, arg1: $Collection$Type<($MemoryModuleType$Type<(any)>)>): void
+set "schedule"(value: $Schedule$Type)
+set "defaultActivity"(value: $Activity$Type)
+get "defaultActivity"(): $Activity
+get "memoryTypes"(): $Collection<($MemoryModuleType<(any)>)>
+set "activeActivites"(value: $Set$Type<($Activity$Type)>)
+get "coreActivities"(): $Set<($Activity)>
+get "sensorTypes"(): $Collection<($SensorType<(any)>)>
+get "activeActivites"(): $Set<($Activity)>
+get "availableBehaviorsByPriority"(): $Map<(integer), ($Map<($Activity), ($Set<($BehaviorControl<(any)>)>)>)>
 get "schedule"(): $Schedule
 get "activityRequirements"(): $Map<($Activity), ($Set<($Pair<($MemoryModuleType<(any)>), ($MemoryStatus)>)>)>
 get "activityMemoriesToEraseWhenStopped"(): $Map<($Activity), ($Set<($MemoryModuleType<(any)>)>)>
-get "availableBehaviorsByPriority"(): $Map<(integer), ($Map<($Activity), ($Set<($BehaviorControl<(any)>)>)>)>
-set "schedule"(value: $Schedule$Type)
-set "defaultActivity"(value: $Activity$Type)
-get "activeActivites"(): $Set<($Activity)>
-set "activeActivites"(value: $Set$Type<($Activity$Type)>)
-get "memoryTypes"(): $Collection<($MemoryModuleType<(any)>)>
-get "defaultActivity"(): $Activity
-get "coreActivities"(): $Set<($Activity)>
-get "sensorTypes"(): $Collection<($SensorType<(any)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8495,8 +8491,8 @@ static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
 constructor(arg0: $ForgeFlowingFluid$Properties$Type)
 
-public "getAmount"(arg0: $FluidState$Type): integer
 public "isSource"(arg0: $FluidState$Type): boolean
+public "getAmount"(arg0: $FluidState$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8525,14 +8521,14 @@ constructor(arg0: $Supplier$Type<($NetworkEvent$Context$Type)>)
 public "getPayload"(): $FriendlyByteBuf
 public "getSource"(): $Supplier<($NetworkEvent$Context)>
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
 public "getLoginIndex"(): integer
+public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "payload"(): $FriendlyByteBuf
 get "source"(): $Supplier<($NetworkEvent$Context)>
 get "cancelable"(): boolean
-get "listenerList"(): $ListenerList
 get "loginIndex"(): integer
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8566,9 +8562,9 @@ export interface $IConfigEvent {
 
 export namespace $IConfigEvent {
 const CONFIGCONFIG: $IConfigEvent$ConfigConfig
+function reloading(arg0: $ModConfig$Type): $IConfigEvent
 function loading(arg0: $ModConfig$Type): $IConfigEvent
 function unloading(arg0: $ModConfig$Type): $IConfigEvent
-function reloading(arg0: $ModConfig$Type): $IConfigEvent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8594,9 +8590,9 @@ public "type"(): string
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public "truncated"(): boolean
 public "isCompatible"(): boolean
 public "extraReason"(): string
-public "truncated"(): boolean
 public "numberOfMods"(): integer
 get "compatible"(): boolean
 }
@@ -8633,46 +8629,45 @@ constructor()
 
 public "setSize"(arg0: integer): void
 public "getSlots"(): integer
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
 public "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
-public "getSlotLimit"(arg0: integer): integer
-public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
 public "getStackInSlot"(arg0: integer): $ItemStack
-public "setStackInSlot"(arg0: integer, arg1: $ItemStack$Type): void
+public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+public "getSlotLimit"(arg0: integer): integer
 public "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "setStackInSlot"(arg0: integer, arg1: $ItemStack$Type): void
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "getBlock"(level: $Level$Type): $BlockContainerJS
+public "isMutable"(): boolean
+public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
 public "getStackInSlot"(i: integer): $ItemStack
 public "insertItem"(i: integer, itemStack: $ItemStack$Type, b: boolean): $ItemStack
-public "getSlotLimit"(i: integer): integer
-public "isMutable"(): boolean
 public "getSlots"(): integer
-public "isItemValid"(i: integer, itemStack: $ItemStack$Type): boolean
+public "getSlotLimit"(i: integer): integer
 public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
-public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
-public "getBlock"(level: $Level$Type): $BlockContainerJS
+public "isItemValid"(i: integer, itemStack: $ItemStack$Type): boolean
 public "kjs$self"(): $IItemHandler
-public "getHeight"(): integer
 public "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
-public "getWidth"(): integer
-public "clear"(ingredient: $Ingredient$Type): void
-public "clear"(): void
-public "asContainer"(): $Container
-public "setChanged"(): void
+public "countNonEmpty"(ingredient: $Ingredient$Type): integer
+public "countNonEmpty"(): integer
+public "getHeight"(): integer
+public "count"(): integer
+public "count"(ingredient: $Ingredient$Type): integer
 public "getAllItems"(): $List<($ItemStack)>
+public "setChanged"(): void
+public "getWidth"(): integer
+public "asContainer"(): $Container
+public "clear"(): void
+public "clear"(ingredient: $Ingredient$Type): void
 public "find"(): integer
 public "find"(ingredient: $Ingredient$Type): integer
-public "count"(ingredient: $Ingredient$Type): integer
-public "count"(): integer
-public "countNonEmpty"(): integer
-public "countNonEmpty"(ingredient: $Ingredient$Type): integer
 public "isEmpty"(): boolean
 set "size"(value: integer)
 get "slots"(): integer
 get "mutable"(): boolean
 get "slots"(): integer
 get "height"(): integer
-get "width"(): integer
 get "allItems"(): $List<($ItemStack)>
+get "width"(): integer
 get "empty"(): boolean
 }
 /**
@@ -8691,22 +8686,22 @@ declare module "packages/net/minecraftforge/client/model/geometry/$IGeometryBaki
 import {$Material, $Material$Type} from "packages/net/minecraft/client/resources/model/$Material"
 import {$ItemTransforms, $ItemTransforms$Type} from "packages/net/minecraft/client/renderer/block/model/$ItemTransforms"
 import {$Transformation, $Transformation$Type} from "packages/com/mojang/math/$Transformation"
-import {$RenderTypeGroup, $RenderTypeGroup$Type} from "packages/net/minecraftforge/client/$RenderTypeGroup"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
+import {$RenderTypeGroup, $RenderTypeGroup$Type} from "packages/net/minecraftforge/client/$RenderTypeGroup"
 
 export interface $IGeometryBakingContext {
 
- "getMaterial"(arg0: string): $Material
  "getTransforms"(): $ItemTransforms
- "useAmbientOcclusion"(): boolean
- "getRenderType"(arg0: $ResourceLocation$Type): $RenderTypeGroup
- "isGui3d"(): boolean
- "getModelName"(): string
- "useBlockLight"(): boolean
+ "getRootTransform"(): $Transformation
  "hasMaterial"(arg0: string): boolean
  "getRenderTypeHint"(): $ResourceLocation
+ "getModelName"(): string
+ "useBlockLight"(): boolean
+ "isGui3d"(): boolean
  "isComponentVisible"(arg0: string, arg1: boolean): boolean
- "getRootTransform"(): $Transformation
+ "getMaterial"(arg0: string): $Material
+ "useAmbientOcclusion"(): boolean
+ "getRenderType"(arg0: $ResourceLocation$Type): $RenderTypeGroup
 }
 
 export namespace $IGeometryBakingContext {
@@ -8756,45 +8751,45 @@ static readonly "REGISTRIES": $Marker
 public "isLocked"(): boolean
 public "remove"(arg0: $ResourceLocation$Type): V
 public "clear"(): void
-public "getValue"(arg0: $ResourceLocation$Type): V
 public "getValue"(arg0: integer): V
+public "getValue"(arg0: $ResourceLocation$Type): V
 public "isEmpty"(): boolean
 public "iterator"(): $Iterator<(V)>
 public "getKey"(arg0: integer): $ResourceKey<(V)>
 public "getKey"(arg0: V): $ResourceLocation
+public "register"(arg0: $ResourceLocation$Type, arg1: V): void
 public "register"(arg0: integer, arg1: $ResourceLocation$Type, arg2: V): void
 public "register"(arg0: string, arg1: V): void
-public "register"(arg0: $ResourceLocation$Type, arg1: V): void
 public "containsKey"(arg0: $ResourceLocation$Type): boolean
 public "containsValue"(arg0: V): boolean
 public "getEntries"(): $Set<($Map$Entry<($ResourceKey<(V)>), (V)>)>
 public "freeze"(): void
 public "getKeys"(): $Set<($ResourceLocation)>
-public "getID"(arg0: V): integer
 public "getID"(arg0: $ResourceLocation$Type): integer
+public "getID"(arg0: V): integer
 public "tags"(): $ITagManager<(V)>
 public "addAlias"(arg0: $ResourceLocation$Type, arg1: $ResourceLocation$Type): void
+public "getDelegate"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder$Reference<(V)>)>
 public "getDelegate"(arg0: $ResourceLocation$Type): $Optional<($Holder$Reference<(V)>)>
 public "getDelegate"(arg0: V): $Optional<($Holder$Reference<(V)>)>
-public "getDelegate"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder$Reference<(V)>)>
-public "getValues"(): $Collection<(V)>
-public "unfreeze"(): void
-public "getCodec"(): $Codec<(V)>
-public "getRaw"(arg0: $ResourceLocation$Type): V
-public "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
-public "loadIds"(arg0: $Object2IntMap$Type<($ResourceLocation$Type)>, arg1: $Map$Type<($ResourceLocation$Type), (string)>, arg2: $Object2IntMap$Type<($ResourceLocation$Type)>, arg3: $Map$Type<($ResourceLocation$Type), ($IdMappingEvent$IdRemapping$Type)>, arg4: $ForgeRegistry$Type<(V)>, arg5: $ResourceLocation$Type): void
-public "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
-public "bake"(): void
-public "getMissingEvent"(arg0: $ResourceLocation$Type, arg1: $Object2IntMap$Type<($ResourceLocation$Type)>): $MissingMappingsEvent
-public "getDelegateOrThrow"(value: any): $Holder$Reference<(any)>
-public "getDelegateOrThrow"(rkey: $ResourceKey$Type<(any)>): $Holder$Reference<(any)>
-public "getDelegateOrThrow"(location: $ResourceLocation$Type): $Holder$Reference<(any)>
-public "getRegistryName"(): $ResourceLocation
+public "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
 public "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
 public "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
 public "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
+public "getRegistryName"(): $ResourceLocation
 public "getDefaultKey"(): $ResourceLocation
-public "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+public "getDelegateOrThrow"(value: any): $Holder$Reference<(any)>
+public "getDelegateOrThrow"(location: $ResourceLocation$Type): $Holder$Reference<(any)>
+public "getDelegateOrThrow"(rkey: $ResourceKey$Type<(any)>): $Holder$Reference<(any)>
+public "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
+public "loadIds"(arg0: $Object2IntMap$Type<($ResourceLocation$Type)>, arg1: $Map$Type<($ResourceLocation$Type), (string)>, arg2: $Object2IntMap$Type<($ResourceLocation$Type)>, arg3: $Map$Type<($ResourceLocation$Type), ($IdMappingEvent$IdRemapping$Type)>, arg4: $ForgeRegistry$Type<(V)>, arg5: $ResourceLocation$Type): void
+public "getMissingEvent"(arg0: $ResourceLocation$Type, arg1: $Object2IntMap$Type<($ResourceLocation$Type)>): $MissingMappingsEvent
+public "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+public "bake"(): void
+public "unfreeze"(): void
+public "getCodec"(): $Codec<(V)>
+public "getValues"(): $Collection<(V)>
+public "getRaw"(arg0: $ResourceLocation$Type): V
 public "setSlaveMap"(arg0: $ResourceLocation$Type, arg1: any): void
 public "makeSnapshot"(): $ForgeRegistry$Snapshot
 public "spliterator"(): $Spliterator<(V)>
@@ -8804,11 +8799,11 @@ get "locked"(): boolean
 get "empty"(): boolean
 get "entries"(): $Set<($Map$Entry<($ResourceKey<(V)>), (V)>)>
 get "keys"(): $Set<($ResourceLocation)>
-get "values"(): $Collection<(V)>
-get "codec"(): $Codec<(V)>
-get "registryKey"(): $ResourceKey<($Registry<(V)>)>
 get "registryName"(): $ResourceLocation
 get "defaultKey"(): $ResourceLocation
+get "registryKey"(): $ResourceKey<($Registry<(V)>)>
+get "codec"(): $Codec<(V)>
+get "values"(): $Collection<(V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -8891,8 +8886,8 @@ import {$ImmutableMap, $ImmutableMap$Type} from "packages/com/google/common/coll
 import {$SlabBlock, $SlabBlock$Type} from "packages/net/minecraft/world/level/block/$SlabBlock"
 import {$JsonElement, $JsonElement$Type} from "packages/com/google/gson/$JsonElement"
 import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
-import {$FenceGateBlock, $FenceGateBlock$Type} from "packages/net/minecraft/world/level/block/$FenceGateBlock"
 import {$VariantBlockStateBuilder, $VariantBlockStateBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$VariantBlockStateBuilder"
+import {$FenceGateBlock, $FenceGateBlock$Type} from "packages/net/minecraft/world/level/block/$FenceGateBlock"
 import {$IronBarsBlock, $IronBarsBlock$Type} from "packages/net/minecraft/world/level/block/$IronBarsBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$ExistingFileHelper, $ExistingFileHelper$Type} from "packages/net/minecraftforge/common/data/$ExistingFileHelper"
@@ -8901,8 +8896,8 @@ import {$ConfiguredModel, $ConfiguredModel$Type} from "packages/net/minecraftfor
 import {$MultiPartBlockStateBuilder, $MultiPartBlockStateBuilder$Type} from "packages/net/minecraftforge/client/model/generators/$MultiPartBlockStateBuilder"
 import {$RotatedPillarBlock, $RotatedPillarBlock$Type} from "packages/net/minecraft/world/level/block/$RotatedPillarBlock"
 import {$FenceBlock, $FenceBlock$Type} from "packages/net/minecraft/world/level/block/$FenceBlock"
-import {$ButtonBlock, $ButtonBlock$Type} from "packages/net/minecraft/world/level/block/$ButtonBlock"
 import {$StandingSignBlock, $StandingSignBlock$Type} from "packages/net/minecraft/world/level/block/$StandingSignBlock"
+import {$ButtonBlock, $ButtonBlock$Type} from "packages/net/minecraft/world/level/block/$ButtonBlock"
 import {$DoorBlock, $DoorBlock$Type} from "packages/net/minecraft/world/level/block/$DoorBlock"
 import {$StairBlock, $StairBlock$Type} from "packages/net/minecraft/world/level/block/$StairBlock"
 import {$Property, $Property$Type} from "packages/net/minecraft/world/level/block/state/properties/$Property"
@@ -8914,113 +8909,113 @@ static readonly "WALL_PROPS": $ImmutableMap<($Direction), ($Property<($WallSide)
 
 constructor(arg0: $PackOutput$Type, arg1: string, arg2: $ExistingFileHelper$Type)
 
+public "simpleBlockItem"(arg0: $Block$Type, arg1: $ModelFile$Type): void
+public "axisBlock"(arg0: $RotatedPillarBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
+public "axisBlock"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type): void
+public "axisBlock"(arg0: $RotatedPillarBlock$Type): void
+public "axisBlock"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
+public "itemModels"(): $ItemModelProvider
+public "blockTexture"(arg0: $Block$Type): $ResourceLocation
+public "getVariantBuilder"(arg0: $Block$Type): $VariantBlockStateBuilder
+public "trapdoorBlock"(arg0: $TrapDoorBlock$Type, arg1: $ResourceLocation$Type, arg2: boolean): void
+public "trapdoorBlock"(arg0: $TrapDoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: boolean): void
+public "trapdoorBlock"(arg0: $TrapDoorBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type, arg4: boolean): void
 public "models"(): $BlockModelProvider
-public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: string): void
-public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
-public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: string): void
-public "simpleBlockWithItem"(arg0: $Block$Type, arg1: $ModelFile$Type): void
+public "horizontalFaceBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>): void
 public "horizontalFaceBlock"(arg0: $Block$Type, arg1: $ModelFile$Type, arg2: integer): void
 public "horizontalFaceBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
 public "horizontalFaceBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>, arg2: integer): void
-public "horizontalFaceBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>): void
-public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
-public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: string): void
-public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type): void
-public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: string): void
+public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
+public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type, arg5: string): void
+public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type, arg5: $ResourceLocation$Type): void
+public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: string): void
+public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
 public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
 public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type, arg5: $ResourceLocation$Type): void
 public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
-public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
-public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
-public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: string): void
-public "stairsBlockWithRenderType"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type, arg5: string): void
-public "fenceGateBlockWithRenderType"(arg0: $FenceGateBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
+public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
+public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
+public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
+public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
+public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
+public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
+public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
+public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
+public "fenceGateBlockWithRenderType"(arg0: $FenceGateBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
 public "fenceGateBlockWithRenderType"(arg0: $FenceGateBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
 public "fenceGateBlockWithRenderType"(arg0: $FenceGateBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "fenceGateBlockWithRenderType"(arg0: $FenceGateBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "logBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: string): void
-public "logBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type): void
-public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
-public "wallBlockWithRenderType"(arg0: $WallBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
+public "fenceGateBlockWithRenderType"(arg0: $FenceGateBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
+public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
+public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: string): void
+public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: string): void
+public "doorBlockWithRenderType"(arg0: $DoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
 public "paneBlockWithRenderType"(arg0: $IronBarsBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: string): void
 public "paneBlockWithRenderType"(arg0: $IronBarsBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: string): void
 public "paneBlockWithRenderType"(arg0: $IronBarsBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
 public "paneBlockWithRenderType"(arg0: $IronBarsBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
-public "getMultipartBuilder"(arg0: $Block$Type): $MultiPartBlockStateBuilder
-public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: boolean, arg4: string): void
-public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: $ResourceLocation$Type, arg2: boolean, arg3: string): void
-public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: boolean, arg4: $ResourceLocation$Type): void
-public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: $ResourceLocation$Type, arg2: boolean, arg3: $ResourceLocation$Type): void
-public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
-public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: string): void
-public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "fenceBlockWithRenderType"(arg0: $FenceBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
 public "logBlock"(arg0: $RotatedPillarBlock$Type): void
-public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
-public "getName"(): string
-public "blockTexture"(arg0: $Block$Type): $ResourceLocation
-public "itemModels"(): $ItemModelProvider
-public "getVariantBuilder"(arg0: $Block$Type): $VariantBlockStateBuilder
-public "axisBlock"(arg0: $RotatedPillarBlock$Type): void
-public "axisBlock"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type): void
-public "axisBlock"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "axisBlock"(arg0: $RotatedPillarBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
-public "simpleBlockItem"(arg0: $Block$Type, arg1: $ModelFile$Type): void
-public "horizontalBlock"(arg0: $Block$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "horizontalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
-public "horizontalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>): void
-public "horizontalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type, arg2: integer): void
-public "horizontalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>, arg2: integer): void
+public "mcLoc"(arg0: string): $ResourceLocation
+public "simpleBlockWithItem"(arg0: $Block$Type, arg1: $ModelFile$Type): void
+public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: string): void
+public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
+public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
+public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type): void
+public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: string): void
+public "axisBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: string): void
+public "logBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: $ResourceLocation$Type): void
+public "logBlockWithRenderType"(arg0: $RotatedPillarBlock$Type, arg1: string): void
+public "getMultipartBuilder"(arg0: $Block$Type): $MultiPartBlockStateBuilder
+public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: $ResourceLocation$Type, arg2: boolean, arg3: string): void
+public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: $ResourceLocation$Type, arg2: boolean, arg3: $ResourceLocation$Type): void
+public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: boolean, arg4: $ResourceLocation$Type): void
+public "trapdoorBlockWithRenderType"(arg0: $TrapDoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: boolean, arg4: string): void
 public "stairsBlock"(arg0: $StairBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type): void
-public "stairsBlock"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
-public "stairsBlock"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
 public "stairsBlock"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type): void
 public "stairsBlock"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type): void
+public "stairsBlock"(arg0: $StairBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
+public "stairsBlock"(arg0: $StairBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
+public "horizontalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>): void
+public "horizontalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
+public "horizontalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>, arg2: integer): void
+public "horizontalBlock"(arg0: $Block$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
+public "horizontalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type, arg2: integer): void
 public "directionalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>): void
-public "directionalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>, arg2: integer): void
-public "directionalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
 public "directionalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type, arg2: integer): void
-public "slabBlock"(arg0: $SlabBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "slabBlock"(arg0: $SlabBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
-public "slabBlock"(arg0: $SlabBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type): void
-public "buttonBlock"(arg0: $ButtonBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
-public "buttonBlock"(arg0: $ButtonBlock$Type, arg1: $ResourceLocation$Type): void
-public "fourWayMultipart"(arg0: $MultiPartBlockStateBuilder$Type, arg1: $ModelFile$Type): void
-public "fourWayBlock"(arg0: $CrossCollisionBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
-public "signBlock"(arg0: $StandingSignBlock$Type, arg1: $WallSignBlock$Type, arg2: $ResourceLocation$Type): void
-public "signBlock"(arg0: $StandingSignBlock$Type, arg1: $WallSignBlock$Type, arg2: $ModelFile$Type): void
-public "pressurePlateBlock"(arg0: $PressurePlateBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
-public "pressurePlateBlock"(arg0: $PressurePlateBlock$Type, arg1: $ResourceLocation$Type): void
+public "directionalBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
+public "directionalBlock"(arg0: $Block$Type, arg1: $Function$Type<($BlockState$Type), ($ModelFile$Type)>, arg2: integer): void
 public "fenceBlock"(arg0: $FenceBlock$Type, arg1: string, arg2: $ResourceLocation$Type): void
 public "fenceBlock"(arg0: $FenceBlock$Type, arg1: $ResourceLocation$Type): void
+public "signBlock"(arg0: $StandingSignBlock$Type, arg1: $WallSignBlock$Type, arg2: $ResourceLocation$Type): void
+public "signBlock"(arg0: $StandingSignBlock$Type, arg1: $WallSignBlock$Type, arg2: $ModelFile$Type): void
+public "fourWayBlock"(arg0: $CrossCollisionBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
+public "buttonBlock"(arg0: $ButtonBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
+public "buttonBlock"(arg0: $ButtonBlock$Type, arg1: $ResourceLocation$Type): void
+public "slabBlock"(arg0: $SlabBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type, arg4: $ResourceLocation$Type): void
+public "slabBlock"(arg0: $SlabBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
+public "slabBlock"(arg0: $SlabBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type): void
+public "pressurePlateBlock"(arg0: $PressurePlateBlock$Type, arg1: $ResourceLocation$Type): void
+public "pressurePlateBlock"(arg0: $PressurePlateBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type): void
+public "fourWayMultipart"(arg0: $MultiPartBlockStateBuilder$Type, arg1: $ModelFile$Type): void
+public "wallBlock"(arg0: $WallBlock$Type, arg1: $ResourceLocation$Type): void
 public "wallBlock"(arg0: $WallBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type): void
 public "wallBlock"(arg0: $WallBlock$Type, arg1: string, arg2: $ResourceLocation$Type): void
-public "wallBlock"(arg0: $WallBlock$Type, arg1: $ResourceLocation$Type): void
 public "fenceGateBlock"(arg0: $FenceGateBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type, arg4: $ModelFile$Type): void
 public "fenceGateBlock"(arg0: $FenceGateBlock$Type, arg1: string, arg2: $ResourceLocation$Type): void
 public "fenceGateBlock"(arg0: $FenceGateBlock$Type, arg1: $ResourceLocation$Type): void
-public "paneBlock"(arg0: $IronBarsBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "paneBlock"(arg0: $IronBarsBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "paneBlock"(arg0: $IronBarsBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type, arg4: $ModelFile$Type, arg5: $ModelFile$Type): void
+public "doorBlock"(arg0: $DoorBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
 public "doorBlock"(arg0: $DoorBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type, arg4: $ModelFile$Type, arg5: $ModelFile$Type, arg6: $ModelFile$Type, arg7: $ModelFile$Type, arg8: $ModelFile$Type): void
 public "doorBlock"(arg0: $DoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
-public "doorBlock"(arg0: $DoorBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
-public "trapdoorBlock"(arg0: $TrapDoorBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type, arg4: boolean): void
-public "trapdoorBlock"(arg0: $TrapDoorBlock$Type, arg1: $ResourceLocation$Type, arg2: boolean): void
-public "trapdoorBlock"(arg0: $TrapDoorBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: boolean): void
-public "mcLoc"(arg0: string): $ResourceLocation
-public "modLoc"(arg0: string): $ResourceLocation
-public "cubeAll"(arg0: $Block$Type): $ModelFile
-public "simpleBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
-public "simpleBlock"(arg0: $Block$Type): void
+public "paneBlock"(arg0: $IronBarsBlock$Type, arg1: $ResourceLocation$Type, arg2: $ResourceLocation$Type): void
+public "paneBlock"(arg0: $IronBarsBlock$Type, arg1: $ModelFile$Type, arg2: $ModelFile$Type, arg3: $ModelFile$Type, arg4: $ModelFile$Type, arg5: $ModelFile$Type): void
+public "paneBlock"(arg0: $IronBarsBlock$Type, arg1: string, arg2: $ResourceLocation$Type, arg3: $ResourceLocation$Type): void
 public "simpleBlock"(arg0: $Block$Type, arg1: $Function$Type<($ModelFile$Type), (($ConfiguredModel$Type)[])>): void
+public "simpleBlock"(arg0: $Block$Type): void
+public "simpleBlock"(arg0: $Block$Type, arg1: $ModelFile$Type): void
 public "simpleBlock"(arg0: $Block$Type, ...arg1: ($ConfiguredModel$Type)[]): void
+public "cubeAll"(arg0: $Block$Type): $ModelFile
+public "modLoc"(arg0: string): $ResourceLocation
+public "run"(arg0: $CachedOutput$Type): $CompletableFuture<(any)>
+public "getName"(): string
 public static "saveStable"(arg0: $CachedOutput$Type, arg1: $JsonElement$Type, arg2: $Path$Type): $CompletableFuture<(any)>
 get "name"(): string
 }
@@ -9048,10 +9043,10 @@ export class $Message {
 
 constructor(arg0: string, arg1: $Message$MessageType$Type)
 
-public "getTypeColour"(): (float)[]
 public "getText"(): string
-get "typeColour"(): (float)[]
+public "getTypeColour"(): (float)[]
 get "text"(): string
+get "typeColour"(): (float)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9072,8 +9067,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IForgeMobEffect {
 
- "getSortOrder"(arg0: $MobEffectInstance$Type): integer
  "getCurativeItems"(): $List<($ItemStack)>
+ "getSortOrder"(arg0: $MobEffectInstance$Type): integer
 }
 
 export namespace $IForgeMobEffect {
@@ -9092,16 +9087,16 @@ declare global {
 export type $IForgeMobEffect_ = $IForgeMobEffect$Type;
 }}
 declare module "packages/net/minecraftforge/server/command/$EnumArgument$Info$Template" {
-import {$EnumArgument, $EnumArgument$Type} from "packages/net/minecraftforge/server/command/$EnumArgument"
 import {$ArgumentTypeInfo, $ArgumentTypeInfo$Type} from "packages/net/minecraft/commands/synchronization/$ArgumentTypeInfo"
+import {$EnumArgument, $EnumArgument$Type} from "packages/net/minecraftforge/server/command/$EnumArgument"
 import {$CommandBuildContext, $CommandBuildContext$Type} from "packages/net/minecraft/commands/$CommandBuildContext"
 import {$ArgumentTypeInfo$Template, $ArgumentTypeInfo$Template$Type} from "packages/net/minecraft/commands/synchronization/$ArgumentTypeInfo$Template"
 
 export class $EnumArgument$Info$Template implements $ArgumentTypeInfo$Template<($EnumArgument<(T)>)> {
 
 
-public "instantiate"(arg0: $CommandBuildContext$Type): $EnumArgument<(T)>
 public "type"(): $ArgumentTypeInfo<($EnumArgument<(T)>), (any)>
+public "instantiate"(arg0: $CommandBuildContext$Type): $EnumArgument<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9153,35 +9148,35 @@ export interface $IItemHandlerModifiable extends $IItemHandler {
 
  "setStackInSlot"(arg0: integer, arg1: $ItemStack$Type): void
  "getSlots"(): integer
+ "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
+ "getStackInSlot"(arg0: integer): $ItemStack
+ "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+ "getSlotLimit"(arg0: integer): integer
+ "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+ "getBlock"(level: $Level$Type): $BlockContainerJS
+ "isMutable"(): boolean
+ "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
  "getStackInSlot"(i: integer): $ItemStack
  "insertItem"(i: integer, itemStack: $ItemStack$Type, b: boolean): $ItemStack
- "getSlotLimit"(i: integer): integer
- "isMutable"(): boolean
  "getSlots"(): integer
- "isItemValid"(i: integer, itemStack: $ItemStack$Type): boolean
+ "getSlotLimit"(i: integer): integer
  "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
- "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
- "getBlock"(level: $Level$Type): $BlockContainerJS
- "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
- "getSlotLimit"(arg0: integer): integer
- "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
- "getStackInSlot"(arg0: integer): $ItemStack
- "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+ "isItemValid"(i: integer, itemStack: $ItemStack$Type): boolean
  "kjs$self"(): $IItemHandler
- "getHeight"(): integer
  "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
- "getWidth"(): integer
- "clear"(ingredient: $Ingredient$Type): void
- "clear"(): void
- "asContainer"(): $Container
- "setChanged"(): void
+ "countNonEmpty"(ingredient: $Ingredient$Type): integer
+ "countNonEmpty"(): integer
+ "getHeight"(): integer
+ "count"(): integer
+ "count"(ingredient: $Ingredient$Type): integer
  "getAllItems"(): $List<($ItemStack)>
+ "setChanged"(): void
+ "getWidth"(): integer
+ "asContainer"(): $Container
+ "clear"(): void
+ "clear"(ingredient: $Ingredient$Type): void
  "find"(): integer
  "find"(ingredient: $Ingredient$Type): integer
- "count"(ingredient: $Ingredient$Type): integer
- "count"(): integer
- "countNonEmpty"(): integer
- "countNonEmpty"(ingredient: $Ingredient$Type): integer
  "isEmpty"(): boolean
 }
 
@@ -9208,8 +9203,8 @@ export class $ModelEvent extends $Event {
 
 
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
 public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "listenerList"(): $ListenerList
 }
@@ -9234,10 +9229,10 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $ITeleporter {
 
+ "playTeleportSound"(arg0: $ServerPlayer$Type, arg1: $ServerLevel$Type, arg2: $ServerLevel$Type): boolean
+ "isVanilla"(): boolean
  "placeEntity"(arg0: $Entity$Type, arg1: $ServerLevel$Type, arg2: $ServerLevel$Type, arg3: float, arg4: $Function$Type<(boolean), ($Entity$Type)>): $Entity
  "getPortalInfo"(arg0: $Entity$Type, arg1: $ServerLevel$Type, arg2: $Function$Type<($ServerLevel$Type), ($PortalInfo$Type)>): $PortalInfo
- "isVanilla"(): boolean
- "playTeleportSound"(arg0: $ServerPlayer$Type, arg1: $ServerLevel$Type, arg2: $ServerLevel$Type): boolean
 }
 
 export namespace $ITeleporter {
@@ -9297,10 +9292,10 @@ public "toString"(): string
 public "hashCode"(): integer
 public static "read"(arg0: $JsonElement$Type, arg1: $ForgeFaceData$Type): $ForgeFaceData
 public "color"(): integer
-public "ambientOcclusion"(): boolean
-public "calculateNormals"(): boolean
 public "blockLight"(): integer
 public "skyLight"(): integer
+public "calculateNormals"(): boolean
+public "ambientOcclusion"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9355,16 +9350,16 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export class $ItemTooltipEvent extends $PlayerEvent {
 
-constructor()
 constructor(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type)
+constructor()
 
 public "getFlags"(): $TooltipFlag
-public "getToolTip"(): $List<($Component)>
 public "getListenerList"(): $ListenerList
+public "getToolTip"(): $List<($Component)>
 public "getItemStack"(): $ItemStack
 get "flags"(): $TooltipFlag
-get "toolTip"(): $List<($Component)>
 get "listenerList"(): $ListenerList
+get "toolTip"(): $List<($Component)>
 get "itemStack"(): $ItemStack
 }
 /**
@@ -9482,12 +9477,12 @@ import {$IFluidHandler$FluidAction, $IFluidHandler$FluidAction$Type} from "packa
 export interface $IFluidTank {
 
  "fill"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): integer
- "getCapacity"(): integer
- "drain"(arg0: integer, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
  "drain"(arg0: $FluidStack$Type, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
- "getFluidAmount"(): integer
+ "drain"(arg0: integer, arg1: $IFluidHandler$FluidAction$Type): $FluidStack
+ "getCapacity"(): integer
  "isFluidValid"(arg0: $FluidStack$Type): boolean
  "getFluid"(): $FluidStack
+ "getFluidAmount"(): integer
 }
 
 export namespace $IFluidTank {
@@ -9583,14 +9578,14 @@ public static "values"(): ($KeyModifier)[]
 public static "valueOf"(arg0: string): $KeyModifier
 public "matches"(arg0: $InputConstants$Key$Type): boolean
 public "isActive"(arg0: $IKeyConflictContext$Type): boolean
+public static "getValues"(arg0: boolean): $List<($KeyModifier)>
 /**
  * 
  * @deprecated
  */
 public static "getActiveModifier"(): $KeyModifier
-public static "getValues"(arg0: boolean): $List<($KeyModifier)>
-public "getCombinedName"(arg0: $InputConstants$Key$Type, arg1: $Supplier$Type<($Component$Type)>): $Component
 public static "getModifier"(arg0: $InputConstants$Key$Type): $KeyModifier
+public "getCombinedName"(arg0: $InputConstants$Key$Type, arg1: $Supplier$Type<($Component$Type)>): $Component
 public static "isKeyCodeModifier"(arg0: $InputConstants$Key$Type): boolean
 public static "valueFromString"(arg0: string): $KeyModifier
 get "activeModifier"(): $KeyModifier
@@ -9643,19 +9638,19 @@ export interface $IForgeRegistryModifiable<V> extends $IForgeRegistry<(V)> {
  "getDelegate"(arg0: V): $Optional<($Holder$Reference<(V)>)>
  "getDelegate"(arg0: $ResourceLocation$Type): $Optional<($Holder$Reference<(V)>)>
  "getDelegate"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder$Reference<(V)>)>
- "getValues"(): $Collection<(V)>
- "getCodec"(): $Codec<(V)>
- "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
- "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+ "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+ "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
+ "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
+ "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
+ "getRegistryName"(): $ResourceLocation
+ "getDefaultKey"(): $ResourceLocation
+ "getDelegateOrThrow"(arg0: V): $Holder$Reference<(V)>
  "getDelegateOrThrow"(arg0: $ResourceKey$Type<(V)>): $Holder$Reference<(V)>
  "getDelegateOrThrow"(arg0: $ResourceLocation$Type): $Holder$Reference<(V)>
- "getDelegateOrThrow"(arg0: V): $Holder$Reference<(V)>
- "getRegistryName"(): $ResourceLocation
- "getHolder"(arg0: $ResourceLocation$Type): $Optional<($Holder<(V)>)>
- "getHolder"(arg0: $ResourceKey$Type<(V)>): $Optional<($Holder<(V)>)>
- "getHolder"(arg0: V): $Optional<($Holder<(V)>)>
- "getDefaultKey"(): $ResourceLocation
- "getResourceKey"(arg0: V): $Optional<($ResourceKey<(V)>)>
+ "getSlaveMap"<T>(arg0: $ResourceLocation$Type, arg1: $Class$Type<(T)>): T
+ "getRegistryKey"(): $ResourceKey<($Registry<(V)>)>
+ "getCodec"(): $Codec<(V)>
+ "getValues"(): $Collection<(V)>
  "iterator"(): $Iterator<(V)>
  "spliterator"(): $Spliterator<(V)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
@@ -9694,17 +9689,17 @@ public "end"(): $ModelBuilder<(T)>
 public "transform"(arg0: $Transformation$Type): $ModelBuilder$RootTransformsBuilder<>
 public "origin"(arg0: $Vector3f$Type): $ModelBuilder$RootTransformsBuilder<>
 public "origin"(arg0: $TransformationHelper$TransformOrigin$Type): $ModelBuilder$RootTransformsBuilder<>
-public "rotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
-public "rotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
-public "leftRotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
-public "leftRotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
-public "postRotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
-public "postRotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
+public "toJson"(): $JsonObject
+public "translation"(arg0: $Vector3f$Type): $ModelBuilder$RootTransformsBuilder<>
+public "translation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$RootTransformsBuilder<>
 public "rightRotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
 public "rightRotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
-public "toJson"(): $JsonObject
-public "translation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$RootTransformsBuilder<>
-public "translation"(arg0: $Vector3f$Type): $ModelBuilder$RootTransformsBuilder<>
+public "rotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
+public "rotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
+public "postRotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
+public "postRotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
+public "leftRotation"(arg0: float, arg1: float, arg2: float, arg3: boolean): $ModelBuilder$RootTransformsBuilder<>
+public "leftRotation"(arg0: $Quaternionf$Type): $ModelBuilder$RootTransformsBuilder<>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9807,8 +9802,8 @@ static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
 constructor(arg0: $ForgeFlowingFluid$Properties$Type)
 
-public "getAmount"(arg0: $FluidState$Type): integer
 public "isSource"(arg0: $FluidState$Type): boolean
+public "getAmount"(arg0: $FluidState$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -9876,8 +9871,8 @@ export type $IForgeRegistry$ValidateCallback_<V> = $IForgeRegistry$ValidateCallb
 declare module "packages/net/minecraftforge/common/extensions/$IForgeBlockEntity" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
-import {$ModelData, $ModelData$Type} from "packages/net/minecraftforge/client/model/data/$ModelData"
 import {$Connection, $Connection$Type} from "packages/net/minecraft/network/$Connection"
+import {$ModelData, $ModelData$Type} from "packages/net/minecraftforge/client/model/data/$ModelData"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$Type} from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
@@ -9887,16 +9882,16 @@ import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/
 
 export interface $IForgeBlockEntity extends $ICapabilitySerializable<($CompoundTag)> {
 
- "onChunkUnloaded"(): void
- "getModelData"(): $ModelData
- "onDataPacket"(arg0: $Connection$Type, arg1: $ClientboundBlockEntityDataPacket$Type): void
- "handleUpdateTag"(arg0: $CompoundTag$Type): void
- "getPersistentData"(): $CompoundTag
  "onLoad"(): void
- "deserializeNBT"(arg0: $CompoundTag$Type): void
+ "hasCustomOutlineRendering"(arg0: $Player$Type): boolean
+ "onDataPacket"(arg0: $Connection$Type, arg1: $ClientboundBlockEntityDataPacket$Type): void
+ "getModelData"(): $ModelData
+ "handleUpdateTag"(arg0: $CompoundTag$Type): void
+ "onChunkUnloaded"(): void
  "requestModelDataUpdate"(): void
  "getRenderBoundingBox"(): $AABB
- "hasCustomOutlineRendering"(arg0: $Player$Type): boolean
+ "getPersistentData"(): $CompoundTag
+ "deserializeNBT"(arg0: $CompoundTag$Type): void
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
@@ -9926,8 +9921,8 @@ export interface $IModProvider {
 
  "name"(): string
  "isValid"(arg0: $IModFile$Type): boolean
- "initArguments"(arg0: $Map$Type<(string), (any)>): void
  "scanFile"(arg0: $IModFile$Type, arg1: $Consumer$Type<($Path$Type)>): void
+ "initArguments"(arg0: $Map$Type<(string), (any)>): void
 }
 
 export namespace $IModProvider {
@@ -9950,14 +9945,14 @@ import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
 import {$Pair, $Pair$Type} from "packages/org/apache/commons/lang3/tuple/$Pair"
 import {$ForgeConfigSpec$EnumValue, $ForgeConfigSpec$EnumValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$EnumValue"
 import {$ForgeConfigSpec$IntValue, $ForgeConfigSpec$IntValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$IntValue"
-import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
+import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ForgeConfigSpec$ConfigValue, $ForgeConfigSpec$ConfigValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$ConfigValue"
 import {$ForgeConfigSpec$ValueSpec, $ForgeConfigSpec$ValueSpec$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$ValueSpec"
-import {$ForgeConfigSpec$BooleanValue, $ForgeConfigSpec$BooleanValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$BooleanValue"
 import {$ForgeConfigSpec$DoubleValue, $ForgeConfigSpec$DoubleValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$DoubleValue"
 import {$ForgeConfigSpec$LongValue, $ForgeConfigSpec$LongValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$LongValue"
+import {$ForgeConfigSpec$BooleanValue, $ForgeConfigSpec$BooleanValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$BooleanValue"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$ForgeConfigSpec, $ForgeConfigSpec$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
@@ -9974,47 +9969,46 @@ public "comment"(...arg0: (string)[]): $ForgeConfigSpec$Builder
 public "comment"(arg0: string): $ForgeConfigSpec$Builder
 public "push"(arg0: $List$Type<(string)>): $ForgeConfigSpec$Builder
 public "push"(arg0: string): $ForgeConfigSpec$Builder
-public "pop"(arg0: integer): $ForgeConfigSpec$Builder
 public "pop"(): $ForgeConfigSpec$Builder
+public "pop"(arg0: integer): $ForgeConfigSpec$Builder
 public "configure"<T>(arg0: $Function$Type<($ForgeConfigSpec$Builder$Type), (T)>): $Pair<(T), ($ForgeConfigSpec)>
 public "translation"(arg0: string): $ForgeConfigSpec$Builder
-public "worldRestart"(): $ForgeConfigSpec$Builder
-public "define"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(boolean)>): $ForgeConfigSpec$BooleanValue
-public "define"<T>(arg0: $List$Type<(string)>, arg1: T, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "define"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "define"<T>(arg0: $List$Type<(string)>, arg1: $ForgeConfigSpec$ValueSpec$Type, arg2: $Supplier$Type<(T)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "define"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>, arg2: $Predicate$Type<(any)>, arg3: $Class$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "define"<T>(arg0: $List$Type<(string)>, arg1: T): $ForgeConfigSpec$ConfigValue<(T)>
-public "define"<T>(arg0: string, arg1: T): $ForgeConfigSpec$ConfigValue<(T)>
-public "define"(arg0: string, arg1: boolean): $ForgeConfigSpec$BooleanValue
-public "define"<T>(arg0: string, arg1: T, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "defineInList"<T>(arg0: string, arg1: $Supplier$Type<(T)>, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "defineInList"<T>(arg0: $List$Type<(string)>, arg1: T, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "defineInList"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "defineInList"<T>(arg0: string, arg1: T, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "defineInRange"(arg0: string, arg1: $Supplier$Type<(double)>, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
+public "defineInRange"(arg0: string, arg1: integer, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
+public "defineInRange"(arg0: $List$Type<(string)>, arg1: integer, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
+public "defineInRange"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(double)>, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
+public "defineInRange"(arg0: string, arg1: long, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
+public "defineInRange"(arg0: $List$Type<(string)>, arg1: long, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
+public "defineInRange"(arg0: string, arg1: $Supplier$Type<(long)>, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
+public "defineInRange"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(long)>, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
+public "defineInRange"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(integer)>, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
+public "defineInRange"(arg0: string, arg1: $Supplier$Type<(integer)>, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
+public "defineInRange"<V extends $Comparable<(any)>>(arg0: string, arg1: $Supplier$Type<(V)>, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
+public "defineInRange"<V extends $Comparable<(any)>>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(V)>, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
+public "defineInRange"<V extends $Comparable<(any)>>(arg0: $List$Type<(string)>, arg1: V, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
+public "defineInRange"(arg0: string, arg1: double, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
+public "defineInRange"(arg0: $List$Type<(string)>, arg1: double, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
+public "defineInRange"<V extends $Comparable<(any)>>(arg0: string, arg1: V, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
 public "define"(arg0: $List$Type<(string)>, arg1: boolean): $ForgeConfigSpec$BooleanValue
 public "define"(arg0: string, arg1: $Supplier$Type<(boolean)>): $ForgeConfigSpec$BooleanValue
+public "define"(arg0: string, arg1: boolean): $ForgeConfigSpec$BooleanValue
+public "define"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(boolean)>): $ForgeConfigSpec$BooleanValue
 public "define"<T>(arg0: string, arg1: $Supplier$Type<(T)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "defineInList"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "defineInList"<T>(arg0: $List$Type<(string)>, arg1: T, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "defineInList"<T>(arg0: string, arg1: $Supplier$Type<(T)>, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
-public "defineInList"<T>(arg0: string, arg1: T, arg2: $Collection$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(T)>, arg2: $Predicate$Type<(any)>, arg3: $Class$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: $List$Type<(string)>, arg1: $ForgeConfigSpec$ValueSpec$Type, arg2: $Supplier$Type<(T)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: string, arg1: T): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: $List$Type<(string)>, arg1: T): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: string, arg1: T, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
+public "define"<T>(arg0: $List$Type<(string)>, arg1: T, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<(T)>
 public "defineList"<T>(arg0: string, arg1: $Supplier$Type<($List$Type<(any)>)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
 public "defineList"<T>(arg0: string, arg1: $List$Type<(any)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
 public "defineList"<T>(arg0: $List$Type<(string)>, arg1: $List$Type<(any)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
 public "defineList"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<($List$Type<(any)>)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
-public "defineInRange"(arg0: $List$Type<(string)>, arg1: integer, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
-public "defineInRange"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(integer)>, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
-public "defineInRange"(arg0: string, arg1: $Supplier$Type<(integer)>, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
-public "defineInRange"(arg0: $List$Type<(string)>, arg1: double, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
-public "defineInRange"(arg0: string, arg1: integer, arg2: integer, arg3: integer): $ForgeConfigSpec$IntValue
-public "defineInRange"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(double)>, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
-public "defineInRange"(arg0: string, arg1: $Supplier$Type<(double)>, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
-public "defineInRange"(arg0: string, arg1: long, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
-public "defineInRange"<V extends $Comparable<(any)>>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(V)>, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
-public "defineInRange"<V extends $Comparable<(any)>>(arg0: string, arg1: V, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
-public "defineInRange"<V extends $Comparable<(any)>>(arg0: $List$Type<(string)>, arg1: V, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
-public "defineInRange"<V extends $Comparable<(any)>>(arg0: string, arg1: $Supplier$Type<(V)>, arg2: V, arg3: V, arg4: $Class$Type<(V)>): $ForgeConfigSpec$ConfigValue<(V)>
-public "defineInRange"(arg0: string, arg1: double, arg2: double, arg3: double): $ForgeConfigSpec$DoubleValue
-public "defineInRange"(arg0: $List$Type<(string)>, arg1: long, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
-public "defineInRange"(arg0: string, arg1: $Supplier$Type<(long)>, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
-public "defineInRange"(arg0: $List$Type<(string)>, arg1: $Supplier$Type<(long)>, arg2: long, arg3: long): $ForgeConfigSpec$LongValue
 public "defineEnum"<V extends $Enum<(V)>>(arg0: string, arg1: V, arg2: $EnumGetMethod$Type, ...arg3: (V)[]): $ForgeConfigSpec$EnumValue<(V)>
 public "defineEnum"<V extends $Enum<(V)>>(arg0: $List$Type<(string)>, arg1: V, ...arg2: (V)[]): $ForgeConfigSpec$EnumValue<(V)>
 public "defineEnum"<V extends $Enum<(V)>>(arg0: $List$Type<(string)>, arg1: V, arg2: $EnumGetMethod$Type, ...arg3: (V)[]): $ForgeConfigSpec$EnumValue<(V)>
@@ -10035,10 +10029,11 @@ public "defineEnum"<V extends $Enum<(V)>>(arg0: $List$Type<(string)>, arg1: V, a
 public "defineEnum"<V extends $Enum<(V)>>(arg0: string, arg1: V, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$EnumValue<(V)>
 public "defineEnum"<V extends $Enum<(V)>>(arg0: string, arg1: V, arg2: $EnumGetMethod$Type, arg3: $Predicate$Type<(any)>): $ForgeConfigSpec$EnumValue<(V)>
 public "defineEnum"<V extends $Enum<(V)>>(arg0: $List$Type<(string)>, arg1: V, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$EnumValue<(V)>
-public "defineListAllowEmpty"<T>(arg0: $List$Type<(string)>, arg1: $List$Type<(any)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
-public "defineListAllowEmpty"<T>(arg0: string, arg1: $Supplier$Type<($List$Type<(any)>)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
 public "defineListAllowEmpty"<T>(arg0: string, arg1: $List$Type<(any)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
+public "defineListAllowEmpty"<T>(arg0: string, arg1: $Supplier$Type<($List$Type<(any)>)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
+public "defineListAllowEmpty"<T>(arg0: $List$Type<(string)>, arg1: $List$Type<(any)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
 public "defineListAllowEmpty"<T>(arg0: $List$Type<(string)>, arg1: $Supplier$Type<($List$Type<(any)>)>, arg2: $Predicate$Type<(any)>): $ForgeConfigSpec$ConfigValue<($List<(any)>)>
+public "worldRestart"(): $ForgeConfigSpec$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10071,15 +10066,15 @@ import {$BakedQuad, $BakedQuad$Type} from "packages/net/minecraft/client/rendere
 
 export interface $IForgeBakedModel {
 
- "useAmbientOcclusion"(arg0: $BlockState$Type, arg1: $RenderType$Type): boolean
- "useAmbientOcclusion"(arg0: $BlockState$Type): boolean
- "getModelData"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $ModelData$Type): $ModelData
- "applyTransform"(arg0: $ItemDisplayContext$Type, arg1: $PoseStack$Type, arg2: boolean): $BakedModel
  "getParticleIcon"(arg0: $ModelData$Type): $TextureAtlasSprite
  "getQuads"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $RandomSource$Type, arg3: $ModelData$Type, arg4: $RenderType$Type): $List<($BakedQuad)>
+ "getModelData"(arg0: $BlockAndTintGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $ModelData$Type): $ModelData
+ "getRenderPasses"(arg0: $ItemStack$Type, arg1: boolean): $List<($BakedModel)>
  "getRenderTypes"(arg0: $ItemStack$Type, arg1: boolean): $List<($RenderType)>
  "getRenderTypes"(arg0: $BlockState$Type, arg1: $RandomSource$Type, arg2: $ModelData$Type): $ChunkRenderTypeSet
- "getRenderPasses"(arg0: $ItemStack$Type, arg1: boolean): $List<($BakedModel)>
+ "useAmbientOcclusion"(arg0: $BlockState$Type): boolean
+ "useAmbientOcclusion"(arg0: $BlockState$Type, arg1: $RenderType$Type): boolean
+ "applyTransform"(arg0: $ItemDisplayContext$Type, arg1: $PoseStack$Type, arg2: boolean): $BakedModel
 }
 
 export namespace $IForgeBakedModel {
@@ -10131,8 +10126,8 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 
 export interface $IForgeModelBaker {
 
- "getModelTextureGetter"(): $Function<($Material), ($TextureAtlasSprite)>
  "bake"(arg0: $ResourceLocation$Type, arg1: $ModelState$Type, arg2: $Function$Type<($Material$Type), ($TextureAtlasSprite$Type)>): $BakedModel
+ "getModelTextureGetter"(): $Function<($Material), ($TextureAtlasSprite)>
 }
 
 export namespace $IForgeModelBaker {
@@ -10162,14 +10157,14 @@ export class $ModifiableBiomeInfo$BiomeInfo$Builder {
 
 public "build"(): $ModifiableBiomeInfo$BiomeInfo
 public static "copyOf"(arg0: $ModifiableBiomeInfo$BiomeInfo$Type): $ModifiableBiomeInfo$BiomeInfo$Builder
-public "getGenerationSettings"(): $BiomeGenerationSettingsBuilder
-public "getSpecialEffects"(): $BiomeSpecialEffectsBuilder
-public "getClimateSettings"(): $ClimateSettingsBuilder
 public "getMobSpawnSettings"(): $MobSpawnSettingsBuilder
-get "generationSettings"(): $BiomeGenerationSettingsBuilder
-get "specialEffects"(): $BiomeSpecialEffectsBuilder
-get "climateSettings"(): $ClimateSettingsBuilder
+public "getGenerationSettings"(): $BiomeGenerationSettingsBuilder
+public "getClimateSettings"(): $ClimateSettingsBuilder
+public "getSpecialEffects"(): $BiomeSpecialEffectsBuilder
 get "mobSpawnSettings"(): $MobSpawnSettingsBuilder
+get "generationSettings"(): $BiomeGenerationSettingsBuilder
+get "climateSettings"(): $ClimateSettingsBuilder
+get "specialEffects"(): $BiomeSpecialEffectsBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10279,17 +10274,17 @@ export class $ForgeConfigSpec$Range<V extends $Comparable<(any)>> implements $Pr
 public "toString"(): string
 public "test"(arg0: any): boolean
 public "getClazz"(): $Class<(any)>
-public "getMin"(): V
-public "getMax"(): V
 public "correct"(arg0: any, arg1: any): any
+public "getMax"(): V
+public "getMin"(): V
 public "or"(arg0: $Predicate$Type<(any)>): $Predicate<(any)>
 public "negate"(): $Predicate<(any)>
 public "and"(arg0: $Predicate$Type<(any)>): $Predicate<(any)>
 public static "isEqual"<T>(arg0: any): $Predicate<(any)>
 public static "not"<T>(arg0: $Predicate$Type<(any)>): $Predicate<(any)>
 get "clazz"(): $Class<(any)>
-get "min"(): V
 get "max"(): V
+get "min"(): V
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10322,57 +10317,57 @@ export class $RecipeWrapper implements $Container {
 constructor(arg0: $IItemHandlerModifiable$Type)
 
 public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
-public "startOpen"(arg0: $Player$Type): void
-public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
-public "getMaxStackSize"(): integer
-public "stopOpen"(arg0: $Player$Type): void
-public "stillValid"(arg0: $Player$Type): boolean
-public "isEmpty"(): boolean
-public "clearContent"(): void
-public "removeItem"(arg0: integer, arg1: integer): $ItemStack
 public "setChanged"(): void
+public "getMaxStackSize"(): integer
+public "stillValid"(arg0: $Player$Type): boolean
+public "startOpen"(arg0: $Player$Type): void
+public "stopOpen"(arg0: $Player$Type): void
+public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "isEmpty"(): boolean
+public "removeItem"(arg0: integer, arg1: integer): $ItemStack
+public "clearContent"(): void
 public "removeItemNoUpdate"(arg0: integer): $ItemStack
 public "getContainerSize"(): integer
 public "getItem"(arg0: integer): $ItemStack
-public "hasAnyMatching"(arg0: $Predicate$Type<($ItemStack$Type)>): boolean
-public "countItem"(arg0: $Item$Type): integer
-public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type): boolean
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
-public "hasAnyOf"(arg0: $Set$Type<($Item$Type)>): boolean
-public "getHeight"(): integer
-public "getStackInSlot"(slot: integer): $ItemStack
-public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
-public "getWidth"(): integer
-public "getSlotLimit"(slot: integer): integer
-public "clear"(): void
-public "asContainer"(): $Container
-public "isMutable"(): boolean
-public "getSlots"(): integer
-public "setChanged"(): void
-public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
-public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
-public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
 public "getBlock"(level: $Level$Type): $BlockContainerJS
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
+public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type): boolean
+public "isMutable"(): boolean
+public "countItem"(arg0: $Item$Type): integer
+public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
+public "getStackInSlot"(slot: integer): $ItemStack
+public "hasAnyMatching"(arg0: $Predicate$Type<($ItemStack$Type)>): boolean
+public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
+public "hasAnyOf"(arg0: $Set$Type<($Item$Type)>): boolean
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
+public "getSlots"(): integer
+public "getSlotLimit"(slot: integer): integer
+public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
+public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
+public "getHeight"(): integer
+public "setChanged"(): void
+public "getWidth"(): integer
+public "asContainer"(): $Container
+public "clear"(): void
 public "kjs$self"(): $Container
 public static "tryClear"(arg0: any): void
 public "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
-public "clear"(ingredient: $Ingredient$Type): void
+public "countNonEmpty"(ingredient: $Ingredient$Type): integer
+public "countNonEmpty"(): integer
+public "count"(): integer
+public "count"(ingredient: $Ingredient$Type): integer
 public "getAllItems"(): $List<($ItemStack)>
+public "clear"(ingredient: $Ingredient$Type): void
 public "find"(): integer
 public "find"(ingredient: $Ingredient$Type): integer
-public "count"(ingredient: $Ingredient$Type): integer
-public "count"(): integer
-public "countNonEmpty"(): integer
-public "countNonEmpty"(ingredient: $Ingredient$Type): integer
 public "isEmpty"(): boolean
 get "maxStackSize"(): integer
 get "empty"(): boolean
 get "containerSize"(): integer
-get "height"(): integer
-get "width"(): integer
 get "mutable"(): boolean
 get "slots"(): integer
+get "height"(): integer
+get "width"(): integer
 get "allItems"(): $List<($ItemStack)>
 get "empty"(): boolean
 }
@@ -10398,8 +10393,8 @@ import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 
 export interface $BiomeModifier {
 
- "modify"(arg0: $Holder$Type<($Biome$Type)>, arg1: $BiomeModifier$Phase$Type, arg2: $ModifiableBiomeInfo$BiomeInfo$Builder$Type): void
  "codec"(): $Codec<(any)>
+ "modify"(arg0: $Holder$Type<($Biome$Type)>, arg1: $BiomeModifier$Phase$Type, arg2: $ModifiableBiomeInfo$BiomeInfo$Builder$Type): void
 }
 
 export namespace $BiomeModifier {
@@ -10430,21 +10425,21 @@ constructor()
 
 public "getResult"(): $Event$Result
 public "setResult"(arg0: $Event$Result$Type): void
-public "isCancelable"(): boolean
-public "setCanceled"(arg0: boolean): void
-public "setPhase"(arg0: $EventPriority$Type): void
 public "isCanceled"(): boolean
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
+public "isCancelable"(): boolean
+public "setPhase"(arg0: $EventPriority$Type): void
+public "setCanceled"(arg0: boolean): void
 public "getPhase"(): $EventPriority
+public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "result"(): $Event$Result
 set "result"(value: $Event$Result$Type)
-get "cancelable"(): boolean
-set "canceled"(value: boolean)
-set "phase"(value: $EventPriority$Type)
 get "canceled"(): boolean
-get "listenerList"(): $ListenerList
+get "cancelable"(): boolean
+set "phase"(value: $EventPriority$Type)
+set "canceled"(value: boolean)
 get "phase"(): $EventPriority
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10545,28 +10540,28 @@ export class $BiomeSpecialEffectsBuilder extends $BiomeSpecialEffects$Builder {
 public static "copyOf"(arg0: $BiomeSpecialEffects$Type): $BiomeSpecialEffectsBuilder
 public static "create"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $BiomeSpecialEffectsBuilder
 public "getFogColor"(): integer
+public "getGrassColorOverride"(): $Optional<(integer)>
+public "getAmbientMoodSound"(): $Optional<($AmbientMoodSettings)>
+public "getAmbientLoopSound"(): $Optional<($Holder<($SoundEvent)>)>
+public "getAmbientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
+public "getFoliageColorOverride"(): $Optional<(integer)>
+public "getGrassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
 public "waterColor"(): integer
 public "getWaterFogColor"(): integer
-public "getAmbientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
-public "getAmbientLoopSound"(): $Optional<($Holder<($SoundEvent)>)>
-public "getAmbientMoodSound"(): $Optional<($AmbientMoodSettings)>
-public "getGrassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
-public "getFoliageColorOverride"(): $Optional<(integer)>
-public "getGrassColorOverride"(): $Optional<(integer)>
 public "getSkyColor"(): integer
-public "getBackgroundMusic"(): $Optional<($Music)>
 public "getAmbientParticle"(): $Optional<($AmbientParticleSettings)>
+public "getBackgroundMusic"(): $Optional<($Music)>
 get "fogColor"(): integer
-get "waterFogColor"(): integer
-get "ambientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
-get "ambientLoopSound"(): $Optional<($Holder<($SoundEvent)>)>
-get "ambientMoodSound"(): $Optional<($AmbientMoodSettings)>
-get "grassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
-get "foliageColorOverride"(): $Optional<(integer)>
 get "grassColorOverride"(): $Optional<(integer)>
+get "ambientMoodSound"(): $Optional<($AmbientMoodSettings)>
+get "ambientLoopSound"(): $Optional<($Holder<($SoundEvent)>)>
+get "ambientAdditionsSound"(): $Optional<($AmbientAdditionsSettings)>
+get "foliageColorOverride"(): $Optional<(integer)>
+get "grassColorModifier"(): $BiomeSpecialEffects$GrassColorModifier
+get "waterFogColor"(): integer
 get "skyColor"(): integer
-get "backgroundMusic"(): $Optional<($Music)>
 get "ambientParticle"(): $Optional<($AmbientParticleSettings)>
+get "backgroundMusic"(): $Optional<($Music)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10619,10 +10614,10 @@ export class $ModelBuilder$TransformsBuilder$TransformVecBuilder {
 public "scale"(arg0: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
 public "scale"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
 public "end"(): $ModelBuilder$TransformsBuilder<>
+public "translation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
+public "rightRotation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
 public "rotation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
 public "leftRotation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
-public "rightRotation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
-public "translation"(arg0: float, arg1: float, arg2: float): $ModelBuilder$TransformsBuilder$TransformVecBuilder<>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10649,9 +10644,9 @@ export class $ConditionalRecipe$Serializer<T extends $Recipe<(any)>> implements 
 constructor()
 
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): T
-public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: T): void
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): T
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): T
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): T
+public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: T): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 }
 /**
@@ -10757,8 +10752,8 @@ export type $IClientItemExtensions$FontContext_ = $IClientItemExtensions$FontCon
 declare module "packages/net/minecraftforge/registries/$RegistryManager" {
 import {$IForgeRegistry, $IForgeRegistry$Type} from "packages/net/minecraftforge/registries/$IForgeRegistry"
 import {$Pair, $Pair$Type} from "packages/org/apache/commons/lang3/tuple/$Pair"
-import {$ForgeRegistry$Snapshot, $ForgeRegistry$Snapshot$Type} from "packages/net/minecraftforge/registries/$ForgeRegistry$Snapshot"
 import {$ForgeRegistry, $ForgeRegistry$Type} from "packages/net/minecraftforge/registries/$ForgeRegistry"
+import {$ForgeRegistry$Snapshot, $ForgeRegistry$Snapshot$Type} from "packages/net/minecraftforge/registries/$ForgeRegistry$Snapshot"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$HandshakeMessages$S2CRegistry, $HandshakeMessages$S2CRegistry$Type} from "packages/net/minecraftforge/network/$HandshakeMessages$S2CRegistry"
@@ -10776,14 +10771,14 @@ constructor(arg0: string)
 public "getName"<V>(arg0: $IForgeRegistry$Type<(V)>): $ResourceLocation
 public "getName"(): string
 public "clean"(): void
-public "takeSnapshot"(arg0: boolean): $Map<($ResourceLocation), ($ForgeRegistry$Snapshot)>
-public static "getRegistryNamesForSyncToClient"(): $List<($ResourceLocation)>
-public static "generateRegistryPackets"(arg0: boolean): $List<($Pair<(string), ($HandshakeMessages$S2CRegistry)>)>
-public static "postNewRegistryEvent"(): void
-public "getRegistry"<V>(arg0: $ResourceKey$Type<(any)>): $ForgeRegistry<(V)>
 public "getRegistry"<V>(arg0: $ResourceLocation$Type, arg1: $RegistryManager$Type): $ForgeRegistry<(V)>
+public "getRegistry"<V>(arg0: $ResourceKey$Type<(any)>): $ForgeRegistry<(V)>
 public "getRegistry"<V>(arg0: $ResourceLocation$Type): $ForgeRegistry<(V)>
 public "updateLegacyName"<V>(arg0: $ResourceLocation$Type): $ResourceLocation
+public "takeSnapshot"(arg0: boolean): $Map<($ResourceLocation), ($ForgeRegistry$Snapshot)>
+public static "postNewRegistryEvent"(): void
+public static "generateRegistryPackets"(arg0: boolean): $List<($Pair<(string), ($HandshakeMessages$S2CRegistry)>)>
+public static "getRegistryNamesForSyncToClient"(): $List<($ResourceLocation)>
 public static "getVanillaRegistryKeys"(): $Set<($ResourceLocation)>
 get "name"(): string
 get "registryNamesForSyncToClient"(): $List<($ResourceLocation)>
@@ -10900,18 +10895,18 @@ static readonly "LEVEL": $IntegerProperty
 static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
 
-public "getFlowing"(): $Fluid
-public "getSource"(): $Fluid
-public "isSame"(arg0: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
-public "canConvertToSource"(arg0: $FluidState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): boolean
 public "getBucket"(): $Item
+public "isSame"(arg0: $Fluid$Type): boolean
 public "getTickDelay"(arg0: $LevelReader$Type): integer
+public "canConvertToSource"(arg0: $FluidState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "getSource"(): $Fluid
+public "getFlowing"(): $Fluid
 public "getFluidType"(): $FluidType
-get "flowing"(): $Fluid
-get "source"(): $Fluid
-get "pickupSound"(): $Optional<($SoundEvent)>
 get "bucket"(): $Item
+get "pickupSound"(): $Optional<($SoundEvent)>
+get "source"(): $Fluid
+get "flowing"(): $Fluid
 get "fluidType"(): $FluidType
 }
 /**
@@ -10944,9 +10939,9 @@ constructor(loading: $Function$Type<($ModConfig$Type), ($IConfigEvent$Type)>, re
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public "reloading"(): $Function<($ModConfig), ($IConfigEvent)>
 public "loading"(): $Function<($ModConfig), ($IConfigEvent)>
 public "unloading"(): $Function<($ModConfig), ($IConfigEvent)>
-public "reloading"(): $Function<($ModConfig), ($IConfigEvent)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -10973,16 +10968,16 @@ constructor(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$T
 constructor()
 
 public "getState"(): $BlockState
-public "getLevel"(): $LevelAccessor
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
-public "hasResult"(): boolean
+public "getLevel"(): $LevelAccessor
 public "getPos"(): $BlockPos
+public "hasResult"(): boolean
+public "getListenerList"(): $ListenerList
 get "state"(): $BlockState
-get "level"(): $LevelAccessor
 get "cancelable"(): boolean
-get "listenerList"(): $ListenerList
+get "level"(): $LevelAccessor
 get "pos"(): $BlockPos
+get "listenerList"(): $ListenerList
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11011,16 +11006,16 @@ constructor()
 
 public "getSource"(): $DamageSource
 public "isCancelable"(): boolean
-public "getListenerList"(): $ListenerList
-public "getLootingLevel"(): integer
 public "isRecentlyHit"(): boolean
+public "getListenerList"(): $ListenerList
 public "getDrops"(): $Collection<($ItemEntity)>
+public "getLootingLevel"(): integer
 get "source"(): $DamageSource
 get "cancelable"(): boolean
-get "listenerList"(): $ListenerList
-get "lootingLevel"(): integer
 get "recentlyHit"(): boolean
+get "listenerList"(): $ListenerList
 get "drops"(): $Collection<($ItemEntity)>
+get "lootingLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -11078,13 +11073,13 @@ import {$Model, $Model$Type} from "packages/net/minecraft/client/model/$Model"
 
 export interface $IClientItemExtensions {
 
- "applyForgeHandTransform"(arg0: $PoseStack$Type, arg1: $LocalPlayer$Type, arg2: $HumanoidArm$Type, arg3: $ItemStack$Type, arg4: float, arg5: float, arg6: float): boolean
- "getHumanoidArmorModel"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: $EquipmentSlot$Type, arg3: $HumanoidModel$Type<(any)>): $HumanoidModel<(any)>
- "getGenericArmorModel"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: $EquipmentSlot$Type, arg3: $HumanoidModel$Type<(any)>): $Model
- "renderHelmetOverlay"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: integer, arg3: integer, arg4: float): void
- "getFont"(arg0: $ItemStack$Type, arg1: $IClientItemExtensions$FontContext$Type): $Font
  "getArmPose"(arg0: $LivingEntity$Type, arg1: $InteractionHand$Type, arg2: $ItemStack$Type): $HumanoidModel$ArmPose
  "getCustomRenderer"(): $BlockEntityWithoutLevelRenderer
+ "renderHelmetOverlay"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: integer, arg3: integer, arg4: float): void
+ "applyForgeHandTransform"(arg0: $PoseStack$Type, arg1: $LocalPlayer$Type, arg2: $HumanoidArm$Type, arg3: $ItemStack$Type, arg4: float, arg5: float, arg6: float): boolean
+ "getGenericArmorModel"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: $EquipmentSlot$Type, arg3: $HumanoidModel$Type<(any)>): $Model
+ "getHumanoidArmorModel"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: $EquipmentSlot$Type, arg3: $HumanoidModel$Type<(any)>): $HumanoidModel<(any)>
+ "getFont"(arg0: $ItemStack$Type, arg1: $IClientItemExtensions$FontContext$Type): $Font
 }
 
 export namespace $IClientItemExtensions {
@@ -11120,52 +11115,17 @@ import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$EntityDimensions, $EntityDimensions$Type} from "packages/net/minecraft/world/entity/$EntityDimensions"
 import {$Boat, $Boat$Type} from "packages/net/minecraft/world/entity/vehicle/$Boat"
+import {$EntityDimensions, $EntityDimensions$Type} from "packages/net/minecraft/world/entity/$EntityDimensions"
 import {$MobCategory, $MobCategory$Type} from "packages/net/minecraft/world/entity/$MobCategory"
-import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
 import {$FluidType, $FluidType$Type} from "packages/net/minecraftforge/fluids/$FluidType"
 import {$PartEntity, $PartEntity$Type} from "packages/net/minecraftforge/entity/$PartEntity"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 
 export interface $IForgeEntity extends $ICapabilitySerializable<($CompoundTag)> {
 
- "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>): boolean
- "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>, arg1: boolean): boolean
- "isInFluidType"(): boolean
- "isInFluidType"(arg0: $FluidType$Type): boolean
- "isInFluidType"(arg0: $FluidState$Type): boolean
- "onRemovedFromWorld"(): void
- "getParts"(): ($PartEntity<(any)>)[]
-/**
- * 
- * @deprecated
- */
- "getEyeHeightForge"(arg0: $Pose$Type, arg1: $EntityDimensions$Type): float
- "isMultipartEntity"(): boolean
- "getEyeInFluidType"(): $FluidType
- "canStartSwimming"(): boolean
- "revive"(): void
- "isAddedToWorld"(): boolean
- "onAddedToWorld"(): void
- "isPushedByFluid"(arg0: $FluidType$Type): boolean
- "isEyeInFluidType"(arg0: $FluidType$Type): boolean
- "getStepHeight"(): float
- "getClassification"(arg0: boolean): $MobCategory
- "getPersistentData"(): $CompoundTag
- "captureDrops"(): $Collection<($ItemEntity)>
- "captureDrops"(arg0: $Collection$Type<($ItemEntity$Type)>): $Collection<($ItemEntity)>
- "getFluidTypeHeight"(arg0: $FluidType$Type): double
- "canFluidExtinguish"(arg0: $FluidType$Type): boolean
- "serializeNBT"(): $CompoundTag
- "canRiderInteract"(): boolean
- "canUpdate"(): boolean
- "canUpdate"(arg0: boolean): void
- "shouldRiderSit"(): boolean
- "deserializeNBT"(arg0: $CompoundTag$Type): void
- "canSwimInFluidType"(arg0: $FluidType$Type): boolean
- "canTrample"(arg0: $BlockState$Type, arg1: $BlockPos$Type, arg2: float): boolean
  "getMaxHeightFluidType"(): $FluidType
  "canBeRiddenUnderFluidType"(arg0: $FluidType$Type, arg1: $Entity$Type): boolean
  "getFluidMotionScale"(arg0: $FluidType$Type): double
@@ -11174,7 +11134,42 @@ export interface $IForgeEntity extends $ICapabilitySerializable<($CompoundTag)> 
  "getSoundFromFluidType"(arg0: $FluidType$Type, arg1: $SoundAction$Type): $SoundEvent
  "hasCustomOutlineRendering"(arg0: $Player$Type): boolean
  "shouldUpdateFluidWhileBoating"(arg0: $FluidState$Type, arg1: $Boat$Type): boolean
+ "getPersistentData"(): $CompoundTag
+ "canFluidExtinguish"(arg0: $FluidType$Type): boolean
+ "canSwimInFluidType"(arg0: $FluidType$Type): boolean
+ "getClassification"(arg0: boolean): $MobCategory
+ "canTrample"(arg0: $BlockState$Type, arg1: $BlockPos$Type, arg2: float): boolean
+ "onAddedToWorld"(): void
+ "deserializeNBT"(arg0: $CompoundTag$Type): void
+ "revive"(): void
+ "isMultipartEntity"(): boolean
+ "onRemovedFromWorld"(): void
+ "canRiderInteract"(): boolean
+ "getParts"(): ($PartEntity<(any)>)[]
+ "isAddedToWorld"(): boolean
+ "getEyeInFluidType"(): $FluidType
+ "shouldRiderSit"(): boolean
+ "canUpdate"(): boolean
+ "canUpdate"(arg0: boolean): void
+ "serializeNBT"(): $CompoundTag
+/**
+ * 
+ * @deprecated
+ */
+ "getEyeHeightForge"(arg0: $Pose$Type, arg1: $EntityDimensions$Type): float
+ "isEyeInFluidType"(arg0: $FluidType$Type): boolean
+ "isPushedByFluid"(arg0: $FluidType$Type): boolean
+ "canStartSwimming"(): boolean
+ "getStepHeight"(): float
  "getPickedResult"(arg0: $HitResult$Type): $ItemStack
+ "isInFluidType"(arg0: $FluidState$Type): boolean
+ "isInFluidType"(arg0: $FluidType$Type): boolean
+ "isInFluidType"(): boolean
+ "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>, arg1: boolean): boolean
+ "isInFluidType"(arg0: $BiPredicate$Type<($FluidType$Type), (double)>): boolean
+ "captureDrops"(): $Collection<($ItemEntity)>
+ "captureDrops"(arg0: $Collection$Type<($ItemEntity$Type)>): $Collection<($ItemEntity)>
+ "getFluidTypeHeight"(arg0: $FluidType$Type): double
  "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 }
@@ -11197,8 +11192,8 @@ export type $IForgeEntity_ = $IForgeEntity$Type;
 declare module "packages/net/minecraftforge/common/extensions/$IForgeFluid" {
 import {$BlockPathTypes, $BlockPathTypes$Type} from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
@@ -11212,15 +11207,15 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 export interface $IForgeFluid {
 
  "move"(arg0: $FluidState$Type, arg1: $LivingEntity$Type, arg2: $Vec3$Type, arg3: double): boolean
- "canExtinguish"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
- "canHydrate"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $BlockPos$Type): boolean
- "shouldUpdateWhileBoating"(arg0: $FluidState$Type, arg1: $Boat$Type, arg2: $Entity$Type): boolean
- "getBlockPathType"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: boolean): $BlockPathTypes
  "canConvertToSource"(arg0: $FluidState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): boolean
  "supportsBoating"(arg0: $FluidState$Type, arg1: $Boat$Type): boolean
- "getFluidType"(): $FluidType
- "getExplosionResistance"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): float
  "getAdjacentBlockPathType"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: $BlockPathTypes$Type): $BlockPathTypes
+ "getExplosionResistance"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): float
+ "shouldUpdateWhileBoating"(arg0: $FluidState$Type, arg1: $Boat$Type, arg2: $Entity$Type): boolean
+ "getBlockPathType"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: boolean): $BlockPathTypes
+ "canHydrate"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $BlockPos$Type): boolean
+ "canExtinguish"(arg0: $FluidState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "getFluidType"(): $FluidType
 
 (arg0: $FluidState$Type, arg1: $LivingEntity$Type, arg2: $Vec3$Type, arg3: double): boolean
 }

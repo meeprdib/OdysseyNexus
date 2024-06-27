@@ -968,10 +968,10 @@ public "getClassPath"(): string
 public "getConcatenatedPackage"(sep: string): string
 public "getClassPathJava"(): string
 public "getGenerics"(): $List<(string)>
-public "makePath"(base: $Path$Type): $Path
-public "getTypeScriptPath"(): string
-public "getDirPath"(base: $Path$Type): $Path
 public "getConcatenated"(sep: string): string
+public "getTypeScriptPath"(): string
+public "makePath"(base: $Path$Type): $Path
+public "getDirPath"(base: $Path$Type): $Path
 get "name"(): string
 get "package"(): $List<(string)>
 get "classPath"(): string
@@ -1214,18 +1214,18 @@ function type(classPath: $ClassPath$Type): $TSClassType
 function generic(symbol: string): $TSVariableType
 function generic(symbol: string, extendOn: $BaseType$Type): $TSVariableType
 function lambda(): $JSLambdaType$Builder
-function literal(content: any): $JSPrimitiveType
 function or(...types: ($BaseType$Type)[]): $BaseType
+function literal(content: any): $JSPrimitiveType
 function and(...types: ($BaseType$Type)[]): $JSJoinedType$Intersection
-function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
+function primitive(type: string): $JSPrimitiveType
 function arrayOf(...types: ($BaseType$Type)[]): $JSArrayType
 function parameterized(base: $BaseType$Type, ...params: ($BaseType$Type)[]): $TSParamType
-function primitive(type: string): $JSPrimitiveType
-function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
-function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
-function typeOf(classType: $BaseType$Type): $JSTypeOfType
+function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
 function typeOf(classPath: $ClassPath$Type): $JSTypeOfType
+function typeOf(classType: $BaseType$Type): $JSTypeOfType
+function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
 function ignoreContext(type: $BaseType$Type, formatType: $BaseType$FormatType$Type): $BaseType
+function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1443,8 +1443,8 @@ constructor()
 public "isEmpty"(): boolean
 public "merge"(other: $Wrapped$Type): void
 public "addCode"(inner: $Code$Type): void
-public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 get "empty"(): boolean
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
@@ -1684,11 +1684,11 @@ constructor()
 
 public "format"(declaration: $Declaration$Type): $List<(string)>
 public "newline"(...comments: (string)[]): void
-public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
-public "formatComments"(): $List<(string)>
-public "addCommentAtStart"(...comments: (string)[]): void
-public "linebreak"(): void
 public "addComment"(...comments: (string)[]): void
+public "formatComments"(): $List<(string)>
+public "linebreak"(): void
+public "addCommentAtStart"(...comments: (string)[]): void
+public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2591,8 +2591,8 @@ readonly "returnType": $BaseType
 constructor(params: $List$Type<($ParamDecl$Type)>, returnType: $BaseType$Type)
 
 public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
-public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "asMethod"(methodName: string): $MethodDecl
+public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "formatWithName"(name: string, declaration: $Declaration$Type, input: $BaseType$FormatType$Type): string
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
@@ -2663,8 +2663,8 @@ readonly "comments": $List<(string)>
 
 constructor(name: string, variableTypes: $List$Type<($TSVariableType$Type)>, params: $List$Type<($ParamDecl$Type)>, returnType: $BaseType$Type)
 
-public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -2764,26 +2764,26 @@ readonly "recordedClasses": $Set<($Clazz)>
 constructor(manager: $ScriptManager$Type, basePath: $Path$Type, scriptPath: $Path$Type, scriptPredicate: $Predicate$Type<($Clazz$Type)>)
 
 public "getSource"(): $Path
+public "dumpClasses"(): void
+public "assignType"(classPath: $Class$Type<(any)>, type: $BaseType$Type): void
+public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
 public "dump"(): void
-public "ensurePath"(path: string): $Path
-public "ensurePath"(path: string, script: boolean): $Path
+public "removeClasses"(): void
+public "retrieveClasses"(): $Set<($Class<(any)>)>
+public "acceptClasses"(classes: $Collection$Type<($Clazz$Type)>): void
+public "getGlobalFolder"(): $Path
 public "getTypeFolder"(): $Path
+public "ensurePath"(path: string, script: boolean): $Path
+public "ensurePath"(path: string): $Path
+public "dumpGlobal"(): void
 public "getPackageFolder"(): $Path
 public "dumpJSConfig"(): void
-public "dumpGlobal"(): void
-public "getGlobalFolder"(): $Path
-public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
-public "assignType"(classPath: $Class$Type<(any)>, type: $BaseType$Type): void
-public "dumpClasses"(): void
 public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
 public "addGlobal"(identifier: string, excludedNames: $Collection$Type<(string)>, ...content: ($Code$Type)[]): void
-public "retrieveClasses"(): $Set<($Class<(any)>)>
-public "removeClasses"(): void
-public "acceptClasses"(classes: $Collection$Type<($Clazz$Type)>): void
 get "source"(): $Path
+get "globalFolder"(): $Path
 get "typeFolder"(): $Path
 get "packageFolder"(): $Path
-get "globalFolder"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3325,16 +3325,16 @@ constructor(name: string)
 public "compile"(): $JsonObject
 public "prefix"(prefix: string): $Snippet
 public "literal"(content: string): $Snippet
-public "description"(description: string): $Snippet
 public "newline"(): $Snippet
+public "description"(description: string): $Snippet
 public "getPrefixes"(): $List<(string)>
 public "registry"<T>(registry: $ResourceKey$Type<($Registry$Type<(T)>)>): $Snippet
-public "tabStop"(enumeration: integer): $Snippet
-public "tabStop"(): $Snippet
-public "tabStop"(enumeration: integer, defaultValue: string): $Snippet
-public "variable"(variable: $Variable$Type): $Snippet
-public "choices"(choices: $Collection$Type<(string)>): $Snippet
 public "choices"(enumeration: integer, choices: $Collection$Type<(string)>): $Snippet
+public "choices"(choices: $Collection$Type<(string)>): $Snippet
+public "variable"(variable: $Variable$Type): $Snippet
+public "tabStop"(enumeration: integer, defaultValue: string): $Snippet
+public "tabStop"(): $Snippet
+public "tabStop"(enumeration: integer): $Snippet
 get "prefixes"(): $List<(string)>
 }
 /**
@@ -3484,6 +3484,7 @@ import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Blo
 import {$FenceBlockBuilder, $FenceBlockBuilder$Type} from "packages/dev/latvian/mods/kubejs/block/custom/$FenceBlockBuilder"
 import {$WallBlockBuilder, $WallBlockBuilder$Type} from "packages/dev/latvian/mods/kubejs/block/custom/$WallBlockBuilder"
 import {$DetectorBlock$Builder, $DetectorBlock$Builder$Type} from "packages/dev/latvian/mods/kubejs/block/$DetectorBlock$Builder"
+import {$CarpetBlockBuilder, $CarpetBlockBuilder$Type} from "packages/dev/latvian/mods/kubejs/block/custom/$CarpetBlockBuilder"
 import {$RegistryEventJS, $RegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/registry/$RegistryEventJS"
 import {$PressurePlateBlockBuilder, $PressurePlateBlockBuilder$Type} from "packages/dev/latvian/mods/kubejs/block/custom/$PressurePlateBlockBuilder"
 import {$StairBlockBuilder, $StairBlockBuilder$Type} from "packages/dev/latvian/mods/kubejs/block/custom/$StairBlockBuilder"
@@ -3510,6 +3511,7 @@ public "create"(name: string, type: "button"): $ButtonBlockBuilder
 public "create"(name: string, type: "falling"): $FallingBlockBuilder
 public "create"(name: string, type: "crop"): $CropBlockBuilder
 public "create"(name: string, type: "cardinal"): $HorizontalDirectionalBlockBuilder
+public "create"(name: string, type: "carpet"): $CarpetBlockBuilder
 public "create"(name: string, type: "farmersdelight:pie"): $PieBlockBuilder
 public "create"(name: string, type: "farmersdelight:feast"): $FeastBlockBuilder
 }
@@ -4189,9 +4191,9 @@ readonly "references": $Map<($ClassPath), ($Reference)>
 constructor()
 
 public "addClass"(path: $ClassPath$Type): void
-public "exclude"(name: string): void
 public "getSymbol"(path: $ClassPath$Type, input: boolean): string
 public "getSymbol"(path: $ClassPath$Type): string
+public "exclude"(name: string): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4439,8 +4441,8 @@ public "format"(): string
 public "write"(writer: $BufferedWriter$Type): void
 public "write"(writeTo: $Path$Type): void
 public "addCode"(code: $Code$Type): void
-public "findCode"<T extends $Code>(type: $Class$Type<(T)>): $Optional<(T)>
 public "writeAsModule"(writer: $BufferedWriter$Type): void
+public "findCode"<T extends $Code>(type: $Class$Type<(T)>): $Optional<(T)>
 public "excludeSymbol"(name: string): void
 }
 /**

@@ -6,12 +6,12 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export interface $SkullSettings extends $SkullData {
 
  "initialized"(): boolean
- "getMesh"(): $Mesh
- "setLastTexture"(arg0: $ResourceLocation$Type): void
+ "setInitialized"(arg0: boolean): void
  "getHeadLayers"(): $Mesh
  "setupHeadLayers"(arg0: $Mesh$Type): void
+ "setLastTexture"(arg0: $ResourceLocation$Type): void
  "getLastTexture"(): $ResourceLocation
- "setInitialized"(arg0: boolean): void
+ "getMesh"(): $Mesh
 }
 
 export namespace $SkullSettings {
@@ -36,22 +36,22 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $PlayerSettings extends $PlayerData {
 
+ "clearMeshes"(): void
+ "setRightArmMesh"(arg0: $Mesh$Type): void
+ "setTorsoMesh"(arg0: $Mesh$Type): void
+ "setLeftArmMesh"(arg0: $Mesh$Type): void
+ "setHeadMesh"(arg0: $Mesh$Type): void
+ "getCurrentSkin"(): $ResourceLocation
+ "setRightLegMesh"(arg0: $Mesh$Type): void
  "setCurrentSkin"(arg0: $ResourceLocation$Type): void
  "hasThinArms"(): boolean
  "setThinArms"(arg0: boolean): void
- "setRightLegMesh"(arg0: $Mesh$Type): void
- "setLeftArmMesh"(arg0: $Mesh$Type): void
- "setTorsoMesh"(arg0: $Mesh$Type): void
- "setHeadMesh"(arg0: $Mesh$Type): void
  "setLeftLegMesh"(arg0: $Mesh$Type): void
- "getCurrentSkin"(): $ResourceLocation
- "setRightArmMesh"(arg0: $Mesh$Type): void
- "clearMeshes"(): void
- "getHeadMesh"(): $Mesh
  "getRightArmMesh"(): $Mesh
+ "getHeadMesh"(): $Mesh
  "getTorsoMesh"(): $Mesh
- "getRightLegMesh"(): $Mesh
  "getLeftArmMesh"(): $Mesh
+ "getRightLegMesh"(): $Mesh
  "getLeftLegMesh"(): $Mesh
 }
 
@@ -152,11 +152,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $Cullable {
 
  "setTimeout"(): void
- "setOutOfCamera"(arg0: boolean): void
+ "isOutOfCamera"(): boolean
  "isCulled"(): boolean
+ "setOutOfCamera"(arg0: boolean): void
  "isForcedVisible"(): boolean
  "setCulled"(arg0: boolean): void
- "isOutOfCamera"(): boolean
 }
 
 export namespace $Cullable {
@@ -184,11 +184,11 @@ export interface $Mesh {
 
  "copyFrom"(arg0: $ModelPart$Type): void
  "setPosition"(arg0: float, arg1: float, arg2: float): void
+ "setVisible"(arg0: boolean): void
  "setRotation"(arg0: float, arg1: float, arg2: float): void
  "isVisible"(): boolean
- "render"(arg0: $ModelPart$Type, arg1: $PoseStack$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: integer): void
  "render"(poseStack: $PoseStack$Type, vertexConsumer: $VertexConsumer$Type, light: integer, overlay: integer): void
- "setVisible"(arg0: boolean): void
+ "render"(arg0: $ModelPart$Type, arg1: $PoseStack$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: integer): void
  "loadPose"(arg0: $PartPose$Type): void
 }
 
@@ -212,11 +212,11 @@ import {$Mesh, $Mesh$Type} from "packages/dev/tr7zw/skinlayers/api/$Mesh"
 
 export interface $PlayerData {
 
- "getHeadMesh"(): $Mesh
  "getRightArmMesh"(): $Mesh
+ "getHeadMesh"(): $Mesh
  "getTorsoMesh"(): $Mesh
- "getRightLegMesh"(): $Mesh
  "getLeftArmMesh"(): $Mesh
+ "getRightLegMesh"(): $Mesh
  "getLeftLegMesh"(): $Mesh
 }
 
