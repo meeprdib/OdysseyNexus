@@ -21,7 +21,7 @@
 	toggle_alpha_grove = true
 	toggle_arid_mountains = true
 	toggle_smouldering_woodland = true
-	toggle_autumnal_maple_forest = true
+	toggle_autumnal_maple_forest = false
 	toggle_bamboo_forest = true
 	toggle_baobab_savanna = true
 	toggle_barley_fields = true
@@ -51,7 +51,7 @@
 	toggle_icy_heights = true
 	toggle_joshua_desert = true
 	toggle_magnolia_woodland = true
-	toggle_maple_forest = true
+	toggle_maple_forest = false
 	toggle_marsh = true
 	toggle_mauve_hills = true
 	toggle_meadow = true

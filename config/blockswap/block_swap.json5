@@ -86,7 +86,15 @@ to make editing this file much easier.
 	*/
 	"swapper": {
 		"spelunkery:rock_salt_block": "galosphere:pink_salt",
-		// "galosphere:lumiere_block": "ae2:quartz_block",
-		// "galosphere:lumiere_cluster": "ae2:quartz_cluster",
+		"regions_unexplored:maple_log": "autumnity:maple_log",
+		"regions_unexplored:maple_sapling": "autumnity:maple_sapling",
+		"regions_unexplored:orange_maple_sapling": "autumnity:orange_maple_sapling",
+		"regions_unexplored:red_maple_sapling": "autumnity:red_maple_sapling",
+		"regions_unexplored:maple_leaves": "autumnity:maple_leaves",
+		"regions_unexplored:orange_maple_leaves": "autumnity:orange_maple_leaves",
+		"regions_unexplored:red_maple_leaves": "autumnity:red_maple_leaves",
+		"regions_unexplored:maple_shrub": "minecraft:air",
+		"regions_unexplored:orange_maple_shrub": "minecraft:air",
+		"regions_unexplored:red_maple_shrub": "minecraft:air",
 	}
 }
