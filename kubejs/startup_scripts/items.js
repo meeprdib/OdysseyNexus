@@ -1,11 +1,4 @@
 StartupEvents.registry('item', event => {
-    // event.create('estrogen_burger').displayName('Estrogen Burger').food(food => {
-    //     food
-    //     .hunger(10)
-    //     .saturation(.6)
-    //     .effect('estrogen:estrogen',9600,2,1)
-    //     .alwaysEdible()
-    // })
     event.create('polished_certus_quartz').displayName('Polished Certus Quartz')
     event.create('certus_quartz_sheet').displayName('Certus Quartz Sheet')
     event.create('polished_fluix').displayName('Polished Fluix')
@@ -13,4 +6,5 @@ StartupEvents.registry('item', event => {
     event.create('silicon_sheet').displayName('Silicon Sheet')
     event.create('mushroom_paste').displayName('Mushroom Paste')
     event.create('mycelial_blend').displayName('Mycelial Blend')
+    event.create('steel_ingot').displayName('Steel Ingot')
 })

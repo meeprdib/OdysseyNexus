@@ -30,8 +30,8 @@ import {$Serializable, $Serializable$Type} from "packages/java/io/$Serializable"
 export interface $Key extends $Serializable {
 
  "getEncoded"(): (byte)[]
- "getAlgorithm"(): string
  "getFormat"(): string
+ "getAlgorithm"(): string
 }
 
 export namespace $Key {
@@ -97,20 +97,24 @@ import {$AlgorithmParameterSpec, $AlgorithmParameterSpec$Type} from "packages/ja
 export class $Signature extends $SignatureSpi {
 
 
-public "sign"(): (byte)[]
-public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
 public "toString"(): string
 public "clone"(): any
-public "update"(arg0: (byte)[]): void
-public "update"(arg0: byte): void
-public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "update"(arg0: $ByteBuffer$Type): void
+public "update"(arg0: (byte)[]): void
+public "update"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "update"(arg0: byte): void
 public static "getInstance"(arg0: string): $Signature
-public static "getInstance"(arg0: string, arg1: $Provider$Type): $Signature
 public static "getInstance"(arg0: string, arg1: string): $Signature
+public static "getInstance"(arg0: string, arg1: $Provider$Type): $Signature
 public "getParameters"(): $AlgorithmParameters
-public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
 public "verify"(arg0: (byte)[]): boolean
+public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
+public "getAlgorithm"(): string
+public "getProvider"(): $Provider
+public "initVerify"(arg0: $PublicKey$Type): void
+public "initVerify"(arg0: $Certificate$Type): void
+public "initSign"(arg0: $PrivateKey$Type, arg1: $SecureRandom$Type): void
+public "initSign"(arg0: $PrivateKey$Type): void
 /**
  * 
  * @deprecated
@@ -122,16 +126,12 @@ public "setParameter"(arg0: $AlgorithmParameterSpec$Type): void
  * @deprecated
  */
 public "getParameter"(arg0: string): any
-public "getAlgorithm"(): string
-public "getProvider"(): $Provider
-public "initVerify"(arg0: $Certificate$Type): void
-public "initVerify"(arg0: $PublicKey$Type): void
-public "initSign"(arg0: $PrivateKey$Type): void
-public "initSign"(arg0: $PrivateKey$Type, arg1: $SecureRandom$Type): void
+public "sign"(): (byte)[]
+public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
 get "parameters"(): $AlgorithmParameters
-set "parameter"(value: $AlgorithmParameterSpec$Type)
 get "algorithm"(): string
 get "provider"(): $Provider
+set "parameter"(value: $AlgorithmParameterSpec$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -190,20 +190,20 @@ constructor(arg0: (byte)[])
 constructor()
 
 public "toString"(): string
-public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: string): $SecureRandom
-public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: $Provider$Type): $SecureRandom
+public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type): $SecureRandom
+public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: string): $SecureRandom
 public static "getInstance"(arg0: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $SecureRandom
 public "getParameters"(): $SecureRandomParameters
 public "getAlgorithm"(): string
 public "getProvider"(): $Provider
-public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$Type): void
-public "nextBytes"(arg0: (byte)[]): void
-public static "getSeed"(arg0: integer): (byte)[]
-public "setSeed"(arg0: long): void
 public "setSeed"(arg0: (byte)[]): void
+public "setSeed"(arg0: long): void
+public static "getSeed"(arg0: integer): (byte)[]
+public "nextBytes"(arg0: (byte)[]): void
+public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$Type): void
 public "generateSeed"(arg0: integer): (byte)[]
 public static "getInstanceStrong"(): $SecureRandom
 public "reseed"(arg0: $SecureRandomParameters$Type): void
@@ -213,8 +213,8 @@ public static "of"(arg0: string): $RandomGenerator
 get "parameters"(): $SecureRandomParameters
 get "algorithm"(): string
 get "provider"(): $Provider
-set "seed"(value: long)
 set "seed"(value: (byte)[])
+set "seed"(value: long)
 get "instanceStrong"(): $SecureRandom
 get "default"(): $RandomGenerator
 }
@@ -259,14 +259,14 @@ export class $Permission implements $Guard, $Serializable {
 
 constructor(arg0: string)
 
-public "newPermissionCollection"(): $PermissionCollection
-public "checkGuard"(arg0: any): void
 public "getName"(): string
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "implies"(arg0: $Permission$Type): boolean
 public "getActions"(): string
+public "newPermissionCollection"(): $PermissionCollection
+public "checkGuard"(arg0: any): void
 get "name"(): string
 get "actions"(): string
 }
@@ -695,8 +695,8 @@ import {$Destroyable, $Destroyable$Type} from "packages/javax/security/auth/$Des
 export interface $PrivateKey extends $Key, $Destroyable {
 
  "getEncoded"(): (byte)[]
- "getAlgorithm"(): string
  "getFormat"(): string
+ "getAlgorithm"(): string
  "destroy"(): void
  "isDestroyed"(): boolean
 }
@@ -804,8 +804,8 @@ import {$Key, $Key$Type} from "packages/java/security/$Key"
 export interface $PublicKey extends $Key {
 
  "getEncoded"(): (byte)[]
- "getAlgorithm"(): string
  "getFormat"(): string
+ "getAlgorithm"(): string
 }
 
 export namespace $PublicKey {

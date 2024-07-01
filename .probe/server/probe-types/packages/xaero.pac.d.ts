@@ -5,8 +5,8 @@ import {$IPlayerChunkClaimAPI, $IPlayerChunkClaimAPI$Type} from "packages/xaero/
 export interface $IServerRegionClaimsAPI extends $IRegionClaimsAPI {
 
  "get"(arg0: integer, arg1: integer): $IPlayerChunkClaimAPI
- "getZ"(): integer
  "getX"(): integer
+ "getZ"(): integer
 }
 
 export namespace $IServerRegionClaimsAPI {
@@ -32,10 +32,10 @@ export class $ClaimResult<C extends $IPlayerChunkClaimAPI> {
 
 constructor(arg0: C, arg1: $ClaimResult$Type$Type)
 
-public "getResultType"(): $ClaimResult$Type
 public "getClaimResult"(): C
-get "resultType"(): $ClaimResult$Type
+public "getResultType"(): $ClaimResult$Type
 get "claimResult"(): C
+get "resultType"(): $ClaimResult$Type
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -62,14 +62,14 @@ export interface $IPlayerConfigOptionClientStorageAPI<T extends $Comparable<(T)>
  "getId"(): string
  "getType"(): $Class<(T)>
  "getComment"(): string
+ "getTooltipPrefix"(): string
+ "isMutable"(): boolean
  "getOption"(): $IPlayerConfigOptionSpecAPI<(T)>
  "getValidator"(): $BiPredicate<($IPlayerConfigClientStorageAPI<(any)>), (T)>
- "getTranslationArgs"(): (any)[]
- "isMutable"(): boolean
+ "getTranslation"(): string
  "getCommentTranslation"(): string
  "getCommentTranslationArgs"(): (any)[]
- "getTranslation"(): string
- "getTooltipPrefix"(): string
+ "getTranslationArgs"(): (any)[]
  "isDefaulted"(): boolean
 }
 
@@ -120,8 +120,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export interface $IClaimsManagerListenerAPI {
 
  "onChunkChange"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: $IPlayerChunkClaimAPI$Type): void
- "onDimensionChange"(arg0: $ResourceLocation$Type): void
  "onWholeRegionChange"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer): void
+ "onDimensionChange"(arg0: $ResourceLocation$Type): void
 }
 
 export namespace $IClaimsManagerListenerAPI {
@@ -172,10 +172,10 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export interface $IPartyMemberDynamicInfoSyncableAPI {
 
  "getY"(): double
- "getZ"(): double
  "getDimension"(): $ResourceLocation
  "getPlayerId"(): $UUID
  "getX"(): double
+ "getZ"(): double
 }
 
 export namespace $IPartyMemberDynamicInfoSyncableAPI {
@@ -201,16 +201,16 @@ import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 
 export interface $IPartyManagerAPI<P extends $IServerPartyAPI<(any), (any), (any)>> {
 
- "getPartyByOwner"(arg0: $UUID$Type): P
- "getPartyByMember"(arg0: $UUID$Type): P
- "getAllStream"(): $Stream<(P)>
  "removeParty"(arg0: P): void
  "getPartyById"(arg0: $UUID$Type): P
- "partyExistsForOwner"(arg0: $UUID$Type): boolean
- "createPartyForOwner"(arg0: $Player$Type): P
+ "removePartyById"(arg0: $UUID$Type): void
  "removePartyByOwner"(arg0: $UUID$Type): void
  "getPartiesThatAlly"(arg0: $UUID$Type): $Stream<(P)>
- "removePartyById"(arg0: $UUID$Type): void
+ "getPartyByMember"(arg0: $UUID$Type): P
+ "getPartyByOwner"(arg0: $UUID$Type): P
+ "getAllStream"(): $Stream<(P)>
+ "createPartyForOwner"(arg0: $Player$Type): P
+ "partyExistsForOwner"(arg0: $UUID$Type): boolean
 }
 
 export namespace $IPartyManagerAPI {
@@ -244,18 +244,18 @@ export interface $IPlayerConfigStringableOptionClientStorageAPI<T extends $Compa
  "getId"(): string
  "getType"(): $Class<(T)>
  "getComment"(): string
+ "getTooltipPrefix"(): string
+ "isMutable"(): boolean
  "getOption"(): $IPlayerConfigOptionSpecAPI<(T)>
  "getValidator"(): $BiPredicate<($IPlayerConfigClientStorageAPI<(any)>), (T)>
- "isMutable"(): boolean
- "getTranslation"(): string
- "getTooltipPrefix"(): string
- "getStringValidator"(): $BiPredicate<($IPlayerConfigClientStorageAPI<(any)>), (string)>
  "getCommandOutputWriterCast"(): $Function<(any), ($Component)>
  "getCommandInputParser"(): $Function<(string), (T)>
+ "getTranslation"(): string
+ "getStringValidator"(): $BiPredicate<($IPlayerConfigClientStorageAPI<(any)>), (string)>
  "isDefaulted"(): boolean
- "getTranslationArgs"(): (any)[]
  "getCommentTranslation"(): string
  "getCommentTranslationArgs"(): (any)[]
+ "getTranslationArgs"(): (any)[]
 }
 
 export namespace $IPlayerConfigStringableOptionClientStorageAPI {
@@ -279,8 +279,8 @@ import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 export interface $IPlayerChunkClaimAPI {
 
  "getPlayerId"(): $UUID
- "getSubConfigIndex"(): integer
  "isForceloadable"(): boolean
+ "getSubConfigIndex"(): integer
  "isSameClaimType"(arg0: $IPlayerChunkClaimAPI$Type): boolean
 }
 
@@ -380,8 +380,8 @@ declare global {
 export type $IClaimsManagerTrackerRegisterAPI_ = $IClaimsManagerTrackerRegisterAPI$Type;
 }}
 declare module "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigAPI" {
-import {$IPlayerConfigAPI$SetResult, $IPlayerConfigAPI$SetResult$Type} from "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigAPI$SetResult"
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
+import {$IPlayerConfigAPI$SetResult, $IPlayerConfigAPI$SetResult$Type} from "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigAPI$SetResult"
 import {$PlayerConfigType, $PlayerConfigType$Type} from "packages/xaero/pac/common/server/player/config/api/$PlayerConfigType"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$IPlayerConfigOptionSpecAPI, $IPlayerConfigOptionSpecAPI$Type} from "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigOptionSpecAPI"
@@ -391,29 +391,29 @@ import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 export interface $IPlayerConfigAPI {
 
  "getType"(): $PlayerConfigType
- "tryToSet"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>, arg1: T): $IPlayerConfigAPI$SetResult
+ "getSubConfigIds"(): $List<(string)>
+ "isBeingDeleted"(): boolean
+ "getSubConfig"(arg0: string): $IPlayerConfigAPI
+ "getPlayerId"(): $UUID
  "createSubConfig"(arg0: string): $IPlayerConfigAPI
  "getRaw"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
- "getSubConfig"(arg0: string): $IPlayerConfigAPI
- "getSubCount"(): integer
- "getSubConfigLimit"(): integer
- "getPlayerId"(): $UUID
- "getSubIndex"(): integer
- "getSubConfigAPIStream"(): $Stream<($IPlayerConfigAPI)>
- "getFromEffectiveConfig"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
  "getUsedServerSubConfig"(): $IPlayerConfigAPI
- "isBeingDeleted"(): boolean
- "getSubConfigIds"(): $List<(string)>
- "isOptionAllowed"(arg0: $IPlayerConfigOptionSpecAPI$Type<(any)>): boolean
- "tryToReset"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): $IPlayerConfigAPI$SetResult
- "getDefaultRawValue"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
- "getUsedSubConfig"(): $IPlayerConfigAPI
  "getEffectiveSubConfig"(arg0: integer): $IPlayerConfigAPI
  "getEffectiveSubConfig"(arg0: string): $IPlayerConfigAPI
- "getEffective"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
+ "getUsedSubConfig"(): $IPlayerConfigAPI
+ "getSubIndex"(): integer
+ "getFromEffectiveConfig"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
+ "getDefaultRawValue"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
+ "tryToReset"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): $IPlayerConfigAPI$SetResult
+ "tryToSet"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>, arg1: T): $IPlayerConfigAPI$SetResult
+ "isOptionAllowed"(arg0: $IPlayerConfigOptionSpecAPI$Type<(any)>): boolean
  "subConfigExists"(arg0: string): boolean
  "subConfigExists"(arg0: integer): boolean
+ "getSubConfigLimit"(): integer
+ "getSubCount"(): integer
+ "getEffective"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): T
  "getSubId"(): string
+ "getSubConfigAPIStream"(): $Stream<($IPlayerConfigAPI)>
 }
 
 export namespace $IPlayerConfigAPI {
@@ -475,8 +475,8 @@ export type $ClaimResult$Type_ = $ClaimResult$Type$Type;
 }}
 declare module "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigOptionSpecAPI" {
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
-import {$BiPredicate, $BiPredicate$Type} from "packages/java/util/function/$BiPredicate"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$BiPredicate, $BiPredicate$Type} from "packages/java/util/function/$BiPredicate"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$PlayerConfigType, $PlayerConfigType$Type} from "packages/xaero/pac/common/server/player/config/api/$PlayerConfigType"
 import {$IPlayerConfigClientStorageAPI, $IPlayerConfigClientStorageAPI$Type} from "packages/xaero/pac/client/player/config/api/$IPlayerConfigClientStorageAPI"
@@ -492,17 +492,17 @@ export interface $IPlayerConfigOptionSpecAPI<T extends $Comparable<(T)>> {
  "getDefaultValue"(): T
  "getPath"(): $List<(string)>
  "getComment"(): string
- "getTranslationArgs"(): (string)[]
+ "getTooltipPrefix"(): string
+ "getCommandInputParser"(): $Function<(string), (T)>
+ "getClientSideValidator"(): $BiPredicate<($IPlayerConfigClientStorageAPI<(any)>), (T)>
+ "getCommandOutputWriter"(): $Function<(T), ($Component)>
+ "getTranslation"(): string
  "getCommentTranslation"(): string
  "getCommentTranslationArgs"(): (string)[]
- "getTranslation"(): string
  "getServerSideValidator"(): $BiPredicate<($IPlayerConfigAPI), (T)>
  "getConfigTypeFilter"(): $Predicate<($PlayerConfigType)>
- "getTooltipPrefix"(): string
  "getShortenedId"(): string
- "getCommandOutputWriter"(): $Function<(T), ($Component)>
- "getClientSideValidator"(): $BiPredicate<($IPlayerConfigClientStorageAPI<(any)>), (T)>
- "getCommandInputParser"(): $Function<(string), (T)>
+ "getTranslationArgs"(): (string)[]
 }
 
 export namespace $IPlayerConfigOptionSpecAPI {
@@ -528,12 +528,12 @@ export class $ServerPlayerDataAPI {
 constructor()
 
 public static "from"(arg0: $ServerPlayer$Type): $ServerPlayerDataAPI
-public "isClaimsServerMode"(): boolean
-public "isClaimsAdminMode"(): boolean
 public "isClaimsNonallyMode"(): boolean
-get "claimsServerMode"(): boolean
-get "claimsAdminMode"(): boolean
+public "isClaimsAdminMode"(): boolean
+public "isClaimsServerMode"(): boolean
 get "claimsNonallyMode"(): boolean
+get "claimsAdminMode"(): boolean
+get "claimsServerMode"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -579,8 +579,8 @@ import {$IPlayerChunkClaimAPI, $IPlayerChunkClaimAPI$Type} from "packages/xaero/
 export interface $IRegionClaimsAPI {
 
  "get"(arg0: integer, arg1: integer): $IPlayerChunkClaimAPI
- "getZ"(): integer
  "getX"(): integer
+ "getZ"(): integer
 }
 
 export namespace $IRegionClaimsAPI {
@@ -608,15 +608,15 @@ import {$Map$Entry, $Map$Entry$Type} from "packages/java/util/$Map$Entry"
 
 export interface $IServerPlayerClaimInfoAPI<DC extends $IPlayerDimensionClaimsAPI<(any)>> extends $IPlayerClaimInfoAPI<(DC)> {
 
- "getStream"(): $Stream<($Map$Entry<($ResourceLocation), (DC)>)>
  "getDimension"(arg0: $ResourceLocation$Type): DC
+ "getPlayerId"(): $UUID
+ "getStream"(): $Stream<($Map$Entry<($ResourceLocation), (DC)>)>
+ "getClaimCount"(): integer
+ "getClaimsName"(arg0: string): string
+ "getClaimsName"(arg0: integer): string
+ "getClaimsName"(): string
  "getForceloadCount"(): integer
  "getPlayerUsername"(): string
- "getClaimsName"(arg0: integer): string
- "getClaimsName"(arg0: string): string
- "getClaimsName"(): string
- "getPlayerId"(): $UUID
- "getClaimCount"(): integer
  "getClaimsColor"(arg0: string): integer
  "getClaimsColor"(): integer
  "getClaimsColor"(arg0: integer): integer
@@ -645,8 +645,8 @@ import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 export interface $IPlayerClaimPosListAPI {
 
  "getCount"(): integer
- "getClaimState"(): $IPlayerChunkClaimAPI
  "getStream"(): $Stream<($ChunkPos)>
+ "getClaimState"(): $IPlayerChunkClaimAPI
 }
 
 export namespace $IPlayerClaimPosListAPI {
@@ -671,9 +671,9 @@ import {$IPartyPlayerInfoAPI, $IPartyPlayerInfoAPI$Type} from "packages/xaero/pa
 
 export interface $IPartyMemberAPI extends $IPartyPlayerInfoAPI {
 
- "isOwner"(): boolean
- "getUsername"(): string
  "getUUID"(): $UUID
+ "getUsername"(): string
+ "isOwner"(): boolean
  "getRank"(): $PartyMemberRank
 }
 
@@ -697,8 +697,8 @@ import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 
 export interface $IPartyPlayerInfoAPI {
 
- "getUsername"(): string
  "getUUID"(): $UUID
+ "getUsername"(): string
 }
 
 export namespace $IPartyPlayerInfoAPI {
@@ -753,15 +753,15 @@ import {$IClaimsManagerTrackerAPI, $IClaimsManagerTrackerAPI$Type} from "package
 
 export interface $IClaimsManagerAPI<PCI extends $IPlayerClaimInfoAPI<(any)>, WCM extends $IDimensionClaimsManagerAPI<(any)>> {
 
- "get"(arg0: $ResourceLocation$Type, arg1: $BlockPos$Type): $IPlayerChunkClaimAPI
  "get"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer): $IPlayerChunkClaimAPI
+ "get"(arg0: $ResourceLocation$Type, arg1: $BlockPos$Type): $IPlayerChunkClaimAPI
  "get"(arg0: $ResourceLocation$Type, arg1: $ChunkPos$Type): $IPlayerChunkClaimAPI
- "getPlayerInfo"(arg0: $UUID$Type): PCI
- "getDimensionStream"(): $Stream<(WCM)>
  "getDimension"(arg0: $ResourceLocation$Type): WCM
  "getTracker"(): $IClaimsManagerTrackerAPI
- "getPlayerInfoStream"(): $Stream<(PCI)>
  "hasPlayerInfo"(arg0: $UUID$Type): boolean
+ "getDimensionStream"(): $Stream<(WCM)>
+ "getPlayerInfo"(arg0: $UUID$Type): PCI
+ "getPlayerInfoStream"(): $Stream<(PCI)>
 }
 
 export namespace $IClaimsManagerAPI {
@@ -838,16 +838,16 @@ import {$Map$Entry, $Map$Entry$Type} from "packages/java/util/$Map$Entry"
 
 export interface $IPlayerClaimInfoAPI<DC extends $IPlayerDimensionClaimsAPI<(any)>> {
 
- "getStream"(): $Stream<($Map$Entry<($ResourceLocation), (DC)>)>
  "getDimension"(arg0: $ResourceLocation$Type): DC
+ "getPlayerId"(): $UUID
+ "getStream"(): $Stream<($Map$Entry<($ResourceLocation), (DC)>)>
+ "getClaimCount"(): integer
+ "getClaimsName"(arg0: integer): string
+ "getClaimsName"(): string
  "getForceloadCount"(): integer
  "getPlayerUsername"(): string
- "getClaimsName"(): string
- "getClaimsName"(arg0: integer): string
- "getPlayerId"(): $UUID
- "getClaimCount"(): integer
- "getClaimsColor"(arg0: integer): integer
  "getClaimsColor"(): integer
+ "getClaimsColor"(arg0: integer): integer
 }
 
 export namespace $IPlayerClaimInfoAPI {
@@ -867,8 +867,8 @@ export type $IPlayerClaimInfoAPI_<DC> = $IPlayerClaimInfoAPI$Type<(DC)>;
 }}
 declare module "packages/xaero/pac/client/player/config/api/$IPlayerConfigClientStorageAPI" {
 import {$Comparable, $Comparable$Type} from "packages/java/lang/$Comparable"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$PlayerConfigType, $PlayerConfigType$Type} from "packages/xaero/pac/common/server/player/config/api/$PlayerConfigType"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$IPlayerConfigOptionSpecAPI, $IPlayerConfigOptionSpecAPI$Type} from "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigOptionSpecAPI"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
@@ -876,18 +876,18 @@ import {$IPlayerConfigStringableOptionClientStorageAPI, $IPlayerConfigStringable
 
 export interface $IPlayerConfigClientStorageAPI<OS extends $IPlayerConfigStringableOptionClientStorageAPI<(any)>> {
 
- "getOwner"(): $UUID
  "getType"(): $PlayerConfigType
- "getSubConfig"(arg0: string): $IPlayerConfigClientStorageAPI<(OS)>
- "getSubCount"(): integer
- "getSubConfigLimit"(): integer
- "getSubConfigAPIStream"(): $Stream<($IPlayerConfigClientStorageAPI<(OS)>)>
- "isBeingDeleted"(): boolean
- "getSubConfigIds"(): $List<(string)>
  "optionStream"(): $Stream<(OS)>
+ "getSubConfigIds"(): $List<(string)>
+ "isBeingDeleted"(): boolean
+ "getSubConfig"(arg0: string): $IPlayerConfigClientStorageAPI<(OS)>
  "getEffectiveSubConfig"(arg0: string): $IPlayerConfigClientStorageAPI<(OS)>
- "getOptionStorage"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): OS
  "subConfigExists"(arg0: string): boolean
+ "getSubConfigLimit"(): integer
+ "getSubCount"(): integer
+ "getOptionStorage"<T extends $Comparable<(T)>>(arg0: $IPlayerConfigOptionSpecAPI$Type<(T)>): OS
+ "getOwner"(): $UUID
+ "getSubConfigAPIStream"(): $Stream<($IPlayerConfigClientStorageAPI<(OS)>)>
 }
 
 export namespace $IPlayerConfigClientStorageAPI {
@@ -917,28 +917,28 @@ import {$IPartyAPI, $IPartyAPI$Type} from "packages/xaero/pac/common/parties/par
 
 export interface $IServerPartyAPI<M extends $IPartyMemberAPI, I extends $IPartyPlayerInfoAPI, A extends $IPartyAllyAPI> extends $IPartyAPI<(M), (I), (A)> {
 
- "getOwner"(): M
  "getId"(): $UUID
- "isInvited"(arg0: $UUID$Type): boolean
- "removeMember"(arg0: $UUID$Type): M
- "addMember"(arg0: $UUID$Type, arg1: $PartyMemberRank$Type, arg2: string): M
- "getDefaultName"(): string
- "getAllyPartiesStream"(): $Stream<(A)>
- "getInvitedPlayersStream"(): $Stream<(I)>
- "getMemberInfoStream"(): $Stream<(M)>
- "getNonStaffInfoStream"(): $Stream<(M)>
- "setRank"(arg0: M, arg1: $PartyMemberRank$Type): boolean
  "getMemberInfo"(arg0: $UUID$Type): M
  "getMemberInfo"(arg0: string): M
+ "getMemberCount"(): integer
+ "getAllyCount"(): integer
+ "getInviteCount"(): integer
+ "uninvitePlayer"(arg0: $UUID$Type): I
+ "addAllyParty"(arg0: $UUID$Type): void
+ "invitePlayer"(arg0: $UUID$Type, arg1: string): I
+ "removeAllyParty"(arg0: $UUID$Type): void
  "isAlly"(arg0: $UUID$Type): boolean
  "getStaffInfoStream"(): $Stream<(M)>
- "addAllyParty"(arg0: $UUID$Type): void
- "uninvitePlayer"(arg0: $UUID$Type): I
- "removeAllyParty"(arg0: $UUID$Type): void
- "invitePlayer"(arg0: $UUID$Type, arg1: string): I
- "getMemberCount"(): integer
- "getInviteCount"(): integer
- "getAllyCount"(): integer
+ "removeMember"(arg0: $UUID$Type): M
+ "addMember"(arg0: $UUID$Type, arg1: $PartyMemberRank$Type, arg2: string): M
+ "isInvited"(arg0: $UUID$Type): boolean
+ "getDefaultName"(): string
+ "getMemberInfoStream"(): $Stream<(M)>
+ "getNonStaffInfoStream"(): $Stream<(M)>
+ "getInvitedPlayersStream"(): $Stream<(I)>
+ "getAllyPartiesStream"(): $Stream<(A)>
+ "setRank"(arg0: M, arg1: $PartyMemberRank$Type): boolean
+ "getOwner"(): M
  "getOnlineMemberStream"(): $Stream<($ServerPlayer)>
 }
 
@@ -968,18 +968,18 @@ export class $AreaClaimResult {
 constructor(arg0: $Set$Type<($ClaimResult$Type$Type)>, arg1: integer, arg2: integer, arg3: integer, arg4: integer)
 
 public "getSize"(): integer
-public "getRight"(): integer
 public "getLeft"(): integer
-public "getBottom"(): integer
+public "getRight"(): integer
 public "getTop"(): integer
 public "getResultTypesIterable"(): $Iterable<($ClaimResult$Type)>
+public "getBottom"(): integer
 public "getResultTypesStream"(): $Stream<($ClaimResult$Type)>
 get "size"(): integer
-get "right"(): integer
 get "left"(): integer
-get "bottom"(): integer
+get "right"(): integer
 get "top"(): integer
 get "resultTypesIterable"(): $Iterable<($ClaimResult$Type)>
+get "bottom"(): integer
 get "resultTypesStream"(): $Stream<($ClaimResult$Type)>
 }
 /**
@@ -1010,21 +1010,21 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $IChunkProtectionAPI {
 
- "onProjectileHitSpawnedEntity"(arg0: $Entity$Type, arg1: $Entity$Type): boolean
- "onEntityInteraction"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $Entity$Type, arg3: $ItemStack$Type, arg4: $InteractionHand$Type, arg5: boolean, arg6: boolean): boolean
+ "onItemPickup"(arg0: $Entity$Type, arg1: $ItemEntity$Type): boolean
+ "onBlockInteraction"(arg0: $Entity$Type, arg1: $InteractionHand$Type, arg2: $ItemStack$Type, arg3: $ServerLevel$Type, arg4: $BlockPos$Type, arg5: $Direction$Type, arg6: boolean, arg7: boolean): boolean
  "checkExceptionLeveledOption"(arg0: $IPlayerConfigOptionSpecAPI$Type<(integer)>, arg1: $IPlayerConfigAPI$Type, arg2: $Entity$Type): boolean
  "checkExceptionLeveledOption"(arg0: $IPlayerConfigOptionSpecAPI$Type<(integer)>, arg1: $IPlayerConfigAPI$Type, arg2: $UUID$Type): boolean
  "checkProtectionLeveledOption"(arg0: $IPlayerConfigOptionSpecAPI$Type<(integer)>, arg1: $IPlayerConfigAPI$Type, arg2: $UUID$Type): boolean
  "checkProtectionLeveledOption"(arg0: $IPlayerConfigOptionSpecAPI$Type<(integer)>, arg1: $IPlayerConfigAPI$Type, arg2: $Entity$Type): boolean
  "onPosAffectedByAnotherPos"(arg0: $ServerLevel$Type, arg1: $ChunkPos$Type, arg2: $ServerLevel$Type, arg3: $ChunkPos$Type, arg4: boolean, arg5: boolean, arg6: boolean): boolean
- "onItemPickup"(arg0: $Entity$Type, arg1: $ItemEntity$Type): boolean
- "onBlockInteraction"(arg0: $Entity$Type, arg1: $InteractionHand$Type, arg2: $ItemStack$Type, arg3: $ServerLevel$Type, arg4: $BlockPos$Type, arg5: $Direction$Type, arg6: boolean, arg7: boolean): boolean
  "onEntityPlaceBlock"(arg0: $Entity$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type): boolean
- "removeFullPass"(arg0: $UUID$Type): void
  "giveFullPass"(arg0: $UUID$Type): void
- "getClaimConfig"(arg0: $IPlayerChunkClaimAPI$Type): $IPlayerConfigAPI
- "hasChunkAccess"(arg0: $IPlayerConfigAPI$Type, arg1: $UUID$Type): boolean
+ "removeFullPass"(arg0: $UUID$Type): void
+ "onProjectileHitSpawnedEntity"(arg0: $Entity$Type, arg1: $Entity$Type): boolean
+ "onEntityInteraction"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $Entity$Type, arg3: $ItemStack$Type, arg4: $InteractionHand$Type, arg5: boolean, arg6: boolean): boolean
  "hasChunkAccess"(arg0: $IPlayerConfigAPI$Type, arg1: $Entity$Type): boolean
+ "hasChunkAccess"(arg0: $IPlayerConfigAPI$Type, arg1: $UUID$Type): boolean
+ "getClaimConfig"(arg0: $IPlayerChunkClaimAPI$Type): $IPlayerConfigAPI
 }
 
 export namespace $IChunkProtectionAPI {
@@ -1048,17 +1048,17 @@ import {$IAdaptiveLocalizerAPI, $IAdaptiveLocalizerAPI$Type} from "packages/xaer
 import {$OpenPACServerAPI, $OpenPACServerAPI$Type} from "packages/xaero/pac/common/server/api/$OpenPACServerAPI"
 import {$IServerPartyAPI, $IServerPartyAPI$Type} from "packages/xaero/pac/common/server/parties/party/api/$IServerPartyAPI"
 import {$IPartyManagerAPI, $IPartyManagerAPI$Type} from "packages/xaero/pac/common/server/parties/party/api/$IPartyManagerAPI"
-import {$IServerClaimsManagerAPI, $IServerClaimsManagerAPI$Type} from "packages/xaero/pac/common/server/claims/api/$IServerClaimsManagerAPI"
 import {$IPlayerConfigManagerAPI, $IPlayerConfigManagerAPI$Type} from "packages/xaero/pac/common/server/player/config/api/$IPlayerConfigManagerAPI"
+import {$IServerClaimsManagerAPI, $IServerClaimsManagerAPI$Type} from "packages/xaero/pac/common/server/claims/api/$IServerClaimsManagerAPI"
 
 export interface $IServerDataAPI<CM extends $IServerClaimsManagerAPI<(any), (any), (any)>, P extends $IServerPartyAPI<(any), (any), (any)>> {
 
- "getServerClaimsManager"(): CM
  "getPlayerConfigs"(): $IPlayerConfigManagerAPI
  "getAPI"(): $OpenPACServerAPI
- "getPartyManager"(): $IPartyManagerAPI<(P)>
  "getChunkProtection"(): $IChunkProtectionAPI
+ "getPartyManager"(): $IPartyManagerAPI<(P)>
  "getAdaptiveLocalizer"(): $IAdaptiveLocalizerAPI
+ "getServerClaimsManager"(): CM
 }
 
 export namespace $IServerDataAPI {
@@ -1086,21 +1086,21 @@ import {$IPartyPlayerInfoAPI, $IPartyPlayerInfoAPI$Type} from "packages/xaero/pa
 
 export interface $IPartyAPI<M extends $IPartyMemberAPI, I extends $IPartyPlayerInfoAPI, A extends $IPartyAllyAPI> {
 
- "getOwner"(): M
  "getId"(): $UUID
- "isInvited"(arg0: $UUID$Type): boolean
- "getDefaultName"(): string
- "getAllyPartiesStream"(): $Stream<(A)>
- "getInvitedPlayersStream"(): $Stream<(I)>
- "getMemberInfoStream"(): $Stream<(M)>
- "getNonStaffInfoStream"(): $Stream<(M)>
- "setRank"(arg0: M, arg1: $PartyMemberRank$Type): boolean
  "getMemberInfo"(arg0: $UUID$Type): M
+ "getMemberCount"(): integer
+ "getAllyCount"(): integer
+ "getInviteCount"(): integer
  "isAlly"(arg0: $UUID$Type): boolean
  "getStaffInfoStream"(): $Stream<(M)>
- "getMemberCount"(): integer
- "getInviteCount"(): integer
- "getAllyCount"(): integer
+ "isInvited"(arg0: $UUID$Type): boolean
+ "getDefaultName"(): string
+ "getMemberInfoStream"(): $Stream<(M)>
+ "getNonStaffInfoStream"(): $Stream<(M)>
+ "getInvitedPlayersStream"(): $Stream<(I)>
+ "getAllyPartiesStream"(): $Stream<(A)>
+ "setRank"(arg0: M, arg1: $PartyMemberRank$Type): boolean
+ "getOwner"(): M
 }
 
 export namespace $IPartyAPI {
@@ -1123,10 +1123,10 @@ import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 
 export interface $IItemEntity {
 
- "getXaero_OPAC_thrower"(): $UUID
- "getXaero_OPAC_target"(): $UUID
  "getXaero_OPAC_throwerAccessor"(): $UUID
  "setXaero_OPAC_throwerAccessor"(arg0: $UUID$Type): void
+ "getXaero_OPAC_thrower"(): $UUID
+ "getXaero_OPAC_target"(): $UUID
 }
 
 export namespace $IItemEntity {
@@ -1175,8 +1175,8 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 export interface $ICreateContraption {
 
  "getXaero_OPAC_anchor"(): $BlockPos
- "getXaero_OPAC_placementPos"(): $BlockPos
  "setXaero_OPAC_placementPos"(arg0: $BlockPos$Type): void
+ "getXaero_OPAC_placementPos"(): $BlockPos
 }
 
 export namespace $ICreateContraption {
@@ -1202,11 +1202,11 @@ import {$IPlayerConfigAPI, $IPlayerConfigAPI$Type} from "packages/xaero/pac/comm
 
 export interface $IPlayerConfigManagerAPI {
 
+ "getDefaultConfig"(): $IPlayerConfigAPI
+ "getAllOptionsStream"(): $Stream<($IPlayerConfigOptionSpecAPI<(any)>)>
  "getServerClaimConfig"(): $IPlayerConfigAPI
  "getExpiredClaimConfig"(): $IPlayerConfigAPI
  "getWildernessConfig"(): $IPlayerConfigAPI
- "getAllOptionsStream"(): $Stream<($IPlayerConfigOptionSpecAPI<(any)>)>
- "getDefaultConfig"(): $IPlayerConfigAPI
  "getLoadedConfig"(arg0: $UUID$Type): $IPlayerConfigAPI
  "getOptionForId"(arg0: string): $IPlayerConfigOptionSpecAPI<(any)>
 }
@@ -1334,8 +1334,8 @@ import {$ChunkPos, $ChunkPos$Type} from "packages/net/minecraft/world/level/$Chu
 import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$ClaimResult, $ClaimResult$Type} from "packages/xaero/pac/common/claims/result/api/$ClaimResult"
-import {$IClaimsManagerAPI, $IClaimsManagerAPI$Type} from "packages/xaero/pac/common/claims/api/$IClaimsManagerAPI"
 import {$IServerPlayerClaimInfoAPI, $IServerPlayerClaimInfoAPI$Type} from "packages/xaero/pac/common/server/claims/player/api/$IServerPlayerClaimInfoAPI"
+import {$IClaimsManagerAPI, $IClaimsManagerAPI$Type} from "packages/xaero/pac/common/claims/api/$IClaimsManagerAPI"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$IPlayerChunkClaimAPI, $IPlayerChunkClaimAPI$Type} from "packages/xaero/pac/common/claims/player/api/$IPlayerChunkClaimAPI"
 import {$IServerDimensionClaimsManagerAPI, $IServerDimensionClaimsManagerAPI$Type} from "packages/xaero/pac/common/server/claims/api/$IServerDimensionClaimsManagerAPI"
@@ -1346,26 +1346,27 @@ import {$IClaimsManagerTrackerAPI, $IClaimsManagerTrackerAPI$Type} from "package
 
 export interface $IServerClaimsManagerAPI<C extends $IPlayerChunkClaimAPI, PCI extends $IServerPlayerClaimInfoAPI<(any)>, WCM extends $IServerDimensionClaimsManagerAPI<(any)>> extends $IClaimsManagerAPI<(PCI), (WCM)> {
 
+ "get"(arg0: $ResourceLocation$Type, arg1: $BlockPos$Type): C
  "get"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer): C
  "get"(arg0: $ResourceLocation$Type, arg1: $ChunkPos$Type): C
- "get"(arg0: $ResourceLocation$Type, arg1: $BlockPos$Type): C
  "claim"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: boolean): C
- "getDimensionStream"(): $Stream<(WCM)>
- "getTracker"(): $IClaimsManagerTrackerAPI
- "tryToClaim"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean): $ClaimResult<(C)>
  "tryToUnclaim"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean): $ClaimResult<(C)>
+ "tryToClaim"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean): $ClaimResult<(C)>
  "tryToForceload"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean, arg7: boolean): $ClaimResult<(C)>
- "getPlayerInfoStream"(): $Stream<(PCI)>
- "hasPlayerInfo"(arg0: $UUID$Type): boolean
- "unclaim"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer): void
- "getPlayerBaseClaimLimit"(arg0: $UUID$Type): integer
- "getPlayerBaseClaimLimit"(arg0: $ServerPlayer$Type): integer
- "getPlayerBaseForceloadLimit"(arg0: $ServerPlayer$Type): integer
- "getPlayerBaseForceloadLimit"(arg0: $UUID$Type): integer
+ "getTracker"(): $IClaimsManagerTrackerAPI
  "isClaimable"(arg0: $ResourceLocation$Type): boolean
  "tryToUnclaimArea"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: boolean): $AreaClaimResult
  "tryToClaimArea"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: boolean): $AreaClaimResult
  "tryToForceloadArea"(arg0: $ResourceLocation$Type, arg1: $UUID$Type, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: boolean, arg9: boolean): $AreaClaimResult
+ "hasPlayerInfo"(arg0: $UUID$Type): boolean
+ "unclaim"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer): void
+ "getDimensionStream"(): $Stream<(WCM)>
+ "getPlayerInfo"(arg0: $UUID$Type): PCI
+ "getPlayerInfoStream"(): $Stream<(PCI)>
+ "getPlayerBaseClaimLimit"(arg0: $ServerPlayer$Type): integer
+ "getPlayerBaseClaimLimit"(arg0: $UUID$Type): integer
+ "getPlayerBaseForceloadLimit"(arg0: $UUID$Type): integer
+ "getPlayerBaseForceloadLimit"(arg0: $ServerPlayer$Type): integer
 }
 
 export namespace $IServerClaimsManagerAPI {
@@ -1407,15 +1408,15 @@ export class $OpenPACServerAPI {
 constructor(arg0: $IServerDataAPI$Type<(any), (any)>)
 
 public static "get"(arg0: $MinecraftServer$Type): $OpenPACServerAPI
-public "getServerClaimsManager"(): $IServerClaimsManagerAPI<($IPlayerChunkClaimAPI), ($IServerPlayerClaimInfoAPI<($IPlayerDimensionClaimsAPI<($IPlayerClaimPosListAPI)>)>), ($IServerDimensionClaimsManagerAPI<($IServerRegionClaimsAPI)>)>
 public "getPlayerConfigs"(): $IPlayerConfigManagerAPI
-public "getPartyManager"(): $IPartyManagerAPI<($IServerPartyAPI<($IPartyMemberAPI), ($IPartyPlayerInfoAPI), ($IPartyAllyAPI)>)>
 public "getChunkProtection"(): $IChunkProtectionAPI
+public "getPartyManager"(): $IPartyManagerAPI<($IServerPartyAPI<($IPartyMemberAPI), ($IPartyPlayerInfoAPI), ($IPartyAllyAPI)>)>
+public "getServerClaimsManager"(): $IServerClaimsManagerAPI<($IPlayerChunkClaimAPI), ($IServerPlayerClaimInfoAPI<($IPlayerDimensionClaimsAPI<($IPlayerClaimPosListAPI)>)>), ($IServerDimensionClaimsManagerAPI<($IServerRegionClaimsAPI)>)>
 public "getAdaptiveTextLocalizer"(): $IAdaptiveLocalizerAPI
-get "serverClaimsManager"(): $IServerClaimsManagerAPI<($IPlayerChunkClaimAPI), ($IServerPlayerClaimInfoAPI<($IPlayerDimensionClaimsAPI<($IPlayerClaimPosListAPI)>)>), ($IServerDimensionClaimsManagerAPI<($IServerRegionClaimsAPI)>)>
 get "playerConfigs"(): $IPlayerConfigManagerAPI
-get "partyManager"(): $IPartyManagerAPI<($IServerPartyAPI<($IPartyMemberAPI), ($IPartyPlayerInfoAPI), ($IPartyAllyAPI)>)>
 get "chunkProtection"(): $IChunkProtectionAPI
+get "partyManager"(): $IPartyManagerAPI<($IServerPartyAPI<($IPartyMemberAPI), ($IPartyPlayerInfoAPI), ($IPartyAllyAPI)>)>
+get "serverClaimsManager"(): $IServerClaimsManagerAPI<($IPlayerChunkClaimAPI), ($IServerPlayerClaimInfoAPI<($IPlayerDimensionClaimsAPI<($IPlayerClaimPosListAPI)>)>), ($IServerDimensionClaimsManagerAPI<($IServerRegionClaimsAPI)>)>
 get "adaptiveTextLocalizer"(): $IAdaptiveLocalizerAPI
 }
 /**
@@ -1461,8 +1462,8 @@ import {$ICapabilityProvider, $ICapabilityProvider$Type} from "packages/xaero/pa
 
 export interface $ICapableObject {
 
- "setXaero_OPAC_CapabilityProvider"(arg0: $ICapabilityProvider$Type): void
  "getXaero_OPAC_CapabilityProvider"(): $ICapabilityProvider
+ "setXaero_OPAC_CapabilityProvider"(arg0: $ICapabilityProvider$Type): void
 }
 
 export namespace $ICapableObject {

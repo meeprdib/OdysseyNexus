@@ -13,9 +13,9 @@ import {$ClientLevel, $ClientLevel$Type} from "packages/net/minecraft/client/mul
 import {$ClonedLevelChunk, $ClonedLevelChunk$Type} from "packages/com/sonicether/soundphysics/world/$ClonedLevelChunk"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ClipContext, $ClipContext$Type} from "packages/net/minecraft/world/level/$ClipContext"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -25,45 +25,45 @@ export class $ClonedClientLevel implements $ClientLevelProxy {
 
 constructor(arg0: $ClientLevel$Type, arg1: $BlockPos$Type, arg2: long, arg3: integer)
 
-public "getBlockState"(arg0: $BlockPos$Type): $BlockState
-public "getChunk"(arg0: integer, arg1: integer): $ClonedLevelChunk
 public "getOrigin"(): $BlockPos
+public "getBlockState"(arg0: $BlockPos$Type): $BlockState
+public "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+public "getFluidState"(arg0: $BlockPos$Type): $FluidState
+public "getHeight"(): integer
+public "getChunk"(arg0: integer, arg1: integer): $ClonedLevelChunk
 public "getTick"(): long
 public "getMinBuildHeight"(): integer
-public "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
-public "getHeight"(): integer
-public "getFluidState"(arg0: $BlockPos$Type): $FluidState
-public "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
 public "clip"(arg0: $ClipContext$Type): $BlockHitResult
 public "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
-public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
 public "getLightEmission"(arg0: $BlockPos$Type): integer
-public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public "getMaxLightLevel"(): integer
+public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
+public "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
+public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
-public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
 public "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
+public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
 public "getMaxBuildHeight"(): integer
-public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
-public "getSectionIndex"(arg0: integer): integer
-public "getSectionIndexFromSectionY"(arg0: integer): integer
-public "isOutsideBuildHeight"(arg0: integer): boolean
-public "getMinSection"(): integer
-public "getMaxSection"(): integer
 public "getSectionsCount"(): integer
-public "getSectionYFromSectionIndex"(arg0: integer): integer
+public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
+public "getMinSection"(): integer
+public "isOutsideBuildHeight"(arg0: integer): boolean
+public "getSectionIndex"(arg0: integer): integer
 public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
-public "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+public "getSectionIndexFromSectionY"(arg0: integer): integer
+public "getMaxSection"(): integer
+public "getSectionYFromSectionIndex"(arg0: integer): integer
 public "getModelDataManager"(): $ModelDataManager
+public "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
 get "origin"(): $BlockPos
+get "height"(): integer
 get "tick"(): long
 get "minBuildHeight"(): integer
-get "height"(): integer
 get "maxLightLevel"(): integer
 get "maxBuildHeight"(): integer
+get "sectionsCount"(): integer
 get "minSection"(): integer
 get "maxSection"(): integer
-get "sectionsCount"(): integer
 get "modelDataManager"(): $ModelDataManager
 }
 /**
@@ -108,22 +108,22 @@ constructor(arg0: $Level$Type, arg1: $ChunkPos$Type, arg2: ($LevelChunkSection$T
 
 public "setBlockEntity"(arg0: $BlockEntity$Type): void
 public "addEntity"(arg0: $Entity$Type): void
-public "getBlockTicks"(): $TickContainerAccess<($Block)>
 public "getBlockEntityNbtForSaving"(arg0: $BlockPos$Type): $CompoundTag
-public "getFluidTicks"(): $TickContainerAccess<($Fluid)>
 public "getTicksForSerialization"(): $ChunkAccess$TicksToSave
+public "getBlockTicks"(): $TickContainerAccess<($Block)>
+public "getFluidTicks"(): $TickContainerAccess<($Fluid)>
+public "getStatus"(): $ChunkStatus
 public "getBlockState"(arg0: $BlockPos$Type): $BlockState
+public "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
 public "setBlockState"(arg0: $BlockPos$Type, arg1: $BlockState$Type, arg2: boolean): $BlockState
 public "removeBlockEntity"(arg0: $BlockPos$Type): void
-public "getStatus"(): $ChunkStatus
-public "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
 public "getFluidState"(arg0: $BlockPos$Type): $FluidState
 public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
 set "blockEntity"(value: $BlockEntity$Type)
+get "ticksForSerialization"(): $ChunkAccess$TicksToSave
 get "blockTicks"(): $TickContainerAccess<($Block)>
 get "fluidTicks"(): $TickContainerAccess<($Fluid)>
-get "ticksForSerialization"(): $ChunkAccess$TicksToSave
 get "status"(): $ChunkStatus
 }
 /**
@@ -151,9 +151,9 @@ import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ClipContext, $ClipContext$Type} from "packages/net/minecraft/world/level/$ClipContext"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -162,30 +162,30 @@ import {$AABB, $AABB$Type} from "packages/net/minecraft/world/phys/$AABB"
 export interface $ClientLevelProxy extends $BlockGetter {
 
  "getBlockState"(arg0: $BlockPos$Type): $BlockState
- "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
  "clip"(arg0: $ClipContext$Type): $BlockHitResult
  "getBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+ "getFluidState"(arg0: $BlockPos$Type): $FluidState
  "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
- "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
  "getLightEmission"(arg0: $BlockPos$Type): integer
  "getMaxLightLevel"(): integer
+ "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
+ "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
  "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
- "getBlockFloorHeight"(arg0: $BlockPos$Type): double
  "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
- "getFluidState"(arg0: $BlockPos$Type): $FluidState
+ "getBlockFloorHeight"(arg0: $BlockPos$Type): double
  "getMaxBuildHeight"(): integer
- "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
- "getMinBuildHeight"(): integer
  "getHeight"(): integer
+ "getSectionsCount"(): integer
+ "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
+ "getMinSection"(): integer
+ "isOutsideBuildHeight"(arg0: integer): boolean
  "getSectionIndex"(arg0: integer): integer
  "getSectionIndexFromSectionY"(arg0: integer): integer
- "isOutsideBuildHeight"(arg0: integer): boolean
- "getMinSection"(): integer
  "getMaxSection"(): integer
- "getSectionsCount"(): integer
  "getSectionYFromSectionIndex"(arg0: integer): integer
- "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+ "getMinBuildHeight"(): integer
  "getModelDataManager"(): $ModelDataManager
+ "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
 }
 
 export namespace $ClientLevelProxy {

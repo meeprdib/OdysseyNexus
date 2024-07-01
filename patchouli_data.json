@@ -2,10 +2,17 @@
   "bookGuiScale": 0,
   "clickedVisualize": false,
   "bookData": {
+    "patchouli:odysseynexus_guidebook": {
+      "viewedEntries": [],
+      "bookmarks": [],
+      "completedManualQuests": []
+    },
     "apotheosis:apoth_chronicle": {
       "viewedEntries": [
         "apotheosis:adventure/attributes/overheal",
-        "apotheosis:adventure/affix_loot/affixes"
+        "apotheosis:adventure/affix_loot/affixes",
+        "apotheosis:adventure/affix_loot/augmenting",
+        "apotheosis:adventure/affix_loot/reforging"
       ],
       "bookmarks": [],
       "completedManualQuests": []

@@ -26,8 +26,8 @@ import {$MapCodec, $MapCodec$Type} from "packages/com/mojang/serialization/$MapC
 
 export interface $StateHolderAccess<O, S> {
 
- "blockSwap_GetOwner"(): O
  "blockSwap_getPropertiesCodec"(): $MapCodec<(S)>
+ "blockSwap_GetOwner"(): O
 }
 
 export namespace $StateHolderAccess {

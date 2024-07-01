@@ -24,18 +24,18 @@ export type $IExtendedNoiseGeneratorSettings_ = $IExtendedNoiseGeneratorSettings
 }}
 declare module "packages/terrablender/worldgen/$IExtendedParameterList" {
 import {$RegistryAccess, $RegistryAccess$Type} from "packages/net/minecraft/core/$RegistryAccess"
-import {$Climate$TargetPoint, $Climate$TargetPoint$Type} from "packages/net/minecraft/world/level/biome/$Climate$TargetPoint"
 import {$Climate$RTree, $Climate$RTree$Type} from "packages/net/minecraft/world/level/biome/$Climate$RTree"
+import {$Climate$TargetPoint, $Climate$TargetPoint$Type} from "packages/net/minecraft/world/level/biome/$Climate$TargetPoint"
 import {$RegionType, $RegionType$Type} from "packages/terrablender/api/$RegionType"
 
 export interface $IExtendedParameterList<T> {
 
+ "isInitialized"(): boolean
+ "getUniqueness"(arg0: integer, arg1: integer, arg2: integer): integer
+ "getTreeCount"(): integer
+ "getTree"(arg0: integer): $Climate$RTree<(any)>
  "findValuePositional"(arg0: $Climate$TargetPoint$Type, arg1: integer, arg2: integer, arg3: integer): T
  "initializeForTerraBlender"(arg0: $RegistryAccess$Type, arg1: $RegionType$Type, arg2: long): void
- "isInitialized"(): boolean
- "getTree"(arg0: integer): $Climate$RTree<(any)>
- "getTreeCount"(): integer
- "getUniqueness"(arg0: integer, arg1: integer, arg2: integer): integer
 }
 
 export namespace $IExtendedParameterList {

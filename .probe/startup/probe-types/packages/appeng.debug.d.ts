@@ -288,8 +288,8 @@ export class $PhantomNodeBlockEntity extends $AENetworkBlockEntity {
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "onReady"(): void
+public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 }
@@ -317,8 +317,8 @@ export class $ChunkLoaderBlockEntity extends $AEBaseBlockEntity implements $Serv
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "onLoad"(): void
 public "setRemoved"(): void
+public "onLoad"(): void
 public "serverTick"(): void
 public static "tryClear"(arg0: any): void
 }
@@ -438,8 +438,8 @@ export type $DebugCardItem_ = $DebugCardItem$Type;
 }}
 declare module "packages/appeng/debug/$ItemGenBlockEntity" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
 import {$InternalInventory, $InternalInventory$Type} from "packages/appeng/api/inventories/$InternalInventory"
 import {$InternalInventoryHost, $InternalInventoryHost$Type} from "packages/appeng/util/inv/$InternalInventoryHost"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
@@ -454,13 +454,13 @@ export class $ItemGenBlockEntity extends $AEBaseBlockEntity implements $Internal
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "clearRemoved"(): void
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "setItem"(arg0: $Item$Type): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "loadTag"(arg0: $CompoundTag$Type): void
 public "onReady"(): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -498,11 +498,11 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "canExtract"(): boolean
 public "serverTick"(): void
+public "extractEnergy"(arg0: integer, arg1: boolean): integer
 public "getEnergyStored"(): integer
-public "receiveEnergy"(arg0: integer, arg1: boolean): integer
 public "getMaxEnergyStored"(): integer
 public "canReceive"(): boolean
-public "extractEnergy"(arg0: integer, arg1: boolean): integer
+public "receiveEnergy"(arg0: integer, arg1: boolean): integer
 public static "tryClear"(arg0: any): void
 get "energyStored"(): integer
 get "maxEnergyStored"(): integer

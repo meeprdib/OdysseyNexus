@@ -13,6 +13,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "top",
+			"transform": "abcd",
 			"axis": "x"
 		},
 		"Name": "copycats:copycat_slab"
@@ -22,6 +23,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "top",
+			"transform": "abcd",
 			"axis": "x"
 		},
 		"Name": "copycats:copycat_slab"
@@ -31,6 +33,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "bottom",
+			"transform": "abcd",
 			"axis": "x"
 		},
 		"Name": "copycats:copycat_slab"
@@ -40,6 +43,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "bottom",
+			"transform": "abcd",
 			"axis": "x"
 		},
 		"Name": "copycats:copycat_slab"
@@ -49,6 +53,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "double",
+			"transform": "abcd",
 			"axis": "x"
 		},
 		"Name": "copycats:copycat_slab"
@@ -58,6 +63,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "double",
+			"transform": "abcd",
 			"axis": "x"
 		},
 		"Name": "copycats:copycat_slab"
@@ -67,6 +73,427 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "top",
+			"transform": "bcda",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "bcda",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "bcda",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "bcda",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "bcda",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "bcda",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "cdab",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "cdab",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "cdab",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "cdab",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "cdab",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "cdab",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "dabc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "dabc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "dabc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "dabc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "dabc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "dabc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "adcb",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "adcb",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "adcb",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "adcb",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "adcb",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "adcb",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "dcba",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "dcba",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "dcba",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "dcba",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "dcba",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "dcba",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "cbad",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "cbad",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "cbad",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "cbad",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "cbad",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "cbad",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "badc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "badc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "badc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "badc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "badc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "badc",
+			"axis": "x"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "abcd",
 			"axis": "y"
 		},
 		"Name": "copycats:copycat_slab"
@@ -76,6 +503,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "top",
+			"transform": "abcd",
 			"axis": "y"
 		},
 		"Name": "copycats:copycat_slab"
@@ -85,6 +513,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "bottom",
+			"transform": "abcd",
 			"axis": "y"
 		},
 		"Name": "copycats:copycat_slab"
@@ -97,6 +526,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "double",
+			"transform": "abcd",
 			"axis": "y"
 		},
 		"Name": "copycats:copycat_slab"
@@ -106,6 +536,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "double",
+			"transform": "abcd",
 			"axis": "y"
 		},
 		"Name": "copycats:copycat_slab"
@@ -115,6 +546,427 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "top",
+			"transform": "bcda",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "bcda",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "bcda",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "bcda",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "bcda",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "bcda",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "cdab",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "cdab",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "cdab",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "cdab",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "cdab",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "cdab",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "dabc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "dabc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "dabc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "dabc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "dabc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "dabc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "adcb",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "adcb",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "adcb",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "adcb",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "adcb",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "adcb",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "dcba",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "dcba",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "dcba",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "dcba",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "dcba",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "dcba",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "cbad",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "cbad",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "cbad",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "cbad",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "cbad",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "cbad",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "badc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "badc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "badc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "badc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "badc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "badc",
+			"axis": "y"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "abcd",
 			"axis": "z"
 		},
 		"Name": "copycats:copycat_slab"
@@ -124,6 +976,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "top",
+			"transform": "abcd",
 			"axis": "z"
 		},
 		"Name": "copycats:copycat_slab"
@@ -133,6 +986,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "bottom",
+			"transform": "abcd",
 			"axis": "z"
 		},
 		"Name": "copycats:copycat_slab"
@@ -142,6 +996,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "bottom",
+			"transform": "abcd",
 			"axis": "z"
 		},
 		"Name": "copycats:copycat_slab"
@@ -151,6 +1006,7 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "true",
 			"type": "double",
+			"transform": "abcd",
 			"axis": "z"
 		},
 		"Name": "copycats:copycat_slab"
@@ -160,6 +1016,427 @@ to make editing this file much easier.
 		"Properties": {
 			"waterlogged": "false",
 			"type": "double",
+			"transform": "abcd",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "bcda",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "bcda",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "bcda",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "bcda",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "bcda",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "bcda",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "cdab",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "cdab",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "cdab",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "cdab",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "cdab",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "cdab",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "dabc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "dabc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "dabc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "dabc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "dabc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "dabc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "adcb",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "adcb",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "adcb",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "adcb",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "adcb",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "adcb",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "dcba",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "dcba",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "dcba",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "dcba",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "dcba",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "dcba",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "cbad",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "cbad",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "cbad",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "cbad",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "cbad",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "cbad",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "top",
+			"transform": "badc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "top",
+			"transform": "badc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "bottom",
+			"transform": "badc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "bottom",
+			"transform": "badc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "true",
+			"type": "double",
+			"transform": "badc",
+			"axis": "z"
+		},
+		"Name": "copycats:copycat_slab"
+	},
+	{
+		// Properties define the state of this block/fluid.
+		"Properties": {
+			"waterlogged": "false",
+			"type": "double",
+			"transform": "badc",
 			"axis": "z"
 		},
 		"Name": "copycats:copycat_slab"

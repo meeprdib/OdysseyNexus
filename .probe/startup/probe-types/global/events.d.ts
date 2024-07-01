@@ -7,6 +7,7 @@ import {$RegisterSpawnPlacementsEventJS, $RegisterSpawnPlacementsEventJS$Type} f
 import {$CreativeTabEvent, $CreativeTabEvent$Type} from "packages/dev/latvian/mods/kubejs/item/creativetab/$CreativeTabEvent"
 import {$ItemModificationEventJS, $ItemModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemModificationEventJS"
 import {$RegistryEventJS, $RegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/registry/$RegistryEventJS"
+import {$ModifyLivingEntityBuilder, $ModifyLivingEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/living/modification/$ModifyLivingEntityBuilder"
 import {$StartupEventJS, $StartupEventJS$Type} from "packages/dev/latvian/mods/kubejs/event/$StartupEventJS"
 import {$BlockModificationEventJS, $BlockModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockModificationEventJS"
 import {$SpecialFluidHandlerEvent, $SpecialFluidHandlerEvent$Type} from "packages/dev/latvian/mods/kubejs/create/events/$SpecialFluidHandlerEvent"
@@ -22,6 +23,7 @@ function add(handler: (event: $AddWorldgenEventJS) => void): void
 function remove(handler: (event: $RemoveWorldgenEventJS) => void): void
 }
 export namespace EntityJSEvents {
+function modifyEntity(handler: (event: $ModifyLivingEntityBuilder) => void): void
 function attributes(handler: (event: $ModifyAttributeEventJS) => void): void
 function spawnPlacement(handler: (event: $RegisterSpawnPlacementsEventJS) => void): void
 }

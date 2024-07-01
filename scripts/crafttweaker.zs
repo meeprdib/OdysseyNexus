@@ -27,41 +27,6 @@ import mods.create.SandPaperPolishingManager;
 
 # Misc
 
-furnace.addRecipe("silicon", <item:ae2:silicon>, <tag:items:ae2:all_quartz>, 1.0, 200);
-
-<recipetype:create:pressing>.addRecipe("silicon_sheet", [<item:kubejs:silicon_sheet>], <item:ae2:silicon>, 200);
-<recipetype:create:pressing>.addRecipe("certus_quartz_sheet", [<item:kubejs:certus_quartz_sheet>], <item:kubejs:polished_certus_quartz>, 200);
-<recipetype:create:pressing>.addRecipe("fluix_sheet", [<item:kubejs:fluix_sheet>], <item:kubejs:polished_fluix>, 200);
-
-<recipetype:create:sandpaper_polishing>.addRecipe("polished_certus_quartz", <item:kubejs:polished_certus_quartz>, <tag:items:ae2:all_certus_quartz>, 200);
-<recipetype:create:sandpaper_polishing>.addRecipe("polished_fluix", <item:kubejs:polished_fluix>, <item:ae2:fluix_crystal>, 200);
-
-craftingTable.addShaped("network_tool", <item:ae2:network_tool>, [
-	[<item:create_dd:inductive_mechanism>],
-	[<item:minecraft:stick>]
-]);
-
-<recipetype:create:sequenced_assembly>.addRecipe(<recipetype:create:sequenced_assembly>.builder("integrated_circuit")
-.transitionTo(<item:create_dd:incomplete_integrated_circuit>)
-.require(<item:create:copper_sheet>)
-.loops(5)
-.addOutput(<item:create_dd:integrated_circuit> * 1, 1)
-.addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:ae2:silicon>))
-.addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:create_dd:lapis_alloy>))
-.addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:createaddition:electrum_nugget>)));
-
-
-
-// <recipetype:create_dd:superheating>.removeAll();
-// <recipetype:estrogen:centrifuging>.removeAll();	
-// <recipetype:vintageimprovements:hammering>.removeByName("vintageimprovements:hammering/netherite_ingot");
-<recipetype:vintageimprovements:vacuumizing>.removeAll();
-<recipetype:vintageimprovements:pressurizing>.removeAll();
-<recipetype:vintageimprovements:coiling>.removeAll();
-
-craftingTable.remove(<item:createaddition:iron_rod>);
-// blastFurnace.remove(<item:create_dd:steel_ingot>);
-
 craftingTable.addShaped("bundle_with_leather", <item:minecraft:bundle>, [
 	[<item:minecraft:string>, <item:minecraft:leather>, <item:minecraft:string>], 
 	[<item:minecraft:leather>, <item:minecraft:air>, <item:minecraft:leather>], 
@@ -89,27 +54,9 @@ craftingTable.addShaped("blank_pattern", <item:ae2:blank_pattern>, [
 	[<item:create:iron_sheet>, <item:create:iron_sheet>, <item:create:iron_sheet>]
 ]);
 
-craftingTable.remove(<item:cataclysm:ignitium_upgrade_smithing_template>);
-
 craftingTable.removeByName("minecraft:lodestone");
 
-craftingTable.remove(<item:alexscaves:nuclear_bomb>);
-<recipetype:create:mechanical_crafting>.addRecipe("nuclear_bomb", <item:alexscaves:nuclear_bomb>, [
-	[<item:create_dd:steel_block>, <item:create_dd:steel_block>, <item:create_dd:steel_block>, <item:create_dd:steel_block>, <item:create_dd:steel_block>], 
-	[<item:create_dd:steel_block>, <item:alexscaves:block_of_uranium>, <item:alexscaves:fissile_core>, <item:alexscaves:block_of_uranium>, <item:create_dd:steel_block>], 
-	[<item:create_dd:steel_block>, <item:alexscaves:uranium_rod>, <item:minecraft:nether_star>, <item:alexscaves:uranium_rod>, <item:create_dd:steel_block>], 
-	[<item:create_dd:steel_block>, <item:alexscaves:block_of_uranium>, <item:alexscaves:fissile_core>, <item:alexscaves:block_of_uranium>, <item:create_dd:steel_block>], 
-	[<item:create_dd:steel_block>, <item:create_dd:steel_block>, <item:create_dd:steel_block>, <item:create_dd:steel_block>, <item:create_dd:steel_block>]]);
-
-<recipetype:create:mixing>.addRecipe("rusty_scrap_metal", <constant:create:heat_condition:none>, [<item:alexscaves:rusty_scrap_metal>], [<item:alexscaves:scrap_metal>], [<fluid:alexscaves:acid> * 100], 200);
-<recipetype:create:mixing>.addRecipe("rusty_scrap_metal_plate", <constant:create:heat_condition:none>, [<item:alexscaves:rusty_scrap_metal_plate>], [<item:alexscaves:scrap_metal_plate>], [<fluid:alexscaves:acid> * 100], 200);
-<recipetype:create:mixing>.addRecipe("rusty_rebar", <constant:create:heat_condition:none>, [<item:alexscaves:rusty_rebar>], [<item:alexscaves:metal_rebar>], [<fluid:alexscaves:acid> * 100], 200);
-<recipetype:create:mixing>.addRecipe("rusty_scaffolding", <constant:create:heat_condition:none>, [<item:alexscaves:rusty_scaffolding>], [<item:alexscaves:metal_scaffolding>], [<fluid:alexscaves:acid> * 100], 200);
-<recipetype:create:mixing>.addRecipe("rusty_barrel", <constant:create:heat_condition:none>, [<item:alexscaves:rusty_barrel>], [<item:alexscaves:metal_barrel>], [<fluid:alexscaves:acid> * 100], 200);
-
 # Potions
-
-<recipetype:create:mechanical_crafting>.remove(<item:minecraft:enchanted_golden_apple>);
 
 brewing.removeRecipe(<item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}), <item:minecraft:popped_chorus_fruit>, <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}));
 
@@ -119,39 +66,19 @@ brewing.removeRecipe(<item:minecraft:potion>.withTag({Potion: "apotheosis:flying
 // <recipetype:create:item_application>.addRecipe("steel_casing", [<item:create_dd:steel_casing>], <item:create_dd:steel_block>, <item:create_dd:steel_ingot>, false);
 <recipetype:create:item_application>.addRecipe("silicon_casing", [<item:kubejs:silicon_casing>], <item:minecraft:quartz_block>, <item:kubejs:silicon_sheet>, false);
 
-// craftingTable.remove(<item:create:industrial_iron_block>);
-// stoneCutter.remove(<item:create:industrial_iron_block>);
-// <recipetype:create:compacting>.remove(<item:create:industrial_iron_block>);
-
-<recipetype:create:mixing>.remove(<item:createutilities:void_steel_ingot>);
 // <recipetype:create:mixing>.addRecipe("void_steel", <constant:create:heat_condition:heated>, [<item:createutilities:void_steel_ingot> * 4], [<item:cataclysm:void_core>, <tag:items:forge:ingots/steel> * 4], [], 200);
 
-// <recipetype:create:compacting>.remove(<item:createdeco:industrial_iron_ingot>);
-// <recipetype:create:compacting>.remove(<item:create_dd:industrial_iron_ingot>);
-// <recipetype:create:compacting>.remove(<item:create_dd:steel_ingot>);
-// <recipetype:create:compacting>.addRecipe("industrial_iron_ingot", <constant:create:heat_condition:heated>, [<item:create_dd:industrial_iron_ingot>], [<item:minecraft:iron_ingot>], [], 200);
-// <recipetype:create:compacting>.addRecipe("steel_ingot", <constant:create:heat_condition:heated>, [<item:create_dd:steel_ingot> * 4], [<item:create_dd:industrial_iron_ingot> * 4, <tag:items:minecraft:coals>], [], 200);
-
-// <recipetype:create:sequenced_assembly>.addRecipe(<recipetype:create:sequenced_assembly>.builder("abstruse_mechanism")
-// .transitionTo(<item:create_dd:incomplete_abstruse_mechanism>)
-// .require(<item:create_dd:shadow_steel_sheet>)
-// .loops(3)
-// .addOutput(<item:create_dd:abstruse_mechanism> * 1, 1)
-// .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:kubejs:polished_fluix>))
-// .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:minecraft:ender_pearl>))
-// .addStep<mods.createtweaker.DeployerApplicationRecipe>((rb) => rb.require(<item:createutilities:graviton_tube>)));
+<recipetype:create:compacting>.addRecipe("steel_ingot", <constant:create:heat_condition:heated>, [<item:kubejs:steel_ingot> * 4], [<tag:items:forge:ingots/industrial_iron> * 4, <tag:items:minecraft:coals>], [], 200);
+// CompactingManager.addRecipe(name as string, heat as HeatCondition, outputs as Percentaged<IItemStack>[], itemInputs as IIngredientWithAmount[], fluidInputs as FluidIngredient[], duration as int)
 
 craftingTable.addShaped("void_motor", <item:createutilities:void_motor>, [[<item:create_dd:abstruse_mechanism>], [<item:createutilities:void_casing>], [<item:create:shaft>]]);
 craftingTable.addShaped("void_chest", <item:createutilities:void_chest>, [[<item:create_dd:abstruse_mechanism>], [<item:minecraft:chest>], [<item:createutilities:void_casing>]]);
 craftingTable.addShaped("void_tank", <item:createutilities:void_tank>, [[<item:create_dd:abstruse_mechanism>], [<item:minecraft:barrel>], [<item:createutilities:void_casing>]]);
 craftingTable.addShaped("void_battery", <item:createutilities:void_battery>, [[<item:create_dd:abstruse_mechanism>], [<item:createaddition:modular_accumulator>], [<item:createutilities:void_casing>]]);
 
-// <recipetype:create:mixing>.addRecipe("shadow_steel", <constant:create:heat_condition:none>, [<item:create_dd:shadow_steel>], [<item:create_dd:steel_ingot>], [<fluid:spelunkery:portal_fluid> * 1000], 200);
-
 # Ore/material processing
 
 <recipetype:create:crushing>.addRecipe("crushed_pink_salt_shard", [<item:spelunkery:salt> * 2, (<item:spelunkery:salt>) % 50], <item:galosphere:pink_salt_shard>, 200);
-// <recipetype:create:mixing>.removeByName("ratatouille:salt");
 craftingTable.removeByName("vintagedelight:salt_bucket_to_salt");
 
 blastFurnace.removeByName("spelunkery:copper_ore_blasting");
@@ -216,7 +143,6 @@ furnace.removeByName("spelunkery:zinc_ore_smelting");
 <recipetype:create:crushing>.addRecipe("crushed_redstone_bud", [<item:create:experience_nugget> % 25, <item:minecraft:redstone>], <item:regions_unexplored:redstone_bud>, 200);
 <recipetype:create:crushing>.addRecipe("crushed_redstone_bulb", [<item:create:experience_nugget> % 50, <item:minecraft:redstone> * 3], <item:regions_unexplored:redstone_bulb>, 200);
 
-craftingTable.remove(<item:vintageimprovements:grinder_belt>);
 craftingTable.addShaped("diamond_grinder_belt", <item:vintageimprovements:grinder_belt>, 
 [
 	[<item:createaddition:diamond_grit_sandpaper>, <item:createaddition:diamond_grit_sandpaper>, <item:createaddition:diamond_grit_sandpaper>],

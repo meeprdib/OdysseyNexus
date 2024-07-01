@@ -162,6 +162,9 @@
 		[entries.wood_type.farmersdelight]
 			cabinet = true
 
+		[entries.wood_type.twigs]
+			table = true
+
 	[entries.leaves_type]
 
 		[entries.leaves_type.quark]

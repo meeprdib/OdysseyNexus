@@ -1,72 +1,72 @@
-[16:12:49] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
-[16:12:49] [INIT] Loaded plugins:
-[16:12:49] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[16:12:49] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[16:12:49] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[16:12:49] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[16:12:49] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[16:12:49] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[16:12:49] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[16:12:49] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[16:12:49] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[16:12:49] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[16:12:49] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[16:12:49] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[16:12:49] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
-[16:12:49] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[16:12:49] [INFO] Loaded script client_scripts:certusquartz.js in 0.021 s
-[16:12:49] [INFO] Loaded script client_scripts:jei.js in 0.008 s
-[16:12:49] [INFO] Loaded script client_scripts:tooltips.js in 0.004 s
-[16:12:49] [INFO] Loaded 3/3 KubeJS client scripts in 0.218 s with 0 errors and 0 warnings
-[16:13:29] [INFO] Client resource reload complete!
-[16:14:46] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
-[16:14:46] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
-[16:14:46] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
-[16:14:46] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
-[16:14:46] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
-[16:14:46] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
-[16:14:46] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
-[16:14:46] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
-[16:14:46] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
-[16:14:46] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
-[16:14:46] [ERROR] !   at net.minecraft.client.Minecraft.lambda$createSearchTrees$15(Minecraft.java:776)
-[16:14:46] [ERROR] !   at java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
-[16:14:46] [ERROR] !   at java.util.Collections$2.tryAdvance(Collections.java:4853)
-[16:14:46] [ERROR] !   at java.util.Collections$2.forEachRemaining(Collections.java:4861)
-[16:14:46] [ERROR] !   at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-[16:14:46] [ERROR] !   at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-[16:14:46] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
-[16:14:46] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
-[16:14:46] [ERROR] !   at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-[16:14:46] [ERROR] !   at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
-[16:14:46] [ERROR] !   at net.minecraft.client.searchtree.PlainTextSearchTree.m_235197_(PlainTextSearchTree.java:20)
-[16:14:46] [ERROR] !   at net.minecraft.client.searchtree.FullTextSearchTree.m_214078_(FullTextSearchTree.java:26)
-[16:14:46] [ERROR] !   at net.minecraft.client.searchtree.SearchRegistry$TreeEntry.m_235245_(SearchRegistry.java:61)
-[16:14:46] [ERROR] !   at net.minecraft.client.searchtree.SearchRegistry.m_235235_(SearchRegistry.java:42)
-[16:14:46] [ERROR] !   at net.minecraft.client.Minecraft.m_231374_(Minecraft.java:2572)
-[16:14:46] [ERROR] !   at net.minecraft.client.multiplayer.ClientPacketListener.m_6327_(ClientPacketListener.java:1353)
-[16:14:46] [ERROR] !   at net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket.m_5797_(ClientboundUpdateRecipesPacket.java:32)
-[16:14:46] [ERROR] !   at net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket.m_5797_(ClientboundUpdateRecipesPacket.java:14)
-[16:14:46] [ERROR] !   at net.minecraft.network.protocol.PacketUtils.m_263899_(PacketUtils.java:22)
-[16:14:46] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
-[16:14:46] [ERROR] !   at net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
-[16:14:46] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
-[16:14:46] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_18699_(BlockableEventLoop.java:115)
-[16:14:46] [ERROR] !   at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1106)
-[16:14:46] [ERROR] !   at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-[16:14:46] [ERROR] !   at net.minecraft.client.main.Main.main(Main.java:218)
-[16:14:46] [ERROR] !   at java.lang.reflect.Method.invoke(Method.java:568)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-[16:14:46] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-[16:14:46] [ERROR] !   at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
+[20:20:57] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
+[20:20:57] [INIT] Loaded plugins:
+[20:20:57] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[20:20:57] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[20:20:57] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[20:20:57] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[20:20:57] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[20:20:57] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[20:20:57] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[20:20:57] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[20:20:57] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[20:20:57] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[20:20:57] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[20:20:57] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[20:20:57] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
+[20:20:57] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[20:20:57] [INFO] Loaded script client_scripts:certusquartz.js in 0.009 s
+[20:20:57] [INFO] Loaded script client_scripts:jei.js in 0.015 s
+[20:20:57] [INFO] Loaded script client_scripts:tooltips.js in 0.001 s
+[20:20:57] [INFO] Loaded 3/3 KubeJS client scripts in 0.277 s with 0 errors and 0 warnings
+[20:21:25] [INFO] Client resource reload complete!
+[20:22:36] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
+[20:22:36] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
+[20:22:36] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
+[20:22:36] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
+[20:22:36] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
+[20:22:36] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
+[20:22:36] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
+[20:22:36] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
+[20:22:36] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
+[20:22:36] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
+[20:22:36] [ERROR] !   at net.minecraft.client.Minecraft.lambda$createSearchTrees$15(Minecraft.java:776)
+[20:22:36] [ERROR] !   at java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+[20:22:36] [ERROR] !   at java.util.Collections$2.tryAdvance(Collections.java:4853)
+[20:22:36] [ERROR] !   at java.util.Collections$2.forEachRemaining(Collections.java:4861)
+[20:22:36] [ERROR] !   at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+[20:22:36] [ERROR] !   at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+[20:22:36] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+[20:22:36] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+[20:22:36] [ERROR] !   at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+[20:22:36] [ERROR] !   at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+[20:22:36] [ERROR] !   at net.minecraft.client.searchtree.PlainTextSearchTree.m_235197_(PlainTextSearchTree.java:20)
+[20:22:36] [ERROR] !   at net.minecraft.client.searchtree.FullTextSearchTree.m_214078_(FullTextSearchTree.java:26)
+[20:22:36] [ERROR] !   at net.minecraft.client.searchtree.SearchRegistry$TreeEntry.m_235245_(SearchRegistry.java:61)
+[20:22:36] [ERROR] !   at net.minecraft.client.searchtree.SearchRegistry.m_235235_(SearchRegistry.java:42)
+[20:22:36] [ERROR] !   at net.minecraft.client.Minecraft.m_231374_(Minecraft.java:2572)
+[20:22:36] [ERROR] !   at net.minecraft.client.multiplayer.ClientPacketListener.m_6327_(ClientPacketListener.java:1353)
+[20:22:36] [ERROR] !   at net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket.m_5797_(ClientboundUpdateRecipesPacket.java:32)
+[20:22:36] [ERROR] !   at net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket.m_5797_(ClientboundUpdateRecipesPacket.java:14)
+[20:22:36] [ERROR] !   at net.minecraft.network.protocol.PacketUtils.m_263899_(PacketUtils.java:22)
+[20:22:36] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
+[20:22:36] [ERROR] !   at net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
+[20:22:36] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
+[20:22:36] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_18699_(BlockableEventLoop.java:115)
+[20:22:36] [ERROR] !   at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1106)
+[20:22:36] [ERROR] !   at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
+[20:22:36] [ERROR] !   at net.minecraft.client.main.Main.main(Main.java:218)
+[20:22:36] [ERROR] !   at java.lang.reflect.Method.invoke(Method.java:568)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
+[20:22:36] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
+[20:22:36] [ERROR] !   at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)

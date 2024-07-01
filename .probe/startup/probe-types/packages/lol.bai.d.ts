@@ -69,12 +69,12 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export class $AbstractPacketHandler<T> implements $PacketSender {
 
 
+public "onDisconnect"(): void
 public "sendInitialChannelSyncPacket"(): void
-public "receive"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): boolean
+public "onRegister"(arg0: $ResourceLocation$Type): void
 public "send"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type, arg2: $PacketSendListener$Type): void
 public "send"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type, arg2: $GenericFutureListener$Type<(any)>): void
-public "onDisconnect"(): void
-public "onRegister"(arg0: $ResourceLocation$Type): void
+public "receive"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): boolean
 public "canSend"(arg0: $ResourceLocation$Type): boolean
 public static "c2s"(): $PacketSender
 public static "s2c"(arg0: $ServerPlayer$Type): $PacketSender

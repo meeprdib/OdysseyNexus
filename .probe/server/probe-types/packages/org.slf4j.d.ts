@@ -19,61 +19,61 @@ export interface $Logger {
  "info"(arg0: $Marker$Type, arg1: string): void
  "trace"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
  "trace"(arg0: string, arg1: any): void
- "trace"(arg0: string): void
- "trace"(arg0: string, ...arg1: (any)[]): void
  "trace"(arg0: string, arg1: any, arg2: any): void
- "trace"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
- "trace"(arg0: $Marker$Type, arg1: string, arg2: any): void
- "trace"(arg0: $Marker$Type, arg1: string): void
- "trace"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
+ "trace"(arg0: string, ...arg1: (any)[]): void
  "trace"(arg0: string, arg1: $Throwable$Type): void
- "debug"(arg0: $Marker$Type, arg1: string, arg2: any): void
+ "trace"(arg0: string): void
+ "trace"(arg0: $Marker$Type, arg1: string): void
+ "trace"(arg0: $Marker$Type, arg1: string, arg2: any): void
+ "trace"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
+ "trace"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
  "debug"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
+ "debug"(arg0: $Marker$Type, arg1: string, arg2: any): void
  "debug"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
  "debug"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
- "debug"(arg0: string): void
- "debug"(arg0: string, arg1: any): void
- "debug"(arg0: string, arg1: any, arg2: any): void
- "debug"(arg0: $Marker$Type, arg1: string): void
- "debug"(arg0: string, arg1: $Throwable$Type): void
  "debug"(arg0: string, ...arg1: (any)[]): void
- "error"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
- "error"(arg0: string): void
- "error"(arg0: string, arg1: any): void
- "error"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
+ "debug"(arg0: string, arg1: any, arg2: any): void
+ "debug"(arg0: string, arg1: any): void
+ "debug"(arg0: string): void
+ "debug"(arg0: string, arg1: $Throwable$Type): void
+ "debug"(arg0: $Marker$Type, arg1: string): void
+ "error"(arg0: string, arg1: $Throwable$Type): void
+ "error"(arg0: $Marker$Type, arg1: string, arg2: any): void
  "error"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
- "error"(arg0: $Marker$Type, arg1: string): void
+ "error"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
+ "error"(arg0: string, arg1: any): void
+ "error"(arg0: string): void
  "error"(arg0: string, ...arg1: (any)[]): void
  "error"(arg0: string, arg1: any, arg2: any): void
- "error"(arg0: $Marker$Type, arg1: string, arg2: any): void
- "error"(arg0: string, arg1: $Throwable$Type): void
+ "error"(arg0: $Marker$Type, arg1: string): void
+ "error"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
+ "warn"(arg0: $Marker$Type, arg1: string): void
  "warn"(arg0: string, arg1: $Throwable$Type): void
  "warn"(arg0: string, arg1: any, arg2: any): void
- "warn"(arg0: string, ...arg1: (any)[]): void
- "warn"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
- "warn"(arg0: $Marker$Type, arg1: string, arg2: any): void
- "warn"(arg0: $Marker$Type, arg1: string): void
- "warn"(arg0: string): void
- "warn"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
  "warn"(arg0: $Marker$Type, arg1: string, arg2: any, arg3: any): void
+ "warn"(arg0: $Marker$Type, arg1: string, ...arg2: (any)[]): void
+ "warn"(arg0: $Marker$Type, arg1: string, arg2: $Throwable$Type): void
+ "warn"(arg0: $Marker$Type, arg1: string, arg2: any): void
+ "warn"(arg0: string): void
+ "warn"(arg0: string, ...arg1: (any)[]): void
  "warn"(arg0: string, arg1: any): void
+ "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
  "isInfoEnabled"(arg0: $Marker$Type): boolean
  "isInfoEnabled"(): boolean
  "isTraceEnabled"(arg0: $Marker$Type): boolean
  "isTraceEnabled"(): boolean
- "isWarnEnabled"(arg0: $Marker$Type): boolean
  "isWarnEnabled"(): boolean
- "isErrorEnabled"(arg0: $Marker$Type): boolean
- "isErrorEnabled"(): boolean
+ "isWarnEnabled"(arg0: $Marker$Type): boolean
  "isDebugEnabled"(): boolean
  "isDebugEnabled"(arg0: $Marker$Type): boolean
- "atDebug"(): $LoggingEventBuilder
+ "isErrorEnabled"(arg0: $Marker$Type): boolean
+ "isErrorEnabled"(): boolean
  "atLevel"(arg0: $Level$Type): $LoggingEventBuilder
- "atWarn"(): $LoggingEventBuilder
  "atInfo"(): $LoggingEventBuilder
  "atError"(): $LoggingEventBuilder
  "atTrace"(): $LoggingEventBuilder
- "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
+ "atDebug"(): $LoggingEventBuilder
+ "atWarn"(): $LoggingEventBuilder
  "isEnabledForLevel"(arg0: $Level$Type): boolean
 }
 

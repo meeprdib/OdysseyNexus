@@ -47,9 +47,9 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Output"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
-import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
 import {$TooltipComponent, $TooltipComponent$Type} from "packages/net/minecraft/world/inventory/tooltip/$TooltipComponent"
+import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$AEColor, $AEColor$Type} from "packages/appeng/api/util/$AEColor"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -59,8 +59,8 @@ import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
 import {$AEKeyType, $AEKeyType$Type} from "packages/appeng/api/stacks/$AEKeyType"
 import {$IMouseWheelItem, $IMouseWheelItem$Type} from "packages/appeng/helpers/$IMouseWheelItem"
-import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$AEBasePoweredItem, $AEBasePoweredItem$Type} from "packages/appeng/items/tools/powered/powersink/$AEBasePoweredItem"
 import {$IBlockTool, $IBlockTool$Type} from "packages/appeng/hooks/$IBlockTool"
@@ -86,37 +86,37 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "consumeItem"(arg0: $ItemStack$Type, arg1: $AEItemKey$Type, arg2: boolean): boolean
-public "cycleColors"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: integer): void
-public "consumeColor"(arg0: $ItemStack$Type, arg1: $AEColor$Type, arg2: boolean): boolean
-public "getActiveColor"(arg0: $ItemStack$Type): $AEColor
-public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
-public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getTotalTypes"(arg0: $ItemStack$Type): integer
-public "setActiveColor"(arg0: $ItemStack$Type, arg1: $AEColor$Type): void
-public "getBytesPerType"(arg0: $ItemStack$Type): integer
-public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
-public "onWheel"(arg0: $ItemStack$Type, arg1: boolean): void
-public "getIdleDrain"(): double
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
-public "getKeyType"(): $AEKeyType
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public static "createFullColorApplicator"(): $ItemStack
-public "storableInStorageCell"(): boolean
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "interactLivingEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $LivingEntity$Type, arg3: $InteractionHand$Type): $InteractionResult
-public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "getName"(arg0: $ItemStack$Type): $Component
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "getColor"(arg0: $ItemStack$Type): $ItemStack
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
-public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public static "createFullColorApplicator"(): $ItemStack
+public "storableInStorageCell"(): boolean
+public "consumeColor"(arg0: $ItemStack$Type, arg1: $AEColor$Type, arg2: boolean): boolean
+public "consumeItem"(arg0: $ItemStack$Type, arg1: $AEItemKey$Type, arg2: boolean): boolean
+public "getActiveColor"(arg0: $ItemStack$Type): $AEColor
+public "cycleColors"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: integer): void
+public "getKeyType"(): $AEKeyType
+public "getTotalTypes"(arg0: $ItemStack$Type): integer
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
+public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
+public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
+public "getIdleDrain"(): double
+public "onWheel"(arg0: $ItemStack$Type, arg1: boolean): void
+public "getBytesPerType"(arg0: $ItemStack$Type): integer
+public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
+public "setActiveColor"(arg0: $ItemStack$Type, arg1: $AEColor$Type): void
 public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public "isEditable"(arg0: $ItemStack$Type): boolean
-get "idleDrain"(): double
 get "keyType"(): $AEKeyType
+get "idleDrain"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -178,9 +178,9 @@ import {$AEBasePoweredItem, $AEBasePoweredItem$Type} from "packages/appeng/items
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
-import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
 import {$TooltipComponent, $TooltipComponent$Type} from "packages/net/minecraft/world/inventory/tooltip/$TooltipComponent"
+import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -205,28 +205,28 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
-public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getTotalTypes"(arg0: $ItemStack$Type): integer
-public "getBytesPerType"(arg0: $ItemStack$Type): integer
-public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
-public "getIdleDrain"(): double
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
-public "getKeyType"(): $AEKeyType
-public "fireCannon"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $Player$Type, arg3: $LookDirection$Type): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "storableInStorageCell"(): boolean
 public static "getDamageFromPenetration"(arg0: float): integer
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
-public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "getKeyType"(): $AEKeyType
+public "getTotalTypes"(arg0: $ItemStack$Type): integer
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
+public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
+public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
+public "getIdleDrain"(): double
+public "getBytesPerType"(arg0: $ItemStack$Type): integer
+public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
+public "fireCannon"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $Player$Type, arg3: $LookDirection$Type): boolean
 public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public "isEditable"(arg0: $ItemStack$Type): boolean
-get "idleDrain"(): double
 get "keyType"(): $AEKeyType
+get "idleDrain"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -275,9 +275,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "isFoil"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -303,8 +303,8 @@ import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$QuartzToolType, $QuartzToolType$Type} from "packages/appeng/items/tools/quartz/$QuartzToolType"
 import {$IMenuItem, $IMenuItem$Type} from "packages/appeng/api/implementations/menuobjects/$IMenuItem"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -324,11 +324,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $QuartzToolType$Type)
 
-public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "getCraftingRemainingItem"(arg0: $ItemStack$Type): $ItemStack
+public "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
+public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -457,9 +457,9 @@ constructor(arg0: $Item$Properties$Type)
 
 public static "wrap"(arg0: $GenericStack$Type): $ItemStack
 public static "wrap"(arg0: $AEKey$Type, arg1: long): $ItemStack
-public "unwrapAmount"(arg0: $ItemStack$Type): long
-public "unwrapWhat"(arg0: $ItemStack$Type): $AEKey
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "unwrapWhat"(arg0: $ItemStack$Type): $AEKey
+public "unwrapAmount"(arg0: $ItemStack$Type): long
 public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 }
 /**
@@ -480,15 +480,15 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Output"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$IAEItemPowerStorage, $IAEItemPowerStorage$Type} from "packages/appeng/api/implementations/items/$IAEItemPowerStorage"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
-import {$ICapabilityProvider, $ICapabilityProvider$Type} from "packages/net/minecraftforge/common/capabilities/$ICapabilityProvider"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$ICapabilityProvider, $ICapabilityProvider$Type} from "packages/net/minecraftforge/common/capabilities/$ICapabilityProvider"
 import {$DoubleSupplier, $DoubleSupplier$Type} from "packages/java/util/function/$DoubleSupplier"
 import {$AccessRestriction, $AccessRestriction$Type} from "packages/appeng/api/config/$AccessRestriction"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
@@ -508,18 +508,18 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $DoubleSupplier$Type, arg1: $Item$Properties$Type)
 
-public "initCapabilities"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): $ICapabilityProvider
-public "injectAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
-public "getAECurrentPower"(arg0: $ItemStack$Type): double
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
+public "getBarWidth"(arg0: $ItemStack$Type): integer
+public "getBarColor"(arg0: $ItemStack$Type): integer
+public "isBarVisible"(arg0: $ItemStack$Type): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getPowerFlow"(arg0: $ItemStack$Type): $AccessRestriction
 public "getAEMaxPower"(arg0: $ItemStack$Type): double
 public "extractAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
-public "getBarColor"(arg0: $ItemStack$Type): integer
-public "getBarWidth"(arg0: $ItemStack$Type): integer
-public "isBarVisible"(arg0: $ItemStack$Type): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
+public "initCapabilities"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): $ICapabilityProvider
+public "getAECurrentPower"(arg0: $ItemStack$Type): double
+public "injectAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
 public "getChargeRate"(arg0: $ItemStack$Type): double
 }
 /**
@@ -679,6 +679,7 @@ import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$SlotAccess, $SlotAccess$Type} from "packages/net/minecraft/world/entity/$SlotAccess"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $NetworkToolItem extends $AEBaseItem implements $IMenuItem, $AEToolItem {
@@ -695,10 +696,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public static "findNetworkToolInv"(arg0: $Player$Type): $NetworkToolMenuHost
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
+public static "findNetworkToolInv"(arg0: $Player$Type): $NetworkToolMenuHost
+public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $NetworkToolMenuHost
 public "overrideStackedOnOther"(arg0: $ItemStack$Type, arg1: $Slot$Type, arg2: $ClickAction$Type, arg3: $Player$Type): boolean
+public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 }
@@ -725,8 +727,8 @@ import {$ICellWorkbenchItem, $ICellWorkbenchItem$Type} from "packages/appeng/api
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$AEKeyFilter, $AEKeyFilter$Type} from "packages/appeng/api/storage/$AEKeyFilter"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
@@ -744,12 +746,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public static "createFilter"(arg0: $AEKeyFilter$Type, arg1: $Collection$Type<($ItemStack$Type)>): $IPartitionList
+public static "createItemFilter"(arg0: $Collection$Type<($ItemStack$Type)>): $IPartitionList
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
-public static "createItemFilter"(arg0: $Collection$Type<($ItemStack$Type)>): $IPartitionList
-public static "createFilter"(arg0: $AEKeyFilter$Type, arg1: $Collection$Type<($ItemStack$Type)>): $IPartitionList
 public "isEditable"(arg0: $ItemStack$Type): boolean
 }
 /**
@@ -809,9 +811,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "isFoil"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -832,8 +834,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$DyeableLeatherItem, $DyeableLeatherItem$Type} from "packages/net/minecraft/world/item/$DyeableLeatherItem"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
-import {$SettingsCategory, $SettingsCategory$Type} from "packages/appeng/items/tools/$SettingsCategory"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
+import {$SettingsCategory, $SettingsCategory$Type} from "packages/appeng/items/tools/$SettingsCategory"
 import {$AEColor, $AEColor$Type} from "packages/appeng/api/util/$AEColor"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -847,10 +849,10 @@ import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraf
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $MemoryCardItem extends $AEBaseItem implements $IMemoryCard, $DyeableLeatherItem {
@@ -868,23 +870,23 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getData"(arg0: $ItemStack$Type): $CompoundTag
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "getColorCode"(arg0: $ItemStack$Type): ($AEColor)[]
 public static "getTintColor"(arg0: $ItemStack$Type, arg1: integer): integer
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+public "setMemoryCardContents"(arg0: $ItemStack$Type, arg1: string, arg2: $CompoundTag$Type): void
+public static "exportGenericSettings"(arg0: any, arg1: $CompoundTag$Type): $Set<($SettingsCategory)>
+public static "importGenericSettingsAndNotify"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public static "importGenericSettings"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): $Set<($SettingsCategory)>
 public "getColor"(arg0: $ItemStack$Type): integer
 public "notifyUser"(arg0: $Player$Type, arg1: $MemoryCardMessages$Type): void
 public "getSettingsName"(arg0: $ItemStack$Type): string
-public static "importGenericSettings"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): $Set<($SettingsCategory)>
-public static "exportGenericSettings"(arg0: any, arg1: $CompoundTag$Type): $Set<($SettingsCategory)>
-public "setMemoryCardContents"(arg0: $ItemStack$Type, arg1: string, arg2: $CompoundTag$Type): void
-public static "importGenericSettingsAndNotify"(arg0: any, arg1: $CompoundTag$Type, arg2: $Player$Type): void
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
-public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
-public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
-public "clearColor"(arg0: $ItemStack$Type): void
 public "hasCustomColor"(arg0: $ItemStack$Type): boolean
+public "clearColor"(arg0: $ItemStack$Type): void
+public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
+public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -909,8 +911,8 @@ import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Blo
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$IBlockTool, $IBlockTool$Type} from "packages/appeng/hooks/$IBlockTool"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -930,9 +932,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getChargeRate"(arg0: $ItemStack$Type): double
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
+public "getChargeRate"(arg0: $ItemStack$Type): double
 public "hurtEnemy"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: $LivingEntity$Type): boolean
 }
 /**
@@ -966,15 +968,15 @@ export class $PortableCellMenuHost extends $ItemMenuHost implements $IPortableTe
 constructor(arg0: $Player$Type, arg1: integer, arg2: $AbstractPortableCell$Type, arg3: $ItemStack$Type, arg4: $BiConsumer$Type<($Player$Type), ($ISubMenu$Type)>)
 
 public "getConfigManager"(): $IConfigManager
-public "onBroadcastChanges"(arg0: $AbstractContainerMenu$Type): boolean
-public "getMainMenuIcon"(): $ItemStack
-public "getCloseHotkey"(): string
-public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
-public "getInventory"(): $MEStorage
 public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
+public "onBroadcastChanges"(arg0: $AbstractContainerMenu$Type): boolean
+public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+public "getCloseHotkey"(): string
+public "getMainMenuIcon"(): $ItemStack
+public "getInventory"(): $MEStorage
 get "configManager"(): $IConfigManager
-get "mainMenuIcon"(): $ItemStack
 get "closeHotkey"(): string
+get "mainMenuIcon"(): $ItemStack
 get "inventory"(): $MEStorage
 }
 /**
@@ -1050,8 +1052,8 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "toString"(): string
-public "getRegistryName"(): $ResourceLocation
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "getRegistryName"(): $ResourceLocation
 get "registryName"(): $ResourceLocation
 }
 /**
@@ -1071,9 +1073,9 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
-import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
 import {$TooltipComponent, $TooltipComponent$Type} from "packages/net/minecraft/world/inventory/tooltip/$TooltipComponent"
+import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$AEToolItem, $AEToolItem$Type} from "packages/appeng/hooks/$AEToolItem"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -1109,27 +1111,27 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type, arg1: $ItemLike$Type, arg2: $ItemLike$Type, arg3: double, arg4: integer, arg5: integer, arg6: integer, arg7: $AEKeyType$Type)
 
 public "getBytes"(arg0: $ItemStack$Type): integer
-public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
-public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getTotalTypes"(arg0: $ItemStack$Type): integer
-public "getBytesPerType"(arg0: $ItemStack$Type): integer
-public "getIdleDrain"(): double
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
-public "getKeyType"(): $AEKeyType
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public static "getColor"(arg0: $ItemStack$Type, arg1: integer): integer
-public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
+public "getKeyType"(): $AEKeyType
+public "getTotalTypes"(arg0: $ItemStack$Type): integer
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
+public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
+public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
+public "getIdleDrain"(): double
+public "getBytesPerType"(arg0: $ItemStack$Type): integer
+public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
 public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "storableInStorageCell"(): boolean
-public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public "isEditable"(arg0: $ItemStack$Type): boolean
-get "idleDrain"(): double
 get "keyType"(): $AEKeyType
+get "idleDrain"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1150,8 +1152,8 @@ import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/wo
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Output"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -1175,16 +1177,16 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "getTextureItem"(arg0: $ItemStack$Type): $ItemStack
 public static "createFacade"(arg0: $ItemStack$Type, arg1: $Direction$Type): $IFacadePart
 public static "canPlaceFacade"(arg0: $IPartHost$Type, arg1: $IFacadePart$Type): boolean
-public "getTextureItem"(arg0: $ItemStack$Type): $ItemStack
 public "createFromID"(arg0: integer): $ItemStack
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public "createFacadeForItem"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
-public "createFacadeForItemUnchecked"(arg0: $ItemStack$Type): $ItemStack
-public "getTextureBlockState"(arg0: $ItemStack$Type): $BlockState
 public "getName"(arg0: $ItemStack$Type): $Component
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "getTextureBlockState"(arg0: $ItemStack$Type): $BlockState
+public "createFacadeForItem"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
+public "createFacadeForItemUnchecked"(arg0: $ItemStack$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1310,9 +1312,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "isFoil"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1346,8 +1348,8 @@ import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$IMenuItem, $IMenuItem$Type} from "packages/appeng/api/implementations/menuobjects/$IMenuItem"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
 import {$IGridLinkableHandler, $IGridLinkableHandler$Type} from "packages/appeng/api/features/$IGridLinkableHandler"
-import {$GlobalPos, $GlobalPos$Type} from "packages/net/minecraft/core/$GlobalPos"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$GlobalPos, $GlobalPos$Type} from "packages/net/minecraft/core/$GlobalPos"
 import {$DoubleSupplier, $DoubleSupplier$Type} from "packages/java/util/function/$DoubleSupplier"
 import {$IUpgradeableItem, $IUpgradeableItem$Type} from "packages/appeng/api/upgrades/$IUpgradeableItem"
 import {$IGrid, $IGrid$Type} from "packages/appeng/api/networking/$IGrid"
@@ -1368,18 +1370,18 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $DoubleSupplier$Type, arg1: $Item$Properties$Type)
 
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
-public "getMenuType"(): $MenuType<(any)>
 public "openFromInventory"(arg0: $Player$Type, arg1: integer): boolean
-public "getLinkedPosition"(arg0: $ItemStack$Type): $GlobalPos
-public "getLinkedGrid"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): $IGrid
+public "getMenuType"(): $MenuType<(any)>
 public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $ItemMenuHost
-public "usePower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
 public "getConfigManager"(arg0: $ItemStack$Type): $IConfigManager
-public "hasPower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "getLinkedGrid"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): $IGrid
+public "usePower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
+public "getLinkedPosition"(arg0: $ItemStack$Type): $GlobalPos
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "hasPower"(arg0: $Player$Type, arg1: double, arg2: $ItemStack$Type): boolean
 public "asItem"(): $Item
 get "menuType"(): $MenuType<(any)>
 }
@@ -1431,9 +1433,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "isFoil"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1629,9 +1631,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $Class$Type<(T)>, arg2: $Function$Type<($IPartItem$Type<(T)>), (T)>)
 
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public "createPart"(): T
 public "getPartClass"(): $Class<(T)>
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 public static "getId"(arg0: $IPartItem$Type<(any)>): $ResourceLocation
 public static "getNetworkId"(arg0: $IPartItem$Type<(any)>): integer
 public static "byNetworkId"(arg0: integer): $IPartItem<(any)>
@@ -1726,15 +1728,15 @@ export class $NetworkToolMenuHost extends $ItemMenuHost implements $InternalInve
 
 constructor(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $IInWorldGridNodeHost$Type)
 
-public "saveChanges"(): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
-public "getInventory"(): $InternalInventory
 public "getGridHost"(): $IInWorldGridNodeHost
 public "getInternalInventory"(): $InternalInventory
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "saveChanges"(): void
+public "getInventory"(): $InternalInventory
 public "isClientSide"(): boolean
-get "inventory"(): $InternalInventory
 get "gridHost"(): $IInWorldGridNodeHost
 get "internalInventory"(): $InternalInventory
+get "inventory"(): $InternalInventory
 get "clientSide"(): boolean
 }
 /**
@@ -1891,9 +1893,9 @@ import {$ICellWorkbenchItem, $ICellWorkbenchItem$Type} from "packages/appeng/api
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
-import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
 import {$TooltipComponent, $TooltipComponent$Type} from "packages/net/minecraft/world/inventory/tooltip/$TooltipComponent"
+import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
@@ -1914,13 +1916,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public static "ofFluids"(...arg0: ($Fluid$Type)[]): $ItemStack
+public static "ofItems"(...arg0: ($ItemLike$Type)[]): $ItemStack
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
-public static "ofItems"(...arg0: ($ItemLike$Type)[]): $ItemStack
-public static "ofFluids"(...arg0: ($Fluid$Type)[]): $ItemStack
-public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isEditable"(arg0: $ItemStack$Type): boolean
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
 }
@@ -1967,11 +1969,11 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type, arg1: integer)
 
 public "isSpatialStorage"(arg0: $ItemStack$Type): boolean
-public "getMaxStoredDim"(arg0: $ItemStack$Type): integer
 public "getAllocatedPlotId"(arg0: $ItemStack$Type): integer
+public "getMaxStoredDim"(arg0: $ItemStack$Type): integer
 public "setStoredDimension"(arg0: $ItemStack$Type, arg1: integer, arg2: $BlockPos$Type): void
-public "doSpatialTransition"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "doSpatialTransition"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1998,9 +2000,9 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
-import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
 import {$TooltipComponent, $TooltipComponent$Type} from "packages/net/minecraft/world/inventory/tooltip/$TooltipComponent"
+import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
@@ -2027,26 +2029,26 @@ constructor(arg0: $AEKeyType$Type, arg1: integer, arg2: $MenuType$Type<(any)>, a
 public "getBytes"(arg0: $ItemStack$Type): integer
 public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
+public "getKeyType"(): $AEKeyType
+public "getTotalTypes"(arg0: $ItemStack$Type): integer
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getTotalTypes"(arg0: $ItemStack$Type): integer
-public "getBytesPerType"(arg0: $ItemStack$Type): integer
 public "getIdleDrain"(): double
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
-public "getKeyType"(): $AEKeyType
+public "getBytesPerType"(arg0: $ItemStack$Type): integer
 public "getRecipeId"(): $ResourceLocation
 public "getTier"(): $StorageTier
-public "getTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
-public "isStorageCell"(arg0: $ItemStack$Type): boolean
+public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
 public "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
 public "storableInStorageCell"(): boolean
-public "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
+public "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
+public "isStorageCell"(arg0: $ItemStack$Type): boolean
 public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
 public "asItem"(): $Item
-get "idleDrain"(): double
 get "keyType"(): $AEKeyType
+get "idleDrain"(): double
 get "recipeId"(): $ResourceLocation
 get "tier"(): $StorageTier
 }
@@ -2223,9 +2225,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "isFoil"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getIntrinsicEnchantLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2247,14 +2249,12 @@ import {$ICellWorkbenchItem, $ICellWorkbenchItem$Type} from "packages/appeng/api
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$ClickAction, $ClickAction$Type} from "packages/net/minecraft/world/inventory/$ClickAction"
 import {$DyeableLeatherItem, $DyeableLeatherItem$Type} from "packages/net/minecraft/world/item/$DyeableLeatherItem"
-import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$FuzzyMode, $FuzzyMode$Type} from "packages/appeng/api/config/$FuzzyMode"
+import {$ConfigInventory, $ConfigInventory$Type} from "packages/appeng/util/$ConfigInventory"
 import {$AEToolItem, $AEToolItem$Type} from "packages/appeng/hooks/$AEToolItem"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$PortableCellMenuHost, $PortableCellMenuHost$Type} from "packages/appeng/items/contents/$PortableCellMenuHost"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$DyeItem, $DyeItem$Type} from "packages/net/minecraft/world/item/$DyeItem"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
 import {$IUpgradeInventory, $IUpgradeInventory$Type} from "packages/appeng/api/upgrades/$IUpgradeInventory"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
@@ -2288,26 +2288,25 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $MenuType$Type<(any)>, arg1: $Item$Properties$Type, arg2: integer)
 
 public "insert"(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: $AEKey$Type, arg3: $AEKeyType$Type, arg4: long, arg5: $Actionable$Type): long
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getChargeRate"(arg0: $ItemStack$Type): double
 public "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
 public "openFromInventory"(arg0: $Player$Type, arg1: integer): boolean
-public "getMenuHost"(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type, arg3: $BlockPos$Type): $PortableCellMenuHost
 public "onUpgradesChanged"(arg0: $ItemStack$Type, arg1: $IUpgradeInventory$Type): void
-public "getRecipeId"(): $ResourceLocation
-public "getColor"(arg0: $ItemStack$Type): integer
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 public "overrideStackedOnOther"(arg0: $ItemStack$Type, arg1: $Slot$Type, arg2: $ClickAction$Type, arg3: $Player$Type): boolean
+public "overrideOtherStackedOnMe"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Slot$Type, arg3: $ClickAction$Type, arg4: $Player$Type, arg5: $SlotAccess$Type): boolean
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public static "getColor"(arg0: $ItemStack$Type, arg1: integer): integer
+public "getColor"(arg0: $ItemStack$Type): integer
+public "getRecipeId"(): $ResourceLocation
+public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
 public "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
-public "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
 public "isEditable"(arg0: $ItemStack$Type): boolean
-public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
-public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
-public "clearColor"(arg0: $ItemStack$Type): void
 public "hasCustomColor"(arg0: $ItemStack$Type): boolean
+public "clearColor"(arg0: $ItemStack$Type): void
+public static "dyeArmor"(arg0: $ItemStack$Type, arg1: $List$Type<($DyeItem$Type)>): $ItemStack
+public "setColor"(arg0: $ItemStack$Type, arg1: integer): void
 public "asItem"(): $Item
 get "recipeId"(): $ResourceLocation
 }

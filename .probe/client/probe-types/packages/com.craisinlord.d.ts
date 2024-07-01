@@ -208,9 +208,9 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 
 export interface $StructurePoolAccessor {
 
- "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "integratedapi_getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
  "integratedapi_getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
+ "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "integratedapi_setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
 }
 

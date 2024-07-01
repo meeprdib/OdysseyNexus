@@ -45,9 +45,9 @@ static "HELMET_SERIALIZER": $RecipeSerializer<(any)>
 
 constructor(arg0: $ShapedRecipe$Type)
 
-public "category"(): $CraftingBookCategory
 public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getSerializer"(): $RecipeSerializer<(any)>
+public "category"(): $CraftingBookCategory
 get "serializer"(): $RecipeSerializer<(any)>
 }
 /**
@@ -75,8 +75,8 @@ export class $AddProbeTagRecipeSerializer implements $RecipeSerializer<($AddProb
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddProbeTagRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $AddProbeTagRecipe
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddProbeTagRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $AddProbeTagRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $AddProbeTagRecipe
@@ -194,46 +194,46 @@ export class $AbstractRecipeAdaptor implements $CraftingRecipe, $IShapedRecipe<(
 constructor(arg0: $ShapedRecipe$Type)
 
 public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
-public "getRecipeWidth"(): integer
-public "getRecipeHeight"(): integer
-public "getId"(): $ResourceLocation
-public "getRecipe"(): $ShapedRecipe
-public "isSpecial"(): boolean
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getToastSymbol"(): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "getRecipeHeight"(): integer
+public "getRecipeWidth"(): integer
+public "getId"(): $ResourceLocation
+public "getRecipe"(): $ShapedRecipe
+public "isSpecial"(): boolean
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "category"(): $CraftingBookCategory
-public "getSerializer"(): $RecipeSerializer<(any)>
 public "showNotification"(): boolean
+public "getSerializer"(): $RecipeSerializer<(any)>
 public "isIncomplete"(): boolean
-public "getType"(): $ResourceLocation
-public "getMod"(): string
-public "getGroup"(): string
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getOrCreateId"(): $ResourceLocation
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "setGroup"(group: string): void
-public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-get "recipeWidth"(): integer
+public "getGroup"(): string
+public "getMod"(): string
+public "getType"(): $ResourceLocation
+get "ingredients"(): $NonNullList<($Ingredient)>
+get "toastSymbol"(): $ItemStack
 get "recipeHeight"(): integer
+get "recipeWidth"(): integer
 get "id"(): $ResourceLocation
 get "recipe"(): $ShapedRecipe
 get "special"(): boolean
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "toastSymbol"(): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
 get "incomplete"(): boolean
-get "type"(): $ResourceLocation
-get "mod"(): string
-get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
 get "schema"(): $RecipeSchema
+set "group"(value: string)
+get "group"(): string
+get "mod"(): string
+get "type"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

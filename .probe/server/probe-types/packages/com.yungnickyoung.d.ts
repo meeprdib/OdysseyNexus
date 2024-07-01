@@ -211,10 +211,10 @@ readonly "features": $HolderSet<($PlacedFeature)>
 
 constructor(arg0: $HolderSet$Type<($PlacedFeature$Type)>)
 
-public "getPlacedFeatures"(): $HolderSet<($PlacedFeature)>
 public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-get "placedFeatures"(): $HolderSet<($PlacedFeature)>
+public "getPlacedFeatures"(): $HolderSet<($PlacedFeature)>
 get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
+get "placedFeatures"(): $HolderSet<($PlacedFeature)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -262,18 +262,18 @@ import {$DragonRespawnStage, $DragonRespawnStage$Type} from "packages/com/yungni
 
 export interface $IDragonFight {
 
- "betterendisland$clearVanillaPillars"(): void
- "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
- "betterendisland$reset"(arg0: boolean): void
  "betterendisland$tickBellSound"(): void
  "betterendisland$initialRespawn"(): void
- "betterendisland$hasDragonEverSpawned"(): boolean
- "betterendisland$numTimesDragonKilled"(): integer
- "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
- "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
- "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
  "betterendisland$firstExitPortalSpawn"(): boolean
+ "betterendisland$numTimesDragonKilled"(): integer
+ "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
+ "betterendisland$hasDragonEverSpawned"(): boolean
  "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
+ "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
+ "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
+ "betterendisland$reset"(arg0: boolean): void
+ "betterendisland$clearVanillaPillars"(): void
+ "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
 }
 
 export namespace $IDragonFight {
@@ -418,12 +418,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/mixin/a
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinY"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -593,12 +593,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/access
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinY"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -820,8 +820,8 @@ declare module "packages/com/yungnickyoung/minecraft/betterendisland/world/$IEnd
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IEndSpike {
 
- "betterendisland$getCrystalYOffset"(): integer
  "betterendisland$setCrystalYOffsetFromPillarHeight"(arg0: integer): void
+ "betterendisland$getCrystalYOffset"(): integer
 }
 
 export namespace $IEndSpike {
@@ -1442,12 +1442,12 @@ declare module "packages/com/yungnickyoung/minecraft/yungsapi/mixin/accessor/$Bo
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinY"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1828,8 +1828,8 @@ declare module "packages/com/yungnickyoung/minecraft/betterendisland/world/$Drag
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
 import {$EndDragonFight, $EndDragonFight$Type} from "packages/net/minecraft/world/level/dimension/end/$EndDragonFight"
-import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
@@ -1848,12 +1848,12 @@ static readonly "CODEC": $StringRepresentable$EnumCodec<($DragonRespawnStage)>
 
 public static "values"(): ($DragonRespawnStage)[]
 public static "valueOf"(arg0: string): $DragonRespawnStage
-public "getSerializedName"(): string
 public "tick"(arg0: $ServerLevel$Type, arg1: $EndDragonFight$Type, arg2: $List$Type<($EndCrystal$Type)>, arg3: integer, arg4: $BlockPos$Type): void
 public static "byName"(arg0: string): $DragonRespawnStage
+public "getSerializedName"(): string
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
 /**
@@ -2098,12 +2098,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterwitchhuts/mixin/acces
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinY"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -2125,12 +2125,12 @@ declare module "packages/com/yungnickyoung/minecraft/bettermineshafts/mixin/$Bou
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinY"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {

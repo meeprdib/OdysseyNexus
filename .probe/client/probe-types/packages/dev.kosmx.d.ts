@@ -31,14 +31,14 @@ import {$AnimationStack, $AnimationStack$Type} from "packages/dev/kosmx/playerAn
 
 export interface $IAnimatedPlayer extends $IPlayer {
 
+ "playerAnimator_getAnimation"(arg0: $ResourceLocation$Type): $IAnimation
+ "playerAnimator_getAnimation"(): $AnimationApplier
+ "playerAnimator_setAnimation"(arg0: $ResourceLocation$Type, arg1: $IAnimation$Type): $IAnimation
 /**
  * 
  * @deprecated
  */
  "getAnimation"(): $AnimationApplier
- "playerAnimator_getAnimation"(arg0: $ResourceLocation$Type): $IAnimation
- "playerAnimator_getAnimation"(): $AnimationApplier
- "playerAnimator_setAnimation"(arg0: $ResourceLocation$Type, arg1: $IAnimation$Type): $IAnimation
  "getAnimationStack"(): $AnimationStack
 }
 
@@ -69,14 +69,14 @@ export class $AnimationStack implements $IAnimation {
 constructor()
 
 public "isActive"(): boolean
-public "getFirstPersonConfiguration"(tickDelta: float): $FirstPersonConfiguration
-public "getFirstPersonMode"(tickDelta: float): $FirstPersonMode
 public "tick"(): void
+public "getFirstPersonConfiguration"(tickDelta: float): $FirstPersonConfiguration
 public "setupAnim"(tickDelta: float): void
 public "get3DTransform"(modelName: string, type: $TransformType$Type, tickDelta: float, value0: $Vec3f$Type): $Vec3f
-public "removeLayer"(layerLevel: integer): boolean
-public "removeLayer"(layer: $IAnimation$Type): boolean
+public "getFirstPersonMode"(tickDelta: float): $FirstPersonMode
 public "addAnimLayer"(priority: integer, layer: $IAnimation$Type): void
+public "removeLayer"(layer: $IAnimation$Type): boolean
+public "removeLayer"(layerLevel: integer): boolean
 get "active"(): boolean
 set "upAnim"(value: float)
 }
@@ -101,10 +101,10 @@ constructor(left: L, right: R)
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getRight"(): R
 public "getLeft"(): L
-get "right"(): R
+public "getRight"(): R
 get "left"(): L
+get "right"(): R
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -127,11 +127,11 @@ import {$Vec3f, $Vec3f$Type} from "packages/dev/kosmx/playerAnim/core/util/$Vec3
 export interface $IAnimation {
 
  "isActive"(): boolean
- "getFirstPersonConfiguration"(tickDelta: float): $FirstPersonConfiguration
- "getFirstPersonMode"(tickDelta: float): $FirstPersonMode
  "tick"(): void
+ "getFirstPersonConfiguration"(tickDelta: float): $FirstPersonConfiguration
  "setupAnim"(arg0: float): void
  "get3DTransform"(arg0: string, arg1: $TransformType$Type, arg2: float, arg3: $Vec3f$Type): $Vec3f
+ "getFirstPersonMode"(tickDelta: float): $FirstPersonMode
 }
 
 export namespace $IAnimation {
@@ -162,11 +162,11 @@ static readonly "DISABLED": $FirstPersonMode
 public static "values"(): ($FirstPersonMode)[]
 public static "valueOf"(name: string): $FirstPersonMode
 public "isEnabled"(): boolean
-public static "setFirstPersonPass"(newValue: boolean): void
 public static "isFirstPersonPass"(): boolean
+public static "setFirstPersonPass"(newValue: boolean): void
 get "enabled"(): boolean
-set "firstPersonPass"(value: boolean)
 get "firstPersonPass"(): boolean
+set "firstPersonPass"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -241,18 +241,18 @@ export class $AnimationProcessor {
 constructor(animation: $IAnimation$Type)
 
 public "isActive"(): boolean
+public "tick"(): void
 public "getFirstPersonConfiguration"(): $FirstPersonConfiguration
+public "get3DTransform"(modelName: string, type: $TransformType$Type, value0: $Vec3f$Type): $Vec3f
+public "isFirstPersonAnimationDisabled"(): boolean
 public "getFirstPersonMode"(): $FirstPersonMode
 public "setTickDelta"(tickDelta: float): void
-public "tick"(): void
-public "get3DTransform"(modelName: string, type: $TransformType$Type, value0: $Vec3f$Type): $Vec3f
 public "getBend"(modelName: string): $Pair<(float), (float)>
-public "isFirstPersonAnimationDisabled"(): boolean
 get "active"(): boolean
 get "firstPersonConfiguration"(): $FirstPersonConfiguration
+get "firstPersonAnimationDisabled"(): boolean
 get "firstPersonMode"(): $FirstPersonMode
 set "tickDelta"(value: float)
-get "firstPersonAnimationDisabled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -323,11 +323,11 @@ public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "getY"(): N
-public "getZ"(): N
 public "getX"(): N
+public "getZ"(): N
 get "y"(): N
-get "z"(): N
 get "x"(): N
+get "z"(): N
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -354,8 +354,8 @@ public "add"(other: $Vec3f$Type): $Vec3f
 public "scale"(scalar: float): $Vec3f
 public "subtract"(rhs: $Vec3f$Type): $Vec3f
 public "distanceTo"(vec3d: $Vec3d$Type): double
-public "dotProduct"(other: $Vec3f$Type): float
 public "crossProduct"(other: $Vec3f$Type): $Vec3f
+public "dotProduct"(other: $Vec3f$Type): float
 public "squaredDistanceTo"(vec3d: $Vec3d$Type): double
 }
 /**
@@ -381,8 +381,8 @@ public "add"(other: $Vec3d$Type): $Vec3d
 public "scale"(scalar: double): $Vec3d
 public "subtract"(rhs: $Vec3d$Type): $Vec3d
 public "distanceTo"(vec3d: $Vec3d$Type): double
-public "dotProduct"(other: $Vec3d$Type): double
 public "crossProduct"(other: $Vec3d$Type): $Vec3d
+public "dotProduct"(other: $Vec3d$Type): double
 public "squaredDistanceTo"(vec3d: $Vec3d$Type): double
 }
 /**
@@ -433,20 +433,20 @@ public "toString"(): string
 public "hashCode"(): integer
 public "isShowRightArm"(): boolean
 public "isShowLeftArm"(): boolean
-public "setShowLeftArm"(showLeftArm: boolean): $FirstPersonConfiguration
 public "setShowRightArm"(showRightArm: boolean): $FirstPersonConfiguration
-public "isShowRightItem"(): boolean
-public "setShowLeftItem"(showLeftItem: boolean): $FirstPersonConfiguration
 public "setShowRightItem"(showRightItem: boolean): $FirstPersonConfiguration
 public "isShowLeftItem"(): boolean
+public "isShowRightItem"(): boolean
+public "setShowLeftItem"(showLeftItem: boolean): $FirstPersonConfiguration
+public "setShowLeftArm"(showLeftArm: boolean): $FirstPersonConfiguration
 get "showRightArm"(): boolean
 get "showLeftArm"(): boolean
-set "showLeftArm"(value: boolean)
 set "showRightArm"(value: boolean)
-get "showRightItem"(): boolean
-set "showLeftItem"(value: boolean)
 set "showRightItem"(value: boolean)
 get "showLeftItem"(): boolean
+get "showRightItem"(): boolean
+set "showLeftItem"(value: boolean)
+set "showLeftArm"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

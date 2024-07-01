@@ -3,10 +3,10 @@ import {$Camera, $Camera$Type} from "packages/net/minecraft/client/$Camera"
 
 export interface $MixinGameRendererAccessor {
 
- "crackerslib$getFov"(arg0: $Camera$Type, arg1: float, arg2: boolean): double
  "crackerslib$getZoomX"(): float
- "crackerslib$getZoom"(): float
  "crackerslib$getZoomY"(): float
+ "crackerslib$getZoom"(): float
+ "crackerslib$getFov"(arg0: $Camera$Type, arg1: float, arg2: boolean): double
 }
 
 export namespace $MixinGameRendererAccessor {
@@ -35,10 +35,10 @@ export class $ConfigArgument$Serializer implements $ArgumentTypeInfo<($ConfigArg
 
 constructor()
 
+public "serializeToNetwork"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $FriendlyByteBuf$Type): void
 public "unpack"(arg0: $ConfigArgument$Type): $ConfigArgument$Serializer$Template
 public "serializeToJson"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $JsonObject$Type): void
 public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $ConfigArgument$Serializer$Template
-public "serializeToNetwork"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -96,8 +96,8 @@ import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Blo
 
 export interface $MixinBlockEntityType {
 
- "crackerslib$setValidBlocks"(arg0: $Set$Type<($Block$Type)>): void
  "crackerslib$getValidBlocks"(): $Set<($Block)>
+ "crackerslib$setValidBlocks"(arg0: $Set$Type<($Block$Type)>): void
 }
 
 export namespace $MixinBlockEntityType {
@@ -126,8 +126,8 @@ export class $ConfigArgument$Serializer$Template implements $ArgumentTypeInfo$Te
 readonly "availableOptions": $List<(string)>
 
 
-public "type"(): $ArgumentTypeInfo<($ConfigArgument), (any)>
 public "instantiate"(arg0: $CommandBuildContext$Type): $ConfigArgument
+public "type"(): $ArgumentTypeInfo<($ConfigArgument), (any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

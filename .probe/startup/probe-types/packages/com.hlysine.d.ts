@@ -25,13 +25,13 @@ public "addToManager"(): void
 public "tick"(arg0: $Level$Type): void
 public "onRemove"(): void
 public "getForcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-public "getLoaderType"(): $LoaderType
 public "getLoaderMode"(): $LoaderMode
+public "getLoaderType"(): $LoaderType
 public "removeFromManager"(): void
 get "location"(): $Pair<($ResourceLocation), ($BlockPos)>
 get "forcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-get "loaderType"(): $LoaderType
 get "loaderMode"(): $LoaderMode
+get "loaderType"(): $LoaderType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -100,17 +100,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $BlockEntityEntry$Type<($EmptyChunkLoaderBlockEntity$Type)>)
 
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($EmptyChunkLoaderBlockEntity)>
-public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($EmptyChunkLoaderBlockEntity)>
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($EmptyChunkLoaderBlockEntity$Type)>): void
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($EmptyChunkLoaderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $EmptyChunkLoaderBlockEntity
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($EmptyChunkLoaderBlockEntity)>
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($EmptyChunkLoaderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($EmptyChunkLoaderBlockEntity$Type)>): void
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $EmptyChunkLoaderBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($EmptyChunkLoaderBlockEntity)>
@@ -242,14 +242,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $LoaderType$Type)
 
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
-public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
-public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
+public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 }
 /**
@@ -298,10 +298,10 @@ static readonly "MAX_BAR_WIDTH": integer
 public static "createAndesite"(arg0: $Block$Type, arg1: $Item$Properties$Type): $EmptyChunkLoaderBlockItem
 public static "createBrass"(arg0: $Block$Type, arg1: $Item$Properties$Type): $EmptyChunkLoaderBlockItem
 public "interactLivingEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $LivingEntity$Type, arg3: $InteractionHand$Type): $InteractionResult
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -318,8 +318,8 @@ export type $EmptyChunkLoaderBlockItem_ = $EmptyChunkLoaderBlockItem$Type;
 declare module "packages/com/hlysine/create_power_loader/content/$LoaderMode" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 
@@ -334,8 +334,8 @@ public static "values"(): ($LoaderMode)[]
 public static "valueOf"(arg0: string): $LoaderMode
 public "getSerializedName"(): string
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
 /**
@@ -377,16 +377,16 @@ public "addToManager"(): void
 public static "isEnabledForStation"(arg0: $LoaderType$Type): boolean
 public "tick"(arg0: $TrackGraph$Type, arg1: boolean): void
 public "onRemove"(): void
+public "addAttachment"(arg0: $LoaderType$Type, arg1: $BlockPos$Type): void
 public "getForcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
 public "removeAttachment"(arg0: $BlockPos$Type): void
-public "getLoaderType"(): $LoaderType
 public "getLoaderMode"(): $LoaderMode
-public "addAttachment"(arg0: $LoaderType$Type, arg1: $BlockPos$Type): void
+public "getLoaderType"(): $LoaderType
 public "removeFromManager"(): void
 get "location"(): $Pair<($ResourceLocation), ($BlockPos)>
 get "forcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-get "loaderType"(): $LoaderType
 get "loaderMode"(): $LoaderMode
+get "loaderType"(): $LoaderType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -457,13 +457,13 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($BrassChunkLoaderBlockEntity)>
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($BrassChunkLoaderBlockEntity)>
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($BrassChunkLoaderBlockEntity$Type)>): void
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($BrassChunkLoaderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $BrassChunkLoaderBlockEntity
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($BrassChunkLoaderBlockEntity)>
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($BrassChunkLoaderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($BrassChunkLoaderBlockEntity$Type)>): void
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $BrassChunkLoaderBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($BrassChunkLoaderBlockEntity)>
@@ -512,25 +512,25 @@ public "remove"(): void
 public "initialize"(): void
 public "getLocation"(): $Pair<($ResourceLocation), ($BlockPos)>
 public "destroy"(): void
-public "updateAttachedStation"(arg0: $StationBlockEntity$Type): void
-public "isSpeedRequirementFulfilled"(): boolean
-public "tick"(): void
 public "canLoadChunks"(): boolean
+public "tick"(): void
+public "updateAttachedStation"(arg0: $StationBlockEntity$Type): void
 public "getForcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-public "getLoaderType"(): $LoaderType
-public "getLoaderMode"(): $LoaderMode
 public "getAttachedStation"(): $StationBlockEntity
 public "getLoadingRange"(): integer
+public "getLoaderMode"(): $LoaderMode
+public "getLoaderType"(): $LoaderType
 public "reclaimChunks"(arg0: $Set$Type<($ChunkLoadManager$LoadedChunkPos$Type)>): void
-public "addToManager"(): void
+public "isSpeedRequirementFulfilled"(): boolean
 public "removeFromManager"(): void
+public "addToManager"(): void
 get "location"(): $Pair<($ResourceLocation), ($BlockPos)>
-get "speedRequirementFulfilled"(): boolean
 get "forcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-get "loaderType"(): $LoaderType
-get "loaderMode"(): $LoaderMode
 get "attachedStation"(): $StationBlockEntity
 get "loadingRange"(): integer
+get "loaderMode"(): $LoaderMode
+get "loaderType"(): $LoaderType
+get "speedRequirementFulfilled"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -625,13 +625,13 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($AndesiteChunkLoaderBlockEntity)>
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($AndesiteChunkLoaderBlockEntity)>
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($AndesiteChunkLoaderBlockEntity$Type)>): void
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($AndesiteChunkLoaderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $AndesiteChunkLoaderBlockEntity
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($AndesiteChunkLoaderBlockEntity)>
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($AndesiteChunkLoaderBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($AndesiteChunkLoaderBlockEntity$Type)>): void
+public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $AndesiteChunkLoaderBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($AndesiteChunkLoaderBlockEntity)>
@@ -667,8 +667,8 @@ public "toString"(): string
 public "hashCode"(): integer
 public "x"(): integer
 public "z"(): integer
-public "chunkPos"(): $ChunkPos
 public "dimension"(): $ResourceLocation
+public "chunkPos"(): $ChunkPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -740,8 +740,8 @@ export type $CPLGlobalStation_ = $CPLGlobalStation$Type;
 declare module "packages/com/hlysine/create_power_loader/content/$LoaderType" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
-import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 
@@ -754,8 +754,8 @@ public static "values"(): ($LoaderType)[]
 public static "valueOf"(arg0: string): $LoaderType
 public "getSerializedName"(): string
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
 /**
@@ -794,10 +794,10 @@ readonly "type": $LoaderType
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "setLoadingRange"(arg0: integer): void
 public "getLoadingRange"(): integer
-set "loadingRange"(value: integer)
+public "setLoadingRange"(arg0: integer): void
 get "loadingRange"(): integer
+set "loadingRange"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -839,14 +839,14 @@ public static "read"(arg0: $Carriage$Type, arg1: $CompoundTag$Type): $CarriageCh
 public "tick"(arg0: $Level$Type): void
 public "onRemove"(): void
 public "getForcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-public "getLoaderType"(): $LoaderType
 public "getLoaderMode"(): $LoaderMode
-public "addToManager"(): void
+public "getLoaderType"(): $LoaderType
 public "removeFromManager"(): void
+public "addToManager"(): void
 get "location"(): $Pair<($ResourceLocation), ($BlockPos)>
 get "forcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
-get "loaderType"(): $LoaderType
 get "loaderMode"(): $LoaderMode
+get "loaderType"(): $LoaderType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -872,11 +872,11 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 export interface $ChunkLoader {
 
  "getLocation"(): $Pair<($ResourceLocation), ($BlockPos)>
+ "removeFromManager"(): void
  "addToManager"(): void
  "getForcedChunks"(): $Set<($ChunkLoadManager$LoadedChunkPos)>
- "getLoaderType"(): $LoaderType
  "getLoaderMode"(): $LoaderMode
- "removeFromManager"(): void
+ "getLoaderType"(): $LoaderType
 }
 
 export namespace $ChunkLoader {

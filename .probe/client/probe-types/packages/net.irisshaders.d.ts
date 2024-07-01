@@ -6,14 +6,14 @@ export class $PBRAtlasHolder {
 constructor()
 
 public "cycleAnimationFrames"(): void
-public "setSpecularAtlas"(atlas: $PBRAtlasTexture$Type): void
-public "setNormalAtlas"(atlas: $PBRAtlasTexture$Type): void
-public "getSpecularAtlas"(): $PBRAtlasTexture
 public "getNormalAtlas"(): $PBRAtlasTexture
-set "specularAtlas"(value: $PBRAtlasTexture$Type)
-set "normalAtlas"(value: $PBRAtlasTexture$Type)
-get "specularAtlas"(): $PBRAtlasTexture
+public "setNormalAtlas"(atlas: $PBRAtlasTexture$Type): void
+public "setSpecularAtlas"(atlas: $PBRAtlasTexture$Type): void
+public "getSpecularAtlas"(): $PBRAtlasTexture
 get "normalAtlas"(): $PBRAtlasTexture
+set "normalAtlas"(value: $PBRAtlasTexture$Type)
+set "specularAtlas"(value: $PBRAtlasTexture$Type)
+get "specularAtlas"(): $PBRAtlasTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -83,19 +83,19 @@ import {$VertexFormat, $VertexFormat$Type} from "packages/com/mojang/blaze3d/ver
 
 export interface $IrisExtendedBufferBuilder {
 
- "iris$isTerrain"(): boolean
- "iris$currentBlock"(): short
- "iris$mode"(): $VertexFormat$Mode
- "iris$format"(): $VertexFormat
- "iris$vertexCount"(): integer
- "iris$extending"(): boolean
  "iris$injectNormalAndUV1"(): boolean
  "iris$incrementVertexCount"(): void
- "iris$currentLocalPosY"(): integer
- "iris$currentLocalPosZ"(): integer
- "iris$currentRenderType"(): short
- "iris$resetVertexCount"(): void
  "iris$currentLocalPosX"(): integer
+ "iris$currentLocalPosY"(): integer
+ "iris$resetVertexCount"(): void
+ "iris$currentRenderType"(): short
+ "iris$currentLocalPosZ"(): integer
+ "iris$isTerrain"(): boolean
+ "iris$format"(): $VertexFormat
+ "iris$mode"(): $VertexFormat$Mode
+ "iris$currentBlock"(): short
+ "iris$vertexCount"(): integer
+ "iris$extending"(): boolean
 }
 
 export namespace $IrisExtendedBufferBuilder {
@@ -142,10 +142,10 @@ declare module "packages/net/irisshaders/batchedentityrendering/impl/$MemoryTrac
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MemoryTrackingRenderBuffers {
 
- "getEntityBufferAllocatedSize"(): integer
- "getMiscBufferAllocatedSize"(): integer
- "freeAndDeleteBuffers"(): void
  "getMaxBegins"(): integer
+ "getMiscBufferAllocatedSize"(): integer
+ "getEntityBufferAllocatedSize"(): integer
+ "freeAndDeleteBuffers"(): void
 }
 
 export namespace $MemoryTrackingRenderBuffers {
@@ -191,8 +191,8 @@ declare module "packages/net/irisshaders/iris/vertices/$BlockSensitiveBufferBuil
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BlockSensitiveBufferBuilder {
 
- "beginBlock"(arg0: short, arg1: short, arg2: integer, arg3: integer, arg4: integer): void
  "endBlock"(): void
+ "beginBlock"(arg0: short, arg1: short, arg2: integer, arg3: integer, arg4: integer): void
 }
 
 export namespace $BlockSensitiveBufferBuilder {
@@ -289,8 +289,8 @@ declare module "packages/net/irisshaders/iris/mixin/texture/$AnimationMetadataSe
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AnimationMetadataSectionAccessor {
 
- "getFrameWidth"(): integer
  "getFrameHeight"(): integer
+ "getFrameWidth"(): integer
  "setFrameWidth"(arg0: integer): void
  "setFrameHeight"(arg0: integer): void
 }
@@ -335,8 +335,8 @@ declare module "packages/net/irisshaders/iris/targets/$Blaze3dRenderTargetExt" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $Blaze3dRenderTargetExt {
 
- "iris$getDepthBufferVersion"(): integer
  "iris$getColorBufferVersion"(): integer
+ "iris$getDepthBufferVersion"(): integer
 }
 
 export namespace $Blaze3dRenderTargetExt {
@@ -362,12 +362,12 @@ export class $PBRSpriteHolder {
 constructor()
 
 public "close"(): void
-public "getNormalSprite"(): $TextureAtlasSprite
 public "getSpecularSprite"(): $TextureAtlasSprite
+public "getNormalSprite"(): $TextureAtlasSprite
 public "setNormalSprite"(sprite: $TextureAtlasSprite$Type): void
 public "setSpecularSprite"(sprite: $TextureAtlasSprite$Type): void
-get "normalSprite"(): $TextureAtlasSprite
 get "specularSprite"(): $TextureAtlasSprite
+get "normalSprite"(): $TextureAtlasSprite
 set "normalSprite"(value: $TextureAtlasSprite$Type)
 set "specularSprite"(value: $TextureAtlasSprite$Type)
 }
@@ -488,8 +488,8 @@ import {$TransparencyType, $TransparencyType$Type} from "packages/net/irisshader
 
 export interface $BlendingStateHolder {
 
- "setTransparencyType"(arg0: $TransparencyType$Type): void
  "getTransparencyType"(): $TransparencyType
+ "setTransparencyType"(arg0: $TransparencyType$Type): void
 }
 
 export namespace $BlendingStateHolder {
@@ -512,11 +512,11 @@ import {$SpriteContents$AnimatedTexture, $SpriteContents$AnimatedTexture$Type} f
 
 export interface $SpriteContentsTickerAccessor {
 
+ "getFrame"(): integer
+ "setFrame"(arg0: integer): void
  "getAnimationInfo"(): $SpriteContents$AnimatedTexture
  "setSubFrame"(arg0: integer): void
  "getSubFrame"(): integer
- "getFrame"(): integer
- "setFrame"(arg0: integer): void
 }
 
 export namespace $SpriteContentsTickerAccessor {
@@ -540,11 +540,11 @@ import {$Camera, $Camera$Type} from "packages/net/minecraft/client/$Camera"
 
 export interface $GameRendererAccessor {
 
- "invokeBobHurt"(arg0: $PoseStack$Type, arg1: float): void
  "getPanoramicMode"(): boolean
+ "invokeBobHurt"(arg0: $PoseStack$Type, arg1: float): void
+ "getRenderHand"(): boolean
  "invokeBobView"(arg0: $PoseStack$Type, arg1: float): void
  "invokeGetFov"(arg0: $Camera$Type, arg1: float, arg2: boolean): double
- "getRenderHand"(): boolean
 }
 
 export namespace $GameRendererAccessor {
@@ -591,8 +591,8 @@ declare module "packages/net/irisshaders/iris/shadows/$CullingDataCache" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $CullingDataCache {
 
- "saveState"(): void
  "restoreState"(): void
+ "saveState"(): void
 }
 
 export namespace $CullingDataCache {
@@ -659,28 +659,28 @@ declare global {
 export type $RenderTypeAccessor_ = $RenderTypeAccessor$Type;
 }}
 declare module "packages/net/irisshaders/iris/mixin/$LevelRendererAccessor" {
-import {$ClientLevel, $ClientLevel$Type} from "packages/net/minecraft/client/multiplayer/$ClientLevel"
 import {$EntityRenderDispatcher, $EntityRenderDispatcher$Type} from "packages/net/minecraft/client/renderer/entity/$EntityRenderDispatcher"
+import {$ClientLevel, $ClientLevel$Type} from "packages/net/minecraft/client/multiplayer/$ClientLevel"
 import {$RenderBuffers, $RenderBuffers$Type} from "packages/net/minecraft/client/renderer/$RenderBuffers"
 import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import {$Camera, $Camera$Type} from "packages/net/minecraft/client/$Camera"
 import {$Matrix4f, $Matrix4f$Type} from "packages/org/joml/$Matrix4f"
 import {$Frustum, $Frustum$Type} from "packages/net/minecraft/client/renderer/culling/$Frustum"
 import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraft/client/renderer/$MultiBufferSource"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$RenderType, $RenderType$Type} from "packages/net/minecraft/client/renderer/$RenderType"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 
 export interface $LevelRendererAccessor {
 
- "getLevel"(): $ClientLevel
- "invokeSetupRender"(arg0: $Camera$Type, arg1: $Frustum$Type, arg2: boolean, arg3: boolean): void
- "getRenderBuffers"(): $RenderBuffers
- "setRenderBuffers"(arg0: $RenderBuffers$Type): void
- "invokeRenderEntity"(arg0: $Entity$Type, arg1: double, arg2: double, arg3: double, arg4: float, arg5: $PoseStack$Type, arg6: $MultiBufferSource$Type): void
+ "invokeRenderChunkLayer"(arg0: $RenderType$Type, arg1: $PoseStack$Type, arg2: double, arg3: double, arg4: double, arg5: $Matrix4f$Type): void
  "getEntityRenderDispatcher"(): $EntityRenderDispatcher
  "shouldRegenerateClouds"(): boolean
- "invokeRenderChunkLayer"(arg0: $RenderType$Type, arg1: $PoseStack$Type, arg2: double, arg3: double, arg4: double, arg5: $Matrix4f$Type): void
  "setShouldRegenerateClouds"(arg0: boolean): void
+ "getLevel"(): $ClientLevel
+ "invokeSetupRender"(arg0: $Camera$Type, arg1: $Frustum$Type, arg2: boolean, arg3: boolean): void
+ "invokeRenderEntity"(arg0: $Entity$Type, arg1: double, arg2: double, arg3: double, arg4: float, arg5: $PoseStack$Type, arg6: $MultiBufferSource$Type): void
+ "getRenderBuffers"(): $RenderBuffers
+ "setRenderBuffers"(arg0: $RenderBuffers$Type): void
 }
 
 export namespace $LevelRendererAccessor {
@@ -729,8 +729,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IrisItemLightProvider {
 
- "getLightEmission"(player: $Player$Type, stack: $ItemStack$Type): integer
  "getLightColor"(player: $Player$Type, stack: $ItemStack$Type): $Vector3f
+ "getLightEmission"(player: $Player$Type, stack: $ItemStack$Type): integer
 }
 
 export namespace $IrisItemLightProvider {
@@ -802,8 +802,8 @@ declare module "packages/net/irisshaders/iris/helpers/$VertexBufferHelper" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $VertexBufferHelper {
 
- "restoreBinding"(): void
  "saveBinding"(): void
+ "restoreBinding"(): void
 }
 
 export namespace $VertexBufferHelper {
@@ -851,8 +851,8 @@ declare module "packages/net/irisshaders/batchedentityrendering/impl/$RenderBuff
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $RenderBuffersExt {
 
- "endLevelRendering"(): void
  "beginLevelRendering"(): void
+ "endLevelRendering"(): void
 }
 
 export namespace $RenderBuffersExt {
@@ -938,16 +938,16 @@ public "getType"(): $PBRType
 public "getSprite"(id: $ResourceLocation$Type): $AtlasPBRLoader$PBRTextureAtlasSprite
 public "load"(manager: $ResourceManager$Type): void
 public "cycleAnimationFrames"(): void
+public "getDefaultDumpLocation"(): $ResourceLocation
 public "upload"(atlasWidth: integer, atlasHeight: integer, mipLevel: integer): void
 public "dumpContents"(id: $ResourceLocation$Type, path: $Path$Type): void
 public "tryUpload"(atlasWidth: integer, atlasHeight: integer, mipLevel: integer): boolean
-public static "syncAnimation"(source: $SpriteContents$Ticker$Type, target: $SpriteContents$Ticker$Type): void
 public "getAtlasId"(): $ResourceLocation
-public "getDefaultDumpLocation"(): $ResourceLocation
+public static "syncAnimation"(source: $SpriteContents$Ticker$Type, target: $SpriteContents$Ticker$Type): void
 public "addSprite"(sprite: $AtlasPBRLoader$PBRTextureAtlasSprite$Type): void
 get "type"(): $PBRType
-get "atlasId"(): $ResourceLocation
 get "defaultDumpLocation"(): $ResourceLocation
+get "atlasId"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -972,9 +972,9 @@ static readonly "SPECULAR": $PBRType
 public static "values"(): ($PBRType)[]
 public static "valueOf"(name: string): $PBRType
 public "getDefaultValue"(): integer
-public static "removeSuffix"(path: string): string
-public "getSuffix"(): string
 public static "fromFileLocation"(location: string): $PBRType
+public "getSuffix"(): string
+public static "removeSuffix"(path: string): string
 public "appendSuffix"(path: string): string
 get "defaultValue"(): integer
 get "suffix"(): string
@@ -999,8 +999,8 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 export interface $TextureAtlasAccessor {
 
  "getTexturesByName"(): $Map<($ResourceLocation), ($TextureAtlasSprite)>
- "getMipLevel"(): integer
  "callGetHeight"(): integer
+ "getMipLevel"(): integer
  "callGetWidth"(): integer
 }
 
@@ -1050,9 +1050,9 @@ declare module "packages/net/irisshaders/batchedentityrendering/impl/$DrawCallTr
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DrawCallTrackingRenderBuffers {
 
- "resetDrawCounts"(): void
  "getRenderTypes"(): integer
  "getDrawCalls"(): integer
+ "resetDrawCounts"(): void
 }
 
 export namespace $DrawCallTrackingRenderBuffers {
@@ -1145,9 +1145,9 @@ declare module "packages/net/irisshaders/batchedentityrendering/impl/$MemoryTrac
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MemoryTrackingBuffer {
 
- "getUsedSize"(): integer
- "getAllocatedSize"(): integer
  "freeAndDeleteBuffer"(): void
+ "getAllocatedSize"(): integer
+ "getUsedSize"(): integer
 }
 
 export namespace $MemoryTrackingBuffer {

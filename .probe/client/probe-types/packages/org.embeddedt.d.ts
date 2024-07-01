@@ -214,9 +214,9 @@ import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ClipContext, $ClipContext$Type} from "packages/net/minecraft/world/level/$ClipContext"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -228,40 +228,40 @@ export class $SafeBlockGetter implements $BlockGetter {
 constructor(wrapped: $ServerLevel$Type)
 
 public "getBlockState"(pos: $BlockPos$Type): $BlockState
-public "getMaxBuildHeight"(): integer
 public "shouldUse"(): boolean
-public "getMinBuildHeight"(): integer
 public "getBlockEntity"(pos: $BlockPos$Type): $BlockEntity
-public "getHeight"(): integer
-public "getMaxLightLevel"(): integer
 public "getFluidState"(pos: $BlockPos$Type): $FluidState
-public "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
+public "getMaxBuildHeight"(): integer
+public "getMaxLightLevel"(): integer
+public "getHeight"(): integer
+public "getMinBuildHeight"(): integer
 public "clip"(arg0: $ClipContext$Type): $BlockHitResult
 public "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
-public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
 public "getLightEmission"(arg0: $BlockPos$Type): integer
+public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
+public "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
 public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
-public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
 public "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
-public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
-public "getSectionIndex"(arg0: integer): integer
-public "getSectionIndexFromSectionY"(arg0: integer): integer
-public "isOutsideBuildHeight"(arg0: integer): boolean
-public "getMinSection"(): integer
-public "getMaxSection"(): integer
+public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
 public "getSectionsCount"(): integer
-public "getSectionYFromSectionIndex"(arg0: integer): integer
+public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
+public "getMinSection"(): integer
+public "isOutsideBuildHeight"(arg0: integer): boolean
+public "getSectionIndex"(arg0: integer): integer
 public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
-public "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+public "getSectionIndexFromSectionY"(arg0: integer): integer
+public "getMaxSection"(): integer
+public "getSectionYFromSectionIndex"(arg0: integer): integer
 public "getModelDataManager"(): $ModelDataManager
+public "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
 get "maxBuildHeight"(): integer
-get "minBuildHeight"(): integer
-get "height"(): integer
 get "maxLightLevel"(): integer
+get "height"(): integer
+get "minBuildHeight"(): integer
+get "sectionsCount"(): integer
 get "minSection"(): integer
 get "maxSection"(): integer
-get "sectionsCount"(): integer
 get "modelDataManager"(): $ModelDataManager
 }
 /**

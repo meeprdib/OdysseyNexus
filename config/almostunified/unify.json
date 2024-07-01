@@ -7,7 +7,7 @@
     "create_dd",
     "create",
     "galosphere",
-    "create_dd",
+    "atumnity",
     "createdeco",
     "farmersdelight",
     "qualitycrops",
@@ -19,7 +19,8 @@
     "createaddition",
     "ratatoullie",
     "quark",
-    "vintageimprovements"
+    "vintageimprovements",
+    "alexscaves"
   ],
   "stoneStrata": [
     "stone",
@@ -47,7 +48,9 @@
     "c:salt_dust",
     "on:salt_bucket",
     "on:salt_block",
-    "forge:bones/wither"
+    "forge:bones/wither",
+    "forge:sap",
+    "forge:buckets/{material}"
   ],
   "materials": [
     "aeternium",

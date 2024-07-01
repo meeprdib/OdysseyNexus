@@ -29,8 +29,8 @@ import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 
 export interface $Facet<T extends $Tag> {
 
- "toNbt"(): T
  "loadNbt"(arg0: T): void
+ "toNbt"(): T
 }
 
 export namespace $Facet {
@@ -77,9 +77,9 @@ declare module "packages/com/redpxnda/nucleus/mixin/client/$DrawContextAccessor"
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DrawContextAccessor {
 
- "isRunningDrawCallback"(): boolean
  "callDrawIfRunning"(): void
  "callTryDraw"(): void
+ "isRunningDrawCallback"(): boolean
 }
 
 export namespace $DrawContextAccessor {
@@ -116,13 +116,13 @@ export class $RenderingMobEffect extends $MobEffect {
 
 
 public "applyEffectTick"(entity: $LivingEntity$Type, i: integer): void
-public "renderPost"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): void
-public "renderPre"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): boolean
-public "renderHud"(instance: $MobEffectInstance$Type, minecraft: $Minecraft$Type, graphics: $GuiGraphics$Type, partialTick: float): boolean
 public "maxTickUpdateDistance"(): double
-public "tickUpdateInterval"(): integer
-public "removeAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
 public "addAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
+public "removeAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
+public "tickUpdateInterval"(): integer
+public "renderHud"(instance: $MobEffectInstance$Type, minecraft: $Minecraft$Type, graphics: $GuiGraphics$Type, partialTick: float): boolean
+public "renderPre"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): boolean
+public "renderPost"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -388,10 +388,10 @@ import {$FacetAttachmentEvent$FacetAttacher, $FacetAttachmentEvent$FacetAttacher
 
 export interface $FacetHolder {
 
- "clearFacets"(): void
- "setFacet"(key: $FacetKey$Type<(any)>, val: $Facet$Type<(any)>): void
- "setFacetsFromAttacher"(attacher: $FacetAttachmentEvent$FacetAttacher$Type): void
  "getFacets"(): $FacetInventory
+ "setFacet"(key: $FacetKey$Type<(any)>, val: $Facet$Type<(any)>): void
+ "clearFacets"(): void
+ "setFacetsFromAttacher"(attacher: $FacetAttachmentEvent$FacetAttacher$Type): void
 
 (holder: any): $FacetHolder
 }

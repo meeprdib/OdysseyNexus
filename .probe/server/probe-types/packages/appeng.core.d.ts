@@ -20,14 +20,14 @@ public static "values"(): ($TickRates)[]
 public static "valueOf"(arg0: string): $TickRates
 public "getMax"(): integer
 public "getMin"(): integer
-public "setMax"(arg0: integer): void
 public "setMin"(arg0: integer): void
+public "setMax"(arg0: integer): void
 public "getDefaultMin"(): integer
 public "getDefaultMax"(): integer
 get "max"(): integer
 get "min"(): integer
-set "max"(value: integer)
 set "min"(value: integer)
+set "max"(value: integer)
 get "defaultMin"(): integer
 get "defaultMax"(): integer
 }

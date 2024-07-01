@@ -10,34 +10,34 @@ constructor()
 public "getHost"(): string
 public "getPort"(): integer
 public "getProtocol"(): string
+public "getUserName"(): string
+public "getPassword"(): string
 public "setPassword"(arg0: string): void
+public "setHost"(arg0: string): void
 public "setProtocol"(arg0: string): void
 public "setPort"(arg0: integer): void
-public "setHost"(arg0: string): void
-public "getPassword"(): string
-public "getUserName"(): string
-public "getNtlmHost"(): string
 public "getNtlmDomain"(): string
-public "setNtlmHost"(arg0: string): void
-public "getNonProxyHosts"(): string
 public "setNonProxyHosts"(arg0: string): void
 public "setNtlmDomain"(arg0: string): void
+public "getNonProxyHosts"(): string
+public "getNtlmHost"(): string
+public "setNtlmHost"(arg0: string): void
 public "setUserName"(arg0: string): void
 get "host"(): string
 get "port"(): integer
 get "protocol"(): string
+get "userName"(): string
+get "password"(): string
 set "password"(value: string)
+set "host"(value: string)
 set "protocol"(value: string)
 set "port"(value: integer)
-set "host"(value: string)
-get "password"(): string
-get "userName"(): string
-get "ntlmHost"(): string
 get "ntlmDomain"(): string
-set "ntlmHost"(value: string)
-get "nonProxyHosts"(): string
 set "nonProxyHosts"(value: string)
 set "ntlmDomain"(value: string)
+get "nonProxyHosts"(): string
+get "ntlmHost"(): string
+set "ntlmHost"(value: string)
 set "userName"(value: string)
 }
 /**
@@ -94,8 +94,8 @@ static readonly "ALL": $StandardLevel
 
 public static "values"(): ($StandardLevel)[]
 public static "valueOf"(name: string): $StandardLevel
-public "intLevel"(): integer
 public static "getStandardLevel"(intLevel: integer): $StandardLevel
+public "intLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -124,27 +124,6 @@ import {$ArtifactFilter, $ArtifactFilter$Type} from "packages/org/apache/maven/a
 
 export interface $Artifact extends $Comparable<($Artifact)> {
 
- "setRepository"(arg0: $ArtifactRepository$Type): void
- "hasClassifier"(): boolean
- "getArtifactHandler"(): $ArtifactHandler
- "setBaseVersion"(arg0: string): void
- "updateVersion"(arg0: string, arg1: $ArtifactRepository$Type): void
- "setDownloadUrl"(arg0: string): void
- "getBaseVersion"(): string
- "getDownloadUrl"(): string
- "addMetadata"(arg0: $ArtifactMetadata$Type): void
- "getMetadataList"(): $Collection<($ArtifactMetadata)>
- "selectVersion"(arg0: string): void
- "setGroupId"(arg0: string): void
- "setArtifactId"(arg0: string): void
- "isSnapshot"(): boolean
- "setOptional"(arg0: boolean): void
- "setDependencyTrail"(arg0: $List$Type<(string)>): void
- "setResolved"(arg0: boolean): void
- "setArtifactHandler"(arg0: $ArtifactHandler$Type): void
- "setResolvedVersion"(arg0: string): void
- "isRelease"(): boolean
- "setVersionRange"(arg0: $VersionRange$Type): void
  "getId"(): string
  "getType"(): string
  "isResolved"(): boolean
@@ -152,23 +131,44 @@ export interface $Artifact extends $Comparable<($Artifact)> {
  "getFile"(): $File
  "getVersion"(): string
  "setVersion"(arg0: string): void
- "isSelectedVersionKnown"(): boolean
- "getVersionRange"(): $VersionRange
  "getRepository"(): $ArtifactRepository
  "getScope"(): string
- "isOptional"(): boolean
  "setFile"(arg0: $File$Type): void
  "getSelectedVersion"(): $ArtifactVersion
- "getGroupId"(): string
  "getArtifactId"(): string
  "getClassifier"(): string
+ "getGroupId"(): string
  "getDependencyTrail"(): $List<(string)>
+ "isSelectedVersionKnown"(): boolean
+ "getVersionRange"(): $VersionRange
+ "isOptional"(): boolean
  "setScope"(arg0: string): void
- "setDependencyFilter"(arg0: $ArtifactFilter$Type): void
+ "setArtifactId"(arg0: string): void
+ "setVersionRange"(arg0: $VersionRange$Type): void
+ "selectVersion"(arg0: string): void
+ "isSnapshot"(): boolean
+ "getDownloadUrl"(): string
+ "setRepository"(arg0: $ArtifactRepository$Type): void
+ "setResolved"(arg0: boolean): void
+ "getMetadataList"(): $Collection<($ArtifactMetadata)>
+ "getBaseVersion"(): string
+ "addMetadata"(arg0: $ArtifactMetadata$Type): void
+ "setDependencyTrail"(arg0: $List$Type<(string)>): void
+ "setArtifactHandler"(arg0: $ArtifactHandler$Type): void
+ "setResolvedVersion"(arg0: string): void
+ "isRelease"(): boolean
+ "setDownloadUrl"(arg0: string): void
+ "getArtifactHandler"(): $ArtifactHandler
+ "hasClassifier"(): boolean
+ "updateVersion"(arg0: string, arg1: $ArtifactRepository$Type): void
+ "setBaseVersion"(arg0: string): void
+ "setGroupId"(arg0: string): void
+ "setOptional"(arg0: boolean): void
  "setAvailableVersions"(arg0: $List$Type<($ArtifactVersion$Type)>): void
+ "getAvailableVersions"(): $List<($ArtifactVersion)>
  "getDependencyConflictId"(): string
  "getDependencyFilter"(): $ArtifactFilter
- "getAvailableVersions"(): $List<($ArtifactVersion)>
+ "setDependencyFilter"(arg0: $ArtifactFilter$Type): void
  "compareTo"(arg0: $Artifact$Type): integer
 }
 
@@ -205,10 +205,10 @@ import {$Artifact, $Artifact$Type} from "packages/org/apache/maven/artifact/$Art
 
 export interface $ArtifactRepositoryLayout {
 
- "pathOf"(arg0: $Artifact$Type): string
  "getId"(): string
- "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
+ "pathOf"(arg0: $Artifact$Type): string
  "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
+ "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
 }
 
 export namespace $ArtifactRepositoryLayout {
@@ -237,17 +237,17 @@ import {$ArtifactRepository, $ArtifactRepository$Type} from "packages/org/apache
 export interface $ArtifactMetadata extends $ArtifactMetadata$0 {
 
  "merge"(arg0: $ArtifactMetadata$Type): void
+ "merge"(arg0: $ArtifactMetadata$0$Type): void
+ "getKey"(): any
+ "getArtifactId"(): string
+ "getGroupId"(): string
  "getBaseVersion"(): string
  "getRemoteFilename"(): string
  "extendedToString"(): string
  "getLocalFilename"(arg0: $ArtifactRepository$Type): string
- "merge"(arg0: $ArtifactMetadata$0$Type): void
- "getKey"(): any
- "getGroupId"(): string
- "getArtifactId"(): string
+ "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
  "storedInArtifactVersionDirectory"(): boolean
  "storedInGroupDirectory"(): boolean
- "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
 }
 
 export namespace $ArtifactMetadata {
@@ -267,8 +267,8 @@ export type $ArtifactMetadata_ = $ArtifactMetadata$Type;
 }}
 declare module "packages/org/apache/logging/log4j/$LogBuilder" {
 import {$Throwable, $Throwable$Type} from "packages/java/lang/$Throwable"
-import {$Marker, $Marker$Type} from "packages/org/apache/logging/log4j/$Marker"
 import {$StackTraceElement, $StackTraceElement$Type} from "packages/java/lang/$StackTraceElement"
+import {$Marker, $Marker$Type} from "packages/org/apache/logging/log4j/$Marker"
 import {$Supplier, $Supplier$Type} from "packages/org/apache/logging/log4j/util/$Supplier"
 import {$Message, $Message$Type} from "packages/org/apache/logging/log4j/message/$Message"
 
@@ -292,10 +292,10 @@ export interface $LogBuilder {
  "log"(message: any): void
  "log"(messageSupplier: $Supplier$Type<($Message$Type)>): void
  "log"(message: $Message$Type): void
- "withMarker"(marker: $Marker$Type): $LogBuilder
  "withThrowable"(throwable: $Throwable$Type): $LogBuilder
  "withLocation"(): $LogBuilder
  "withLocation"(location: $StackTraceElement$Type): $LogBuilder
+ "withMarker"(marker: $Marker$Type): $LogBuilder
 }
 
 export namespace $LogBuilder {
@@ -326,20 +326,20 @@ readonly "right": R
 
 constructor(arg0: L, arg1: R)
 
-public static "left"<L, R>(arg0: L): $Pair<(L), (R)>
-public static "right"<L, R>(arg0: R): $Pair<(L), (R)>
 public static "of"<L, R>(arg0: $Map$Entry$Type<(L), (R)>): $ImmutablePair<(L), (R)>
 public static "of"<L, R>(arg0: L, arg1: R): $ImmutablePair<(L), (R)>
 public "setValue"(arg0: R): R
 public static "emptyArray"<L, R>(): ($ImmutablePair<(L), (R)>)[]
-public "getRight"(): R
 public "getLeft"(): L
+public "getRight"(): R
 public static "nullPair"<L, R>(): $ImmutablePair<(L), (R)>
-public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(K), (V)>)>
+public static "left"<L, R>(arg0: L): $Pair<(L), (R)>
+public static "right"<L, R>(arg0: R): $Pair<(L), (R)>
+public static "copyOf"<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
 public static "comparingByKey"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
+public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByValue"<K, V extends $Comparable<(any)>>(): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByValue"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
-public static "copyOf"<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
 set "value"(value: R)
 }
 /**
@@ -372,20 +372,20 @@ public static "of"<L, R>(arg0: $Map$Entry$Type<(L), (R)>): $MutablePair<(L), (R)
 public static "of"<L, R>(arg0: L, arg1: R): $MutablePair<(L), (R)>
 public "setValue"(arg0: R): R
 public static "emptyArray"<L, R>(): ($MutablePair<(L), (R)>)[]
-public "getRight"(): R
 public "getLeft"(): L
-public "setRight"(arg0: R): void
+public "getRight"(): R
 public "setLeft"(arg0: L): void
-public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(K), (V)>)>
+public "setRight"(arg0: R): void
+public static "copyOf"<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
 public static "comparingByKey"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
+public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByValue"<K, V extends $Comparable<(any)>>(): $Comparator<($Map$Entry<(K), (V)>)>
 public static "comparingByValue"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
-public static "copyOf"<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
 set "value"(value: R)
-get "right"(): R
 get "left"(): L
-set "right"(value: R)
+get "right"(): R
 set "left"(value: L)
+set "right"(value: R)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -407,8 +407,8 @@ export interface $Message extends $Serializable {
 
  "getParameters"(): (any)[]
  "getFormat"(): string
- "getThrowable"(): $Throwable
  "getFormattedMessage"(): string
+ "getThrowable"(): $Throwable
 }
 
 export namespace $Message {
@@ -755,29 +755,25 @@ export interface $Logger {
  "isEnabled"(level: $Level$Type): boolean
  "catching"(level: $Level$Type, throwable: $Throwable$Type): void
  "catching"(throwable: $Throwable$Type): void
- "getLevel"(): $Level
  "isInfoEnabled"(): boolean
  "isInfoEnabled"(marker: $Marker$Type): boolean
- "getMessageFactory"<MF extends $MessageFactory>(): MF
- "isFatalEnabled"(marker: $Marker$Type): boolean
- "isFatalEnabled"(): boolean
  "isTraceEnabled"(): boolean
  "isTraceEnabled"(marker: $Marker$Type): boolean
- "isWarnEnabled"(marker: $Marker$Type): boolean
- "isWarnEnabled"(): boolean
  "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any): void
+ "fatal"(marker: $Marker$Type, message: string, throwable: $Throwable$Type): void
  "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any): void
- "fatal"(message: string, throwable: $Throwable$Type): void
- "fatal"(messageSupplier: $Supplier$Type<(any)>): void
  "fatal"(messageSupplier: $Supplier$Type<(any)>, throwable: $Throwable$Type): void
  "fatal"(marker: $Marker$Type, message: string, p0: any): void
+ "fatal"(messageSupplier: $Supplier$Type<(any)>): void
  "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any): void
  "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
- "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
- "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
- "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
+ "fatal"(message: string, p0: any): void
+ "fatal"(message: string, p0: any, p1: any): void
+ "fatal"(message: string, p0: any, p1: any, p2: any): void
  "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
- "fatal"(marker: $Marker$Type, message: string, throwable: $Throwable$Type): void
+ "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
+ "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
+ "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
  "fatal"(message: $Message$Type, throwable: $Throwable$Type): void
  "fatal"(messageSupplier: $MessageSupplier$Type): void
  "fatal"(messageSupplier: $MessageSupplier$Type, throwable: $Throwable$Type): void
@@ -785,9 +781,10 @@ export interface $Logger {
  "fatal"(message: $Message$Type): void
  "fatal"(marker: $Marker$Type, messageSupplier: $Supplier$Type<(any)>, throwable: $Throwable$Type): void
  "fatal"(marker: $Marker$Type, messageSupplier: $Supplier$Type<(any)>): void
- "fatal"(message: string, ...paramSuppliers: ($Supplier$Type<(any)>)[]): void
- "fatal"(message: string, ...params: (any)[]): void
  "fatal"(message: string): void
+ "fatal"(message: string, ...params: (any)[]): void
+ "fatal"(message: string, ...paramSuppliers: ($Supplier$Type<(any)>)[]): void
+ "fatal"(message: string, throwable: $Throwable$Type): void
  "fatal"(message: any, throwable: $Throwable$Type): void
  "fatal"(message: any): void
  "fatal"(message: charseq, throwable: $Throwable$Type): void
@@ -796,27 +793,30 @@ export interface $Logger {
  "fatal"(marker: $Marker$Type, message: charseq, throwable: $Throwable$Type): void
  "fatal"(marker: $Marker$Type, message: any): void
  "fatal"(marker: $Marker$Type, message: any, throwable: $Throwable$Type): void
- "fatal"(marker: $Marker$Type, message: string): void
  "fatal"(marker: $Marker$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
  "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
  "fatal"(marker: $Marker$Type, message: $Message$Type): void
  "fatal"(marker: $Marker$Type, message: $Message$Type, throwable: $Throwable$Type): void
  "fatal"(marker: $Marker$Type, messageSupplier: $MessageSupplier$Type): void
+ "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
+ "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
  "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
  "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
  "fatal"(message: string, p0: any, p1: any, p2: any, p3: any): void
- "fatal"(message: string, p0: any, p1: any, p2: any): void
- "fatal"(message: string, p0: any, p1: any): void
- "fatal"(message: string, p0: any): void
+ "fatal"(marker: $Marker$Type, message: string): void
  "fatal"(marker: $Marker$Type, message: string, ...params: (any)[]): void
  "fatal"(marker: $Marker$Type, message: string, ...paramSuppliers: ($Supplier$Type<(any)>)[]): void
  "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
- "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
- "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
- "isErrorEnabled"(): boolean
- "isErrorEnabled"(marker: $Marker$Type): boolean
+ "getMessageFactory"<MF extends $MessageFactory>(): MF
+ "isFatalEnabled"(marker: $Marker$Type): boolean
+ "isFatalEnabled"(): boolean
+ "isWarnEnabled"(): boolean
+ "isWarnEnabled"(marker: $Marker$Type): boolean
+ "getLevel"(): $Level
  "isDebugEnabled"(marker: $Marker$Type): boolean
  "isDebugEnabled"(): boolean
+ "isErrorEnabled"(marker: $Marker$Type): boolean
+ "isErrorEnabled"(): boolean
  "throwing"<T extends $Throwable>(throwable: T): T
  "throwing"<T extends $Throwable>(level: $Level$Type, throwable: T): T
  "traceEntry"(format: string, ...paramSuppliers: ($Supplier$Type<(any)>)[]): $EntryMessage
@@ -824,21 +824,21 @@ export interface $Logger {
  "traceEntry"(message: $Message$Type): $EntryMessage
  "traceEntry"(format: string, ...params: (any)[]): $EntryMessage
  "traceEntry"(): $EntryMessage
- "atDebug"(): $LogBuilder
- "atLevel"(level: $Level$Type): $LogBuilder
- "atWarn"(): $LogBuilder
- "atFatal"(): $LogBuilder
- "atInfo"(): $LogBuilder
- "always"(): $LogBuilder
+ "traceExit"<R>(message: $Message$Type, result: R): R
+ "traceExit"<R>(message: $EntryMessage$Type, result: R): R
+ "traceExit"(message: $EntryMessage$Type): void
  "traceExit"(): void
  "traceExit"<R>(result: R): R
  "traceExit"<R>(format: string, result: R): R
- "traceExit"<R>(message: $EntryMessage$Type, result: R): R
- "traceExit"<R>(message: $Message$Type, result: R): R
- "traceExit"(message: $EntryMessage$Type): void
  "logMessage"(level: $Level$Type, marker: $Marker$Type, fqcn: string, location: $StackTraceElement$Type, message: $Message$Type, throwable: $Throwable$Type): void
+ "atLevel"(level: $Level$Type): $LogBuilder
+ "atFatal"(): $LogBuilder
+ "atInfo"(): $LogBuilder
+ "always"(): $LogBuilder
  "atError"(): $LogBuilder
  "atTrace"(): $LogBuilder
+ "atDebug"(): $LogBuilder
+ "atWarn"(): $LogBuilder
 }
 
 export namespace $Logger {
@@ -959,10 +959,10 @@ export interface $ArtifactVersion extends $Comparable<($ArtifactVersion)> {
 
  "getMajorVersion"(): integer
  "getMinorVersion"(): integer
+ "getIncrementalVersion"(): integer
  "getBuildNumber"(): integer
  "getQualifier"(): string
  "parseVersion"(arg0: string): void
- "getIncrementalVersion"(): integer
  "compareTo"(arg0: $ArtifactVersion$Type): integer
 }
 
@@ -1012,22 +1012,22 @@ export class $Authentication {
 
 constructor(arg0: string, arg1: string)
 
+public "getPassword"(): string
 public "getPrivateKey"(): string
 public "setPassword"(arg0: string): void
-public "getUsername"(): string
-public "getPassword"(): string
 public "setUsername"(arg0: string): void
-public "setPassphrase"(arg0: string): void
+public "getUsername"(): string
 public "setPrivateKey"(arg0: string): void
 public "getPassphrase"(): string
+public "setPassphrase"(arg0: string): void
+get "password"(): string
 get "privateKey"(): string
 set "password"(value: string)
-get "username"(): string
-get "password"(): string
 set "username"(value: string)
-set "passphrase"(value: string)
+get "username"(): string
 set "privateKey"(value: string)
 get "passphrase"(): string
+set "passphrase"(value: string)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1052,15 +1052,15 @@ constructor(arg0: $ArtifactVersion$Type, arg1: boolean, arg2: $ArtifactVersion$T
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "isLowerBoundInclusive"(): boolean
-public "isUpperBoundInclusive"(): boolean
 public "getLowerBound"(): $ArtifactVersion
 public "getUpperBound"(): $ArtifactVersion
 public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
-get "lowerBoundInclusive"(): boolean
-get "upperBoundInclusive"(): boolean
+public "isUpperBoundInclusive"(): boolean
+public "isLowerBoundInclusive"(): boolean
 get "lowerBound"(): $ArtifactVersion
 get "upperBound"(): $ArtifactVersion
+get "upperBoundInclusive"(): boolean
+get "lowerBoundInclusive"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1086,23 +1086,23 @@ export class $VersionRange {
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "isSelectedVersionKnown"(arg0: $Artifact$Type): boolean
-public static "createFromVersionSpec"(arg0: string): $VersionRange
-public "getRecommendedVersion"(): $ArtifactVersion
-public "getRestrictions"(): $List<($Restriction)>
 /**
  * 
  * @deprecated
  */
 public "cloneOf"(): $VersionRange
 public static "createFromVersion"(arg0: string): $VersionRange
-public "matchVersion"(arg0: $List$Type<($ArtifactVersion$Type)>): $ArtifactVersion
+public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
 public "restrict"(arg0: $VersionRange$Type): $VersionRange
+public "getRestrictions"(): $List<($Restriction)>
+public "matchVersion"(arg0: $List$Type<($ArtifactVersion$Type)>): $ArtifactVersion
 public "hasRestrictions"(): boolean
 public "getSelectedVersion"(arg0: $Artifact$Type): $ArtifactVersion
-public "containsVersion"(arg0: $ArtifactVersion$Type): boolean
-get "recommendedVersion"(): $ArtifactVersion
+public "getRecommendedVersion"(): $ArtifactVersion
+public "isSelectedVersionKnown"(arg0: $Artifact$Type): boolean
+public static "createFromVersionSpec"(arg0: string): $VersionRange
 get "restrictions"(): $List<($Restriction)>
+get "recommendedVersion"(): $ArtifactVersion
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1152,8 +1152,8 @@ export interface $EntryMessage extends $FlowMessage {
  "getText"(): string
  "getParameters"(): (any)[]
  "getFormat"(): string
- "getThrowable"(): $Throwable
  "getFormattedMessage"(): string
+ "getThrowable"(): $Throwable
 }
 
 export namespace $EntryMessage {
@@ -1191,17 +1191,17 @@ public "toString"(): string
 public "merge"(arg0: $ArtifactRepositoryPolicy$Type): void
 public "isEnabled"(): boolean
 public "setEnabled"(arg0: boolean): void
-public "setUpdatePolicy"(arg0: string): void
 public "setChecksumPolicy"(arg0: string): void
 public "getChecksumPolicy"(): string
 public "getUpdatePolicy"(): string
+public "setUpdatePolicy"(arg0: string): void
 public "checkOutOfDate"(arg0: $Date$Type): boolean
 get "enabled"(): boolean
 set "enabled"(value: boolean)
-set "updatePolicy"(value: string)
 set "checksumPolicy"(value: string)
 get "checksumPolicy"(): string
 get "updatePolicy"(): string
+set "updatePolicy"(value: string)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1220,13 +1220,35 @@ import {$ArtifactMetadata, $ArtifactMetadata$Type} from "packages/org/apache/mav
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArtifactRepositoryPolicy, $ArtifactRepositoryPolicy$Type} from "packages/org/apache/maven/artifact/repository/$ArtifactRepositoryPolicy"
 import {$Artifact, $Artifact$Type} from "packages/org/apache/maven/artifact/$Artifact"
-import {$Authentication, $Authentication$Type} from "packages/org/apache/maven/artifact/repository/$Authentication"
 import {$ArtifactRepositoryLayout, $ArtifactRepositoryLayout$Type} from "packages/org/apache/maven/artifact/repository/layout/$ArtifactRepositoryLayout"
+import {$Authentication, $Authentication$Type} from "packages/org/apache/maven/artifact/repository/$Authentication"
 import {$Proxy, $Proxy$Type} from "packages/org/apache/maven/repository/$Proxy"
 
 export interface $ArtifactRepository {
 
- "getBasedir"(): string
+ "getKey"(): string
+ "find"(arg0: $Artifact$Type): $Artifact
+ "getId"(): string
+ "getProtocol"(): string
+ "getProxy"(): $Proxy
+ "getLayout"(): $ArtifactRepositoryLayout
+ "isBlocked"(): boolean
+ "getUrl"(): string
+ "setLayout"(arg0: $ArtifactRepositoryLayout$Type): void
+ "setId"(arg0: string): void
+ "getSnapshots"(): $ArtifactRepositoryPolicy
+ "getReleases"(): $ArtifactRepositoryPolicy
+/**
+ * 
+ * @deprecated
+ */
+ "isBlacklisted"(): boolean
+ "setProxy"(arg0: $Proxy$Type): void
+ "setUrl"(arg0: string): void
+ "pathOf"(arg0: $Artifact$Type): string
+ "setAuthentication"(arg0: $Authentication$Type): void
+ "findVersions"(arg0: $Artifact$Type): $List<(string)>
+ "setBlocked"(arg0: boolean): void
 /**
  * 
  * @deprecated
@@ -1237,36 +1259,14 @@ export interface $ArtifactRepository {
  * @deprecated
  */
  "setBlacklisted"(arg0: boolean): void
- "pathOf"(arg0: $Artifact$Type): string
- "findVersions"(arg0: $Artifact$Type): $List<(string)>
- "setAuthentication"(arg0: $Authentication$Type): void
+ "getBasedir"(): string
  "isProjectAware"(): boolean
  "getAuthentication"(): $Authentication
- "setBlocked"(arg0: boolean): void
- "getKey"(): string
- "find"(arg0: $Artifact$Type): $Artifact
- "getId"(): string
- "getProtocol"(): string
- "setId"(arg0: string): void
- "getUrl"(): string
-/**
- * 
- * @deprecated
- */
- "isBlacklisted"(): boolean
- "getLayout"(): $ArtifactRepositoryLayout
- "setProxy"(arg0: $Proxy$Type): void
- "setLayout"(arg0: $ArtifactRepositoryLayout$Type): void
- "isBlocked"(): boolean
- "getReleases"(): $ArtifactRepositoryPolicy
- "getSnapshots"(): $ArtifactRepositoryPolicy
- "getProxy"(): $Proxy
- "setUrl"(arg0: string): void
- "getMirroredRepositories"(): $List<($ArtifactRepository)>
+ "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
  "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$Type, arg1: $ArtifactRepository$Type): string
+ "getMirroredRepositories"(): $List<($ArtifactRepository)>
  "setReleaseUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$Type): void
  "setMirroredRepositories"(arg0: $List$Type<($ArtifactRepository$Type)>): void
- "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$Type): string
  "setSnapshotUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$Type): void
 }
 
@@ -1294,12 +1294,12 @@ export interface $Marker extends $Serializable {
  "remove"(marker: $Marker$Type): boolean
  "equals"(obj: any): boolean
  "hashCode"(): integer
- "setParents"(...markers: ($Marker$Type)[]): $Marker
  "addParents"(...markers: ($Marker$Type)[]): $Marker
+ "getParents"(): ($Marker)[]
+ "hasParents"(): boolean
  "isInstanceOf"(m: $Marker$Type): boolean
  "isInstanceOf"(name: string): boolean
- "hasParents"(): boolean
- "getParents"(): ($Marker)[]
+ "setParents"(...markers: ($Marker$Type)[]): $Marker
 }
 
 export namespace $Marker {
@@ -1339,8 +1339,8 @@ public "longValue"(): long
 public "floatValue"(): float
 public "doubleValue"(): double
 public "increment"(): void
-public "setValue"(arg0: integer): void
 public "setValue"(arg0: number): void
+public "setValue"(arg0: integer): void
 public "getAndAdd"(arg0: number): integer
 public "getAndAdd"(arg0: integer): integer
 public "getAndIncrement"(): integer
@@ -1349,12 +1349,12 @@ public "incrementAndGet"(): integer
 public "decrementAndGet"(): integer
 public "addAndGet"(arg0: integer): integer
 public "addAndGet"(arg0: number): integer
+public "decrement"(): void
 public "subtract"(arg0: number): void
 public "subtract"(arg0: integer): void
-public "decrement"(): void
 public "toInteger"(): integer
-set "value"(value: integer)
 set "value"(value: number)
+set "value"(value: integer)
 get "andIncrement"(): integer
 get "andDecrement"(): integer
 }
@@ -1391,18 +1391,18 @@ public static "of"<L, R>(arg0: $Map$Entry$Type<(L), (R)>): $Pair<(L), (R)>
 public static "of"<L, R>(arg0: L, arg1: R): $Pair<(L), (R)>
 public "getKey"(): L
 public static "emptyArray"<L, R>(): ($Pair<(L), (R)>)[]
-public "getRight"(): R
 public "getLeft"(): L
-public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(L), (R)>)>
-public static "comparingByKey"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(L), (R)>)>
-public static "comparingByValue"<K, V extends $Comparable<(any)>>(): $Comparator<($Map$Entry<(L), (R)>)>
-public static "comparingByValue"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(L), (R)>)>
+public "getRight"(): R
 public static "copyOf"<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(L), (R)>
 public "setValue"(arg0: R): R
+public static "comparingByKey"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(L), (R)>)>
+public static "comparingByKey"<K extends $Comparable<(any)>, V>(): $Comparator<($Map$Entry<(L), (R)>)>
+public static "comparingByValue"<K, V extends $Comparable<(any)>>(): $Comparator<($Map$Entry<(L), (R)>)>
+public static "comparingByValue"<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(L), (R)>)>
 get "value"(): R
 get "key"(): L
-get "right"(): R
 get "left"(): L
+get "right"(): R
 set "value"(value: R)
 }
 /**
@@ -1443,17 +1443,17 @@ public "toString"(): string
 public static "values"(): ($Level)[]
 public "hashCode"(): integer
 public "compareTo"(other: $Level$Type): integer
-public static "valueOf"<T extends $Enum<(T)>>(enumType: $Class$Type<(T)>, name: string): T
 public static "valueOf"(name: string): $Level
+public static "valueOf"<T extends $Enum<(T)>>(enumType: $Class$Type<(T)>, name: string): T
 public "getDeclaringClass"(): $Class<($Level)>
-public static "getLevel"(name: string): $Level
-public static "toLevel"(name: string, defaultLevel: $Level$Type): $Level
-public static "toLevel"(level: string): $Level
-public "isMoreSpecificThan"(level: $Level$Type): boolean
-public "intLevel"(): integer
 public "getStandardLevel"(): $StandardLevel
-public "isLessSpecificThan"(level: $Level$Type): boolean
 public "isInRange"(minLevel: $Level$Type, maxLevel: $Level$Type): boolean
+public "isLessSpecificThan"(level: $Level$Type): boolean
+public static "toLevel"(level: string): $Level
+public static "toLevel"(name: string, defaultLevel: $Level$Type): $Level
+public "intLevel"(): integer
+public "isMoreSpecificThan"(level: $Level$Type): boolean
+public static "getLevel"(name: string): $Level
 get "declaringClass"(): $Class<($Level)>
 get "standardLevel"(): $StandardLevel
 }
@@ -1474,17 +1474,17 @@ import {$ArtifactRepository, $ArtifactRepository$Type} from "packages/org/apache
 
 export interface $ArtifactMetadata {
 
+ "merge"(arg0: $ArtifactMetadata$Type): void
+ "getKey"(): any
+ "getArtifactId"(): string
+ "getGroupId"(): string
  "getBaseVersion"(): string
  "getRemoteFilename"(): string
  "extendedToString"(): string
  "getLocalFilename"(arg0: $ArtifactRepository$Type): string
- "merge"(arg0: $ArtifactMetadata$Type): void
- "getKey"(): any
- "getGroupId"(): string
- "getArtifactId"(): string
+ "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
  "storedInArtifactVersionDirectory"(): boolean
  "storedInGroupDirectory"(): boolean
- "storeInLocalRepository"(arg0: $ArtifactRepository$Type, arg1: $ArtifactRepository$Type): void
 }
 
 export namespace $ArtifactMetadata {
@@ -1512,8 +1512,8 @@ export interface $FlowMessage extends $Message {
  "getText"(): string
  "getParameters"(): (any)[]
  "getFormat"(): string
- "getThrowable"(): $Throwable
  "getFormattedMessage"(): string
+ "getThrowable"(): $Throwable
 }
 
 export namespace $FlowMessage {
@@ -1535,12 +1535,12 @@ declare module "packages/org/apache/maven/artifact/handler/$ArtifactHandler" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ArtifactHandler {
 
- "getLanguage"(): string
- "getPackaging"(): string
- "isAddedToClasspath"(): boolean
  "getExtension"(): string
  "getClassifier"(): string
  "getDirectory"(): string
+ "getLanguage"(): string
+ "isAddedToClasspath"(): boolean
+ "getPackaging"(): string
  "isIncludesDependencies"(): boolean
 }
 

@@ -5,11 +5,11 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $AccessorLivingEntity {
 
- "bookshelf$getFallDamageSound"(arg0: integer): $SoundEvent
  "bookshelf$makePoofParticles"(): void
- "bookshelf$getDeathSound"(): $SoundEvent
- "bookshelf$getDrinkingSound"(arg0: $ItemStack$Type): $SoundEvent
  "bookshelf$getHurtSound"(arg0: $DamageSource$Type): $SoundEvent
+ "bookshelf$getFallDamageSound"(arg0: integer): $SoundEvent
+ "bookshelf$getDrinkingSound"(arg0: $ItemStack$Type): $SoundEvent
+ "bookshelf$getDeathSound"(): $SoundEvent
 }
 
 export namespace $AccessorLivingEntity {
@@ -35,10 +35,10 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 
 export interface $AccessorStructureTemplatePool {
 
- "bookshelf$setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
  "bookshelf$getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
  "bookshelf$setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "bookshelf$getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
+ "bookshelf$setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
 }
 
 export namespace $AccessorStructureTemplatePool {
@@ -88,8 +88,8 @@ export class $SingletonArgumentInfo$Template<T extends $ArgumentType<(any)>> imp
 
 constructor(arg0: $Supplier$Type<(T)>, arg1: $ArgumentTypeInfo$Type<(T), (any)>)
 
-public "type"(): $ArgumentTypeInfo<(T), (any)>
 public "instantiate"(arg0: $CommandBuildContext$Type): T
+public "type"(): $ArgumentTypeInfo<(T), (any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -259,10 +259,10 @@ import {$MobEffectInstance, $MobEffectInstance$Type} from "packages/net/minecraf
 
 export interface $AccessorMobEffectInstance {
 
- "setDuration"(arg0: integer): void
+ "bookshelf$setHiddenEffect"(arg0: $MobEffectInstance$Type): void
  "bookshelf$getHiddenEffect"(): $MobEffectInstance
  "bookshelf$tickDownDuration"(): integer
- "bookshelf$setHiddenEffect"(arg0: $MobEffectInstance$Type): void
+ "setDuration"(arg0: integer): void
 }
 
 export namespace $AccessorMobEffectInstance {
@@ -312,8 +312,8 @@ import {$ImmutableList, $ImmutableList$Type} from "packages/com/google/common/co
 
 export interface $AccessorWeightedRandomList<E> {
 
- "bookshelf$getTotalWeight"(): integer
  "bookshelf$getEntries"(): $ImmutableList<(E)>
+ "bookshelf$getTotalWeight"(): integer
 }
 
 export namespace $AccessorWeightedRandomList {
@@ -513,8 +513,8 @@ export class $ShapelessDurabilityRecipe$Serializer implements $RecipeSerializer<
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ShapelessDurabilityRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ShapelessDurabilityRecipe
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ShapelessDurabilityRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ShapelessDurabilityRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ShapelessDurabilityRecipe
@@ -544,8 +544,8 @@ export class $ShapedDurabilityRecipe$Serializer implements $RecipeSerializer<($S
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ShapedDurabilityRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ShapedDurabilityRecipe
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ShapedDurabilityRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ShapedDurabilityRecipe$Type): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ShapedDurabilityRecipe
@@ -566,8 +566,8 @@ declare module "packages/net/darkhax/attributefix/mixin/$AccessorRangedAttribute
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $AccessorRangedAttribute {
 
- "attributefix$setMinValue"(arg0: double): void
  "attributefix$setMaxValue"(arg0: double): void
+ "attributefix$setMinValue"(arg0: double): void
 }
 
 export namespace $AccessorRangedAttribute {
@@ -624,10 +624,10 @@ export class $SingletonArgumentInfo<T extends $ArgumentType<(any)>> implements $
 
 public static "of"<T extends $ArgumentType<(any)>>(arg0: T): $SingletonArgumentInfo<(T)>
 public static "of"<T extends $ArgumentType<(any)>>(arg0: $Supplier$Type<(T)>): $SingletonArgumentInfo<(T)>
+public "serializeToNetwork"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $FriendlyByteBuf$Type): void
 public "unpack"(arg0: T): $SingletonArgumentInfo$Template<(T)>
 public "serializeToJson"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $JsonObject$Type): void
 public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $SingletonArgumentInfo$Template<(T)>
-public "serializeToNetwork"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

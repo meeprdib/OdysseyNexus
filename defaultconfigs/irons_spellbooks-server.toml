@@ -10,14 +10,14 @@
 	#Whether or not players can harm their own magic summons. Default: false
 	canAttackOwnSummons = false
 	#The maximum amount of times an applicable piece of equipment can be upgraded in the arcane anvil. Default: 3
-	maxUpgrades = 3
+	maxUpgrades = 0
 	#From 0-1, the percent of max mana a player respawns with. Default: 0.0
 	manaSpawnPercent = 1
 	#If true the world will attempt to be upgraded from an older version of ISS
 	runWorldUpgrader = true
 	#From 0-1, the percent chance for scrolls to be successfully recycled. Default: 0.5 (50%)
 	scrollRecycleChance = 0.5
-	#Whether or not potions should be allowed to be brewed in the alchemist cauldron)
+	#Whether or not potions should be allowed to be brewed in the alchemist cauldron
 	allowCauldronBrewing = true
 	#Whether or not Furled Map items should skip chunks when searching for structures (only find new structures). Can impact performance while searching. Default: true
 	furledMapSkipsExistingChunks = true
@@ -43,7 +43,7 @@
 	#Imbue Whitelist. Use an item's id to allow it to be imbued, ex: "minecraft:iron_sword"
 	imbueWhitelist = []
 	#Imbue Blacklist. Use an item's id to prevent it from being imbued, ex: "minecraft:iron_sword"
-	imbueBlacklist = []
+	imbueBlacklist = ["irons_spellbooks:pyromancer_chestplate", "irons_spellbooks:electromancer_chestplate", "irons_spellbooks:archevoker_chestplate", "irons_spellbooks:cultist_chestplate", "irons_spellbooks:cryomancer_chestplate", "irons_spellbooks:shadowwalker_chestplate", "irons_spellbooks:priest_chestplate", "irons_spellbooks:plagued_chestplate", "irons_spellbooks:netherite_mage_chestplate", "irons_spellbooks:tarnished_helmet"]
 
 [Worldgen]
 	#The weight of the priest house spawning in a village. Default: 4

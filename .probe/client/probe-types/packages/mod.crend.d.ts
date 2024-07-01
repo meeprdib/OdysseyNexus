@@ -163,8 +163,8 @@ import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraf
 
 export interface $BlockItemAccessor {
 
- "invokeGetPlacementState"(arg0: $BlockPlaceContext$Type): $BlockState
  "invokeCanPlace"(arg0: $BlockPlaceContext$Type, arg1: $BlockState$Type): boolean
+ "invokeGetPlacementState"(arg0: $BlockPlaceContext$Type): $BlockState
 }
 
 export namespace $BlockItemAccessor {
