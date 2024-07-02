@@ -45,6 +45,9 @@ ServerEvents.tags('item', event => {
 
     event.add('forge:ingots/steel', 'kubejs:steel_ingot')
 
+    event.add('on:leather', ['minecraft:rabbit_hide', 'mynethersdelight:hoglin_hide', 'alexscaves:tough_hide', 'minecraft:leather'])
+    event.add('minecraft:coals', 'vintagedelight:ghost_charcoal')
+
     event.remove('forge:ores/redstone', 'regions_unexplored:raw_redstone_block')
 })
 

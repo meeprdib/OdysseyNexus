@@ -25,46 +25,7 @@ import mods.create.SplashingManager;
 import crafttweaker.api.recipe.FurnaceRecipeManager;
 import mods.create.SandPaperPolishingManager;
 
-# Misc
-
-craftingTable.addShaped("bundle_with_leather", <item:minecraft:bundle>, [
-	[<item:minecraft:string>, <item:minecraft:leather>, <item:minecraft:string>], 
-	[<item:minecraft:leather>, <item:minecraft:air>, <item:minecraft:leather>], 
-	[<item:minecraft:leather>, <item:minecraft:leather>, <item:minecraft:leather>]
-]);
-craftingTable.addShaped("bundle_with_rabbit", <item:minecraft:bundle>, [
-	[<item:minecraft:string>, <item:minecraft:rabbit_hide>, <item:minecraft:string>], 
-	[<item:minecraft:rabbit_hide>, <item:minecraft:air>, <item:minecraft:rabbit_hide>], 
-	[<item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>, <item:minecraft:rabbit_hide>]
-]);
-
-craftingTable.addShaped("item_cell_housing", <item:ae2:item_cell_housing>, [
-	[<item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>],
-	[<item:ae2:silicon>, <item:minecraft:air>, <item:ae2:silicon>],
-	[<item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>, <item:kubejs:silicon_sheet>]
-]);
-craftingTable.addShaped("fluid_cell_housing", <item:ae2:fluid_cell_housing>, [
-	[<item:create:copper_sheet>, <item:create:copper_sheet>, <item:create:copper_sheet>],
-	[<item:minecraft:copper_ingot>, <item:minecraft:air>, <item:minecraft:copper_ingot>],
-	[<item:create:copper_sheet>, <item:create:copper_sheet>, <item:create:copper_sheet>]
-]);
-craftingTable.addShaped("blank_pattern", <item:ae2:blank_pattern>, [
-	[<item:create:iron_sheet>, <item:create:iron_sheet>, <item:create:iron_sheet>],
-	[<item:ae2:charged_certus_quartz_crystal>, <item:minecraft:air>, <item:ae2:charged_certus_quartz_crystal>],
-	[<item:create:iron_sheet>, <item:create:iron_sheet>, <item:create:iron_sheet>]
-]);
-
-craftingTable.removeByName("minecraft:lodestone");
-
-# Potions
-
-brewing.removeRecipe(<item:minecraft:potion>.withTag({Potion: "apotheosis:flying"}), <item:minecraft:popped_chorus_fruit>, <item:minecraft:potion>.withTag({Potion: "apotheosis:levitation"}));
-
 # Create
-
-// <recipetype:create:item_application>.remove(<item:create_dd:steel_casing>);
-// <recipetype:create:item_application>.addRecipe("steel_casing", [<item:create_dd:steel_casing>], <item:create_dd:steel_block>, <item:create_dd:steel_ingot>, false);
-<recipetype:create:item_application>.addRecipe("silicon_casing", [<item:kubejs:silicon_casing>], <item:minecraft:quartz_block>, <item:kubejs:silicon_sheet>, false);
 
 // <recipetype:create:mixing>.addRecipe("void_steel", <constant:create:heat_condition:heated>, [<item:createutilities:void_steel_ingot> * 4], [<item:cataclysm:void_core>, <tag:items:forge:ingots/steel> * 4], [], 200);
 
