@@ -123,11 +123,39 @@ ServerEvents.recipes(event => {
             // 'ratatouille:mechanical_demolder',
             // 'ratatouille:squeeze_basin',
             // 'ratatouille:thresher',
-            event.remove([{ type: 'vintageimprovements:coiling' }]),
-            event.remove([{ type: 'vintageimprovements:hammering' }]),
-            event.remove([{ type: 'vintageimprovements:pressurizing' }]),
-            event.remove([{ type: 'vintageimprovements:vacuumizing' }]),
+            event.remove([{ type: 'vintageimprovements:coiling'}]),
+            event.remove([{ type: 'vintageimprovements:hammering'}]),
+            event.remove([{ type: 'vintageimprovements:pressurizing'}]),
+            event.remove([{ type: 'vintageimprovements:vacuumizing'}]),
+            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_copper'}]),
+            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_gold'}]),
+            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_iron'}]),
+            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_silver'}]),
+            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_zinc'}]),
+            event.remove([{ type: 'create:crushing', output: 'minecraft:lapis_lazuli'}]),
+            event.remove([{ type: 'create:crushing', output: 'minecraft:redstone'}]),
+            event.remove([{ type: 'create:crushing', output: 'minecraft:coal'}]),
+            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_cinnabar'}]),
+            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_diamond_shard'}]),
+            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_diamond'}]),
+            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_emerald'}]),
+            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_lazurite'}]),
             event.remove({id: 'minecraft:lodestone'}),
+            event.remove({id: 'spelunkery:copper_ore_blasting'}),
+            event.remove({id: 'spelunkery:copper_ore_smelting'}),
+            event.remove({id: 'spelunkery:diamond_ore_blasting'}),
+            event.remove({id: 'spelunkery:diamond_ore_smelting'}),
+            event.remove({id: 'spelunkery:emerald_ore_blasting'}),
+            event.remove({id: 'spelunkery:emerald_ore_smelting'}),
+            event.remove({id: 'spelunkery:gold_ore_blasting'}),
+            event.remove({id: 'spelunkery:gold_ore_smelting'}),
+            event.remove({id: 'spelunkery:iron_ore_blasting'}),
+            event.remove({id: 'spelunkery:iron_ore_smelting'}),
+            event.remove({id: 'spelunkery:redstone_ore_blasting'}),
+            event.remove({id: 'spelunkery:redstone_ore_smelting'}),
+            event.remove({id: 'spelunkery:zinc_ore_blasting'}),
+            event.remove({id: 'spelunkery:zinc_ore_smelting'}),
+            event.remove({id: 'vintagedelight:salt_bucket_to_salt'}),
             console.log('Recipes nuked!')
         ]
     })
@@ -139,10 +167,10 @@ ServerEvents.recipes(event => {
 })
 
 ServerEvents.recipes(event => {
-event.replaceInput(
-    { input: 'createaddition:capacitor' },
-    'createaddition:capacitor',
-    'create:electron_tube')
+    event.replaceInput(
+        { input: 'createaddition:capacitor' },
+        'createaddition:capacitor',
+        'create:electron_tube')
     console.log('Item replacement recipes finished!')
 })
 
@@ -202,20 +230,20 @@ ServerEvents.recipes(event => {
     // Create + Create Addons
 
     event.recipes.create.sequenced_assembly([
-		('create_dd:integrated_circuit')
-	], 'create:copper_sheet', [
-		event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'ae2:silicon']),
-		event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'create_dd:bury_blend']),
-		event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'createaddition:electrum_nugget'])
-	]).transitionalItem('create:incomplete_precision_mechanism').loops(5)
+        ('create_dd:integrated_circuit')
+    ], 'create:copper_sheet', [
+        event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'ae2:silicon']),
+        event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'create_dd:bury_blend']),
+        event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'createaddition:electrum_nugget'])
+    ]).transitionalItem('create:incomplete_precision_mechanism').loops(5)
 
     event.recipes.create.sequenced_assembly([
-		('create_dd:abstruse_mechanism')
-	], '#forge:plates/shadow_steel', [
-		event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'kubejs:polished_fluix']),
-		event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', '#forge:ender_pearls']),
-		event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'createutilities:graviton_tube'])
-	]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(3)
+        ('create_dd:abstruse_mechanism')
+    ], '#forge:plates/shadow_steel', [
+        event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'kubejs:polished_fluix']),
+        event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', '#forge:ender_pearls']),
+        event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'createutilities:graviton_tube'])
+    ]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(3)
 
     event.recipes.create.mixing('4x createutilities:void_steel_ingot', [
         '4x kubejs:steel_ingot',
@@ -226,6 +254,91 @@ ServerEvents.recipes(event => {
         '4x createdeco:industrial_iron_ingot',
         '#minecraft:coals'
     ]).heated()
+
+    event.shaped('createutilities:void_motor', [
+        'A',
+        'V',
+        'S'
+    ], {
+        A: 'create_dd:abstruse_mechanism',
+        V: 'createutilities:void_casing',
+        S: 'create:shaft'
+    })
+
+    event.shaped('createutilities:void_chest', [
+        'A',
+        'V',
+        'C'
+    ], {
+        A: 'create_dd:abstruse_mechanism',
+        V: 'createutilities:void_casing',
+        C: 'minecraft:chest'
+    })
+
+    event.shaped('createutilities:void_tank', [
+        'A',
+        'V',
+        'F'
+    ], {
+        A: 'create_dd:abstruse_mechanism',
+        V: 'createutilities:void_casing',
+        F: 'create:fluid_tank'
+    })
+
+    event.shaped('createutilities:void_battery', [
+        'A',
+        'V',
+        'M'
+    ], {
+        A: 'create_dd:abstruse_mechanism',
+        V: 'createutilities:void_casing',
+        M: 'createaddition:modular_accumulator'
+    })
+
+    event.shaped('vintageimprovements:grinder_belt', [
+        'DDD',
+        'D D',
+        'DDD'
+    ], {
+        D: 'createaddition:diamond_grit_sandpaper'
+    })
+
+// Ore / material processing
+
+    event.recipes.create.splashing(['9x galosphere:silver_nugget', Item.of('spelunkery:sulfur').withChance(0.75)], 'create:crushed_raw_silver')
+
+    event.recipes.create.crushing(['2x spelunkery:salt', Item.of('spelunkery:salt').withChance(0.5)], 'galosphere:pink_salt_shard')
+
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '4x create:crushed_raw_copper'], '#forge:ores/copper')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '4x spelunkery:rough_lazurite'], '#forge:ores/lapis')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x create:crushed_raw_iron'], '#forge:ores/iron')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x create:crushed_raw_silver'], '#forge:ores/silver')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '5x spelunkery:rough_cinnabar'], '#forge:ores/redstone')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x create:crushed_raw_gold'], '#forge:ores/gold')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x create:crushed_raw_zinc'], '#forge:ores/zinc')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x minecraft:coal'], '#forge:ores/coal')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x spelunkery:rough_emerald'], '#forge:ores/emerald')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x spelunkery:rough_diamond'], '#forge:ores/diamond')
+
+    event.recipes.create.crushing([Item.of('9x create:experience_nugget').withChance(0.75), '18x create:crushed_raw_copper'], 'minecraft:raw_copper_block')
+    event.recipes.create.crushing([Item.of('9x create:experience_nugget').withChance(0.75), '18x create:crushed_raw_iron'], 'minecraft:raw_iron_block')
+    event.recipes.create.crushing([Item.of('9x create:experience_nugget').withChance(0.75), '27x create:crushed_raw_iron'], 'spelunkery:raw_magnetite_block')
+    event.recipes.create.crushing([Item.of('9x create:experience_nugget').withChance(0.75), '18x create:crushed_raw_silver'], 'galosphere:raw_silver_block')
+    event.recipes.create.crushing([Item.of('9x create:experience_nugget').withChance(0.75), '18x create:crushed_raw_gold'], 'minecraft:raw_gold_block')
+    event.recipes.create.crushing([Item.of('9x create:experience_nugget').withChance(0.75), '18x create:crushed_raw_zinc'], 'create:raw_zinc_block')
+
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x minecraft:redstone'], 'spelunkery:rough_cinnabar')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_copper'], 'minecraft:raw_copper')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_gold'], 'minecraft:raw_gold')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_iron'], 'minecraft:raw_iron')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '3x create:crushed_raw_iron'], 'spelunkery:raw_magnetite')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_silver'], 'galosphere:raw_silver')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_zinc'], 'create:raw_zinc')
+
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.25), 'minecraft:redstone'], 'regions_unexplored:pointed_redstone')
+    event.recipes.create.crushing(['3x minecraft:redstone'], 'regions_unexplored:raw_redstone_block')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.25), 'minecraft:redstone'], 'regions_unexplored:redstone_bud')
+    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.50), '3x minecraft:redstone'], 'regions_unexplored:redstone_bulb')
 
     console.log('Recipes added!')
 })
