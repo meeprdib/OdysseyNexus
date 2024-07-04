@@ -1,90 +1,39 @@
-[22:04:01.817][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
-[22:04:02.088][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[22:04:02.968][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
-[22:04:02.977][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
-[22:04:02.986][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
-[22:04:02.993][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
-[22:04:15.863][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
-[22:04:15.867][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.40'
-[22:04:15.868][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
-[22:04:15.868][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
-[22:04:15.868][INFO][CraftTweaker]: - 'gateways' at version '4.2.5'
-[22:05:09.773][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[22:05:12.864][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[22:05:13.024][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[22:05:13.312][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[22:06:12.324][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[22:06:12.360][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[22:06:12.398][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[22:06:12.406][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[22:06:18.628][INFO][CraftTweaker]: CraftTweaker reload starting!
-[22:06:18.640][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[22:06:18.672][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[22:06:19.359][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
-[22:06:19.359][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
-[22:06:19.468][INFO][CraftTweaker]: Adding 'create:compacting' recipe, with name: 'crafttweaker:steel_ingot' that outputs: '<item:kubejs:steel_ingot> * 4'
-[22:06:19.471][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_motor' that outputs: '<item:createutilities:void_motor>'
-[22:06:19.471][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_chest' that outputs: '<item:createutilities:void_chest>'
-[22:06:19.471][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_tank' that outputs: '<item:createutilities:void_tank>'
-[22:06:19.472][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:void_battery' that outputs: '<item:createutilities:void_battery>'
-[22:06:19.476][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pink_salt_shard' that outputs: '<item:spelunkery:salt> * 2'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:crafting' recipe(s) with name(s): '[vintagedelight:salt_bucket_to_salt]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:copper_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:diamond_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:emerald_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:gold_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:iron_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:redstone_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:blasting' recipe(s) with name(s): '[spelunkery:zinc_ore_blasting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:copper_ore_smelting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:diamond_ore_smelting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:emerald_ore_smelting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:gold_ore_smelting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:iron_ore_smelting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:redstone_ore_smelting]'
-[22:06:19.478][INFO][CraftTweaker]: Removing 'minecraft:smelting' recipe(s) with name(s): '[spelunkery:zinc_ore_smelting]'
-[22:06:19.480][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_copper>'
-[22:06:19.482][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_gold>'
-[22:06:19.482][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_iron>'
-[22:06:19.483][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_silver>'
-[22:06:19.483][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:create:crushed_raw_zinc>'
-[22:06:19.483][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:minecraft:lapis_lazuli>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:minecraft:redstone>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:minecraft:coal>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:spelunkery:rough_cinnabar>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:spelunkery:rough_diamond_shard>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:spelunkery:rough_diamond>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:spelunkery:rough_emerald>'
-[22:06:19.484][INFO][CraftTweaker]: Removing 'create:crushing' recipes with output: '<item:spelunkery:rough_lazurite>'
-[22:06:19.485][INFO][CraftTweaker]: Adding 'create:splashing' recipe, with name: 'crafttweaker:washed_silver' that outputs: '<item:galosphere:silver_nugget> * 9'
-[22:06:19.485][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.485][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_diamond_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.486][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_emerald_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.486][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.486][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.486][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_lapis_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.486][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_redstone_ore' that outputs: '<item:spelunkery:rough_cinnabar> * 5'
-[22:06:19.487][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.487][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.487][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_coal_ore' that outputs: '<item:create:experience_nugget>'
-[22:06:19.488][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_block' that outputs: '<item:create:experience_nugget> * 9'
-[22:06:19.488][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_block' that outputs: '<item:create:experience_nugget> * 9'
-[22:06:19.488][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_block' that outputs: '<item:create:experience_nugget> * 9'
-[22:06:19.489][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_block' that outputs: '<item:create:experience_nugget> * 9'
-[22:06:19.489][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_block' that outputs: '<item:create:experience_nugget> * 9'
-[22:06:19.489][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_block' that outputs: '<item:create:experience_nugget> * 9'
-[22:06:19.489][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_cinnibar' that outputs: '<item:create:experience_nugget>'
-[22:06:19.489][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_copper_raw' that outputs: '<item:create:experience_nugget>'
-[22:06:19.489][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_gold_raw' that outputs: '<item:create:experience_nugget>'
-[22:06:19.490][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_iron_raw' that outputs: '<item:create:experience_nugget>'
-[22:06:19.490][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_magnetite_raw' that outputs: '<item:create:experience_nugget>'
-[22:06:19.490][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_silver_raw' that outputs: '<item:create:experience_nugget>'
-[22:06:19.490][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_zinc_raw' that outputs: '<item:create:experience_nugget>'
-[22:06:19.491][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_pointed_redstone' that outputs: '<item:create:experience_nugget>'
-[22:06:19.491][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_raw_redstone_block' that outputs: '<item:minecraft:redstone> * 3'
-[22:06:19.491][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_redstone_bud' that outputs: '<item:create:experience_nugget>'
-[22:06:19.491][INFO][CraftTweaker]: Adding 'create:crushing' recipe, with name: 'crafttweaker:crushed_redstone_bulb' that outputs: '<item:create:experience_nugget>'
-[22:06:19.492][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:diamond_grinder_belt' that outputs: '<item:vintageimprovements:grinder_belt>'
-[22:06:19.492][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[22:06:19.497][INFO][CraftTweaker]: CraftTweaker reload complete!
-[22:06:19.498][INFO][CraftTweaker]: This reload was made possible by Belathus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[08:51:25.829][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.1 production client modded with platform Forge
+[08:51:25.952][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[08:51:26.247][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin
+[08:51:26.255][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:builtin_forge
+[08:51:26.255][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin createtweaker:main
+[08:51:26.263][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin farmersdelight:crafttweaker_plugin
+[08:51:30.888][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support through the default plugin:
+[08:51:30.896][INFO][CraftTweaker]: - 'crafttweaker' at version '14.0.40'
+[08:51:30.896][INFO][CraftTweaker]: - 'createtweaker' at version '4.0.9'
+[08:51:30.896][INFO][CraftTweaker]: - 'farmersdelight' at version '1.20.1-1.2.4'
+[08:51:30.896][INFO][CraftTweaker]: - 'gateways' at version '4.2.5'
+[08:51:49.437][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[08:51:50.668][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[08:51:50.846][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[08:51:51.301][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[08:52:16.459][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[08:52:16.484][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[08:52:16.516][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[08:52:16.525][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[08:52:20.504][INFO][CraftTweaker]: CraftTweaker reload starting!
+[08:52:20.510][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[08:52:20.529][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[08:52:20.868][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[08:52:20.870][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[08:52:20.878][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[08:52:20.883][INFO][CraftTweaker]: CraftTweaker reload complete!
+[08:52:20.883][INFO][CraftTweaker]: This reload was made possible by Lucas and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[08:54:43.817][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[08:54:43.817][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[08:54:43.853][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[08:54:43.859][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[08:54:43.874][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[08:54:47.596][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[08:54:47.596][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[08:54:47.609][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[08:54:47.738][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [mods, crafttweaker, expansions]
+[08:54:47.739][INFO][CraftTweaker-ZenCode]: Loading file 'crafttweaker.zs' with priority 0
+[08:54:47.751][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[08:54:47.752][INFO][CraftTweaker]: This reload was made possible by DreamThorn and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

@@ -116,7 +116,10 @@
             Whether a miapi reload should be automatically forced on serverstart
             This is enabled for compat reasons, sometimes scanning recipes and other stuff during a reload isnt stable
             */
-            "reload_on_server_start": true
+            "reload_on_server_start": true,
+            // How much of a Modules Durability is used to repair the Item
+
+            "repair_ratio": 1.0
         }
     }
 }

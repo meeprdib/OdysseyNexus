@@ -1,93 +1,65 @@
-[22:04:21] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
-[22:04:21] [INIT] Loaded plugins:
-[22:04:21] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[22:04:21] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[22:04:21] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[22:04:21] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[22:04:21] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[22:04:21] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[22:04:21] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[22:04:21] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[22:04:21] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[22:04:21] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[22:04:21] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[22:04:21] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[22:04:21] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
-[22:04:21] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[22:04:21] [INFO] Loaded script client_scripts:certusquartz.js in 0.029 s
-[22:04:21] [INFO] Loaded script client_scripts:jei.js in 0.028 s
-[22:04:21] [INFO] Loaded script client_scripts:tooltips.js in 0.013 s
-[22:04:21] [INFO] Loaded 3/3 KubeJS client scripts in 0.333 s with 0 errors and 0 warnings
-[22:04:55] [INFO] Client resource reload complete!
-[22:06:50] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
-[22:06:50] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
-[22:06:50] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
-[22:06:50] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
-[22:06:50] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
-[22:06:50] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
-[22:06:50] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
-[22:06:50] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
-[22:06:50] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
-[22:06:50] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
-[22:06:50] [ERROR] !   at mezz.jei.library.render.ItemStackRenderer.getTooltip(ItemStackRenderer.java:36)
-[22:06:50] [ERROR] !   at mezz.jei.library.render.ItemStackRenderer.getTooltip(ItemStackRenderer.java:18)
-[22:06:50] [ERROR] !   at mezz.jei.common.util.SafeIngredientUtil.getTooltip(SafeIngredientUtil.java:57)
-[22:06:50] [ERROR] !   at mezz.jei.gui.ingredients.ListElementInfo.getTooltipStrings(ListElementInfo.java:116)
-[22:06:50] [ERROR] !   at mezz.jei.gui.search.ElementPrefixParser.lambda$new$2(ElementPrefixParser.java:41)
-[22:06:50] [ERROR] !   at mezz.jei.core.search.PrefixInfo.getStrings(PrefixInfo.java:35)
-[22:06:50] [ERROR] !   at mezz.jei.core.search.PrefixedSearchable.getStrings(PrefixedSearchable.java:20)
-[22:06:50] [ERROR] !   at mezz.jei.gui.search.ElementSearch.add(ElementSearch.java:62)
-[22:06:50] [ERROR] !   at mezz.jei.gui.ingredients.IngredientFilter.addIngredient(IngredientFilter.java:101)
-[22:06:50] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
-[22:06:50] [ERROR] !   at java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
-[22:06:50] [ERROR] !   at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-[22:06:50] [ERROR] !   at java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
-[22:06:50] [ERROR] !   at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-[22:06:50] [ERROR] !   at java.util.Iterator.forEachRemaining(Iterator.java:133)
-[22:06:50] [ERROR] !   at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
-[22:06:50] [ERROR] !   at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-[22:06:50] [ERROR] !   at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-[22:06:50] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
-[22:06:50] [ERROR] !   at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
-[22:06:50] [ERROR] !   at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-[22:06:50] [ERROR] !   at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
-[22:06:50] [ERROR] !   at mezz.jei.gui.ingredients.IngredientFilter.<init>(IngredientFilter.java:88)
-[22:06:50] [ERROR] !   at mezz.jei.gui.startup.JeiGuiStarter.start(JeiGuiStarter.java:108)
-[22:06:50] [ERROR] !   at mezz.jei.forge.plugins.forge.ForgeGuiPlugin.registerRuntime(ForgeGuiPlugin.java:34)
-[22:06:50] [ERROR] !   at mezz.jei.library.startup.JeiStarter.lambda$start$2(JeiStarter.java:156)
-[22:06:50] [ERROR] !   at mezz.jei.library.load.PluginCaller.callOnPlugins(PluginCaller.java:27)
-[22:06:50] [ERROR] !   at mezz.jei.library.startup.JeiStarter.start(JeiStarter.java:156)
-[22:06:50] [ERROR] !   at mezz.jei.forge.startup.StartEventObserver.transitionState(StartEventObserver.java:137)
-[22:06:50] [ERROR] !   at mezz.jei.forge.startup.StartEventObserver.onEvent(StartEventObserver.java:100)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.doCastFilter(EventBus.java:260)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.lambda$addListener$11(EventBus.java:252)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
-[22:06:50] [ERROR] !   at net.minecraft.client.multiplayer.ClientPacketListener.m_5859_(ClientPacketListener.java:1451)
-[22:06:50] [ERROR] !   at net.minecraft.network.protocol.game.ClientboundUpdateTagsPacket.m_5797_(ClientboundUpdateTagsPacket.java:35)
-[22:06:50] [ERROR] !   at net.minecraft.network.protocol.game.ClientboundUpdateTagsPacket.m_5797_(ClientboundUpdateTagsPacket.java:11)
-[22:06:50] [ERROR] !   at net.minecraft.network.protocol.PacketUtils.m_263899_(PacketUtils.java:22)
-[22:06:50] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
-[22:06:50] [ERROR] !   at net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
-[22:06:50] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
-[22:06:50] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_18699_(BlockableEventLoop.java:115)
-[22:06:50] [ERROR] !   at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1106)
-[22:06:50] [ERROR] !   at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
-[22:06:50] [ERROR] !   at net.minecraft.client.main.Main.main(Main.java:218)
-[22:06:50] [ERROR] !   at java.lang.reflect.Method.invoke(Method.java:568)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
-[22:06:50] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
-[22:06:50] [ERROR] !   at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
-[22:07:00] [INFO] jei.js#2: JEI items nuked!
-[22:07:00] [INFO] jei.js#136: JEI items added!
+[00:59:42] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
+[00:59:42] [INIT] Loaded plugins:
+[00:59:42] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[00:59:42] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[00:59:42] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[00:59:42] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[00:59:42] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[00:59:42] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[00:59:42] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[00:59:42] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[00:59:42] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[00:59:42] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
+[00:59:42] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[00:59:42] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[00:59:42] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
+[00:59:42] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[00:59:42] [INFO] Loaded script client_scripts:certusquartz.js in 0.003 s
+[00:59:42] [INFO] Loaded script client_scripts:jei.js in 0.0 s
+[00:59:42] [INFO] Loaded script client_scripts:tooltips.js in 0.0 s
+[00:59:42] [INFO] Loaded 3/3 KubeJS client scripts in 0.013 s with 0 errors and 0 warnings
+[00:59:42] [INFO] Ponder tags event is currently not reloadable. Only scenes were reloaded.
+[00:59:42] [INFO] Client resource reload complete!
+[01:00:01] [ERROR] ! Error in 'ItemEvents.tooltip': Event returned result when it's not cancellable
+[01:00:01] [ERROR] ! java.lang.IllegalStateException: Event returned result when it's not cancellable
+[01:00:01] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:289)
+[01:00:01] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:226)
+[01:00:01] [ERROR] !   at …kubejs.event.EventHandler.post(EventHandler.java:189)
+[01:00:01] [ERROR] !   at …kubejs.client.KubeJSClientEventHandler.itemTooltip(KubeJSClientEventHandler.java:112)
+[01:00:01] [ERROR] !   at dev.architectury.event.forge.EventHandlerImplClient.event(EventHandlerImplClient.java:50)
+[01:00:01] [ERROR] !   at dev.architectury.event.forge.__EventHandlerImplClient_event_ItemTooltipEvent.invoke(.dynamic)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
+[01:00:01] [ERROR] !   at net.minecraftforge.event.ForgeEventFactory.onItemTooltip(ForgeEventFactory.java:360)
+[01:00:01] [ERROR] !   at net.minecraft.world.item.ItemStack.m_41651_(ItemStack.java:763)
+[01:00:01] [ERROR] !   at net.minecraft.client.Minecraft.m_231429_(Minecraft.java:758)
+[01:00:01] [ERROR] !   at net.minecraft.client.searchtree.PlainTextSearchTree.m_235197_(PlainTextSearchTree.java:20)
+[01:00:01] [ERROR] !   at net.minecraft.client.searchtree.FullTextSearchTree.m_214078_(FullTextSearchTree.java:26)
+[01:00:01] [ERROR] !   at net.minecraft.client.searchtree.SearchRegistry$TreeEntry.m_235244_(SearchRegistry.java:65)
+[01:00:01] [ERROR] !   at net.minecraft.client.searchtree.SearchRegistry.m_6213_(SearchRegistry.java:25)
+[01:00:01] [ERROR] !   at net.minecraft.server.packs.resources.ResourceManagerReloadListener.m_10759_(ResourceManagerReloadListener.java:15)
+[01:00:01] [ERROR] !   at java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java:787)
+[01:00:01] [ERROR] !   at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+[01:00:01] [ERROR] !   at net.minecraft.server.packs.resources.SimpleReloadInstance.m_143940_(SimpleReloadInstance.java:69)
+[01:00:01] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_6367_(BlockableEventLoop.java:156)
+[01:00:01] [ERROR] !   at net.minecraft.util.thread.ReentrantBlockableEventLoop.m_6367_(ReentrantBlockableEventLoop.java:23)
+[01:00:01] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_7245_(BlockableEventLoop.java:130)
+[01:00:01] [ERROR] !   at net.minecraft.util.thread.BlockableEventLoop.m_18699_(BlockableEventLoop.java:115)
+[01:00:01] [ERROR] !   at net.minecraft.client.Minecraft.m_91383_(Minecraft.java:1106)
+[01:00:01] [ERROR] !   at net.minecraft.client.Minecraft.m_91374_(Minecraft.java:718)
+[01:00:01] [ERROR] !   at net.minecraft.client.main.Main.main(Main.java:218)
+[01:00:01] [ERROR] !   at java.lang.reflect.Method.invoke(Method.java:568)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/fmlloader@1.20.1-47.2.20/net.minecraftforge.fml.loading.targets.CommonClientLaunchHandler.lambda$makeService$0(CommonClientLaunchHandler.java:25)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
+[01:00:01] [ERROR] !   at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
+[01:00:01] [ERROR] !   at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
+[01:00:10] [INFO] jei.js#2: JEI items nuked!
+[01:00:10] [INFO] jei.js#136: JEI items added!

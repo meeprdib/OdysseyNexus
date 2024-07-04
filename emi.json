@@ -1,19 +1,33 @@
 {
   "favorites": [],
   "lookup_history": [
+    "item:gateways:gate_pearl{gateway:\"gateways:basic/blaze\"}",
+    "item:gateways:gate_pearl",
+    "item:gateways:gate_pearl{gateway:\"gateways:overworldian_nights\"}",
+    "item:gateways:gate_pearl{gateway:\"gateways:basic/enderman\"}",
+    "item:gateways:gate_pearl{gateway:\"gateways:endless/blaze\"}",
+    "item:minecraft:diamond",
+    "item:gateways:gate_pearl{gateway:\"gateways:hellish_fortress\"}",
+    "item:galosphere:silver_nugget",
+    "item:minecraft:gold_nugget",
+    {
+      "type": "item",
+      "id": "create:crushed_raw_iron",
+      "amount": 3
+    },
+    {
+      "type": "item",
+      "id": "create:crushed_raw_copper",
+      "amount": 4
+    },
+    "item:spelunkery:andesite_copper_ore",
+    "item:spelunkery:salt",
+    "item:galosphere:pink_salt",
+    "#item:on:salt_block",
+    "item:createutilities:void_steel_ingot",
     "item:minecraft:enchanted_golden_apple",
     "item:supplementaries:bubble_blower{Damage:0}",
     "item:kubejs:steel_ingot",
-    {
-      "type": "item",
-      "id": "createutilities:void_steel_ingot",
-      "amount": 4
-    },
-    {
-      "type": "item",
-      "id": "minecraft:diamond",
-      "amount": 3
-    },
     {
       "type": "item",
       "id": "apotheosis:sigil_of_rebirth",
@@ -35,7 +49,6 @@
     "item:minecraft:rabbit_hide",
     "item:minecraft:bundle{}",
     "item:minecraft:leather",
-    "item:gateways:gate_pearl{gateway:\"gateways:basic/enderman\"}",
     {
       "type": "item",
       "id": "twigs:bamboo_thatch_slab",
@@ -394,14 +407,14 @@
   "craft_history": [],
   "recipe_defaults": {
     "added": [
-      "createutilities:shaped/graviton_tube",
-      "ae2:decorative/fluix_block",
       "vintageimprovements:craft/belt_grinder",
-      "createaddition:crafting/diamond_grit_sandpaper",
-      "create:crafting/kinetics/cogwheel",
       "create:crafting/kinetics/shaft",
-      "create:crafting/materials/andesite_alloy",
-      "minecraft:diorite"
+      "create:crafting/kinetics/cogwheel",
+      "ae2:decorative/fluix_block",
+      "minecraft:diorite",
+      "createaddition:crafting/diamond_grit_sandpaper",
+      "createutilities:shaped/graviton_tube",
+      "create:crafting/materials/andesite_alloy"
     ],
     "tags": {},
     "resolutions": {},
