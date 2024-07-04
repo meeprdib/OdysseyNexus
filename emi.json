@@ -1,6 +1,13 @@
 {
   "favorites": [],
   "lookup_history": [
+    "item:apotheosis:augmenting_table",
+    "item:apotheosis:reforging_table",
+    {
+      "type": "item",
+      "id": "apotheosis:sigil_of_rebirth",
+      "amount": 64
+    },
     "item:gateways:gate_pearl{gateway:\"gateways:basic/blaze\"}",
     "item:gateways:gate_pearl",
     "item:gateways:gate_pearl{gateway:\"gateways:overworldian_nights\"}",
@@ -28,11 +35,6 @@
     "item:minecraft:enchanted_golden_apple",
     "item:supplementaries:bubble_blower{Damage:0}",
     "item:kubejs:steel_ingot",
-    {
-      "type": "item",
-      "id": "apotheosis:sigil_of_rebirth",
-      "amount": 64
-    },
     "item:minecraft:coal_block",
     "item:minecraft:coal",
     "item:cataclysm:void_core",
@@ -107,7 +109,6 @@
     "item:twigs:twig",
     "item:twigs:bamboo_mat",
     "item:twigs:rhyolite",
-    "item:apotheosis:augmenting_table",
     "item:apotheosis:gem_fused_slate",
     "item:twigs:bloodstone",
     "item:twigs:silt_brick",
@@ -407,14 +408,14 @@
   "craft_history": [],
   "recipe_defaults": {
     "added": [
-      "vintageimprovements:craft/belt_grinder",
       "create:crafting/kinetics/shaft",
-      "create:crafting/kinetics/cogwheel",
       "ae2:decorative/fluix_block",
-      "minecraft:diorite",
       "createaddition:crafting/diamond_grit_sandpaper",
+      "minecraft:diorite",
       "createutilities:shaped/graviton_tube",
-      "create:crafting/materials/andesite_alloy"
+      "create:crafting/kinetics/cogwheel",
+      "create:crafting/materials/andesite_alloy",
+      "vintageimprovements:craft/belt_grinder"
     ],
     "tags": {},
     "resolutions": {},

@@ -26,7 +26,7 @@
     "onlyWhenHurt": false
   },
   "particle": {
-    "show": true,
+    "show": false,
     "damageColor": "#ff0000",
     "healColor": "#00ff00",
     "distance": 60
