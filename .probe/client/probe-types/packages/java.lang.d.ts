@@ -656,10 +656,41 @@ static readonly "E": double
 static readonly "PI": double
 
 
+public static "asin"(arg0: double): double
+public static "acos"(arg0: double): double
+public static "atan"(arg0: double): double
+public static "cbrt"(arg0: double): double
+public static "IEEEremainder"(arg0: double, arg1: double): double
+public static "floorDiv"(arg0: long, arg1: integer): long
+public static "floorDiv"(arg0: long, arg1: long): long
+public static "floorDiv"(arg0: integer, arg1: integer): integer
+public static "sinh"(arg0: double): double
+public static "cosh"(arg0: double): double
+public static "tanh"(arg0: double): double
+public static "hypot"(arg0: double, arg1: double): double
+public static "expm1"(arg0: double): double
+public static "log1p"(arg0: double): double
+public static "toRadians"(arg0: double): double
+public static "toDegrees"(arg0: double): double
+public static "round"(arg0: float): integer
+public static "round"(arg0: double): long
+public static "random"(): double
+public static "toIntExact"(arg0: long): integer
+public static "multiplyFull"(arg0: integer, arg1: integer): long
+public static "absExact"(arg0: long): long
+public static "absExact"(arg0: integer): integer
+public static "ulp"(arg0: float): float
+public static "ulp"(arg0: double): double
+public static "nextAfter"(arg0: float, arg1: double): float
+public static "nextAfter"(arg0: double, arg1: double): double
+public static "nextUp"(arg0: float): float
+public static "nextUp"(arg0: double): double
+public static "nextDown"(arg0: double): double
+public static "nextDown"(arg0: float): float
 public static "abs"(arg0: integer): integer
 public static "abs"(arg0: long): long
-public static "abs"(arg0: float): float
 public static "abs"(arg0: double): double
+public static "abs"(arg0: float): float
 public static "sin"(arg0: double): double
 public static "cos"(arg0: double): double
 public static "tan"(arg0: double): double
@@ -673,71 +704,40 @@ public static "min"(arg0: integer, arg1: integer): integer
 public static "min"(arg0: float, arg1: float): float
 public static "min"(arg0: long, arg1: long): long
 public static "min"(arg0: double, arg1: double): double
-public static "max"(arg0: integer, arg1: integer): integer
+public static "max"(arg0: double, arg1: double): double
 public static "max"(arg0: float, arg1: float): float
 public static "max"(arg0: long, arg1: long): long
-public static "max"(arg0: double, arg1: double): double
+public static "max"(arg0: integer, arg1: integer): integer
 public static "floor"(arg0: double): double
 public static "ceil"(arg0: double): double
 public static "rint"(arg0: double): double
-public static "addExact"(arg0: integer, arg1: integer): integer
 public static "addExact"(arg0: long, arg1: long): long
-public static "decrementExact"(arg0: long): long
+public static "addExact"(arg0: integer, arg1: integer): integer
 public static "decrementExact"(arg0: integer): integer
-public static "incrementExact"(arg0: integer): integer
+public static "decrementExact"(arg0: long): long
 public static "incrementExact"(arg0: long): long
+public static "incrementExact"(arg0: integer): integer
 public static "multiplyExact"(arg0: integer, arg1: integer): integer
-public static "multiplyExact"(arg0: long, arg1: long): long
 public static "multiplyExact"(arg0: long, arg1: integer): long
+public static "multiplyExact"(arg0: long, arg1: long): long
 public static "multiplyHigh"(arg0: long, arg1: long): long
-public static "negateExact"(arg0: long): long
 public static "negateExact"(arg0: integer): integer
+public static "negateExact"(arg0: long): long
 public static "subtractExact"(arg0: integer, arg1: integer): integer
 public static "subtractExact"(arg0: long, arg1: long): long
 public static "fma"(arg0: double, arg1: double, arg2: double): double
 public static "fma"(arg0: float, arg1: float, arg2: float): float
-public static "copySign"(arg0: float, arg1: float): float
 public static "copySign"(arg0: double, arg1: double): double
-public static "signum"(arg0: float): float
+public static "copySign"(arg0: float, arg1: float): float
 public static "signum"(arg0: double): double
+public static "signum"(arg0: float): float
 public static "scalb"(arg0: double, arg1: integer): double
 public static "scalb"(arg0: float, arg1: integer): float
 public static "getExponent"(arg0: float): integer
 public static "getExponent"(arg0: double): integer
-public static "floorMod"(arg0: long, arg1: integer): integer
 public static "floorMod"(arg0: integer, arg1: integer): integer
+public static "floorMod"(arg0: long, arg1: integer): integer
 public static "floorMod"(arg0: long, arg1: long): long
-public static "asin"(arg0: double): double
-public static "acos"(arg0: double): double
-public static "atan"(arg0: double): double
-public static "cbrt"(arg0: double): double
-public static "IEEEremainder"(arg0: double, arg1: double): double
-public static "floorDiv"(arg0: long, arg1: long): long
-public static "floorDiv"(arg0: integer, arg1: integer): integer
-public static "floorDiv"(arg0: long, arg1: integer): long
-public static "sinh"(arg0: double): double
-public static "cosh"(arg0: double): double
-public static "tanh"(arg0: double): double
-public static "hypot"(arg0: double, arg1: double): double
-public static "expm1"(arg0: double): double
-public static "log1p"(arg0: double): double
-public static "toRadians"(arg0: double): double
-public static "toDegrees"(arg0: double): double
-public static "round"(arg0: double): long
-public static "round"(arg0: float): integer
-public static "random"(): double
-public static "toIntExact"(arg0: long): integer
-public static "multiplyFull"(arg0: integer, arg1: integer): long
-public static "absExact"(arg0: integer): integer
-public static "absExact"(arg0: long): long
-public static "ulp"(arg0: double): double
-public static "ulp"(arg0: float): float
-public static "nextAfter"(arg0: double, arg1: double): double
-public static "nextAfter"(arg0: float, arg1: double): float
-public static "nextUp"(arg0: double): double
-public static "nextUp"(arg0: float): float
-public static "nextDown"(arg0: double): double
-public static "nextDown"(arg0: float): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -805,9 +805,9 @@ declare global {
 export type $Runnable_ = $Runnable$Type;
 }}
 declare module "packages/java/lang/module/$ModuleDescriptor$Builder" {
+import {$ModuleDescriptor, $ModuleDescriptor$Type} from "packages/java/lang/module/$ModuleDescriptor"
 import {$ModuleDescriptor$Version, $ModuleDescriptor$Version$Type} from "packages/java/lang/module/$ModuleDescriptor$Version"
 import {$ModuleDescriptor$Provides, $ModuleDescriptor$Provides$Type} from "packages/java/lang/module/$ModuleDescriptor$Provides"
-import {$ModuleDescriptor, $ModuleDescriptor$Type} from "packages/java/lang/module/$ModuleDescriptor"
 import {$ModuleDescriptor$Exports$Modifier, $ModuleDescriptor$Exports$Modifier$Type} from "packages/java/lang/module/$ModuleDescriptor$Exports$Modifier"
 import {$ModuleDescriptor$Requires, $ModuleDescriptor$Requires$Type} from "packages/java/lang/module/$ModuleDescriptor$Requires"
 import {$ModuleDescriptor$Exports, $ModuleDescriptor$Exports$Type} from "packages/java/lang/module/$ModuleDescriptor$Exports"
@@ -825,28 +825,28 @@ import {$ModuleDescriptor$Opens, $ModuleDescriptor$Opens$Type} from "packages/ja
 export class $ModuleDescriptor$Builder {
 
 
+public "build"(): $ModuleDescriptor
 public "version"(arg0: string): $ModuleDescriptor$Builder
 public "version"(arg0: $ModuleDescriptor$Version$Type): $ModuleDescriptor$Builder
 public "packages"(arg0: $Set$Type<(string)>): $ModuleDescriptor$Builder
+public "exports"(arg0: $Set$Type<($ModuleDescriptor$Exports$Modifier$Type)>, arg1: string): $ModuleDescriptor$Builder
+public "exports"(arg0: string, arg1: $Set$Type<(string)>): $ModuleDescriptor$Builder
 public "exports"(arg0: string): $ModuleDescriptor$Builder
 public "exports"(arg0: $Set$Type<($ModuleDescriptor$Exports$Modifier$Type)>, arg1: string, arg2: $Set$Type<(string)>): $ModuleDescriptor$Builder
-public "exports"(arg0: string, arg1: $Set$Type<(string)>): $ModuleDescriptor$Builder
-public "exports"(arg0: $Set$Type<($ModuleDescriptor$Exports$Modifier$Type)>, arg1: string): $ModuleDescriptor$Builder
 public "exports"(arg0: $ModuleDescriptor$Exports$Type): $ModuleDescriptor$Builder
-public "opens"(arg0: string): $ModuleDescriptor$Builder
 public "opens"(arg0: $Set$Type<($ModuleDescriptor$Opens$Modifier$Type)>, arg1: string, arg2: $Set$Type<(string)>): $ModuleDescriptor$Builder
+public "opens"(arg0: $Set$Type<($ModuleDescriptor$Opens$Modifier$Type)>, arg1: string): $ModuleDescriptor$Builder
+public "opens"(arg0: string): $ModuleDescriptor$Builder
 public "opens"(arg0: string, arg1: $Set$Type<(string)>): $ModuleDescriptor$Builder
 public "opens"(arg0: $ModuleDescriptor$Opens$Type): $ModuleDescriptor$Builder
-public "opens"(arg0: $Set$Type<($ModuleDescriptor$Opens$Modifier$Type)>, arg1: string): $ModuleDescriptor$Builder
 public "uses"(arg0: string): $ModuleDescriptor$Builder
 public "provides"(arg0: string, arg1: $List$Type<(string)>): $ModuleDescriptor$Builder
 public "provides"(arg0: $ModuleDescriptor$Provides$Type): $ModuleDescriptor$Builder
 public "requires"(arg0: $Set$Type<($ModuleDescriptor$Requires$Modifier$Type)>, arg1: string, arg2: $ModuleDescriptor$Version$Type): $ModuleDescriptor$Builder
 public "requires"(arg0: $ModuleDescriptor$Requires$Type): $ModuleDescriptor$Builder
-public "requires"(arg0: string): $ModuleDescriptor$Builder
 public "requires"(arg0: $Set$Type<($ModuleDescriptor$Requires$Modifier$Type)>, arg1: string): $ModuleDescriptor$Builder
+public "requires"(arg0: string): $ModuleDescriptor$Builder
 public "mainClass"(arg0: string): $ModuleDescriptor$Builder
-public "build"(): $ModuleDescriptor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1529,8 +1529,8 @@ export class $VarHandle$VarHandleDesc extends $DynamicConstantDesc<($VarHandle)>
 public "toString"(): string
 public static "ofField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public "varType"(): $ClassDesc
-public static "ofArray"(arg0: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
+public static "ofArray"(arg0: $ClassDesc$Type): $VarHandle$VarHandleDesc
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1945,17 +1945,6 @@ static readonly "UNCONDITIONAL": integer
 static readonly "ORIGINAL": integer
 
 
-public "toString"(): string
-public "findClass"(arg0: string): $Class<(any)>
-public "defineClass"(arg0: (byte)[]): $Class<(any)>
-public "in"(arg0: $Class$Type<(any)>): $MethodHandles$Lookup
-public "ensureInitialized"(arg0: $Class$Type<(any)>): $Class<(any)>
-public "revealDirect"(arg0: $MethodHandle$Type): $MethodHandleInfo
-public "lookupClass"(): $Class<(any)>
-public "previousLookupClass"(): $Class<(any)>
-public "findVirtual"(arg0: $Class$Type<(any)>, arg1: string, arg2: $MethodType$Type): $MethodHandle
-public "findStatic"(arg0: $Class$Type<(any)>, arg1: string, arg2: $MethodType$Type): $MethodHandle
-public "lookupModes"(): integer
 public "hasFullPrivilegeAccess"(): boolean
 public "accessClass"(arg0: $Class$Type<(any)>): $Class<(any)>
 public "dropLookupMode"(arg0: integer): $MethodHandles$Lookup
@@ -1981,6 +1970,17 @@ public "unreflectVarHandle"(arg0: $Field$Type): $VarHandle
  * @deprecated
  */
 public "hasPrivateAccess"(): boolean
+public "toString"(): string
+public "findClass"(arg0: string): $Class<(any)>
+public "defineClass"(arg0: (byte)[]): $Class<(any)>
+public "in"(arg0: $Class$Type<(any)>): $MethodHandles$Lookup
+public "ensureInitialized"(arg0: $Class$Type<(any)>): $Class<(any)>
+public "revealDirect"(arg0: $MethodHandle$Type): $MethodHandleInfo
+public "lookupClass"(): $Class<(any)>
+public "previousLookupClass"(): $Class<(any)>
+public "findVirtual"(arg0: $Class$Type<(any)>, arg1: string, arg2: $MethodType$Type): $MethodHandle
+public "findStatic"(arg0: $Class$Type<(any)>, arg1: string, arg2: $MethodType$Type): $MethodHandle
+public "lookupModes"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

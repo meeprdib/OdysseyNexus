@@ -29,8 +29,8 @@ import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 
 export interface $Facet<T extends $Tag> {
 
- "loadNbt"(arg0: T): void
  "toNbt"(): T
+ "loadNbt"(arg0: T): void
 }
 
 export namespace $Facet {
@@ -116,13 +116,13 @@ export class $RenderingMobEffect extends $MobEffect {
 
 
 public "applyEffectTick"(entity: $LivingEntity$Type, i: integer): void
-public "maxTickUpdateDistance"(): double
 public "addAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
 public "removeAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
-public "tickUpdateInterval"(): integer
 public "renderHud"(instance: $MobEffectInstance$Type, minecraft: $Minecraft$Type, graphics: $GuiGraphics$Type, partialTick: float): boolean
-public "renderPre"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): boolean
 public "renderPost"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): void
+public "renderPre"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): boolean
+public "maxTickUpdateDistance"(): double
+public "tickUpdateInterval"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -383,15 +383,15 @@ export type $HeldItemRendererAccessor_ = $HeldItemRendererAccessor$Type;
 declare module "packages/com/redpxnda/nucleus/facet/$FacetHolder" {
 import {$FacetInventory, $FacetInventory$Type} from "packages/com/redpxnda/nucleus/facet/$FacetInventory"
 import {$Facet, $Facet$Type} from "packages/com/redpxnda/nucleus/facet/$Facet"
-import {$FacetKey, $FacetKey$Type} from "packages/com/redpxnda/nucleus/facet/$FacetKey"
 import {$FacetAttachmentEvent$FacetAttacher, $FacetAttachmentEvent$FacetAttacher$Type} from "packages/com/redpxnda/nucleus/facet/event/$FacetAttachmentEvent$FacetAttacher"
+import {$FacetKey, $FacetKey$Type} from "packages/com/redpxnda/nucleus/facet/$FacetKey"
 
 export interface $FacetHolder {
 
  "getFacets"(): $FacetInventory
+ "setFacetsFromAttacher"(attacher: $FacetAttachmentEvent$FacetAttacher$Type): void
  "setFacet"(key: $FacetKey$Type<(any)>, val: $Facet$Type<(any)>): void
  "clearFacets"(): void
- "setFacetsFromAttacher"(attacher: $FacetAttachmentEvent$FacetAttacher$Type): void
 
 (holder: any): $FacetHolder
 }

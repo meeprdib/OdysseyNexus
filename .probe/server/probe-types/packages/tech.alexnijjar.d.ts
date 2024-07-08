@@ -42,9 +42,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
+public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 }
 /**
@@ -239,11 +239,11 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(properties: $Item$Properties$Type)
 
 public "use"(level: $Level$Type, player: $Player$Type, usedHand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
-public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
 public "interactLivingEntity"(stack: $ItemStack$Type, player: $Player$Type, interactionTarget: $LivingEntity$Type, usedHand: $InteractionHand$Type): $InteractionResult
-public "isFoil"(stack: $ItemStack$Type): boolean
+public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltipComponents: $List$Type<($Component$Type)>, isAdvanced: $TooltipFlag$Type): void
+public "isFoil"(stack: $ItemStack$Type): boolean
+public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -408,8 +408,8 @@ import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/so
 import {$GeoAnimatable, $GeoAnimatable$Type} from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$PacketDistributor$PacketTarget, $PacketDistributor$PacketTarget$Type} from "packages/net/minecraftforge/network/$PacketDistributor$PacketTarget"
-import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -441,21 +441,21 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(properties: $Item$Properties$Type)
 
 public "registerControllers"(controllerRegistrar: $AnimatableManager$ControllerRegistrar$Type): void
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(consumer: $Consumer$Type<(any)>): void
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltipComponents: $List$Type<($Component$Type)>, isAdvanced: $TooltipFlag$Type): void
 public "isValidRepairItem"(stack: $ItemStack$Type, repairCandidate: $ItemStack$Type): boolean
 public "createRenderer"(consumer: $Consumer$Type<(any)>): void
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "getRenderProvider"(): $Supplier<(any)>
 public static "getId"(arg0: $ItemStack$Type): long
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "isPerspectiveAware"(): boolean
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
+public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
 public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
 public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
 public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
 public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
@@ -512,8 +512,8 @@ constructor(properties: $Item$Properties$Type)
 
 public "use"(level: $Level$Type, player: $Player$Type, usedHand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
-public "isFoil"(stack: $ItemStack$Type): boolean
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltipComponents: $List$Type<($Component$Type)>, isAdvanced: $TooltipFlag$Type): void
+public "isFoil"(stack: $ItemStack$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -614,24 +614,24 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(material: $ArmorMaterial$Type, type: $ArmorItem$Type$Type, properties: $Item$Properties$Type)
 
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "initializeClient"(consumer: $Consumer$Type<(any)>): void
 public "createRenderer"(consumer: $Consumer$Type<(any)>): void
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
 public "getRenderProvider"(): $Supplier<(any)>
 public static "getId"(arg0: $ItemStack$Type): long
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
-public "isPerspectiveAware"(): boolean
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public "isPerspectiveAware"(): boolean
+public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
 public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
 public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
 public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
 public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
-public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public "shouldPlayAnimsWhileGamePaused"(): boolean
+public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
 public "getBoneResetTime"(): double
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "renderProvider"(): $Supplier<(any)>

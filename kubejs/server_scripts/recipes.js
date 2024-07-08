@@ -227,6 +227,12 @@ ServerEvents.recipes(event => {
         C: 'ae2:charged_certus_quartz_crystal'
     })
 
+    event.smelting('create:andesite_alloy', 'kubejs:mycelial_blend')
+
+    event.shapeless('2x kubejs:mycelial_blend', ['kubejs:mushroom_paste', 'supplementaries:flax', 'kubejs:mushroom_paste', 'supplementaries:flax'])
+    event.recipes.farmersdelight.cutting('#on:small_mushroom', '#forge:tools/knives', ['kubejs:mushroom_paste'])
+    event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
+
     // Create + Create Addons
 
     event.recipes.create.sequenced_assembly([
@@ -335,10 +341,10 @@ ServerEvents.recipes(event => {
     event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_silver'], 'galosphere:raw_silver')
     event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.75), '2x create:crushed_raw_zinc'], 'create:raw_zinc')
 
-    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.25), 'minecraft:redstone'], 'regions_unexplored:pointed_redstone')
+    event.recipes.create.crushing(['2x minecraft:redstone', Item.of('create:experience_nugget').withChance(0.25)], 'regions_unexplored:pointed_redstone')
     event.recipes.create.crushing(['3x minecraft:redstone'], 'regions_unexplored:raw_redstone_block')
-    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.25), 'minecraft:redstone'], 'regions_unexplored:redstone_bud')
-    event.recipes.create.crushing([Item.of('create:experience_nugget').withChance(0.50), '3x minecraft:redstone'], 'regions_unexplored:redstone_bulb')
+    event.recipes.create.crushing(['minecraft:redstone'], 'regions_unexplored:redstone_bud')
+    event.recipes.create.crushing(['2x minecraft:redstone', Item.of('create:experience_nugget').withChance(0.50)], 'regions_unexplored:redstone_bulb')
 
     console.log('Recipes added!')
 })

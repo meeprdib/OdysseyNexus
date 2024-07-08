@@ -26,21 +26,21 @@ export interface $AEMultiBlockEntity extends $IInWorldGridNodeHost, $IPartHost, 
  "isEmpty"(): boolean
  "getLocation"(): $DimensionalBlockPos
  "cleanup"(): void
+ "notifyNeighbors"(): void
  "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
+ "removePart"(arg0: $IPart$Type): boolean
  "getCollisionShape"(arg0: $CollisionContext$Type): $VoxelShape
  "canAddPart"(arg0: $ItemStack$Type, arg1: $Direction$Type): boolean
  "addPart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type): T
  "removePartFromSide"(arg0: $Direction$Type): void
- "removePart"(arg0: $IPart$Type): boolean
+ "isBlocked"(arg0: $Direction$Type): boolean
  "clearContainer"(): void
  "partChanged"(): void
  "notifyNeighborNow"(arg0: $Direction$Type): void
- "isBlocked"(arg0: $Direction$Type): boolean
  "selectPartWorld"(arg0: $Vec3$Type): $SelectedPart
  "getPart"(arg0: $Direction$Type): $IPart
  "getFacadeContainer"(): $IFacadeContainer
  "hasRedstone"(): boolean
- "notifyNeighbors"(): void
  "getColor"(): $AEColor
  "isInWorld"(): boolean
  "getBlockEntity"(): $BlockEntity
@@ -144,44 +144,44 @@ constructor(arg0: $Runnable$Type, arg1: $GenericStackInv$Mode$Type, arg2: intege
 
 public "extract"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
 public "extract"(arg0: integer, arg1: $AEKey$Type, arg2: long, arg3: $Actionable$Type): long
-public "insert"(arg0: integer, arg1: $AEKey$Type, arg2: long, arg3: $Actionable$Type): long
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
+public "insert"(arg0: integer, arg1: $AEKey$Type, arg2: long, arg3: $Actionable$Type): long
 public "clear"(): void
 public "isEmpty"(): boolean
 public "size"(): integer
 public "getKey"(arg0: integer): $AEKey
 public "getStack"(arg0: integer): $GenericStack
 public "getFilter"(): $AEKeyFilter
-public "getCapacity"(arg0: $AEKeyType$Type): long
-public "getMode"(): $GenericStackInv$Mode
-public "getDescription"(): $Component
 public "setCapacity"(arg0: $AEKeyType$Type, arg1: long): void
+public "getCapacity"(arg0: $AEKeyType$Type): long
+public "getDescription"(): $Component
+public "getMode"(): $GenericStackInv$Mode
+public "setStack"(arg0: integer, arg1: $GenericStack$Type): void
 public "onChange"(): void
-public "isAllowed"(arg0: $AEKey$Type): boolean
-public "isAllowed"(arg0: $GenericStack$Type): boolean
+public "endBatchSuppressed"(): void
+public "canExtract"(): boolean
+public "endBatch"(): void
 public "readFromTag"(arg0: $ListTag$Type): void
 public "createMenuWrapper"(): $ConfigMenuInventory
-public "canExtract"(): boolean
-public "writeToTag"(): $ListTag
+public "setDescription"(arg0: $Component$Type): void
 public "getMaxAmount"(arg0: $AEKey$Type): long
 public "beginBatch"(): void
-public "endBatchSuppressed"(): void
-public "setDescription"(arg0: $Component$Type): void
-public "endBatch"(): void
-public "writeToChildTag"(arg0: $CompoundTag$Type, arg1: string): void
+public "writeToTag"(): $ListTag
+public "canInsert"(): boolean
 public "readFromChildTag"(arg0: $CompoundTag$Type, arg1: string): void
-public "setStack"(arg0: integer, arg1: $GenericStack$Type): void
+public "writeToChildTag"(arg0: $CompoundTag$Type, arg1: string): void
+public "isAllowed"(arg0: $AEKey$Type): boolean
+public "isAllowed"(arg0: $GenericStack$Type): boolean
+public "getAvailableStacks"(arg0: $KeyCounter$Type): void
 public "useRegisteredCapacities"(): void
 public "getAmount"(arg0: integer): long
-public "canInsert"(): boolean
-public "getAvailableStacks"(arg0: $KeyCounter$Type): void
-public "isPreferredStorageFor"(arg0: $AEKey$Type, arg1: $IActionSource$Type): boolean
 public "getAvailableStacks"(): $KeyCounter
 public static "checkPreconditions"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): void
+public "isPreferredStorageFor"(arg0: $AEKey$Type, arg1: $IActionSource$Type): boolean
 get "empty"(): boolean
 get "filter"(): $AEKeyFilter
-get "mode"(): $GenericStackInv$Mode
 get "description"(): $Component
+get "mode"(): $GenericStackInv$Mode
 set "description"(value: $Component$Type)
 get "availableStacks"(): $KeyCounter
 }
@@ -260,46 +260,46 @@ constructor(arg0: $IManagedGridNode$Type, arg1: $PatternProviderLogicHost$Type, 
 public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
 public "isBlocking"(): boolean
-public "updateRedstoneState"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
-public "getSortValue"(): long
-public "updatePatterns"(): void
-public "getPatternInv"(): $InternalInventory
-public "getTerminalGroup"(): $PatternContainerGroup
-public "pushPattern"(arg0: $IPatternDetails$Type, arg1: ($KeyCounter$Type)[]): boolean
-public "getPatternPriority"(): integer
 public "getConfigManager"(): $IConfigManager
-public "clearContent"(): void
-public "addDrops"(arg0: $List$Type<($ItemStack$Type)>): void
-public "getGrid"(): $IGrid
-public "onMainNodeStateChanged"(): void
-public "getCraftingLockedReason"(): $LockCraftingMode
+public "getPatternPriority"(): integer
 public "resetCraftingLock"(): void
 public "getUnlockStack"(): $GenericStack
 public "getReturnInv"(): $PatternProviderReturnInventory
-public "getAvailablePatterns"(): $List<($IPatternDetails)>
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "clearContent"(): void
+public "getPatternInv"(): $InternalInventory
+public "getTerminalGroup"(): $PatternContainerGroup
+public "updatePatterns"(): void
+public "getSortValue"(): long
+public "pushPattern"(arg0: $IPatternDetails$Type, arg1: ($KeyCounter$Type)[]): boolean
+public "addDrops"(arg0: $List$Type<($ItemStack$Type)>): void
+public "getGrid"(): $IGrid
+public "getCraftingLockedReason"(): $LockCraftingMode
 public "saveChanges"(): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getAvailablePatterns"(): $List<($IPatternDetails)>
+public "updateRedstoneState"(): void
 public "isClientSide"(): boolean
-public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "exportSettings"(arg0: $CompoundTag$Type): void
 public "importSettings"(arg0: $CompoundTag$Type, arg1: $Player$Type): void
 public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "exportSettings"(arg0: $CompoundTag$Type): void
 public "isBusy"(): boolean
+public "onMainNodeStateChanged"(): void
 public "getEmitableItems"(): $Set<($AEKey)>
 public static "requestUpdate"(arg0: $IManagedGridNode$Type): void
 set "priority"(value: integer)
 get "priority"(): integer
 get "blocking"(): boolean
-get "sortValue"(): long
-get "patternInv"(): $InternalInventory
-get "terminalGroup"(): $PatternContainerGroup
-get "patternPriority"(): integer
 get "configManager"(): $IConfigManager
-get "grid"(): $IGrid
-get "craftingLockedReason"(): $LockCraftingMode
+get "patternPriority"(): integer
 get "unlockStack"(): $GenericStack
 get "returnInv"(): $PatternProviderReturnInventory
+get "patternInv"(): $InternalInventory
+get "terminalGroup"(): $PatternContainerGroup
+get "sortValue"(): long
+get "grid"(): $IGrid
+get "craftingLockedReason"(): $LockCraftingMode
 get "availablePatterns"(): $List<($IPatternDetails)>
 get "clientSide"(): boolean
 get "busy"(): boolean
@@ -332,13 +332,13 @@ public "x"(): float
 public "y"(): float
 public "getSeed"(): integer
 public "isLumen"(): boolean
-public "getSide"(): $Direction
 public "getColor"(): $AEColor
+public "getSide"(): $Direction
 public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
 get "seed"(): integer
 get "lumen"(): boolean
-get "side"(): $Direction
 get "color"(): $AEColor
+get "side"(): $Direction
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -374,18 +374,18 @@ export interface $PatternProviderLogicHost extends $IConfigurableObject, $IPrior
 
  "setPriority"(arg0: integer): void
  "getPriority"(): integer
- "isVisibleInTerminal"(): boolean
- "getTerminalSortOrder"(): long
- "getTerminalPatternInventory"(): $InternalInventory
- "getLogic"(): $PatternProviderLogic
- "getTerminalIcon"(): $AEItemKey
- "getTerminalGroup"(): $PatternContainerGroup
  "getTargets"(): $EnumSet<($Direction)>
  "getConfigManager"(): $IConfigManager
  "openMenu"(arg0: $Player$Type, arg1: $MenuLocator$Type): void
+ "getLogic"(): $PatternProviderLogic
+ "getTerminalGroup"(): $PatternContainerGroup
+ "getTerminalIcon"(): $AEItemKey
  "getGrid"(): $IGrid
  "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
  "saveChanges"(): void
+ "getTerminalPatternInventory"(): $InternalInventory
+ "getTerminalSortOrder"(): long
+ "isVisibleInTerminal"(): boolean
  "getBlockEntity"(): $BlockEntity
  "getMainMenuIcon"(): $ItemStack
 }
@@ -427,15 +427,15 @@ export interface $InterfaceLogicHost extends $IConfigurableObject, $IUpgradeable
  "getPriority"(): integer
  "getUpgrades"(): $IUpgradeInventory
  "getConfigManager"(): $IConfigManager
- "getStorage"(): $GenericStackInv
- "getConfig"(): $GenericStackInv
  "openMenu"(arg0: $Player$Type, arg1: $MenuLocator$Type): void
  "getInterfaceLogic"(): $InterfaceLogic
+ "getConfig"(): $GenericStackInv
  "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
  "saveChanges"(): void
  "getBlockEntity"(): $BlockEntity
- "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
+ "getStorage"(): $GenericStackInv
  "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+ "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
  "getMainMenuIcon"(): $ItemStack
 }
 
@@ -485,11 +485,11 @@ import {$IGrid, $IGrid$Type} from "packages/appeng/api/networking/$IGrid"
 
 export interface $PatternContainer {
 
- "isVisibleInTerminal"(): boolean
- "getTerminalSortOrder"(): long
- "getTerminalPatternInventory"(): $InternalInventory
  "getTerminalGroup"(): $PatternContainerGroup
  "getGrid"(): $IGrid
+ "getTerminalPatternInventory"(): $InternalInventory
+ "getTerminalSortOrder"(): long
+ "isVisibleInTerminal"(): boolean
 }
 
 export namespace $PatternContainer {
@@ -541,35 +541,35 @@ constructor(arg0: $IManagedGridNode$Type, arg1: $InterfaceLogicHost$Type, arg2: 
 public "getLocation"(): $DimensionalBlockPos
 public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getUpgrades"(): $IUpgradeInventory
 public "getConfigManager"(): $IConfigManager
-public "getStorage"(): $ConfigInventory
-public "getConfig"(): $ConfigInventory
+public "gridChanged"(): void
 public "notifyNeighbors"(): void
 public "clearContent"(): void
+public "getConfig"(): $ConfigInventory
 public "addDrops"(arg0: $List$Type<($ItemStack$Type)>): void
-public "gridChanged"(): void
 public "getInventory"(): $MEStorage
-public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "getActionableNode"(): $IGridNode
 public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "readFromNBT"(arg0: $CompoundTag$Type): void
 public "getRequestedJobs"(): $ImmutableSet<($ICraftingLink)>
 public "insertCraftedItems"(arg0: $ICraftingLink$Type, arg1: $AEKey$Type, arg2: long, arg3: $Actionable$Type): long
 public "jobStateChange"(arg0: $ICraftingLink$Type): void
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
+public "getStorage"(): $ConfigInventory
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 get "location"(): $DimensionalBlockPos
 set "priority"(value: integer)
 get "priority"(): integer
 get "upgrades"(): $IUpgradeInventory
 get "configManager"(): $IConfigManager
-get "storage"(): $ConfigInventory
 get "config"(): $ConfigInventory
 get "inventory"(): $MEStorage
 get "actionableNode"(): $IGridNode
 get "requestedJobs"(): $ImmutableSet<($ICraftingLink)>
+get "storage"(): $ConfigInventory
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -587,8 +587,8 @@ declare module "packages/appeng/helpers/patternprovider/$PatternProviderReturnIn
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/capabilities/$Capability"
 import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
@@ -606,9 +606,9 @@ constructor(arg0: $Runnable$Type)
 
 public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
 public "canExtract"(): boolean
-public "addDrops"(arg0: $List$Type<($ItemStack$Type)>, arg1: $Level$Type, arg2: $BlockPos$Type): void
 public "injectIntoNetwork"(arg0: $MEStorage$Type, arg1: $IActionSource$Type, arg2: $Consumer$Type<($GenericStack$Type)>): boolean
 public "canInsert"(): boolean
+public "addDrops"(arg0: $List$Type<($ItemStack$Type)>, arg1: $Level$Type, arg2: $BlockPos$Type): void
 public static "checkPreconditions"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): void
 }
 /**

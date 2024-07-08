@@ -12,8 +12,8 @@ export class $PerceptionEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -41,8 +41,8 @@ export class $HeartBreakEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -70,8 +70,8 @@ export class $GravityResistanceEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -99,8 +99,8 @@ export class $SmoulderingEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -154,8 +154,8 @@ export class $FrailtyEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -183,9 +183,9 @@ export class $TraversalEffect extends $InstantenousMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isInstantenous"(): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 get "instantenous"(): boolean
 }
 /**
@@ -239,8 +239,8 @@ export class $BerserkEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -268,8 +268,8 @@ export class $VenomEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -297,8 +297,8 @@ export class $RestorationEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -326,8 +326,8 @@ export class $AdrenalineEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -355,8 +355,8 @@ export class $HemolacriaEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

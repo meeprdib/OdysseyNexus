@@ -200,11 +200,11 @@ import {$Slot, $Slot$Type} from "packages/net/minecraft/world/inventory/$Slot"
 export interface $HandledScreenAccessor {
 
  "getY"(): integer
- "getX"(): integer
  "getBackgroundHeight"(): integer
- "getFocusedSlot"(): $Slot
+ "getX"(): integer
  "invokeGetSlotAt"(arg0: double, arg1: double): $Slot
  "getBackgroundWidth"(): integer
+ "getFocusedSlot"(): $Slot
 }
 
 export namespace $HandledScreenAccessor {

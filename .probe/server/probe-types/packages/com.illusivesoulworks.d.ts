@@ -30,9 +30,9 @@ import {$ResultContainer, $ResultContainer$Type} from "packages/net/minecraft/wo
 
 export interface $AccessorInventoryMenu {
 
+ "getOwner"(): $Player
  "getResultSlots"(): $ResultContainer
  "getCraftSlots"(): $CraftingContainer
- "getOwner"(): $Player
 }
 
 export namespace $AccessorInventoryMenu {
@@ -88,22 +88,22 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMaxCost"(arg0: integer): integer
 public "getMinCost"(arg0: integer): integer
 public "canEnchant"(arg0: $ItemStack$Type): boolean
 public "getRarity"(): $Enchantment$Rarity
-public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
-public static "canEnchant"(arg0: $Item$Type): boolean
+public "getMaxCost"(arg0: integer): integer
 public "isAllowedOnBooks"(): boolean
+public static "canEnchant"(arg0: $Item$Type): boolean
+public "isDiscoverable"(): boolean
 public "isTreasureOnly"(): boolean
 public "isTradeable"(): boolean
-public "isDiscoverable"(): boolean
 public "getMaxLevel"(): integer
+public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
 get "rarity"(): $Enchantment$Rarity
 get "allowedOnBooks"(): boolean
+get "discoverable"(): boolean
 get "treasureOnly"(): boolean
 get "tradeable"(): boolean
-get "discoverable"(): boolean
 get "maxLevel"(): integer
 }
 /**
@@ -125,9 +125,9 @@ import {$ResultContainer, $ResultContainer$Type} from "packages/net/minecraft/wo
 
 export interface $AccessorCraftingMenu {
 
- "getPlayer"(): $Player
  "getResultSlots"(): $ResultContainer
  "getCraftSlots"(): $CraftingContainer
+ "getPlayer"(): $Player
 }
 
 export namespace $AccessorCraftingMenu {

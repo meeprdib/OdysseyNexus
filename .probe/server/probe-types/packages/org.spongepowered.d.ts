@@ -14,8 +14,8 @@ constructor(arg0: string, arg1: boolean)
 public "toString"(): string
 public "getId"(): string
 public static "getCallInfoClassName"(arg0: $Type$Type): string
-public "cancel"(): void
 public "isCancelled"(): boolean
+public "cancel"(): void
 public "isCancellable"(): boolean
 get "id"(): string
 get "cancelled"(): boolean
@@ -33,6 +33,34 @@ export type $CallbackInfo$Type = ($CallbackInfo);
 declare global {
 export type $CallbackInfo_ = $CallbackInfo$Type;
 }}
+declare module "packages/org/spongepowered/asm/mixin/injection/invoke/arg/$Args" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Args {
+
+
+public "get"<T>(arg0: integer): T
+public "size"(): integer
+public "set"<T>(arg0: integer, arg1: T): void
+public "setAll"(...arg0: (any)[]): void
+set "all"(value: (any)[])
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Args$Type = ($Args);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $Args_ = $Args$Type;
+}}
 declare module "packages/org/spongepowered/asm/mixin/injection/callback/$Cancellable" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -42,8 +70,8 @@ export {} // Mark the file as a module, do not remove unless there are other imp
  */
 export interface $Cancellable {
 
- "cancel"(): void
  "isCancelled"(): boolean
+ "cancel"(): void
  "isCancellable"(): boolean
 }
 
@@ -84,25 +112,25 @@ constructor(arg0: string, arg1: boolean, arg2: character)
 constructor(arg0: string, arg1: boolean, arg2: double)
 
 public "getReturnValue"(): R
-public "setReturnValue"(arg0: R): void
 public "getReturnValueI"(): integer
 public "getReturnValueJ"(): long
-public "getReturnValueZ"(): boolean
-public "getReturnValueC"(): character
-public "getReturnValueS"(): short
 public "getReturnValueB"(): byte
-public "getReturnValueF"(): float
+public "getReturnValueS"(): short
+public "setReturnValue"(arg0: R): void
+public "getReturnValueC"(): character
 public "getReturnValueD"(): double
+public "getReturnValueF"(): float
+public "getReturnValueZ"(): boolean
 get "returnValue"(): R
-set "returnValue"(value: R)
 get "returnValueI"(): integer
 get "returnValueJ"(): long
-get "returnValueZ"(): boolean
-get "returnValueC"(): character
-get "returnValueS"(): short
 get "returnValueB"(): byte
-get "returnValueF"(): float
+get "returnValueS"(): short
+set "returnValue"(value: R)
+get "returnValueC"(): character
 get "returnValueD"(): double
+get "returnValueF"(): float
+get "returnValueZ"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

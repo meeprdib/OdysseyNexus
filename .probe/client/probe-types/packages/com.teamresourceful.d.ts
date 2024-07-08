@@ -15,9 +15,9 @@ constructor(recipeType: $RecipeType$Type<(R)>, codec: $Function$Type<($ResourceL
 constructor(recipeType: $RecipeType$Type<(R)>, jsonCodec: $Function$Type<($ResourceLocation$Type), ($Codec$Type<(R)>)>, networkCodec: $Function$Type<($ResourceLocation$Type), ($Codec$Type<(R)>)>)
 
 public "type"(): $RecipeType<(R)>
-public "fromJson"(id: $ResourceLocation$Type, json: $JsonObject$Type): R
-public "toNetwork"(buffer: $FriendlyByteBuf$Type, recipe: R): void
 public "fromNetwork"(id: $ResourceLocation$Type, buffer: $FriendlyByteBuf$Type): R
+public "toNetwork"(buffer: $FriendlyByteBuf$Type, recipe: R): void
+public "fromJson"(id: $ResourceLocation$Type, json: $JsonObject$Type): R
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): R
 }

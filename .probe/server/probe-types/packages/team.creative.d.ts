@@ -28,8 +28,8 @@ import {$ByteBuffer, $ByteBuffer$Type} from "packages/java/nio/$ByteBuffer"
 export interface $BufferBuilderAccessor {
 
  "getBuffer"(): $ByteBuffer
- "getVertices"(): integer
  "getNextElementByte"(): integer
+ "getVertices"(): integer
 }
 
 export namespace $BufferBuilderAccessor {
@@ -155,16 +155,16 @@ import {$CombatEntry, $CombatEntry$Type} from "packages/net/minecraft/world/dama
 export interface $CombatTrackerAccessor {
 
  "getEntries"(): $List<($CombatEntry)>
+ "getInCombat"(): boolean
  "setInCombat"(arg0: boolean): void
- "setTakingDamage"(arg0: boolean): void
  "getLastDamageTime"(): integer
  "setCombatStartTime"(arg0: integer): void
- "getInCombat"(): boolean
- "getCombatEndTime"(): integer
- "getTakingDamage"(): boolean
+ "setTakingDamage"(arg0: boolean): void
  "setLastDamageTime"(arg0: integer): void
  "getCombatStartTime"(): integer
  "setCombatEndTime"(arg0: integer): void
+ "getCombatEndTime"(): integer
+ "getTakingDamage"(): boolean
 }
 
 export namespace $CombatTrackerAccessor {

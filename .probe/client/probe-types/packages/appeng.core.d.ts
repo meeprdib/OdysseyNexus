@@ -18,18 +18,18 @@ static readonly "LightTunnel": $TickRates
 
 public static "values"(): ($TickRates)[]
 public static "valueOf"(arg0: string): $TickRates
-public "getMax"(): integer
 public "getMin"(): integer
+public "getMax"(): integer
 public "setMin"(arg0: integer): void
 public "setMax"(arg0: integer): void
-public "getDefaultMin"(): integer
 public "getDefaultMax"(): integer
-get "max"(): integer
+public "getDefaultMin"(): integer
 get "min"(): integer
+get "max"(): integer
 set "min"(value: integer)
 set "max"(value: integer)
-get "defaultMin"(): integer
 get "defaultMax"(): integer
+get "defaultMin"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,28 +1,30 @@
 declare module "packages/smartin/miapi/item/modular/items/$ModularElytraItem" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
+import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$ModularItemInject, $ModularItemInject$Type} from "packages/smartin/miapi/forge/compat/$ModularItemInject"
 import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArmorItem, $ArmorItem$Type} from "packages/net/minecraft/world/item/$ArmorItem"
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$DispenseItemBehavior, $DispenseItemBehavior$Type} from "packages/net/minecraft/core/dispenser/$DispenseItemBehavior"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularElytraItem extends $ArmorItem implements $ModularItem, $ModularItemInject {
+export class $ModularElytraItem extends $ArmorItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "DISPENSE_ITEM_BEHAVIOR": $DispenseItemBehavior
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
@@ -40,20 +42,28 @@ constructor(settings: $Item$Properties$Type)
 
 public static "getInstance"(): $ModularElytraItem
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 public static "get"(arg0: $ItemStack$Type): $Equipable
 get "instance"(): $ModularElytraItem
@@ -110,19 +120,20 @@ declare global {
 export type $ModularWeaponBuilder$Leggings_ = $ModularWeaponBuilder$Leggings$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ModularVisualOnlyItem" {
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$List, $List$Type} from "packages/java/util/$List"
-import {$VisualModularItem, $VisualModularItem$Type} from "packages/smartin/miapi/item/modular/$VisualModularItem"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$VisualModularItem, $VisualModularItem$Type} from "packages/smartin/miapi/item/modular/$VisualModularItem"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularVisualOnlyItem extends $Item implements $VisualModularItem {
+export class $ModularVisualOnlyItem extends $Item implements $PlatformModularItemMethods, $VisualModularItem {
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static "BASE_ATTACK_DAMAGE_UUID": $UUID
 static "BASE_ATTACK_SPEED_UUID": $UUID
@@ -136,10 +147,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "getBarWidth"(stack: $ItemStack$Type): integer
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
 }
@@ -170,11 +181,12 @@ import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Mul
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$ModularSetableToolMaterial, $ModularSetableToolMaterial$Type} from "packages/smartin/miapi/item/modular/items/$ModularSetableToolMaterial"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -187,7 +199,7 @@ import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraf
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularPickaxe extends $PickaxeItem implements $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
+export class $ModularPickaxe extends $PickaxeItem implements $PlatformModularItemMethods, $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
  "currentFakeToolmaterial": $Tier
  "speed": float
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
@@ -206,41 +218,49 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
-public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
-public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
-public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
-public "setToolMaterial"(toolMaterial: $Tier$Type): void
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
+public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
+public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "mineBlock"(stack: $ItemStack$Type, world: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, miner: $LivingEntity$Type): boolean
 public "interactLivingEntity"(stack: $ItemStack$Type, user: $Player$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type): $InteractionResult
-public "getName"(stack: $ItemStack$Type): $Component
+public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getDefaultAttributeModifiers"(slot: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
-public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getTier"(): $Tier
+public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "setToolMaterial"(toolMaterial: $Tier$Type): void
+public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "getTier"(): $Tier
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
 public "setToolMaterial"(itemStack: $ItemStack$Type): void
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
-set "toolMaterial"(value: $Tier$Type)
 get "enchantmentValue"(): integer
+set "toolMaterial"(value: $Tier$Type)
 get "tier"(): $Tier
 set "toolMaterial"(value: $ItemStack$Type)
 }
@@ -274,8 +294,8 @@ import {$AABB, $AABB$Type} from "packages/net/minecraft/world/phys/$AABB"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EnderMan, $EnderMan$Type} from "packages/net/minecraft/world/entity/monster/$EnderMan"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -289,73 +309,77 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $ModularItemInject extends $IForgeItem {
 
- "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
- "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+ "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
  "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
- "onEntityItemUpdate"(arg0: $ItemStack$Type, arg1: $ItemEntity$Type): boolean
- "getEntityLifespan"(arg0: $ItemStack$Type, arg1: $Level$Type): integer
- "onDestroyed"(arg0: $ItemEntity$Type, arg1: $DamageSource$Type): void
- "getHighlightTip"(arg0: $ItemStack$Type, arg1: $Component$Type): $Component
+ "getMaxDamageModular"(stack: $ItemStack$Type): integer
+ "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+ "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+ "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+ "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
  "isCorrectToolForDrops"(arg0: $ItemStack$Type, arg1: $BlockState$Type): boolean
- "getCraftingRemainingItem"(arg0: $ItemStack$Type): $ItemStack
- "makesPiglinsNeutral"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
- "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
- "getEnchantmentValue"(arg0: $ItemStack$Type): integer
- "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
- "shouldCauseBlockBreakReset"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
- "getDefaultTooltipHideFlags"(arg0: $ItemStack$Type): integer
- "canWalkOnPowderedSnow"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
- "isNotReplaceableByPickAction"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: integer): boolean
- "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
- "getAttributeModifiers"(arg0: $EquipmentSlot$Type, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
- "canGrindstoneRepair"(arg0: $ItemStack$Type): boolean
- "createEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $ItemStack$Type): $Entity
+ "getAllEnchantments"(arg0: $ItemStack$Type): $Map<($Enchantment), (integer)>
  "getEnchantmentLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
- "getMaxStackSize"(arg0: $ItemStack$Type): integer
+ "createEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $ItemStack$Type): $Entity
+ "getEquipmentSlot"(arg0: $ItemStack$Type): $EquipmentSlot
+ "onEntitySwing"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
  "elytraFlightTick"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: integer): boolean
  "canContinueUsing"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
  "getFoodProperties"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): $FoodProperties
  "onStopUsing"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: integer): void
- "getEquipmentSlot"(arg0: $ItemStack$Type): $EquipmentSlot
  "getMaxDamage"(arg0: $ItemStack$Type): integer
  "isRepairable"(arg0: $ItemStack$Type): boolean
  "isDamageable"(arg0: $ItemStack$Type): boolean
- "isPiglinCurrency"(arg0: $ItemStack$Type): boolean
+ "onBlockStartBreak"(arg0: $ItemStack$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
  "onLeftClickEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): boolean
- "hasCustomEntity"(arg0: $ItemStack$Type): boolean
- "getXpRepairRatio"(arg0: $ItemStack$Type): float
- "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
- "onInventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type, arg3: integer, arg4: integer): void
- "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
- "onDroppedByPlayer"(arg0: $ItemStack$Type, arg1: $Player$Type): boolean
+ "getShareTag"(arg0: $ItemStack$Type): $CompoundTag
  "readShareTag"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): void
+ "hasCustomEntity"(arg0: $ItemStack$Type): boolean
+ "isPiglinCurrency"(arg0: $ItemStack$Type): boolean
+ "doesSneakBypassUse"(arg0: $ItemStack$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+ "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
+ "getXpRepairRatio"(arg0: $ItemStack$Type): float
+ "onDroppedByPlayer"(arg0: $ItemStack$Type, arg1: $Player$Type): boolean
+ "getArmorTexture"(arg0: $ItemStack$Type, arg1: $Entity$Type, arg2: $EquipmentSlot$Type, arg3: string): string
+ "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+ "setDamage"(arg0: $ItemStack$Type, arg1: integer): void
+ "isDamaged"(arg0: $ItemStack$Type): boolean
 /**
  * 
  * @deprecated
  */
  "onArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
- "getShareTag"(arg0: $ItemStack$Type): $CompoundTag
- "onBlockStartBreak"(arg0: $ItemStack$Type, arg1: $BlockPos$Type, arg2: $Player$Type): boolean
- "getCreatorModId"(arg0: $ItemStack$Type): string
- "setDamage"(arg0: $ItemStack$Type, arg1: integer): void
+ "onInventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type, arg3: integer, arg4: integer): void
  "canEquip"(arg0: $ItemStack$Type, arg1: $EquipmentSlot$Type, arg2: $Entity$Type): boolean
- "getArmorTexture"(arg0: $ItemStack$Type, arg1: $Entity$Type, arg2: $EquipmentSlot$Type, arg3: string): string
- "isDamaged"(arg0: $ItemStack$Type): boolean
- "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
- "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
  "onHorseArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Mob$Type): void
- "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
+ "getCreatorModId"(arg0: $ItemStack$Type): string
  "isEnderMask"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $EnderMan$Type): boolean
- "getAllEnchantments"(arg0: $ItemStack$Type): $Map<($Enchantment), (integer)>
- "onEntitySwing"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
+ "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
+ "getDamage"(arg0: $ItemStack$Type): integer
  "initCapabilities"(arg0: $ItemStack$Type, arg1: $CompoundTag$Type): $ICapabilityProvider
- "getSweepHitBox"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): $AABB
- "canElytraFly"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
  "canPerformAction"(arg0: $ItemStack$Type, arg1: $ToolAction$Type): boolean
  "canDisableShield"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type, arg3: $LivingEntity$Type): boolean
- "getDamage"(arg0: $ItemStack$Type): integer
+ "getSweepHitBox"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): $AABB
+ "getMaxStackSize"(arg0: $ItemStack$Type): integer
+ "canElytraFly"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "getEntityLifespan"(arg0: $ItemStack$Type, arg1: $Level$Type): integer
+ "onEntityItemUpdate"(arg0: $ItemStack$Type, arg1: $ItemEntity$Type): boolean
+ "onDestroyed"(arg0: $ItemEntity$Type, arg1: $DamageSource$Type): void
+ "isNotReplaceableByPickAction"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: integer): boolean
+ "makesPiglinsNeutral"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "canWalkOnPowderedSnow"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+ "getCraftingRemainingItem"(arg0: $ItemStack$Type): $ItemStack
+ "getEnchantmentValue"(arg0: $ItemStack$Type): integer
+ "getDefaultTooltipHideFlags"(arg0: $ItemStack$Type): integer
+ "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
+ "canGrindstoneRepair"(arg0: $ItemStack$Type): boolean
+ "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
+ "getAttributeModifiers"(arg0: $EquipmentSlot$Type, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+ "hasCraftingRemainingItem"(arg0: $ItemStack$Type): boolean
+ "shouldCauseBlockBreakReset"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+ "getHighlightTip"(arg0: $ItemStack$Type, arg1: $Component$Type): $Component
 
-(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
+(stack: $ItemStack$Type): $EquipmentSlot
 }
 
 export namespace $ModularItemInject {
@@ -387,10 +411,11 @@ import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Mul
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
@@ -402,7 +427,7 @@ import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraf
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularWeapon extends $Item implements $ModularItem, $ModularItemInject {
+export class $ModularWeapon extends $Item implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static "BASE_ATTACK_DAMAGE_UUID": $UUID
 static "BASE_ATTACK_SPEED_UUID": $UUID
@@ -417,34 +442,42 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor()
 constructor(settings: $Item$Properties$Type, withDefaultSettings: boolean)
 
-public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
-public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
-public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
+public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
+public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "mineBlock"(stack: $ItemStack$Type, world: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, miner: $LivingEntity$Type): boolean
 public "interactLivingEntity"(stack: $ItemStack$Type, user: $Player$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type): $InteractionResult
-public "getName"(stack: $ItemStack$Type): $Component
+public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
-public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
+public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 get "enchantmentValue"(): integer
 }
 /**
@@ -478,43 +511,43 @@ export class $MaterialSmithingRecipe implements $SmithingRecipe {
 
 constructor(id: $ResourceLocation$Type, template: $Ingredient$Type, baseMaterial: string, addition: $Ingredient$Type, resultMaterial: string)
 
-public "getSerializer"(): $RecipeSerializer<(any)>
-public "getId"(): $ResourceLocation
-public "assemble"(inventory: $Container$Type, registryManager: $RegistryAccess$Type): $ItemStack
-public "matches"(inventory: $Container$Type, world: $Level$Type): boolean
 public "isBaseIngredient"(stack: $ItemStack$Type): boolean
 public "isAdditionIngredient"(stack: $ItemStack$Type): boolean
 public "isTemplateIngredient"(stack: $ItemStack$Type): boolean
 public "getResultItem"(registryManager: $RegistryAccess$Type): $ItemStack
+public "getSerializer"(): $RecipeSerializer<(any)>
+public "getId"(): $ResourceLocation
+public "matches"(inventory: $Container$Type, world: $Level$Type): boolean
+public "assemble"(inventory: $Container$Type, registryManager: $RegistryAccess$Type): $ItemStack
 public "getToastSymbol"(): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
-public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
-public "getIngredients"(): $NonNullList<($Ingredient)>
+public "isSpecial"(): boolean
 public "showNotification"(): boolean
 public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "getSchema"(): $RecipeSchema
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
-public "setGroup"(group: string): void
-public "getGroup"(): string
+public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
+public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getMod"(): string
 public "getType"(): $ResourceLocation
+public "getGroup"(): string
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 get "serializer"(): $RecipeSerializer<(any)>
 get "id"(): $ResourceLocation
 get "toastSymbol"(): $ItemStack
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "incomplete"(): boolean
 get "special"(): boolean
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
+get "incomplete"(): boolean
+get "ingredients"(): $NonNullList<($Ingredient)>
 get "mod"(): string
 get "type"(): $ResourceLocation
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -582,6 +615,27 @@ export type $HoeItemAccessor$Type = ($HoeItemAccessor);
  */
 declare global {
 export type $HoeItemAccessor_ = $HoeItemAccessor$Type;
+}}
+declare module "packages/smartin/miapi/item/modular/$PlatformModularItemMethods" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $PlatformModularItemMethods {
+
+}
+
+export namespace $PlatformModularItemMethods {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PlatformModularItemMethods$Type = ($PlatformModularItemMethods);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $PlatformModularItemMethods_ = $PlatformModularItemMethods$Type;
 }}
 declare module "packages/smartin/miapi/mixin/$ConduitBlockEntityAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
@@ -752,9 +806,9 @@ import {$NativeImage, $NativeImage$Type} from "packages/com/mojang/blaze3d/platf
 
 export interface $SpriteContentsAccessor {
 
- "getImage"(): $NativeImage
  "getWidth"(): integer
  "getHeight"(): integer
+ "getImage"(): $NativeImage
 }
 
 export namespace $SpriteContentsAccessor {
@@ -773,11 +827,12 @@ declare global {
 export type $SpriteContentsAccessor_ = $SpriteContentsAccessor$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ModularArrow" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
@@ -796,7 +851,7 @@ import {$ArrowItem, $ArrowItem$Type} from "packages/net/minecraft/world/item/$Ar
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularArrow extends $ArrowItem implements $ModularItem, $ModularItemInject {
+export class $ModularArrow extends $ArrowItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static "BASE_ATTACK_DAMAGE_UUID": $UUID
 static "BASE_ATTACK_SPEED_UUID": $UUID
@@ -812,16 +867,24 @@ constructor()
 constructor(settings: $Item$Properties$Type)
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getName"(stack: $ItemStack$Type): $Component
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
+public "getMaxDamage"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getName"(stack: $ItemStack$Type): $Component
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "createArrow"(world: $Level$Type, stack: $ItemStack$Type, shooter: $LivingEntity$Type): $AbstractArrow
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "createArrow"(world: $Level$Type, stack: $ItemStack$Type, shooter: $LivingEntity$Type): $AbstractArrow
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 }
 /**
@@ -909,9 +972,10 @@ import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modul
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$CustomDrawTimeItem, $CustomDrawTimeItem$Type} from "packages/smartin/miapi/item/modular/$CustomDrawTimeItem"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -923,7 +987,7 @@ import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraf
 import {$CrossbowItem, $CrossbowItem$Type} from "packages/net/minecraft/world/item/$CrossbowItem"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularCrossbow extends $CrossbowItem implements $ModularItem, $CustomDrawTimeItem, $ModularItemInject {
+export class $ModularCrossbow extends $CrossbowItem implements $PlatformModularItemMethods, $ModularItem, $CustomDrawTimeItem, $ModularItemInject {
 static readonly "DEFAULT_RANGE": integer
  "startSoundPlayed": boolean
  "midLoadSoundPlayed": boolean
@@ -943,32 +1007,40 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getAllSupportedProjectiles"(): $Predicate<($ItemStack)>
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
-public "registerAnimations"(): void
+public "getAllSupportedProjectiles"(): $Predicate<($ItemStack)>
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getPullTime"(stack: $ItemStack$Type): integer
-public static "shootAll"(world: $Level$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type, stack: $ItemStack$Type, speed: float, divergence: float): void
-public static "putProjectile"(crossbow: $ItemStack$Type, projectile: $ItemStack$Type): void
+public "registerAnimations"(): void
 public static "getProjectiles"(crossbow: $ItemStack$Type): $List<($ItemStack)>
 public "getBaseDrawTime"(itemStack: $ItemStack$Type): double
+public static "shootAll"(world: $Level$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type, stack: $ItemStack$Type, speed: float, divergence: float): void
+public static "putProjectile"(crossbow: $ItemStack$Type, projectile: $ItemStack$Type): void
 public static "getDurability"(stack: $ItemStack$Type): integer
 public "getActualDrawTime"(stack: $ItemStack$Type): double
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 get "enchantmentValue"(): integer
 get "allSupportedProjectiles"(): $Predicate<($ItemStack)>
@@ -1017,17 +1089,19 @@ declare global {
 export type $MaterialSmithingRecipe$Serializer_ = $MaterialSmithingRecipe$Serializer$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ExampleModularStrackableItem" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
@@ -1037,7 +1111,7 @@ import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/a
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ExampleModularStrackableItem extends $Item implements $ModularItem, $ModularItemInject {
+export class $ExampleModularStrackableItem extends $Item implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static "modularItem": $Item
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static "BASE_ATTACK_DAMAGE_UUID": $UUID
@@ -1054,17 +1128,25 @@ constructor()
 constructor(settings: $Item$Properties$Type)
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getName"(stack: $ItemStack$Type): $Component
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
+public "getMaxDamage"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getName"(stack: $ItemStack$Type): $Component
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public static "attackSpeedUUID"(): $UUID
-public static "attackDamageUUID"(): $UUID
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public static "attackDamageUUID"(): $UUID
+public static "attackSpeedUUID"(): $UUID
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1109,30 +1191,32 @@ declare global {
 export type $StunStatusEffect_ = $StunStatusEffect$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ModularLeggings" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
+import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$ModularItemInject, $ModularItemInject$Type} from "packages/smartin/miapi/forge/compat/$ModularItemInject"
 import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArmorItem, $ArmorItem$Type} from "packages/net/minecraft/world/item/$ArmorItem"
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$DispenseItemBehavior, $DispenseItemBehavior$Type} from "packages/net/minecraft/core/dispenser/$DispenseItemBehavior"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularLeggings extends $ArmorItem implements $ModularItem, $ModularItemInject {
+export class $ModularLeggings extends $ArmorItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "DISPENSE_ITEM_BEHAVIOR": $DispenseItemBehavior
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
@@ -1150,20 +1234,28 @@ constructor(settings: $Item$Properties$Type)
 constructor()
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 public static "get"(arg0: $ItemStack$Type): $Equipable
 get "enchantmentValue"(): integer
@@ -1186,8 +1278,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $SmithingTransformRecipeAccessor {
 
- "getBase"(): $Ingredient
  "getResult"(): $ItemStack
+ "getBase"(): $Ingredient
  "getTemplate"(): $Ingredient
  "getAddition"(): $Ingredient
 }
@@ -1215,8 +1307,8 @@ export interface $InGameHudAccessor {
 
  "callGetHeartCount"(arg0: $LivingEntity$Type): integer
  "callGetHeartRows"(arg0: integer): integer
- "getScaledWidth"(): integer
  "getScaledHeight"(): integer
+ "getScaledWidth"(): integer
  "callGetCameraPlayer"(): $Player
  "getRenderHealthValue"(): integer
 }
@@ -1289,15 +1381,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(settings: $BlockBehaviour$Properties$Type)
 
-public "getRenderShape"(state: $BlockState$Type): $RenderShape
-public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "isRandomlyTicking"(state: $BlockState$Type): boolean
 public "getStateForPlacement"(ctx: $BlockPlaceContext$Type): $BlockState
-public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, moved: boolean): void
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
-public "getShape"(state: $BlockState$Type, world: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, moved: boolean): void
+public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
+public "getRenderShape"(state: $BlockState$Type): $RenderShape
+public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getMenuProvider"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type): $MenuProvider
+public "getShape"(state: $BlockState$Type, world: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "newBlockEntity"(pos: $BlockPos$Type, state: $BlockState$Type): $BlockEntity
 public "getListener"<T extends $BlockEntity>(world: $ServerLevel$Type, blockEntity: T): $GameEventListener
 }
@@ -1412,11 +1504,12 @@ import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Mul
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$ModularSetableToolMaterial, $ModularSetableToolMaterial$Type} from "packages/smartin/miapi/item/modular/items/$ModularSetableToolMaterial"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -1429,7 +1522,7 @@ import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraf
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularAxe extends $AxeItem implements $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
+export class $ModularAxe extends $AxeItem implements $PlatformModularItemMethods, $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
  "currentFakeToolmaterial": $Tier
 static "STRIPPABLES": $Map<($Block), ($Block)>
  "speed": float
@@ -1449,41 +1542,49 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
-public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
-public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
-public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
-public "setToolMaterial"(toolMaterial: $Tier$Type): void
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
+public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
+public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "mineBlock"(stack: $ItemStack$Type, world: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, miner: $LivingEntity$Type): boolean
 public "interactLivingEntity"(stack: $ItemStack$Type, user: $Player$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type): $InteractionResult
-public "getName"(stack: $ItemStack$Type): $Component
+public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getDefaultAttributeModifiers"(slot: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
-public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getTier"(): $Tier
+public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "setToolMaterial"(toolMaterial: $Tier$Type): void
+public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "getTier"(): $Tier
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
 public "setToolMaterial"(itemStack: $ItemStack$Type): void
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
-set "toolMaterial"(value: $Tier$Type)
 get "enchantmentValue"(): integer
+set "toolMaterial"(value: $Tier$Type)
 get "tier"(): $Tier
 set "toolMaterial"(value: $ItemStack$Type)
 }
@@ -1539,9 +1640,10 @@ import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modul
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
@@ -1551,7 +1653,7 @@ import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/a
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularBow extends $BowItem implements $ModularItem, $ModularItemInject {
+export class $ModularBow extends $BowItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static "projectile": $Predicate<($ItemStack)>
 static "bowMoveSpeedUUId": $UUID
 static readonly "MAX_DRAW_DURATION": integer
@@ -1572,28 +1674,36 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
+public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
-public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public static "shoot"(bowStack: $ItemStack$Type, projectileStack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, pullProgress: float, canPickup: boolean, pitch: float, yaw: float, roll: float): void
-public "getBarWidth"(stack: $ItemStack$Type): integer
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "releaseUsing"(bowStack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getAllSupportedProjectiles"(): $Predicate<($ItemStack)>
+public static "shoot"(bowStack: $ItemStack$Type, projectileStack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, pullProgress: float, canPickup: boolean, pitch: float, yaw: float, roll: float): void
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
-public "registerAnimations"(): void
+public "getAllSupportedProjectiles"(): $Predicate<($ItemStack)>
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getPullProgress"(useTicks: integer, stack: $ItemStack$Type): float
+public "registerAnimations"(): void
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 get "enchantmentValue"(): integer
 get "allSupportedProjectiles"(): $Predicate<($ItemStack)>
@@ -1645,11 +1755,11 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $LivingEntityAccessor {
 
- "getLastAttackedTime"(): integer
- "callGetEquipmentChanges"(): $Map<($EquipmentSlot), ($ItemStack)>
  "getLastDamageTaken"(): float
- "callDamageArmor"(arg0: $DamageSource$Type, arg1: float): void
  "attacking"(arg0: $LivingEntity$Type): void
+ "callDamageArmor"(arg0: $DamageSource$Type, arg1: float): void
+ "callGetEquipmentChanges"(): $Map<($EquipmentSlot), ($ItemStack)>
+ "getLastAttackedTime"(): integer
 }
 
 export namespace $LivingEntityAccessor {
@@ -1801,10 +1911,10 @@ constructor()
 public "isDurationEffectTick"(duration: integer, amplifier: integer): boolean
 public "addAttributeModifiers"(entity: $LivingEntity$Type, attributes: $AttributeMap$Type, amplifier: integer): void
 public "removeAttributeModifiers"(entity: $LivingEntity$Type, attributes: $AttributeMap$Type, amplifier: integer): void
-public "tickUpdateInterval"(): integer
-public static "setupOnClient"(): void
 public "renderHud"(instance: $MobEffectInstance$Type, minecraft: $Minecraft$Type, graphics: $GuiGraphics$Type, partialTick: float): boolean
 public "renderPost"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): void
+public "tickUpdateInterval"(): integer
+public static "setupOnClient"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1920,10 +2030,10 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $CustomDrawTimeItem {
 
- "getBaseDrawTime"(arg0: $ItemStack$Type): double
  "getActualDrawTime"(stack: $ItemStack$Type): double
+ "getBaseDrawTime"(arg0: $ItemStack$Type): double
 
-(arg0: $ItemStack$Type): double
+(stack: $ItemStack$Type): double
 }
 
 export namespace $CustomDrawTimeItem {
@@ -2040,11 +2150,12 @@ import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Mul
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$ModularSetableToolMaterial, $ModularSetableToolMaterial$Type} from "packages/smartin/miapi/item/modular/items/$ModularSetableToolMaterial"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -2057,7 +2168,7 @@ import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraf
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularShovel extends $ShovelItem implements $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
+export class $ModularShovel extends $ShovelItem implements $PlatformModularItemMethods, $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
  "currentFakeToolmaterial": $Tier
 static "FLATTENABLES": $Map<($Block), ($BlockState)>
  "speed": float
@@ -2077,41 +2188,49 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
-public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
-public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
-public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
-public "setToolMaterial"(toolMaterial: $Tier$Type): void
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
+public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
+public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "mineBlock"(stack: $ItemStack$Type, world: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, miner: $LivingEntity$Type): boolean
 public "interactLivingEntity"(stack: $ItemStack$Type, user: $Player$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type): $InteractionResult
-public "getName"(stack: $ItemStack$Type): $Component
+public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getDefaultAttributeModifiers"(slot: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
-public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getTier"(): $Tier
+public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "setToolMaterial"(toolMaterial: $Tier$Type): void
+public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "getTier"(): $Tier
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
 public "setToolMaterial"(itemStack: $ItemStack$Type): void
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
-set "toolMaterial"(value: $Tier$Type)
 get "enchantmentValue"(): integer
+set "toolMaterial"(value: $Tier$Type)
 get "tier"(): $Tier
 set "toolMaterial"(value: $ItemStack$Type)
 }
@@ -2128,30 +2247,32 @@ declare global {
 export type $ModularShovel_ = $ModularShovel$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ModularHelmet" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
+import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$ModularItemInject, $ModularItemInject$Type} from "packages/smartin/miapi/forge/compat/$ModularItemInject"
 import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArmorItem, $ArmorItem$Type} from "packages/net/minecraft/world/item/$ArmorItem"
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$DispenseItemBehavior, $DispenseItemBehavior$Type} from "packages/net/minecraft/core/dispenser/$DispenseItemBehavior"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularHelmet extends $ArmorItem implements $ModularItem, $ModularItemInject {
+export class $ModularHelmet extends $ArmorItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "DISPENSE_ITEM_BEHAVIOR": $DispenseItemBehavior
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
@@ -2169,20 +2290,28 @@ constructor(settings: $Item$Properties$Type)
 constructor()
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 public static "get"(arg0: $ItemStack$Type): $Equipable
 get "enchantmentValue"(): integer
@@ -2264,11 +2393,12 @@ import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Mul
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$ModularSetableToolMaterial, $ModularSetableToolMaterial$Type} from "packages/smartin/miapi/item/modular/items/$ModularSetableToolMaterial"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -2281,7 +2411,7 @@ import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraf
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularSword extends $SwordItem implements $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
+export class $ModularSword extends $SwordItem implements $PlatformModularItemMethods, $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
  "currentFakeToolmaterial": $Tier
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
  "tier": $Tier
@@ -2299,41 +2429,49 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
-public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
-public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
-public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
-public "setToolMaterial"(toolMaterial: $Tier$Type): void
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
+public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
+public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "mineBlock"(stack: $ItemStack$Type, world: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, miner: $LivingEntity$Type): boolean
 public "interactLivingEntity"(stack: $ItemStack$Type, user: $Player$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type): $InteractionResult
-public "getName"(stack: $ItemStack$Type): $Component
+public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getDefaultAttributeModifiers"(slot: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
-public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getTier"(): $Tier
+public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "setToolMaterial"(toolMaterial: $Tier$Type): void
+public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "getTier"(): $Tier
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
 public "setToolMaterial"(itemStack: $ItemStack$Type): void
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
-set "toolMaterial"(value: $Tier$Type)
 get "enchantmentValue"(): integer
+set "toolMaterial"(value: $Tier$Type)
 get "tier"(): $Tier
 set "toolMaterial"(value: $ItemStack$Type)
 }
@@ -2416,11 +2554,12 @@ import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modul
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$ModularSetableToolMaterial, $ModularSetableToolMaterial$Type} from "packages/smartin/miapi/item/modular/items/$ModularSetableToolMaterial"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Tier, $Tier$Type} from "packages/net/minecraft/world/item/$Tier"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -2434,7 +2573,7 @@ import {$Pair, $Pair$Type} from "packages/com/mojang/datafixers/util/$Pair"
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularHoe extends $HoeItem implements $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
+export class $ModularHoe extends $HoeItem implements $PlatformModularItemMethods, $ModularItem, $ModularSetableToolMaterial, $ModularItemInject {
  "currentFakeToolmaterial": $Tier
 /**
  * 
@@ -2458,41 +2597,49 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(settings: $Item$Properties$Type)
 constructor()
 
-public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
-public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
-public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
-public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
-public "setToolMaterial"(toolMaterial: $Tier$Type): void
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getUseDuration"(stack: $ItemStack$Type): integer
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "canAttackBlock"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, miner: $Player$Type): boolean
+public "use"(world: $Level$Type, user: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onUseTick"(world: $Level$Type, user: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseTicks: integer): void
+public "getDestroySpeed"(stack: $ItemStack$Type, state: $BlockState$Type): float
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
+public "finishUsingItem"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type): $ItemStack
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "mineBlock"(stack: $ItemStack$Type, world: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, miner: $LivingEntity$Type): boolean
 public "interactLivingEntity"(stack: $ItemStack$Type, user: $Player$Type, entity: $LivingEntity$Type, hand: $InteractionHand$Type): $InteractionResult
-public "getName"(stack: $ItemStack$Type): $Component
+public "hurtEnemy"(stack: $ItemStack$Type, target: $LivingEntity$Type, attacker: $LivingEntity$Type): boolean
 public "releaseUsing"(stack: $ItemStack$Type, world: $Level$Type, user: $LivingEntity$Type, remainingUseTicks: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getDefaultAttributeModifiers"(slot: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
-public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
-public "getTier"(): $Tier
+public "useOnRelease"(stack: $ItemStack$Type): boolean
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "setToolMaterial"(toolMaterial: $Tier$Type): void
+public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "getTier"(): $Tier
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
 public "setToolMaterial"(itemStack: $ItemStack$Type): void
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
-set "toolMaterial"(value: $Tier$Type)
 get "enchantmentValue"(): integer
+set "toolMaterial"(value: $Tier$Type)
 get "tier"(): $Tier
 set "toolMaterial"(value: $ItemStack$Type)
 }
@@ -2509,16 +2656,18 @@ declare global {
 export type $ModularHoe_ = $ModularHoe$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ExampleModularItem" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
@@ -2528,7 +2677,7 @@ import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/a
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ExampleModularItem extends $Item implements $ModularItem, $ModularItemInject {
+export class $ExampleModularItem extends $Item implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static "modularItem": $Item
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
 static "BASE_ATTACK_DAMAGE_UUID": $UUID
@@ -2544,17 +2693,25 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor()
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getName"(stack: $ItemStack$Type): $Component
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
+public "getMaxDamage"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "getName"(stack: $ItemStack$Type): $Component
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public static "attackSpeedUUID"(): $UUID
-public static "attackDamageUUID"(): $UUID
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
+public static "attackDamageUUID"(): $UUID
+public static "attackSpeedUUID"(): $UUID
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2569,30 +2726,32 @@ declare global {
 export type $ExampleModularItem_ = $ExampleModularItem$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ModularChestPlate" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
+import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$ModularItemInject, $ModularItemInject$Type} from "packages/smartin/miapi/forge/compat/$ModularItemInject"
 import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArmorItem, $ArmorItem$Type} from "packages/net/minecraft/world/item/$ArmorItem"
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$DispenseItemBehavior, $DispenseItemBehavior$Type} from "packages/net/minecraft/core/dispenser/$DispenseItemBehavior"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularChestPlate extends $ArmorItem implements $ModularItem, $ModularItemInject {
+export class $ModularChestPlate extends $ArmorItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "DISPENSE_ITEM_BEHAVIOR": $DispenseItemBehavior
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
@@ -2610,20 +2769,28 @@ constructor(settings: $Item$Properties$Type)
 constructor()
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 public static "get"(arg0: $ItemStack$Type): $Equipable
 get "enchantmentValue"(): integer
@@ -2797,30 +2964,32 @@ declare global {
 export type $ClientAdvancementManagerAccessor_ = $ClientAdvancementManagerAccessor$Type;
 }}
 declare module "packages/smartin/miapi/item/modular/items/$ModularBoots" {
-import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
-import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Equipable, $Equipable$Type} from "packages/net/minecraft/world/item/$Equipable"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/$ToolAction"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
+import {$ModularItem, $ModularItem$Type} from "packages/smartin/miapi/item/modular/$ModularItem"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$PlatformModularItemMethods, $PlatformModularItemMethods$Type} from "packages/smartin/miapi/item/modular/$PlatformModularItemMethods"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Rarity, $Rarity$Type} from "packages/net/minecraft/world/item/$Rarity"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$ModularItemInject, $ModularItemInject$Type} from "packages/smartin/miapi/forge/compat/$ModularItemInject"
 import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$ArmorItem, $ArmorItem$Type} from "packages/net/minecraft/world/item/$ArmorItem"
 import {$AttributeModifier, $AttributeModifier$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier"
 import {$DispenseItemBehavior, $DispenseItemBehavior$Type} from "packages/net/minecraft/core/dispenser/$DispenseItemBehavior"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $ModularBoots extends $ArmorItem implements $ModularItem, $ModularItemInject {
+export class $ModularBoots extends $ArmorItem implements $PlatformModularItemMethods, $ModularItem, $ModularItemInject {
 static readonly "DISPENSE_ITEM_BEHAVIOR": $DispenseItemBehavior
  "defaultModifiers": $Multimap<($Attribute), ($AttributeModifier)>
 static readonly "BY_BLOCK": $Map<($Block), ($Item)>
@@ -2838,20 +3007,28 @@ constructor(settings: $Item$Properties$Type)
 constructor()
 
 public "isCorrectToolForDrops"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
-public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
-public "getBarWidth"(stack: $ItemStack$Type): integer
+public "getEquipmentSlot"(stack: $ItemStack$Type): $EquipmentSlot
 public "getBarColor"(stack: $ItemStack$Type): integer
-public "getName"(stack: $ItemStack$Type): $Component
+public "getMaxDamage"(stack: $ItemStack$Type): integer
+public "getBarWidth"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, world: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isEnchantable"(itemStack: $ItemStack$Type): boolean
+public "getName"(stack: $ItemStack$Type): $Component
 public "isValidRepairItem"(stack: $ItemStack$Type, ingredient: $ItemStack$Type): boolean
 public "getRarity"(stack: $ItemStack$Type): $Rarity
-public "isEnchantable"(itemStack: $ItemStack$Type): boolean
 public "getEnchantmentValue"(): integer
 public "canPerformAction"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "makesPiglinsNeutral"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getEnchantmentValue"(stack: $ItemStack$Type): integer
+public "getAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<(any), (any)>
 public static "getDurability"(stack: $ItemStack$Type): integer
-public "isCorrectToolForDropsModular"(itemStack: $ItemStack$Type, blockState: $BlockState$Type): boolean
-public "getModularAttributeModifiers"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getEquipmentSlotModular"(stack: $ItemStack$Type): $EquipmentSlot
 public "canPerformActionModular"(stack: $ItemStack$Type, toolAction: $ToolAction$Type): boolean
+public "getMaxDamageModular"(stack: $ItemStack$Type): integer
+public "makesPiglinsNeutralModular"(stack: $ItemStack$Type, wearer: $LivingEntity$Type): boolean
+public "getAttributeModifiersModular"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isCorrectToolForDropsModular"(stack: $ItemStack$Type, state: $BlockState$Type): boolean
+public "getEnchantmentValueModular"(stack: $ItemStack$Type): integer
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 public static "get"(arg0: $ItemStack$Type): $Equipable
 get "enchantmentValue"(): integer

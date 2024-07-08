@@ -5,9 +5,9 @@ export class $JSONPointer$Builder {
 
 constructor()
 
+public "build"(): $JSONPointer
 public "append"(arg0: integer): $JSONPointer$Builder
 public "append"(arg0: string): $JSONPointer$Builder
-public "build"(): $JSONPointer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -51,21 +51,21 @@ constructor(arg0: $Collection$Type<(any)>)
 
 public "remove"(arg0: integer): any
 public "get"(arg0: integer): any
+public "put"(arg0: double): $JSONArray
+public "put"(arg0: float): $JSONArray
 public "put"(arg0: integer): $JSONArray
 public "put"(arg0: long): $JSONArray
+public "put"(arg0: integer, arg1: $Map$Type<(any), (any)>): $JSONArray
+public "put"(arg0: integer, arg1: any): $JSONArray
+public "put"(arg0: boolean): $JSONArray
+public "put"(arg0: $Collection$Type<(any)>): $JSONArray
+public "put"(arg0: integer, arg1: double): $JSONArray
+public "put"(arg0: integer, arg1: float): $JSONArray
+public "put"(arg0: integer, arg1: integer): $JSONArray
+public "put"(arg0: integer, arg1: long): $JSONArray
 public "put"(arg0: $Map$Type<(any), (any)>): $JSONArray
 public "put"(arg0: any): $JSONArray
 public "put"(arg0: integer, arg1: boolean): $JSONArray
-public "put"(arg0: boolean): $JSONArray
-public "put"(arg0: $Collection$Type<(any)>): $JSONArray
-public "put"(arg0: double): $JSONArray
-public "put"(arg0: float): $JSONArray
-public "put"(arg0: integer, arg1: integer): $JSONArray
-public "put"(arg0: integer, arg1: long): $JSONArray
-public "put"(arg0: integer, arg1: any): $JSONArray
-public "put"(arg0: integer, arg1: $Map$Type<(any), (any)>): $JSONArray
-public "put"(arg0: integer, arg1: float): $JSONArray
-public "put"(arg0: integer, arg1: double): $JSONArray
 public "put"(arg0: integer, arg1: $Collection$Type<(any)>): $JSONArray
 public "length"(): integer
 public "toString"(arg0: integer): string
@@ -82,45 +82,45 @@ public "iterator"(): $Iterator<(any)>
 public "toList"(): $List<(any)>
 public "putAll"(arg0: $Iterable$Type<(any)>): $JSONArray
 public "putAll"(arg0: $Collection$Type<(any)>): $JSONArray
-public "putAll"(arg0: $JSONArray$Type): $JSONArray
 public "putAll"(arg0: any): $JSONArray
-public "write"(arg0: $Writer$Type, arg1: integer, arg2: integer): $Writer
+public "putAll"(arg0: $JSONArray$Type): $JSONArray
 public "write"(arg0: $Writer$Type): $Writer
+public "write"(arg0: $Writer$Type, arg1: integer, arg2: integer): $Writer
 public "query"(arg0: $JSONPointer$Type): any
 public "query"(arg0: string): any
 public "isNull"(arg0: integer): boolean
 public "getNumber"(arg0: integer): number
-public "getBigInteger"(arg0: integer): $BigInteger
 public "opt"(arg0: integer): any
 public "getString"(arg0: integer): string
+public "getBigInteger"(arg0: integer): $BigInteger
 public "getEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: integer): E
-public "getBigDecimal"(arg0: integer): $BigDecimal
-public "optString"(arg0: integer, arg1: string): string
-public "optString"(arg0: integer): string
-public "getJSONObject"(arg0: integer): $JSONObject
 public "getJSONArray"(arg0: integer): $JSONArray
-public "optJSONObject"(arg0: integer): $JSONObject
-public "optBigDecimal"(arg0: integer, arg1: $BigDecimal$Type): $BigDecimal
-public "optNumber"(arg0: integer, arg1: number): number
-public "optNumber"(arg0: integer): number
-public "optDouble"(arg0: integer): double
-public "optDouble"(arg0: integer, arg1: double): double
-public "optFloat"(arg0: integer, arg1: float): float
+public "optJSONArray"(arg0: integer): $JSONArray
+public "optBoolean"(arg0: integer): boolean
+public "optBoolean"(arg0: integer, arg1: boolean): boolean
 public "optFloat"(arg0: integer): float
-public "optInt"(arg0: integer): integer
-public "optInt"(arg0: integer, arg1: integer): integer
-public "optBigInteger"(arg0: integer, arg1: $BigInteger$Type): $BigInteger
-public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: integer): E
-public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: integer, arg2: E): E
+public "optFloat"(arg0: integer, arg1: float): float
 public "optLong"(arg0: integer, arg1: long): long
 public "optLong"(arg0: integer): long
-public "optJSONArray"(arg0: integer): $JSONArray
-public "optBoolean"(arg0: integer, arg1: boolean): boolean
-public "optBoolean"(arg0: integer): boolean
+public "optJSONObject"(arg0: integer): $JSONObject
+public "optNumber"(arg0: integer): number
+public "optNumber"(arg0: integer, arg1: number): number
+public "optInt"(arg0: integer, arg1: integer): integer
+public "optInt"(arg0: integer): integer
+public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: integer): E
+public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: integer, arg2: E): E
+public "optDouble"(arg0: integer, arg1: double): double
+public "optDouble"(arg0: integer): double
+public "optBigDecimal"(arg0: integer, arg1: $BigDecimal$Type): $BigDecimal
+public "optBigInteger"(arg0: integer, arg1: $BigInteger$Type): $BigInteger
 public "similar"(arg0: any): boolean
-public "optQuery"(arg0: $JSONPointer$Type): any
 public "optQuery"(arg0: string): any
+public "optQuery"(arg0: $JSONPointer$Type): any
+public "optString"(arg0: integer): string
+public "optString"(arg0: integer, arg1: string): string
+public "getJSONObject"(arg0: integer): $JSONObject
 public "toJSONObject"(arg0: $JSONArray$Type): $JSONObject
+public "getBigDecimal"(arg0: integer): $BigDecimal
 public "spliterator"(): $Spliterator<(any)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<any>;
@@ -157,15 +157,15 @@ public "next"(arg0: character): character
 public "end"(): boolean
 public "more"(): boolean
 public "back"(): void
-public "nextValue"(): any
 public "syntaxError"(arg0: string): $JSONException
 public "syntaxError"(arg0: string, arg1: $Throwable$Type): $JSONException
 public "skipTo"(arg0: character): character
+public "nextValue"(): any
 public "nextString"(arg0: character): string
 public "nextClean"(): character
-public static "dehexchar"(arg0: character): integer
-public "nextTo"(arg0: character): string
 public "nextTo"(arg0: string): string
+public "nextTo"(arg0: character): string
+public static "dehexchar"(arg0: character): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -235,13 +235,13 @@ constructor(arg0: $Map$Type<(any), (any)>)
 public "remove"(arg0: string): any
 public "get"(arg0: string): any
 public "put"(arg0: string, arg1: integer): $JSONObject
-public "put"(arg0: string, arg1: boolean): $JSONObject
-public "put"(arg0: string, arg1: float): $JSONObject
-public "put"(arg0: string, arg1: double): $JSONObject
-public "put"(arg0: string, arg1: $Collection$Type<(any)>): $JSONObject
+public "put"(arg0: string, arg1: long): $JSONObject
 public "put"(arg0: string, arg1: $Map$Type<(any), (any)>): $JSONObject
 public "put"(arg0: string, arg1: any): $JSONObject
-public "put"(arg0: string, arg1: long): $JSONObject
+public "put"(arg0: string, arg1: double): $JSONObject
+public "put"(arg0: string, arg1: $Collection$Type<(any)>): $JSONObject
+public "put"(arg0: string, arg1: boolean): $JSONObject
+public "put"(arg0: string, arg1: float): $JSONObject
 public "length"(): integer
 public "toString"(arg0: integer): string
 public "toString"(): string
@@ -261,54 +261,54 @@ public "write"(arg0: $Writer$Type): $Writer
 public "keys"(): $Iterator<(string)>
 public "keySet"(): $Set<(string)>
 public "names"(): $JSONArray
-public "query"(arg0: string): any
 public "query"(arg0: $JSONPointer$Type): any
+public "query"(arg0: string): any
 public "isNull"(arg0: string): boolean
 public "getNumber"(arg0: string): number
-public "getBigInteger"(arg0: string): $BigInteger
-public static "quote"(arg0: string, arg1: $Writer$Type): $Writer
-public static "quote"(arg0: string): string
 public "opt"(arg0: string): any
 public "has"(arg0: string): boolean
+public static "quote"(arg0: string): string
+public static "quote"(arg0: string, arg1: $Writer$Type): $Writer
 public "getString"(arg0: string): string
-public static "getNames"(arg0: $JSONObject$Type): (string)[]
+public "getBigInteger"(arg0: string): $BigInteger
 public static "getNames"(arg0: any): (string)[]
-public static "valueToString"(arg0: any): string
+public static "getNames"(arg0: $JSONObject$Type): (string)[]
 public "getEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string): E
-public "getBigDecimal"(arg0: string): $BigDecimal
-public "optString"(arg0: string, arg1: string): string
-public "optString"(arg0: string): string
-public "getJSONObject"(arg0: string): $JSONObject
+public "getJSONArray"(arg0: string): $JSONArray
 public "accumulate"(arg0: string, arg1: any): $JSONObject
 public static "doubleToString"(arg0: double): string
-public "getJSONArray"(arg0: string): $JSONArray
-public "optJSONObject"(arg0: string): $JSONObject
-public "optBigDecimal"(arg0: string, arg1: $BigDecimal$Type): $BigDecimal
-public "optNumber"(arg0: string, arg1: number): number
-public "optNumber"(arg0: string): number
-public "putOnce"(arg0: string, arg1: any): $JSONObject
-public "optDouble"(arg0: string, arg1: double): double
-public "optDouble"(arg0: string): double
-public static "numberToString"(arg0: number): string
-public "optFloat"(arg0: string, arg1: float): float
-public "optFloat"(arg0: string): float
-public "optInt"(arg0: string): integer
-public "optInt"(arg0: string, arg1: integer): integer
-public "optBigInteger"(arg0: string, arg1: $BigInteger$Type): $BigInteger
-public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string): E
-public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string, arg2: E): E
-public "optLong"(arg0: string, arg1: long): long
-public "optLong"(arg0: string): long
 public "optJSONArray"(arg0: string): $JSONArray
 public "optBoolean"(arg0: string, arg1: boolean): boolean
 public "optBoolean"(arg0: string): boolean
-public "similar"(arg0: any): boolean
+public "optFloat"(arg0: string, arg1: float): float
+public "optFloat"(arg0: string): float
+public "putOnce"(arg0: string, arg1: any): $JSONObject
+public "optLong"(arg0: string): long
+public "optLong"(arg0: string, arg1: long): long
+public "optJSONObject"(arg0: string): $JSONObject
+public "optNumber"(arg0: string): number
+public "optNumber"(arg0: string, arg1: number): number
+public "optInt"(arg0: string): integer
+public "optInt"(arg0: string, arg1: integer): integer
+public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string): E
+public "optEnum"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>, arg1: string, arg2: E): E
+public static "numberToString"(arg0: number): string
+public "optDouble"(arg0: string): double
+public "optDouble"(arg0: string, arg1: double): double
+public "optBigDecimal"(arg0: string, arg1: $BigDecimal$Type): $BigDecimal
+public "optBigInteger"(arg0: string, arg1: $BigInteger$Type): $BigInteger
 public "toJSONArray"(arg0: $JSONArray$Type): $JSONArray
+public "similar"(arg0: any): boolean
 public static "stringToValue"(arg0: string): any
+public "putOpt"(arg0: string, arg1: any): $JSONObject
 public "optQuery"(arg0: string): any
 public "optQuery"(arg0: $JSONPointer$Type): any
 public static "testValidity"(arg0: any): void
-public "putOpt"(arg0: string, arg1: any): $JSONObject
+public "optString"(arg0: string, arg1: string): string
+public "optString"(arg0: string): string
+public "getJSONObject"(arg0: string): $JSONObject
+public "getBigDecimal"(arg0: string): $BigDecimal
+public static "valueToString"(arg0: any): string
 get "empty"(): boolean
 }
 /**

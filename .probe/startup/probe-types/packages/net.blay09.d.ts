@@ -46,31 +46,6 @@ export type $KeyMappingAccessor$Type = ($KeyMappingAccessor);
 declare global {
 export type $KeyMappingAccessor_ = $KeyMappingAccessor$Type;
 }}
-declare module "packages/net/blay09/mods/defaultoptions/mixin/$ForgeKeyMappingAccessor" {
-import {$KeyModifier, $KeyModifier$Type} from "packages/net/minecraftforge/client/settings/$KeyModifier"
-
-export interface $ForgeKeyMappingAccessor {
-
- "setKeyModifierDefault"(arg0: $KeyModifier$Type): void
-
-(arg0: $KeyModifier$Type): void
-}
-
-export namespace $ForgeKeyMappingAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ForgeKeyMappingAccessor$Type = ($ForgeKeyMappingAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $ForgeKeyMappingAccessor_ = $ForgeKeyMappingAccessor$Type;
-}}
 declare module "packages/net/blay09/mods/kuma/mixin/$KeyMappingAccessor" {
 import {$InputConstants$Key, $InputConstants$Key$Type} from "packages/com/mojang/blaze3d/platform/$InputConstants$Key"
 
@@ -126,13 +101,13 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $AbstractContainerScreenAccessor {
 
+ "getLeftPos"(): integer
+ "getImageWidth"(): integer
  "getHoveredSlot"(): $Slot
  "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
  "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
- "getImageWidth"(): integer
- "getImageHeight"(): integer
- "getLeftPos"(): integer
  "getTopPos"(): integer
+ "getImageHeight"(): integer
 }
 
 export namespace $AbstractContainerScreenAccessor {
@@ -154,8 +129,8 @@ declare module "packages/net/blay09/mods/balm/mixin/$SlotAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $SlotAccessor {
 
- "setY"(arg0: integer): void
  "setX"(arg0: integer): void
+ "setY"(arg0: integer): void
 }
 
 export namespace $SlotAccessor {
@@ -181,9 +156,9 @@ import {$NarratableEntry, $NarratableEntry$Type} from "packages/net/minecraft/cl
 
 export interface $ScreenAccessor {
 
+ "balm_getChildren"(): $List<($GuiEventListener)>
  "balm_getRenderables"(): $List<($Renderable)>
  "balm_getNarratables"(): $List<($NarratableEntry)>
- "balm_getChildren"(): $List<($GuiEventListener)>
 }
 
 export namespace $ScreenAccessor {
@@ -200,29 +175,4 @@ export type $ScreenAccessor$Type = ($ScreenAccessor);
  */
 declare global {
 export type $ScreenAccessor_ = $ScreenAccessor$Type;
-}}
-declare module "packages/net/blay09/mods/defaultoptions/mixin/$KeyMappingAccessor" {
-import {$InputConstants$Key, $InputConstants$Key$Type} from "packages/com/mojang/blaze3d/platform/$InputConstants$Key"
-
-export interface $KeyMappingAccessor {
-
- "setDefaultKey"(arg0: $InputConstants$Key$Type): void
-
-(arg0: $InputConstants$Key$Type): void
-}
-
-export namespace $KeyMappingAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $KeyMappingAccessor$Type = ($KeyMappingAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $KeyMappingAccessor_ = $KeyMappingAccessor$Type;
 }}

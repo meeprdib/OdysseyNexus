@@ -46,28 +46,28 @@ export class $ExtendedMobEffect extends $MobEffect {
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
 public "getDisplayName"(arg0: $MobEffectInstance$Type): $Component
-public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
-public "applyInstantenousEffect"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: double): void
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
-public "getAttributeModifierValue"(arg0: integer, arg1: $AttributeModifier$Type): double
-public "doClientSideEffectTick"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): boolean
+public "shouldCureEffect"(arg0: $MobEffectInstance$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): boolean
+public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
+public "onRemoval"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): void
 public "canApply"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type): boolean
 public "onReapplication"(arg0: $MobEffectInstance$Type, arg1: $MobEffectInstance$Type, arg2: $LivingEntity$Type): $MobEffectInstance
-public "onRemoval"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): void
-public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "canApplyOther"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type): boolean
-public "shouldCureEffect"(arg0: $MobEffectInstance$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): boolean
-public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
+public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
 public "shouldTickEffect"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type, arg2: integer, arg3: integer): boolean
+public "getAttributeModifierValue"(arg0: $LivingEntity$Type, arg1: $Attribute$Type, arg2: double, arg3: integer): double
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "applyInstantenousEffect"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: double): void
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "getAttributeModifierValue"(arg0: integer, arg1: $AttributeModifier$Type): double
+public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "getOverlayRenderer"(): $EffectOverlayRenderer
+public "getDisplayName"(): $Component
 public "beforeIncomingAttack"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: $DamageSource$Type, arg3: float): boolean
 public "modifyIncomingAttackDamage"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: $DamageSource$Type, arg3: float): float
 public "modifyOutgoingAttackDamage"(arg0: $LivingEntity$Type, arg1: $LivingEntity$Type, arg2: $MobEffectInstance$Type, arg3: $DamageSource$Type, arg4: float): float
 public "afterIncomingAttack"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: $DamageSource$Type, arg3: float): void
 public "afterOutgoingAttack"(arg0: $LivingEntity$Type, arg1: $LivingEntity$Type, arg2: $MobEffectInstance$Type, arg3: $DamageSource$Type, arg4: float): void
-public "getAttributeModifierValue"(arg0: $LivingEntity$Type, arg1: $Attribute$Type, arg2: double, arg3: integer): double
-public "getDisplayName"(): $Component
+public "doClientSideEffectTick"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): boolean
 get "overlayRenderer"(): $EffectOverlayRenderer
 get "displayName"(): $Component
 }

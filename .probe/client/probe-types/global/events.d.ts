@@ -7,7 +7,6 @@ import {$ExplosionEventJS$After, $ExplosionEventJS$After$Type} from "packages/de
 import {$PaintScreenEventJS, $PaintScreenEventJS$Type} from "packages/dev/latvian/mods/kubejs/client/painter/screen/$PaintScreenEventJS"
 import {$MenuType, $MenuType$Type} from "packages/net/minecraft/world/inventory/$MenuType"
 import {$SDRPKubeJSIntegration$ClientDimensionChangeEvent, $SDRPKubeJSIntegration$ClientDimensionChangeEvent$Type} from "packages/com/sunekaer/sdrp/integration/kubejs/$SDRPKubeJSIntegration$ClientDimensionChangeEvent"
-import {$SpellSelectionEventJS, $SpellSelectionEventJS$Type} from "packages/com/squoshi/irons_spells_js/events/$SpellSelectionEventJS"
 import {$ItemTooltipEventJS, $ItemTooltipEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemTooltipEventJS"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$ItemDestroyedEventJS, $ItemDestroyedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/forge/$ItemDestroyedEventJS"
@@ -74,7 +73,6 @@ function addItems(handler: (event: $AddJEIEventJS<(any)>) => void): void
 export namespace PlayerEvents {
 function chestOpened(extra: $MenuType$Type, handler: (event: $ChestEventJS) => void): void
 function chestOpened(handler: (event: $ChestEventJS) => void): void
-function spellSelection(handler: (event: $SpellSelectionEventJS) => void): void
 function tick(handler: (event: $SimplePlayerEventJS) => void): void
 function chestClosed(extra: $MenuType$Type, handler: (event: $ChestEventJS) => void): void
 function chestClosed(handler: (event: $ChestEventJS) => void): void

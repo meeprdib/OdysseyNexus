@@ -23,7 +23,6 @@ import {WorldgenFeatureSizeType, WorldgenFeatureSizeType$Type} from "packages/mo
 import {LootPoolEntryType, LootPoolEntryType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/LootPoolEntryType"
 import {FloatProviderType, FloatProviderType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/FloatProviderType"
 import {EntityDataSerializers, EntityDataSerializers$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/EntityDataSerializers"
-import {ConditionSerializer, ConditionSerializer$Type} from "packages/moe/wolfgirl/probejs/generated/registry/crafttweaker/ConditionSerializer"
 import {WorldgenNoiseSettings, WorldgenNoiseSettings$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenNoiseSettings"
 import {RecipeType, RecipeType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/RecipeType"
 import {StructureModifierSerializers, StructureModifierSerializers$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/StructureModifierSerializers"
@@ -91,7 +90,6 @@ import {WorldgenBiomeSource, WorldgenBiomeSource$Type} from "packages/moe/wolfgi
 import {IntProviderType, IntProviderType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/IntProviderType"
 import {WorldgenDensityFunction, WorldgenDensityFunction$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenDensityFunction"
 import {WorldgenMaterialCondition, WorldgenMaterialCondition$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenMaterialCondition"
-import {TransformerSerializer, TransformerSerializer$Type} from "packages/moe/wolfgirl/probejs/generated/registry/crafttweaker/TransformerSerializer"
 import {WorldgenFoliagePlacerType, WorldgenFoliagePlacerType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenFoliagePlacerType"
 import {WorldgenRootPlacerType, WorldgenRootPlacerType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenRootPlacerType"
 import {BlockPredicateType, BlockPredicateType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/BlockPredicateType"
@@ -203,13 +201,11 @@ function registry(extra: "forge:global_loot_modifier_serializers", handler: (eve
 function registry(extra: "forge:holder_set_type", handler: (event: HolderSetType) => void): void
 function registry(extra: "forge:structure_modifier_serializers", handler: (event: StructureModifierSerializers) => void): void
 function registry(extra: "integrated_api:json_conditions", handler: (event: JsonConditions) => void): void
-function registry(extra: "crafttweaker:transformer_serializer", handler: (event: TransformerSerializer) => void): void
-function registry(extra: "crafttweaker:condition_serializer", handler: (event: ConditionSerializer) => void): void
-function registry(extra: "moonlight:map_markers", handler: (event: MapMarkers) => void): void
-function registry(extra: "moonlight:soft_fluids", handler: (event: SoftFluids) => void): void
-function registry(extra: "blueprint:modded_biome_slices", handler: (event: ModdedBiomeSlices) => void): void
 function registry(extra: "blueprint:structure_repaletters", handler: (event: StructureRepaletters) => void): void
-function registry(extra: "forge:biome_modifier", handler: (event: BiomeModifier) => void): void
+function registry(extra: "blueprint:modded_biome_slices", handler: (event: ModdedBiomeSlices) => void): void
+function registry(extra: "moonlight:soft_fluids", handler: (event: SoftFluids) => void): void
 function registry(extra: "forge:structure_modifier", handler: (event: StructureModifier) => void): void
+function registry(extra: "moonlight:map_markers", handler: (event: MapMarkers) => void): void
+function registry(extra: "forge:biome_modifier", handler: (event: BiomeModifier) => void): void
 }
 }

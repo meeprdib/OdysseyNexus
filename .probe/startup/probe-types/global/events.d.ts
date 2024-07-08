@@ -5,6 +5,7 @@ import {$BoilerHeaterHandlerEvent, $BoilerHeaterHandlerEvent$Type} from "package
 import {$AddWorldgenEventJS, $AddWorldgenEventJS$Type} from "packages/dev/latvian/mods/kubejs/level/gen/$AddWorldgenEventJS"
 import {$RegisterSpawnPlacementsEventJS, $RegisterSpawnPlacementsEventJS$Type} from "packages/net/liopyu/entityjs/events/$RegisterSpawnPlacementsEventJS"
 import {$CreativeTabEvent, $CreativeTabEvent$Type} from "packages/dev/latvian/mods/kubejs/item/creativetab/$CreativeTabEvent"
+import {$SpellSelectionEventJS, $SpellSelectionEventJS$Type} from "packages/com/squoshi/irons_spells_js/events/$SpellSelectionEventJS"
 import {$ItemModificationEventJS, $ItemModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemModificationEventJS"
 import {$RegistryEventJS, $RegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/registry/$RegistryEventJS"
 import {$ModifyLivingEntityBuilder, $ModifyLivingEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/living/modification/$ModifyLivingEntityBuilder"
@@ -26,6 +27,9 @@ export namespace EntityJSEvents {
 function modifyEntity(handler: (event: $ModifyLivingEntityBuilder) => void): void
 function attributes(handler: (event: $ModifyAttributeEventJS) => void): void
 function spawnPlacement(handler: (event: $RegisterSpawnPlacementsEventJS) => void): void
+}
+export namespace PlayerEvents {
+function spellSelection(handler: (event: $SpellSelectionEventJS) => void): void
 }
 export namespace ItemEvents {
 function modelProperties(handler: (event: $ItemModelPropertiesEventJS) => void): void

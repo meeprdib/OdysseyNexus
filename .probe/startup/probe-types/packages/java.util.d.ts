@@ -310,9 +310,9 @@ export interface $ScheduledFuture<V> extends $Delayed, $Future<(V)> {
  "getDelay"(arg0: $TimeUnit$Type): long
  "get"(arg0: long, arg1: $TimeUnit$Type): V
  "get"(): V
- "cancel"(arg0: boolean): boolean
  "isCancelled"(): boolean
  "isDone"(): boolean
+ "cancel"(arg0: boolean): boolean
  "compareTo"(arg0: $Delayed$Type): integer
 }
 
@@ -636,17 +636,17 @@ public "accept"(arg0: integer): void
 public "accept"(arg0: long): void
 public "combine"(arg0: $LongSummaryStatistics$Type): void
 public "getCount"(): long
-public "getMax"(): long
-public "getMin"(): long
 public "getAverage"(): double
 public "getSum"(): long
+public "getMin"(): long
+public "getMax"(): long
 public "andThen"(arg0: $LongConsumer$Type): $LongConsumer
 public "andThen"(arg0: $IntConsumer$Type): $IntConsumer
 get "count"(): long
-get "max"(): long
-get "min"(): long
 get "average"(): double
 get "sum"(): long
+get "min"(): long
+get "max"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -674,11 +674,11 @@ export interface $Map$Entry<K, V> {
 }
 
 export namespace $Map$Entry {
-function copyOf<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
-function comparingByKey<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
 function comparingByKey<K, V>(): $Comparator<($Map$Entry<(K), (V)>)>
+function comparingByKey<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
 function comparingByValue<K, V>(): $Comparator<($Map$Entry<(K), (V)>)>
 function comparingByValue<K, V>(arg0: $Comparator$Type<(any)>): $Comparator<($Map$Entry<(K), (V)>)>
+function copyOf<K, V>(arg0: $Map$Entry$Type<(any), (any)>): $Map$Entry<(K), (V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -760,15 +760,16 @@ static readonly "PRIVATE_USE_EXTENSION": character
 static readonly "UNICODE_LOCALE_EXTENSION": character
 
 constructor(arg0: string)
-constructor(arg0: string, arg1: string, arg2: string)
 constructor(arg0: string, arg1: string)
+constructor(arg0: string, arg1: string, arg2: string)
 
+public "getLanguage"(): string
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "clone"(): any
-public static "getDefault"(arg0: $Locale$Category$Type): $Locale
 public static "getDefault"(): $Locale
+public static "getDefault"(arg0: $Locale$Category$Type): $Locale
 public static "lookup"(arg0: $List$Type<($Locale$LanguageRange$Type)>, arg1: $Collection$Type<($Locale$Type)>): $Locale
 public static "filter"(arg0: $List$Type<($Locale$LanguageRange$Type)>, arg1: $Collection$Type<($Locale$Type)>, arg2: $Locale$FilteringMode$Type): $List<($Locale)>
 public static "filter"(arg0: $List$Type<($Locale$LanguageRange$Type)>, arg1: $Collection$Type<($Locale$Type)>): $List<($Locale)>
@@ -781,12 +782,12 @@ public "hasExtensions"(): boolean
 public "getUnicodeLocaleAttributes"(): $Set<(string)>
 public "getUnicodeLocaleType"(arg0: string): string
 public "getUnicodeLocaleKeys"(): $Set<(string)>
-public "getDisplayLanguage"(): string
 public "getDisplayLanguage"(arg0: $Locale$Type): string
+public "getDisplayLanguage"(): string
 public "getDisplayScript"(arg0: $Locale$Type): string
 public "getDisplayScript"(): string
-public "getDisplayCountry"(arg0: $Locale$Type): string
 public "getDisplayCountry"(): string
+public "getDisplayCountry"(arg0: $Locale$Type): string
 public "getDisplayVariant"(arg0: $Locale$Type): string
 public "getDisplayVariant"(): string
 public "getDisplayName"(arg0: $Locale$Type): string
@@ -805,7 +806,7 @@ public "toLanguageTag"(): string
 public static "forLanguageTag"(arg0: string): $Locale
 public "getISO3Language"(): string
 public "getISO3Country"(): string
-public "getLanguage"(): string
+get "language"(): string
 get "default"(): $Locale
 get "script"(): string
 get "country"(): string
@@ -824,7 +825,6 @@ get "iSOLanguages"(): (string)[]
 get "extensionKeys"(): $Set<(character)>
 get "iSO3Language"(): string
 get "iSO3Country"(): string
-get "language"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1136,9 +1136,10 @@ static readonly "HOURS": $TimeUnit
 static readonly "DAYS": $TimeUnit
 
 
+public "toNanos"(arg0: long): long
 public static "values"(): ($TimeUnit)[]
-public "convert"(arg0: $Duration$Type): long
 public "convert"(arg0: long, arg1: $TimeUnit$Type): long
+public "convert"(arg0: $Duration$Type): long
 public static "valueOf"(arg0: string): $TimeUnit
 public static "of"(arg0: $ChronoUnit$Type): $TimeUnit
 public "sleep"(arg0: long): void
@@ -1151,7 +1152,6 @@ public "toDays"(arg0: long): long
 public "timedWait"(arg0: any, arg1: long): void
 public "timedJoin"(arg0: $Thread$Type, arg1: long): void
 public "toChronoUnit"(): $ChronoUnit
-public "toNanos"(arg0: long): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1316,27 +1316,27 @@ constructor()
 
 public "clone"(): any
 public static "getDefault"(): $TimeZone
-public "getOffset"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): integer
 public "getOffset"(arg0: long): integer
+public "getOffset"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): integer
 public static "setDefault"(arg0: $TimeZone$Type): void
 public "getID"(): string
 public "getDisplayName"(arg0: boolean, arg1: integer): string
 public "getDisplayName"(arg0: boolean, arg1: integer, arg2: $Locale$Type): string
-public "getDisplayName"(): string
 public "getDisplayName"(arg0: $Locale$Type): string
-public static "getTimeZone"(arg0: string): $TimeZone
-public static "getTimeZone"(arg0: $ZoneId$Type): $TimeZone
+public "getDisplayName"(): string
 public "toZoneId"(): $ZoneId
 public "inDaylightTime"(arg0: $Date$Type): boolean
 public "getRawOffset"(): integer
 public "getDSTSavings"(): integer
 public "useDaylightTime"(): boolean
-public static "getAvailableIDs"(arg0: integer): (string)[]
 public static "getAvailableIDs"(): (string)[]
+public static "getAvailableIDs"(arg0: integer): (string)[]
 public "setID"(arg0: string): void
 public "setRawOffset"(arg0: integer): void
 public "observesDaylightTime"(): boolean
 public "hasSameRules"(arg0: $TimeZone$Type): boolean
+public static "getTimeZone"(arg0: string): $TimeZone
+public static "getTimeZone"(arg0: $ZoneId$Type): $TimeZone
 get "default"(): $TimeZone
 set "default"(value: $TimeZone$Type)
 get "iD"(): string
@@ -1364,9 +1364,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $Predicate<T> {
 
  "test"(arg0: T): boolean
+ "or"(arg0: $Predicate$Type<(any)>): $Predicate<(T)>
  "negate"(): $Predicate<(T)>
  "and"(arg0: $Predicate$Type<(any)>): $Predicate<(T)>
- "or"(arg0: $Predicate$Type<(any)>): $Predicate<(T)>
 
 (arg0: T): boolean
 }
@@ -1738,7 +1738,6 @@ import {$DoubleBinaryOperator, $DoubleBinaryOperator$Type} from "packages/java/u
 import {$BaseStream, $BaseStream$Type} from "packages/java/util/stream/$BaseStream"
 import {$DoubleSummaryStatistics, $DoubleSummaryStatistics$Type} from "packages/java/util/$DoubleSummaryStatistics"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
-import {$PrimitiveIterator$OfDouble, $PrimitiveIterator$OfDouble$Type} from "packages/java/util/$PrimitiveIterator$OfDouble"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$DoubleSupplier, $DoubleSupplier$Type} from "packages/java/util/function/$DoubleSupplier"
 import {$DoublePredicate, $DoublePredicate$Type} from "packages/java/util/function/$DoublePredicate"
@@ -1748,7 +1747,6 @@ export interface $DoubleStream extends $BaseStream<(double), ($DoubleStream)> {
  "min"(): $OptionalDouble
  "max"(): $OptionalDouble
  "toArray"(): (double)[]
- "iterator"(): $PrimitiveIterator$OfDouble
  "map"(arg0: $DoubleUnaryOperator$Type): $DoubleStream
  "collect"<R>(arg0: $Supplier$Type<(R)>, arg1: $ObjDoubleConsumer$Type<(R)>, arg2: $BiConsumer$Type<(R), (R)>): R
  "count"(): long
@@ -1762,13 +1760,13 @@ export interface $DoubleStream extends $BaseStream<(double), ($DoubleStream)> {
  "skip"(arg0: long): $DoubleStream
  "peek"(arg0: $DoubleConsumer$Type): $DoubleStream
  "sum"(): double
- "reduce"(arg0: $DoubleBinaryOperator$Type): $OptionalDouble
  "reduce"(arg0: double, arg1: $DoubleBinaryOperator$Type): double
+ "reduce"(arg0: $DoubleBinaryOperator$Type): $OptionalDouble
  "distinct"(): $DoubleStream
  "findFirst"(): $OptionalDouble
  "allMatch"(arg0: $DoublePredicate$Type): boolean
  "parallel"(): $DoubleStream
- "mapToObj"<U>(arg0: $DoubleFunction$Type<(any)>): $Stream<(U)>
+ "boxed"(): $Stream<(double)>
  "forEachOrdered"(arg0: $DoubleConsumer$Type): void
  "mapToInt"(arg0: $DoubleToIntFunction$Type): $IntStream
  "mapToLong"(arg0: $DoubleToLongFunction$Type): $LongStream
@@ -1776,10 +1774,10 @@ export interface $DoubleStream extends $BaseStream<(double), ($DoubleStream)> {
  "takeWhile"(arg0: $DoublePredicate$Type): $DoubleStream
  "dropWhile"(arg0: $DoublePredicate$Type): $DoubleStream
  "noneMatch"(arg0: $DoublePredicate$Type): boolean
- "sorted"(): $DoubleStream
+ "mapToObj"<U>(arg0: $DoubleFunction$Type<(any)>): $Stream<(U)>
  "average"(): $OptionalDouble
  "summaryStatistics"(): $DoubleSummaryStatistics
- "boxed"(): $Stream<(double)>
+ "sorted"(): $DoubleStream
  "close"(): void
  "isParallel"(): boolean
  "unordered"(): $DoubleStream
@@ -1787,8 +1785,8 @@ export interface $DoubleStream extends $BaseStream<(double), ($DoubleStream)> {
 }
 
 export namespace $DoubleStream {
-function of(arg0: double): $DoubleStream
 function of(...arg0: (double)[]): $DoubleStream
+function of(arg0: double): $DoubleStream
 function builder(): $DoubleStream$Builder
 function concat(arg0: $DoubleStream$Type, arg1: $DoubleStream$Type): $DoubleStream
 function empty(): $DoubleStream
@@ -1923,9 +1921,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BiPredicate<T, U> {
 
  "test"(arg0: T, arg1: U): boolean
+ "or"(arg0: $BiPredicate$Type<(any), (any)>): $BiPredicate<(T), (U)>
  "negate"(): $BiPredicate<(T), (U)>
  "and"(arg0: $BiPredicate$Type<(any), (any)>): $BiPredicate<(T), (U)>
- "or"(arg0: $BiPredicate$Type<(any), (any)>): $BiPredicate<(T), (U)>
 
 (arg0: T, arg1: U): boolean
 }
@@ -2311,9 +2309,9 @@ export interface $Future<V> {
 
  "get"(arg0: long, arg1: $TimeUnit$Type): V
  "get"(): V
- "cancel"(arg0: boolean): boolean
  "isCancelled"(): boolean
  "isDone"(): boolean
+ "cancel"(arg0: boolean): boolean
 }
 
 export namespace $Future {
@@ -2494,9 +2492,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $LongPredicate {
 
  "test"(arg0: long): boolean
+ "or"(arg0: $LongPredicate$Type): $LongPredicate
  "negate"(): $LongPredicate
  "and"(arg0: $LongPredicate$Type): $LongPredicate
- "or"(arg0: $LongPredicate$Type): $LongPredicate
 
 (arg0: long): boolean
 }
@@ -2522,9 +2520,9 @@ import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 
 export interface $Stream$Builder<T> extends $Consumer<(T)> {
 
+ "build"(): $Stream<(T)>
  "add"(arg0: T): $Stream$Builder<(T)>
  "accept"(arg0: T): void
- "build"(): $Stream<(T)>
  "andThen"(arg0: $Consumer$Type<(any)>): $Consumer<(T)>
 }
 
@@ -2604,10 +2602,10 @@ import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 
 export interface $ScheduledExecutorService extends $ExecutorService {
 
- "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
- "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
- "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
  "scheduleAtFixedRate"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "scheduleWithFixedDelay"(arg0: $Runnable$Type, arg1: long, arg2: long, arg3: $TimeUnit$Type): $ScheduledFuture<(any)>
+ "schedule"<V>(arg0: $Callable$Type<(V)>, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(V)>
+ "schedule"(arg0: $Runnable$Type, arg1: long, arg2: $TimeUnit$Type): $ScheduledFuture<(any)>
  "shutdown"(): void
  "isShutdown"(): boolean
  "shutdownNow"(): $List<($Runnable)>
@@ -2701,8 +2699,14 @@ export class $Random implements $RandomGenerator, $Serializable {
 constructor()
 constructor(arg0: long)
 
+public "nextDouble"(): double
 public "nextInt"(arg0: integer): integer
 public "nextInt"(): integer
+public "ints"(): $IntStream
+public "ints"(arg0: long): $IntStream
+public "ints"(arg0: integer, arg1: integer): $IntStream
+public "ints"(arg0: long, arg1: integer, arg2: integer): $IntStream
+public "nextBytes"(arg0: (byte)[]): void
 public "nextBoolean"(): boolean
 public "nextLong"(): long
 public "nextFloat"(): float
@@ -2710,30 +2714,24 @@ public "longs"(): $LongStream
 public "longs"(arg0: long, arg1: long): $LongStream
 public "longs"(arg0: long, arg1: long, arg2: long): $LongStream
 public "longs"(arg0: long): $LongStream
-public "doubles"(): $DoubleStream
 public "doubles"(arg0: double, arg1: double): $DoubleStream
 public "doubles"(arg0: long, arg1: double, arg2: double): $DoubleStream
+public "doubles"(): $DoubleStream
 public "doubles"(arg0: long): $DoubleStream
 public "setSeed"(arg0: long): void
 public "nextGaussian"(): double
-public "nextBytes"(arg0: (byte)[]): void
-public "ints"(arg0: integer, arg1: integer): $IntStream
-public "ints"(): $IntStream
-public "ints"(arg0: long, arg1: integer, arg2: integer): $IntStream
-public "ints"(arg0: long): $IntStream
-public "nextDouble"(): double
+public "nextDouble"(arg0: double, arg1: double): double
+public "nextDouble"(arg0: double): double
 public static "getDefault"(): $RandomGenerator
 public static "of"(arg0: string): $RandomGenerator
 public "nextInt"(arg0: integer, arg1: integer): integer
 public "nextLong"(arg0: long, arg1: long): long
 public "nextLong"(arg0: long): long
-public "nextFloat"(arg0: float, arg1: float): float
 public "nextFloat"(arg0: float): float
+public "nextFloat"(arg0: float, arg1: float): float
 public "nextGaussian"(arg0: double, arg1: double): double
 public "isDeprecated"(): boolean
 public "nextExponential"(): double
-public "nextDouble"(arg0: double, arg1: double): double
-public "nextDouble"(arg0: double): double
 set "seed"(value: long)
 get "default"(): $RandomGenerator
 get "deprecated"(): boolean
@@ -2788,9 +2786,9 @@ import {$Map$Entry, $Map$Entry$Type} from "packages/java/util/$Map$Entry"
 
 export class $HashMap<K, V> extends $AbstractMap<(K), (V)> implements $Map<(K), (V)>, $Cloneable, $Serializable {
 
-constructor(arg0: integer)
 constructor(arg0: integer, arg1: float)
 constructor(arg0: $Map$Type<(any), (any)>)
+constructor(arg0: integer)
 constructor()
 
 public "remove"(arg0: any, arg1: any): boolean
@@ -2801,8 +2799,8 @@ public "values"(): $Collection<(V)>
 public "clone"(): any
 public "clear"(): void
 public "isEmpty"(): boolean
-public "replace"(arg0: K, arg1: V): V
 public "replace"(arg0: K, arg1: V, arg2: V): boolean
+public "replace"(arg0: K, arg1: V): V
 public "replaceAll"(arg0: $BiFunction$Type<(any), (any), (any)>): void
 public "size"(): integer
 public "merge"(arg0: K, arg1: V, arg2: $BiFunction$Type<(any), (any), (any)>): V
@@ -2908,8 +2906,8 @@ public "toByteArray"(): (byte)[]
 public "flip"(arg0: integer): void
 public "flip"(arg0: integer, arg1: integer): void
 public "nextClearBit"(arg0: integer): integer
-public "and"(arg0: $BitSet$Type): void
 public "or"(arg0: $BitSet$Type): void
+public "and"(arg0: $BitSet$Type): void
 public "xor"(arg0: $BitSet$Type): void
 public "andNot"(arg0: $BitSet$Type): void
 public "cardinality"(): integer
@@ -2971,9 +2969,9 @@ import {$DoubleStream, $DoubleStream$Type} from "packages/java/util/stream/$Doub
 
 export interface $DoubleStream$Builder extends $DoubleConsumer {
 
+ "build"(): $DoubleStream
  "add"(arg0: double): $DoubleStream$Builder
  "accept"(arg0: double): void
- "build"(): $DoubleStream
  "andThen"(arg0: $DoubleConsumer$Type): $DoubleConsumer
 }
 
@@ -2998,9 +2996,9 @@ import {$LongConsumer, $LongConsumer$Type} from "packages/java/util/function/$Lo
 
 export interface $LongStream$Builder extends $LongConsumer {
 
+ "build"(): $LongStream
  "add"(arg0: long): $LongStream$Builder
  "accept"(arg0: long): void
- "build"(): $LongStream
  "andThen"(arg0: $LongConsumer$Type): $LongConsumer
 }
 
@@ -3081,7 +3079,6 @@ public "retainAll"(arg0: $Collection$Type<(any)>): boolean
 public "listIterator"(): $ListIterator<(E)>
 public "listIterator"(arg0: integer): $ListIterator<(E)>
 public "containsAll"(arg0: $Collection$Type<(any)>): boolean
-public "setSize"(arg0: integer): void
 public "copyInto"(arg0: (any)[]): void
 public "removeElementAt"(arg0: integer): void
 public "removeElement"(arg0: any): boolean
@@ -3091,6 +3088,7 @@ public "firstElement"(): E
 public "lastElement"(): E
 public "setElementAt"(arg0: E, arg1: integer): void
 public "addElement"(arg0: E): void
+public "setSize"(arg0: integer): void
 public static "copyOf"<E>(arg0: $Collection$Type<(any)>): $List<(E)>
 public static "of"<E>(arg0: E, arg1: E, arg2: E, arg3: E): $List<(E)>
 public static "of"<E>(arg0: E, arg1: E, arg2: E): $List<(E)>
@@ -3154,11 +3152,11 @@ import {$Map$Entry, $Map$Entry$Type} from "packages/java/util/$Map$Entry"
 
 export class $LinkedHashMap<K, V> extends $HashMap<(K), (V)> implements $Map<(K), (V)> {
 
-constructor(arg0: integer, arg1: float, arg2: boolean)
 constructor()
-constructor(arg0: integer)
-constructor(arg0: integer, arg1: float)
+constructor(arg0: integer, arg1: float, arg2: boolean)
 constructor(arg0: $Map$Type<(any), (any)>)
+constructor(arg0: integer, arg1: float)
+constructor(arg0: integer)
 
 public "get"(arg0: any): V
 public "values"(): $Collection<(V)>
@@ -3426,22 +3424,22 @@ export class $Currency implements $Serializable {
 public "toString"(): string
 public static "getInstance"(arg0: string): $Currency
 public static "getInstance"(arg0: $Locale$Type): $Currency
-public "getDisplayName"(arg0: $Locale$Type): string
 public "getDisplayName"(): string
+public "getDisplayName"(arg0: $Locale$Type): string
+public "getSymbol"(arg0: $Locale$Type): string
+public "getSymbol"(): string
+public "getCurrencyCode"(): string
 public static "getAvailableCurrencies"(): $Set<($Currency)>
 public "getDefaultFractionDigits"(): integer
 public "getNumericCode"(): integer
 public "getNumericCodeAsString"(): string
-public "getSymbol"(arg0: $Locale$Type): string
-public "getSymbol"(): string
-public "getCurrencyCode"(): string
 get "displayName"(): string
+get "symbol"(): string
+get "currencyCode"(): string
 get "availableCurrencies"(): $Set<($Currency)>
 get "defaultFractionDigits"(): integer
 get "numericCode"(): integer
 get "numericCodeAsString"(): string
-get "symbol"(): string
-get "currencyCode"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3502,7 +3500,8 @@ export interface $LongStream extends $BaseStream<(long), ($LongStream)> {
  "distinct"(): $LongStream
  "findFirst"(): $OptionalLong
  "allMatch"(arg0: $LongPredicate$Type): boolean
- "mapToObj"<U>(arg0: $LongFunction$Type<(any)>): $Stream<(U)>
+ "parallel"(): $LongStream
+ "boxed"(): $Stream<(long)>
  "forEachOrdered"(arg0: $LongConsumer$Type): void
  "mapToInt"(arg0: $LongToIntFunction$Type): $IntStream
  "mapToDouble"(arg0: $LongToDoubleFunction$Type): $DoubleStream
@@ -3511,11 +3510,11 @@ export interface $LongStream extends $BaseStream<(long), ($LongStream)> {
  "dropWhile"(arg0: $LongPredicate$Type): $LongStream
  "noneMatch"(arg0: $LongPredicate$Type): boolean
  "sequential"(): $LongStream
- "sorted"(): $LongStream
+ "mapToObj"<U>(arg0: $LongFunction$Type<(any)>): $Stream<(U)>
  "average"(): $OptionalDouble
  "summaryStatistics"(): $LongSummaryStatistics
  "asDoubleStream"(): $DoubleStream
- "boxed"(): $Stream<(long)>
+ "sorted"(): $LongStream
  "close"(): void
  "isParallel"(): boolean
  "unordered"(): $LongStream
@@ -3531,8 +3530,8 @@ function empty(): $LongStream
 function range(arg0: long, arg1: long): $LongStream
 function iterate(arg0: long, arg1: $LongUnaryOperator$Type): $LongStream
 function iterate(arg0: long, arg1: $LongPredicate$Type, arg2: $LongUnaryOperator$Type): $LongStream
-function generate(arg0: $LongSupplier$Type): $LongStream
 function rangeClosed(arg0: long, arg1: long): $LongStream
+function generate(arg0: $LongSupplier$Type): $LongStream
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3888,17 +3887,12 @@ export class $Date implements $Serializable, $Cloneable, $Comparable<($Date)> {
  * 
  * @deprecated
  */
-constructor(arg0: string)
-/**
- * 
- * @deprecated
- */
 constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer)
 /**
  * 
  * @deprecated
  */
-constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer)
+constructor(arg0: string)
 constructor()
 constructor(arg0: long)
 /**
@@ -3906,7 +3900,14 @@ constructor(arg0: long)
  * @deprecated
  */
 constructor(arg0: integer, arg1: integer, arg2: integer)
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer)
 
+public "before"(arg0: $Date$Type): boolean
+public "after"(arg0: $Date$Type): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
@@ -3918,29 +3919,6 @@ public static "from"(arg0: $Instant$Type): $Date
  * @deprecated
  */
 public static "parse"(arg0: string): long
-public "getTime"(): long
-/**
- * 
- * @deprecated
- */
-public "getYear"(): integer
-/**
- * 
- * @deprecated
- */
-public "getSeconds"(): integer
-public "toInstant"(): $Instant
-/**
- * 
- * @deprecated
- */
-public static "UTC"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): long
-public "setTime"(arg0: long): void
-/**
- * 
- * @deprecated
- */
-public "getDate"(): integer
 /**
  * 
  * @deprecated
@@ -3996,6 +3974,24 @@ public "toGMTString"(): string
  * @deprecated
  */
 public "getTimezoneOffset"(): integer
+public "getTime"(): long
+/**
+ * 
+ * @deprecated
+ */
+public "getYear"(): integer
+/**
+ * 
+ * @deprecated
+ */
+public "getSeconds"(): integer
+public "toInstant"(): $Instant
+/**
+ * 
+ * @deprecated
+ */
+public static "UTC"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): long
+public "setTime"(arg0: long): void
 /**
  * 
  * @deprecated
@@ -4005,14 +4001,12 @@ public "setDate"(arg0: integer): void
  * 
  * @deprecated
  */
+public "getDate"(): integer
+/**
+ * 
+ * @deprecated
+ */
 public "getMonth"(): integer
-public "before"(arg0: $Date$Type): boolean
-public "after"(arg0: $Date$Type): boolean
-get "time"(): long
-get "year"(): integer
-get "seconds"(): integer
-set "time"(value: long)
-get "date"(): integer
 set "month"(value: integer)
 get "hours"(): integer
 get "minutes"(): integer
@@ -4022,7 +4016,12 @@ set "seconds"(value: integer)
 set "year"(value: integer)
 get "day"(): integer
 get "timezoneOffset"(): integer
+get "time"(): long
+get "year"(): integer
+get "seconds"(): integer
+set "time"(value: long)
 set "date"(value: integer)
+get "date"(): integer
 get "month"(): integer
 }
 /**
@@ -4201,7 +4200,7 @@ export interface $IntStream extends $BaseStream<(integer), ($IntStream)> {
  "findFirst"(): $OptionalInt
  "allMatch"(arg0: $IntPredicate$Type): boolean
  "parallel"(): $IntStream
- "mapToObj"<U>(arg0: $IntFunction$Type<(any)>): $Stream<(U)>
+ "boxed"(): $Stream<(integer)>
  "forEachOrdered"(arg0: $IntConsumer$Type): void
  "mapToLong"(arg0: $IntToLongFunction$Type): $LongStream
  "mapToDouble"(arg0: $IntToDoubleFunction$Type): $DoubleStream
@@ -4209,12 +4208,12 @@ export interface $IntStream extends $BaseStream<(integer), ($IntStream)> {
  "takeWhile"(arg0: $IntPredicate$Type): $IntStream
  "dropWhile"(arg0: $IntPredicate$Type): $IntStream
  "noneMatch"(arg0: $IntPredicate$Type): boolean
- "sorted"(): $IntStream
+ "mapToObj"<U>(arg0: $IntFunction$Type<(any)>): $Stream<(U)>
  "average"(): $OptionalDouble
  "summaryStatistics"(): $IntSummaryStatistics
  "asLongStream"(): $LongStream
  "asDoubleStream"(): $DoubleStream
- "boxed"(): $Stream<(integer)>
+ "sorted"(): $IntStream
  "close"(): void
  "isParallel"(): boolean
  "unordered"(): $IntStream
@@ -4230,8 +4229,8 @@ function empty(): $IntStream
 function range(arg0: integer, arg1: integer): $IntStream
 function iterate(arg0: integer, arg1: $IntPredicate$Type, arg2: $IntUnaryOperator$Type): $IntStream
 function iterate(arg0: integer, arg1: $IntUnaryOperator$Type): $IntStream
-function generate(arg0: $IntSupplier$Type): $IntStream
 function rangeClosed(arg0: integer, arg1: integer): $IntStream
+function generate(arg0: $IntSupplier$Type): $IntStream
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4250,9 +4249,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $IntPredicate {
 
  "test"(arg0: integer): boolean
+ "or"(arg0: $IntPredicate$Type): $IntPredicate
  "negate"(): $IntPredicate
  "and"(arg0: $IntPredicate$Type): $IntPredicate
- "or"(arg0: $IntPredicate$Type): $IntPredicate
 
 (arg0: integer): boolean
 }
@@ -4295,38 +4294,25 @@ public "toString"(): string
 public "join"(): T
 public "copy"(): $CompletableFuture<(T)>
 public "handle"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>): $CompletableFuture<(U)>
-public static "allOf"(...arg0: ($CompletableFuture$Type<(any)>)[]): $CompletableFuture<(void)>
 public "complete"(arg0: T): boolean
-public "newIncompleteFuture"<U>(): $CompletableFuture<(U)>
-public "toCompletableFuture"(): $CompletableFuture<(T)>
-public "completeAsync"(arg0: $Supplier$Type<(any)>): $CompletableFuture<(T)>
-public "completeAsync"(arg0: $Supplier$Type<(any)>, arg1: $Executor$Type): $CompletableFuture<(T)>
-public "exceptionallyComposeAsync"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletableFuture<(T)>
-public "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>): $CompletableFuture<(T)>
-public "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>, arg1: $Executor$Type): $CompletableFuture<(T)>
-public "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>): $CompletableFuture<(U)>
-public "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>, arg1: $Executor$Type): $CompletableFuture<(U)>
-public "thenCompose"<U>(arg0: $Function$Type<(any), (any)>): $CompletableFuture<(U)>
-public "runAfterEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletableFuture<(void)>
-public "cancel"(arg0: boolean): boolean
+public static "allOf"(...arg0: ($CompletableFuture$Type<(any)>)[]): $CompletableFuture<(void)>
+public static "supplyAsync"<U>(arg0: $Supplier$Type<(U)>, arg1: $Executor$Type): $CompletableFuture<(U)>
+public static "supplyAsync"<U>(arg0: $Supplier$Type<(U)>): $CompletableFuture<(U)>
 public "isCancelled"(): boolean
 public "isDone"(): boolean
+public "defaultExecutor"(): $Executor
+public "cancel"(arg0: boolean): boolean
 public "acceptEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Consumer$Type<(any)>, arg2: $Executor$Type): $CompletableFuture<(void)>
-public "acceptEither"(arg0: $CompletionStage$Type<(any)>, arg1: $Consumer$Type<(any)>): $CompletableFuture<(void)>
-public "applyToEither"<U>(arg0: $CompletionStage$Type<(any)>, arg1: $Function$Type<(any), (U)>): $CompletableFuture<(U)>
-public "runAfterBothAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type, arg2: $Executor$Type): $CompletableFuture<(void)>
-public "runAfterBothAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletableFuture<(void)>
-public "thenAcceptBoth"<U>(arg0: $CompletionStage$Type<(any)>, arg1: $BiConsumer$Type<(any), (any)>): $CompletableFuture<(void)>
-public "thenCombineAsync"<U, V>(arg0: $CompletionStage$Type<(any)>, arg1: $BiFunction$Type<(any), (any), (any)>): $CompletableFuture<(V)>
+public "acceptEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Consumer$Type<(any)>): $CompletableFuture<(void)>
+public "runAfterBoth"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletableFuture<(void)>
+public "thenCombineAsync"<U, V>(arg0: $CompletionStage$Type<(any)>, arg1: $BiFunction$Type<(any), (any), (any)>, arg2: $Executor$Type): $CompletableFuture<(V)>
 public "thenCombine"<U, V>(arg0: $CompletionStage$Type<(any)>, arg1: $BiFunction$Type<(any), (any), (any)>): $CompletableFuture<(V)>
-public "thenRunAsync"(arg0: $Runnable$Type): $CompletableFuture<(void)>
-public "thenRunAsync"(arg0: $Runnable$Type, arg1: $Executor$Type): $CompletableFuture<(void)>
+public "thenRun"(arg0: $Runnable$Type): $CompletableFuture<(void)>
 public "thenAcceptAsync"(arg0: $Consumer$Type<(any)>): $CompletableFuture<(void)>
 public "thenAcceptAsync"(arg0: $Consumer$Type<(any)>, arg1: $Executor$Type): $CompletableFuture<(void)>
-public "thenAccept"(arg0: $Consumer$Type<(any)>): $CompletableFuture<(void)>
-public "thenApply"<U>(arg0: $Function$Type<(any), (any)>): $CompletableFuture<(U)>
-public static "runAsync"(arg0: $Runnable$Type, arg1: $Executor$Type): $CompletableFuture<(void)>
+public "thenApplyAsync"<U>(arg0: $Function$Type<(any), (any)>, arg1: $Executor$Type): $CompletableFuture<(U)>
 public static "runAsync"(arg0: $Runnable$Type): $CompletableFuture<(void)>
+public static "runAsync"(arg0: $Runnable$Type, arg1: $Executor$Type): $CompletableFuture<(void)>
 public static "completedFuture"<U>(arg0: U): $CompletableFuture<(U)>
 public "getNow"(arg0: T): T
 public "completeExceptionally"(arg0: $Throwable$Type): boolean
@@ -4343,10 +4329,20 @@ public static "delayedExecutor"(arg0: long, arg1: $TimeUnit$Type, arg2: $Executo
 public static "completedStage"<U>(arg0: U): $CompletionStage<(U)>
 public static "failedFuture"<U>(arg0: $Throwable$Type): $CompletableFuture<(U)>
 public static "failedStage"<U>(arg0: $Throwable$Type): $CompletionStage<(U)>
-public static "supplyAsync"<U>(arg0: $Supplier$Type<(U)>, arg1: $Executor$Type): $CompletableFuture<(U)>
-public static "supplyAsync"<U>(arg0: $Supplier$Type<(U)>): $CompletableFuture<(U)>
-public "whenComplete"(arg0: $BiConsumer$Type<(any), (any)>): $CompletableFuture<(T)>
-public "defaultExecutor"(): $Executor
+public "newIncompleteFuture"<U>(): $CompletableFuture<(U)>
+public "toCompletableFuture"(): $CompletableFuture<(T)>
+public "completeAsync"(arg0: $Supplier$Type<(any)>): $CompletableFuture<(T)>
+public "completeAsync"(arg0: $Supplier$Type<(any)>, arg1: $Executor$Type): $CompletableFuture<(T)>
+public "exceptionallyComposeAsync"(arg0: $Function$Type<($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletableFuture<(T)>
+public "exceptionally"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletableFuture<(T)>
+public "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>, arg1: $Executor$Type): $CompletableFuture<(T)>
+public "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>): $CompletableFuture<(T)>
+public "handleAsync"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletableFuture<(U)>
+public "handleAsync"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>): $CompletableFuture<(U)>
+public "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>): $CompletableFuture<(U)>
+public "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>, arg1: $Executor$Type): $CompletableFuture<(U)>
+public "thenCompose"<U>(arg0: $Function$Type<(any), (any)>): $CompletableFuture<(U)>
+public "runAfterEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type, arg2: $Executor$Type): $CompletableFuture<(void)>
 get "cancelled"(): boolean
 get "done"(): boolean
 get "completedExceptionally"(): boolean
@@ -4376,16 +4372,16 @@ public "toString"(): string
 public "accept"(arg0: integer): void
 public "combine"(arg0: $IntSummaryStatistics$Type): void
 public "getCount"(): long
-public "getMax"(): integer
-public "getMin"(): integer
 public "getAverage"(): double
 public "getSum"(): long
+public "getMin"(): integer
+public "getMax"(): integer
 public "andThen"(arg0: $IntConsumer$Type): $IntConsumer
 get "count"(): long
-get "max"(): integer
-get "min"(): integer
 get "average"(): double
 get "sum"(): long
+get "min"(): integer
+get "max"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4662,12 +4658,12 @@ import {$TimeUnit, $TimeUnit$Type} from "packages/java/util/concurrent/$TimeUnit
 
 export interface $Lock {
 
- "lock"(): void
  "lockInterruptibly"(): void
- "tryLock"(arg0: long, arg1: $TimeUnit$Type): boolean
  "tryLock"(): boolean
+ "tryLock"(arg0: long, arg1: $TimeUnit$Type): boolean
  "newCondition"(): $Condition
  "unlock"(): void
+ "lock"(): void
 }
 
 export namespace $Lock {
@@ -4736,11 +4732,11 @@ public "timestamp"(): long
 public "node"(): long
 public "variant"(): integer
 public static "fromString"(arg0: string): $UUID
-public static "randomUUID"(): $UUID
 public static "nameUUIDFromBytes"(arg0: (byte)[]): $UUID
 public "getLeastSignificantBits"(): long
 public "getMostSignificantBits"(): long
 public "clockSequence"(): integer
+public static "randomUUID"(): $UUID
 get "leastSignificantBits"(): long
 get "mostSignificantBits"(): long
 }
@@ -5230,28 +5226,13 @@ import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 export interface $CompletionStage<T> {
 
  "handle"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>): $CompletionStage<(U)>
- "toCompletableFuture"(): $CompletableFuture<(T)>
- "exceptionallyComposeAsync"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
- "exceptionallyComposeAsync"(arg0: $Function$Type<($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletionStage<(T)>
- "exceptionallyCompose"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
- "exceptionallyAsync"(arg0: $Function$Type<($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletionStage<(T)>
- "exceptionallyAsync"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
- "exceptionally"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
- "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>): $CompletionStage<(T)>
- "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>, arg1: $Executor$Type): $CompletionStage<(T)>
- "handleAsync"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletionStage<(U)>
- "handleAsync"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>): $CompletionStage<(U)>
- "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>, arg1: $Executor$Type): $CompletionStage<(U)>
- "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>): $CompletionStage<(U)>
- "thenCompose"<U>(arg0: $Function$Type<(any), (any)>): $CompletionStage<(U)>
- "runAfterEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletionStage<(void)>
- "runAfterEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type, arg2: $Executor$Type): $CompletionStage<(void)>
+ "whenComplete"(arg0: $BiConsumer$Type<(any), (any)>): $CompletionStage<(T)>
  "runAfterEither"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletionStage<(void)>
  "acceptEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Consumer$Type<(any)>): $CompletionStage<(void)>
  "acceptEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Consumer$Type<(any)>, arg2: $Executor$Type): $CompletionStage<(void)>
  "acceptEither"(arg0: $CompletionStage$Type<(any)>, arg1: $Consumer$Type<(any)>): $CompletionStage<(void)>
- "applyToEitherAsync"<U>(arg0: $CompletionStage$Type<(any)>, arg1: $Function$Type<(any), (U)>, arg2: $Executor$Type): $CompletionStage<(U)>
  "applyToEitherAsync"<U>(arg0: $CompletionStage$Type<(any)>, arg1: $Function$Type<(any), (U)>): $CompletionStage<(U)>
+ "applyToEitherAsync"<U>(arg0: $CompletionStage$Type<(any)>, arg1: $Function$Type<(any), (U)>, arg2: $Executor$Type): $CompletionStage<(U)>
  "applyToEither"<U>(arg0: $CompletionStage$Type<(any)>, arg1: $Function$Type<(any), (U)>): $CompletionStage<(U)>
  "runAfterBothAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type, arg2: $Executor$Type): $CompletionStage<(void)>
  "runAfterBothAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletionStage<(void)>
@@ -5271,7 +5252,22 @@ export interface $CompletionStage<T> {
  "thenApplyAsync"<U>(arg0: $Function$Type<(any), (any)>, arg1: $Executor$Type): $CompletionStage<(U)>
  "thenApplyAsync"<U>(arg0: $Function$Type<(any), (any)>): $CompletionStage<(U)>
  "thenApply"<U>(arg0: $Function$Type<(any), (any)>): $CompletionStage<(U)>
- "whenComplete"(arg0: $BiConsumer$Type<(any), (any)>): $CompletionStage<(T)>
+ "toCompletableFuture"(): $CompletableFuture<(T)>
+ "exceptionallyComposeAsync"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
+ "exceptionallyComposeAsync"(arg0: $Function$Type<($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletionStage<(T)>
+ "exceptionallyCompose"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
+ "exceptionallyAsync"(arg0: $Function$Type<($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletionStage<(T)>
+ "exceptionallyAsync"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
+ "exceptionally"(arg0: $Function$Type<($Throwable$Type), (any)>): $CompletionStage<(T)>
+ "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>): $CompletionStage<(T)>
+ "whenCompleteAsync"(arg0: $BiConsumer$Type<(any), (any)>, arg1: $Executor$Type): $CompletionStage<(T)>
+ "handleAsync"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>, arg1: $Executor$Type): $CompletionStage<(U)>
+ "handleAsync"<U>(arg0: $BiFunction$Type<(any), ($Throwable$Type), (any)>): $CompletionStage<(U)>
+ "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>): $CompletionStage<(U)>
+ "thenComposeAsync"<U>(arg0: $Function$Type<(any), (any)>, arg1: $Executor$Type): $CompletionStage<(U)>
+ "thenCompose"<U>(arg0: $Function$Type<(any), (any)>): $CompletionStage<(U)>
+ "runAfterEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type): $CompletionStage<(void)>
+ "runAfterEitherAsync"(arg0: $CompletionStage$Type<(any)>, arg1: $Runnable$Type, arg2: $Executor$Type): $CompletionStage<(void)>
 }
 
 export namespace $CompletionStage {
@@ -5296,9 +5292,10 @@ import {$PrimitiveIterator, $PrimitiveIterator$Type} from "packages/java/util/$P
 
 export interface $PrimitiveIterator$OfDouble extends $PrimitiveIterator<(double), ($DoubleConsumer)> {
 
- "forEachRemaining"(arg0: $DoubleConsumer$Type): void
- "forEachRemaining"(arg0: $Consumer$Type<(any)>): void
  "nextDouble"(): double
+ "forEachRemaining"(arg0: $Consumer$Type<(any)>): void
+ "forEachRemaining"(arg0: $DoubleConsumer$Type): void
+ "next"(): double
  "remove"(): void
  "hasNext"(): boolean
 }
@@ -5325,38 +5322,38 @@ import {$DoubleStream, $DoubleStream$Type} from "packages/java/util/stream/$Doub
 
 export interface $RandomGenerator {
 
+ "nextDouble"(arg0: double, arg1: double): double
+ "nextDouble"(): double
+ "nextDouble"(arg0: double): double
+ "nextInt"(): integer
  "nextInt"(arg0: integer): integer
  "nextInt"(arg0: integer, arg1: integer): integer
- "nextInt"(): integer
- "nextBoolean"(): boolean
- "nextLong"(): long
- "nextLong"(arg0: long, arg1: long): long
- "nextLong"(arg0: long): long
- "nextFloat"(arg0: float, arg1: float): float
- "nextFloat"(): float
- "nextFloat"(arg0: float): float
- "longs"(): $LongStream
- "longs"(arg0: long, arg1: long, arg2: long): $LongStream
- "longs"(arg0: long): $LongStream
- "longs"(arg0: long, arg1: long): $LongStream
- "doubles"(): $DoubleStream
- "doubles"(arg0: long): $DoubleStream
- "doubles"(arg0: double, arg1: double): $DoubleStream
- "doubles"(arg0: long, arg1: double, arg2: double): $DoubleStream
- "nextGaussian"(arg0: double, arg1: double): double
- "nextGaussian"(): double
- "isDeprecated"(): boolean
- "nextExponential"(): double
- "nextBytes"(arg0: (byte)[]): void
- "ints"(): $IntStream
  "ints"(arg0: long, arg1: integer, arg2: integer): $IntStream
  "ints"(arg0: long): $IntStream
  "ints"(arg0: integer, arg1: integer): $IntStream
- "nextDouble"(arg0: double, arg1: double): double
- "nextDouble"(arg0: double): double
- "nextDouble"(): double
+ "ints"(): $IntStream
+ "nextBytes"(arg0: (byte)[]): void
+ "nextBoolean"(): boolean
+ "nextLong"(arg0: long, arg1: long): long
+ "nextLong"(arg0: long): long
+ "nextLong"(): long
+ "nextFloat"(arg0: float): float
+ "nextFloat"(arg0: float, arg1: float): float
+ "nextFloat"(): float
+ "longs"(): $LongStream
+ "longs"(arg0: long, arg1: long): $LongStream
+ "longs"(arg0: long): $LongStream
+ "longs"(arg0: long, arg1: long, arg2: long): $LongStream
+ "doubles"(arg0: double, arg1: double): $DoubleStream
+ "doubles"(): $DoubleStream
+ "doubles"(arg0: long): $DoubleStream
+ "doubles"(arg0: long, arg1: double, arg2: double): $DoubleStream
+ "nextGaussian"(): double
+ "nextGaussian"(arg0: double, arg1: double): double
+ "isDeprecated"(): boolean
+ "nextExponential"(): double
 
-(): $RandomGenerator
+(arg0: double, arg1: double): double
 }
 
 export namespace $RandomGenerator {
@@ -5381,9 +5378,9 @@ import {$IntConsumer, $IntConsumer$Type} from "packages/java/util/function/$IntC
 
 export interface $IntStream$Builder extends $IntConsumer {
 
+ "build"(): $IntStream
  "add"(arg0: integer): $IntStream$Builder
  "accept"(arg0: integer): void
- "build"(): $IntStream
  "andThen"(arg0: $IntConsumer$Type): $IntConsumer
 }
 
@@ -5711,15 +5708,14 @@ import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
 export class $EnumSet<E extends $Enum<(E)>> extends $AbstractSet<(E)> implements $Cloneable, $Serializable {
 
 
-public "clone"(): $EnumSet<(E)>
-public static "copyOf"<E extends $Enum<(E)>>(arg0: $Collection$Type<(E)>): $EnumSet<(E)>
 public static "copyOf"<E extends $Enum<(E)>>(arg0: $EnumSet$Type<(E)>): $EnumSet<(E)>
-public static "of"<E extends $Enum<(E)>>(arg0: E, arg1: E, arg2: E): $EnumSet<(E)>
-public static "of"<E extends $Enum<(E)>>(arg0: E, arg1: E): $EnumSet<(E)>
+public static "copyOf"<E extends $Enum<(E)>>(arg0: $Collection$Type<(E)>): $EnumSet<(E)>
 public static "of"<E extends $Enum<(E)>>(arg0: E, arg1: E, arg2: E, arg3: E): $EnumSet<(E)>
+public static "of"<E extends $Enum<(E)>>(arg0: E, arg1: E, arg2: E): $EnumSet<(E)>
 public static "of"<E extends $Enum<(E)>>(arg0: E, ...arg1: (E)[]): $EnumSet<(E)>
-public static "of"<E extends $Enum<(E)>>(arg0: E): $EnumSet<(E)>
 public static "of"<E extends $Enum<(E)>>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E): $EnumSet<(E)>
+public static "of"<E extends $Enum<(E)>>(arg0: E): $EnumSet<(E)>
+public static "of"<E extends $Enum<(E)>>(arg0: E, arg1: E): $EnumSet<(E)>
 public static "noneOf"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>): $EnumSet<(E)>
 public static "range"<E extends $Enum<(E)>>(arg0: E, arg1: E): $EnumSet<(E)>
 public static "allOf"<E extends $Enum<(E)>>(arg0: $Class$Type<(E)>): $EnumSet<(E)>
@@ -6146,6 +6142,8 @@ static readonly "SHORT_STANDALONE": integer
 static readonly "LONG_STANDALONE": integer
 
 
+public "before"(arg0: any): boolean
+public "after"(arg0: any): boolean
 public "add"(arg0: integer, arg1: integer): void
 public "get"(arg0: integer): integer
 public "equals"(arg0: any): boolean
@@ -6157,25 +6155,25 @@ public "clear"(arg0: integer): void
 public "clear"(): void
 public static "getInstance"(): $Calendar
 public static "getInstance"(arg0: $Locale$Type): $Calendar
-public static "getInstance"(arg0: $TimeZone$Type): $Calendar
 public static "getInstance"(arg0: $TimeZone$Type, arg1: $Locale$Type): $Calendar
-public "set"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
-public "set"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public static "getInstance"(arg0: $TimeZone$Type): $Calendar
 public "set"(arg0: integer, arg1: integer): void
 public "set"(arg0: integer, arg1: integer, arg2: integer): void
+public "set"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer): void
+public "set"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
 public "isSet"(arg0: integer): boolean
+public "getCalendarType"(): string
+public "getTimeInMillis"(): long
 public "getTime"(): $Date
 public "toInstant"(): $Instant
 public "getDisplayName"(arg0: integer, arg1: integer, arg2: $Locale$Type): string
 public static "getAvailableLocales"(): ($Locale)[]
 public "setTime"(arg0: $Date$Type): void
-public "getTimeZone"(): $TimeZone
-public "setTimeZone"(arg0: $TimeZone$Type): void
-public "getTimeInMillis"(): long
-public "getCalendarType"(): string
 public "getMinimum"(arg0: integer): integer
 public "getMaximum"(arg0: integer): integer
 public "getDisplayNames"(arg0: integer, arg1: integer, arg2: $Locale$Type): $Map<(string), (integer)>
+public "getTimeZone"(): $TimeZone
+public "setTimeZone"(arg0: $TimeZone$Type): void
 public "setLenient"(arg0: boolean): void
 public "isLenient"(): boolean
 public "getFirstDayOfWeek"(): integer
@@ -6184,8 +6182,8 @@ public "setTimeInMillis"(arg0: long): void
 public "isWeekDateSupported"(): boolean
 public "getWeekYear"(): integer
 public "getLeastMaximum"(arg0: integer): integer
-public "roll"(arg0: integer, arg1: boolean): void
 public "roll"(arg0: integer, arg1: integer): void
+public "roll"(arg0: integer, arg1: boolean): void
 public "getGreatestMinimum"(arg0: integer): integer
 public static "getAvailableCalendarTypes"(): $Set<(string)>
 public "setFirstDayOfWeek"(arg0: integer): void
@@ -6194,16 +6192,14 @@ public "setWeekDate"(arg0: integer, arg1: integer, arg2: integer): void
 public "getWeeksInWeekYear"(): integer
 public "getActualMinimum"(arg0: integer): integer
 public "getActualMaximum"(arg0: integer): integer
-public "before"(arg0: any): boolean
-public "after"(arg0: any): boolean
 get "instance"(): $Calendar
+get "calendarType"(): string
+get "timeInMillis"(): long
 get "time"(): $Date
 get "availableLocales"(): ($Locale)[]
 set "time"(value: $Date$Type)
 get "timeZone"(): $TimeZone
 set "timeZone"(value: $TimeZone$Type)
-get "timeInMillis"(): long
-get "calendarType"(): string
 set "lenient"(value: boolean)
 get "lenient"(): boolean
 get "firstDayOfWeek"(): integer
@@ -6432,8 +6428,8 @@ public static "compile"(arg0: string, arg1: integer): $Pattern
 public "matcher"(arg0: charseq): $Matcher
 public "split"(arg0: charseq, arg1: integer): (string)[]
 public "split"(arg0: charseq): (string)[]
-public static "quote"(arg0: string): string
 public "pattern"(): string
+public static "quote"(arg0: string): string
 public "asPredicate"(): $Predicate<(string)>
 public "asMatchPredicate"(): $Predicate<(string)>
 public "splitAsStream"(arg0: charseq): $Stream<(string)>
@@ -6671,9 +6667,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $DoublePredicate {
 
  "test"(arg0: double): boolean
+ "or"(arg0: $DoublePredicate$Type): $DoublePredicate
  "negate"(): $DoublePredicate
  "and"(arg0: $DoublePredicate$Type): $DoublePredicate
- "or"(arg0: $DoublePredicate$Type): $DoublePredicate
 
 (arg0: double): boolean
 }
@@ -6705,16 +6701,16 @@ public "toString"(): string
 public "accept"(arg0: double): void
 public "combine"(arg0: $DoubleSummaryStatistics$Type): void
 public "getCount"(): long
-public "getMax"(): double
-public "getMin"(): double
 public "getAverage"(): double
 public "getSum"(): double
+public "getMin"(): double
+public "getMax"(): double
 public "andThen"(arg0: $DoubleConsumer$Type): $DoubleConsumer
 get "count"(): long
-get "max"(): double
-get "min"(): double
 get "average"(): double
 get "sum"(): double
+get "min"(): double
+get "max"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

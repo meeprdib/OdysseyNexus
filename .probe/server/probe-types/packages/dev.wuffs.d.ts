@@ -3,8 +3,8 @@ import {$BetterStatus, $BetterStatus$Type} from "packages/dev/wuffs/bcc/data/$Be
 
 export interface $ServerDataExtension {
 
- "getBetterData"(): $BetterStatus
  "setBetterData"(arg0: $BetterStatus$Type): void
+ "getBetterData"(): $BetterStatus
 }
 
 export namespace $ServerDataExtension {
@@ -38,8 +38,8 @@ public "version"(): string
 public "hashCode"(): integer
 public "versionId"(): integer
 public "projectId"(): integer
-public "isMetaData"(): boolean
 public "releaseType"(): string
+public "isMetaData"(): boolean
 get "metaData"(): boolean
 }
 /**

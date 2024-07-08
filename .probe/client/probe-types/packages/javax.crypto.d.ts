@@ -75,9 +75,9 @@ public "init"(arg0: integer, arg1: $Certificate$Type, arg2: $SecureRandom$Type):
 public "init"(arg0: integer, arg1: $Key$Type, arg2: $AlgorithmParameters$Type, arg3: $SecureRandom$Type): void
 public "getParameters"(): $AlgorithmParameters
 public "unwrap"(arg0: (byte)[], arg1: string, arg2: integer): $Key
-public "getBlockSize"(): integer
 public "getAlgorithm"(): string
 public "getProvider"(): $Provider
+public "getBlockSize"(): integer
 public static "getMaxAllowedKeyLength"(arg0: string): integer
 public "getExemptionMechanism"(): $ExemptionMechanism
 public "updateAAD"(arg0: $ByteBuffer$Type): void
@@ -94,9 +94,9 @@ public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer): (byte)[]
 public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[]): integer
 public static "getMaxAllowedParameterSpec"(arg0: string): $AlgorithmParameterSpec
 get "parameters"(): $AlgorithmParameters
-get "blockSize"(): integer
 get "algorithm"(): string
 get "provider"(): $Provider
+get "blockSize"(): integer
 get "exemptionMechanism"(): $ExemptionMechanism
 get "iV"(): (byte)[]
 }

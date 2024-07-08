@@ -4,9 +4,9 @@ import {$DistanceManager, $DistanceManager$Type} from "packages/net/minecraft/se
 
 export interface $ServerChunkProviderMixin {
 
+ "getChunkIfPresent"(arg0: long): $ChunkHolder
  "syncChunkUpdates"(): boolean
  "getTicketManager"(): $DistanceManager
- "getChunkIfPresent"(arg0: long): $ChunkHolder
 }
 
 export namespace $ServerChunkProviderMixin {
@@ -32,8 +32,8 @@ import {$TabNavigationBar, $TabNavigationBar$Type} from "packages/net/minecraft/
 export interface $CreateNewWorldMixin {
 
  "getTempPath"(): $Path
- "getNavBar"(): $TabNavigationBar
  "getParentScreen"(): $Screen
+ "getNavBar"(): $TabNavigationBar
 }
 
 export namespace $CreateNewWorldMixin {
@@ -309,9 +309,9 @@ import {$IOWorker, $IOWorker$Type} from "packages/net/minecraft/world/level/chun
 
 export interface $RegionSectionCacheMixin<T> {
 
- "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
- "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
  "getIOWorker"(): $IOWorker
+ "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
+ "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
 }
 
 export namespace $RegionSectionCacheMixin {
@@ -386,9 +386,9 @@ import {$ServerStatus, $ServerStatus$Type} from "packages/net/minecraft/network/
 
 export interface $MinecraftServerMixin {
 
+ "setServerTime"(arg0: long): void
  "getCurrentSave"(): $LevelStorageSource$LevelStorageAccess
  "setPregenStatus"(arg0: $ServerStatus$Type): void
- "setServerTime"(arg0: long): void
  "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
 }
 

@@ -5,11 +5,11 @@ import {$Pair, $Pair$Type} from "packages/com/supermartijn642/fusion/api/util/$P
 export interface $SpritePreparationContext {
 
  "getIdentifier"(): $ResourceLocation
- "getTextureHeight"(): integer
- "getTextureWidth"(): integer
+ "getOriginalFrameSize"(): $Pair<(integer), (integer)>
  "getOriginalFrameWith"(): integer
  "getOriginalFrameHeight"(): integer
- "getOriginalFrameSize"(): $Pair<(integer), (integer)>
+ "getTextureHeight"(): integer
+ "getTextureWidth"(): integer
 }
 
 export namespace $SpritePreparationContext {
@@ -59,19 +59,19 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 
 export interface $SpriteCreationContext {
 
- "getTextureIdentifier"(): $ResourceLocation
- "createOriginalSprite"(): $TextureAtlasSprite
- "getAtlasHeight"(): integer
- "getSpritePositionX"(): integer
- "getTextureHeight"(): integer
- "getSpritePositionY"(): integer
- "getAtlasWidth"(): integer
- "getTextureWidth"(): integer
- "getAtlas"(): $TextureAtlas
+ "getTextureBuffers"(): ($NativeImage)[]
  "getSpriteWidth"(): integer
  "getMipmapLevels"(): integer
  "getSpriteHeight"(): integer
- "getTextureBuffers"(): ($NativeImage)[]
+ "createOriginalSprite"(): $TextureAtlasSprite
+ "getTextureIdentifier"(): $ResourceLocation
+ "getSpritePositionX"(): integer
+ "getTextureHeight"(): integer
+ "getAtlasWidth"(): integer
+ "getTextureWidth"(): integer
+ "getAtlasHeight"(): integer
+ "getSpritePositionY"(): integer
+ "getAtlas"(): $TextureAtlas
 }
 
 export namespace $SpriteCreationContext {
@@ -100,8 +100,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $ModelType<T> extends $Serializer<(T)> {
 
- "bake"(context: $ModelBakingContext$Type, data: T): $BakedModel
  "getModelDependencies"(data: T): $Collection<($ResourceLocation)>
+ "bake"(context: $ModelBakingContext$Type, data: T): $BakedModel
  "getAsVanillaModel"(data: T): $BlockModel
  "deserialize"(json: $JsonObject$Type): T
  "serialize"(value: T): $JsonObject
@@ -165,10 +165,10 @@ export interface $ModelBakingContext {
 
  "getTexture"(atlas: $ResourceLocation$Type, texture: $ResourceLocation$Type): $TextureAtlasSprite
  "getTexture"(identifier: $SpriteIdentifier$Type): $TextureAtlasSprite
- "getModel"(identifier: $ResourceLocation$Type): $ModelInstance<(any)>
  "getModelBaker"(): $ModelBaker
- "getModelIdentifier"(): $ResourceLocation
  "getTransformation"(): $ModelState
+ "getModelIdentifier"(): $ResourceLocation
+ "getModel"(identifier: $ResourceLocation$Type): $ModelInstance<(any)>
  "getBlockTexture"(texture: $ResourceLocation$Type): $TextureAtlasSprite
 }
 
@@ -216,8 +216,8 @@ import {$ModelInstance, $ModelInstance$Type} from "packages/com/supermartijn642/
 
 export interface $BlockModelExtension {
 
- "getFusionModel"(): $ModelInstance<(any)>
  "setFusionModel"(model: $ModelInstance$Type<(any)>): void
+ "getFusionModel"(): $ModelInstance<(any)>
 }
 
 export namespace $BlockModelExtension {
@@ -243,6 +243,8 @@ import {$BiFunction, $BiFunction$Type} from "packages/java/util/function/$BiFunc
 export class $Pair<X, Y> {
 
 
+public "left"(): X
+public "right"(): Y
 public "equals"(o: any): boolean
 public "hashCode"(): integer
 public "apply"(consumer: $BiConsumer$Type<(X), (Y)>): void
@@ -251,8 +253,6 @@ public static "of"<X, Y>(left: X, right: Y): $Pair<(X), (Y)>
 public "flatMap"<S>(mapper: $BiFunction$Type<(X), (Y), (S)>): S
 public "mapRight"<S>(mapper: $Function$Type<(Y), (S)>): $Pair<(X), (S)>
 public "mapLeft"<S>(mapper: $Function$Type<(X), (S)>): $Pair<(S), (Y)>
-public "left"(): X
-public "right"(): Y
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -276,11 +276,11 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $ModelInstance<T> {
 
- "bake"(context: $ModelBakingContext$Type): $BakedModel
- "getModelData"(): T
- "getModelType"(): $ModelType<(T)>
  "getModelDependencies"(): $Collection<($ResourceLocation)>
+ "getModelData"(): T
+ "bake"(context: $ModelBakingContext$Type): $BakedModel
  "getAsVanillaModel"(): $BlockModel
+ "getModelType"(): $ModelType<(T)>
 }
 
 export namespace $ModelInstance {

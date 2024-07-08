@@ -2,8 +2,8 @@ declare module "packages/net/raphimc/immediatelyfast/injection/interfaces/$IBuff
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IBufferBuilder {
 
- "immediatelyFast$isReleased"(): boolean
  "immediatelyFast$release"(): void
+ "immediatelyFast$isReleased"(): boolean
 }
 
 export namespace $IBufferBuilder {

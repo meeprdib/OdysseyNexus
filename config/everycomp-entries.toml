@@ -127,6 +127,10 @@
 			orange_maple = true
 			red_maple = true
 
+		[types.leaves_type.culturaldelights]
+			avocado = true
+			fruiting_avocado = true
+
 #Disables specific entries
 [entries]
 
@@ -161,9 +165,6 @@
 
 		[entries.wood_type.farmersdelight]
 			cabinet = true
-
-		[entries.wood_type.twigs]
-			table = true
 
 	[entries.leaves_type]
 

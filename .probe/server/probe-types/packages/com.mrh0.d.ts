@@ -7,8 +7,8 @@ import {$RedstoneRelayBlockEntity, $RedstoneRelayBlockEntity$Type} from "package
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
@@ -75,31 +75,31 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "transform"(arg0: $BlockState$Type, arg1: $StructureTransform$Type): $BlockState
 public "rotate"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: $Rotation$Type): $BlockState
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
-public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($RedstoneRelayBlockEntity)>
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($RedstoneRelayBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($RedstoneRelayBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($RedstoneRelayBlockEntity$Type)>): void
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($RedstoneRelayBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($RedstoneRelayBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($RedstoneRelayBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $RedstoneRelayBlockEntity
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($RedstoneRelayBlockEntity)>
@@ -141,10 +141,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -189,15 +189,15 @@ public "read"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "setCache"(arg0: $Direction$Type, arg1: $LazyOptional$Type<($IEnergyStorage$Type)>): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "tick"(): void
+public "calculateStressApplied"(): float
 public static "getEnergyProductionRate"(arg0: integer): integer
+public "updateCache"(): void
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "tickAudio"(): void
-public "calculateStressApplied"(): float
-public "isEnergyOutput"(arg0: $Direction$Type): boolean
-public "isEnergyInput"(arg0: $Direction$Type): boolean
-public "updateCache"(): void
 public "firstTick"(): void
 public "getCachedEnergy"(arg0: $Direction$Type): $IEnergyStorage
+public "isEnergyOutput"(arg0: $Direction$Type): boolean
+public "isEnergyInput"(arg0: $Direction$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -232,8 +232,8 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$CreativeEnergyBlockEntity, $CreativeEnergyBlockEntity$Type} from "packages/com/mrh0/createaddition/blocks/creative_energy/$CreativeEnergyBlockEntity"
@@ -267,16 +267,16 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($CreativeEnergyBlockEntity)>
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CreativeEnergyBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CreativeEnergyBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CreativeEnergyBlockEntity$Type)>): void
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CreativeEnergyBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CreativeEnergyBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CreativeEnergyBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CreativeEnergyBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
@@ -364,59 +364,59 @@ static readonly "NODE_COUNT": integer
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
+public "removeNode"(arg0: $LocalNode$Type, arg1: boolean): void
+public "removeNode"(arg0: integer): void
+public "removeNode"(arg0: integer, arg1: boolean): void
+public "removeNode"(arg0: $LocalNode$Type): void
 public static "connect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
-public "getNodeType"(arg0: integer): $WireType
-public "setNode"(arg0: integer, arg1: integer, arg2: $BlockPos$Type, arg3: $WireType$Type): void
-public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
-public "isNodeIndeciesConnected"(arg0: integer, arg1: integer): boolean
-public "invalidateNodeCache"(): void
-public "setNetwork"(arg0: integer, arg1: $EnergyNetwork$Type): void
-public "getNetwork"(arg0: integer): $EnergyNetwork
-public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
-public "getNodeCount"(): integer
 public "getLocalNode"(arg0: integer): $LocalNode
+public "getNodeCount"(): integer
+public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
+public "validateLocalNodes"(arg0: ($LocalNode$Type)[]): boolean
+public "handleWireCache"(arg0: $Level$Type, arg1: $Set$Type<($LocalNode$Type)>): void
+public "awakeNetwork"(arg0: $Level$Type): boolean
 public "dropWire"(arg0: $Level$Type, arg1: $LocalNode$Type): void
 public static "dropWire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
 public "getWireNode"(arg0: integer): $IWireNode
 public static "getWireNode"(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
-public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
-public "isNetworkValid"(arg0: integer): boolean
 public "convertOldNbt"(arg0: $CompoundTag$Type): void
-public "validateLocalNodes"(arg0: ($LocalNode$Type)[]): boolean
-public "awakeNetwork"(arg0: $Level$Type): boolean
+public "isNetworkValid"(arg0: integer): boolean
+public "getNodePos"(arg0: integer): $BlockPos
+public "hasConnectionTo"(arg0: $BlockPos$Type): boolean
 public "hasConnection"(arg0: integer): boolean
-public "handleWireCache"(arg0: $Level$Type, arg1: $Set$Type<($LocalNode$Type)>): void
-public "getAvailableNode"(): integer
+public "getConnectionTo"(arg0: $BlockPos$Type): $LocalNode
 public "getAvailableNode"(arg0: $Vec3$Type): integer
+public "getAvailableNode"(): integer
+public "hasAnyConnection"(): boolean
+public "isNodeInput"(arg0: integer): boolean
+public "isNodeOutput"(arg0: integer): boolean
+public "getNodeOffset"(arg0: integer): $Vec3
 public "getOtherNodeIndex"(arg0: integer): integer
-public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public "getMaxWireLength"(): integer
+public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
 public static "readNodeOtherIndex"(arg0: $CompoundTag$Type, arg1: integer): integer
 public static "getNbtNode"(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
-public "getNodePos"(arg0: integer): $BlockPos
-public "isNodeInput"(arg0: integer): boolean
-public "hasAnyConnection"(): boolean
-public "isNodeOutput"(arg0: integer): boolean
-public "getConnectionTo"(arg0: $BlockPos$Type): $LocalNode
 public "disconnectWires"(): void
-public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
 public "getConnectorType"(): $ConnectorType
-public "hasConnectionTo"(arg0: $BlockPos$Type): boolean
-public "getNodeOffset"(arg0: integer): $Vec3
-public "getMaxWireLength"(): integer
+public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
 public "getPos"(): $BlockPos
+public "isNodeIndeciesConnected"(arg0: integer, arg1: integer): boolean
+public "invalidateNodeCache"(): void
+public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
+public "getNodeType"(arg0: integer): $WireType
+public "setNode"(arg0: integer, arg1: integer, arg2: $BlockPos$Type, arg3: $WireType$Type): void
+public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
+public "getNetwork"(arg0: integer): $EnergyNetwork
+public "setNetwork"(arg0: integer, arg1: $EnergyNetwork$Type): void
 public "dropWires"(arg0: $Level$Type, arg1: boolean): void
 public "dropWires"(arg0: $Level$Type, arg1: $Player$Type, arg2: boolean): void
-public "removeNode"(arg0: integer, arg1: boolean): void
-public "removeNode"(arg0: $LocalNode$Type, arg1: boolean): void
-public "removeNode"(arg0: integer): void
-public "removeNode"(arg0: $LocalNode$Type): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "onObserved"(arg0: $ServerPlayer$Type, arg1: $ObservePacket$Type): void
 get "nodeCount"(): integer
 get "availableNode"(): integer
-get "connectorType"(): $ConnectorType
 get "maxWireLength"(): integer
+get "connectorType"(): $ConnectorType
 get "pos"(): $BlockPos
 }
 /**
@@ -480,45 +480,45 @@ readonly "id": $ResourceLocation
 constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: $ItemStack$Type, arg3: integer, arg4: integer)
 
 public "matches"(arg0: $RecipeWrapper$Type, arg1: $Level$Type): boolean
+public "getResultItem"(): $ItemStack
 public "assemble"(arg0: $RecipeWrapper$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getEnergy"(): integer
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
 public "getId"(): $ResourceLocation
-public "getEnergy"(): integer
-public "getResultItem"(): $ItemStack
 public "getMaxChargeRate"(): integer
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "isSpecial"(): boolean
+public "getToastSymbol"(): $ItemStack
+public "showNotification"(): boolean
+public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $RecipeWrapper$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "showNotification"(): boolean
-public "getToastSymbol"(): $ItemStack
-public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "getSchema"(): $RecipeSchema
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
-public "setGroup"(group: string): void
-public "getGroup"(): string
 public "getMod"(): string
 public "getType"(): $ResourceLocation
+public "getGroup"(): string
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+get "resultItem"(): $ItemStack
+get "energy"(): integer
 get "serializer"(): $RecipeSerializer<(any)>
 get "id"(): $ResourceLocation
-get "energy"(): integer
-get "resultItem"(): $ItemStack
 get "maxChargeRate"(): integer
-get "ingredients"(): $NonNullList<($Ingredient)>
+get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
+get "ingredients"(): $NonNullList<($Ingredient)>
 get "mod"(): string
 get "type"(): $ResourceLocation
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -550,18 +550,18 @@ public static "of"(arg0: $Item$Type): $WireType
 public static "fromIndex"(arg0: integer): $WireType
 public "transfer"(): integer
 public "getIndex"(): integer
+public "getSourceDrop"(): $ItemStack
+public "getDrop"(): $ItemStack
 public "getRed"(): integer
 public "getGreen"(): integer
 public "getBlue"(): integer
-public "getDrop"(): $ItemStack
-public "getSourceDrop"(): $ItemStack
 public "isFestive"(): boolean
 get "index"(): integer
+get "sourceDrop"(): $ItemStack
+get "drop"(): $ItemStack
 get "red"(): integer
 get "green"(): integer
 get "blue"(): integer
-get "drop"(): $ItemStack
-get "sourceDrop"(): $ItemStack
 get "festive"(): boolean
 }
 /**
@@ -584,25 +584,25 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IMultiTileEnergyContainer extends $IMultiBlockEntityContainer {
 
- "notifyMultiUpdated"(): void
- "getControllerBE"<T extends ($BlockEntity) & ($IMultiBlockEntityContainer)>(): T
- "getExtraData"(): any
- "modifyExtraData"(arg0: any): any
- "setExtraData"(arg0: any): void
- "getMainAxisOf"(arg0: $BlockEntity$Type): $Direction$Axis
- "preventConnectivityUpdate"(): void
- "getMainConnectionAxis"(): $Direction$Axis
  "getMaxLength"(arg0: $Direction$Axis$Type, arg1: integer): integer
- "getMaxWidth"(): integer
- "removeController"(arg0: boolean): void
+ "setHeight"(arg0: integer): void
  "setWidth"(arg0: integer): void
  "setController"(arg0: $BlockPos$Type): void
- "getLastKnownPos"(): $BlockPos
  "isController"(): boolean
+ "getLastKnownPos"(): $BlockPos
  "getWidth"(): integer
  "getHeight"(): integer
- "setHeight"(arg0: integer): void
+ "getMaxWidth"(): integer
+ "notifyMultiUpdated"(): void
+ "getControllerBE"<T extends ($BlockEntity) & ($IMultiBlockEntityContainer)>(): T
+ "getMainAxisOf"(arg0: $BlockEntity$Type): $Direction$Axis
+ "setExtraData"(arg0: any): void
+ "getExtraData"(): any
+ "modifyExtraData"(arg0: any): any
  "getController"(): $BlockPos
+ "removeController"(arg0: boolean): void
+ "preventConnectivityUpdate"(): void
+ "getMainConnectionAxis"(): $Direction$Axis
 }
 
 export namespace $IMultiTileEnergyContainer {
@@ -636,55 +636,55 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IWireNode {
 
- "getNodeType"(arg0: integer): $WireType
- "setNode"(arg0: integer, arg1: integer, arg2: $BlockPos$Type, arg3: $WireType$Type): void
- "isNodeIndeciesConnected"(arg0: integer, arg1: integer): boolean
- "invalidateNodeCache"(): void
- "setNetwork"(arg0: integer, arg1: $EnergyNetwork$Type): void
- "getNetwork"(arg0: integer): $EnergyNetwork
- "getNodeCount"(): integer
- "getLocalNode"(arg0: integer): $LocalNode
- "dropWire"(arg0: $Level$Type, arg1: $LocalNode$Type): void
- "getWireNode"(arg0: integer): $IWireNode
- "isNetworkValid"(arg0: integer): boolean
- "convertOldNbt"(arg0: $CompoundTag$Type): void
- "validateLocalNodes"(arg0: ($LocalNode$Type)[]): boolean
- "awakeNetwork"(arg0: $Level$Type): boolean
- "hasConnection"(arg0: integer): boolean
- "handleWireCache"(arg0: $Level$Type, arg1: $Set$Type<($LocalNode$Type)>): void
- "getAvailableNode"(): integer
- "getAvailableNode"(arg0: $Vec3$Type): integer
- "getOtherNodeIndex"(arg0: integer): integer
- "getNodePos"(arg0: integer): $BlockPos
- "isNodeInput"(arg0: integer): boolean
- "hasAnyConnection"(): boolean
- "isNodeOutput"(arg0: integer): boolean
- "getConnectionTo"(arg0: $BlockPos$Type): $LocalNode
- "disconnectWires"(): void
- "getConnectorType"(): $ConnectorType
- "hasConnectionTo"(arg0: $BlockPos$Type): boolean
- "getNodeOffset"(arg0: integer): $Vec3
- "getMaxWireLength"(): integer
- "getPos"(): $BlockPos
- "dropWires"(arg0: $Level$Type, arg1: boolean): void
- "dropWires"(arg0: $Level$Type, arg1: $Player$Type, arg2: boolean): void
- "removeNode"(arg0: integer, arg1: boolean): void
  "removeNode"(arg0: $LocalNode$Type, arg1: boolean): void
  "removeNode"(arg0: integer): void
+ "removeNode"(arg0: integer, arg1: boolean): void
  "removeNode"(arg0: $LocalNode$Type): void
+ "getLocalNode"(arg0: integer): $LocalNode
+ "getNodeCount"(): integer
+ "validateLocalNodes"(arg0: ($LocalNode$Type)[]): boolean
+ "handleWireCache"(arg0: $Level$Type, arg1: $Set$Type<($LocalNode$Type)>): void
+ "awakeNetwork"(arg0: $Level$Type): boolean
+ "dropWire"(arg0: $Level$Type, arg1: $LocalNode$Type): void
+ "getWireNode"(arg0: integer): $IWireNode
+ "convertOldNbt"(arg0: $CompoundTag$Type): void
+ "isNetworkValid"(arg0: integer): boolean
+ "getNodePos"(arg0: integer): $BlockPos
+ "hasConnectionTo"(arg0: $BlockPos$Type): boolean
+ "hasConnection"(arg0: integer): boolean
+ "getConnectionTo"(arg0: $BlockPos$Type): $LocalNode
+ "getAvailableNode"(arg0: $Vec3$Type): integer
+ "getAvailableNode"(): integer
+ "hasAnyConnection"(): boolean
+ "isNodeInput"(arg0: integer): boolean
+ "isNodeOutput"(arg0: integer): boolean
+ "getNodeOffset"(arg0: integer): $Vec3
+ "getOtherNodeIndex"(arg0: integer): integer
+ "getMaxWireLength"(): integer
+ "disconnectWires"(): void
+ "getConnectorType"(): $ConnectorType
+ "getPos"(): $BlockPos
+ "isNodeIndeciesConnected"(arg0: integer, arg1: integer): boolean
+ "invalidateNodeCache"(): void
+ "getNodeType"(arg0: integer): $WireType
+ "setNode"(arg0: integer, arg1: integer, arg2: $BlockPos$Type, arg3: $WireType$Type): void
+ "getNetwork"(arg0: integer): $EnergyNetwork
+ "setNetwork"(arg0: integer, arg1: $EnergyNetwork$Type): void
+ "dropWires"(arg0: $Level$Type, arg1: boolean): void
+ "dropWires"(arg0: $Level$Type, arg1: $Player$Type, arg2: boolean): void
 }
 
 export namespace $IWireNode {
 function connect(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
-function getTypeOfConnection(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
-function disconnect(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
+function getWireNodeFrom(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
 function dropWire(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
 function getWireNode(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
-function getWireNodeFrom(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
-function readNodeWireType(arg0: $CompoundTag$Type, arg1: integer): $WireType
+function readNodeBlockPos(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
 function readNodeOtherIndex(arg0: $CompoundTag$Type, arg1: integer): integer
 function getNbtNode(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
-function readNodeBlockPos(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
+function readNodeWireType(arg0: $CompoundTag$Type, arg1: integer): $WireType
+function getTypeOfConnection(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
+function disconnect(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -726,28 +726,28 @@ static readonly "OFFSET_EAST": $Vec3
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "getMaxIn"(): integer
 public "getNodeCount"(): integer
+public "getMaxIn"(): integer
 public "getMaxOut"(): integer
-public "getConnectorType"(): $ConnectorType
 public "getNodeOffset"(arg0: integer): $Vec3
 public "getMaxWireLength"(): integer
+public "getConnectorType"(): $ConnectorType
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public static "connect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
-public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
-public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
+public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
 public static "dropWire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
 public static "getWireNode"(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
-public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
-public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
 public static "readNodeOtherIndex"(arg0: $CompoundTag$Type, arg1: integer): integer
 public static "getNbtNode"(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
-public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
-get "maxIn"(): integer
+public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
+public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
 get "nodeCount"(): integer
+get "maxIn"(): integer
 get "maxOut"(): integer
-get "connectorType"(): $ConnectorType
 get "maxWireLength"(): integer
+get "connectorType"(): $ConnectorType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -775,12 +775,12 @@ export class $CARecipeSerializer<R extends $Recipe<(any)>> implements $RecipeSer
 constructor()
 
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): R
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): R
 public "getIcon"(): $ItemStack
 public "readFromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): R
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): R
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): R
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: R): void
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): R
 get "icon"(): $ItemStack
 }
 /**
@@ -850,18 +850,18 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($DigitalAdapterBlockEntity)>
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($DigitalAdapterBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($DigitalAdapterBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DigitalAdapterBlockEntity$Type)>): void
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($DigitalAdapterBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($DigitalAdapterBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($DigitalAdapterBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $DigitalAdapterBlockEntity
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($DigitalAdapterBlockEntity)>
@@ -904,8 +904,8 @@ public static "valueOf"(arg0: string): $WireConnectResult
 public "getMessage"(): $Component
 public "isLinked"(): boolean
 public static "getLink"(arg0: boolean, arg1: boolean): $WireConnectResult
-public "isConnect"(): boolean
 public static "getConnect"(arg0: boolean, arg1: boolean): $WireConnectResult
+public "isConnect"(): boolean
 get "message"(): $Component
 get "linked"(): boolean
 get "connect"(): boolean
@@ -947,15 +947,15 @@ public "getType"(): $WireType
 public "getIndex"(): integer
 public "isInvalid"(): boolean
 public "invalid"(): void
-public "getRelativePos"(): $Vec3i
 public "updateRelative"(arg0: $NodeRotation$Type): void
 public "getOtherIndex"(): integer
 public "getPos"(): $BlockPos
+public "getRelativePos"(): $Vec3i
 get "type"(): $WireType
 get "index"(): integer
-get "relativePos"(): $Vec3i
 get "otherIndex"(): integer
 get "pos"(): $BlockPos
+get "relativePos"(): $Vec3i
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -973,8 +973,8 @@ declare module "packages/com/mrh0/createaddition/blocks/digital_adapter/$ISpeedC
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ISpeedControllerAdapter {
 
- "setTargetSpeed"(arg0: integer): void
  "getTargetSpeed"(): integer
+ "setTargetSpeed"(arg0: integer): void
 }
 
 export namespace $ISpeedControllerAdapter {
@@ -1055,23 +1055,23 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "hideStressImpact"(): boolean
+public "setPowered"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: boolean): void
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
-public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($ElectricMotorBlockEntity)>
+public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "hideStressImpact"(): boolean
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "setPowered"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: boolean): void
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($ElectricMotorBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($ElectricMotorBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($ElectricMotorBlockEntity$Type)>): void
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($ElectricMotorBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($ElectricMotorBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($ElectricMotorBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $ElectricMotorBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -1183,8 +1183,8 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$RollingMillBlockEntity, $RollingMillBlockEntity$Type} from "packages/com/mrh0/createaddition/blocks/rolling_mill/$RollingMillBlockEntity"
@@ -1223,21 +1223,21 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($RollingMillBlockEntity)>
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "updateEntityAfterFallOn"(arg0: $BlockGetter$Type, arg1: $Entity$Type): void
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($RollingMillBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($RollingMillBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($RollingMillBlockEntity$Type)>): void
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($RollingMillBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($RollingMillBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($RollingMillBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $RollingMillBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -1315,29 +1315,29 @@ export class $RollingRecipe extends $ProcessingRecipe<($RecipeWrapper)> implemen
 
 public "matches"(arg0: $RecipeWrapper$Type, arg1: $Level$Type): boolean
 public static "register"(): void
+public "getResultItem"(): $ItemStack
 public "assemble"(arg0: $RecipeWrapper$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getIngredient"(): $Ingredient
+public "getJEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
+public "getDescriptionForAssembly"(): $Component
+public "addAssemblyIngredients"(arg0: $List$Type<($Ingredient$Type)>): void
+public "addRequiredMachines"(arg0: $Set$Type<($ItemLike$Type)>): void
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "isSpecial"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
 public "getId"(): $ResourceLocation
-public "addAssemblyIngredients"(arg0: $List$Type<($Ingredient$Type)>): void
-public "addRequiredMachines"(arg0: $Set$Type<($ItemLike$Type)>): void
-public "getDescriptionForAssembly"(): $Component
-public "getResultItem"(): $ItemStack
-public "isSpecial"(): boolean
-public "getJEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
-public "getIngredient"(): $Ingredient
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "addAssemblyFluidIngredients"(arg0: $List$Type<($FluidIngredient$Type)>): void
 public "supportsAssembly"(): boolean
+public "addAssemblyFluidIngredients"(arg0: $List$Type<($FluidIngredient$Type)>): void
+get "resultItem"(): $ItemStack
+get "ingredient"(): $Ingredient
+get "jEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
+get "descriptionForAssembly"(): $Component
+get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
 get "id"(): $ResourceLocation
-get "descriptionForAssembly"(): $Component
-get "resultItem"(): $ItemStack
-get "special"(): boolean
-get "jEISubCategory"(): $Supplier<($Supplier<($SequencedAssemblySubCategory)>)>
-get "ingredient"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1402,44 +1402,44 @@ constructor(arg0: $ResourceLocation$Type, arg1: $FluidIngredient$Type, arg2: int
 
 public "matches"(arg0: $FluidRecipeWrapper$Type, arg1: $Level$Type): boolean
 public "assemble"(arg0: $FluidRecipeWrapper$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getBurnTime"(): integer
+public "getFluidIngredient"(): $FluidIngredient
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "isSuperheated"(): boolean
 public "getId"(): $ResourceLocation
-public "getBurnTime"(): integer
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "getFluidIngredient"(): $FluidIngredient
+public "isSuperheated"(): boolean
+public "isSpecial"(): boolean
+public "getToastSymbol"(): $ItemStack
+public "showNotification"(): boolean
+public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $FluidRecipeWrapper$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "showNotification"(): boolean
-public "getToastSymbol"(): $ItemStack
-public "isIncomplete"(): boolean
-public "isSpecial"(): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-public "getOrCreateId"(): $ResourceLocation
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
-public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "getSchema"(): $RecipeSchema
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
-public "setGroup"(group: string): void
-public "getGroup"(): string
 public "getMod"(): string
 public "getType"(): $ResourceLocation
-get "serializer"(): $RecipeSerializer<(any)>
-get "superheated"(): boolean
-get "id"(): $ResourceLocation
+public "getGroup"(): string
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getSchema"(): $RecipeSchema
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
+public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
 get "burnTime"(): integer
 get "fluidIngredient"(): $FluidIngredient
-get "ingredients"(): $NonNullList<($Ingredient)>
+get "serializer"(): $RecipeSerializer<(any)>
+get "id"(): $ResourceLocation
+get "superheated"(): boolean
+get "special"(): boolean
 get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "special"(): boolean
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-set "group"(value: string)
-get "group"(): string
+get "ingredients"(): $NonNullList<($Ingredient)>
 get "mod"(): string
 get "type"(): $ResourceLocation
+get "group"(): string
+set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1485,16 +1485,16 @@ public static "get"(arg0: $Direction$Axis$Type, arg1: $Rotation$Type): $NodeRota
 public static "values"(): ($NodeRotation)[]
 public static "valueOf"(arg0: string): $NodeRotation
 public "rotate"(arg0: $Direction$Type, arg1: boolean): $Direction
-public "getAxis"(): $Direction$Axis
-public "getRotation"(): $Rotation
 public "updateRelative"(arg0: $Vec3i$Type): $Vec3i
+public "getRotation"(): $Rotation
 public "getSerializedName"(): string
+public "getAxis"(): $Direction$Axis
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
-get "axis"(): $Direction$Axis
 get "rotation"(): $Rotation
 get "serializedName"(): string
+get "axis"(): $Direction$Axis
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1623,8 +1623,8 @@ constructor()
 
 public "getIcon"(): $ItemStack
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $LiquidBurningRecipe
-public "readFromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $LiquidBurningRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $LiquidBurningRecipe$Type): void
+public "readFromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $LiquidBurningRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 get "icon"(): $ItemStack
 }
@@ -1731,10 +1731,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1775,44 +1775,44 @@ export class $ModularAccumulatorBlockEntity extends $SmartBlockEntity implements
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "onObserved"(arg0: $ServerPlayer$Type, arg1: $ObservePacket$Type): void
 public "drawDebug"(): void
 public "getPercent"(): float
-public "notifyMultiUpdated"(): void
-public "getControllerBE"<T extends ($BlockEntity) & ($IMultiBlockEntityContainer)>(): T
-public "getExtraData"(): any
-public "modifyExtraData"(arg0: any): any
-public "setExtraData"(arg0: any): void
-public "getMainAxisOf"(arg0: $BlockEntity$Type): $Direction$Axis
-public "preventConnectivityUpdate"(): void
-public "getMainConnectionAxis"(): $Direction$Axis
 public "getMaxLength"(arg0: $Direction$Axis$Type, arg1: integer): integer
-public "getMaxWidth"(): integer
-public "removeController"(arg0: boolean): void
+public "setHeight"(arg0: integer): void
 public "setWidth"(arg0: integer): void
 public "setController"(arg0: $BlockPos$Type): void
-public "getLastKnownPos"(): $BlockPos
 public "isController"(): boolean
+public "getLastKnownPos"(): $BlockPos
 public "getWidth"(): integer
 public "getHeight"(): integer
-public "setHeight"(arg0: integer): void
+public "getMaxWidth"(): integer
+public "notifyMultiUpdated"(): void
+public "getControllerBE"<T extends ($BlockEntity) & ($IMultiBlockEntityContainer)>(): T
+public "getMainAxisOf"(arg0: $BlockEntity$Type): $Direction$Axis
+public "setExtraData"(arg0: any): void
+public "getExtraData"(): any
+public "modifyExtraData"(arg0: any): any
 public "getController"(): $BlockPos
+public "removeController"(arg0: boolean): void
+public "preventConnectivityUpdate"(): void
+public "getMainConnectionAxis"(): $Direction$Axis
 get "percent"(): float
-get "controllerBE"(): T
-get "extraData"(): any
-set "extraData"(value: any)
-get "mainConnectionAxis"(): $Direction$Axis
-get "maxWidth"(): integer
+set "height"(value: integer)
 set "width"(value: integer)
 set "controller"(value: $BlockPos$Type)
-get "lastKnownPos"(): $BlockPos
 get "controller"(): boolean
+get "lastKnownPos"(): $BlockPos
 get "width"(): integer
 get "height"(): integer
-set "height"(value: integer)
+get "maxWidth"(): integer
+get "controllerBE"(): T
+set "extraData"(value: any)
+get "extraData"(): any
 get "controller"(): $BlockPos
+get "mainConnectionAxis"(): $Direction$Axis
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1831,8 +1831,8 @@ import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from 
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LiquidBlazeBurnerBlockEntity, $LiquidBlazeBurnerBlockEntity$Type} from "packages/com/mrh0/createaddition/blocks/liquid_blaze_burner/$LiquidBlazeBurnerBlockEntity"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
@@ -1893,31 +1893,31 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "asItem"(): $Item
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
-public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
-public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public static "tryInsert"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $ItemStack$Type, arg4: boolean, arg5: boolean, arg6: boolean): $InteractionResultHolder<($ItemStack)>
+public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Random$Type): void
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($LiquidBlazeBurnerBlockEntity)>
+public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getCollisionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public static "tryInsert"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $ItemStack$Type, arg4: boolean, arg5: boolean, arg6: boolean): $InteractionResultHolder<($ItemStack)>
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Random$Type): void
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($LiquidBlazeBurnerBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($LiquidBlazeBurnerBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($LiquidBlazeBurnerBlockEntity$Type)>): void
+public "asItem"(): $Item
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($LiquidBlazeBurnerBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($LiquidBlazeBurnerBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($LiquidBlazeBurnerBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $LiquidBlazeBurnerBlockEntity
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($LiquidBlazeBurnerBlockEntity)>
@@ -1954,25 +1954,25 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "remove"(): void
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "getCapacity"(): integer
 public "setCache"(arg0: $Direction$Type, arg1: $LazyOptional$Type<($IEnergyStorage$Type)>): void
+public "getCapacity"(): integer
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "tick"(): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "isEnergyOutput"(arg0: $Direction$Type): boolean
-public "isEnergyInput"(arg0: $Direction$Type): boolean
 public "getMaxIn"(): integer
 public "getMaxOut"(): integer
 public "ignoreCapSide"(): boolean
+public "tick"(): void
+public "updateCache"(arg0: $Direction$Type): void
+public "updateCache"(): void
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 /**
  * 
  * @deprecated
  */
 public "outputTick"(arg0: integer): void
-public "updateCache"(): void
-public "updateCache"(arg0: $Direction$Type): void
 public "firstTick"(): void
 public "getCachedEnergy"(arg0: $Direction$Type): $LazyOptional<($IEnergyStorage)>
+public "isEnergyOutput"(arg0: $Direction$Type): boolean
+public "isEnergyInput"(arg0: $Direction$Type): boolean
 get "capacity"(): integer
 get "maxIn"(): integer
 get "maxOut"(): integer
@@ -2156,15 +2156,15 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "remove"(): void
 public "find"(arg0: $RecipeWrapper$Type, arg1: $Level$Type): $Optional<($RollingRecipe)>
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "spawnParticles"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "spawnParticles"(): void
 public "tick"(): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "getProcessingSpeed"(): integer
 public "calculateStressApplied"(): float
 public static "getProcessingDuration"(): integer
-get "processingSpeed"(): integer
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "getProcessingSpeed"(): integer
 get "processingDuration"(): integer
+get "processingSpeed"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2243,28 +2243,28 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "read"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "getMaxIn"(): integer
 public "getNodeCount"(): integer
+public "getMaxIn"(): integer
 public "getMaxOut"(): integer
-public "getConnectorType"(): $ConnectorType
 public "getNodeOffset"(arg0: integer): $Vec3
 public "getMaxWireLength"(): integer
+public "getConnectorType"(): $ConnectorType
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public static "connect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
-public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
-public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
+public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
 public static "dropWire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
 public static "getWireNode"(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
-public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
-public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
 public static "readNodeOtherIndex"(arg0: $CompoundTag$Type, arg1: integer): integer
 public static "getNbtNode"(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
-public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
-get "maxIn"(): integer
+public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
+public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
 get "nodeCount"(): integer
+get "maxIn"(): integer
 get "maxOut"(): integer
-get "connectorType"(): $ConnectorType
 get "maxWireLength"(): integer
+get "connectorType"(): $ConnectorType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2304,22 +2304,22 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "find"(arg0: $RecipeWrapper$Type, arg1: $Level$Type): $Optional<($ChargingRecipe)>
 public "getCapacity"(): integer
+public "getMaxIn"(): integer
+public "getMaxOut"(): integer
 public "tick"(): void
 public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public "tickAudio"(): void
+public "getConsumption"(): integer
 public "isEnergyOutput"(arg0: $Direction$Type): boolean
 public "isEnergyInput"(arg0: $Direction$Type): boolean
 public "isPoweredState"(): boolean
-public "getMaxIn"(): integer
-public "getMaxOut"(): integer
-public "getConsumption"(): integer
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 get "capacity"(): integer
-get "poweredState"(): boolean
 get "maxIn"(): integer
 get "maxOut"(): integer
 get "consumption"(): integer
+get "poweredState"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2390,57 +2390,57 @@ export class $FluidRecipeWrapper implements $Container {
 constructor(arg0: $FluidStack$Type)
 
 public "stillValid"(arg0: $Player$Type): boolean
-public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
-public "removeItem"(arg0: integer, arg1: integer): $ItemStack
 public "isEmpty"(): boolean
 public "clearContent"(): void
-public "setChanged"(): void
+public "removeItem"(arg0: integer, arg1: integer): $ItemStack
 public "getContainerSize"(): integer
-public "getItem"(arg0: integer): $ItemStack
 public "removeItemNoUpdate"(arg0: integer): $ItemStack
-public "getMaxStackSize"(): integer
-public "startOpen"(arg0: $Player$Type): void
-public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type): boolean
+public "getItem"(arg0: integer): $ItemStack
+public "setChanged"(): void
+public "setItem"(arg0: integer, arg1: $ItemStack$Type): void
 public "countItem"(arg0: $Item$Type): integer
 public "stopOpen"(arg0: $Player$Type): void
-public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
 public "hasAnyOf"(arg0: $Set$Type<($Item$Type)>): boolean
 public "hasAnyMatching"(arg0: $Predicate$Type<($ItemStack$Type)>): boolean
-public "clear"(): void
-public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
-public "getWidth"(): integer
-public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
-public "isMutable"(): boolean
-public "getHeight"(): integer
-public "setChanged"(): void
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
-public "getStackInSlot"(slot: integer): $ItemStack
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
-public "getSlots"(): integer
-public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
+public "getMaxStackSize"(): integer
+public "startOpen"(arg0: $Player$Type): void
+public "canPlaceItem"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "canTakeItem"(arg0: $Container$Type, arg1: integer, arg2: $ItemStack$Type): boolean
+public "asContainer"(): $Container
 public "getSlotLimit"(slot: integer): integer
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
-public "asContainer"(): $Container
+public "isItemValid"(slot: integer, stack: $ItemStack$Type): boolean
+public "clear"(): void
+public "getSlots"(): integer
+public "getHeight"(): integer
+public "isMutable"(): boolean
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
+public "insertItem"(slot: integer, stack: $ItemStack$Type, simulate: boolean): $ItemStack
+public "getStackInSlot"(slot: integer): $ItemStack
+public "setStackInSlot"(slot: integer, stack: $ItemStack$Type): void
+public "getWidth"(): integer
+public "setChanged"(): void
 public "getBlock"(level: $Level$Type): $BlockContainerJS
 public "kjs$self"(): $Container
 public static "tryClear"(arg0: any): void
 public "clear"(ingredient: $Ingredient$Type): void
 public "insertItem"(stack: $ItemStack$Type, simulate: boolean): $ItemStack
-public "count"(ingredient: $Ingredient$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$Type): integer
+public "countNonEmpty"(): integer
+public "countNonEmpty"(ingredient: $Ingredient$Type): integer
 public "getAllItems"(): $List<($ItemStack)>
 public "find"(ingredient: $Ingredient$Type): integer
 public "find"(): integer
-public "countNonEmpty"(): integer
-public "countNonEmpty"(ingredient: $Ingredient$Type): integer
 public "isEmpty"(): boolean
 get "empty"(): boolean
 get "containerSize"(): integer
 get "maxStackSize"(): integer
-get "width"(): integer
-get "mutable"(): boolean
-get "height"(): integer
 get "slots"(): integer
+get "height"(): integer
+get "mutable"(): boolean
+get "width"(): integer
 get "allItems"(): $List<($ItemStack)>
 get "empty"(): boolean
 }
@@ -2506,8 +2506,8 @@ import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -2526,13 +2526,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public static "setContent"(arg0: $CompoundTag$Type, arg1: $BlockPos$Type, arg2: integer): $CompoundTag
+public static "getNode"(arg0: $CompoundTag$Type): integer
 public static "getPos"(arg0: $CompoundTag$Type): $BlockPos
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
+public static "setContent"(arg0: $CompoundTag$Type, arg1: $BlockPos$Type, arg2: integer): $CompoundTag
 public static "hasPos"(arg0: $CompoundTag$Type): boolean
 public static "isRemover"(arg0: $Item$Type): boolean
-public static "getNode"(arg0: $CompoundTag$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2581,70 +2581,70 @@ export class $AbstractConnectorBlockEntity extends $SmartBlockEntity implements 
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
+public "removeNode"(arg0: integer, arg1: boolean): void
 public "remove"(): void
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "read"(arg0: $CompoundTag$Type, arg1: boolean): void
 public "getCapacity"(): integer
 public "getMode"(): $ConnectorMode
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "onObserved"(arg0: $ServerPlayer$Type, arg1: $ObservePacket$Type): void
+public "getLocalNode"(arg0: integer): $LocalNode
+public "getMaxIn"(): integer
+public "getWireNode"(arg0: integer): $IWireNode
+public "getMaxOut"(): integer
+public "ignoreCapSide"(): boolean
+public "getPos"(): $BlockPos
 public "tick"(): void
-public "setNode"(arg0: integer, arg1: integer, arg2: $BlockPos$Type, arg3: $WireType$Type): void
-public "invalidateNodeCache"(): void
 public "invalidateLocalNodes"(): void
+public "invalidateNodeCache"(): void
+public "setNode"(arg0: integer, arg1: integer, arg2: $BlockPos$Type, arg3: $WireType$Type): void
+public "updateExternalEnergyStorage"(): void
+public "getNetwork"(arg0: integer): $EnergyNetwork
 public "setNetwork"(arg0: integer, arg1: $EnergyNetwork$Type): void
 public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
-public "getNetwork"(arg0: integer): $EnergyNetwork
-public "isEnergyOutput"(arg0: $Direction$Type): boolean
-public "isEnergyInput"(arg0: $Direction$Type): boolean
-public "getMaxIn"(): integer
-public "getLocalNode"(arg0: integer): $LocalNode
-public "getMaxOut"(): integer
-public "getWireNode"(arg0: integer): $IWireNode
-public "ignoreCapSide"(): boolean
 public "firstTick"(): void
 public "drawDebug"(): void
-public "getPos"(): $BlockPos
-public "updateExternalEnergyStorage"(): void
-public "onObserved"(arg0: $ServerPlayer$Type, arg1: $ObservePacket$Type): void
-public "removeNode"(arg0: integer, arg1: boolean): void
-public static "connect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
-public "getNodeType"(arg0: integer): $WireType
-public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
-public "isNodeIndeciesConnected"(arg0: integer, arg1: integer): boolean
-public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
-public "getNodeCount"(): integer
-public "dropWire"(arg0: $Level$Type, arg1: $LocalNode$Type): void
-public static "dropWire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
-public static "getWireNode"(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
-public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
-public "isNetworkValid"(arg0: integer): boolean
-public "convertOldNbt"(arg0: $CompoundTag$Type): void
-public "validateLocalNodes"(arg0: ($LocalNode$Type)[]): boolean
-public "awakeNetwork"(arg0: $Level$Type): boolean
-public "hasConnection"(arg0: integer): boolean
-public "handleWireCache"(arg0: $Level$Type, arg1: $Set$Type<($LocalNode$Type)>): void
-public "getAvailableNode"(): integer
-public "getAvailableNode"(arg0: $Vec3$Type): integer
-public "getOtherNodeIndex"(arg0: integer): integer
-public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
-public static "readNodeOtherIndex"(arg0: $CompoundTag$Type, arg1: integer): integer
-public static "getNbtNode"(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
-public "getNodePos"(arg0: integer): $BlockPos
-public "isNodeInput"(arg0: integer): boolean
-public "hasAnyConnection"(): boolean
-public "isNodeOutput"(arg0: integer): boolean
-public "getConnectionTo"(arg0: $BlockPos$Type): $LocalNode
-public "disconnectWires"(): void
-public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
-public "getConnectorType"(): $ConnectorType
-public "hasConnectionTo"(arg0: $BlockPos$Type): boolean
-public "getNodeOffset"(arg0: integer): $Vec3
-public "getMaxWireLength"(): integer
-public "dropWires"(arg0: $Level$Type, arg1: boolean): void
-public "dropWires"(arg0: $Level$Type, arg1: $Player$Type, arg2: boolean): void
+public "isEnergyOutput"(arg0: $Direction$Type): boolean
+public "isEnergyInput"(arg0: $Direction$Type): boolean
 public "removeNode"(arg0: $LocalNode$Type, arg1: boolean): void
 public "removeNode"(arg0: integer): void
 public "removeNode"(arg0: $LocalNode$Type): void
+public static "connect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
+public "getNodeCount"(): integer
+public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
+public "validateLocalNodes"(arg0: ($LocalNode$Type)[]): boolean
+public "handleWireCache"(arg0: $Level$Type, arg1: $Set$Type<($LocalNode$Type)>): void
+public "awakeNetwork"(arg0: $Level$Type): boolean
+public "dropWire"(arg0: $Level$Type, arg1: $LocalNode$Type): void
+public static "dropWire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
+public static "getWireNode"(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
+public "convertOldNbt"(arg0: $CompoundTag$Type): void
+public "isNetworkValid"(arg0: integer): boolean
+public "getNodePos"(arg0: integer): $BlockPos
+public "hasConnectionTo"(arg0: $BlockPos$Type): boolean
+public "hasConnection"(arg0: integer): boolean
+public "getConnectionTo"(arg0: $BlockPos$Type): $LocalNode
+public "getAvailableNode"(arg0: $Vec3$Type): integer
+public "getAvailableNode"(): integer
+public "hasAnyConnection"(): boolean
+public "isNodeInput"(arg0: integer): boolean
+public "isNodeOutput"(arg0: integer): boolean
+public "getNodeOffset"(arg0: integer): $Vec3
+public "getOtherNodeIndex"(arg0: integer): integer
+public "getMaxWireLength"(): integer
+public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
+public static "readNodeOtherIndex"(arg0: $CompoundTag$Type, arg1: integer): integer
+public static "getNbtNode"(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
+public "disconnectWires"(): void
+public "getConnectorType"(): $ConnectorType
+public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public "isNodeIndeciesConnected"(arg0: integer, arg1: integer): boolean
+public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
+public "getNodeType"(arg0: integer): $WireType
+public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
+public "dropWires"(arg0: $Level$Type, arg1: boolean): void
+public "dropWires"(arg0: $Level$Type, arg1: $Player$Type, arg2: boolean): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
 get "capacity"(): integer
 get "mode"(): $ConnectorMode
@@ -2653,8 +2653,8 @@ get "maxOut"(): integer
 get "pos"(): $BlockPos
 get "nodeCount"(): integer
 get "availableNode"(): integer
-get "connectorType"(): $ConnectorType
 get "maxWireLength"(): integer
+get "connectorType"(): $ConnectorType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2680,23 +2680,23 @@ constructor(arg0: $Level$Type)
 public "getId"(): integer
 public "removed"(): void
 public static "nextNode"(arg0: $Level$Type, arg1: $EnergyNetwork$Type, arg2: $Map$Type<(string), ($IWireNode$Type)>, arg3: $IWireNode$Type, arg4: integer): $EnergyNetwork
-public "isValid"(): boolean
-public "invalidate"(): void
 public "push"(arg0: integer): integer
 public "push"(arg0: integer, arg1: boolean): integer
 public "pull"(arg0: integer): integer
 public "pull"(arg0: integer, arg1: boolean): integer
-public "tick"(arg0: integer): void
-public "demand"(arg0: integer): integer
-public "getDemand"(): integer
-public "getPulled"(): integer
+public "isValid"(): boolean
+public "invalidate"(): void
 public "getPushed"(): integer
+public "getPulled"(): integer
+public "tick"(arg0: integer): void
+public "getDemand"(): integer
+public "demand"(arg0: integer): integer
 public "getMaxBuff"(): integer
 public "getBuff"(): integer
 get "id"(): integer
 get "valid"(): boolean
-get "pulled"(): integer
 get "pushed"(): integer
+get "pulled"(): integer
 get "maxBuff"(): integer
 get "buff"(): integer
 }
@@ -2770,8 +2770,8 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($SmallLightConnectorBlockEntity)>
-public "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -2852,33 +2852,33 @@ static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<(
 readonly "properties": $BlockBehaviour$Properties
 
 
-public static "creative"(arg0: $BlockBehaviour$Properties$Type): $ModularAccumulatorBlock
 public static "regular"(arg0: $BlockBehaviour$Properties$Type): $ModularAccumulatorBlock
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
-public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "getBlockEntityClass"(): $Class<($ModularAccumulatorBlockEntity)>
 public "getSoundType"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): $SoundType
-public "getBlockSupportShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
+public "getBlockEntityClass"(): $Class<($ModularAccumulatorBlockEntity)>
+public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "onPlace"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getCollisionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "getBlockSupportShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public static "creative"(arg0: $BlockBehaviour$Properties$Type): $ModularAccumulatorBlock
 public static "isAccumulator"(arg0: $BlockState$Type): boolean
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($ModularAccumulatorBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($ModularAccumulatorBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($ModularAccumulatorBlockEntity$Type)>): void
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($ModularAccumulatorBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($ModularAccumulatorBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($ModularAccumulatorBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $ModularAccumulatorBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -2959,26 +2959,26 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "find"(arg0: $FluidStack$Type, arg1: $Level$Type): $Optional<($LiquidBurningRecipe)>
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
-public "isCreative"(): boolean
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "onObserved"(arg0: $ServerPlayer$Type, arg1: $ObservePacket$Type): void
 public "tick"(): void
-public "getActiveFuel"(): $LiquidBlazeBurnerBlockEntity$FuelType
-public "spawnParticleBurst"(arg0: boolean): void
-public "isValidBlockAbove"(): boolean
-public "isCreativeFuel"(arg0: $ItemStack$Type): boolean
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "getRemainingBurnTime"(): integer
 public "getHeatLevelFromBlock"(): $BlazeBurnerBlock$HeatLevel
 public "updateBlockState"(): void
+public "isCreativeFuel"(arg0: $ItemStack$Type): boolean
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
 public "burningTick"(): void
-public "onObserved"(arg0: $ServerPlayer$Type, arg1: $ObservePacket$Type): void
+public "isValidBlockAbove"(): boolean
+public "getActiveFuel"(): $LiquidBlazeBurnerBlockEntity$FuelType
+public "isCreative"(): boolean
+public "spawnParticleBurst"(arg0: boolean): void
 public "containedFluidTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean, arg2: $LazyOptional$Type<($IFluidHandler$Type)>): boolean
-get "creative"(): boolean
-get "activeFuel"(): $LiquidBlazeBurnerBlockEntity$FuelType
-get "validBlockAbove"(): boolean
 get "remainingBurnTime"(): integer
 get "heatLevelFromBlock"(): $BlazeBurnerBlock$HeatLevel
+get "validBlockAbove"(): boolean
+get "activeFuel"(): $LiquidBlazeBurnerBlockEntity$FuelType
+get "creative"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3041,8 +3041,8 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$DirectionalKineticBlock, $DirectionalKineticBlock$Type} from "packages/com/simibubi/create/content/kinetics/base/$DirectionalKineticBlock"
@@ -3078,21 +3078,21 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
-public "hideStressImpact"(): boolean
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
-public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($AlternatorBlockEntity)>
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($AlternatorBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($AlternatorBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($AlternatorBlockEntity$Type)>): void
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "hideStressImpact"(): boolean
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($AlternatorBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($AlternatorBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($AlternatorBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $AlternatorBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -3205,27 +3205,27 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "transform"(arg0: $BlockState$Type, arg1: $StructureTransform$Type): $BlockState
 public "rotate"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: $Rotation$Type): $BlockState
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
 public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<(BE)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<(BE), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<(BE)>): void
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<(BE)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<(BE)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<(BE)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<(BE), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): BE
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<(BE)>
@@ -3270,10 +3270,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "place"(arg0: $BlockPlaceContext$Type): $InteractionResult
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3382,8 +3382,8 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
@@ -3420,25 +3420,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "setPowered"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: boolean): void
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($TeslaCoilBlockEntity)>
+public "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "setPowered"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: boolean): void
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($TeslaCoilBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($TeslaCoilBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($TeslaCoilBlockEntity$Type)>): void
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($TeslaCoilBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($TeslaCoilBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($TeslaCoilBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $TeslaCoilBlockEntity
 public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "onWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "onSneakWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $InteractionResult
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
 get "blockEntityClass"(): $Class<($TeslaCoilBlockEntity)>
@@ -3499,8 +3499,8 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$WrenchableDirectionalBlock, $WrenchableDirectionalBlock$Type} from "packages/com/simibubi/create/foundation/block/$WrenchableDirectionalBlock"
@@ -3534,19 +3534,19 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "getBlockEntityClass"(): $Class<($PortableEnergyInterfaceBlockEntity)>
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($PortableEnergyInterfaceBlockEntity)>
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($PortableEnergyInterfaceBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PortableEnergyInterfaceBlockEntity$Type)>): void
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($PortableEnergyInterfaceBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($PortableEnergyInterfaceBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($PortableEnergyInterfaceBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PortableEnergyInterfaceBlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -3581,8 +3581,8 @@ constructor()
 
 public "getIcon"(): $ItemStack
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ChargingRecipe
-public "readFromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ChargingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ChargingRecipe$Type): void
+public "readFromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ChargingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 get "icon"(): $ItemStack
 }
@@ -3626,28 +3626,28 @@ static readonly "OFFSET_EAST": $Vec3
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "getMaxIn"(): integer
 public "getNodeCount"(): integer
+public "getMaxIn"(): integer
 public "getMaxOut"(): integer
-public "getConnectorType"(): $ConnectorType
 public "getNodeOffset"(arg0: integer): $Vec3
 public "getMaxWireLength"(): integer
+public "getConnectorType"(): $ConnectorType
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
 public static "connect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: $BlockPos$Type, arg4: integer, arg5: $WireType$Type): $WireConnectResult
-public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
-public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
+public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
 public static "dropWire"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
 public static "getWireNode"(arg0: $Level$Type, arg1: $BlockPos$Type): $IWireNode
-public static "getWireNodeFrom"(arg0: integer, arg1: $IWireNode$Type, arg2: ($LocalNode$Type)[], arg3: ($IWireNode$Type)[], arg4: $Level$Type): $IWireNode
-public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
 public static "readNodeOtherIndex"(arg0: $CompoundTag$Type, arg1: integer): integer
 public static "getNbtNode"(arg0: $CompoundTag$Type, arg1: integer): $CompoundTag
-public static "readNodeBlockPos"(arg0: $CompoundTag$Type, arg1: integer, arg2: $BlockPos$Type): $BlockPos
-get "maxIn"(): integer
+public static "readNodeWireType"(arg0: $CompoundTag$Type, arg1: integer): $WireType
+public static "getTypeOfConnection"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireType
+public static "disconnect"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): $WireConnectResult
 get "nodeCount"(): integer
+get "maxIn"(): integer
 get "maxOut"(): integer
-get "connectorType"(): $ConnectorType
 get "maxWireLength"(): integer
+get "connectorType"(): $ConnectorType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3671,15 +3671,15 @@ export class $ObservePacket {
 
 constructor(arg0: $BlockPos$Type, arg1: integer)
 
+public "getNode"(): integer
 public static "decode"(arg0: $FriendlyByteBuf$Type): $ObservePacket
 public static "encode"(arg0: $ObservePacket$Type, arg1: $FriendlyByteBuf$Type): void
 public static "handle"(arg0: $ObservePacket$Type, arg1: $Supplier$Type<($NetworkEvent$Context$Type)>): void
+public "getPos"(): $BlockPos
 public static "tick"(): void
 public static "send"(arg0: $BlockPos$Type, arg1: integer): boolean
-public "getPos"(): $BlockPos
-public "getNode"(): integer
-get "pos"(): $BlockPos
 get "node"(): integer
+get "pos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

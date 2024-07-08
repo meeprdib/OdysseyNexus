@@ -5,7 +5,6 @@ import {$ItemEntityInteractedEventJS, $ItemEntityInteractedEventJS$Type} from "p
 import {$TagEventJS, $TagEventJS$Type} from "packages/dev/latvian/mods/kubejs/server/tag/$TagEventJS"
 import {$ExplosionEventJS$After, $ExplosionEventJS$After$Type} from "packages/dev/latvian/mods/kubejs/level/$ExplosionEventJS$After"
 import {$MenuType, $MenuType$Type} from "packages/net/minecraft/world/inventory/$MenuType"
-import {$SpellSelectionEventJS, $SpellSelectionEventJS$Type} from "packages/com/squoshi/irons_spells_js/events/$SpellSelectionEventJS"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$ItemDestroyedEventJS, $ItemDestroyedEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/forge/$ItemDestroyedEventJS"
 import {$InventoryEventJS, $InventoryEventJS$Type} from "packages/dev/latvian/mods/kubejs/player/$InventoryEventJS"
@@ -98,7 +97,6 @@ function chestOpened(extra: $MenuType$Type, handler: (event: $ChestEventJS) => v
 function chestOpened(handler: (event: $ChestEventJS) => void): void
 function spellPreCast(handler: (event: $SpellPreCastEventJS) => void): void
 function loggedOut(handler: (event: $SimplePlayerEventJS) => void): void
-function spellSelection(handler: (event: $SpellSelectionEventJS) => void): void
 function tick(handler: (event: $SimplePlayerEventJS) => void): void
 function respawned(handler: (event: $PlayerRespawnedEventJS) => void): void
 function decorateChat(handler: (event: $PlayerChatDecorateEventJS) => void): void

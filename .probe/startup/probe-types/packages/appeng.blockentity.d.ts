@@ -13,12 +13,12 @@ export class $ControllerBlockEntity extends $AENetworkPowerBlockEntity {
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "onReady"(): void
 public "updateState"(): void
-public "getInternalInventory"(): $InternalInventory
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -49,11 +49,11 @@ export interface $IExternalPowerSink extends $IAEPowerStorage {
  "injectExternalPower"(arg0: $PowerUnits$Type, arg1: double, arg2: $Actionable$Type): double
  "getExternalPowerDemand"(arg0: $PowerUnits$Type, arg1: double): double
  "getPriority"(): integer
+ "getAECurrentPower"(): double
+ "injectAEPower"(arg0: double, arg1: $Actionable$Type): double
  "getPowerFlow"(): $AccessRestriction
  "getAEMaxPower"(): double
  "isAEPublicPowerStorage"(): boolean
- "getAECurrentPower"(): double
- "injectAEPower"(arg0: double, arg1: $Actionable$Type): double
  "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
 }
 
@@ -95,12 +95,12 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getModelData"(): $ModelData
-public "isSideValid"(arg0: $Direction$Type): boolean
-public "getDots"(): $Collection<($Splotch)>
-public "loadTag"(arg0: $CompoundTag$Type): void
 public "neighborChanged"(): void
 public "cleanSide"(arg0: $Direction$Type): void
 public "addBlot"(arg0: $ItemStack$Type, arg1: $Direction$Type, arg2: $Vec3$Type): void
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "isSideValid"(arg0: $Direction$Type): boolean
+public "getDots"(): $Collection<($Splotch)>
 public static "tryClear"(arg0: any): void
 get "modelData"(): $ModelData
 get "dots"(): $Collection<($Splotch)>
@@ -135,20 +135,20 @@ export class $CreativeEnergyCellBlockEntity extends $AENetworkBlockEntity implem
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "getPriority"(): integer
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "getPowerFlow"(): $AccessRestriction
-public "getAEMaxPower"(): double
-public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
-public "isAEPublicPowerStorage"(): boolean
 public "getAECurrentPower"(): double
 public "injectAEPower"(arg0: double, arg1: $Actionable$Type): double
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getPowerFlow"(): $AccessRestriction
+public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
+public "getAEMaxPower"(): double
+public "isAEPublicPowerStorage"(): boolean
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 get "priority"(): integer
+get "aECurrentPower"(): double
 get "powerFlow"(): $AccessRestriction
 get "aEMaxPower"(): double
 get "aEPublicPowerStorage"(): boolean
-get "aECurrentPower"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -187,19 +187,19 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setRemoved"(): void
-public "onChunkUnloaded"(): void
 public "clearRemoved"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
+public "onChunkUnloaded"(): void
 public "onReady"(): void
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getMainNode"(): $IManagedGridNode
 public "setOwner"(arg0: $Player$Type): void
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "ifGridPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
-public "getGridNode"(arg0: $Direction$Type): $IGridNode
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "getGridNode"(): $IGridNode
+public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "getActionableNode"(): $IGridNode
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -222,8 +222,8 @@ declare global {
 export type $AENetworkInvBlockEntity_ = $AENetworkInvBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/spatial/$SpatialAnchorBlockEntity" {
-import {$ChunkPos, $ChunkPos$Type} from "packages/net/minecraft/world/level/$ChunkPos"
 import {$TickingRequest, $TickingRequest$Type} from "packages/appeng/api/networking/ticking/$TickingRequest"
+import {$ChunkPos, $ChunkPos$Type} from "packages/net/minecraft/world/level/$ChunkPos"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$IConfigManager, $IConfigManager$Type} from "packages/appeng/api/util/$IConfigManager"
 import {$Setting, $Setting$Type} from "packages/appeng/api/config/$Setting"
@@ -231,8 +231,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$GridChunkEvent$GridChunkAdded, $GridChunkEvent$GridChunkAdded$Type} from "packages/appeng/api/networking/events/statistics/$GridChunkEvent$GridChunkAdded"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$GridChunkEvent$GridChunkRemoved, $GridChunkEvent$GridChunkRemoved$Type} from "packages/appeng/api/networking/events/statistics/$GridChunkEvent$GridChunkRemoved"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
+import {$GridChunkEvent$GridChunkRemoved, $GridChunkEvent$GridChunkRemoved$Type} from "packages/appeng/api/networking/events/statistics/$GridChunkEvent$GridChunkRemoved"
 import {$IOverlayDataSource, $IOverlayDataSource$Type} from "packages/appeng/client/render/overlay/$IOverlayDataSource"
 import {$AENetworkBlockEntity, $AENetworkBlockEntity$Type} from "packages/appeng/blockentity/grid/$AENetworkBlockEntity"
 import {$DimensionalBlockPos, $DimensionalBlockPos$Type} from "packages/appeng/api/util/$DimensionalBlockPos"
@@ -252,33 +252,33 @@ export class $SpatialAnchorBlockEntity extends $AENetworkBlockEntity implements 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isActive"(): boolean
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "getOverlayBlockEntity"(): $BlockEntity
-public "getOverlaySourceLocation"(): $DimensionalBlockPos
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setRemoved"(): void
-public "getLoadedChunks"(): $Set<($ChunkPos)>
-public "countLoadedChunks"(): integer
-public "registerChunk"(arg0: $ChunkPos$Type): void
-public "getOverlayChunks"(): $Set<($ChunkPos)>
-public "chunkAdded"(arg0: $GridChunkEvent$GridChunkAdded$Type): void
-public "getOverlayColor"(): integer
-public "chunkRemoved"(arg0: $GridChunkEvent$GridChunkRemoved$Type): void
 public "getConfigManager"(): $IConfigManager
 public "onSettingChanged"(arg0: $IConfigManager$Type, arg1: $Setting$Type<(any)>): void
-public "loadTag"(arg0: $CompoundTag$Type): void
 public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
 public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getOverlaySourceLocation"(): $DimensionalBlockPos
+public "getOverlayBlockEntity"(): $BlockEntity
+public "chunkRemoved"(arg0: $GridChunkEvent$GridChunkRemoved$Type): void
+public "getOverlayColor"(): integer
+public "getOverlayChunks"(): $Set<($ChunkPos)>
+public "chunkAdded"(arg0: $GridChunkEvent$GridChunkAdded$Type): void
+public "getLoadedChunks"(): $Set<($ChunkPos)>
+public "registerChunk"(arg0: $ChunkPos$Type): void
+public "countLoadedChunks"(): integer
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 get "active"(): boolean
-get "overlayBlockEntity"(): $BlockEntity
-get "overlaySourceLocation"(): $DimensionalBlockPos
-get "loadedChunks"(): $Set<($ChunkPos)>
-get "overlayChunks"(): $Set<($ChunkPos)>
-get "overlayColor"(): integer
 get "configManager"(): $IConfigManager
+get "overlaySourceLocation"(): $DimensionalBlockPos
+get "overlayBlockEntity"(): $BlockEntity
+get "overlayColor"(): integer
+get "overlayChunks"(): $Set<($ChunkPos)>
+get "loadedChunks"(): $Set<($ChunkPos)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -307,9 +307,9 @@ static readonly "POWER_PER_CRANK_TURN": integer
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "power"(): boolean
-public "getVisibleRotation"(): float
 public "serverTick"(): void
 public "clientTick"(): void
+public "getVisibleRotation"(): float
 public static "tryClear"(arg0: any): void
 get "visibleRotation"(): float
 }
@@ -327,8 +327,8 @@ export type $CrankBlockEntity_ = $CrankBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/misc/$InterfaceBlockEntity" {
 import {$IPriorityHost, $IPriorityHost$Type} from "packages/appeng/helpers/$IPriorityHost"
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
@@ -360,28 +360,28 @@ export class $InterfaceBlockEntity extends $AENetworkBlockEntity implements $IPr
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "m_183515_"(arg0: $CompoundTag$Type): void
 public "clearContent"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
 public "getInterfaceLogic"(): $InterfaceLogic
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "getMainMenuIcon"(): $ItemStack
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
 public "getUpgrades"(): $IUpgradeInventory
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "getConfigManager"(): $IConfigManager
-public "getStorage"(): $GenericStackInv
-public "getConfig"(): $GenericStackInv
 public "openMenu"(arg0: $Player$Type, arg1: $MenuLocator$Type): void
+public "getConfig"(): $GenericStackInv
 public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
 public "saveChanges"(): void
 public "getBlockEntity"(): $BlockEntity
+public "getStorage"(): $GenericStackInv
 public static "tryClear"(arg0: any): void
 get "interfaceLogic"(): $InterfaceLogic
 get "mainMenuIcon"(): $ItemStack
@@ -389,9 +389,9 @@ set "priority"(value: integer)
 get "priority"(): integer
 get "upgrades"(): $IUpgradeInventory
 get "configManager"(): $IConfigManager
-get "storage"(): $GenericStackInv
 get "config"(): $GenericStackInv
 get "blockEntity"(): $BlockEntity
+get "storage"(): $GenericStackInv
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -424,15 +424,15 @@ export class $SkyChestBlockEntity extends $AEBaseInvBlockEntity implements $Clie
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "disassembleWithWrench"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockHitResult$Type, arg3: $ItemStack$Type): $InteractionResult
-public "recheckOpen"(): void
 public "startOpen"(arg0: $Player$Type): void
 public "stopOpen"(arg0: $Player$Type): void
+public "clientTick"(): void
+public "recheckOpen"(): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "getInternalInventory"(): $InternalInventory
+public "disassembleWithWrench"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockHitResult$Type, arg3: $ItemStack$Type): $InteractionResult
 public "triggerEvent"(arg0: integer, arg1: integer): boolean
 public "getOpenNess"(arg0: float): float
-public "clientTick"(): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -482,23 +482,23 @@ export class $IOPortBlockEntity extends $AENetworkInvBlockEntity implements $IUp
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isActive"(): boolean
+public "m_183515_"(arg0: $CompoundTag$Type): void
+public "getUpgrades"(): $IUpgradeInventory
+public "getConfigManager"(): $IConfigManager
+public "clearContent"(): void
+public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
+public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
 public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "updateRedstoneState"(): void
 public "matchesFullnessMode"(arg0: $StorageCell$Type): boolean
-public "m_183515_"(arg0: $CompoundTag$Type): void
-public "clearContent"(): void
-public "getUpgrades"(): $IUpgradeInventory
-public "getConfigManager"(): $IConfigManager
 public "loadTag"(arg0: $CompoundTag$Type): void
-public "getInternalInventory"(): $InternalInventory
-public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
-public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -535,8 +535,8 @@ export class $CrystalResonanceGeneratorBlockEntity extends $AENetworkBlockEntity
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "isSuppressed"(): boolean
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
@@ -579,28 +579,28 @@ export class $EnergyCellBlockEntity extends $AENetworkBlockEntity implements $IA
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "getPriority"(): integer
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "m_183515_"(arg0: $CompoundTag$Type): void
-public "loadTag"(arg0: $CompoundTag$Type): void
 public "onReady"(): void
-public "getPowerFlow"(): $AccessRestriction
-public "getAEMaxPower"(): double
-public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
 public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
 public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
-public "isAEPublicPowerStorage"(): boolean
 public "getAECurrentPower"(): double
 public "injectAEPower"(arg0: double, arg1: $Actionable$Type): double
-public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getPowerFlow"(): $AccessRestriction
+public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
+public "getAEMaxPower"(): double
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "isAEPublicPowerStorage"(): boolean
 public static "getStorageLevelFromFillFactor"(arg0: double): integer
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 get "priority"(): integer
+get "aECurrentPower"(): double
 get "powerFlow"(): $AccessRestriction
 get "aEMaxPower"(): double
 get "aEPublicPowerStorage"(): boolean
-get "aECurrentPower"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -641,16 +641,16 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "getLocation"(): $DimensionalBlockPos
 public "isActive"(): boolean
 public "getRange"(): double
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "onReady"(): void
 public "getClientFlags"(): integer
 public "isPowered"(): boolean
-public "getInternalInventory"(): $InternalInventory
 public "getGrid"(): $IGrid
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "saveChanges"(): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "getActionableNode"(): $IGridNode
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -659,8 +659,8 @@ get "active"(): boolean
 get "range"(): double
 get "clientFlags"(): integer
 get "powered"(): boolean
-get "internalInventory"(): $InternalInventory
 get "grid"(): $IGrid
+get "internalInventory"(): $InternalInventory
 get "actionableNode"(): $IGridNode
 get "clientSide"(): boolean
 }
@@ -677,8 +677,8 @@ declare global {
 export type $WirelessAccessPointBlockEntity_ = $WirelessAccessPointBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/networking/$CableBusBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$CableBusContainer, $CableBusContainer$Type} from "packages/appeng/parts/$CableBusContainer"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
@@ -695,13 +695,13 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$ModelData, $ModelData$Type} from "packages/net/minecraftforge/client/model/data/$ModelData"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$IFacadeContainer, $IFacadeContainer$Type} from "packages/appeng/api/parts/$IFacadeContainer"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$IPart, $IPart$Type} from "packages/appeng/api/parts/$IPart"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/capabilities/$Capability"
 import {$IPartItem, $IPartItem$Type} from "packages/appeng/api/parts/$IPartItem"
 import {$AECableType, $AECableType$Type} from "packages/appeng/api/util/$AECableType"
@@ -715,41 +715,41 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "isEmpty"(): boolean
 public "getLocation"(): $DimensionalBlockPos
 public "cleanup"(): void
-public "disassembleWithWrench"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockHitResult$Type, arg3: $ItemStack$Type): $InteractionResult
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setRemoved"(): void
-public "onChunkUnloaded"(): void
 public "clearRemoved"(): void
+public "onChunkUnloaded"(): void
 public "getModelData"(): $ModelData
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
+public "clearContent"(): void
+public "onReady"(): void
+public "notifyNeighbors"(): void
 public "getCableBus"(): $CableBusContainer
+public "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
+public "removePart"(arg0: $IPart$Type): boolean
 public "getCollisionShape"(arg0: $CollisionContext$Type): $VoxelShape
 public "canAddPart"(arg0: $ItemStack$Type, arg1: $Direction$Type): boolean
 public "addPart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type): T
 public "removePartFromSide"(arg0: $Direction$Type): void
-public "removePart"(arg0: $IPart$Type): boolean
+public "isBlocked"(arg0: $Direction$Type): boolean
 public "clearContainer"(): void
 public "partChanged"(): void
 public "notifyNeighborNow"(arg0: $Direction$Type): void
-public "isBlocked"(arg0: $Direction$Type): boolean
+public "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
 public "getPart"(arg0: $Direction$Type): $IPart
 public "getFacadeContainer"(): $IFacadeContainer
 public "hasRedstone"(): boolean
-public "clearContent"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "onReady"(): void
-public "notifyNeighbors"(): void
 public "getColor"(): $AEColor
+public "disassembleWithWrench"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockHitResult$Type, arg3: $ItemStack$Type): $InteractionResult
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "isInWorld"(): boolean
-public "getCableConnectionLength"(arg0: $AECableType$Type): float
-public "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "markForUpdate"(): void
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
 public "replacePart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type, arg3: $InteractionHand$Type): T
 public "markForSave"(): void
+public "getCableConnectionLength"(arg0: $AECableType$Type): float
 public "selectPartWorld"(arg0: $Vec3$Type): $SelectedPart
 public static "tryClear"(arg0: any): void
 get "empty"(): boolean
@@ -784,8 +784,8 @@ export class $LightDetectorBlockEntity extends $AEBaseBlockEntity implements $Co
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "updateLight"(): void
 public "isReady"(): boolean
+public "updateLight"(): void
 public "commonTick"(): void
 public "serverTick"(): void
 public "clientTick"(): void
@@ -832,35 +832,34 @@ static readonly "TAG_FREQUENCY": string
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isValid"(): boolean
-public "getExposedInventoryForSide"(arg0: $Direction$Type): $InternalInventory
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "breakClusterOnRemove"(): void
-public "getAdjacentQuantumBridges"(): $EnumSet<($Direction)>
 public "setRemoved"(): void
 public "onChunkUnloaded"(): void
 public "getModelData"(): $ModelData
 public "onReady"(): void
-public "isFormed"(): boolean
-public "isCorner"(): boolean
 public "neighborUpdate"(arg0: $BlockPos$Type): void
+public "isFormed"(): boolean
 public "hasQES"(): boolean
+public "isCorner"(): boolean
+public "getCorner"(): byte
 public "serverTick"(): void
 public static "assignFrequency"(arg0: $ItemStack$Type): void
-public "getCorner"(): byte
 public "getQEFrequency"(): long
 public "isPowered"(): boolean
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public static "isValidEntangledSingularity"(arg0: $ItemStack$Type): boolean
 public "getInternalInventory"(): $InternalInventory
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "getExposedInventoryForSide"(arg0: $Direction$Type): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
+public "getAdjacentQuantumBridges"(): $EnumSet<($Direction)>
+public "breakClusterOnRemove"(): void
 public "disconnect"(arg0: boolean): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "updateStatus"(arg0: $QuantumCluster$Type, arg1: byte, arg2: boolean): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
 get "valid"(): boolean
-get "adjacentQuantumBridges"(): $EnumSet<($Direction)>
 get "modelData"(): $ModelData
 get "formed"(): boolean
 get "corner"(): boolean
@@ -868,6 +867,7 @@ get "corner"(): byte
 get "qEFrequency"(): long
 get "powered"(): boolean
 get "internalInventory"(): $InternalInventory
+get "adjacentQuantumBridges"(): $EnumSet<($Direction)>
 get "clientSide"(): boolean
 }
 /**
@@ -903,16 +903,16 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getModelData"(): $ModelData
 public "setJob"(arg0: $GenericStack$Type): void
-public "getJobProgress"(): $GenericStack
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "getColor"(): $AEColor
 public "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
+public "getColor"(): $AEColor
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "getJobProgress"(): $GenericStack
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 get "modelData"(): $ModelData
 set "job"(value: $GenericStack$Type)
-get "jobProgress"(): $GenericStack
 get "color"(): $AEColor
+get "jobProgress"(): $GenericStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -952,28 +952,28 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 public "setName"(arg0: string): void
 public "isActive"(): boolean
 public "isValid"(): boolean
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setBlockState"(arg0: $BlockState$Type): void
 public "getModelData"(): $ModelData
-public "setPreviousState"(arg0: $CompoundTag$Type): void
-public "getUnitBlock"(): $AbstractCraftingUnitBlock<(any)>
-public "updateSubType"(arg0: boolean): void
-public "setCoreBlock"(arg0: boolean): void
-public "updateMultiBlock"(arg0: $BlockPos$Type): void
-public "breakCluster"(): void
-public "isCoreBlock"(): boolean
-public "getPreviousState"(): $CompoundTag
 public "getConfigManager"(): $IConfigManager
-public "getStorageBytes"(): long
-public "loadTag"(arg0: $CompoundTag$Type): void
 public "onReady"(): void
 public "isFormed"(): boolean
+public "updateMultiBlock"(arg0: $BlockPos$Type): void
+public "setPreviousState"(arg0: $CompoundTag$Type): void
+public "isCoreBlock"(): boolean
+public "breakCluster"(): void
+public "updateSubType"(arg0: boolean): void
+public "getUnitBlock"(): $AbstractCraftingUnitBlock<(any)>
+public "setCoreBlock"(arg0: boolean): void
+public "getPreviousState"(): $CompoundTag
+public "getStorageBytes"(): long
 public "isPowered"(): boolean
 public "getAcceleratorThreads"(): integer
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "disconnect"(arg0: boolean): void
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "updateStatus"(arg0: $CraftingCPUCluster$Type): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 set "name"(value: string)
@@ -981,14 +981,14 @@ get "active"(): boolean
 get "valid"(): boolean
 set "blockState"(value: $BlockState$Type)
 get "modelData"(): $ModelData
+get "configManager"(): $IConfigManager
+get "formed"(): boolean
 set "previousState"(value: $CompoundTag$Type)
+get "coreBlock"(): boolean
 get "unitBlock"(): $AbstractCraftingUnitBlock<(any)>
 set "coreBlock"(value: boolean)
-get "coreBlock"(): boolean
 get "previousState"(): $CompoundTag
-get "configManager"(): $IConfigManager
 get "storageBytes"(): long
-get "formed"(): boolean
 get "powered"(): boolean
 get "acceleratorThreads"(): integer
 }
@@ -1006,8 +1006,8 @@ export type $CraftingBlockEntity_ = $CraftingBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/misc/$CondenserBlockEntity" {
 import {$IFluidHandler, $IFluidHandler$Type} from "packages/net/minecraftforge/fluids/capability/$IFluidHandler"
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$IConfigManager, $IConfigManager$Type} from "packages/appeng/api/util/$IConfigManager"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
@@ -1025,30 +1025,30 @@ static readonly "BYTE_MULTIPLIER": integer
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getConfigManager"(): $IConfigManager
-public "getStorage"(): double
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "getMEStorage"(): $MEStorage
-public "getExternalInv"(): $InternalInventory
 public "addPower"(arg0: double): void
-public "getFluidHandler"(): $IFluidHandler
 public "getRequiredPower"(): double
-public "getInternalInventory"(): $InternalInventory
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getMEStorage"(): $MEStorage
+public "getFluidHandler"(): $IFluidHandler
+public "getExternalInv"(): $InternalInventory
 public "getStoredPower"(): double
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "getStorage"(): double
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
 get "configManager"(): $IConfigManager
-get "storage"(): double
-get "mEStorage"(): $MEStorage
-get "externalInv"(): $InternalInventory
-get "fluidHandler"(): $IFluidHandler
 get "requiredPower"(): double
-get "internalInventory"(): $InternalInventory
+get "mEStorage"(): $MEStorage
+get "fluidHandler"(): $IFluidHandler
+get "externalInv"(): $InternalInventory
 get "storedPower"(): double
+get "internalInventory"(): $InternalInventory
+get "storage"(): double
 get "clientSide"(): boolean
 }
 /**
@@ -1097,26 +1097,26 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getModelData"(): $ModelData
+public "onReady"(): void
+public "getCellCount"(): integer
+public "openMenu"(arg0: $Player$Type): void
+public "getCellStatus"(arg0: integer): $CellState
+public "getCellInventory"(arg0: integer): $MEStorage
+public "isPowered"(): boolean
+public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getMainMenuIcon"(): $ItemStack
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "mountInventories"(arg0: $IStorageMounts$Type): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "getOriginalCellInventory"(arg0: integer): $StorageCell
 public "getCellItem"(arg0: integer): $Item
 public "isCellBlinking"(arg0: integer): boolean
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "onReady"(): void
-public "openMenu"(arg0: $Player$Type): void
-public "getCellCount"(): integer
-public "getCellStatus"(arg0: integer): $CellState
-public "isPowered"(): boolean
-public "getInternalInventory"(): $InternalInventory
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
-public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
-public "getMainMenuIcon"(): $ItemStack
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
-public "getCellInventory"(arg0: integer): $MEStorage
-public "mountInventories"(arg0: $IStorageMounts$Type): void
-public "getOriginalCellInventory"(arg0: integer): $StorageCell
 public static "requestUpdate"(arg0: $IManagedGridNode$Type): void
 public "getActionableNode"(): $IGridNode
 public "saveChanges"(): void
@@ -1127,8 +1127,8 @@ get "priority"(): integer
 get "modelData"(): $ModelData
 get "cellCount"(): integer
 get "powered"(): boolean
-get "internalInventory"(): $InternalInventory
 get "mainMenuIcon"(): $ItemStack
+get "internalInventory"(): $InternalInventory
 get "actionableNode"(): $IGridNode
 get "clientSide"(): boolean
 }
@@ -1167,22 +1167,22 @@ export class $AENetworkPowerBlockEntity extends $AEBasePoweredBlockEntity implem
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setRemoved"(): void
-public "onChunkUnloaded"(): void
 public "clearRemoved"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
+public "onChunkUnloaded"(): void
 public "onReady"(): void
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getMainNode"(): $IManagedGridNode
 public "setOwner"(arg0: $Player$Type): void
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "ifGridPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
-public "getGridNode"(arg0: $Direction$Type): $IGridNode
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "getGridNode"(): $IGridNode
+public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "getActionableNode"(): $IGridNode
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
 get "mainNode"(): $IManagedGridNode
@@ -1205,8 +1205,8 @@ export type $AENetworkPowerBlockEntity_ = $AENetworkPowerBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/crafting/$MolecularAssemblerBlockEntity" {
 import {$TickingRequest, $TickingRequest$Type} from "packages/appeng/api/networking/ticking/$TickingRequest"
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$ICraftingMachine, $ICraftingMachine$Type} from "packages/appeng/api/implementations/blockentities/$ICraftingMachine"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
@@ -1242,43 +1242,43 @@ static readonly "INV_MAIN": $ResourceLocation
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isActive"(): boolean
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "getCraftingProgress"(): integer
-public "getCraftingMachineInfo"(): $PatternContainerGroup
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "acceptsPlans"(): boolean
-public "pushPattern"(arg0: $IPatternDetails$Type, arg1: ($KeyCounter$Type)[], arg2: $Direction$Type): boolean
-public "getAnimationStatus"(): $AssemblerAnimationStatus
-public "setAnimationStatus"(arg0: $AssemblerAnimationStatus$Type): void
-public "getCurrentPattern"(): $IMolecularAssemblerSupportedPattern
-public "clearContent"(): void
+public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getUpgrades"(): $IUpgradeInventory
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "isPowered"(): boolean
-public "getInternalInventory"(): $InternalInventory
+public "clearContent"(): void
+public "pushPattern"(arg0: $IPatternDetails$Type, arg1: ($KeyCounter$Type)[], arg2: $Direction$Type): boolean
+public "acceptsPlans"(): boolean
+public "setAnimationStatus"(arg0: $AssemblerAnimationStatus$Type): void
+public "getAnimationStatus"(): $AssemblerAnimationStatus
+public "getCurrentPattern"(): $IMolecularAssemblerSupportedPattern
 public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
 public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "isPowered"(): boolean
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getCraftingMachineInfo"(): $PatternContainerGroup
+public "getCraftingProgress"(): integer
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public static "of"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ICraftingMachine
 public static "of"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $BlockEntity$Type): $ICraftingMachine
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
 get "active"(): boolean
-get "craftingProgress"(): integer
-get "craftingMachineInfo"(): $PatternContainerGroup
-get "animationStatus"(): $AssemblerAnimationStatus
-set "animationStatus"(value: $AssemblerAnimationStatus$Type)
-get "currentPattern"(): $IMolecularAssemblerSupportedPattern
 get "upgrades"(): $IUpgradeInventory
+set "animationStatus"(value: $AssemblerAnimationStatus$Type)
+get "animationStatus"(): $AssemblerAnimationStatus
+get "currentPattern"(): $IMolecularAssemblerSupportedPattern
 get "powered"(): boolean
 get "internalInventory"(): $InternalInventory
+get "craftingMachineInfo"(): $PatternContainerGroup
+get "craftingProgress"(): integer
 get "clientSide"(): boolean
 }
 /**
@@ -1308,14 +1308,14 @@ constructor(powered: boolean, online: boolean, axisPosition: $SpatialPylonBlockE
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "writeToNbt"(arg0: $CompoundTag$Type): void
+public "online"(): boolean
 public "axis"(): $Direction$Axis
 public "powered"(): boolean
-public static "readFromNbt"(arg0: $CompoundTag$Type): $SpatialPylonBlockEntity$ClientState
-public "online"(): boolean
+public "writeToNbt"(arg0: $CompoundTag$Type): void
 public static "readFromStream"(arg0: $FriendlyByteBuf$Type): $SpatialPylonBlockEntity$ClientState
 public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
 public "axisPosition"(): $SpatialPylonBlockEntity$AxisPosition
+public static "readFromNbt"(arg0: $CompoundTag$Type): $SpatialPylonBlockEntity$ClientState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1342,8 +1342,8 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$IPowerChannelState, $IPowerChannelState$Type} from "packages/appeng/api/implementations/$IPowerChannelState"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockOrientation, $BlockOrientation$Type} from "packages/appeng/api/orientation/$BlockOrientation"
 import {$ICrankable, $ICrankable$Type} from "packages/appeng/api/implementations/blockentities/$ICrankable"
+import {$BlockOrientation, $BlockOrientation$Type} from "packages/appeng/api/orientation/$BlockOrientation"
 
 export class $GrowthAcceleratorBlockEntity extends $AENetworkBlockEntity implements $IPowerChannelState {
 static readonly "MAX_STORED_POWER": integer
@@ -1352,14 +1352,14 @@ static readonly "MAX_STORED_POWER": integer
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isActive"(): boolean
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getCrankable"(arg0: $Direction$Type): $ICrankable
 public "isPowered"(): boolean
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
 public "writeToStream"(arg0: $FriendlyByteBuf$Type): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 get "active"(): boolean
@@ -1428,11 +1428,12 @@ export type $ClientTickingBlockEntity_ = $ClientTickingBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/misc/$InscriberBlockEntity" {
 import {$TickingRequest, $TickingRequest$Type} from "packages/appeng/api/networking/ticking/$TickingRequest"
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$InscriberRecipe, $InscriberRecipe$Type} from "packages/appeng/recipes/handlers/$InscriberRecipe"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
+import {$ConfigManager, $ConfigManager$Type} from "packages/appeng/util/$ConfigManager"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$TickRateModulation, $TickRateModulation$Type} from "packages/appeng/api/networking/ticking/$TickRateModulation"
@@ -1459,43 +1460,45 @@ export class $InscriberBlockEntity extends $AENetworkPowerBlockEntity implements
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getMaxProcessingTime"(): integer
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getTask"(): $InscriberRecipe
-public "clearContent"(): void
 public "getUpgrades"(): $IUpgradeInventory
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "setSmash"(arg0: boolean): void
+public "getConfigManager"(): $ConfigManager
+public "clearContent"(): void
 public "isSmash"(): boolean
+public "setSmash"(arg0: boolean): void
 public "isRepeatSmash"(): boolean
-public "getCrankable"(arg0: $Direction$Type): $ICrankable
 public "getProcessingTime"(): integer
+public "getCrankable"(arg0: $Direction$Type): $ICrankable
 public "setRepeatSmash"(arg0: boolean): void
 public "getClientStart"(): long
-public "getInternalInventory"(): $InternalInventory
 public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
 public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getMaxProcessingTime"(): integer
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
-get "maxProcessingTime"(): integer
 get "task"(): $InscriberRecipe
 get "upgrades"(): $IUpgradeInventory
-set "smash"(value: boolean)
+get "configManager"(): $ConfigManager
 get "smash"(): boolean
+set "smash"(value: boolean)
 get "repeatSmash"(): boolean
 get "processingTime"(): integer
 set "repeatSmash"(value: boolean)
 get "clientStart"(): long
 get "internalInventory"(): $InternalInventory
+get "maxProcessingTime"(): integer
 get "clientSide"(): boolean
 }
 /**
@@ -1511,8 +1514,8 @@ declare global {
 export type $InscriberBlockEntity_ = $InscriberBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/crafting/$PatternProviderBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
@@ -1545,48 +1548,48 @@ export class $PatternProviderBlockEntity extends $AENetworkBlockEntity implement
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getTargets"(): $EnumSet<($Direction)>
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setBlockState"(arg0: $BlockState$Type): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "clearContent"(): void
+public "onReady"(): void
 public "getLogic"(): $PatternProviderLogic
 public "getTerminalIcon"(): $AEItemKey
-public "getTargets"(): $EnumSet<($Direction)>
-public "clearContent"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "onReady"(): void
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "getMainMenuIcon"(): $ItemStack
-public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
-public "isVisibleInTerminal"(): boolean
-public "getTerminalSortOrder"(): long
-public "getTerminalPatternInventory"(): $InternalInventory
-public "getTerminalGroup"(): $PatternContainerGroup
 public "getConfigManager"(): $IConfigManager
 public "openMenu"(arg0: $Player$Type, arg1: $MenuLocator$Type): void
+public "getTerminalGroup"(): $PatternContainerGroup
 public "getGrid"(): $IGrid
 public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
 public "saveChanges"(): void
+public "getTerminalPatternInventory"(): $InternalInventory
+public "getTerminalSortOrder"(): long
+public "isVisibleInTerminal"(): boolean
 public "getBlockEntity"(): $BlockEntity
 public static "tryClear"(arg0: any): void
+get "targets"(): $EnumSet<($Direction)>
 set "blockState"(value: $BlockState$Type)
 get "logic"(): $PatternProviderLogic
 get "terminalIcon"(): $AEItemKey
-get "targets"(): $EnumSet<($Direction)>
 get "mainMenuIcon"(): $ItemStack
 set "priority"(value: integer)
 get "priority"(): integer
-get "visibleInTerminal"(): boolean
-get "terminalSortOrder"(): long
-get "terminalPatternInventory"(): $InternalInventory
-get "terminalGroup"(): $PatternContainerGroup
 get "configManager"(): $IConfigManager
+get "terminalGroup"(): $PatternContainerGroup
 get "grid"(): $IGrid
+get "terminalPatternInventory"(): $InternalInventory
+get "terminalSortOrder"(): long
+get "visibleInTerminal"(): boolean
 get "blockEntity"(): $BlockEntity
 }
 /**
@@ -1615,9 +1618,9 @@ export class $EnergyAcceptorBlockEntity extends $AENetworkPowerBlockEntity {
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "getInternalInventory"(): $InternalInventory
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -1637,8 +1640,8 @@ declare global {
 export type $EnergyAcceptorBlockEntity_ = $EnergyAcceptorBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/storage/$SkyStoneTankBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
@@ -1655,11 +1658,11 @@ static readonly "BUCKET_CAPACITY": integer
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "getStorage"(): $IFluidTank
-public "loadTag"(arg0: $CompoundTag$Type): void
+public "m_183515_"(arg0: $CompoundTag$Type): void
 public "onPlayerUse"(arg0: $Player$Type, arg1: $InteractionHand$Type): boolean
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "getStorage"(): $IFluidTank
 public static "tryClear"(arg0: any): void
 get "storage"(): $IFluidTank
 }
@@ -1704,8 +1707,8 @@ declare global {
 export type $CommonTickingBlockEntity_ = $CommonTickingBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/powersink/$AEBasePoweredBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$PowerMultiplier, $PowerMultiplier$Type} from "packages/appeng/api/config/$PowerMultiplier"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
@@ -1724,38 +1727,39 @@ export class $AEBasePoweredBlockEntity extends $AEBaseInvBlockEntity implements 
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "injectExternalPower"(arg0: $PowerUnits$Type, arg1: double, arg2: $Actionable$Type): double
-public "setInternalMaxPower"(arg0: double): void
-public "setInternalCurrentPower"(arg0: double): void
-public "getInternalMaxPower"(): double
-public "setInternalPublicPowerStorage"(arg0: boolean): void
-public "setInternalPowerFlow"(arg0: $AccessRestriction$Type): void
-public "getInternalCurrentPower"(): double
-public "getExternalPowerDemand"(arg0: $PowerUnits$Type, arg1: double): double
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "getPowerFlow"(): $AccessRestriction
-public "getAEMaxPower"(): double
-public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
-public "isAEPublicPowerStorage"(): boolean
+public "m_183515_"(arg0: $CompoundTag$Type): void
+public "setRemoved"(): void
 public "getAECurrentPower"(): double
 public "injectAEPower"(arg0: double, arg1: $Actionable$Type): double
+public "injectExternalPower"(arg0: $PowerUnits$Type, arg1: double, arg2: $Actionable$Type): double
+public "getInternalCurrentPower"(): double
+public "setInternalPublicPowerStorage"(arg0: boolean): void
+public "setInternalPowerFlow"(arg0: $AccessRestriction$Type): void
+public "getExternalPowerDemand"(arg0: $PowerUnits$Type, arg1: double): double
+public "getInternalMaxPower"(): double
+public "setInternalCurrentPower"(arg0: double): void
+public "setInternalMaxPower"(arg0: double): void
+public "getPowerFlow"(): $AccessRestriction
+public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
+public "getAEMaxPower"(): double
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "isAEPublicPowerStorage"(): boolean
 public "getPriority"(): integer
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
-set "internalMaxPower"(value: double)
-set "internalCurrentPower"(value: double)
-get "internalMaxPower"(): double
+get "aECurrentPower"(): double
+get "internalCurrentPower"(): double
 set "internalPublicPowerStorage"(value: boolean)
 set "internalPowerFlow"(value: $AccessRestriction$Type)
-get "internalCurrentPower"(): double
+get "internalMaxPower"(): double
+set "internalCurrentPower"(value: double)
+set "internalMaxPower"(value: double)
 get "powerFlow"(): $AccessRestriction
 get "aEMaxPower"(): double
 get "aEPublicPowerStorage"(): boolean
-get "aECurrentPower"(): double
 get "priority"(): integer
 get "clientSide"(): boolean
 }
@@ -1774,8 +1778,8 @@ export type $AEBasePoweredBlockEntity_ = $AEBasePoweredBlockEntity$Type;
 declare module "packages/appeng/blockentity/storage/$ChestBlockEntity" {
 import {$IFluidHandler, $IFluidHandler$Type} from "packages/net/minecraftforge/fluids/capability/$IFluidHandler"
 import {$IPriorityHost, $IPriorityHost$Type} from "packages/appeng/helpers/$IPriorityHost"
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$CellState, $CellState$Type} from "packages/appeng/api/storage/cells/$CellState"
 import {$IStorageProvider, $IStorageProvider$Type} from "packages/appeng/api/storage/$IStorageProvider"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
@@ -1812,54 +1816,54 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public "setPriority"(arg0: integer): void
 public "getPriority"(): integer
+public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "m_183515_"(arg0: $CompoundTag$Type): void
+public "getConfigManager"(): $IConfigManager
+public "serverTick"(): void
+public "getCellCount"(): integer
+public "getCellStatus"(arg0: integer): $CellState
+public "openGui"(arg0: $Player$Type): boolean
+public "getMEStorage"(arg0: $Direction$Type): $MEStorage
+public "getFluidHandler"(arg0: $Direction$Type): $IFluidHandler
+public "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
+public "getCellInventory"(arg0: integer): $MEStorage
+public "isPowered"(): boolean
+public "getInventory"(): $MEStorage
+public "getColor"(): $AEColor
+public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getMainMenuIcon"(): $ItemStack
+public "getInternalInventory"(): $InternalInventory
 public "getExposedInventoryForSide"(arg0: $Direction$Type): $InternalInventory
 public "openCellInventoryMenu"(arg0: $Player$Type): void
-public "m_183515_"(arg0: $CompoundTag$Type): void
-public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "getConfigManager"(): $IConfigManager
+public "getCell"(): $ItemStack
+public "loadTag"(arg0: $CompoundTag$Type): void
+public "mountInventories"(arg0: $IStorageMounts$Type): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "getOriginalCellInventory"(arg0: integer): $StorageCell
 public "getCellItem"(arg0: integer): $Item
 public "isCellBlinking"(arg0: integer): boolean
 public "setCell"(arg0: $ItemStack$Type): void
-public "getCell"(): $ItemStack
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "serverTick"(): void
-public "openGui"(arg0: $Player$Type): boolean
-public "getCellCount"(): integer
-public "getCellStatus"(arg0: integer): $CellState
-public "getMEStorage"(arg0: $Direction$Type): $MEStorage
-public "getFluidHandler"(arg0: $Direction$Type): $IFluidHandler
-public "getColor"(): $AEColor
-public "isPowered"(): boolean
-public "getInternalInventory"(): $InternalInventory
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
-public "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
-public "getMainMenuIcon"(): $ItemStack
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
-public "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
-public "getCellInventory"(arg0: integer): $MEStorage
-public "getInventory"(): $MEStorage
-public "mountInventories"(arg0: $IStorageMounts$Type): void
-public "getOriginalCellInventory"(arg0: integer): $StorageCell
 public "getCloseHotkey"(): string
 public static "requestUpdate"(arg0: $IManagedGridNode$Type): void
 public "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
 public "getUpgrades"(): $IUpgradeInventory
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
 set "priority"(value: integer)
 get "priority"(): integer
 get "configManager"(): $IConfigManager
-set "cell"(value: $ItemStack$Type)
-get "cell"(): $ItemStack
 get "cellCount"(): integer
-get "color"(): $AEColor
 get "powered"(): boolean
-get "internalInventory"(): $InternalInventory
-get "mainMenuIcon"(): $ItemStack
 get "inventory"(): $MEStorage
+get "color"(): $AEColor
+get "mainMenuIcon"(): $ItemStack
+get "internalInventory"(): $InternalInventory
+get "cell"(): $ItemStack
+set "cell"(value: $ItemStack$Type)
 get "closeHotkey"(): string
 get "upgrades"(): $IUpgradeInventory
 get "clientSide"(): boolean
@@ -1895,14 +1899,14 @@ export interface $IMolecularAssemblerSupportedPattern extends $IPatternDetails {
  "fillCraftingGrid"(arg0: ($KeyCounter$Type)[], arg1: $IMolecularAssemblerSupportedPattern$CraftingGridAccessor$Type): void
  "assemble"(arg0: $Container$Type, arg1: $Level$Type): $ItemStack
  "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
+ "isSlotEnabled"(arg0: integer): boolean
  "isItemValid"(arg0: integer, arg1: $AEItemKey$Type, arg2: $Level$Type): boolean
  "supportsPushInputsToExternalInventory"(): boolean
- "isSlotEnabled"(arg0: integer): boolean
  "getDefinition"(): $AEItemKey
  "getInputs"(): ($IPatternDetails$IInput)[]
- "pushInputsToExternalInventory"(arg0: ($KeyCounter$Type)[], arg1: $IPatternDetails$PatternInputSink$Type): void
  "getOutputs"(): ($GenericStack)[]
  "getPrimaryOutput"(): $GenericStack
+ "pushInputsToExternalInventory"(arg0: ($KeyCounter$Type)[], arg1: $IPatternDetails$PatternInputSink$Type): void
 }
 
 export namespace $IMolecularAssemblerSupportedPattern {
@@ -1936,8 +1940,8 @@ import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$IGridTickable, $IGridTickable$Type} from "packages/appeng/api/networking/ticking/$IGridTickable"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockOrientation, $BlockOrientation$Type} from "packages/appeng/api/orientation/$BlockOrientation"
 import {$ICrankable, $ICrankable$Type} from "packages/appeng/api/implementations/blockentities/$ICrankable"
+import {$BlockOrientation, $BlockOrientation$Type} from "packages/appeng/api/orientation/$BlockOrientation"
 
 export class $ChargerBlockEntity extends $AENetworkPowerBlockEntity implements $IGridTickable {
 static readonly "POWER_MAXIMUM_AMOUNT": integer
@@ -1945,16 +1949,16 @@ static readonly "POWER_MAXIMUM_AMOUNT": integer
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
 public "activate"(arg0: $Player$Type): void
 public "getCrankable"(arg0: $Direction$Type): $ICrankable
 public "isWorking"(): boolean
-public "getInternalInventory"(): $InternalInventory
 public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
 public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -2008,54 +2012,54 @@ export class $AEBaseBlockEntity extends $BlockEntity implements $Nameable, $ISeg
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "setName"(arg0: string): void
-public static "registerBlockEntityItem"(arg0: $BlockEntityType$Type<(any)>, arg1: $Item$Type): void
-public "disassembleWithWrench"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockHitResult$Type, arg3: $ItemStack$Type): $InteractionResult
+public "getCustomName"(): $Component
 public "load"(arg0: $CompoundTag$Type): void
-public "getUpdatePacket"(): $Packet<($ClientGamePacketListener)>
-public "getUpdateTag"(): $CompoundTag
 public "m_183515_"(arg0: $CompoundTag$Type): void
+public "getUpdatePacket"(): $Packet<($ClientGamePacketListener)>
 public "setBlockState"(arg0: $BlockState$Type): void
+public "getUpdateTag"(): $CompoundTag
 public "getModelData"(): $ModelData
+public "clearContent"(): void
+public "getFront"(): $Direction
+public "onReady"(): void
+public "getGlobalPos"(): $GlobalPos
+public "getTop"(): $Direction
+public "notLoaded"(): boolean
 public "getQueuedForReady"(): byte
 public "getReadyInvoked"(): byte
-public "clearContent"(): void
-public "getRenderBoundingBox"(): $AABB
-public "getCustomName"(): $Component
 public "getOrientation"(): $BlockOrientation
-public "getGlobalPos"(): $GlobalPos
-public "notLoaded"(): boolean
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "onReady"(): void
-public "getTop"(): $Direction
-public "getFront"(): $Direction
-public "getName"(): $Component
 public "saveChanges"(): void
-public "isClientSide"(): boolean
+public static "registerBlockEntityItem"(arg0: $BlockEntityType$Type<(any)>, arg1: $Item$Type): void
+public "disassembleWithWrench"(arg0: $Player$Type, arg1: $Level$Type, arg2: $BlockHitResult$Type, arg3: $ItemStack$Type): $InteractionResult
+public "getRenderBoundingBox"(): $AABB
+public "getName"(): $Component
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getBlockEntity"(): $BlockEntity
-public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
+public "isClientSide"(): boolean
 public "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
-public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
+public "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
 public "markForUpdate"(): void
+public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
 public "hasCustomName"(): boolean
 public "getDisplayName"(): $Component
 public static "tryClear"(arg0: any): void
 set "name"(value: string)
-get "updatePacket"(): $Packet<($ClientGamePacketListener)>
-get "updateTag"(): $CompoundTag
-set "blockState"(value: $BlockState$Type)
-get "modelData"(): $ModelData
-get "queuedForReady"(): byte
-get "readyInvoked"(): byte
-get "renderBoundingBox"(): $AABB
 get "customName"(): $Component
-get "orientation"(): $BlockOrientation
+get "updatePacket"(): $Packet<($ClientGamePacketListener)>
+set "blockState"(value: $BlockState$Type)
+get "updateTag"(): $CompoundTag
+get "modelData"(): $ModelData
+get "front"(): $Direction
 get "globalPos"(): $GlobalPos
 get "top"(): $Direction
-get "front"(): $Direction
+get "queuedForReady"(): byte
+get "readyInvoked"(): byte
+get "orientation"(): $BlockOrientation
+get "renderBoundingBox"(): $AABB
 get "name"(): $Component
-get "clientSide"(): boolean
 get "blockEntity"(): $BlockEntity
+get "clientSide"(): boolean
 get "displayName"(): $Component
 }
 /**
@@ -2092,17 +2096,17 @@ static readonly "STATE": $ModelProperty<($SpatialPylonBlockEntity$ClientState)>
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isValid"(): boolean
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "setRemoved"(): void
 public "onChunkUnloaded"(): void
 public "getModelData"(): $ModelData
-public "recalculateDisplay"(): void
 public "onReady"(): void
-public "getClientState"(): $SpatialPylonBlockEntity$ClientState
 public "neighborChanged"(arg0: $BlockPos$Type): void
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "getClientState"(): $SpatialPylonBlockEntity$ClientState
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "disconnect"(arg0: boolean): void
 public "updateStatus"(arg0: $SpatialPylonCluster$Type): void
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+public "recalculateDisplay"(): void
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
 get "valid"(): boolean
@@ -2138,14 +2142,14 @@ export class $SpatialIOPortBlockEntity extends $AENetworkInvBlockEntity {
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "isActive"(): boolean
+public "m_183515_"(arg0: $CompoundTag$Type): void
+public "getRedstoneState"(): boolean
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
 public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "updateRedstoneState"(): void
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "loadTag"(arg0: $CompoundTag$Type): void
-public "getRedstoneState"(): boolean
-public "getInternalInventory"(): $InternalInventory
 public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
@@ -2193,40 +2197,40 @@ export class $VibrationChamberBlockEntity extends $AENetworkInvBlockEntity imple
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
-public "getFuelItemFuelTicks"(): double
-public "getMaxFuelTicksPerTick"(): double
-public "getCurrentFuelTicksPerTick"(): double
-public "getMinFuelTicksPerTick"(): double
-public "getRemainingFuelTicks"(): double
-public "getEnergyPerFuelTick"(): double
 public "m_183515_"(arg0: $CompoundTag$Type): void
-public static "hasBurnTime"(arg0: $ItemStack$Type): boolean
-public "clearContent"(): void
 public "getUpgrades"(): $IUpgradeInventory
-public static "getBurnTime"(arg0: $ItemStack$Type): integer
+public "clearContent"(): void
 public "getMaxEnergyRate"(): double
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "getInternalInventory"(): $InternalInventory
+public static "hasBurnTime"(arg0: $ItemStack$Type): boolean
 public "getTickingRequest"(arg0: $IGridNode$Type): $TickingRequest
 public "tickingRequest"(arg0: $IGridNode$Type, arg1: integer): $TickRateModulation
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public static "getBurnTime"(arg0: $ItemStack$Type): integer
+public "getInternalInventory"(): $InternalInventory
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "getEnergyPerFuelTick"(): double
+public "getMinFuelTicksPerTick"(): double
+public "getRemainingFuelTicks"(): double
+public "getFuelItemFuelTicks"(): double
+public "getCurrentFuelTicksPerTick"(): double
+public "getMaxFuelTicksPerTick"(): double
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void
-get "fuelItemFuelTicks"(): double
-get "maxFuelTicksPerTick"(): double
-get "currentFuelTicksPerTick"(): double
-get "minFuelTicksPerTick"(): double
-get "remainingFuelTicks"(): double
-get "energyPerFuelTick"(): double
 get "upgrades"(): $IUpgradeInventory
 get "maxEnergyRate"(): double
 get "internalInventory"(): $InternalInventory
+get "energyPerFuelTick"(): double
+get "minFuelTicksPerTick"(): double
+get "remainingFuelTicks"(): double
+get "fuelItemFuelTicks"(): double
+get "currentFuelTicksPerTick"(): double
+get "maxFuelTicksPerTick"(): double
 get "clientSide"(): boolean
 }
 /**
@@ -2264,22 +2268,22 @@ export class $AENetworkBlockEntity extends $AEBaseBlockEntity implements $IGridC
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "setRemoved"(): void
-public "onChunkUnloaded"(): void
 public "clearRemoved"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
+public "onChunkUnloaded"(): void
 public "onReady"(): void
+public "getCableConnectionType"(arg0: $Direction$Type): $AECableType
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "getMainNode"(): $IManagedGridNode
 public "setOwner"(arg0: $Player$Type): void
-public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "ifGridPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
-public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public "saveChanges"(): void
-public "getGridNode"(arg0: $Direction$Type): $IGridNode
+public "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
 public "getGridNode"(): $IGridNode
+public "getGridNode"(arg0: $Direction$Type): $IGridNode
 public "getActionableNode"(): $IGridNode
+public "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
 public static "tryClear"(arg0: any): void
 get "mainNode"(): $IManagedGridNode
 set "owner"(value: $Player$Type)
@@ -2323,8 +2327,8 @@ declare global {
 export type $ServerTickingBlockEntity_ = $ServerTickingBlockEntity$Type;
 }}
 declare module "packages/appeng/blockentity/$AEBaseInvBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
@@ -2342,12 +2346,12 @@ export class $AEBaseInvBlockEntity extends $AEBaseBlockEntity implements $Intern
 
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
-public "m_183515_"(arg0: $CompoundTag$Type): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
+public "m_183515_"(arg0: $CompoundTag$Type): void
 public "clearContent"(): void
-public "loadTag"(arg0: $CompoundTag$Type): void
-public "getInternalInventory"(): $InternalInventory
 public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "getInternalInventory"(): $InternalInventory
+public "loadTag"(arg0: $CompoundTag$Type): void
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
 public "saveChanges"(): void
 public "isClientSide"(): boolean
@@ -2420,17 +2424,17 @@ constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $Blo
 
 public static "copy"(arg0: $GenericStackInv$Type, arg1: $GenericStackInv$Type): void
 public "m_183515_"(arg0: $CompoundTag$Type): void
-public "clearContent"(): void
 public "getUpgrades"(): $IUpgradeInventory
 public "getConfigManager"(): $IConfigManager
+public "clearContent"(): void
 public "getConfig"(): $GenericStackInv
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "getCell"(): $ICellWorkbenchItem
 public "loadTag"(arg0: $CompoundTag$Type): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "getSubInventory"(arg0: $ResourceLocation$Type): $InternalInventory
 public "addAdditionalDrops"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $List$Type<($ItemStack$Type)>): void
-public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "saveChanges"(): void
 public "isClientSide"(): boolean
 public static "tryClear"(arg0: any): void

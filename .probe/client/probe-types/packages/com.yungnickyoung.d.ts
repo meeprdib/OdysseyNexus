@@ -262,18 +262,18 @@ import {$DragonRespawnStage, $DragonRespawnStage$Type} from "packages/com/yungni
 
 export interface $IDragonFight {
 
- "betterendisland$tickBellSound"(): void
  "betterendisland$initialRespawn"(): void
- "betterendisland$firstExitPortalSpawn"(): boolean
- "betterendisland$numTimesDragonKilled"(): integer
- "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
- "betterendisland$hasDragonEverSpawned"(): boolean
+ "betterendisland$tickBellSound"(): void
  "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
  "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
+ "betterendisland$numTimesDragonKilled"(): integer
+ "betterendisland$firstExitPortalSpawn"(): boolean
+ "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
+ "betterendisland$hasDragonEverSpawned"(): boolean
  "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
  "betterendisland$reset"(arg0: boolean): void
- "betterendisland$clearVanillaPillars"(): void
  "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
+ "betterendisland$clearVanillaPillars"(): void
 }
 
 export namespace $IDragonFight {
@@ -418,12 +418,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/mixin/a
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxY"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMinY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMaxY"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -593,12 +593,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/access
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxY"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMinY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMaxY"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1442,12 +1442,12 @@ declare module "packages/com/yungnickyoung/minecraft/yungsapi/mixin/accessor/$Bo
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxY"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMinY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMaxY"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1476,8 +1476,8 @@ export class $TempleStateCache {
 
 constructor(arg0: $Path$Type)
 
-public "isTempleCleared"(arg0: $BlockPos$Type): boolean
 public "setTempleCleared"(arg0: $BlockPos$Type, arg1: boolean): void
+public "isTempleCleared"(arg0: $BlockPos$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2098,12 +2098,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterwitchhuts/mixin/acces
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxY"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMinY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMaxY"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -2125,12 +2125,12 @@ declare module "packages/com/yungnickyoung/minecraft/bettermineshafts/mixin/$Bou
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxY"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMinY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMaxY"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -2281,8 +2281,8 @@ export class $TempleStateRegion {
 constructor(arg0: $Path$Type, arg1: string)
 
 public "reset"(): void
-public "isTempleCleared"(arg0: $BlockPos$Type): boolean
 public "setTempleCleared"(arg0: $BlockPos$Type, arg1: boolean): void
+public "isTempleCleared"(arg0: $BlockPos$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

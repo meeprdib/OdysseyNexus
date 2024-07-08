@@ -113,8 +113,8 @@ import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 
 export interface $ArmorStandEntityAccessor {
 
- "invokeGetSlotFromPosition"(arg0: $Vec3$Type): $EquipmentSlot
  "invokeIsSlotDisabled"(arg0: $EquipmentSlot$Type): boolean
+ "invokeGetSlotFromPosition"(arg0: $Vec3$Type): $EquipmentSlot
 }
 
 export namespace $ArmorStandEntityAccessor {

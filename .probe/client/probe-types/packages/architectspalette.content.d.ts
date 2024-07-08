@@ -151,21 +151,21 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: integer)
 
 public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "getFluidState"(arg0: $BlockState$Type): $FluidState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
-public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -223,10 +223,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
 public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
-public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public static "canHeGreen"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): boolean
+public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -305,8 +305,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
@@ -343,11 +343,11 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $BigBrickBlock$BrickType$Type)
 
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -406,18 +406,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "isCharged"(arg0: $BlockState$Type): boolean
 public static "getLightValue"(arg0: $BlockState$Type): integer
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "isCharged"(arg0: $BlockState$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
-public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "getSourceDirection"(arg0: $BlockState$Type): $Direction
-public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
-public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 public "pushesPower"(arg0: $BlockState$Type): boolean
 public "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
+public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -694,9 +694,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -858,18 +858,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
 public "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "isCharged"(arg0: $BlockState$Type): boolean
 public "getSourceDirection"(arg0: $BlockState$Type): $Direction
-public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
-public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 public "pushesPower"(arg0: $BlockState$Type): boolean
+public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -994,15 +994,15 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
-public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -1074,17 +1074,17 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "getFluidState"(arg0: $BlockState$Type): $FluidState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
+public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -1141,8 +1141,8 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "getBlockForPart"(arg0: $StoneBlockSet$SetComponent$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
-public static "doParticleEffect"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public static "doParticleEffect"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "getBlockForType"(arg0: $BlockNode$BlockType$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
 }
 /**
@@ -1289,8 +1289,8 @@ import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraf
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
@@ -1332,11 +1332,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $TotemWingBlock$Type, arg2: $TotemBlock$TotemFace$Type)
 
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1408,17 +1408,17 @@ public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public static "getFirst"(arg0: $Block$Type): $Block
+public static "getToolModifiedState"(arg0: $ToolAction$Type, arg1: $BlockState$Type): $BlockState
 public static "getNext"(arg0: $Block$Type): $Optional<($Block)>
 public static "getPrevious"(arg0: $Block$Type): $Optional<($Block)>
 public static "getPrevious"(arg0: $BlockState$Type): $Optional<($BlockState)>
-public static "getToolModifiedState"(arg0: $ToolAction$Type, arg1: $BlockState$Type): $BlockState
-public static "onUse"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type): $InteractionResult
-public static "getWaxed"(arg0: $BlockState$Type): $Optional<($BlockState)>
-public static "getWaxed"(arg0: $Block$Type): $Optional<($Block)>
-public static "getUnWaxed"(arg0: $Block$Type): $Optional<($Block)>
-public static "getUnWaxed"(arg0: $BlockState$Type): $Optional<($BlockState)>
-public "getChanceModifier"(): float
 public "getNext"(arg0: $BlockState$Type): $Optional<($BlockState)>
+public "getChanceModifier"(): float
+public static "onUse"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type): $InteractionResult
+public static "getUnWaxed"(arg0: $BlockState$Type): $Optional<($BlockState)>
+public static "getUnWaxed"(arg0: $Block$Type): $Optional<($Block)>
+public static "getWaxed"(arg0: $Block$Type): $Optional<($Block)>
+public static "getWaxed"(arg0: $BlockState$Type): $Optional<($BlockState)>
 public "onRandomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "applyChangeOverTime"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 get "age"(): $WeatheringCopper$WeatherState
@@ -1490,14 +1490,14 @@ public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $Block
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "getBlockForPart"(arg0: $StoneBlockSet$SetComponent$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
 public "isCharged"(arg0: $BlockState$Type): boolean
-public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "getSourceDirection"(arg0: $BlockState$Type): $Direction
-public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
-public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
-public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 public "pushesPower"(arg0: $BlockState$Type): boolean
+public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
+public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "getBlockForType"(arg0: $BlockNode$BlockType$Type, arg1: $BlockBehaviour$Properties$Type, arg2: $Block$Type): $Block
 }
 /**
@@ -1577,14 +1577,14 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 export interface $IAbyssalineChargeable {
 
  "isCharged"(arg0: $BlockState$Type): boolean
- "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
  "getSourceDirection"(arg0: $BlockState$Type): $Direction
- "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
- "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
  "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
- "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
  "pushesPower"(arg0: $BlockState$Type): boolean
+ "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
  "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+ "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+ "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
+ "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 }
 
 export namespace $IAbyssalineChargeable {
@@ -1703,15 +1703,15 @@ constructor(arg0: $BlockBehaviour$Properties$Type)
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
 public "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
 public "pushesPower"(arg0: $BlockState$Type): boolean
 public "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
 public "isCharged"(arg0: $BlockState$Type): boolean
-public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "getSourceDirection"(arg0: $BlockState$Type): $Direction
 public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
+public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1775,14 +1775,14 @@ public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "isCharged"(arg0: $BlockState$Type): boolean
-public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "getSourceDirection"(arg0: $BlockState$Type): $Direction
-public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
-public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
-public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 public "pushesPower"(arg0: $BlockState$Type): boolean
+public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
+public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1897,18 +1897,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
 public "outputsChargeTo"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "acceptsChargeFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithChargeDirection"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
 public "isCharged"(arg0: $BlockState$Type): boolean
 public "getSourceDirection"(arg0: $BlockState$Type): $Direction
-public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
-public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 public "pushesPower"(arg0: $BlockState$Type): boolean
+public "getSourceOffset"(arg0: $BlockState$Type): $BlockPos
 public "pullsPowerFrom"(arg0: $BlockState$Type, arg1: $Direction$Type): boolean
+public "getStateWithCharge"(arg0: $BlockState$Type, arg1: boolean): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1933,11 +1933,11 @@ import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packa
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$SimpleWaterloggedBlock, $SimpleWaterloggedBlock$Type} from "packages/net/minecraft/world/level/block/$SimpleWaterloggedBlock"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$List, $List$Type} from "packages/java/util/$List"
@@ -1981,21 +1981,21 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
-public "useShapeForLightOcclusion"(arg0: $BlockState$Type): boolean
-public "getFluidState"(arg0: $BlockState$Type): $FluidState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
-public "canBeReplaced"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): boolean
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "useShapeForLightOcclusion"(arg0: $BlockState$Type): boolean
+public "canBeReplaced"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): boolean
+public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
+public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public static "isQuarkEnabled"(): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "quarkEnabled"(): boolean
 get "pickupSound"(): $Optional<($SoundEvent)>
@@ -2025,16 +2025,16 @@ import {$ToolAction, $ToolAction$Type} from "packages/net/minecraftforge/common/
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
-import {$WeatheringCopper$WeatherState, $WeatheringCopper$WeatherState$Type} from "packages/net/minecraft/world/level/block/$WeatheringCopper$WeatherState"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$WeatheringCopper$WeatherState, $WeatheringCopper$WeatherState$Type} from "packages/net/minecraft/world/level/block/$WeatheringCopper$WeatherState"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $APWeatheringCopper extends $ChangeOverTimeBlock<($WeatheringCopper$WeatherState)> {
 
- "getChanceModifier"(): float
  "getNext"(arg0: $BlockState$Type): $Optional<($BlockState)>
- "getAge"(): $WeatheringCopper$WeatherState
+ "getChanceModifier"(): float
  "onRandomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+ "getAge"(): $WeatheringCopper$WeatherState
  "applyChangeOverTime"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 
 (arg0: $Block$Type): $Block
@@ -2046,15 +2046,15 @@ const PREVIOUS_BY_BLOCK: $Supplier<($BiMap<($Block), ($Block)>)>
 const WAXED_BY_BLOCK: $Supplier<($BiMap<($Block), ($Block)>)>
 const UNWAXED_BY_BLOCK: $Supplier<($BiMap<($Block), ($Block)>)>
 function getFirst(arg0: $Block$Type): $Block
+function getToolModifiedState(arg0: $ToolAction$Type, arg1: $BlockState$Type): $BlockState
 function getNext(arg0: $Block$Type): $Optional<($Block)>
 function getPrevious(arg0: $Block$Type): $Optional<($Block)>
 function getPrevious(arg0: $BlockState$Type): $Optional<($BlockState)>
-function getToolModifiedState(arg0: $ToolAction$Type, arg1: $BlockState$Type): $BlockState
 function onUse(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type): $InteractionResult
-function getWaxed(arg0: $BlockState$Type): $Optional<($BlockState)>
-function getWaxed(arg0: $Block$Type): $Optional<($Block)>
-function getUnWaxed(arg0: $Block$Type): $Optional<($Block)>
 function getUnWaxed(arg0: $BlockState$Type): $Optional<($BlockState)>
+function getUnWaxed(arg0: $Block$Type): $Optional<($Block)>
+function getWaxed(arg0: $Block$Type): $Optional<($Block)>
+function getWaxed(arg0: $BlockState$Type): $Optional<($BlockState)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2133,8 +2133,8 @@ import {$SimpleWaterloggedBlock, $SimpleWaterloggedBlock$Type} from "packages/ne
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$DirectionalFacingBlock, $DirectionalFacingBlock$Type} from "packages/architectspalette/content/blocks/util/$DirectionalFacingBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
@@ -2169,14 +2169,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -2264,10 +2264,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public static "rotatePillar"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "skipRendering"(arg0: $BlockState$Type, arg1: $BlockState$Type, arg2: $Direction$Type): boolean
-public static "rotatePillar"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2438,17 +2438,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
-public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
+public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "getFluidState"(arg0: $BlockState$Type): $FluidState
 public "getInteractionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "checkNearbyPipes"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type): $PipeBlock$PipeBlockPart
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }

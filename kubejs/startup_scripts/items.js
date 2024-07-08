@@ -7,4 +7,6 @@ StartupEvents.registry('item', event => {
     event.create('mushroom_paste').displayName('Mushroom Paste')
     event.create('mycelial_blend').displayName('Mycelial Blend')
     event.create('steel_ingot').displayName('Steel Ingot')
+    event.create('ae2_mechanism').displayName('AE2 Mechanism')
+    event.create('incomplete_ae2_mechanism').displayName('Incomplete AE2 Mechanism')
 })
