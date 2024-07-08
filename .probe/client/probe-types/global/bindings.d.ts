@@ -1,6 +1,8 @@
+import {$TargetEntityCastData, $TargetEntityCastData$Type} from "packages/io/redspace/ironsspellbooks/capabilities/magic/$TargetEntityCastData"
 import {$NBTIOWrapper, $NBTIOWrapper$Type} from "packages/dev/latvian/mods/kubejs/util/$NBTIOWrapper"
 import {$KMath, $KMath$Type} from "packages/dev/latvian/mods/kubejs/bindings/$KMath"
 import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
+import {$Potions, $Potions$Type} from "packages/net/minecraft/world/item/alchemy/$Potions"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$SDRPKubeJSWrapper, $SDRPKubeJSWrapper$Type} from "packages/com/sunekaer/sdrp/integration/kubejs/$SDRPKubeJSWrapper"
 import {$ColorWrapper, $ColorWrapper$Type} from "packages/dev/latvian/mods/rhino/mod/wrapper/$ColorWrapper"
@@ -18,13 +20,16 @@ import {$Blocks, $Blocks$Type} from "packages/net/minecraft/world/level/block/$B
 import {$BlockWrapper, $BlockWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$BlockWrapper"
 import {$EntityJSUtils, $EntityJSUtils$Type} from "packages/net/liopyu/entityjs/util/$EntityJSUtils"
 import {$OutputItem, $OutputItem$Type} from "packages/dev/latvian/mods/kubejs/item/$OutputItem"
+import {$AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder, $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder$Type} from "packages/com/squoshi/irons_spells_js/util/$AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder"
 import {$Items, $Items$Type} from "packages/net/minecraft/world/item/$Items"
 import {$TextWrapper, $TextWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$TextWrapper"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$AnimationHolder, $AnimationHolder$Type} from "packages/io/redspace/ironsspellbooks/api/util/$AnimationHolder"
 import {$Matrix3f, $Matrix3f$Type} from "packages/org/joml/$Matrix3f"
 import {$Stats, $Stats$Type} from "packages/net/minecraft/stats/$Stats"
 import {$Math, $Math$Type} from "packages/java/lang/$Math"
 import {$ItemFilter, $ItemFilter$Type} from "packages/com/almostreliable/lootjs/filters/$ItemFilter"
+import {$Utils, $Utils$Type} from "packages/io/redspace/ironsspellbooks/api/util/$Utils"
 import {$ParrotElement, $ParrotElement$Type} from "packages/com/simibubi/create/foundation/ponder/element/$ParrotElement"
 import {$JavaWrapper, $JavaWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$JavaWrapper"
 import {$ItemWrapper, $ItemWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$ItemWrapper"
@@ -32,7 +37,9 @@ import {$PonderPalette, $PonderPalette$Type} from "packages/com/simibubi/create/
 import {$Quaternionf, $Quaternionf$Type} from "packages/org/joml/$Quaternionf"
 import {$RotationAxis, $RotationAxis$Type} from "packages/dev/latvian/mods/kubejs/util/$RotationAxis"
 import {$Painter, $Painter$Type} from "packages/dev/latvian/mods/kubejs/client/painter/$Painter"
+import {$AbstractSpellWrapper, $AbstractSpellWrapper$Type} from "packages/com/squoshi/irons_spells_js/spell/$AbstractSpellWrapper"
 import {$FluidAmounts, $FluidAmounts$Type} from "packages/dev/latvian/mods/kubejs/util/$FluidAmounts"
+import {$UpdateClient, $UpdateClient$Type} from "packages/io/redspace/ironsspellbooks/api/util/$UpdateClient"
 import {$UtilsWrapper, $UtilsWrapper$Type} from "packages/dev/latvian/mods/kubejs/bindings/$UtilsWrapper"
 import {$Matrix4f, $Matrix4f$Type} from "packages/org/joml/$Matrix4f"
 import {$IngredientForgeHelper, $IngredientForgeHelper$Type} from "packages/dev/latvian/mods/kubejs/platform/forge/$IngredientForgeHelper"
@@ -46,6 +53,7 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$InputWindowElement, $InputWindowElement$Type} from "packages/com/simibubi/create/foundation/ponder/element/$InputWindowElement"
 import {$AlmostKube, $AlmostKube$Type} from "packages/com/almostreliable/unified/compat/$AlmostKube"
 import {$ItemTags, $ItemTags$Type} from "packages/net/minecraft/tags/$ItemTags"
+import {$PotionRegistry, $PotionRegistry$Type} from "packages/io/redspace/ironsspellbooks/registries/$PotionRegistry"
 import {$HashMap, $HashMap$Type} from "packages/java/util/$HashMap"
 import {$Vector4f, $Vector4f$Type} from "packages/org/joml/$Vector4f"
 import {$UUIDWrapper, $UUIDWrapper$Type} from "packages/dev/latvian/mods/rhino/mod/wrapper/$UUIDWrapper"
@@ -72,6 +80,8 @@ const PonderIcons: typeof $AllIcons
 const OutputItem: typeof $OutputItem
 const RotationAxis: typeof $RotationAxis
 const PonderInputWindowElement: typeof $InputWindowElement
+const ISSUpdateClient: typeof $UpdateClient
+const AlchemistCauldronRecipeBuilder: typeof $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
 const Painter: $Painter
 const Items: typeof $Items
 const MINUTE: double
@@ -83,9 +93,11 @@ const SoundType: typeof $SoundType
 const Player: typeof $Player
 const Fluid: typeof $FluidWrapper
 const SchoolRegistry: typeof $SchoolRegistry
+const ISSUtils: typeof $Utils
 const Duration: typeof $Duration
 const PonderInput: typeof $InputWindowElement
 const PonderPointing: typeof $Pointing
+const ISSAnimationHolder: typeof $AnimationHolder
 const Matrix4f: typeof $Matrix4f
 const SpellRarity: typeof $SpellRarity
 const LootEntry: typeof $LootEntryWrapper
@@ -96,12 +108,14 @@ const Stats: typeof $Stats
 const Block: typeof $BlockWrapper
 const Interval: $IntervalJS
 const JavaMath: typeof $Math
+const TargetEntityCastData: typeof $TargetEntityCastData
 const HOUR: double
 const global: $HashMap<(any), (any)>
 const CastType: typeof $CastType
 const IngredientHelper: $IngredientForgeHelper
 const Vec4f: typeof $Vector4f
 const Notification: typeof $NotificationBuilder
+const Potions: typeof $Potions
 const PonderPalette: typeof $PonderPalette
 const Matrix3f: typeof $Matrix3f
 const ResourceLocation: typeof $ResourceLocation
@@ -120,6 +134,7 @@ const Text: typeof $TextWrapper
 const Vec3f: typeof $Vector3f
 const Vec3d: typeof $Vec3
 const InputItem: typeof $InputItem
+const ISSPotionRegistry: typeof $PotionRegistry
 const SECOND: double
 const ParrotElement: typeof $ParrotElement
 export import NBT = $NBTUtils
@@ -129,6 +144,7 @@ export import Color = $ColorWrapper
 export import ForgeItemFilter = $ForgeItemFilter
 export import NBTIO = $NBTIOWrapper
 export import Direction = $DirectionWrapper
+export import Spell = $AbstractSpellWrapper
 export import EntityJSUtils = $EntityJSUtils
 export import Item = $ItemWrapper
 export import ItemFilter = $ItemFilter
