@@ -35,10 +35,10 @@ export class $ConfigArgument$Serializer implements $ArgumentTypeInfo<($ConfigArg
 
 constructor()
 
-public "unpack"(arg0: $ConfigArgument$Type): $ConfigArgument$Serializer$Template
-public "serializeToJson"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $JsonObject$Type): void
-public "serializeToNetwork"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $FriendlyByteBuf$Type): void
 public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $ConfigArgument$Serializer$Template
+public "serializeToJson"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $JsonObject$Type): void
+public "unpack"(arg0: $ConfigArgument$Type): $ConfigArgument$Serializer$Template
+public "serializeToNetwork"(arg0: $ConfigArgument$Serializer$Template$Type, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -54,8 +54,8 @@ export type $ConfigArgument$Serializer_ = $ConfigArgument$Serializer$Type;
 }}
 declare module "packages/nonamecrackers2/crackerslib/common/command/argument/$ConfigArgument" {
 import {$Suggestions, $Suggestions$Type} from "packages/com/mojang/brigadier/suggestion/$Suggestions"
-import {$CommandSourceStack, $CommandSourceStack$Type} from "packages/net/minecraft/commands/$CommandSourceStack"
 import {$CompletableFuture, $CompletableFuture$Type} from "packages/java/util/concurrent/$CompletableFuture"
+import {$CommandSourceStack, $CommandSourceStack$Type} from "packages/net/minecraft/commands/$CommandSourceStack"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$ForgeConfigSpec$ConfigValue, $ForgeConfigSpec$ConfigValue$Type} from "packages/net/minecraftforge/common/$ForgeConfigSpec$ConfigValue"
@@ -71,10 +71,10 @@ export class $ConfigArgument implements $ArgumentType<(string)> {
 
 constructor(arg0: $List$Type<(string)>)
 
+public "listSuggestions"<S>(arg0: $CommandContext$Type<(S)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
 public static "get"<T>(arg0: $CommandContext$Type<($CommandSourceStack$Type)>, arg1: string, arg2: $ForgeConfigSpec$Type): $ForgeConfigSpec$ConfigValue<(T)>
 public static "arg"(arg0: $Map$Type<(string), ($ForgeConfigSpec$ValueSpec$Type)>, arg1: $Class$Type<(any)>): $ConfigArgument
 public static "any"(arg0: $Map$Type<(string), ($ForgeConfigSpec$ValueSpec$Type)>): $ConfigArgument
-public "listSuggestions"<S>(arg0: $CommandContext$Type<(S)>, arg1: $SuggestionsBuilder$Type): $CompletableFuture<($Suggestions)>
 public "getExamples"(): $Collection<(string)>
 get "examples"(): $Collection<(string)>
 }
@@ -96,8 +96,8 @@ import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Blo
 
 export interface $MixinBlockEntityType {
 
- "crackerslib$setValidBlocks"(arg0: $Set$Type<($Block$Type)>): void
  "crackerslib$getValidBlocks"(): $Set<($Block)>
+ "crackerslib$setValidBlocks"(arg0: $Set$Type<($Block$Type)>): void
 }
 
 export namespace $MixinBlockEntityType {

@@ -10,8 +10,8 @@ export class $SDRPKubeJSWrapper {
 
 constructor()
 
-public static "setState"(message: string, imageName: string, imageKey: string): void
 public static "getCurrentState"(): $RichPresence
+public static "setState"(message: string, imageName: string, imageKey: string): void
 get "currentState"(): $RichPresence
 }
 /**

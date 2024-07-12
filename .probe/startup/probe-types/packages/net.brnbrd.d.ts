@@ -237,20 +237,20 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type, ...arg2: (string)[])
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getModid"(): (string)[]
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
+public "getStrategy"(): $ICompat$Strategy
 public "enabled"(): boolean
 public "isLoaded"(): boolean
-public "getStrategy"(): $ICompat$Strategy
-public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "getConflicts"(): (string)[]
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
 get "modid"(): (string)[]
-get "loaded"(): boolean
 get "strategy"(): $ICompat$Strategy
+get "loaded"(): boolean
 get "conflicts"(): (string)[]
 }
 /**
@@ -306,11 +306,11 @@ public "mineBlock"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $BlockState$T
 public "isValidRepairItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
 public "isRepairable"(arg0: $ItemStack$Type): boolean
 public "isFoil"(arg0: $ItemStack$Type): boolean
-public "getRod"(): $Ingredient
 public "getTools"(): $List<($Component)>
+public "getRod"(): $Ingredient
 public "asItem"(): $Item
-get "rod"(): $Ingredient
 get "tools"(): $List<($Component)>
+get "rod"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -373,6 +373,42 @@ export type $RoseGoldKnifeItem$Type = ($RoseGoldKnifeItem);
 declare global {
 export type $RoseGoldKnifeItem_ = $RoseGoldKnifeItem$Type;
 }}
+declare module "packages/net/brnbrd/delightful/common/item/food/$CupItem" {
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$CompatConsumableItem, $CompatConsumableItem$Type} from "packages/net/brnbrd/delightful/common/item/food/$CompatConsumableItem"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $CupItem extends $CompatConsumableItem {
+static readonly "BY_BLOCK": $Map<($Block), ($Item)>
+static "BASE_ATTACK_DAMAGE_UUID": $UUID
+static "BASE_ATTACK_SPEED_UUID": $UUID
+static readonly "MAX_STACK_SIZE": integer
+static readonly "EAT_DURATION": integer
+static readonly "MAX_BAR_WIDTH": integer
+ "maxStackSize": integer
+ "craftingRemainingItem": $Item
+ "descriptionId": string
+ "renderProperties": any
+
+constructor(arg0: $Item$Properties$Type, arg1: boolean, arg2: boolean)
+
+public "asItem"(): $Item
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CupItem$Type = ($CupItem);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CupItem_ = $CupItem$Type;
+}}
 declare module "packages/net/brnbrd/delightful/common/block/$DelightfulCabinetBlock" {
 import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
@@ -416,8 +452,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $Ingredient$Type, arg1: $BlockBehaviour$Properties$Type)
 
-public "enabled"(): boolean
 public "getIngredient"(): $Ingredient
+public "enabled"(): boolean
 public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "getConflicts"(): (string)[]
 public "asItem"(): $Item
@@ -573,11 +609,11 @@ static readonly "UPDATE_LIMIT": integer
 static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
 readonly "properties": $BlockBehaviour$Properties
 
-constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $Supplier$Type<($Item$Type)>, arg2: $ResourceLocation$Type)
+constructor(arg0: $Supplier$Type<($Item$Type)>, arg1: $ResourceLocation$Type)
 
-public "getStack"(): $ItemStack
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "asItem"(): $Item
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "getStack"(): $ItemStack
 get "stack"(): $ItemStack
 }
 /**
@@ -726,7 +762,13 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $Supplier$Type<($Item$Type)>, arg2: $Supplier$Type<($Item$Type)>)
 
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "getSliceItem"(): $ItemStack
+public "getMaxBites"(): integer
+public "byBite"(arg0: $BlockState$Type): $VoxelShape
+public "getBaseHeight"(): float
+public "getSliceSize"(): integer
+public "getBitesProperty"(): $IntegerProperty
+public "getJuiceItem"(): $ItemStack
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
@@ -734,20 +776,14 @@ public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getOcclusionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBaseHeight"(): float
-public "getBitesProperty"(): $IntegerProperty
-public "getSliceSize"(): integer
-public "byBite"(arg0: $BlockState$Type): $VoxelShape
-public "getJuiceItem"(): $ItemStack
-public "getMaxBites"(): integer
-public "getSliceItem"(): $ItemStack
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "getHeight"(arg0: integer): float
-get "baseHeight"(): float
-get "bitesProperty"(): $IntegerProperty
-get "sliceSize"(): integer
-get "juiceItem"(): $ItemStack
-get "maxBites"(): integer
 get "sliceItem"(): $ItemStack
+get "maxBites"(): integer
+get "baseHeight"(): float
+get "sliceSize"(): integer
+get "bitesProperty"(): $IntegerProperty
+get "juiceItem"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -770,11 +806,11 @@ import {$IConfigured, $IConfigured$Type} from "packages/net/brnbrd/delightful/co
 
 export interface $ICompat extends $IConfigured {
 
- "enabled"(): boolean
- "isLoaded"(): boolean
- "getStrategy"(): $ICompat$Strategy
  "getModid"(): (string)[]
  "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
+ "getStrategy"(): $ICompat$Strategy
+ "enabled"(): boolean
+ "isLoaded"(): boolean
  "getConflicts"(): (string)[]
  "asItem"(): $Item
 }
@@ -829,8 +865,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getRecipeType"(): $RecipeType<(any)>
 public "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
+public "getRecipeType"(): $RecipeType<(any)>
 public "getTools"(): $List<($Component)>
 public "asItem"(): $Item
 get "recipeType"(): $RecipeType<(any)>
@@ -876,9 +912,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $TagKey$Type<($Item$Type)>)
 
-public "enabled"(): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isTag"(): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabled"(): boolean
 get "tag"(): boolean
 }
 /**
@@ -945,26 +981,27 @@ export type $EnderiteKnifeItem_ = $EnderiteKnifeItem$Type;
 declare module "packages/net/brnbrd/delightful/common/block/$SalmonberryBushBlock" {
 import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$BonemealableBlock, $BonemealableBlock$Type} from "packages/net/minecraft/world/level/block/$BonemealableBlock"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$PlantType, $PlantType$Type} from "packages/net/minecraftforge/common/$PlantType"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BushBlock, $BushBlock$Type} from "packages/net/minecraft/world/level/block/$BushBlock"
 
 export class $SalmonberryBushBlock extends $BushBlock implements $BonemealableBlock {
@@ -994,15 +1031,16 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "isMaxAge"(arg0: $BlockState$Type): boolean
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
+public "getPlantType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PlantType
+public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "isMaxAge"(arg0: $BlockState$Type): boolean
-public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1052,9 +1090,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "getEnchantmentLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "getRecipeType"(): $RecipeType<(any)>
 public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
-public "getEnchantmentLevel"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): integer
 public "getTools"(): $List<($Component)>
 public "asItem"(): $Item
 get "recipeType"(): $RecipeType<(any)>
@@ -1107,15 +1145,15 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
 public "getConflicts"(): (string)[]
-public "getRod"(): $Ingredient
-public "getTools"(): $List<($Component)>
+public "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
+public "getTools"(): $List<($Component)>
+public "getRod"(): $Ingredient
 public "asItem"(): $Item
 get "conflicts"(): (string)[]
-get "rod"(): $Ingredient
 get "tools"(): $List<($Component)>
+get "rod"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1168,25 +1206,26 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $TagKey$Type<($Item$Type)>, arg1: $Tier$Type, arg2: $Item$Properties$Type)
 
-public "enabled"(): boolean
-public "getTag"(): $TagKey<($Item)>
+public "getTranslation"(): string
+public "isTag"(): boolean
 public "getRecipeType"(): $RecipeType<(any)>
-public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isValidRepairItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
-public "isTag"(): boolean
-public "getRod"(): $Ingredient
-public "hasCustomName"(): boolean
+public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 public "getTools"(): $List<($Component)>
+public "getRod"(): $Ingredient
+public "enabled"(): boolean
+public "getTag"(): $TagKey<($Item)>
 public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "getConflicts"(): (string)[]
 public "asItem"(): $Item
-get "tag"(): $TagKey<($Item)>
+get "translation"(): string
+get "tag"(): boolean
 get "recipeType"(): $RecipeType<(any)>
 get "smithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
-get "tag"(): boolean
-get "rod"(): $Ingredient
 get "tools"(): $List<($Component)>
+get "rod"(): $Ingredient
+get "tag"(): $TagKey<($Item)>
 get "conflicts"(): (string)[]
 }
 /**
@@ -1235,9 +1274,9 @@ constructor(arg0: $Item$Properties$Type, arg1: float, arg2: boolean, arg3: boole
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "affectConsumer"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): void
-public "enabled"(): boolean
 public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "getConflicts"(): (string)[]
+public "enabled"(): boolean
 public "asItem"(): $Item
 get "conflicts"(): (string)[]
 }
@@ -1284,13 +1323,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getRecipeType"(): $RecipeType<(any)>
-public "getDefaultInstance"(): $ItemStack
 public "getConflicts"(): (string)[]
+public "getDefaultInstance"(): $ItemStack
+public "getRecipeType"(): $RecipeType<(any)>
 public "asItem"(): $Item
-get "recipeType"(): $RecipeType<(any)>
-get "defaultInstance"(): $ItemStack
 get "conflicts"(): (string)[]
+get "defaultInstance"(): $ItemStack
+get "recipeType"(): $RecipeType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1384,8 +1423,8 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: string, arg1: $TagKey$Type<($Item$Type)>, arg2: $Tier$Type, arg3: $Item$Properties$Type, ...arg4: ($ChatFormatting$Type)[])
 constructor(arg0: $TagKey$Type<($Item$Type)>, arg1: $Tier$Type, arg2: $Item$Properties$Type, ...arg3: ($ChatFormatting$Type)[])
+constructor(arg0: string, arg1: $TagKey$Type<($Item$Type)>, arg2: $Tier$Type, arg3: $Item$Properties$Type, ...arg4: ($ChatFormatting$Type)[])
 
 public "getStrategy"(): $ICompat$Strategy
 public "getRod"(): $Ingredient
@@ -1430,13 +1469,13 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $Item$Properties$Type)
 constructor(arg0: $Item$Properties$Type, arg1: boolean)
+constructor(arg0: $Item$Properties$Type)
 
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "enabled"(): boolean
 public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "getConflicts"(): (string)[]
+public "enabled"(): boolean
 get "conflicts"(): (string)[]
 }
 /**
@@ -1485,15 +1524,15 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, ...arg1: ($ChatFormatting$Type)[])
 
-public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
-public "isValidRepairItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
 public "getModid"(): (string)[]
-public "getManaPerDamage"(): integer
 public "getAttributeModifiers"(arg0: $EquipmentSlot$Type, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "getManaPerDamage"(): integer
+public "isValidRepairItem"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 public "asItem"(): $Item
-get "smithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 get "modid"(): (string)[]
 get "manaPerDamage"(): integer
+get "smithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1561,7 +1600,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $Supplier$Type<($Item$Type)>, arg2: $Supplier$Type<(any)>, arg3: $Supplier$Type<(any)>)
 
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "getAttachedStem"(): $AttachedStemBlock
+public "getStem"(): $StemBlock
+public "getSliceItem"(): $ItemStack
+public "getMaxBites"(): integer
+public "byBite"(arg0: $BlockState$Type): $VoxelShape
+public "getBaseHeight"(): float
+public "getSliceSize"(): integer
+public "getBitesProperty"(): $IntegerProperty
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
@@ -1569,22 +1615,15 @@ public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getOcclusionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getStem"(): $StemBlock
-public "getAttachedStem"(): $AttachedStemBlock
-public "getBaseHeight"(): float
-public "getBitesProperty"(): $IntegerProperty
-public "getSliceSize"(): integer
-public "byBite"(arg0: $BlockState$Type): $VoxelShape
-public "getMaxBites"(): integer
-public "getSliceItem"(): $ItemStack
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "getHeight"(arg0: integer): float
-get "stem"(): $StemBlock
 get "attachedStem"(): $AttachedStemBlock
-get "baseHeight"(): float
-get "bitesProperty"(): $IntegerProperty
-get "sliceSize"(): integer
-get "maxBites"(): integer
+get "stem"(): $StemBlock
 get "sliceItem"(): $ItemStack
+get "maxBites"(): integer
+get "baseHeight"(): float
+get "sliceSize"(): integer
+get "bitesProperty"(): $IntegerProperty
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1691,9 +1730,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: float, arg2: boolean, arg3: boolean)
 
-public "enabled"(): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isTag"(): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabled"(): boolean
 public "asItem"(): $Item
 get "tag"(): boolean
 }
@@ -1740,13 +1779,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getRecipeType"(): $RecipeType<(any)>
-public "getDefaultInstance"(): $ItemStack
 public "getConflicts"(): (string)[]
+public "getDefaultInstance"(): $ItemStack
+public "getRecipeType"(): $RecipeType<(any)>
 public "asItem"(): $Item
-get "recipeType"(): $RecipeType<(any)>
-get "defaultInstance"(): $ItemStack
 get "conflicts"(): (string)[]
+get "defaultInstance"(): $ItemStack
+get "recipeType"(): $RecipeType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1823,9 +1862,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "enabled"(): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isTag"(): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabled"(): boolean
 public "asItem"(): $Item
 get "tag"(): boolean
 }
@@ -2202,9 +2241,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "getTranslation"(): string
 public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
-public "hasCustomName"(): boolean
 public "asItem"(): $Item
+get "translation"(): string
 get "smithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 }
 /**
@@ -2325,11 +2365,11 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $ISliceable {
 
  "getHeight"(arg0: integer): float
- "getBaseHeight"(): float
- "getBitesProperty"(): $IntegerProperty
- "getSliceSize"(): integer
- "getMaxBites"(): integer
  "getSliceItem"(): $ItemStack
+ "getMaxBites"(): integer
+ "getBaseHeight"(): float
+ "getSliceSize"(): integer
+ "getBitesProperty"(): $IntegerProperty
 }
 
 export namespace $ISliceable {
@@ -2382,16 +2422,16 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "isDamaged"(arg0: $ItemStack$Type): boolean
+public "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
 public "canBeDepleted"(): boolean
 public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "isDamageable"(arg0: $ItemStack$Type): boolean
-public "isDamaged"(arg0: $ItemStack$Type): boolean
-public "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
-public "getRod"(): $Ingredient
 public "getTools"(): $List<($Component)>
+public "getRod"(): $Ingredient
 public "asItem"(): $Item
-get "rod"(): $Ingredient
 get "tools"(): $List<($Component)>
+get "rod"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2457,7 +2497,13 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $Supplier$Type<($Item$Type)>, arg2: $Supplier$Type<($Item$Type)>)
 
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "getSliceItem"(): $ItemStack
+public "getMaxBites"(): integer
+public "byBite"(arg0: $BlockState$Type): $VoxelShape
+public "getBaseHeight"(): float
+public "getSliceSize"(): integer
+public "getBitesProperty"(): $IntegerProperty
+public "getJuiceItem"(): $ItemStack
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
@@ -2465,20 +2511,14 @@ public "hasAnalogOutputSignal"(arg0: $BlockState$Type): boolean
 public "getOcclusionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "getAnalogOutputSignal"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): integer
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getBaseHeight"(): float
-public "getBitesProperty"(): $IntegerProperty
-public "getSliceSize"(): integer
-public "byBite"(arg0: $BlockState$Type): $VoxelShape
-public "getJuiceItem"(): $ItemStack
-public "getMaxBites"(): integer
-public "getSliceItem"(): $ItemStack
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "getHeight"(arg0: integer): float
-get "baseHeight"(): float
-get "bitesProperty"(): $IntegerProperty
-get "sliceSize"(): integer
-get "juiceItem"(): $ItemStack
-get "maxBites"(): integer
 get "sliceItem"(): $ItemStack
+get "maxBites"(): integer
+get "baseHeight"(): float
+get "sliceSize"(): integer
+get "bitesProperty"(): $IntegerProperty
+get "juiceItem"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2598,11 +2638,11 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getUseDuration"(arg0: $ItemStack$Type): integer
-public "getDrinkingSound"(): $SoundEvent
 public "getEatingSound"(): $SoundEvent
+public "getDrinkingSound"(): $SoundEvent
 public "asItem"(): $Item
-get "drinkingSound"(): $SoundEvent
 get "eatingSound"(): $SoundEvent
+get "drinkingSound"(): $SoundEvent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2653,8 +2693,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
-public static "getAllEffectHolders"(): $List<($SuspiciousEffectHolder)>
 public static "tryGet"(arg0: $ItemLike$Type): $SuspiciousEffectHolder
+public static "getAllEffectHolders"(): $List<($SuspiciousEffectHolder)>
 get "allEffectHolders"(): $List<($SuspiciousEffectHolder)>
 }
 /**
@@ -2698,8 +2738,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "hasCustomName"(): boolean
+public "getTranslation"(): string
 public "asItem"(): $Item
+get "translation"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2742,8 +2783,8 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: (string)[], arg1: $TagKey$Type<($Item$Type)>, arg2: $Ingredient$Type)
 constructor(arg0: (string)[], arg1: $TagKey$Type<($Item$Type)>, arg2: $Ingredient$Type, arg3: boolean)
+constructor(arg0: (string)[], arg1: $TagKey$Type<($Item$Type)>, arg2: $Ingredient$Type)
 
 public "getRecipeType"(): $RecipeType<(any)>
 public "getRod"(): $Ingredient
@@ -2789,13 +2830,13 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $Item$Properties$Type, arg1: boolean, arg2: boolean)
 constructor(arg0: $Item$Properties$Type)
+constructor(arg0: $Item$Properties$Type, arg1: boolean, arg2: boolean)
 
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "enabled"(): boolean
 public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "getConflicts"(): (string)[]
+public "enabled"(): boolean
 public "asItem"(): $Item
 get "conflicts"(): (string)[]
 }
@@ -2901,13 +2942,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $TagKey$Type<($Item$Type)>, arg2: $Tier$Type, ...arg3: ($ChatFormatting$Type)[])
 
-public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
 public "damageItem"<T extends $LivingEntity>(arg0: $ItemStack$Type, arg1: integer, arg2: T, arg3: $Consumer$Type<(T)>): integer
-public "getRod"(): $Ingredient
 public "getManaPerDamage"(): integer
+public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
+public "getRod"(): $Ingredient
 public "asItem"(): $Item
-get "rod"(): $Ingredient
 get "manaPerDamage"(): integer
+get "rod"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3018,8 +3059,8 @@ import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$RecipeType, $RecipeType$Type} from "packages/net/minecraft/world/item/crafting/$RecipeType"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
@@ -3041,10 +3082,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: integer)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
-public static "useFuel"(arg0: $ItemStack$Type, arg1: $BlockEntity$Type, arg2: $Player$Type): $InteractionResult
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public static "useFuel"(arg0: $ItemStack$Type, arg1: $BlockEntity$Type, arg2: $Player$Type): $InteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3086,9 +3127,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $TagKey$Type<($Item$Type)>)
 
-public "enabled"(): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isTag"(): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabled"(): boolean
 get "tag"(): boolean
 }
 /**
@@ -3292,17 +3333,17 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: string, arg1: $TagKey$Type<($Item$Type)>, arg2: $Tier$Type, arg3: $Item$Properties$Type, ...arg4: ($ChatFormatting$Type)[])
 constructor(arg0: (string)[], arg1: $TagKey$Type<($Item$Type)>, arg2: $Tier$Type, arg3: $Item$Properties$Type, ...arg4: ($ChatFormatting$Type)[])
 
-public "enabled"(): boolean
+public "getModid"(): (string)[]
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getName"(arg0: $ItemStack$Type): $Component
-public "getModid"(): (string)[]
-public "isLoaded"(): boolean
-public "getStrategy"(): $ICompat$Strategy
+public "enabled"(): boolean
 public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
+public "getStrategy"(): $ICompat$Strategy
+public "isLoaded"(): boolean
 public "asItem"(): $Item
 get "modid"(): (string)[]
-get "loaded"(): boolean
 get "strategy"(): $ICompat$Strategy
+get "loaded"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3353,6 +3394,58 @@ export type $MatchaItem$Type = ($MatchaItem);
  */
 declare global {
 export type $MatchaItem_ = $MatchaItem$Type;
+}}
+declare module "packages/net/brnbrd/delightful/common/item/food/$CompatConsumableItem" {
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
+import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$DConsumableItem, $DConsumableItem$Type} from "packages/net/brnbrd/delightful/common/item/food/$DConsumableItem"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$ICompat, $ICompat$Type} from "packages/net/brnbrd/delightful/common/item/$ICompat"
+import {$ICompat$Strategy, $ICompat$Strategy$Type} from "packages/net/brnbrd/delightful/common/item/$ICompat$Strategy"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $CompatConsumableItem extends $DConsumableItem implements $ICompat {
+static readonly "BY_BLOCK": $Map<($Block), ($Item)>
+static "BASE_ATTACK_DAMAGE_UUID": $UUID
+static "BASE_ATTACK_SPEED_UUID": $UUID
+static readonly "MAX_STACK_SIZE": integer
+static readonly "EAT_DURATION": integer
+static readonly "MAX_BAR_WIDTH": integer
+ "maxStackSize": integer
+ "craftingRemainingItem": $Item
+ "descriptionId": string
+ "renderProperties": any
+
+constructor(arg0: $Item$Properties$Type, arg1: boolean, arg2: boolean, ...arg3: (string)[])
+
+public "getModid"(): (string)[]
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
+public "getStrategy"(): $ICompat$Strategy
+public "enabled"(): boolean
+public "isLoaded"(): boolean
+public "asItem"(): $Item
+get "modid"(): (string)[]
+get "strategy"(): $ICompat$Strategy
+get "loaded"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CompatConsumableItem$Type = ($CompatConsumableItem);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CompatConsumableItem_ = $CompatConsumableItem$Type;
 }}
 declare module "packages/net/brnbrd/delightful/common/item/knife/compat/undergarden/$UtheriumKnifeItem" {
 import {$Multimap, $Multimap$Type} from "packages/com/google/common/collect/$Multimap"
@@ -3432,16 +3525,16 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: float, arg2: boolean, arg3: boolean, ...arg4: (string)[])
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getModid"(): (string)[]
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
+public "getStrategy"(): $ICompat$Strategy
 public "enabled"(): boolean
 public "isLoaded"(): boolean
-public "getStrategy"(): $ICompat$Strategy
-public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 public "asItem"(): $Item
 get "modid"(): (string)[]
-get "loaded"(): boolean
 get "strategy"(): $ICompat$Strategy
+get "loaded"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3571,9 +3664,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "enabled"(): boolean
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isTag"(): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "enabled"(): boolean
 public "asItem"(): $Item
 get "tag"(): boolean
 }
@@ -3716,10 +3809,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type, arg1: $TagKey$Type<($Item$Type)>, arg2: $Tier$Type, ...arg3: ($ChatFormatting$Type)[])
 
-public "handle"(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: float): void
-public "hurtEnemy"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: $LivingEntity$Type): boolean
 public "getManaPerDamage"(): integer
+public "hurtEnemy"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type, arg2: $LivingEntity$Type): boolean
 public "onLeftClick"(arg0: $PlayerInteractEvent$LeftClickEmpty$Type): void
+public "handle"(arg0: $Player$Type, arg1: $ItemStack$Type, arg2: float): void
 public "asItem"(): $Item
 get "manaPerDamage"(): integer
 }
@@ -3759,17 +3852,17 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $Item$Properties$Type, ...arg1: (string)[])
 constructor(arg0: $Item$Properties$Type, arg1: boolean, ...arg2: (string)[])
+constructor(arg0: $Item$Properties$Type, ...arg1: (string)[])
 
 public "getModid"(): (string)[]
+public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
+public "getStrategy"(): $ICompat$Strategy
 public "enabled"(): boolean
 public "isLoaded"(): boolean
-public "getStrategy"(): $ICompat$Strategy
-public "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
 get "modid"(): (string)[]
-get "loaded"(): boolean
 get "strategy"(): $ICompat$Strategy
+get "loaded"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3828,12 +3921,12 @@ import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$Ite
 
 export interface $IConfigured extends $ItemLike {
 
- "enabled"(): boolean
  "enabledText"(arg0: $List$Type<($Component$Type)>): boolean
  "getConflicts"(): (string)[]
+ "enabled"(): boolean
  "asItem"(): $Item
 
-(): boolean
+(arg0: $List$Type<($Component$Type)>): boolean
 }
 
 export namespace $IConfigured {
@@ -3952,8 +4045,8 @@ import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
@@ -3997,19 +4090,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "isMaxAge"(arg0: $BlockState$Type): boolean
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
-public "getPlant"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $BlockState
 public "getPlantType"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $PlantType
+public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "isMaxAge"(arg0: $BlockState$Type): boolean
-public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4037,8 +4129,8 @@ import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
@@ -4067,11 +4159,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4120,12 +4212,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 public "getConflicts"(): (string)[]
+public "getSmithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 public "getTools"(): $List<($Component)>
 public "asItem"(): $Item
-get "smithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 get "conflicts"(): (string)[]
+get "smithing"(): $ImmutablePair<($Ingredient), ($Ingredient)>
 get "tools"(): $List<($Component)>
 }
 /**

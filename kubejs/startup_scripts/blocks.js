@@ -14,4 +14,12 @@ StartupEvents.registry('block', event => {
     .resistance(5)
     .tagBlock('minecraft:mineable/pickaxe')
     .requiresTool(false)
+
+    event.create('heh')
+    .displayName('Heh')
+    .soundType('stone')
+    .hardness(5)
+    .resistance(5)
+    .tagBlock('minecraft:mineable/pickaxe')
+    .requiresTool(false)
 })

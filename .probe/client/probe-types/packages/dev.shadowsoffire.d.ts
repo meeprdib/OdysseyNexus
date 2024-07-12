@@ -17,17 +17,17 @@ static "CODEC": $Codec<($Wave)>
 
 constructor(entities: $List$Type<($WaveEntity$Type)>, modifiers: $List$Type<($WaveModifier$Type)>, rewards: $List$Type<($Reward$Type)>, maxWaveTime: integer, setupTime: integer)
 
-public "modifiers"(): $List<($WaveModifier)>
-public "equals"(arg0: any): boolean
-public "toString"(): string
-public "hashCode"(): integer
-public "entities"(): $List<($WaveEntity)>
 public "setupTime"(): integer
 public "maxWaveTime"(): integer
 public "spawnWave"(arg0: $ServerLevel$Type, arg1: $Vec3$Type, arg2: $GatewayEntity$Type): $List<($LivingEntity)>
 public "spawnRewards"(arg0: $ServerLevel$Type, arg1: $GatewayEntity$Type, arg2: $Player$Type): $List<($ItemStack)>
 public "rewards"(): $List<($Reward)>
 public static "spawnWaveEntity"(arg0: $ServerLevel$Type, arg1: $Vec3$Type, arg2: $GatewayEntity$Type, arg3: $Wave$Type, arg4: $WaveEntity$Type): $LivingEntity
+public "entities"(): $List<($WaveEntity)>
+public "modifiers"(): $List<($WaveModifier)>
+public "equals"(arg0: any): boolean
+public "toString"(): string
+public "hashCode"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -85,13 +85,13 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getStateDefinition"(): $StateDefinition<($Block), ($BlockState)>
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
+public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "_setDefaultState"(arg0: $BlockState$Type): void
 public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
-public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 get "stateDefinition"(): $StateDefinition<($Block), ($BlockState)>
 set "stateContainer"(value: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>)
 }
@@ -137,9 +137,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
 public "fromDispenser"(arg0: $Level$Type, arg1: double, arg2: double, arg3: double): $AbstractArrow
+public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -166,11 +166,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "reflect"(arg0: $ShieldBlockEvent$Type): void
-public "getMaxLevel"(): integer
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
+public "reflect"(arg0: $ShieldBlockEvent$Type): void
 get "maxLevel"(): integer
 }
 /**
@@ -198,21 +198,21 @@ import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/
 
 export interface $IFormattableAttribute {
 
- "ths"(): $Attribute
  "toValueComponent"(arg0: $AttributeModifier$Operation$Type, arg1: double, arg2: $TooltipFlag$Type): $MutableComponent
- "toComponent"(arg0: $AttributeModifier$Type, arg1: $TooltipFlag$Type): $MutableComponent
  "getBaseUUID"(): $UUID
  "getDebugInfo"(arg0: $AttributeModifier$Type, arg1: $TooltipFlag$Type): $Component
+ "toBaseComponent"(arg0: double, arg1: double, arg2: boolean, arg3: $TooltipFlag$Type): $MutableComponent
  "getBonusBaseValue"(arg0: $ItemStack$Type): double
  "addBonusTooltips"(arg0: $ItemStack$Type, arg1: $Consumer$Type<($Component$Type)>, arg2: $TooltipFlag$Type): void
- "toBaseComponent"(arg0: double, arg1: double, arg2: boolean, arg3: $TooltipFlag$Type): $MutableComponent
+ "toComponent"(arg0: $AttributeModifier$Type, arg1: $TooltipFlag$Type): $MutableComponent
+ "ths"(): $Attribute
 }
 
 export namespace $IFormattableAttribute {
 function toValueComponent(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
-function toComponent(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
-function isNullOrAddition(arg0: $AttributeModifier$Operation$Type): boolean
 function toBaseComponent(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
+function isNullOrAddition(arg0: $AttributeModifier$Operation$Type): boolean
+function toComponent(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -240,9 +240,9 @@ static "INSTANCE": $AddSocketsRecipe$Serializer
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddSocketsRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $AddSocketsRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $AddSocketsRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddSocketsRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $AddSocketsRecipe
 }
@@ -292,6 +292,8 @@ export class $CodecMap<V extends $CodecProvider<(any)>> implements $Codec<(V)> {
 
 constructor(arg0: string)
 
+public "getDefaultCodec"(): $Codec<(any)>
+public "setDefaultCodec"(arg0: $Codec$Type<(any)>): void
 public "decode"<T>(arg0: $DynamicOps$Type<(T)>, arg1: T): $DataResult<($Pair<(V), (T)>)>
 public "encode"<T>(arg0: V, arg1: $DynamicOps$Type<(T)>, arg2: T): $DataResult<(T)>
 public "getValue"(arg0: $ResourceLocation$Type): $Codec<(any)>
@@ -299,70 +301,69 @@ public "isEmpty"(): boolean
 public "getKey"(arg0: $Codec$Type<(any)>): $ResourceLocation
 public "register"(arg0: $ResourceLocation$Type, arg1: $Codec$Type<(any)>): void
 public "containsKey"(arg0: $ResourceLocation$Type): boolean
-public "setDefaultCodec"(arg0: $Codec$Type<(any)>): void
-public "getDefaultCodec"(): $Codec<(any)>
+public "xmap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
+public "withLifecycle"(arg0: $Lifecycle$Type): $Codec<(V)>
+public "deprecated"(arg0: integer): $Codec<(V)>
+public "flatXmap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
+public "promotePartial"(arg0: $Consumer$Type<(string)>): $Codec<(V)>
+public "mapResult"(arg0: $Codec$ResultFunction$Type<(V)>): $Codec<(V)>
+public static "optionalField"<F>(arg0: string, arg1: $Codec$Type<(F)>): $MapCodec<($Optional<(F)>)>
+public "partialDispatch"<E>(arg0: string, arg1: $Function$Type<(any), (any)>, arg2: $Function$Type<(any), (any)>): $Codec<(E)>
+public "optionalFieldOf"(arg0: string, arg1: $Lifecycle$Type, arg2: V, arg3: $Lifecycle$Type): $MapCodec<(V)>
+public "optionalFieldOf"(arg0: string): $MapCodec<($Optional<(V)>)>
+public "optionalFieldOf"(arg0: string, arg1: V): $MapCodec<(V)>
+public "optionalFieldOf"(arg0: string, arg1: V, arg2: $Lifecycle$Type): $MapCodec<(V)>
+public "dispatchMap"<E>(arg0: string, arg1: $Function$Type<(any), (any)>, arg2: $Function$Type<(any), (any)>): $MapCodec<(E)>
+public "dispatchMap"<E>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $MapCodec<(E)>
+public static "simpleMap"<K, V>(arg0: $Codec$Type<(K)>, arg1: $Codec$Type<(V)>, arg2: $Keyable$Type): $SimpleMapCodec<(K), (V)>
+public static "compoundList"<K, V>(arg0: $Codec$Type<(K)>, arg1: $Codec$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
+public "comapFlatMap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
+public static "either"<F, S>(arg0: $Codec$Type<(F)>, arg1: $Codec$Type<(S)>): $Codec<($Either<(F), (S)>)>
+public "flatComapMap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
+public static "mapPair"<F, S>(arg0: $MapCodec$Type<(F)>, arg1: $MapCodec$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
+public static "mapEither"<F, S>(arg0: $MapCodec$Type<(F)>, arg1: $MapCodec$Type<(S)>): $MapCodec<($Either<(F), (S)>)>
+public static "unboundedMap"<K, V>(arg0: $Codec$Type<(K)>, arg1: $Codec$Type<(V)>): $UnboundedMapCodec<(K), (V)>
+public static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
+public static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
+public "dispatchStable"<E>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(E)>
+public static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
+public "stable"(): $Codec<(V)>
+public "listOf"(): $Codec<($List<(V)>)>
 public static "unit"<A>(arg0: $Supplier$Type<(V)>): $Codec<(V)>
 public static "unit"<A>(arg0: V): $Codec<(V)>
 public "dispatch"<E>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(E)>
 public "dispatch"<E>(arg0: string, arg1: $Function$Type<(any), (any)>, arg2: $Function$Type<(any), (any)>): $Codec<(E)>
 public static "of"<A>(arg0: $MapEncoder$Type<(V)>, arg1: $MapDecoder$Type<(V)>, arg2: $Supplier$Type<(string)>): $MapCodec<(V)>
-public static "of"<A>(arg0: $Encoder$Type<(V)>, arg1: $Decoder$Type<(V)>): $Codec<(V)>
-public static "of"<A>(arg0: $MapEncoder$Type<(V)>, arg1: $MapDecoder$Type<(V)>): $MapCodec<(V)>
 public static "of"<A>(arg0: $Encoder$Type<(V)>, arg1: $Decoder$Type<(V)>, arg2: string): $Codec<(V)>
+public static "of"<A>(arg0: $MapEncoder$Type<(V)>, arg1: $MapDecoder$Type<(V)>): $MapCodec<(V)>
+public static "of"<A>(arg0: $Encoder$Type<(V)>, arg1: $Decoder$Type<(V)>): $Codec<(V)>
 public static "list"<E>(arg0: $Codec$Type<(E)>): $Codec<($List<(E)>)>
+public "orElse"(arg0: $Consumer$Type<(string)>, arg1: V): $Codec<(V)>
 public "orElse"(arg0: V): $Codec<(V)>
 public "orElse"(arg0: $UnaryOperator$Type<(string)>, arg1: V): $Codec<(V)>
-public "orElse"(arg0: $Consumer$Type<(string)>, arg1: V): $Codec<(V)>
 public static "checkRange"<N extends (number) & ($Comparable<(N)>)>(arg0: N, arg1: N): $Function<(N), ($DataResult<(N)>)>
+public "orElseGet"(arg0: $UnaryOperator$Type<(string)>, arg1: $Supplier$Type<(any)>): $Codec<(V)>
 public "orElseGet"(arg0: $Supplier$Type<(any)>): $Codec<(V)>
 public "orElseGet"(arg0: $Consumer$Type<(string)>, arg1: $Supplier$Type<(any)>): $Codec<(V)>
-public "orElseGet"(arg0: $UnaryOperator$Type<(string)>, arg1: $Supplier$Type<(any)>): $Codec<(V)>
 public static "pair"<F, S>(arg0: $Codec$Type<(F)>, arg1: $Codec$Type<(S)>): $Codec<($Pair<(F), (S)>)>
-public "stable"(): $Codec<(V)>
-public "deprecated"(arg0: integer): $Codec<(V)>
-public "optionalFieldOf"(arg0: string, arg1: $Lifecycle$Type, arg2: V, arg3: $Lifecycle$Type): $MapCodec<(V)>
-public "optionalFieldOf"(arg0: string, arg1: V, arg2: $Lifecycle$Type): $MapCodec<(V)>
-public "optionalFieldOf"(arg0: string, arg1: V): $MapCodec<(V)>
-public "optionalFieldOf"(arg0: string): $MapCodec<($Optional<(V)>)>
-public static "optionalField"<F>(arg0: string, arg1: $Codec$Type<(F)>): $MapCodec<($Optional<(F)>)>
-public "flatXmap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
-public "promotePartial"(arg0: $Consumer$Type<(string)>): $Codec<(V)>
-public "partialDispatch"<E>(arg0: string, arg1: $Function$Type<(any), (any)>, arg2: $Function$Type<(any), (any)>): $Codec<(E)>
-public "mapResult"(arg0: $Codec$ResultFunction$Type<(V)>): $Codec<(V)>
-public "dispatchMap"<E>(arg0: string, arg1: $Function$Type<(any), (any)>, arg2: $Function$Type<(any), (any)>): $MapCodec<(E)>
-public "dispatchMap"<E>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $MapCodec<(E)>
-public static "either"<F, S>(arg0: $Codec$Type<(F)>, arg1: $Codec$Type<(S)>): $Codec<($Either<(F), (S)>)>
-public static "mapEither"<F, S>(arg0: $MapCodec$Type<(F)>, arg1: $MapCodec$Type<(S)>): $MapCodec<($Either<(F), (S)>)>
-public static "mapPair"<F, S>(arg0: $MapCodec$Type<(F)>, arg1: $MapCodec$Type<(S)>): $MapCodec<($Pair<(F), (S)>)>
-public static "compoundList"<K, V>(arg0: $Codec$Type<(K)>, arg1: $Codec$Type<(V)>): $Codec<($List<($Pair<(K), (V)>)>)>
-public static "simpleMap"<K, V>(arg0: $Codec$Type<(K)>, arg1: $Codec$Type<(V)>, arg2: $Keyable$Type): $SimpleMapCodec<(K), (V)>
-public "flatComapMap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
-public "comapFlatMap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
-public static "unboundedMap"<K, V>(arg0: $Codec$Type<(K)>, arg1: $Codec$Type<(V)>): $UnboundedMapCodec<(K), (V)>
-public "dispatchStable"<E>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(E)>
-public static "doubleRange"(arg0: double, arg1: double): $Codec<(double)>
-public static "floatRange"(arg0: float, arg1: float): $Codec<(float)>
-public static "intRange"(arg0: integer, arg1: integer): $Codec<(integer)>
-public "listOf"(): $Codec<($List<(V)>)>
-public "xmap"<S>(arg0: $Function$Type<(any), (any)>, arg1: $Function$Type<(any), (any)>): $Codec<(S)>
+public "flatComap"<B>(arg0: $Function$Type<(any), (any)>): $Encoder<(B)>
+public "comap"<B>(arg0: $Function$Type<(any), (any)>): $Encoder<(B)>
+public "encodeStart"<T>(arg0: $DynamicOps$Type<(T)>, arg1: V): $DataResult<(T)>
 public static "empty"<A>(): $MapEncoder<(V)>
 public static "error"<A>(arg0: string): $Encoder<(V)>
-public "comap"<B>(arg0: $Function$Type<(any), (any)>): $Encoder<(B)>
-public "flatComap"<B>(arg0: $Function$Type<(any), (any)>): $Encoder<(B)>
-public "encodeStart"<T>(arg0: $DynamicOps$Type<(T)>, arg1: V): $DataResult<(T)>
+public "simple"(): $Decoder$Simple<(V)>
+public static "ofTerminal"<A>(arg0: $Decoder$Terminal$Type<(any)>): $Decoder<(V)>
+public static "ofSimple"<A>(arg0: $Decoder$Simple$Type<(any)>): $Decoder<(V)>
+public static "ofBoxed"<A>(arg0: $Decoder$Boxed$Type<(any)>): $Decoder<(V)>
+public "terminal"(): $Decoder$Terminal<(V)>
 public "decode"<T>(arg0: $Dynamic$Type<(T)>): $DataResult<($Pair<(V), (T)>)>
 public "map"<B>(arg0: $Function$Type<(any), (any)>): $Decoder<(B)>
 public "flatMap"<B>(arg0: $Function$Type<(any), (any)>): $Decoder<(B)>
-public "parse"<T>(arg0: $DynamicOps$Type<(T)>, arg1: T): $DataResult<(V)>
 public "parse"<T>(arg0: $Dynamic$Type<(T)>): $DataResult<(V)>
+public "parse"<T>(arg0: $DynamicOps$Type<(T)>, arg1: T): $DataResult<(V)>
 public "boxed"(): $Decoder$Boxed<(V)>
-public "terminal"(): $Decoder$Terminal<(V)>
-public "simple"(): $Decoder$Simple<(V)>
-public static "ofSimple"<A>(arg0: $Decoder$Simple$Type<(any)>): $Decoder<(V)>
-public static "ofTerminal"<A>(arg0: $Decoder$Terminal$Type<(any)>): $Decoder<(V)>
-public static "ofBoxed"<A>(arg0: $Decoder$Boxed$Type<(any)>): $Decoder<(V)>
-set "defaultCodec"(value: $Codec$Type<(any)>)
 get "defaultCodec"(): $Codec<(any)>
+set "defaultCodec"(value: $Codec$Type<(any)>)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -396,12 +397,12 @@ readonly "result": $ItemStack
 
 constructor()
 
-public "isSpecial"(): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
+public "isSpecial"(): boolean
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-get "special"(): boolean
 get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -459,8 +460,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getOcclusionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getOcclusionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): $VoxelShape
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 }
@@ -506,9 +507,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
 public "fromDispenser"(arg0: $Level$Type, arg1: double, arg2: double, arg3: double): $AbstractArrow
+public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -661,11 +662,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "drops"(arg0: $Player$Type, arg1: $LivingDropsEvent$Type): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -691,9 +692,9 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -797,9 +798,9 @@ static "INSTANCE": $UnnamingRecipe$Serializer
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $UnnamingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $UnnamingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $UnnamingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $UnnamingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $UnnamingRecipe
 }
@@ -829,9 +830,9 @@ static "INSTANCE": $WithdrawalRecipe$Serializer
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $WithdrawalRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $WithdrawalRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $WithdrawalRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $WithdrawalRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $WithdrawalRecipe
 }
@@ -853,9 +854,9 @@ import {$RarityClamp$Simple, $RarityClamp$Simple$Type} from "packages/dev/shadow
 
 export interface $RarityClamp {
 
+ "getMinRarity"(): $LootRarity
  "clamp"(arg0: $LootRarity$Type): $LootRarity
  "getMaxRarity"(): $LootRarity
- "getMinRarity"(): $LootRarity
 }
 
 export namespace $RarityClamp {
@@ -883,12 +884,12 @@ export interface $ITabFiller {
 
  "fillItemCategory"(arg0: $CreativeModeTab$Type, arg1: $CreativeModeTab$Output$Type): void
 
-(arg0: $ItemLike$Type): $ITabFiller
+(arg0: $Supplier$Type<(any)>): $ITabFiller
 }
 
 export namespace $ITabFiller {
-function simple(arg0: $ItemLike$Type): $ITabFiller
 function delegating(arg0: $Supplier$Type<(any)>): $ITabFiller
+function simple(arg0: $ItemLike$Type): $ITabFiller
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -954,17 +955,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 /**
  * 
  * @deprecated
  */
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -994,13 +995,13 @@ static readonly "MAX_NAME_LENGTH": integer
 
 constructor(arg0: string, arg1: boolean)
 
-public "sanitizeValue"(arg0: double): double
 public "toValueComponent"(arg0: $AttributeModifier$Operation$Type, arg1: double, arg2: $TooltipFlag$Type): $MutableComponent
+public "sanitizeValue"(arg0: double): double
 public "toComponent"(arg0: $AttributeModifier$Type, arg1: $TooltipFlag$Type): $MutableComponent
 public static "toValueComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
-public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
-public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
 public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
+public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
+public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1080,20 +1081,20 @@ static readonly "DEFAULT": $GateRules
 
 constructor(spawnRange: double, leashRange: double, allowDiscarding: boolean, allowDimChange: boolean, playerDamageOnly: boolean, removeOnFailure: boolean, failOnOutOfBounds: boolean, spacing: double, followRangeBoost: double, defaultDropChance: float)
 
-public "equals"(arg0: any): boolean
-public "toString"(): string
-public "hashCode"(): integer
+public "buildDeviations"(): $List<($MutableComponent)>
 public "spacing"(): double
-public "spawnRange"(): double
-public "failOnOutOfBounds"(): boolean
-public "playerDamageOnly"(): boolean
+public "defaultDropChance"(): float
+public "followRangeBoost"(): double
 public "allowDiscarding"(): boolean
 public "allowDimChange"(): boolean
 public "removeOnFailure"(): boolean
+public "spawnRange"(): double
+public "playerDamageOnly"(): boolean
+public "failOnOutOfBounds"(): boolean
 public "leashRange"(): double
-public "defaultDropChance"(): float
-public "followRangeBoost"(): double
-public "buildDeviations"(): $List<($MutableComponent)>
+public "equals"(arg0: any): boolean
+public "toString"(): string
+public "hashCode"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1181,14 +1182,14 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
-public "isCurse"(): boolean
-public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
-public "livingHurt"(arg0: $LivingHurtEvent$Type): void
 public "getMaxLevel"(): integer
-get "curse"(): boolean
+public "getFullname"(arg0: integer): $Component
+public "getMinCost"(arg0: integer): integer
+public "getMaxCost"(arg0: integer): integer
+public "isCurse"(): boolean
+public "livingHurt"(arg0: $LivingHurtEvent$Type): void
 get "maxLevel"(): integer
+get "curse"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1233,9 +1234,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Supplier$Type<($Item$Type)>, arg1: $MiningArrowEntity$Type$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
 public "fromDispenser"(arg0: $Level$Type, arg1: double, arg2: double, arg3: double): $AbstractArrow
+public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1290,9 +1291,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "getQuantaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
 public "getArcanaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
 public "allowsTreasure"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
-public "getQuantaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
 public "getTableParticle"(arg0: $BlockState$Type): $ParticleOptions
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
 }
@@ -1389,11 +1390,11 @@ readonly "properties": $BlockBehaviour$Properties
 constructor()
 
 public "getStateDefinition"(): $StateDefinition<($Block), ($BlockState)>
-public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "_setDefaultState"(arg0: $BlockState$Type): void
-public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
 public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "_setDefaultState"(arg0: $BlockState$Type): void
+public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
+public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 get "stateDefinition"(): $StateDefinition<($Block), ($BlockState)>
 set "stateContainer"(value: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>)
 }
@@ -1566,56 +1567,56 @@ readonly "random": $RandomSource
 constructor(arg0: $EntityType$Type<(any)>, arg1: $Level$Type, arg2: $Player$Type, arg3: $DynamicHolder$Type<(any)>)
 constructor(arg0: $EntityType$Type<(any)>, arg1: $Level$Type)
 
+public "getDimensions"(arg0: $Pose$Type): $EntityDimensions
+public "spawnCompletionItem"(arg0: $ItemStack$Type): void
+public "onFailure"(arg0: $Collection$Type<($LivingEntity$Type)>, arg1: $GatewayEntity$FailureReason$Type): void
+public "spawnParticle"(arg0: double, arg1: double, arg2: double, arg3: $ParticleMessage$Type$Type): void
+public static "hasLeftDimension"(arg0: $Entity$Type): boolean
+public "getCurrentWave"(): $Wave
+public "getTicksActive"(): integer
+public "isOutOfRange"(arg0: $Entity$Type): boolean
+public "spawnItem"(arg0: $ItemStack$Type): void
+public "isWaveActive"(): boolean
+public "getWave"(): integer
+public "getMaxWaveTime"(): integer
+public "respawnEntity"(arg0: $Entity$Type): boolean
+public "getSetupTime"(): integer
+public "getBossEvent"(): $ServerBossEvent
+public "summonerOrClosest"(): $Player
+public "getClientScale"(): float
+public static "spawnLightningOn"(arg0: $Entity$Type, arg1: boolean): void
+public "getActiveEnemies"(): integer
+public "setClientScale"(arg0: float): void
+public "onGateCreated"(): void
+public "getGateway"(): $Gateway
+public "handleConversion"(arg0: $Entity$Type, arg1: $LivingEntity$Type): void
+public "getFailureReason"(): $GatewayEntity$FailureReason
+public "canBeCollidedWith"(): boolean
+public "tick"(): void
+public "writeSpawnData"(arg0: $FriendlyByteBuf$Type): void
+public "readSpawnData"(arg0: $FriendlyByteBuf$Type): void
+public "startSeenByPlayer"(arg0: $ServerPlayer$Type): void
+public "stopSeenByPlayer"(arg0: $ServerPlayer$Type): void
+public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
 public static "getOwner"(arg0: $Entity$Type): $GatewayEntity
 public "isValid"(): boolean
 public "isCompleted"(): boolean
-public "stopSeenByPlayer"(arg0: $ServerPlayer$Type): void
-public "startSeenByPlayer"(arg0: $ServerPlayer$Type): void
-public "getAddEntityPacket"(): $Packet<($ClientGamePacketListener)>
-public "getFailureReason"(): $GatewayEntity$FailureReason
-public "canBeCollidedWith"(): boolean
-public "spawnCompletionItem"(arg0: $ItemStack$Type): void
-public "getGateway"(): $Gateway
-public "handleConversion"(arg0: $Entity$Type, arg1: $LivingEntity$Type): void
-public "tick"(): void
-public "getDimensions"(arg0: $Pose$Type): $EntityDimensions
-public "getMaxWaveTime"(): integer
-public "getTicksActive"(): integer
-public "getCurrentWave"(): $Wave
-public "getSetupTime"(): integer
-public "isWaveActive"(): boolean
-public "onFailure"(arg0: $Collection$Type<($LivingEntity$Type)>, arg1: $GatewayEntity$FailureReason$Type): void
-public "respawnEntity"(arg0: $Entity$Type): boolean
-public "spawnParticle"(arg0: double, arg1: double, arg2: double, arg3: $ParticleMessage$Type$Type): void
-public "onGateCreated"(): void
-public static "spawnLightningOn"(arg0: $Entity$Type, arg1: boolean): void
-public static "hasLeftDimension"(arg0: $Entity$Type): boolean
-public "summonerOrClosest"(): $Player
-public "getWave"(): integer
-public "isOutOfRange"(arg0: $Entity$Type): boolean
-public "spawnItem"(arg0: $ItemStack$Type): void
-public "getClientScale"(): float
-public "setClientScale"(arg0: float): void
-public "getBossEvent"(): $ServerBossEvent
-public "getActiveEnemies"(): integer
-public "writeSpawnData"(arg0: $FriendlyByteBuf$Type): void
-public "readSpawnData"(arg0: $FriendlyByteBuf$Type): void
 public static "of"(holder: any): $FacetHolder
-get "valid"(): boolean
-get "completed"(): boolean
-get "addEntityPacket"(): $Packet<($ClientGamePacketListener)>
-get "failureReason"(): $GatewayEntity$FailureReason
-get "gateway"(): $Gateway
-get "maxWaveTime"(): integer
-get "ticksActive"(): integer
 get "currentWave"(): $Wave
-get "setupTime"(): integer
+get "ticksActive"(): integer
 get "waveActive"(): boolean
 get "wave"(): integer
-get "clientScale"(): float
-set "clientScale"(value: float)
+get "maxWaveTime"(): integer
+get "setupTime"(): integer
 get "bossEvent"(): $ServerBossEvent
+get "clientScale"(): float
 get "activeEnemies"(): integer
+set "clientScale"(value: float)
+get "gateway"(): $Gateway
+get "failureReason"(): $GatewayEntity$FailureReason
+get "addEntityPacket"(): $Packet<($ClientGamePacketListener)>
+get "valid"(): boolean
+get "completed"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1641,10 +1642,10 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
 public "addFishes"(arg0: $LivingDropsEvent$Type): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -1672,8 +1673,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Output"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Gateway, $Gateway$Type} from "packages/dev/shadowsoffire/gateways/gate/$Gateway"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -1694,15 +1695,15 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "getName"(arg0: $ItemStack$Type): $Component
+public static "setGate"(arg0: $ItemStack$Type, arg1: $Gateway$Type): void
+public static "getGate"(arg0: $ItemStack$Type): $DynamicHolder<($Gateway)>
+public "fillItemCategory"(arg0: $CreativeModeTab$Type, arg1: $CreativeModeTab$Output$Type): void
 public "getCreatorModId"(arg0: $ItemStack$Type): string
 public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
-public "fillItemCategory"(arg0: $CreativeModeTab$Type, arg1: $CreativeModeTab$Output$Type): void
-public static "getGate"(arg0: $ItemStack$Type): $DynamicHolder<($Gateway)>
-public static "setGate"(arg0: $ItemStack$Type, arg1: $Gateway$Type): void
-public static "simple"(arg0: $ItemLike$Type): $ITabFiller
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "getName"(arg0: $ItemStack$Type): $Component
 public static "delegating"(arg0: $Supplier$Type<(any)>): $ITabFiller
+public static "simple"(arg0: $ItemLike$Type): $ITabFiller
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1730,9 +1731,9 @@ static "INSTANCE": $SocketingRecipe$Serializer
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SocketingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $SocketingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $SocketingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SocketingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $SocketingRecipe
 }
@@ -1890,12 +1891,12 @@ readonly "category": $EnchantmentCategory
 
 constructor(arg0: $Enchantment$Rarity$Type, arg1: $MobType$Type, ...arg2: ($EquipmentSlot$Type)[])
 
+public "getMaxLevel"(): integer
+public "checkCompatibility"(arg0: $Enchantment$Type): boolean
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
 public "getDamageBonus"(arg0: integer, arg1: $MobType$Type): float
-public "checkCompatibility"(arg0: $Enchantment$Type): boolean
 public "doPostAttack"(arg0: $LivingEntity$Type, arg1: $Entity$Type, arg2: integer): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -1975,13 +1976,13 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
-public static "markGeneratedArrows"(arg0: $Projectile$Type, arg1: $ItemStack$Type): void
 public static "preArrowFired"(arg0: $ItemStack$Type): void
 public static "onArrowFired"(arg0: $ItemStack$Type): void
-public "getMaxLevel"(): integer
+public static "markGeneratedArrows"(arg0: $Projectile$Type, arg1: $ItemStack$Type): void
 get "maxLevel"(): integer
 }
 /**
@@ -2000,14 +2001,14 @@ declare module "packages/dev/shadowsoffire/gateways/gate/$WaveModifier" {
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$CodecMap, $CodecMap$Type} from "packages/dev/shadowsoffire/placebo/codec/$CodecMap"
 import {$CodecProvider, $CodecProvider$Type} from "packages/dev/shadowsoffire/placebo/codec/$CodecProvider"
-import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 
 export interface $WaveModifier extends $CodecProvider<($WaveModifier)> {
 
- "apply"(arg0: $LivingEntity$Type): void
  "appendHoverText"(arg0: $Consumer$Type<($MutableComponent$Type)>): void
+ "apply"(arg0: $LivingEntity$Type): void
  "getCodec"(): $Codec<(any)>
 }
 
@@ -2074,8 +2075,8 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $TickingBlockEntity {
 
- "serverTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): void
  "clientTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): void
+ "serverTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): void
 }
 
 export namespace $TickingBlockEntity {
@@ -2107,9 +2108,9 @@ static readonly "INSTANCE": $SalvagingRecipe$Serializer
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SalvagingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $SalvagingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $SalvagingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SalvagingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $SalvagingRecipe
 }
@@ -2165,16 +2166,16 @@ static readonly "CODEC": $Codec<($RarityClamp$Simple)>
 
 constructor(min: $DynamicHolder$Type<($LootRarity$Type)>, max: $DynamicHolder$Type<($LootRarity$Type)>)
 
+public "getMinRarity"(): $LootRarity
+public "getMaxRarity"(): $LootRarity
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "min"(): $DynamicHolder<($LootRarity)>
 public "max"(): $DynamicHolder<($LootRarity)>
-public "getMaxRarity"(): $LootRarity
-public "getMinRarity"(): $LootRarity
 public "clamp"(arg0: $LootRarity$Type): $LootRarity
-get "maxRarity"(): $LootRarity
 get "minRarity"(): $LootRarity
+get "maxRarity"(): $LootRarity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2195,8 +2196,8 @@ import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/da
 export interface $LivingEntityInvoker {
 
  "callActuallyHurt"(arg0: $DamageSource$Type, arg1: float): void
- "callGetDeathSound"(): $SoundEvent
  "callGetSoundVolume"(): float
+ "callGetDeathSound"(): $SoundEvent
  "callCheckTotemDeathProtection"(arg0: $DamageSource$Type): boolean
 }
 
@@ -2291,10 +2292,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
+public static "updateAnvil"(arg0: $AnvilUpdateEvent$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "getRarity"(arg0: $ItemStack$Type): $Rarity
-public static "updateAnvil"(arg0: $AnvilUpdateEvent$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2315,8 +2316,8 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$FallingBlockEntity, $FallingBlockEntity$Type} from "packages/net/minecraft/world/entity/item/$FallingBlockEntity"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
@@ -2365,17 +2366,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
+public "onLand"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $FallingBlockEntity$Type): void
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "toStack"(arg0: $BlockState$Type, arg1: $CompoundTag$Type): $ItemStack
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "tick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "onLand"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $FallingBlockEntity$Type): void
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2402,15 +2403,15 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "isAllowedOnBooks"(): boolean
-public "isDiscoverable"(): boolean
 public "isTreasureOnly"(): boolean
+public "isDiscoverable"(): boolean
 public "isTradeable"(): boolean
+public "isAllowedOnBooks"(): boolean
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
-get "allowedOnBooks"(): boolean
-get "discoverable"(): boolean
 get "treasureOnly"(): boolean
+get "discoverable"(): boolean
 get "tradeable"(): boolean
+get "allowedOnBooks"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2445,16 +2446,16 @@ readonly "result": $ItemStack
 
 constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: integer)
 
-public "getInput"(): $Ingredient
-public "isSpecial"(): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
+public "getMaxSockets"(): integer
+public "isSpecial"(): boolean
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getMaxSockets"(): integer
-get "input"(): $Ingredient
-get "special"(): boolean
+public "getInput"(): $Ingredient
 get "serializer"(): $RecipeSerializer<(any)>
 get "maxSockets"(): integer
+get "special"(): boolean
+get "input"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2483,9 +2484,9 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "molestSheepItems"(arg0: $Sheep$Type, arg1: $ItemStack$Type, arg2: $List$Type<($ItemStack$Type)>): $List<($ItemStack)>
+public "getFullname"(arg0: integer): $Component
+public "getMinCost"(arg0: integer): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2508,9 +2509,9 @@ static readonly "IRON": $MiningArrowEntity$Type
 static readonly "DIAMOND": $MiningArrowEntity$Type
 
 
+public "getTexture"(): $ResourceLocation
 public static "values"(): ($MiningArrowEntity$Type)[]
 public static "valueOf"(arg0: string): $MiningArrowEntity$Type
-public "getTexture"(): $ResourceLocation
 get "texture"(): $ResourceLocation
 }
 /**
@@ -2535,12 +2536,12 @@ static "CODEC": $Codec<($SalvagingRecipe$OutputData)>
 static readonly "LIST_CODEC": $Codec<($List<($SalvagingRecipe$OutputData)>)>
 
 
-public "getStack"(): $ItemStack
-public "getMin"(): integer
 public "getMax"(): integer
-get "stack"(): $ItemStack
-get "min"(): integer
+public "getMin"(): integer
+public "getStack"(): $ItemStack
 get "max"(): integer
+get "min"(): integer
+get "stack"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2583,37 +2584,37 @@ static readonly "SWORD": $LootCategory
 static readonly "NONE": $LootCategory
 
 
+public static "byId"(arg0: string): $LootCategory
+public static "forItem"(arg0: $ItemStack$Type): $LootCategory
+public "getSlots"(): ($EquipmentSlot)[]
+public "isNone"(): boolean
+public "isRanged"(): boolean
+public "isLightWeapon"(): boolean
+public "getDescId"(): string
+public "isDefensive"(): boolean
+public "isWeapon"(): boolean
+public "getDescIdPlural"(): string
+public "isBreaker"(): boolean
+public "isArmor"(): boolean
+public "isWeaponOrShield"(): boolean
 public "getName"(): string
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public static "register"(arg0: $LootCategory$Type, arg1: string, arg2: $Predicate$Type<($ItemStack$Type)>, arg3: ($EquipmentSlot$Type)[]): $LootCategory
 public "isValid"(arg0: $ItemStack$Type): boolean
-public static "forItem"(arg0: $ItemStack$Type): $LootCategory
-public "isNone"(): boolean
-public "getSlots"(): ($EquipmentSlot)[]
-public "isBreaker"(): boolean
-public "isRanged"(): boolean
-public "isDefensive"(): boolean
-public "isLightWeapon"(): boolean
-public "isWeapon"(): boolean
-public "isArmor"(): boolean
-public "getDescId"(): string
-public "getDescIdPlural"(): string
-public "isWeaponOrShield"(): boolean
-public static "byId"(arg0: string): $LootCategory
-get "name"(): string
-get "none"(): boolean
 get "slots"(): ($EquipmentSlot)[]
-get "breaker"(): boolean
+get "none"(): boolean
 get "ranged"(): boolean
-get "defensive"(): boolean
 get "lightWeapon"(): boolean
-get "weapon"(): boolean
-get "armor"(): boolean
 get "descId"(): string
+get "defensive"(): boolean
+get "weapon"(): boolean
 get "descIdPlural"(): string
+get "breaker"(): boolean
+get "armor"(): boolean
 get "weaponOrShield"(): boolean
+get "name"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2657,9 +2658,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
 public "fromDispenser"(arg0: $Level$Type, arg1: double, arg2: double, arg3: double): $AbstractArrow
+public "createArrow"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: $LivingEntity$Type): $AbstractArrow
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2702,12 +2703,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
+public static "updateRepair"(arg0: $AnvilRepairEvent$Type): boolean
+public static "updateAnvil"(arg0: $AnvilUpdateEvent$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isEnchantable"(arg0: $ItemStack$Type): boolean
-public "getRarity"(arg0: $ItemStack$Type): $Rarity
 public "isFoil"(arg0: $ItemStack$Type): boolean
-public static "updateAnvil"(arg0: $AnvilUpdateEvent$Type): boolean
-public static "updateRepair"(arg0: $AnvilRepairEvent$Type): boolean
+public "getRarity"(arg0: $ItemStack$Type): $Rarity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2734,8 +2735,8 @@ import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Enchantment, $Enchantment$Type} from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$IEnchantableItem, $IEnchantableItem$Type} from "packages/dev/shadowsoffire/apotheosis/ench/table/$IEnchantableItem"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$EnchantmentInstance, $EnchantmentInstance$Type} from "packages/net/minecraft/world/item/enchantment/$EnchantmentInstance"
@@ -2755,13 +2756,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Type, arg1: $EnchantmentCategory$Type)
 
+public "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
+public "onEnchantment"(arg0: $ItemStack$Type, arg1: $List$Type<($EnchantmentInstance$Type)>): $ItemStack
+public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
+public "forciblyAllowsTableEnchantment"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getRarity"(arg0: $ItemStack$Type): $Rarity
-public "isBookEnchantable"(arg0: $ItemStack$Type, arg1: $ItemStack$Type): boolean
-public "onEnchantment"(arg0: $ItemStack$Type, arg1: $List$Type<($EnchantmentInstance$Type)>): $ItemStack
-public "forciblyAllowsTableEnchantment"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
-public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2784,7 +2785,7 @@ export interface $GameStagesCompat$IStaged {
 
  "getStages"(): $Set<(string)>
 
-(arg0: $Player$Type): $Predicate<(T)>
+(): $Set<(string)>
 }
 
 export namespace $GameStagesCompat$IStaged {
@@ -2807,9 +2808,9 @@ import {$WeightedEntry$Wrapper, $WeightedEntry$Wrapper$Type} from "packages/net/
 
 export interface $WeightedDynamicRegistry$ILuckyWeighted {
 
- "wrap"<T extends $WeightedDynamicRegistry$ILuckyWeighted>(arg0: float): $WeightedEntry$Wrapper<(T)>
  "getWeight"(): integer
  "getQuality"(): float
+ "wrap"<T extends $WeightedDynamicRegistry$ILuckyWeighted>(arg0: float): $WeightedEntry$Wrapper<(T)>
 }
 
 export namespace $WeightedDynamicRegistry$ILuckyWeighted {
@@ -2848,9 +2849,9 @@ constructor(arg0: string, arg1: double, arg2: double, arg3: double)
 
 public "toValueComponent"(arg0: $AttributeModifier$Operation$Type, arg1: double, arg2: $TooltipFlag$Type): $MutableComponent
 public static "toValueComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
-public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
-public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
 public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
+public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
+public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2867,8 +2868,8 @@ export type $PercentBasedAttribute_ = $PercentBasedAttribute$Type;
 declare module "packages/dev/shadowsoffire/apotheosis/adventure/socket/$WithdrawalRecipe" {
 import {$RegistryAccess, $RegistryAccess$Type} from "packages/net/minecraft/core/$RegistryAccess"
 import {$AdventureModule$ApothSmithingRecipe, $AdventureModule$ApothSmithingRecipe$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/$AdventureModule$ApothSmithingRecipe"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$RecipeSerializer, $RecipeSerializer$Type} from "packages/net/minecraft/world/item/crafting/$RecipeSerializer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$ReactiveSmithingRecipe, $ReactiveSmithingRecipe$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/socket/$ReactiveSmithingRecipe"
 import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
@@ -2886,13 +2887,13 @@ readonly "result": $ItemStack
 
 constructor()
 
-public "onCraft"(arg0: $Container$Type, arg1: $Player$Type, arg2: $ItemStack$Type): void
-public "isSpecial"(): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
+public "isSpecial"(): boolean
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "onCraft"(arg0: $Container$Type, arg1: $Player$Type, arg2: $ItemStack$Type): void
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-get "special"(): boolean
 get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2917,9 +2918,9 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -2948,9 +2949,9 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "unshear"(arg0: $Sheep$Type, arg1: $ItemStack$Type): void
+public "getFullname"(arg0: integer): $Component
+public "getMinCost"(arg0: integer): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3004,12 +3005,12 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
-public "getMaxLevel"(): integer
-public "chainsaw"(arg0: $BlockEvent$BreakEvent$Type): void
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
+public "chainsaw"(arg0: $BlockEvent$BreakEvent$Type): void
 get "maxLevel"(): integer
 }
 /**
@@ -3067,8 +3068,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fastutil/objects/$ObjectArrayList"
-import {$AbstractArrow, $AbstractArrow$Type} from "packages/net/minecraft/world/entity/projectile/$AbstractArrow"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$AbstractArrow, $AbstractArrow$Type} from "packages/net/minecraft/world/entity/projectile/$AbstractArrow"
 import {$LootRarity, $LootRarity$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$LootRarity"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
@@ -3093,31 +3094,31 @@ static readonly "VALUES_CODEC": $Codec<($Map<($LootRarity), ($StepFunction)>)>
 
 constructor(arg0: $ResourceLocation$Type, arg1: $GemClass$Type)
 
-public "validate"(): $GemBonus
-public "getId"(): $ResourceLocation
-public "supports"(arg0: $LootRarity$Type): boolean
-public "getDamageBonus"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $MobType$Type): float
-public "onShieldBlock"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $DamageSource$Type, arg4: float): float
-public static "initCodecs"(): void
-public "doPostHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $Entity$Type): void
+public "getDurabilityBonusPercentage"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $ServerPlayer$Type): float
+public "onBlockBreak"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $Player$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockState$Type): void
 public "onHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $DamageSource$Type, arg3: $LivingEntity$Type, arg4: float): float
-public "doPostAttack"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $Entity$Type): void
-public "onArrowImpact"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $AbstractArrow$Type, arg3: $HitResult$Type): void
-public "modifyLoot"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $ObjectArrayList$Type<($ItemStack$Type)>, arg3: $LootContext$Type): void
+public static "initCodecs"(): void
 public "onItemUse"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $UseOnContext$Type): $InteractionResult
-public "addModifiers"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $BiConsumer$Type<($Attribute$Type), ($AttributeModifier$Type)>): void
-public "onArrowFired"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $AbstractArrow$Type): void
-public "getSocketBonusTooltip"(arg0: $ItemStack$Type, arg1: $LootRarity$Type): $Component
+public "onArrowImpact"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $AbstractArrow$Type, arg3: $HitResult$Type): void
+public "doPostHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $Entity$Type): void
+public "doPostAttack"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $Entity$Type): void
+public "getGemClass"(): $GemClass
+public "supports"(arg0: $LootRarity$Type): boolean
+public "getNumberOfUUIDs"(): integer
+public "getDamageBonus"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $MobType$Type): float
 public "getEnchantmentLevels"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $Map$Type<($Enchantment$Type), (integer)>): void
 public "getDamageProtection"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $DamageSource$Type): integer
-public "onBlockBreak"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $Player$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockState$Type): void
-public "getNumberOfUUIDs"(): integer
-public "getGemClass"(): $GemClass
-public "getDurabilityBonusPercentage"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $ServerPlayer$Type): float
+public "getSocketBonusTooltip"(arg0: $ItemStack$Type, arg1: $LootRarity$Type): $Component
+public "onArrowFired"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $AbstractArrow$Type): void
+public "onShieldBlock"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $LivingEntity$Type, arg3: $DamageSource$Type, arg4: float): float
+public "modifyLoot"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $ObjectArrayList$Type<($ItemStack$Type)>, arg3: $LootContext$Type): void
+public "addModifiers"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $BiConsumer$Type<($Attribute$Type), ($AttributeModifier$Type)>): void
+public "validate"(): $GemBonus
+public "getId"(): $ResourceLocation
 public "getCodec"(): $Codec<(any)>
-get "id"(): $ResourceLocation
-get "numberOfUUIDs"(): integer
 get "gemClass"(): $GemClass
+get "numberOfUUIDs"(): integer
+get "id"(): $ResourceLocation
 get "codec"(): $Codec<(any)>
 }
 /**
@@ -3133,18 +3134,14 @@ declare global {
 export type $GemBonus_ = $GemBonus$Type;
 }}
 declare module "packages/dev/shadowsoffire/apotheosis/ench/table/$KeepNBTEnchantingRecipe$Serializer" {
-import {$KeepNBTEnchantingRecipe, $KeepNBTEnchantingRecipe$Type} from "packages/dev/shadowsoffire/apotheosis/ench/table/$KeepNBTEnchantingRecipe"
-import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$EnchantingRecipe$Serializer, $EnchantingRecipe$Serializer$Type} from "packages/dev/shadowsoffire/apotheosis/ench/table/$EnchantingRecipe$Serializer"
 import {$RecipeSerializer, $RecipeSerializer$Type} from "packages/net/minecraft/world/item/crafting/$RecipeSerializer"
-import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Recipe, $Recipe$Type} from "packages/net/minecraft/world/item/crafting/$Recipe"
 
 export class $KeepNBTEnchantingRecipe$Serializer extends $EnchantingRecipe$Serializer {
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $KeepNBTEnchantingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 }
 /**
@@ -3256,10 +3253,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type)
 
-public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "getCreatorModId"(arg0: $ItemStack$Type): string
 public "getEnchantmentValue"(arg0: $ItemStack$Type): integer
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
+public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
@@ -3318,8 +3315,8 @@ import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$LootRarity, $LootRarity$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$LootRarity"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
@@ -3363,18 +3360,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: integer)
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "getMaxRarity"(): $LootRarity
 /**
  * 
  * @deprecated
  */
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "useShapeForLightOcclusion"(arg0: $BlockState$Type): boolean
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "getMaxRarity"(): $LootRarity
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 get "maxRarity"(): $LootRarity
@@ -3455,11 +3452,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
-public "canEnchant"(arg0: $ItemStack$Type): boolean
-public "getMaxCost"(arg0: integer): integer
-public "rightClick"(arg0: $PlayerInteractEvent$RightClickBlock$Type): void
 public "getMaxLevel"(): integer
+public "getMinCost"(arg0: integer): integer
+public "getMaxCost"(arg0: integer): integer
+public "canEnchant"(arg0: $ItemStack$Type): boolean
+public "rightClick"(arg0: $PlayerInteractEvent$RightClickBlock$Type): void
 get "maxLevel"(): integer
 }
 /**
@@ -3493,13 +3490,13 @@ constructor(type: $AffixType$Type, chance: float, backup: $LootRarity$LootRule$T
 constructor(arg0: $AffixType$Type, arg1: float, arg2: $Optional$Type<($LootRarity$LootRule$Type)>)
 constructor(arg0: $AffixType$Type, arg1: float)
 
+public "backup"(): $LootRarity$LootRule
+public "chance"(): float
 public "type"(): $AffixType
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "execute"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $Set$Type<($DynamicHolder$Type<(any)>)>, arg3: $MutableInt$Type, arg4: $RandomSource$Type): void
-public "chance"(): float
-public "backup"(): $LootRarity$LootRule
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3573,8 +3570,8 @@ readonly "category": $EnchantmentCategory
 
 constructor(arg0: $Enchantment$Rarity$Type, arg1: $ProtectionEnchantment$Type$Type, ...arg2: ($EquipmentSlot$Type)[])
 
-public "getDamageProtection"(arg0: integer, arg1: $DamageSource$Type): integer
 public "checkCompatibility"(arg0: $Enchantment$Type): boolean
+public "getDamageProtection"(arg0: integer, arg1: $DamageSource$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3598,8 +3595,8 @@ import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/wo
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
 import {$ITabFiller, $ITabFiller$Type} from "packages/dev/shadowsoffire/placebo/tabs/$ITabFiller"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Output"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Gem, $Gem$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/socket/gem/$Gem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -3626,19 +3623,19 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "fillItemCategory"(arg0: $CreativeModeTab$Type, arg1: $CreativeModeTab$Output$Type): void
+public static "getOrCreateUUIDs"(arg0: $CompoundTag$Type, arg1: integer): $List<($UUID)>
+public static "getGem"(arg0: $ItemStack$Type): $DynamicHolder<($Gem)>
+public static "getUUIDs"(arg0: $ItemStack$Type): $List<($UUID)>
+public static "setGem"(arg0: $ItemStack$Type, arg1: $Gem$Type): void
+public "getCreatorModId"(arg0: $ItemStack$Type): string
+public "canBeHurtBy"(arg0: $DamageSource$Type): boolean
 public "getDescriptionId"(arg0: $ItemStack$Type): string
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getName"(arg0: $ItemStack$Type): $Component
 public "isFoil"(arg0: $ItemStack$Type): boolean
-public "getCreatorModId"(arg0: $ItemStack$Type): string
-public "canBeHurtBy"(arg0: $DamageSource$Type): boolean
-public static "getGem"(arg0: $ItemStack$Type): $DynamicHolder<($Gem)>
-public static "getUUIDs"(arg0: $ItemStack$Type): $List<($UUID)>
-public static "getOrCreateUUIDs"(arg0: $CompoundTag$Type, arg1: integer): $List<($UUID)>
-public static "setGem"(arg0: $ItemStack$Type, arg1: $Gem$Type): void
-public "fillItemCategory"(arg0: $CreativeModeTab$Type, arg1: $CreativeModeTab$Output$Type): void
-public static "simple"(arg0: $ItemLike$Type): $ITabFiller
 public static "delegating"(arg0: $Supplier$Type<(any)>): $ITabFiller
+public static "simple"(arg0: $ItemLike$Type): $ITabFiller
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3712,17 +3709,17 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockEntityType$BlockEntitySupplier$Type<(any)>, arg1: integer)
 
-public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getDrops"(arg0: $BlockState$Type, arg1: $LootParams$Builder$Type): $List<($ItemStack)>
 public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
+public "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3750,11 +3747,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "isTrulyInfinite"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $Player$Type): boolean
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -3888,21 +3885,21 @@ import {$HitResult$Type, $HitResult$Type$Type} from "packages/net/minecraft/worl
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
-import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fastutil/objects/$ObjectArrayList"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$LootCategory, $LootCategory$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$LootCategory"
 import {$AffixType, $AffixType$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/affix/$AffixType"
-import {$AbstractArrow, $AbstractArrow$Type} from "packages/net/minecraft/world/entity/projectile/$AbstractArrow"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$AbstractArrow, $AbstractArrow$Type} from "packages/net/minecraft/world/entity/projectile/$AbstractArrow"
 import {$LootRarity, $LootRarity$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$LootRarity"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$ServerPlayer, $ServerPlayer$Type} from "packages/net/minecraft/server/level/$ServerPlayer"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
@@ -3917,32 +3914,32 @@ export class $Affix implements $CodecProvider<($Affix)> {
 
 constructor(arg0: $AffixType$Type)
 
+public "getDurabilityBonusPercentage"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $ServerPlayer$Type): float
+public "onBlockBreak"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $Player$Type, arg4: $LevelAccessor$Type, arg5: $BlockPos$Type, arg6: $BlockState$Type): void
+public "onHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $DamageSource$Type, arg4: $LivingEntity$Type, arg5: float): float
+public "onItemUse"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $UseOnContext$Type): $InteractionResult
+public "getAugmentingText"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float): $Component
+public "canApplyTo"(arg0: $ItemStack$Type, arg1: $LootCategory$Type, arg2: $LootRarity$Type): boolean
+public "onArrowImpact"(arg0: $AbstractArrow$Type, arg1: $LootRarity$Type, arg2: float, arg3: $HitResult$Type, arg4: $HitResult$Type$Type): void
+public "doPostHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $Entity$Type): void
+public static "valueBounds"(arg0: $Component$Type, arg1: $Component$Type): $MutableComponent
+public "doPostAttack"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $Entity$Type): void
+public "getDamageBonus"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $MobType$Type): float
+public "getEnchantmentLevels"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $Map$Type<($Enchantment$Type), (integer)>): void
+public "getDamageProtection"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $DamageSource$Type): integer
+public "onArrowFired"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $AbstractArrow$Type): void
+public static "isOnCooldown"(arg0: $ResourceLocation$Type, arg1: integer, arg2: $LivingEntity$Type): boolean
+public static "startCooldown"(arg0: $ResourceLocation$Type, arg1: $LivingEntity$Type): void
+public "enablesTelepathy"(): boolean
+public "onShieldBlock"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $DamageSource$Type, arg5: float): float
+public "modifyLoot"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $ObjectArrayList$Type<($ItemStack$Type)>, arg4: $LootContext$Type): void
+public "addModifiers"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $EquipmentSlot$Type, arg4: $BiConsumer$Type<($Attribute$Type), ($AttributeModifier$Type)>): void
 public "getName"(arg0: boolean): $Component
 public "toString"(): string
 public "getId"(): $ResourceLocation
 public "getType"(): $AffixType
 public static "fmt"(arg0: float): string
 public "getDescription"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float): $MutableComponent
-public "getDamageBonus"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $MobType$Type): float
-public "enablesTelepathy"(): boolean
-public "onShieldBlock"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $DamageSource$Type, arg5: float): float
-public static "valueBounds"(arg0: $Component$Type, arg1: $Component$Type): $MutableComponent
-public "doPostHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $Entity$Type): void
-public "getAugmentingText"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float): $Component
-public "onHurt"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $DamageSource$Type, arg4: $LivingEntity$Type, arg5: float): float
-public "doPostAttack"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $Entity$Type): void
-public "onArrowImpact"(arg0: $AbstractArrow$Type, arg1: $LootRarity$Type, arg2: float, arg3: $HitResult$Type, arg4: $HitResult$Type$Type): void
-public "canApplyTo"(arg0: $ItemStack$Type, arg1: $LootCategory$Type, arg2: $LootRarity$Type): boolean
-public "modifyLoot"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $ObjectArrayList$Type<($ItemStack$Type)>, arg4: $LootContext$Type): void
-public "onItemUse"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $UseOnContext$Type): $InteractionResult
-public "addModifiers"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $EquipmentSlot$Type, arg4: $BiConsumer$Type<($Attribute$Type), ($AttributeModifier$Type)>): void
-public "onArrowFired"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $LivingEntity$Type, arg4: $AbstractArrow$Type): void
-public static "isOnCooldown"(arg0: $ResourceLocation$Type, arg1: integer, arg2: $LivingEntity$Type): boolean
-public static "startCooldown"(arg0: $ResourceLocation$Type, arg1: $LivingEntity$Type): void
-public "getEnchantmentLevels"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $Map$Type<($Enchantment$Type), (integer)>): void
-public "getDamageProtection"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $DamageSource$Type): integer
-public "onBlockBreak"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $Player$Type, arg4: $LevelAccessor$Type, arg5: $BlockPos$Type, arg6: $BlockState$Type): void
-public "getDurabilityBonusPercentage"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: float, arg3: $ServerPlayer$Type): float
 public "getCodec"(): $Codec<(any)>
 get "id"(): $ResourceLocation
 get "type"(): $AffixType
@@ -3973,8 +3970,8 @@ import {$CodecProvider, $CodecProvider$Type} from "packages/dev/shadowsoffire/pl
 import {$RarityClamp, $RarityClamp$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$RarityClamp"
 import {$TextColor, $TextColor$Type} from "packages/net/minecraft/network/chat/$TextColor"
 import {$WeightedEntry$Wrapper, $WeightedEntry$Wrapper$Type} from "packages/net/minecraft/util/random/$WeightedEntry$Wrapper"
-import {$LootRarity$LootRule, $LootRarity$LootRule$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$LootRarity$LootRule"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
+import {$LootRarity$LootRule, $LootRarity$LootRule$Type} from "packages/dev/shadowsoffire/apotheosis/adventure/loot/$LootRarity$LootRule"
 
 export class $LootRarity implements $CodecProvider<($LootRarity)>, $WeightedDynamicRegistry$ILuckyWeighted, $Comparable<($LootRarity)> {
 static readonly "LOAD_CODEC": $Codec<($LootRarity)>
@@ -3986,6 +3983,16 @@ static readonly "HOLDER_CODEC": $Codec<($DynamicHolder<($LootRarity)>)>
 static readonly "CODEC": $Codec<($LootRarity)>
 
 
+public static "mapCodec"<T>(arg0: $Codec$Type<(T)>): $Codec<($Map<($LootRarity), (T)>)>
+public "toComponent"(): $Component
+public "clamp"(arg0: $LootRarity$Type, arg1: $LootRarity$Type): $LootRarity
+public "getWeight"(): integer
+public "isAtLeast"(arg0: $LootRarity$Type): boolean
+public "getMaterial"(): $Item
+public "getColor"(): $TextColor
+public "getCodec"(): $Codec<(any)>
+public "getQuality"(): float
+public "isAtMost"(arg0: $LootRarity$Type): boolean
 public static "random"(arg0: $RandomSource$Type, arg1: float): $LootRarity
 public static "random"(arg0: $RandomSource$Type, arg1: float, arg2: $RarityClamp$Type): $LootRarity
 public "toString"(): string
@@ -3996,24 +4003,14 @@ public "next"(): $LootRarity
 public "prev"(): $LootRarity
 public "ordinal"(): integer
 public "getRules"(): $List<($LootRarity$LootRule)>
-public "isAtLeast"(arg0: $LootRarity$Type): boolean
-public "getColor"(): $TextColor
-public "getMaterial"(): $Item
-public "getWeight"(): integer
-public "clamp"(arg0: $LootRarity$Type, arg1: $LootRarity$Type): $LootRarity
-public "getQuality"(): float
-public "getCodec"(): $Codec<(any)>
-public "toComponent"(): $Component
-public static "mapCodec"<T>(arg0: $Codec$Type<(T)>): $Codec<($Map<($LootRarity), (T)>)>
-public "isAtMost"(arg0: $LootRarity$Type): boolean
 public static "wrap"<T extends $WeightedDynamicRegistry$ILuckyWeighted>(arg0: T, arg1: float): $WeightedEntry$Wrapper<(T)>
 public "wrap"<T extends $WeightedDynamicRegistry$ILuckyWeighted>(arg0: float): $WeightedEntry$Wrapper<(T)>
-get "rules"(): $List<($LootRarity$LootRule)>
-get "color"(): $TextColor
-get "material"(): $Item
 get "weight"(): integer
-get "quality"(): float
+get "material"(): $Item
+get "color"(): $TextColor
 get "codec"(): $Codec<(any)>
+get "quality"(): float
+get "rules"(): $List<($LootRarity$LootRule)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4071,8 +4068,8 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
 public "molestSheepItems"(arg0: $Sheep$Type, arg1: $ItemStack$Type, arg2: $List$Type<($ItemStack$Type)>): $List<($ItemStack)>
+public "getMinCost"(arg0: integer): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4097,13 +4094,13 @@ static "CODEC": $Codec<($BossEventSettings)>
 
 constructor(mode: $BossEventSettings$Mode$Type, fog: boolean)
 
+public "fog"(): boolean
+public "drawAsBar"(): boolean
+public "drawAsName"(): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "mode"(): $BossEventSettings$Mode
-public "drawAsBar"(): boolean
-public "fog"(): boolean
-public "drawAsName"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4132,11 +4129,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
 public "getDamageBonus"(arg0: integer, arg1: $MobType$Type): float
 public "doPostAttack"(arg0: $LivingEntity$Type, arg1: $Entity$Type, arg2: integer): void
-public "getMaxLevel"(): integer
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
 get "maxLevel"(): integer
 }
@@ -4165,11 +4162,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "breakSpeed"(arg0: $PlayerEvent$BreakSpeed$Type): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -4228,14 +4225,14 @@ readonly "properties": $BlockBehaviour$Properties
 constructor()
 
 public "getStateDefinition"(): $StateDefinition<($Block), ($BlockState)>
+public "_setDefaultState"(arg0: $BlockState$Type): void
+public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
 /**
  * 
  * @deprecated
  */
 public "neighborChanged"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Block$Type, arg4: $BlockPos$Type, arg5: boolean): void
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
-public "_setDefaultState"(arg0: $BlockState$Type): void
-public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
 get "stateDefinition"(): $StateDefinition<($Block), ($BlockState)>
 set "stateContainer"(value: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>)
 }
@@ -4263,12 +4260,12 @@ static readonly "LARGE": $Gateway$Size
 static readonly "CODEC": $Codec<($Gateway$Size)>
 
 
+public "getDims"(): $EntityDimensions
+public "getScale"(): float
 public static "values"(): ($Gateway$Size)[]
 public static "valueOf"(arg0: string): $Gateway$Size
-public "getScale"(): float
-public "getDims"(): $EntityDimensions
-get "scale"(): float
 get "dims"(): $EntityDimensions
+get "scale"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4302,42 +4299,42 @@ export class $FletchingRecipe implements $Recipe<($CraftingContainer)> {
 
 constructor(arg0: $ResourceLocation$Type, arg1: $ItemStack$Type, arg2: $List$Type<($Ingredient$Type)>)
 
-public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
-public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getOutput"(): $ItemStack
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
+public "getOutput"(): $ItemStack
+public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getId"(): $ResourceLocation
-public "isSpecial"(): boolean
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
+public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
-public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
-public "getMod"(): string
-public "getType"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "getGroup"(): string
-public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
+public "setGroup"(group: string): void
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-get "output"(): $ItemStack
+public "getType"(): $ResourceLocation
+public "getMod"(): string
 get "serializer"(): $RecipeSerializer<(any)>
 get "ingredients"(): $NonNullList<($Ingredient)>
+get "output"(): $ItemStack
 get "id"(): $ResourceLocation
-get "special"(): boolean
-get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
-get "mod"(): string
-get "type"(): $ResourceLocation
+get "toastSymbol"(): $ItemStack
+get "special"(): boolean
 get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
+set "group"(value: string)
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
+get "mod"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4363,10 +4360,10 @@ static readonly "CODEC": $Codec<($RogueSpawnerFeature$Config)>
 
 constructor(successChance: float)
 
+public "successChance"(): float
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "successChance"(): float
 public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 }
@@ -4409,42 +4406,42 @@ static readonly "CODEC": $Codec<($Gem)>
 
 constructor(arg0: integer, arg1: float, arg2: $Set$Type<($ResourceLocation$Type)>, arg3: $Optional$Type<($LootRarity$Type)>, arg4: $Optional$Type<($LootRarity$Type)>, arg5: $List$Type<($GemBonus$Type)>, arg6: boolean, arg7: $Optional$Type<($Set$Type<(string)>)>)
 
+public "getMinRarity"(): $LootRarity
+public "canApplyTo"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LootRarity$Type): boolean
+public "getNumberOfUUIDs"(): integer
+public "addInformation"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $Consumer$Type<($Component$Type)>): void
+public "getWeight"(): integer
+public "getBonus"(arg0: $LootCategory$Type, arg1: $LootRarity$Type): $Optional<($GemBonus)>
+public "isUnique"(): boolean
+public "getMaxRarity"(): $LootRarity
+public "getCodec"(): $Codec<(any)>
+public "getQuality"(): float
+public "isValidIn"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LootRarity$Type): boolean
+public static "addTypeInfo"(arg0: $Consumer$Type<($Component$Type)>, ...arg1: (any)[]): void
+public "getBonuses"(): $List<($GemBonus)>
+public "getStages"(): $Set<(string)>
 public "toString"(): string
 public "validate"(arg0: $ResourceLocation$Type): $Gem
 public "getId"(): $ResourceLocation
 public static "fmt"(arg0: float): string
 public "getDimensions"(): $Set<($ResourceLocation)>
-public "getBonus"(arg0: $LootCategory$Type, arg1: $LootRarity$Type): $Optional<($GemBonus)>
-public "canApplyTo"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LootRarity$Type): boolean
-public "getWeight"(): integer
-public "getQuality"(): float
-public static "addTypeInfo"(arg0: $Consumer$Type<($Component$Type)>, ...arg1: (any)[]): void
-public "getStages"(): $Set<(string)>
-public "isValidIn"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $LootRarity$Type): boolean
-public "getBonuses"(): $List<($GemBonus)>
-public "getCodec"(): $Codec<(any)>
-public "getMaxRarity"(): $LootRarity
-public "addInformation"(arg0: $ItemStack$Type, arg1: $LootRarity$Type, arg2: $Consumer$Type<($Component$Type)>): void
-public "getNumberOfUUIDs"(): integer
-public "isUnique"(): boolean
-public "getMinRarity"(): $LootRarity
 public static "wrap"<T extends $WeightedDynamicRegistry$ILuckyWeighted>(arg0: T, arg1: float): $WeightedEntry$Wrapper<(T)>
 public "wrap"<T extends $WeightedDynamicRegistry$ILuckyWeighted>(arg0: float): $WeightedEntry$Wrapper<(T)>
 public static "matches"<T extends $WeightedDynamicRegistry$IDimensional>(arg0: $Level$Type): $Predicate<(T)>
 public static "matches"<T extends $WeightedDynamicRegistry$IDimensional>(arg0: $ResourceLocation$Type): $Predicate<(T)>
 public "clamp"(arg0: $LootRarity$Type): $LootRarity
 public static "matches"<T extends $GameStagesCompat$IStaged>(arg0: $Player$Type): $Predicate<(T)>
+get "minRarity"(): $LootRarity
+get "numberOfUUIDs"(): integer
+get "weight"(): integer
+get "unique"(): boolean
+get "maxRarity"(): $LootRarity
+get "codec"(): $Codec<(any)>
+get "quality"(): float
+get "bonuses"(): $List<($GemBonus)>
+get "stages"(): $Set<(string)>
 get "id"(): $ResourceLocation
 get "dimensions"(): $Set<($ResourceLocation)>
-get "weight"(): integer
-get "quality"(): float
-get "stages"(): $Set<(string)>
-get "bonuses"(): $List<($GemBonus)>
-get "codec"(): $Codec<(any)>
-get "maxRarity"(): $LootRarity
-get "numberOfUUIDs"(): integer
-get "unique"(): boolean
-get "minRarity"(): $LootRarity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4693,11 +4690,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "drops"(arg0: $Player$Type, arg1: $LivingDropsEvent$Type): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -4726,11 +4723,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
-public "canEnchant"(arg0: $ItemStack$Type): boolean
-public "getMaxCost"(arg0: integer): integer
-public "doPostHurt"(arg0: $LivingEntity$Type, arg1: $Entity$Type, arg2: integer): void
 public "getMaxLevel"(): integer
+public "getMinCost"(arg0: integer): integer
+public "getMaxCost"(arg0: integer): integer
+public "canEnchant"(arg0: $ItemStack$Type): boolean
+public "doPostHurt"(arg0: $LivingEntity$Type, arg1: $Entity$Type, arg2: integer): void
 get "maxLevel"(): integer
 }
 /**
@@ -4819,9 +4816,9 @@ import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$Char2FloatFunction, $Char2FloatFunction$Type} from "packages/it/unimi/dsi/fastutil/chars/$Char2FloatFunction"
 import {$Object2FloatFunction, $Object2FloatFunction$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2FloatFunction"
 import {$Float2ObjectFunction, $Float2ObjectFunction$Type} from "packages/it/unimi/dsi/fastutil/floats/$Float2ObjectFunction"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Int2FloatFunction, $Int2FloatFunction$Type} from "packages/it/unimi/dsi/fastutil/ints/$Int2FloatFunction"
 import {$Double2FloatFunction, $Double2FloatFunction$Type} from "packages/it/unimi/dsi/fastutil/doubles/$Double2FloatFunction"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$Record, $Record$Type} from "packages/java/lang/$Record"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$Float2LongFunction, $Float2LongFunction$Type} from "packages/it/unimi/dsi/fastutil/floats/$Float2LongFunction"
@@ -4837,6 +4834,9 @@ static readonly "CODEC": $Codec<($StepFunction)>
 
 constructor(min: float, steps: integer, step: float)
 
+public "getStep"(arg0: float): integer
+public "getForStep"(arg0: integer): float
+public "getIntForStep"(arg0: integer): float
 public "get"(arg0: float): float
 public "equals"(arg0: any): boolean
 public "toString"(): string
@@ -4849,20 +4849,37 @@ public "write"(arg0: $FriendlyByteBuf$Type): void
 public static "read"(arg0: $FriendlyByteBuf$Type): $StepFunction
 public "step"(): float
 public "steps"(): integer
-public "getStep"(arg0: float): integer
-public "getIntForStep"(arg0: integer): float
-public "getForStep"(arg0: integer): float
+public "defaultReturnValue"(arg0: float): void
+public "defaultReturnValue"(): float
+public "andThenByte"(arg0: $Float2ByteFunction$Type): $Float2ByteFunction
+public "composeShort"(arg0: $Short2FloatFunction$Type): $Short2FloatFunction
+public "composeByte"(arg0: $Byte2FloatFunction$Type): $Byte2FloatFunction
+public "andThenInt"(arg0: $Float2IntFunction$Type): $Float2IntFunction
+public "andThenShort"(arg0: $Float2ShortFunction$Type): $Float2ShortFunction
+public "composeInt"(arg0: $Int2FloatFunction$Type): $Int2FloatFunction
+public "composeObject"<T>(arg0: $Object2FloatFunction$Type<(any)>): $Object2FloatFunction<(T)>
+public "andThenReference"<T>(arg0: $Float2ReferenceFunction$Type<(any)>): $Float2ReferenceFunction<(T)>
+public "andThenChar"(arg0: $Float2CharFunction$Type): $Float2CharFunction
+public "composeFloat"(arg0: $Float2FloatFunction$Type): $Float2FloatFunction
+public "andThenLong"(arg0: $Float2LongFunction$Type): $Float2LongFunction
+public "andThenFloat"(arg0: $Float2FloatFunction$Type): $Float2FloatFunction
+public "composeChar"(arg0: $Char2FloatFunction$Type): $Char2FloatFunction
+public "andThenDouble"(arg0: $Float2DoubleFunction$Type): $Float2DoubleFunction
+public "composeDouble"(arg0: $Double2FloatFunction$Type): $Double2FloatFunction
+public "andThenObject"<T>(arg0: $Float2ObjectFunction$Type<(any)>): $Float2ObjectFunction<(T)>
+public "composeLong"(arg0: $Long2FloatFunction$Type): $Long2FloatFunction
+public "composeReference"<T>(arg0: $Reference2FloatFunction$Type<(any)>): $Reference2FloatFunction<(T)>
 public "remove"(arg0: float): float
 /**
  * 
  * @deprecated
  */
 public "get"(arg0: any): float
-public "put"(arg0: float, arg1: float): float
 /**
  * 
  * @deprecated
  */
+public "put"(arg0: float, arg1: float): float
 public "put"(arg0: float, arg1: float): float
 public static "identity"(): $Float2FloatFunction
 /**
@@ -4892,26 +4909,6 @@ public "compose"<T>(arg0: $Function$Type<(any), (any)>): $Function<(T), (float)>
  * @deprecated
  */
 public "andThen"<T>(arg0: $Function$Type<(any), (any)>): $Function<(float), (T)>
-public "defaultReturnValue"(arg0: float): void
-public "defaultReturnValue"(): float
-public "andThenInt"(arg0: $Float2IntFunction$Type): $Float2IntFunction
-public "andThenLong"(arg0: $Float2LongFunction$Type): $Float2LongFunction
-public "composeShort"(arg0: $Short2FloatFunction$Type): $Short2FloatFunction
-public "composeByte"(arg0: $Byte2FloatFunction$Type): $Byte2FloatFunction
-public "andThenShort"(arg0: $Float2ShortFunction$Type): $Float2ShortFunction
-public "composeInt"(arg0: $Int2FloatFunction$Type): $Int2FloatFunction
-public "andThenByte"(arg0: $Float2ByteFunction$Type): $Float2ByteFunction
-public "composeObject"<T>(arg0: $Object2FloatFunction$Type<(any)>): $Object2FloatFunction<(T)>
-public "andThenFloat"(arg0: $Float2FloatFunction$Type): $Float2FloatFunction
-public "andThenReference"<T>(arg0: $Float2ReferenceFunction$Type<(any)>): $Float2ReferenceFunction<(T)>
-public "composeLong"(arg0: $Long2FloatFunction$Type): $Long2FloatFunction
-public "composeFloat"(arg0: $Float2FloatFunction$Type): $Float2FloatFunction
-public "andThenDouble"(arg0: $Float2DoubleFunction$Type): $Float2DoubleFunction
-public "composeReference"<T>(arg0: $Reference2FloatFunction$Type<(any)>): $Reference2FloatFunction<(T)>
-public "andThenChar"(arg0: $Float2CharFunction$Type): $Float2CharFunction
-public "composeDouble"(arg0: $Double2FloatFunction$Type): $Double2FloatFunction
-public "andThenObject"<T>(arg0: $Float2ObjectFunction$Type<(any)>): $Float2ObjectFunction<(T)>
-public "composeChar"(arg0: $Char2FloatFunction$Type): $Char2FloatFunction
 public "clear"(): void
 public "size"(): integer
 public "apply"(arg0: float): float
@@ -4944,15 +4941,15 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
-public "getMinCost"(arg0: integer): integer
-public "isCurse"(): boolean
-public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
-public "lifeMend"(arg0: $LivingHealEvent$Type): void
 public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
+public "getMinCost"(arg0: integer): integer
+public "getMaxCost"(arg0: integer): integer
+public "isCurse"(): boolean
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
-get "curse"(): boolean
+public "lifeMend"(arg0: $LivingHealEvent$Type): void
 get "maxLevel"(): integer
+get "curse"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4988,23 +4985,15 @@ export class $ReforgingRecipe extends $Record implements $Recipe<($Container)> {
 
 constructor(id: $ResourceLocation$Type, rarity: $DynamicHolder$Type<($LootRarity$Type)>, matCost: integer, sigilCost: integer, levelCost: integer)
 
-public "equals"(arg0: any): boolean
-public "toString"(): string
-public "hashCode"(): integer
-public "id"(): $ResourceLocation
-public "rarity"(): $DynamicHolder<($LootRarity)>
-/**
- * 
- * @deprecated
- */
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 /**
  * 
  * @deprecated
  */
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getId"(): $ResourceLocation
+public "matCost"(): integer
+public "levelCost"(): integer
+public "sigilCost"(): integer
 /**
  * 
  * @deprecated
@@ -5015,36 +5004,44 @@ public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
  * @deprecated
  */
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "sigilCost"(): integer
-public "levelCost"(): integer
-public "matCost"(): integer
-public "isSpecial"(): boolean
+public "rarity"(): $DynamicHolder<($LootRarity)>
+public "getId"(): $ResourceLocation
+/**
+ * 
+ * @deprecated
+ */
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "equals"(arg0: any): boolean
+public "toString"(): string
+public "hashCode"(): integer
+public "id"(): $ResourceLocation
+public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
-public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getMod"(): string
-public "getType"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "getGroup"(): string
-public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
+public "setGroup"(group: string): void
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getType"(): $ResourceLocation
+public "getMod"(): string
 get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
-get "toastSymbol"(): $ItemStack
 get "incomplete"(): boolean
+get "toastSymbol"(): $ItemStack
 get "ingredients"(): $NonNullList<($Ingredient)>
-get "mod"(): string
-get "type"(): $ResourceLocation
+get "special"(): boolean
 get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
+set "group"(value: string)
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
+get "mod"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5071,11 +5068,11 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
+public "getFullname"(arg0: integer): $Component
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
-public "getFullname"(arg0: integer): $Component
 public "provideBenefits"(arg0: $BlockEvent$BreakEvent$Type): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -5124,16 +5121,16 @@ declare module "packages/dev/shadowsoffire/gateways/gate/$WaveEntity" {
 import {$CodecMap, $CodecMap$Type} from "packages/dev/shadowsoffire/placebo/codec/$CodecMap"
 import {$CodecProvider, $CodecProvider$Type} from "packages/dev/shadowsoffire/placebo/codec/$CodecProvider"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 
 export interface $WaveEntity extends $CodecProvider<($WaveEntity)> {
 
- "getCount"(): integer
- "getDescription"(): $MutableComponent
  "createEntity"(arg0: $Level$Type): $LivingEntity
  "shouldFinalizeSpawn"(): boolean
+ "getCount"(): integer
+ "getDescription"(): $MutableComponent
  "getCodec"(): $Codec<(any)>
 }
 
@@ -5181,10 +5178,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
+public static "updateAnvil"(arg0: $AnvilUpdateEvent$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "getRarity"(arg0: $ItemStack$Type): $Rarity
-public static "updateAnvil"(arg0: $AnvilUpdateEvent$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5270,9 +5267,9 @@ static readonly "ENTITY_DISCARDED": $GatewayEntity$FailureReason
 static readonly "ENTITY_LEFT_DIMENSION": $GatewayEntity$FailureReason
 
 
+public "getMsg"(): $Component
 public static "values"(): ($GatewayEntity$FailureReason)[]
 public static "valueOf"(arg0: string): $GatewayEntity$FailureReason
-public "getMsg"(): $Component
 get "msg"(): $Component
 }
 /**
@@ -5300,10 +5297,10 @@ readonly "category": $EnchantmentCategory
 
 constructor()
 
+public "getMaxLevel"(): integer
 public "getMinCost"(arg0: integer): integer
 public "getMaxCost"(arg0: integer): integer
 public "doPostHurt"(arg0: $LivingEntity$Type, arg1: $Entity$Type, arg2: integer): void
-public "getMaxLevel"(): integer
 get "maxLevel"(): integer
 }
 /**
@@ -5328,17 +5325,17 @@ static "CODEC": $Codec<($EnchantingStatRegistry$Stats)>
 
 constructor(maxEterna: float, eterna: float, quanta: float, arcana: float, rectification: float, clues: integer)
 
+public "quanta"(): float
+public "arcana"(): float
+public "eterna"(): float
+public "clues"(): integer
+public "rectification"(): float
+public "maxEterna"(): float
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "write"(arg0: $FriendlyByteBuf$Type): void
 public static "read"(arg0: $FriendlyByteBuf$Type): $EnchantingStatRegistry$Stats
-public "arcana"(): float
-public "quanta"(): float
-public "rectification"(): float
-public "clues"(): integer
-public "eterna"(): float
-public "maxEterna"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5393,70 +5390,70 @@ import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecr
 
 export interface $IEnchantingBlock extends $IForgeBlock {
 
- "getMaxEnchantingPower"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
  "getQuantaRectification"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
  "getBlacklistedEnchantments"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): $Set<($Enchantment)>
+ "getMaxEnchantingPower"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
+ "getQuantaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
+ "getArcanaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
  "getTableParticle"(arg0: $BlockState$Type): $ParticleOptions
  "getBonusClues"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): integer
- "getArcanaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
  "spawnTableParticle"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: $BlockPos$Type): void
  "allowsTreasure"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
- "getQuantaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
- "rotate"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: $Rotation$Type): $BlockState
+ "getRespawnPosition"(arg0: $BlockState$Type, arg1: $EntityType$Type<(any)>, arg2: $LevelReader$Type, arg3: $BlockPos$Type, arg4: float, arg5: $LivingEntity$Type): $Optional<($Vec3)>
  "getFriction"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): float
- "supportsExternalFaceHiding"(arg0: $BlockState$Type): boolean
- "makesOpenTrapdoorAboveClimbable"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
- "onDestroyedByPlayer"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: boolean, arg5: $FluidState$Type): boolean
- "getEnchantPowerBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
- "getBeaconColorMultiplier"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): (float)[]
- "getStateAtViewpoint"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Vec3$Type): $BlockState
- "getAdjacentBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: $BlockPathTypes$Type): $BlockPathTypes
- "getExplosionResistance"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): float
- "canDropFromExplosion"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): boolean
- "shouldDisplayFluidOverlay"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type): boolean
- "getToolModifiedState"(arg0: $BlockState$Type, arg1: $UseOnContext$Type, arg2: $ToolAction$Type, arg3: boolean): $BlockState
- "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
- "collisionExtendsVertically"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
- "shouldCheckWeakPower"(arg0: $BlockState$Type, arg1: $SignalGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
- "hidesNeighborFace"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $Direction$Type): boolean
- "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
- "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
- "getSoundType"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): $SoundType
  "isScaffolding"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type): boolean
- "getBedDirection"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): $Direction
  "isBed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
  "setBedOccupied"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type, arg4: boolean): void
- "addRunningEffects"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
- "isLadder"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type): boolean
- "canHarvestBlock"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
- "isFertile"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
- "isConduitFrame"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): boolean
- "onTreeGrow"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BiConsumer$Type<($BlockPos$Type), ($BlockState$Type)>, arg3: $RandomSource$Type, arg4: $BlockPos$Type, arg5: $TreeConfiguration$Type): boolean
- "isValidSpawn"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $SpawnPlacements$Type$Type, arg4: $EntityType$Type<(any)>): boolean
- "isBurning"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
- "getExpDrop"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: integer, arg5: integer): integer
- "isPortalFrame"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
- "getBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type): $BlockPathTypes
- "canEntityDestroy"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
- "isFlammable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "getFlammability"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
- "isSlimeBlock"(arg0: $BlockState$Type): boolean
- "isStickyBlock"(arg0: $BlockState$Type): boolean
- "isFireSource"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "canStickTo"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
- "onCaughtFire"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $LivingEntity$Type): void
- "onBlockExploded"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): void
- "getFireSpreadSpeed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
- "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
- "canBeHydrated"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type, arg4: $BlockPos$Type): boolean
- "getAppearance"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $BlockState$Type, arg5: $BlockPos$Type): $BlockState
- "getMapColor"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $MapColor$Type): $MapColor
- "getRespawnPosition"(arg0: $BlockState$Type, arg1: $EntityType$Type<(any)>, arg2: $LevelReader$Type, arg3: $BlockPos$Type, arg4: float, arg5: $LivingEntity$Type): $Optional<($Vec3)>
- "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
+ "getBedDirection"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): $Direction
  "onBlockStateChange"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type): void
+ "getLightEmission"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): integer
+ "shouldCheckWeakPower"(arg0: $BlockState$Type, arg1: $SignalGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "collisionExtendsVertically"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
+ "addRunningEffects"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
+ "isBurning"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "canHarvestBlock"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Player$Type): boolean
+ "isLadder"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $LivingEntity$Type): boolean
+ "hidesNeighborFace"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $Direction$Type): boolean
+ "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+ "isValidSpawn"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $SpawnPlacements$Type$Type, arg4: $EntityType$Type<(any)>): boolean
+ "getBeaconColorMultiplier"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): (float)[]
+ "getAdjacentBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type, arg4: $BlockPathTypes$Type): $BlockPathTypes
+ "getStateAtViewpoint"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Vec3$Type): $BlockState
+ "getToolModifiedState"(arg0: $BlockState$Type, arg1: $UseOnContext$Type, arg2: $ToolAction$Type, arg3: boolean): $BlockState
+ "makesOpenTrapdoorAboveClimbable"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
+ "getExplosionResistance"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): float
+ "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+ "supportsExternalFaceHiding"(arg0: $BlockState$Type): boolean
+ "getEnchantPowerBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
+ "onDestroyedByPlayer"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: boolean, arg5: $FluidState$Type): boolean
+ "canDropFromExplosion"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): boolean
+ "shouldDisplayFluidOverlay"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type): boolean
  "onNeighborChange"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): void
  "getWeakChanges"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
+ "addLandingEffects"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: $LivingEntity$Type, arg5: integer): boolean
+ "getSoundType"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): $SoundType
+ "onTreeGrow"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BiConsumer$Type<($BlockPos$Type), ($BlockState$Type)>, arg3: $RandomSource$Type, arg4: $BlockPos$Type, arg5: $TreeConfiguration$Type): boolean
+ "isConduitFrame"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type): boolean
+ "isPortalFrame"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "isFertile"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type): boolean
+ "getExpDrop"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $RandomSource$Type, arg3: $BlockPos$Type, arg4: integer, arg5: integer): integer
+ "getBlockPathType"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Mob$Type): $BlockPathTypes
+ "isStickyBlock"(arg0: $BlockState$Type): boolean
+ "getFlammability"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
+ "isFlammable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "canStickTo"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
+ "onCaughtFire"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $LivingEntity$Type): void
+ "isSlimeBlock"(arg0: $BlockState$Type): boolean
+ "isFireSource"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "onBlockExploded"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Explosion$Type): void
+ "getFireSpreadSpeed"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): integer
+ "canEntityDestroy"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): boolean
+ "canBeHydrated"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $FluidState$Type, arg4: $BlockPos$Type): boolean
+ "getAppearance"(arg0: $BlockState$Type, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $BlockState$Type, arg5: $BlockPos$Type): $BlockState
+ "canConnectRedstone"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type): boolean
+ "getMapColor"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $MapColor$Type): $MapColor
+ "getCloneItemStack"(arg0: $BlockState$Type, arg1: $HitResult$Type, arg2: $BlockGetter$Type, arg3: $BlockPos$Type, arg4: $Player$Type): $ItemStack
+ "rotate"(arg0: $BlockState$Type, arg1: $LevelAccessor$Type, arg2: $BlockPos$Type, arg3: $Rotation$Type): $BlockState
 
 (arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
 }
@@ -5550,9 +5547,9 @@ readonly "properties": $BlockBehaviour$Properties
 constructor()
 
 public "getStateDefinition"(): $StateDefinition<($Block), ($BlockState)>
-public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "_setDefaultState"(arg0: $BlockState$Type): void
 public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
+public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 get "stateDefinition"(): $StateDefinition<($Block), ($BlockState)>
 set "stateContainer"(value: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>)
 }
@@ -5577,8 +5574,8 @@ import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -5598,12 +5595,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
+public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
+public "getShareTag"(arg0: $ItemStack$Type): $CompoundTag
+public "onLeftClickEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "isEnchantable"(arg0: $ItemStack$Type): boolean
 public "isFoil"(arg0: $ItemStack$Type): boolean
-public "onLeftClickEntity"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $Entity$Type): boolean
-public "getShareTag"(arg0: $ItemStack$Type): $CompoundTag
-public "useOn"(arg0: $UseOnContext$Type): $InteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5700,17 +5697,17 @@ readonly "result": $ItemStack
 
 constructor()
 
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "isSpecial"(): boolean
-public "getToastSymbol"(): $ItemStack
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "getToastSymbol"(): $ItemStack
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-get "special"(): boolean
+public "getId"(): $ResourceLocation
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 get "toastSymbol"(): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
 get "id"(): $ResourceLocation
 }
 /**
@@ -5739,9 +5736,9 @@ static readonly "INSTANCE": $ReforgingRecipe$Serializer
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ReforgingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ReforgingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ReforgingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ReforgingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ReforgingRecipe
 }
@@ -5797,8 +5794,8 @@ static readonly "NO_MAX": $EnchantingStatRegistry$Stats
 
 constructor(arg0: $ResourceLocation$Type, arg1: $ItemStack$Type, arg2: $Ingredient$Type, arg3: $EnchantingStatRegistry$Stats$Type, arg4: $EnchantingStatRegistry$Stats$Type)
 
-public "assemble"(arg0: $ItemStack$Type, arg1: float, arg2: float, arg3: float): $ItemStack
 public "getSerializer"(): $RecipeSerializer<(any)>
+public "assemble"(arg0: $ItemStack$Type, arg1: float, arg2: float, arg3: float): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
 }
 /**
@@ -5850,8 +5847,8 @@ export class $BleedingEffect extends $MobEffect {
 
 constructor()
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5906,9 +5903,9 @@ export class $EnchantingRecipe$Serializer implements $RecipeSerializer<($Enchant
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $EnchantingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $EnchantingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $EnchantingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $EnchantingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $EnchantingRecipe
 }
@@ -5930,28 +5927,28 @@ import {$BossEventSettings, $BossEventSettings$Type} from "packages/dev/shadowso
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$GateRules, $GateRules$Type} from "packages/dev/shadowsoffire/gateways/gate/$GateRules"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
-import {$GatewayEntity, $GatewayEntity$Type} from "packages/dev/shadowsoffire/gateways/entity/$GatewayEntity"
 import {$SpawnAlgorithms$SpawnAlgorithm, $SpawnAlgorithms$SpawnAlgorithm$Type} from "packages/dev/shadowsoffire/gateways/gate/$SpawnAlgorithms$SpawnAlgorithm"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
+import {$GatewayEntity, $GatewayEntity$Type} from "packages/dev/shadowsoffire/gateways/entity/$GatewayEntity"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$Gateway$Size, $Gateway$Size$Type} from "packages/dev/shadowsoffire/gateways/gate/$Gateway$Size"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$Gateway$Size, $Gateway$Size$Type} from "packages/dev/shadowsoffire/gateways/gate/$Gateway$Size"
 import {$CodecProvider, $CodecProvider$Type} from "packages/dev/shadowsoffire/placebo/codec/$CodecProvider"
 import {$Failure, $Failure$Type} from "packages/dev/shadowsoffire/gateways/gate/$Failure"
 import {$TextColor, $TextColor$Type} from "packages/net/minecraft/network/chat/$TextColor"
 
 export interface $Gateway extends $CodecProvider<($Gateway)> {
 
+ "bossSettings"(): $BossEventSettings
+ "failures"(): $List<($Failure)>
+ "spawnAlgo"(): $SpawnAlgorithms$SpawnAlgorithm
+ "appendPearlTooltip"(arg0: $Level$Type, arg1: $List$Type<($Component$Type)>, arg2: $TooltipFlag$Type): void
+ "getLeashRangeSq"(): double
+ "renderBossBar"(arg0: $GatewayEntity$Type, arg1: any, arg2: integer, arg3: integer, arg4: boolean): void
+ "createEntity"(arg0: $Level$Type, arg1: $Player$Type): $GatewayEntity
  "size"(): $Gateway$Size
  "color"(): $TextColor
  "rules"(): $GateRules
- "createEntity"(arg0: $Level$Type, arg1: $Player$Type): $GatewayEntity
- "getLeashRangeSq"(): double
- "failures"(): $List<($Failure)>
- "bossSettings"(): $BossEventSettings
- "spawnAlgo"(): $SpawnAlgorithms$SpawnAlgorithm
- "renderBossBar"(arg0: $GatewayEntity$Type, arg1: any, arg2: integer, arg3: integer, arg4: boolean): void
- "appendPearlTooltip"(arg0: $Level$Type, arg1: $List$Type<($Component$Type)>, arg2: $TooltipFlag$Type): void
  "getCodec"(): $Codec<(any)>
 }
 
@@ -6007,6 +6004,8 @@ export class $DynamicHolder<T> implements $Supplier<(T)> {
 static readonly "EMPTY": $ResourceLocation
 
 
+public "isBound"(): boolean
+public "getOptional"(): $Optional<(T)>
 public "get"(): T
 /**
  * 
@@ -6017,11 +6016,9 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getId"(): $ResourceLocation
 public "is"(arg0: $ResourceLocation$Type): boolean
-public "getOptional"(): $Optional<(T)>
-public "isBound"(): boolean
-get "id"(): $ResourceLocation
-get "optional"(): $Optional<(T)>
 get "bound"(): boolean
+get "optional"(): $Optional<(T)>
+get "id"(): $ResourceLocation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6152,21 +6149,13 @@ export class $SalvagingRecipe implements $Recipe<($Container)> {
 
 constructor(arg0: $ResourceLocation$Type, arg1: $List$Type<($SalvagingRecipe$OutputData$Type)>, arg2: $Ingredient$Type)
 
-public "matches"(arg0: $ItemStack$Type): boolean
-public "getInput"(): $Ingredient
-public "getOutputs"(): $List<($SalvagingRecipe$OutputData)>
-/**
- * 
- * @deprecated
- */
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 /**
  * 
  * @deprecated
  */
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getId"(): $ResourceLocation
+public "getOutputs"(): $List<($SalvagingRecipe$OutputData)>
 /**
  * 
  * @deprecated
@@ -6177,36 +6166,44 @@ public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
  * @deprecated
  */
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "isSpecial"(): boolean
+public "getId"(): $ResourceLocation
+/**
+ * 
+ * @deprecated
+ */
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $ItemStack$Type): boolean
+public "getInput"(): $Ingredient
+public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
-public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getMod"(): string
-public "getType"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "getGroup"(): string
-public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
+public "setGroup"(group: string): void
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-get "input"(): $Ingredient
-get "outputs"(): $List<($SalvagingRecipe$OutputData)>
+public "getType"(): $ResourceLocation
+public "getMod"(): string
 get "serializer"(): $RecipeSerializer<(any)>
+get "outputs"(): $List<($SalvagingRecipe$OutputData)>
 get "id"(): $ResourceLocation
-get "special"(): boolean
-get "toastSymbol"(): $ItemStack
+get "input"(): $Ingredient
 get "incomplete"(): boolean
+get "toastSymbol"(): $ItemStack
 get "ingredients"(): $NonNullList<($Ingredient)>
-get "mod"(): string
-get "type"(): $ResourceLocation
+get "special"(): boolean
 get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
+set "group"(value: string)
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
+get "mod"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6299,15 +6296,15 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getEnchantPowerBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
-public "getMaxEnchantingPower"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
-public "getBlacklistedEnchantments"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): $Set<($Enchantment)>
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public static "canInsert"(arg0: $ItemStack$Type): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "getTableParticle"(arg0: $BlockState$Type): $ParticleOptions
+public "getBlacklistedEnchantments"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): $Set<($Enchantment)>
+public "getEnchantPowerBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
+public "getMaxEnchantingPower"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
 public "getArcanaBonus"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): float
+public "getTableParticle"(arg0: $BlockState$Type): $ParticleOptions
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
 }
 /**
@@ -6376,16 +6373,16 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 /**
  * 
  * @deprecated
  */
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "useShapeForLightOcclusion"(arg0: $BlockState$Type): boolean
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 }
@@ -6413,9 +6410,9 @@ static readonly "SOCKET": $AffixType
 static readonly "DURABILITY": $AffixType
 
 
+public "needsValidation"(): boolean
 public static "values"(): ($AffixType)[]
 public static "valueOf"(arg0: string): $AffixType
-public "needsValidation"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6476,10 +6473,10 @@ readonly "properties": $BlockBehaviour$Properties
 constructor()
 
 public "getStateDefinition"(): $StateDefinition<($Block), ($BlockState)>
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 public "_setDefaultState"(arg0: $BlockState$Type): void
 public "setStateContainer"(arg0: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>): void
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 get "stateDefinition"(): $StateDefinition<($Block), ($BlockState)>
 set "stateContainer"(value: $StateDefinition$Type<($Block$Type), ($BlockState$Type)>)
 }
@@ -6536,9 +6533,9 @@ static readonly "NAME": $ResourceLocation
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $FletchingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $FletchingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $FletchingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $FletchingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $FletchingRecipe
 }
@@ -6577,24 +6574,17 @@ static readonly "NO_MAX": $EnchantingStatRegistry$Stats
 
 constructor(arg0: $ResourceLocation$Type, arg1: $ItemStack$Type, arg2: $Ingredient$Type, arg3: $EnchantingStatRegistry$Stats$Type, arg4: $EnchantingStatRegistry$Stats$Type)
 
-public "matches"(arg0: $ItemStack$Type, arg1: float, arg2: float, arg3: float): boolean
-public "getInput"(): $Ingredient
-public static "findMatch"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: float, arg3: float, arg4: float): $EnchantingRecipe
-public static "findItemMatch"(arg0: $Level$Type, arg1: $ItemStack$Type): $EnchantingRecipe
-public "assemble"(arg0: $ItemStack$Type, arg1: float, arg2: float, arg3: float): $ItemStack
-public "getOutput"(): $ItemStack
-/**
- * 
- * @deprecated
- */
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 /**
  * 
  * @deprecated
  */
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getId"(): $ResourceLocation
+public "getOutput"(): $ItemStack
+public "getRequirements"(): $EnchantingStatRegistry$Stats
+public "getMaxRequirements"(): $EnchantingStatRegistry$Stats
+public static "findItemMatch"(arg0: $Level$Type, arg1: $ItemStack$Type): $EnchantingRecipe
+public "assemble"(arg0: $ItemStack$Type, arg1: float, arg2: float, arg3: float): $ItemStack
 /**
  * 
  * @deprecated
@@ -6605,40 +6595,47 @@ public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
  * @deprecated
  */
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getMaxRequirements"(): $EnchantingStatRegistry$Stats
-public "getRequirements"(): $EnchantingStatRegistry$Stats
-public "isSpecial"(): boolean
+public "getId"(): $ResourceLocation
+/**
+ * 
+ * @deprecated
+ */
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $ItemStack$Type, arg1: float, arg2: float, arg3: float): boolean
+public "getInput"(): $Ingredient
+public static "findMatch"(arg0: $Level$Type, arg1: $ItemStack$Type, arg2: float, arg3: float, arg4: float): $EnchantingRecipe
+public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
-public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getMod"(): string
-public "getType"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "getGroup"(): string
-public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
+public "setGroup"(group: string): void
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-get "input"(): $Ingredient
-get "output"(): $ItemStack
+public "getType"(): $ResourceLocation
+public "getMod"(): string
 get "serializer"(): $RecipeSerializer<(any)>
-get "id"(): $ResourceLocation
-get "maxRequirements"(): $EnchantingStatRegistry$Stats
+get "output"(): $ItemStack
 get "requirements"(): $EnchantingStatRegistry$Stats
-get "special"(): boolean
-get "toastSymbol"(): $ItemStack
+get "maxRequirements"(): $EnchantingStatRegistry$Stats
+get "id"(): $ResourceLocation
+get "input"(): $Ingredient
 get "incomplete"(): boolean
+get "toastSymbol"(): $ItemStack
 get "ingredients"(): $NonNullList<($Ingredient)>
-get "mod"(): string
-get "type"(): $ResourceLocation
+get "special"(): boolean
 get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
+set "group"(value: string)
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
+get "mod"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -3,8 +3,8 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BeeEntityAccessor {
 
  "invokeSetHasNectar"(arg0: boolean): void
- "setTicksUntilCanPollinate"(arg0: integer): void
  "getTicksUntilCanPollinate"(): integer
+ "setTicksUntilCanPollinate"(arg0: integer): void
 }
 
 export namespace $BeeEntityAccessor {
@@ -99,8 +99,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(settings: $BlockBehaviour$Properties$Type, pressTicks: integer)
 
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "getSound"(powered: boolean): $SoundEvent
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -119,8 +119,8 @@ import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$Soun
 import {$FacetHolder, $FacetHolder$Type} from "packages/com/redpxnda/nucleus/facet/$FacetHolder"
 import {$WalkAnimationState, $WalkAnimationState$Type} from "packages/net/minecraft/world/entity/$WalkAnimationState"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$MobSpawnType, $MobSpawnType$Type} from "packages/net/minecraft/world/entity/$MobSpawnType"
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
+import {$MobSpawnType, $MobSpawnType$Type} from "packages/net/minecraft/world/entity/$MobSpawnType"
 import {$PathNavigation, $PathNavigation$Type} from "packages/net/minecraft/world/entity/ai/navigation/$PathNavigation"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
@@ -205,6 +205,7 @@ readonly "rotA": float
  "zza": float
  "effectsDirty": boolean
  "level": $Level
+ "entityJs$builder": any
 static readonly "ID_TAG": string
 static readonly "PASSENGERS_TAG": string
 static readonly "BOARDING_COOLDOWN": integer
@@ -258,55 +259,55 @@ readonly "random": $RandomSource
 
 constructor(entityType: $EntityType$Type<(any)>, world: $Level$Type)
 
+public "addAdditionalSaveData"(nbt: $CompoundTag$Type): void
+public "attack"(source: $DamageSource$Type, amount: float): boolean
+public "isOnFire"(): boolean
+public "causeFallDamage"(fallDistance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "finalizeSpawn"(world: $ServerLevelAccessor$Type, difficulty: $DifficultyInstance$Type, spawnReason: $MobSpawnType$Type, entityData: $SpawnGroupData$Type, entityNbt: $CompoundTag$Type): $SpawnGroupData
+public "playShieldBreakSound"(): void
+public "resetTicksUntilShieldRegeneration"(): void
+public "getShieldBreakSound"(): $SoundEvent
+public "setActiveShieldsCount"(activeShields: integer): void
+public "getActiveShieldsCount"(): integer
+public "getTicksUntilShieldRegeneration"(): integer
+public "setTicksUntilShieldRegeneration"(ticksUntilShieldRegeneration: integer): void
+public "getSummonBlazeSound"(): $SoundEvent
+public "playSummonBlazeSound"(): void
+public "readAdditionalSaveData"(nbt: $CompoundTag$Type): void
+public "isSensitiveToWater"(): boolean
+public static "createAttributes"(): $AttributeSupplier$Builder
+public "getLightLevelDependentMagicValue"(): float
+public "aiStep"(): void
+public "tick"(): void
+public "getBrain"(): $Brain<($WildfireEntity)>
+public "getShockwaveSound"(): $SoundEvent
 public "regenerateShield"(): void
+public "playShockwaveSound"(): void
+public "getShootSound"(): $SoundEvent
 public "areBlazesSummoned"(): boolean
 public "hasActiveShields"(): boolean
 public "breakShield"(): void
 public "playShootSound"(): void
-public "playShockwaveSound"(): void
-public "getShootSound"(): $SoundEvent
-public "getShockwaveSound"(): $SoundEvent
-public static "createAttributes"(): $AttributeSupplier$Builder
-public "finalizeSpawn"(world: $ServerLevelAccessor$Type, difficulty: $DifficultyInstance$Type, spawnReason: $MobSpawnType$Type, entityData: $SpawnGroupData$Type, entityNbt: $CompoundTag$Type): $SpawnGroupData
-public "getBrain"(): $Brain<($WildfireEntity)>
-public "isSensitiveToWater"(): boolean
-public "getSummonedBlazesCount"(): integer
 public "setSummonedBlazesCount"(summonedBlazesCount: integer): void
-public "getLightLevelDependentMagicValue"(): float
-public "readAdditionalSaveData"(nbt: $CompoundTag$Type): void
-public "addAdditionalSaveData"(nbt: $CompoundTag$Type): void
-public "attack"(source: $DamageSource$Type, amount: float): boolean
-public "isOnFire"(): boolean
-public "aiStep"(): void
-public "tick"(): void
-public "causeFallDamage"(fallDistance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "setActiveShieldsCount"(activeShields: integer): void
-public "getTicksUntilShieldRegeneration"(): integer
-public "getActiveShieldsCount"(): integer
-public "setTicksUntilShieldRegeneration"(ticksUntilShieldRegeneration: integer): void
-public "getSummonBlazeSound"(): $SoundEvent
-public "resetTicksUntilShieldRegeneration"(): void
-public "playShieldBreakSound"(): void
-public "playSummonBlazeSound"(): void
-public "getShieldBreakSound"(): $SoundEvent
+public "getSummonedBlazesCount"(): integer
 public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
 public static "of"(holder: any): $FacetHolder
-get "shootSound"(): $SoundEvent
-get "shockwaveSound"(): $SoundEvent
-get "brain"(): $Brain<($WildfireEntity)>
-get "sensitiveToWater"(): boolean
-get "summonedBlazesCount"(): integer
-set "summonedBlazesCount"(value: integer)
-get "lightLevelDependentMagicValue"(): float
 get "onFire"(): boolean
+get "shieldBreakSound"(): $SoundEvent
 set "activeShieldsCount"(value: integer)
-get "ticksUntilShieldRegeneration"(): integer
 get "activeShieldsCount"(): integer
+get "ticksUntilShieldRegeneration"(): integer
 set "ticksUntilShieldRegeneration"(value: integer)
 get "summonBlazeSound"(): $SoundEvent
-get "shieldBreakSound"(): $SoundEvent
+get "sensitiveToWater"(): boolean
+get "lightLevelDependentMagicValue"(): float
+get "brain"(): $Brain<($WildfireEntity)>
+get "shockwaveSound"(): $SoundEvent
+get "shootSound"(): $SoundEvent
+set "summonedBlazesCount"(value: integer)
+get "summonedBlazesCount"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -352,8 +353,8 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $ModelPartAccessor {
 
- "getChildren"(): $Map<(string), ($ModelPart)>
  "getCuboids"(): $List<($ModelPart$Cube)>
+ "getChildren"(): $Map<(string), ($ModelPart)>
 }
 
 export namespace $ModelPartAccessor {
@@ -375,9 +376,9 @@ declare module "packages/com/faboslav/friendsandfoes/mixin/$LimbAnimatorAccessor
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $LimbAnimatorAccessor {
 
- "getPresSpeed"(): float
  "setPrevSpeed"(arg0: float): void
  "setPos"(arg0: float): void
+ "getPresSpeed"(): float
 }
 
 export namespace $LimbAnimatorAccessor {
@@ -474,21 +475,21 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(OxidationLevel: $WeatheringCopper$WeatherState$Type, settings: $BlockBehaviour$Properties$Type, pressTicks: integer)
 
 public "isRandomlyTicking"(state: $BlockState$Type): boolean
+public "getDegradationLevel"(): $WeatheringCopper$WeatherState
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "randomTick"(state: $BlockState$Type, world: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "getDegradationLevel"(): $WeatheringCopper$WeatherState
 public static "getDecreasedOxidationState"(state: $BlockState$Type): $Optional<($BlockState)>
-public static "getIncreasedOxidationBlock"(block: $Block$Type): $Optional<($Block)>
-public static "getDecreasedOxidationBlock"(block: $Block$Type): $Optional<($Block)>
-public static "getUnaffectedOxidationBlock"(block: $Block$Type): $Block
-public static "getUnaffectedOxidationState"(state: $BlockState$Type): $BlockState
-public "getNext"(state: $BlockState$Type): $Optional<($BlockState)>
 public "getChanceModifier"(): float
-public static "getPrevious"(arg0: $BlockState$Type): $Optional<($BlockState)>
-public static "getFirst"(arg0: $BlockState$Type): $BlockState
-public static "getPrevious"(arg0: $Block$Type): $Optional<($Block)>
+public "getNext"(state: $BlockState$Type): $Optional<($BlockState)>
+public static "getDecreasedOxidationBlock"(block: $Block$Type): $Optional<($Block)>
+public static "getUnaffectedOxidationState"(state: $BlockState$Type): $BlockState
+public static "getUnaffectedOxidationBlock"(block: $Block$Type): $Block
+public static "getIncreasedOxidationBlock"(block: $Block$Type): $Optional<($Block)>
 public static "getNext"(arg0: $Block$Type): $Optional<($Block)>
 public static "getFirst"(arg0: $Block$Type): $Block
+public static "getPrevious"(arg0: $Block$Type): $Optional<($Block)>
+public static "getFirst"(arg0: $BlockState$Type): $BlockState
+public static "getPrevious"(arg0: $BlockState$Type): $Optional<($BlockState)>
 public "onRandomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "applyChangeOverTime"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 get "degradationLevel"(): $WeatheringCopper$WeatherState
@@ -510,8 +511,8 @@ declare module "packages/com/faboslav/friendsandfoes/entity/$ZombieHorseEntityAc
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ZombieHorseEntityAccess {
 
- "friendsandfoes_setTrapped"(arg0: boolean): void
  "friendsandfoes_isTrapped"(): boolean
+ "friendsandfoes_setTrapped"(arg0: boolean): void
 }
 
 export namespace $ZombieHorseEntityAccess {
@@ -534,11 +535,11 @@ import {$Illusioner, $Illusioner$Type} from "packages/net/minecraft/world/entity
 
 export interface $IllusionerEntityAccess {
 
- "friendsandfoes_setIllusioner"(arg0: $Illusioner$Type): void
  "friendsandfoes_setIsIllusion"(arg0: boolean): void
+ "friendsandfoes_setIllusioner"(arg0: $Illusioner$Type): void
  "friendsandfoes_setTicksUntilDespawn"(arg0: integer): void
- "friendsandfoes_tryToTeleport"(arg0: integer, arg1: integer, arg2: integer): boolean
  "friendsandfoes_spawnCloudParticles"(): void
+ "friendsandfoes_tryToTeleport"(arg0: integer, arg1: integer, arg2: integer): boolean
 }
 
 export namespace $IllusionerEntityAccess {
@@ -584,17 +585,17 @@ import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$WeatheringCopper$WeatherState, $WeatheringCopper$WeatherState$Type} from "packages/net/minecraft/world/level/block/$WeatheringCopper$WeatherState"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 
 export interface $Oxidizable extends $WeatheringCopper {
 
- "getNext"(state: $BlockState$Type): $Optional<($BlockState)>
  "getChanceModifier"(): float
- "onRandomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+ "getNext"(state: $BlockState$Type): $Optional<($BlockState)>
  "getAge"(): $WeatheringCopper$WeatherState
+ "onRandomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
  "applyChangeOverTime"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 
 (state: $BlockState$Type): $Optional<($BlockState)>
@@ -604,15 +605,15 @@ export namespace $Oxidizable {
 const OXIDATION_LEVEL_INCREASES: $Supplier<($BiMap<($Block), ($Block)>)>
 const OXIDATION_LEVEL_DECREASES: $Supplier<($BiMap<($Block), ($Block)>)>
 function getDecreasedOxidationState(state: $BlockState$Type): $Optional<($BlockState)>
-function getIncreasedOxidationBlock(block: $Block$Type): $Optional<($Block)>
 function getDecreasedOxidationBlock(block: $Block$Type): $Optional<($Block)>
-function getUnaffectedOxidationBlock(block: $Block$Type): $Block
 function getUnaffectedOxidationState(state: $BlockState$Type): $BlockState
-function getPrevious(arg0: $BlockState$Type): $Optional<($BlockState)>
-function getFirst(arg0: $BlockState$Type): $BlockState
-function getPrevious(arg0: $Block$Type): $Optional<($Block)>
+function getUnaffectedOxidationBlock(block: $Block$Type): $Block
+function getIncreasedOxidationBlock(block: $Block$Type): $Optional<($Block)>
 function getNext(arg0: $Block$Type): $Optional<($Block)>
 function getFirst(arg0: $Block$Type): $Block
+function getPrevious(arg0: $Block$Type): $Optional<($Block)>
+function getFirst(arg0: $BlockState$Type): $BlockState
+function getPrevious(arg0: $BlockState$Type): $Optional<($BlockState)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -697,11 +698,11 @@ constructor(oxidationLevel: $WeatheringCopper$WeatherState$Type, settings: $Bloc
 
 public "isRandomlyTicking"(state: $BlockState$Type): boolean
 public "getDegradationLevel"(): $WeatheringCopper$WeatherState
-public static "getPrevious"(arg0: $BlockState$Type): $Optional<($BlockState)>
-public static "getFirst"(arg0: $BlockState$Type): $BlockState
-public static "getPrevious"(arg0: $Block$Type): $Optional<($Block)>
 public static "getNext"(arg0: $Block$Type): $Optional<($Block)>
 public static "getFirst"(arg0: $Block$Type): $Block
+public static "getPrevious"(arg0: $Block$Type): $Optional<($Block)>
+public static "getFirst"(arg0: $BlockState$Type): $BlockState
+public static "getPrevious"(arg0: $BlockState$Type): $Optional<($BlockState)>
 get "degradationLevel"(): $WeatheringCopper$WeatherState
 }
 /**

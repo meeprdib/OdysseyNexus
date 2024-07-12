@@ -101,13 +101,13 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $AbstractContainerScreenAccessor {
 
- "getLeftPos"(): integer
- "getImageWidth"(): integer
- "getHoveredSlot"(): $Slot
- "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
- "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
- "getTopPos"(): integer
  "getImageHeight"(): integer
+ "getHoveredSlot"(): $Slot
+ "getTopPos"(): integer
+ "getImageWidth"(): integer
+ "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
+ "getLeftPos"(): integer
+ "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
 }
 
 export namespace $AbstractContainerScreenAccessor {
@@ -156,9 +156,9 @@ import {$NarratableEntry, $NarratableEntry$Type} from "packages/net/minecraft/cl
 
 export interface $ScreenAccessor {
 
- "balm_getChildren"(): $List<($GuiEventListener)>
  "balm_getRenderables"(): $List<($Renderable)>
  "balm_getNarratables"(): $List<($NarratableEntry)>
+ "balm_getChildren"(): $List<($GuiEventListener)>
 }
 
 export namespace $ScreenAccessor {

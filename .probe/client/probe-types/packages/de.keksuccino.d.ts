@@ -2,10 +2,10 @@ declare module "packages/de/keksuccino/konkrete/mixin/client/$IMixinEditBox" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IMixinEditBox {
 
- "getHightlightPosKonkrete"(): integer
- "getMaxLengthKonkrete"(): integer
  "getIsEditableKonkrete"(): boolean
+ "getHightlightPosKonkrete"(): integer
  "onValueChangeKonkrete"(arg0: string): void
+ "getMaxLengthKonkrete"(): integer
 }
 
 export namespace $IMixinEditBox {
@@ -31,9 +31,9 @@ import {$List, $List$Type} from "packages/java/util/$List"
 
 export interface $IMixinScreen {
 
- "setFontKonkrete"(arg0: $Font$Type): void
  "getRenderablesKonkrete"(): $List<($Renderable)>
  "getChildrenKonkrete"(): $List<($GuiEventListener)>
+ "setFontKonkrete"(arg0: $Font$Type): void
 }
 
 export namespace $IMixinScreen {

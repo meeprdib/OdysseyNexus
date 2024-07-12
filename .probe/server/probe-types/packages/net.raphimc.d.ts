@@ -2,8 +2,8 @@ declare module "packages/net/raphimc/immediatelyfast/injection/interfaces/$IBuff
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IBufferBuilder {
 
- "immediatelyFast$release"(): void
  "immediatelyFast$isReleased"(): boolean
+ "immediatelyFast$release"(): void
 }
 
 export namespace $IBufferBuilder {
@@ -58,16 +58,16 @@ static readonly "MAPS_PER_ATLAS": integer
 
 constructor(id: integer)
 
-public "getId"(): integer
-public "close"(): void
 public "getIdentifier"(): $ResourceLocation
 public "getTexture"(): $DynamicTexture
 public "getNextMapLocation"(): integer
 public "handler$bag000$forceMipMapOff"(id: integer, ci: $CallbackInfo$Type): void
-get "id"(): integer
+public "getId"(): integer
+public "close"(): void
 get "identifier"(): $ResourceLocation
 get "texture"(): $DynamicTexture
 get "nextMapLocation"(): integer
+get "id"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

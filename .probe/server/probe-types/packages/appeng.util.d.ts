@@ -4,8 +4,8 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$ItemLike"
 import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
-import {$ConfigMenuInventory, $ConfigMenuInventory$Type} from "packages/appeng/util/$ConfigMenuInventory"
 import {$AEKeyFilter, $AEKeyFilter$Type} from "packages/appeng/api/storage/$AEKeyFilter"
+import {$ConfigMenuInventory, $ConfigMenuInventory$Type} from "packages/appeng/util/$ConfigMenuInventory"
 import {$GenericStackInv, $GenericStackInv$Type} from "packages/appeng/helpers/externalstorage/$GenericStackInv"
 import {$Runnable, $Runnable$Type} from "packages/java/lang/$Runnable"
 import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
@@ -15,20 +15,20 @@ export class $ConfigInventory extends $GenericStackInv {
 static readonly "EMPTY_TYPES": $ConfigInventory
 
 
+public "addFilter"(arg0: $Fluid$Type): $ConfigInventory
+public "addFilter"(arg0: $ItemLike$Type): $ConfigInventory
+public "addFilter"(arg0: $AEKey$Type): $ConfigInventory
+public "setStack"(arg0: integer, arg1: $GenericStack$Type): void
+public static "storage"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type): $ConfigInventory
+public static "storage"(arg0: integer, arg1: $Runnable$Type): $ConfigInventory
+public static "configTypes"(arg0: integer, arg1: $Runnable$Type): $ConfigInventory
+public static "configTypes"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type): $ConfigInventory
+public "getMaxAmount"(arg0: $AEKey$Type): long
+public static "configStacks"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type, arg3: boolean): $ConfigInventory
+public "createMenuWrapper"(): $ConfigMenuInventory
 public "getKey"(arg0: integer): $AEKey
 public "keySet"(): $Set<($AEKey)>
 public "getStack"(arg0: integer): $GenericStack
-public "setStack"(arg0: integer, arg1: $GenericStack$Type): void
-public "createMenuWrapper"(): $ConfigMenuInventory
-public "getMaxAmount"(arg0: $AEKey$Type): long
-public static "configStacks"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type, arg3: boolean): $ConfigInventory
-public "addFilter"(arg0: $Fluid$Type): $ConfigInventory
-public "addFilter"(arg0: $AEKey$Type): $ConfigInventory
-public "addFilter"(arg0: $ItemLike$Type): $ConfigInventory
-public static "storage"(arg0: integer, arg1: $Runnable$Type): $ConfigInventory
-public static "storage"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type): $ConfigInventory
-public static "configTypes"(arg0: integer, arg1: $Runnable$Type): $ConfigInventory
-public static "configTypes"(arg0: $AEKeyFilter$Type, arg1: integer, arg2: $Runnable$Type): $ConfigInventory
 public static "checkPreconditions"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): void
 }
 /**
@@ -52,10 +52,10 @@ import {$Iterable, $Iterable$Type} from "packages/java/lang/$Iterable"
 export class $IPartitionList$Builder {
 
 
+public "fuzzyMode"(arg0: $FuzzyMode$Type): void
 public "build"(): $IPartitionList
 public "add"(arg0: $AEKey$Type): void
 public "addAll"(arg0: $Iterable$Type<($AEKey$Type)>): void
-public "fuzzyMode"(arg0: $FuzzyMode$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -110,42 +110,42 @@ import {$ItemTransfer, $ItemTransfer$Type} from "packages/appeng/api/inventories
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$Container, $Container$Type} from "packages/net/minecraft/world/$Container"
 import {$GenericStackInv, $GenericStackInv$Type} from "packages/appeng/helpers/externalstorage/$GenericStackInv"
-import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
 
 export class $ConfigMenuInventory implements $InternalInventory {
 
 constructor(arg0: $GenericStackInv$Type)
 
-public "size"(): integer
 public "getDelegate"(): $GenericStackInv
-public "getStackInSlot"(arg0: integer): $ItemStack
-public "getSlotLimit"(arg0: integer): integer
-public "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
 public "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
+public "getStackInSlot"(arg0: integer): $ItemStack
+public "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "getSlotLimit"(arg0: integer): integer
 public "convertToSuitableStack"(arg0: $ItemStack$Type): $GenericStack
+public "size"(): integer
+public "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
+public "sendChangeNotification"(arg0: integer): void
+public "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public static "wrapExternal"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
+public static "wrapExternal"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
+public "toItemHandler"(): $IItemHandler
+public "toContainer"(): $Container
+public "getRedstoneSignal"(): integer
+public "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "getSlotInv"(arg0: integer): $InternalInventory
+public "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+public "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
+public "addItems"(arg0: $ItemStack$Type): $ItemStack
+public "mayAllowInsertion"(): boolean
+public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+public "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
 public "clear"(): void
 public "isEmpty"(): boolean
 public "iterator"(): $Iterator<($ItemStack)>
 public static "empty"(): $InternalInventory
-public "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
-public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
-public static "wrapExternal"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
-public static "wrapExternal"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
-public "toContainer"(): $Container
-public "toItemHandler"(): $IItemHandler
-public "getRedstoneSignal"(): integer
-public "addItems"(arg0: $ItemStack$Type): $ItemStack
-public "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
-public "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "mayAllowInsertion"(): boolean
-public "getSlotInv"(arg0: integer): $InternalInventory
-public "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
-public "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "sendChangeNotification"(arg0: integer): void
-public "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
 public "spliterator"(): $Spliterator<($ItemStack)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$ItemStack>;
@@ -169,9 +169,9 @@ import {$InternalInventory, $InternalInventory$Type} from "packages/appeng/api/i
 
 export interface $InternalInventoryHost {
 
+ "isClientSide"(): boolean
  "saveChanges"(): void
  "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
- "isClientSide"(): boolean
 }
 
 export namespace $InternalInventoryHost {
@@ -203,12 +203,12 @@ export class $ConfigManager implements $IConfigManager {
 constructor(arg0: $IConfigManagerListener$Type)
 constructor(arg0: $Runnable$Type)
 
-public "registerSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
 public "getSettings"(): $Set<($Setting<(any)>)>
+public "readFromNBT"(arg0: $CompoundTag$Type): boolean
+public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "registerSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
 public "putSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
 public "getSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>): T
-public "writeToNBT"(arg0: $CompoundTag$Type): void
-public "readFromNBT"(arg0: $CompoundTag$Type): boolean
 public "hasSetting"(arg0: $Setting$Type<(any)>): boolean
 get "settings"(): $Set<($Setting<(any)>)>
 }
@@ -279,10 +279,10 @@ import {$IncludeExclude, $IncludeExclude$Type} from "packages/appeng/api/config/
 
 export interface $IPartitionList {
 
- "isEmpty"(): boolean
- "getItems"(): $Iterable<($AEKey)>
  "matchesFilter"(arg0: $AEKey$Type, arg1: $IncludeExclude$Type): boolean
  "isListed"(arg0: $AEKey$Type): boolean
+ "getItems"(): $Iterable<($AEKey)>
+ "isEmpty"(): boolean
 }
 
 export namespace $IPartitionList {

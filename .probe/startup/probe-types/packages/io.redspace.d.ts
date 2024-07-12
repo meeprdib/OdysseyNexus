@@ -59,9 +59,9 @@ static readonly "MAX_NAME_LENGTH": integer
 constructor(arg0: string, arg1: double, arg2: double, arg3: double)
 
 public static "toValueComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
-public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
-public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
 public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
+public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
+public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -181,30 +181,30 @@ readonly "random": $RandomSource
 
 constructor(arg0: $EntityType$Type<(any)>, arg1: $Level$Type)
 
-public "checkDespawn"(): void
+public "isOnFire"(): boolean
+public "shouldBeSaved"(): boolean
+public "shoot"(arg0: $Vec3$Type): void
 public "travel"(): void
 public "setDamage"(arg0: float): void
-public "shoot"(arg0: $Vec3$Type): void
 public "getDamage"(): float
-public "getImpactSound"(): $Optional<($SoundEvent)>
-public "isOnFire"(): boolean
-public "tick"(): void
-public "shouldBeSaved"(): boolean
 public "handleHitDetection"(): void
-public "trailParticles"(): void
-public "impactParticles"(arg0: double, arg1: double, arg2: double): void
 public "getExplosionRadius"(): float
+public "impactParticles"(arg0: double, arg1: double, arg2: double): void
+public "trailParticles"(): void
+public "getSpeed"(): float
+public "tick"(): void
+public "getImpactSound"(): $Optional<($SoundEvent)>
+public "checkDespawn"(): void
 public "onAntiMagic"(arg0: $MagicData$Type): void
 public "setExplosionRadius"(arg0: float): void
-public "getSpeed"(): float
 public static "of"(holder: any): $FacetHolder
+get "onFire"(): boolean
 set "damage"(value: float)
 get "damage"(): float
-get "impactSound"(): $Optional<($SoundEvent)>
-get "onFire"(): boolean
 get "explosionRadius"(): float
-set "explosionRadius"(value: float)
 get "speed"(): float
+get "impactSound"(): $Optional<($SoundEvent)>
+set "explosionRadius"(value: float)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -271,8 +271,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $SpellRarity$Type)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getRarity"(): $SpellRarity
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 get "rarity"(): $SpellRarity
 }
 /**
@@ -329,27 +329,27 @@ export class $RecastInstance implements $ISerializable, $INBTSerializable<($Comp
 constructor()
 constructor(arg0: string, arg1: integer, arg2: integer, arg3: integer, arg4: $CastSource$Type, arg5: $ICastDataSerializable$Type)
 
-public "toString"(): string
-public "serializeNBT"(): $CompoundTag
-public "deserializeNBT"(arg0: $CompoundTag$Type): void
-public "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
 public "readFromBuffer"(arg0: $FriendlyByteBuf$Type): void
-public "getCastSource"(): $CastSource
-public "getSpellId"(): string
-public "getSpellLevel"(): integer
-public "getTicksRemaining"(): integer
 public "getTotalRecasts"(): integer
+public "getTicksRemaining"(): integer
 public "getTicksToLive"(): integer
+public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "serializeNBT"(): $CompoundTag
+public "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
 public "getRemainingRecasts"(): integer
 public "getCastData"(): $ICastDataSerializable
-get "castSource"(): $CastSource
-get "spellId"(): string
-get "spellLevel"(): integer
-get "ticksRemaining"(): integer
+public "getSpellLevel"(): integer
+public "getSpellId"(): string
+public "getCastSource"(): $CastSource
+public "toString"(): string
 get "totalRecasts"(): integer
+get "ticksRemaining"(): integer
 get "ticksToLive"(): integer
 get "remainingRecasts"(): integer
 get "castData"(): $ICastDataSerializable
+get "spellLevel"(): integer
+get "spellId"(): string
+get "castSource"(): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -364,18 +364,18 @@ declare global {
 export type $RecastInstance_ = $RecastInstance$Type;
 }}
 declare module "packages/io/redspace/ironsspellbooks/item/armor/$UpgradeType" {
-import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import {$AttributeModifier$Operation, $AttributeModifier$Operation$Type} from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier$Operation"
+import {$Attribute, $Attribute$Type} from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $UpgradeType {
 
- "getId"(): $ResourceLocation
- "getAttribute"(): $Attribute
  "getOperation"(): $AttributeModifier$Operation
  "getAmountPerUpgrade"(): float
+ "getId"(): $ResourceLocation
+ "getAttribute"(): $Attribute
 }
 
 export namespace $UpgradeType {
@@ -550,19 +550,19 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
-public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public static "isLit"(arg0: $BlockState$Type): boolean
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public static "getLevel"(arg0: $BlockState$Type): integer
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public static "isBoiling"(arg0: $BlockState$Type): boolean
+public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public static "isLit"(arg0: $BlockState$Type): boolean
 public "isFireSource"(arg0: $BlockState$Type): boolean
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
-public static "isBoiling"(arg0: $BlockState$Type): boolean
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -755,11 +755,11 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public "getUseDuration"(arg0: $ItemStack$Type): integer
+public "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
-public "shouldCauseReequipAnimation"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): boolean
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -815,8 +815,8 @@ export class $CastResult {
 readonly "type": $CastResult$Type
 readonly "message": $Component
 
-constructor(arg0: $CastResult$Type$Type)
 constructor(arg0: $CastResult$Type$Type, arg1: $Component$Type)
+constructor(arg0: $CastResult$Type$Type)
 
 public "isSuccess"(): boolean
 get "success"(): boolean
@@ -870,9 +870,9 @@ constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "initializeSpellContainer"(arg0: $ItemStack$Type): void
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -904,9 +904,9 @@ export class $AbyssalShroudEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
+public static "doEffect"(arg0: $LivingEntity$Type, arg1: $DamageSource$Type): boolean
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
-public static "doEffect"(arg0: $LivingEntity$Type, arg1: $DamageSource$Type): boolean
 public static "ambientParticles"(arg0: $ClientLevel$Type, arg1: $LivingEntity$Type): void
 }
 /**
@@ -929,8 +929,8 @@ import {$SpellRarity, $SpellRarity$Type} from "packages/io/redspace/ironsspellbo
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$DefaultConfig, $DefaultConfig$Type} from "packages/io/redspace/ironsspellbooks/api/config/$DefaultConfig"
-import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$ICastData, $ICastData$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$ICastData"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
 import {$ICastDataSerializable, $ICastDataSerializable$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$ICastDataSerializable"
@@ -962,84 +962,84 @@ export class $AbstractSpell {
 
 constructor()
 
+public "isEnabled"(): boolean
+public "getMinLevel"(): integer
+public "getMaxLevel"(): integer
+public "getDamageSource"(arg0: $Entity$Type, arg1: $Entity$Type): $SpellDamageSource
+public "getDamageSource"(arg0: $Entity$Type): $SpellDamageSource
+public "getMinRarity"(): integer
+public "getRarity"(arg0: integer): $SpellRarity
+public "canBeInterrupted"(arg0: $Player$Type): boolean
+public "getMaxRarity"(): integer
+public "checkPreCastConditions"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type): boolean
+public "getEntityPowerMultiplier"(arg0: $LivingEntity$Type): float
+public "getCastFinishAnimation"(): $AnimationHolder
+public "getCastStartAnimation"(): $AnimationHolder
+public "getSpellIconResource"(): $ResourceLocation
+public "getEffectiveCastTime"(arg0: integer, arg1: $LivingEntity$Type): integer
+public "attemptInitiateCast"(arg0: $ItemStack$Type, arg1: integer, arg2: $Level$Type, arg3: $Player$Type, arg4: $CastSource$Type, arg5: boolean, arg6: string): boolean
+public "onServerCastComplete"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type, arg4: boolean): void
+public "shouldAIStopCasting"(arg0: integer, arg1: $Mob$Type, arg2: $LivingEntity$Type): boolean
+public "getMinLevelForRarity"(arg0: $SpellRarity$Type): integer
+public "getDefaultConfig"(): $DefaultConfig
+public "playSound"(arg0: $Optional$Type<($SoundEvent$Type)>, arg1: $Entity$Type): void
+public "getSpellName"(): string
+public "getEmptyCastData"(): $ICastDataSerializable
+public "getSpellCooldown"(): integer
+public "getLevelFor"(arg0: integer, arg1: $LivingEntity$Type): integer
+public "getSpellResource"(): $ResourceLocation
+public "getCastStartSound"(): $Optional<($SoundEvent)>
+public "getCastFinishSound"(): $Optional<($SoundEvent)>
+public "getCastTime"(arg0: integer): integer
+public "getSpellPower"(arg0: integer, arg1: $Entity$Type): float
+public "getRecastCount"(arg0: integer, arg1: $LivingEntity$Type): integer
+public "onCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $CastSource$Type, arg4: $MagicData$Type): void
+public "castSpell"(arg0: $Level$Type, arg1: integer, arg2: $ServerPlayer$Type, arg3: $CastSource$Type, arg4: boolean): void
+public "onServerPreCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type): void
+public "canBeCastedBy"(arg0: integer, arg1: $CastSource$Type, arg2: $MagicData$Type, arg3: $Player$Type): $CastResult
+public "onClientPreCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $InteractionHand$Type, arg4: $MagicData$Type): void
+public "onRecastFinished"(arg0: $ServerPlayer$Type, arg1: $RecastInstance$Type, arg2: $RecastResult$Type, arg3: $ICastDataSerializable$Type): void
+public "onServerCastTick"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type): void
+public "getUniqueInfo"(arg0: integer, arg1: $LivingEntity$Type): $List<($MutableComponent)>
+public "onClientCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $ICastData$Type): void
+public "allowLooting"(): boolean
+public "allowCrafting"(): boolean
+public "isLearned"(arg0: $Player$Type): boolean
+public "stopSoundOnCancel"(): boolean
+public "canBeCraftedBy"(arg0: $Player$Type): boolean
+public "getDeathMessageId"(): string
+public "needsLearning"(): boolean
+public "obfuscateStats"(arg0: $Player$Type): boolean
+public "getComponentId"(): string
+public "getSchoolType"(): $SchoolType
+public "getManaCost"(arg0: integer): integer
+public "getSpellId"(): string
+public "getCastType"(): $CastType
+public "getTargetingColor"(): $Vector3f
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getDisplayName"(arg0: $Player$Type): $MutableComponent
-public "isEnabled"(): boolean
-public "getCastFinishAnimation"(): $AnimationHolder
-public "getSpellIconResource"(): $ResourceLocation
-public "getCastStartAnimation"(): $AnimationHolder
-public "onServerCastComplete"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type, arg4: boolean): void
-public "getEntityPowerMultiplier"(arg0: $LivingEntity$Type): float
-public "getMinLevelForRarity"(arg0: $SpellRarity$Type): integer
-public "checkPreCastConditions"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type): boolean
-public "shouldAIStopCasting"(arg0: integer, arg1: $Mob$Type, arg2: $LivingEntity$Type): boolean
-public "attemptInitiateCast"(arg0: $ItemStack$Type, arg1: integer, arg2: $Level$Type, arg3: $Player$Type, arg4: $CastSource$Type, arg5: boolean, arg6: string): boolean
-public "getEffectiveCastTime"(arg0: integer, arg1: $LivingEntity$Type): integer
-public "getTargetingColor"(): $Vector3f
-public "getMinLevel"(): integer
-public "getMaxLevel"(): integer
-public "getDefaultConfig"(): $DefaultConfig
-public "getSpellResource"(): $ResourceLocation
-public "getEmptyCastData"(): $ICastDataSerializable
-public "getRecastCount"(arg0: integer, arg1: $LivingEntity$Type): integer
-public "getCastTime"(arg0: integer): integer
-public "getSpellPower"(arg0: integer, arg1: $Entity$Type): float
-public "getLevelFor"(arg0: integer, arg1: $LivingEntity$Type): integer
-public "getSpellCooldown"(): integer
-public "getCastStartSound"(): $Optional<($SoundEvent)>
-public "getCastFinishSound"(): $Optional<($SoundEvent)>
-public "castSpell"(arg0: $Level$Type, arg1: integer, arg2: $ServerPlayer$Type, arg3: $CastSource$Type, arg4: boolean): void
-public "onClientCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $ICastData$Type): void
-public "canBeCastedBy"(arg0: integer, arg1: $CastSource$Type, arg2: $MagicData$Type, arg3: $Player$Type): $CastResult
-public "onServerPreCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type): void
-public "onRecastFinished"(arg0: $ServerPlayer$Type, arg1: $RecastInstance$Type, arg2: $RecastResult$Type, arg3: $ICastDataSerializable$Type): void
-public "onCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $CastSource$Type, arg4: $MagicData$Type): void
-public "getUniqueInfo"(arg0: integer, arg1: $LivingEntity$Type): $List<($MutableComponent)>
-public "onServerCastTick"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $MagicData$Type): void
-public "onClientPreCast"(arg0: $Level$Type, arg1: integer, arg2: $LivingEntity$Type, arg3: $InteractionHand$Type, arg4: $MagicData$Type): void
-public "allowLooting"(): boolean
-public "getDeathMessageId"(): string
-public "allowCrafting"(): boolean
-public "obfuscateStats"(arg0: $Player$Type): boolean
-public "isLearned"(arg0: $Player$Type): boolean
-public "canBeCraftedBy"(arg0: $Player$Type): boolean
-public "needsLearning"(): boolean
-public "stopSoundOnCancel"(): boolean
-public "getDamageSource"(arg0: $Entity$Type): $SpellDamageSource
-public "getDamageSource"(arg0: $Entity$Type, arg1: $Entity$Type): $SpellDamageSource
-public "getCastType"(): $CastType
-public "getRarity"(arg0: integer): $SpellRarity
-public "getSchoolType"(): $SchoolType
-public "getSpellId"(): string
-public "getManaCost"(arg0: integer): integer
-public "getMaxRarity"(): integer
-public "playSound"(arg0: $Optional$Type<($SoundEvent$Type)>, arg1: $Entity$Type): void
-public "getComponentId"(): string
-public "getSpellName"(): string
-public "canBeInterrupted"(arg0: $Player$Type): boolean
-public "getMinRarity"(): integer
 get "enabled"(): boolean
-get "castFinishAnimation"(): $AnimationHolder
-get "spellIconResource"(): $ResourceLocation
-get "castStartAnimation"(): $AnimationHolder
-get "targetingColor"(): $Vector3f
 get "minLevel"(): integer
 get "maxLevel"(): integer
+get "minRarity"(): integer
+get "maxRarity"(): integer
+get "castFinishAnimation"(): $AnimationHolder
+get "castStartAnimation"(): $AnimationHolder
+get "spellIconResource"(): $ResourceLocation
 get "defaultConfig"(): $DefaultConfig
-get "spellResource"(): $ResourceLocation
+get "spellName"(): string
 get "emptyCastData"(): $ICastDataSerializable
 get "spellCooldown"(): integer
+get "spellResource"(): $ResourceLocation
 get "castStartSound"(): $Optional<($SoundEvent)>
 get "castFinishSound"(): $Optional<($SoundEvent)>
 get "deathMessageId"(): string
-get "castType"(): $CastType
+get "componentId"(): string
 get "schoolType"(): $SchoolType
 get "spellId"(): string
-get "maxRarity"(): integer
-get "componentId"(): string
-get "spellName"(): string
-get "minRarity"(): integer
+get "castType"(): $CastType
+get "targetingColor"(): $Vector3f
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1058,8 +1058,8 @@ import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$Compo
 import {$AbstractSpell, $AbstractSpell$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$AbstractSpell"
 import {$NonNullList, $NonNullList$Type} from "packages/net/minecraft/core/$NonNullList"
 import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
-import {$MobSpawnType, $MobSpawnType$Type} from "packages/net/minecraft/world/entity/$MobSpawnType"
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
+import {$MobSpawnType, $MobSpawnType$Type} from "packages/net/minecraft/world/entity/$MobSpawnType"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Mob, $Mob$Type} from "packages/net/minecraft/world/entity/$Mob"
@@ -1086,65 +1086,65 @@ static readonly "random": $RandomSource
 
 constructor()
 
-public static "checkMonsterSpawnRules"(arg0: $ServerLevelAccessor$Type, arg1: $MobSpawnType$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): boolean
-public static "preCastTargetHelper"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $MagicData$Type, arg3: $AbstractSpell$Type, arg4: integer, arg5: float, arg6: boolean, arg7: $Predicate$Type<($LivingEntity$Type)>): boolean
-public static "preCastTargetHelper"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $MagicData$Type, arg3: $AbstractSpell$Type, arg4: integer, arg5: float, arg6: boolean): boolean
-public static "preCastTargetHelper"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $MagicData$Type, arg3: $AbstractSpell$Type, arg4: integer, arg5: float): boolean
-public static "serverSideCancelCast"(arg0: $ServerPlayer$Type): void
-public static "serverSideCancelCast"(arg0: $ServerPlayer$Type, arg1: boolean): void
-public static "raycastForEntityOfClass"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: boolean, arg5: $Class$Type<(any)>): $HitResult
-public static "deconstructRGB"(arg0: integer): $Vector3f
-public static "getPositionFromEntityLookDirection"(arg0: $Entity$Type, arg1: float): $Vec3
-public static "rotationFromDirection"(arg0: $Vec3$Type): $Vec2
-public static "getWeaponDamage"(arg0: $LivingEntity$Type, arg1: $MobType$Type): float
-public static "packRGB"(arg0: $Vector3f$Type): integer
-public static "getRandomScaled"(arg0: double): double
-public static "shouldHealEntity"(arg0: $LivingEntity$Type, arg1: $LivingEntity$Type): boolean
-public static "softCapFormula"(arg0: double): double
-public static "stringTruncation"(arg0: double, arg1: integer): string
-public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: float, arg3: boolean, arg4: float): $HitResult
-public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: boolean): $HitResult
-public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: boolean, arg5: float, arg6: $Predicate$Type<(any)>): $HitResult
-public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: float, arg3: boolean): $HitResult
-public static "canImbue"(arg0: $ItemStack$Type): boolean
-public static "handleShriving"(arg0: $ItemStack$Type): $ItemStack
-public static "canBeUpgraded"(arg0: $ItemStack$Type): boolean
-public static "saveAllItems"(arg0: $CompoundTag$Type, arg1: $NonNullList$Type<($ItemStack$Type)>, arg2: string): $CompoundTag
-public static "loadAllItems"(arg0: $CompoundTag$Type, arg1: $NonNullList$Type<($ItemStack$Type)>, arg2: string): void
-public static "setPlayerSpellbookStack"(arg0: $Player$Type, arg1: $ItemStack$Type): void
-public static "getPlayerSpellbookStack"(arg0: $Player$Type): $ItemStack
 public static "doMeleeAttack"(arg0: $Mob$Type, arg1: $Entity$Type, arg2: $DamageSource$Type): boolean
-public static "releaseUsingHelper"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: integer): void
-public static "createTremorBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: float): void
-public static "getTargetBlock"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $ClipContext$Fluid$Type, arg3: double): $BlockHitResult
-public static "getServerPlayer"(arg0: $Level$Type, arg1: $UUID$Type): $ServerPlayer
-public static "getTargetOld"(arg0: $Level$Type, arg1: $Player$Type, arg2: $ClipContext$Fluid$Type, arg3: double): $BlockHitResult
-public static "getServerTick"(): long
-public static "spawnInWorld"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
-public static "timeFromTicks"(arg0: float, arg1: integer): string
+public static "getPlayerSpellbookStack"(arg0: $Player$Type): $ItemStack
+public static "loadAllItems"(arg0: $CompoundTag$Type, arg1: $NonNullList$Type<($ItemStack$Type)>, arg2: string): void
+public static "saveAllItems"(arg0: $CompoundTag$Type, arg1: $NonNullList$Type<($ItemStack$Type)>, arg2: string): $CompoundTag
+public static "setPlayerSpellbookStack"(arg0: $Player$Type, arg1: $ItemStack$Type): void
 public static "hasLineOfSight"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Entity$Type, arg3: boolean): boolean
 public static "hasLineOfSight"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: $Vec3$Type, arg3: boolean): boolean
-public static "moveToRelativeGroundLevel"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: integer, arg3: integer): $Vec3
-public static "moveToRelativeGroundLevel"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: integer): $Vec3
-public static "validAntiMagicTarget"(arg0: $Entity$Type): boolean
+public static "canImbue"(arg0: $ItemStack$Type): boolean
+public static "canBeUpgraded"(arg0: $ItemStack$Type): boolean
+public static "handleShriving"(arg0: $ItemStack$Type): $ItemStack
+public static "getTargetBlock"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $ClipContext$Fluid$Type, arg3: double): $BlockHitResult
 public static "checkEntityIntersecting"(arg0: $Entity$Type, arg1: $Vec3$Type, arg2: $Vec3$Type, arg3: float): $HitResult
-public static "smoothstep"(arg0: float, arg1: float, arg2: float): float
+public static "checkMonsterSpawnRules"(arg0: $ServerLevelAccessor$Type, arg1: $MobSpawnType$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): boolean
 public static "intPow"(arg0: double, arg1: integer): double
 public static "intPow"(arg0: float, arg1: integer): float
-public static "getAngle"(arg0: $Vec2$Type, arg1: $Vec2$Type): float
-public static "getAngle"(arg0: double, arg1: double, arg2: double, arg3: double): float
+public static "serverSideInitiateCast"(arg0: $ServerPlayer$Type): boolean
+public static "findRelativeGroundLevel"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: integer): integer
+public static "isPlayerHoldingSpellBook"(arg0: $Player$Type): boolean
+public static "serverSideInitiateQuickCast"(arg0: $ServerPlayer$Type, arg1: integer): boolean
+public static "sendTargetedNotification"(arg0: $ServerPlayer$Type, arg1: $LivingEntity$Type, arg2: $AbstractSpell$Type): void
+public static "getStackTraceAsString"(): string
+public static "serverSideCancelCast"(arg0: $ServerPlayer$Type, arg1: boolean): void
+public static "serverSideCancelCast"(arg0: $ServerPlayer$Type): void
+public static "moveToRelativeGroundLevel"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: integer, arg3: integer): $Vec3
+public static "moveToRelativeGroundLevel"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: integer): $Vec3
+public static "preCastTargetHelper"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $MagicData$Type, arg3: $AbstractSpell$Type, arg4: integer, arg5: float, arg6: boolean): boolean
+public static "preCastTargetHelper"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $MagicData$Type, arg3: $AbstractSpell$Type, arg4: integer, arg5: float, arg6: boolean, arg7: $Predicate$Type<($LivingEntity$Type)>): boolean
+public static "preCastTargetHelper"(arg0: $Level$Type, arg1: $LivingEntity$Type, arg2: $MagicData$Type, arg3: $AbstractSpell$Type, arg4: integer, arg5: float): boolean
+public static "validAntiMagicTarget"(arg0: $Entity$Type): boolean
+public static "rotationFromDirection"(arg0: $Vec3$Type): $Vec2
+public static "getPositionFromEntityLookDirection"(arg0: $Entity$Type, arg1: float): $Vec3
+public static "getRandomScaled"(arg0: double): double
 public static "raycastForBlock"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: $Vec3$Type, arg3: $ClipContext$Fluid$Type): $BlockHitResult
 public static "getRandomVec3"(arg0: double): $Vec3
-public static "getRandomVec3f"(arg0: double): $Vector3f
+public static "getWeaponDamage"(arg0: $LivingEntity$Type, arg1: $MobType$Type): float
+public static "packRGB"(arg0: $Vector3f$Type): integer
+public static "shouldHealEntity"(arg0: $LivingEntity$Type, arg1: $LivingEntity$Type): boolean
+public static "createTremorBlock"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: float): void
+public static "getServerPlayer"(arg0: $Level$Type, arg1: $UUID$Type): $ServerPlayer
+public static "getServerTick"(): long
+public static "getTargetOld"(arg0: $Level$Type, arg1: $Player$Type, arg2: $ClipContext$Fluid$Type, arg3: double): $BlockHitResult
+public static "spawnInWorld"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $ItemStack$Type): void
 public static "throwTarget"(arg0: $LivingEntity$Type, arg1: $LivingEntity$Type, arg2: float, arg3: boolean): void
-public static "serverSideInitiateQuickCast"(arg0: $ServerPlayer$Type, arg1: integer): boolean
-public static "getStackTraceAsString"(): string
-public static "isPlayerHoldingSpellBook"(arg0: $Player$Type): boolean
-public static "serverSideInitiateCast"(arg0: $ServerPlayer$Type): boolean
-public static "sendTargetedNotification"(arg0: $ServerPlayer$Type, arg1: $LivingEntity$Type, arg2: $AbstractSpell$Type): void
-public static "findRelativeGroundLevel"(arg0: $Level$Type, arg1: $Vec3$Type, arg2: integer): integer
-get "serverTick"(): long
+public static "getRandomVec3f"(arg0: double): $Vector3f
+public static "smoothstep"(arg0: float, arg1: float, arg2: float): float
+public static "raycastForEntityOfClass"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: boolean, arg5: $Class$Type<(any)>): $HitResult
+public static "softCapFormula"(arg0: double): double
+public static "stringTruncation"(arg0: double, arg1: integer): string
+public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: boolean): $HitResult
+public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: float, arg3: boolean, arg4: float): $HitResult
+public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: float, arg3: boolean): $HitResult
+public static "raycastForEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $Vec3$Type, arg3: $Vec3$Type, arg4: boolean, arg5: float, arg6: $Predicate$Type<(any)>): $HitResult
+public static "timeFromTicks"(arg0: float, arg1: integer): string
+public static "getAngle"(arg0: double, arg1: double, arg2: double, arg3: double): float
+public static "getAngle"(arg0: $Vec2$Type, arg1: $Vec2$Type): float
+public static "deconstructRGB"(arg0: integer): $Vector3f
+public static "releaseUsingHelper"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type, arg2: integer): void
 get "stackTraceAsString"(): string
+get "serverTick"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1213,10 +1213,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type, arg1: double, arg2: double, arg3: $Map$Type<($Attribute$Type), ($AttributeModifier$Type)>)
 
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
-public "isEnchantable"(arg0: $ItemStack$Type): boolean
-public "getEnchantmentValue"(): integer
 public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type, arg1: $Enchantment$Type): boolean
 public "getAttributeModifiers"(arg0: $EquipmentSlot$Type, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
+public "isEnchantable"(arg0: $ItemStack$Type): boolean
+public "getEnchantmentValue"(): integer
 get "enchantmentValue"(): integer
 }
 /**
@@ -1232,8 +1232,8 @@ declare global {
 export type $StaffItem_ = $StaffItem$Type;
 }}
 declare module "packages/io/redspace/ironsspellbooks/registries/$PotionRegistry" {
-import {$IEventBus, $IEventBus$Type} from "packages/net/minecraftforge/eventbus/api/$IEventBus"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$IEventBus, $IEventBus$Type} from "packages/net/minecraftforge/eventbus/api/$IEventBus"
 import {$DeferredRegister, $DeferredRegister$Type} from "packages/net/minecraftforge/registries/$DeferredRegister"
 import {$RegistryObject, $RegistryObject$Type} from "packages/net/minecraftforge/registries/$RegistryObject"
 import {$FMLCommonSetupEvent, $FMLCommonSetupEvent$Type} from "packages/net/minecraftforge/fml/event/lifecycle/$FMLCommonSetupEvent"
@@ -1248,9 +1248,9 @@ static readonly "INSTANT_MANA_FOUR": $RegistryObject<($Potion)>
 
 constructor()
 
-public static "register"(arg0: $IEventBus$Type): void
 public static "addRecipes"(arg0: $FMLCommonSetupEvent$Type): void
 public static "addContainerMix"(arg0: $Item$Type, arg1: $Item$Type, arg2: $Item$Type): void
+public static "register"(arg0: $IEventBus$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1276,12 +1276,12 @@ static readonly "COMMAND": $RecastResult
 static readonly "USER_CANCEL": $RecastResult
 
 
+public "isSuccess"(): boolean
+public "isFailure"(): boolean
 public static "values"(): ($RecastResult)[]
 public static "valueOf"(arg0: string): $RecastResult
-public "isFailure"(): boolean
-public "isSuccess"(): boolean
-get "failure"(): boolean
 get "success"(): boolean
+get "failure"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1401,22 +1401,22 @@ static readonly "COOLDOWN_REMAINING": string
 
 constructor()
 
+public "getCooldownPercent"(arg0: $AbstractSpell$Type): float
 public "tick"(arg0: integer): void
+public "getSpellCooldowns"(): $Map<(string), ($CooldownInstance)>
+public "isOnCooldown"(arg0: $AbstractSpell$Type): boolean
+public "clearCooldowns"(): void
+public "removeCooldown"(arg0: string): boolean
+public "decrementCooldown"(arg0: $CooldownInstance$Type, arg1: integer): boolean
+public "setTickBuffer"(arg0: integer): void
 public "syncToPlayer"(arg0: $ServerPlayer$Type): void
 public "addCooldown"(arg0: $AbstractSpell$Type, arg1: integer): void
 public "addCooldown"(arg0: $AbstractSpell$Type, arg1: integer, arg2: integer): void
-public "addCooldown"(arg0: string, arg1: integer): void
 public "addCooldown"(arg0: string, arg1: integer, arg2: integer): void
-public "isOnCooldown"(arg0: $AbstractSpell$Type): boolean
-public "hasCooldownsActive"(): boolean
+public "addCooldown"(arg0: string, arg1: integer): void
 public "saveNBTData"(): $ListTag
+public "hasCooldownsActive"(): boolean
 public "loadNBTData"(arg0: $ListTag$Type): void
-public "clearCooldowns"(): void
-public "getCooldownPercent"(arg0: $AbstractSpell$Type): float
-public "getSpellCooldowns"(): $Map<(string), ($CooldownInstance)>
-public "setTickBuffer"(arg0: integer): void
-public "removeCooldown"(arg0: string): boolean
-public "decrementCooldown"(arg0: $CooldownInstance$Type, arg1: integer): boolean
 get "spellCooldowns"(): $Map<(string), ($CooldownInstance)>
 set "tickBuffer"(value: integer)
 }
@@ -1564,11 +1564,11 @@ import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BaseEntityBlock, $BaseEntityBlock$Type} from "packages/net/minecraft/world/level/block/$BaseEntityBlock"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$RenderShape, $RenderShape$Type} from "packages/net/minecraft/world/level/block/$RenderShape"
@@ -1603,12 +1603,12 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1760,9 +1760,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -1795,10 +1795,10 @@ export class $EvasionEffect extends $CustomDescriptionMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
-public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "getDescriptionLine"(arg0: $MobEffectInstance$Type): $Component
 public static "doEffect"(arg0: $LivingEntity$Type, arg1: $DamageSource$Type): boolean
+public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
+public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1847,9 +1847,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -1876,17 +1876,17 @@ export class $SpellSelection implements $ISerializable, $INBTSerializable<($Comp
  "lastEquipmentSlot": string
  "lastIndex": integer
 
-constructor(arg0: string, arg1: integer, arg2: string, arg3: integer)
 constructor(arg0: string, arg1: integer)
 constructor()
+constructor(arg0: string, arg1: integer, arg2: string, arg3: integer)
 
-public "toString"(): string
-public "isEmpty"(): boolean
-public "serializeNBT"(): $CompoundTag
+public "readFromBuffer"(arg0: $FriendlyByteBuf$Type): void
 public "deserializeNBT"(arg0: $CompoundTag$Type): void
+public "serializeNBT"(): $CompoundTag
 public "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
 public "makeSelection"(arg0: string, arg1: integer): void
-public "readFromBuffer"(arg0: $FriendlyByteBuf$Type): void
+public "toString"(): string
+public "isEmpty"(): boolean
 get "empty"(): boolean
 }
 /**
@@ -1977,8 +1977,8 @@ export class $GuidingBoltEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 }
@@ -1995,8 +1995,8 @@ declare global {
 export type $GuidingBoltEffect_ = $GuidingBoltEffect$Type;
 }}
 declare module "packages/io/redspace/ironsspellbooks/damage/$SpellDamageSource" {
-import {$AbstractSpell, $AbstractSpell$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$AbstractSpell"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
+import {$AbstractSpell, $AbstractSpell$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$AbstractSpell"
 import {$DamageSource, $DamageSource$Type} from "packages/net/minecraft/world/damagesource/$DamageSource"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
@@ -2004,24 +2004,24 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 export class $SpellDamageSource extends $DamageSource {
 
 
-public "get"(): $DamageSource
-public static "source"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $AbstractSpell$Type): $SpellDamageSource
-public static "source"(arg0: $Entity$Type, arg1: $AbstractSpell$Type): $SpellDamageSource
-public "setLifestealPercent"(arg0: float): $SpellDamageSource
-public "getLifestealPercent"(): float
-public "getFireTime"(): integer
-public "setFreezeTicks"(arg0: integer): $SpellDamageSource
-public "spell"(): $AbstractSpell
+public "getLocalizedDeathMessage"(arg0: $LivingEntity$Type): $Component
 public "getFreezeTicks"(): integer
 public "hasPostHitEffects"(): boolean
-public "getLocalizedDeathMessage"(arg0: $LivingEntity$Type): $Component
+public "getFireTime"(): integer
+public "getLifestealPercent"(): float
+public "setLifestealPercent"(arg0: float): $SpellDamageSource
 public "setFireTime"(arg0: integer): $SpellDamageSource
-set "lifestealPercent"(value: float)
-get "lifestealPercent"(): float
-get "fireTime"(): integer
-set "freezeTicks"(value: integer)
+public "setFreezeTicks"(arg0: integer): $SpellDamageSource
+public "spell"(): $AbstractSpell
+public "get"(): $DamageSource
+public static "source"(arg0: $Entity$Type, arg1: $AbstractSpell$Type): $SpellDamageSource
+public static "source"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $AbstractSpell$Type): $SpellDamageSource
 get "freezeTicks"(): integer
+get "fireTime"(): integer
+get "lifestealPercent"(): float
+set "lifestealPercent"(value: float)
 set "fireTime"(value: integer)
+set "freezeTicks"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2038,18 +2038,18 @@ export type $SpellDamageSource_ = $SpellDamageSource$Type;
 declare module "packages/io/redspace/ironsspellbooks/capabilities/magic/$TargetEntityCastData" {
 import {$ICastData, $ICastData$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$ICastData"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $TargetEntityCastData implements $ICastData {
 
 constructor(arg0: $LivingEntity$Type)
 
+public "getTargetPosition"(arg0: $ServerLevel$Type): $Vec3
+public "getTargetUUID"(): $UUID
 public "getTarget"(arg0: $ServerLevel$Type): $LivingEntity
 public "reset"(): void
-public "getTargetUUID"(): $UUID
-public "getTargetPosition"(arg0: $ServerLevel$Type): $Vec3
 get "targetUUID"(): $UUID
 }
 /**
@@ -2166,12 +2166,12 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor()
 
 public "getUseDuration"(arg0: $ItemStack$Type): integer
+public static "attemptRemoveScrollAfterCast"(arg0: $ServerPlayer$Type): void
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "releaseUsing"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type, arg3: integer): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getName"(arg0: $ItemStack$Type): $Component
-public static "attemptRemoveScrollAfterCast"(arg0: $ServerPlayer$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2216,18 +2216,18 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[], arg2: integer)
-constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[])
-constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[], arg2: integer, arg3: $Supplier$Type<($Multimap$Type<($Attribute$Type), ($AttributeModifier$Type)>)>)
 constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[], arg2: $Supplier$Type<($Multimap$Type<($Attribute$Type), ($AttributeModifier$Type)>)>)
+constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[], arg2: integer, arg3: $Supplier$Type<($Multimap$Type<($Attribute$Type), ($AttributeModifier$Type)>)>)
+constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[])
+constructor(arg0: $SpellRarity$Type, arg1: ($SpellDataRegistryHolder$Type)[], arg2: integer)
 
 public "initializeSpellContainer"(arg0: $ItemStack$Type): void
-public "getName"(arg0: $ItemStack$Type): $Component
-public "initializeSpellContainerOLD"(arg0: $ItemStack$Type): $ISpellContainer
-public "getSpells"(): $List<($SpellData)>
 public "isUnique"(): boolean
-get "spells"(): $List<($SpellData)>
+public "initializeSpellContainerOLD"(arg0: $ItemStack$Type): $ISpellContainer
+public "getName"(arg0: $ItemStack$Type): $Component
+public "getSpells"(): $List<($SpellData)>
 get "unique"(): boolean
+get "spells"(): $List<($SpellData)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2246,8 +2246,8 @@ import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
 import {$IClientItemExtensions, $IClientItemExtensions$Type} from "packages/net/minecraftforge/client/extensions/common/$IClientItemExtensions"
 import {$Vec2, $Vec2$Type} from "packages/net/minecraft/world/phys/$Vec2"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -2271,9 +2271,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "getPosition"(arg0: $Vec3$Type, arg1: float, arg2: float, arg3: float, arg4: $Vec2$Type): $Vec3
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "getPosition"(arg0: $Vec3$Type, arg1: float, arg2: float, arg3: float, arg4: $Vec2$Type): $Vec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2302,8 +2302,8 @@ export class $BurningDashEffect extends $MobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 }
@@ -2334,8 +2334,8 @@ static readonly "damage_per_amp": float
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public static "getDamageFromLevel"(arg0: integer): float
 }
 /**
@@ -2359,21 +2359,21 @@ import {$CastSource, $CastSource$Type} from "packages/io/redspace/ironsspellbook
 
 export class $SpellPreCastEvent extends $PlayerEvent {
 
-constructor()
 constructor(arg0: $Player$Type, arg1: string, arg2: integer, arg3: $SchoolType$Type, arg4: $CastSource$Type)
+constructor()
 
 public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
 public "getSchoolType"(): $SchoolType
-public "getCastSource"(): $CastSource
-public "getSpellId"(): string
 public "getSpellLevel"(): integer
+public "getSpellId"(): string
+public "getCastSource"(): $CastSource
 get "listenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "schoolType"(): $SchoolType
-get "castSource"(): $CastSource
-get "spellId"(): string
 get "spellLevel"(): integer
+get "spellId"(): string
+get "castSource"(): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2418,11 +2418,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "onCraftedBy"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
 public "missingWarning"(arg0: $ItemStack$Type): boolean
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onCraftedBy"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
 public static "getCatacombsLocation"(arg0: $Entity$Type, arg1: $CompoundTag$Type): $GlobalPos
 }
 /**
@@ -2461,8 +2461,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 public "canWalkOnPowderedSnow"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): boolean
+public "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2514,9 +2514,9 @@ constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "getCapeResourceLocation"(): $ResourceLocation
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 get "capeResourceLocation"(): $ResourceLocation
 }
@@ -2559,13 +2559,13 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $Item$Properties$Type, arg1: $Supplier$Type<($MobEffectInstance$Type)>)
 constructor(arg0: $Item$Properties$Type, arg1: $Supplier$Type<($MobEffectInstance$Type)>, arg2: boolean)
+constructor(arg0: $Item$Properties$Type, arg1: $Supplier$Type<($MobEffectInstance$Type)>)
 
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "isFoil"(arg0: $ItemStack$Type): boolean
 public "getMobEffect"(): $MobEffectInstance
 public "getMaxStackSize"(arg0: $ItemStack$Type): integer
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "isFoil"(arg0: $ItemStack$Type): boolean
 public static "addPotionTooltip"(arg0: $MobEffectInstance$Type, arg1: $List$Type<($Component$Type)>, arg2: float): void
 get "mobEffect"(): $MobEffectInstance
 }
@@ -2591,33 +2591,33 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $ISpellContainer extends $INBTSerializable<($CompoundTag)> {
 
- "isEmpty"(): boolean
- "save"(arg0: $ItemStack$Type): void
- "getActiveSpells"(): $List<($SpellData)>
- "mustEquip"(): boolean
- "spellWheel"(): boolean
- "getAllSpells"(): ($SpellData)[]
- "setMaxSpellCount"(arg0: integer): void
- "removeSpell"(arg0: $AbstractSpell$Type, arg1: $ItemStack$Type): boolean
  "removeSpellAtIndex"(arg0: integer, arg1: $ItemStack$Type): boolean
  "getIndexForSpell"(arg0: $AbstractSpell$Type): integer
+ "setMaxSpellCount"(arg0: integer): void
  "addSpellAtIndex"(arg0: $AbstractSpell$Type, arg1: integer, arg2: integer, arg3: boolean, arg4: $ItemStack$Type): boolean
+ "removeSpell"(arg0: $AbstractSpell$Type, arg1: $ItemStack$Type): boolean
  "getActiveSpellCount"(): integer
  "getNextAvailableIndex"(): integer
- "addSpell"(arg0: $AbstractSpell$Type, arg1: integer, arg2: boolean, arg3: $ItemStack$Type): boolean
  "getSpellAtIndex"(arg0: integer): $SpellData
+ "mustEquip"(): boolean
+ "spellWheel"(): boolean
+ "getActiveSpells"(): $List<($SpellData)>
+ "getAllSpells"(): ($SpellData)[]
  "getMaxSpellCount"(): integer
- "serializeNBT"(): $CompoundTag
+ "addSpell"(arg0: $AbstractSpell$Type, arg1: integer, arg2: boolean, arg3: $ItemStack$Type): boolean
+ "isEmpty"(): boolean
+ "save"(arg0: $ItemStack$Type): void
  "deserializeNBT"(arg0: $CompoundTag$Type): void
+ "serializeNBT"(): $CompoundTag
 }
 
 export namespace $ISpellContainer {
+function createScrollContainer(arg0: $AbstractSpell$Type, arg1: integer, arg2: $ItemStack$Type): $ISpellContainer
+function createImbuedContainer(arg0: $AbstractSpell$Type, arg1: integer, arg2: $ItemStack$Type): $ISpellContainer
+function isSpellContainer(arg0: $ItemStack$Type): boolean
 function get(arg0: $ItemStack$Type): $ISpellContainer
 function create(arg0: integer, arg1: boolean, arg2: boolean): $ISpellContainer
 function getOrCreate(arg0: $ItemStack$Type): $ISpellContainer
-function isSpellContainer(arg0: $ItemStack$Type): boolean
-function createImbuedContainer(arg0: $AbstractSpell$Type, arg1: integer, arg2: $ItemStack$Type): $ISpellContainer
-function createScrollContainer(arg0: $AbstractSpell$Type, arg1: integer, arg2: $ItemStack$Type): $ISpellContainer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2697,13 +2697,13 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
-public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
 public "playerWillDestroy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Player$Type): void
+public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 }
@@ -2788,9 +2788,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -2856,9 +2856,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
-public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
-public static "attemptCookEntity"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type, arg4: $BloodCauldronBlock$CookExecution$Type): void
 public static "getInteractionMap"(): $Map<($Item), ($CauldronInteraction)>
+public static "attemptCookEntity"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type, arg4: $BloodCauldronBlock$CookExecution$Type): void
+public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
 get "interactionMap"(): $Map<($Item), ($CauldronInteraction)>
 }
 /**
@@ -2914,31 +2914,31 @@ import {$CastSource, $CastSource$Type} from "packages/io/redspace/ironsspellbook
 
 export class $SpellOnCastEvent extends $PlayerEvent {
 
-constructor()
 constructor(arg0: $Player$Type, arg1: string, arg2: integer, arg3: integer, arg4: $SchoolType$Type, arg5: $CastSource$Type)
+constructor()
 
+public "getOriginalManaCost"(): integer
+public "getOriginalSpellLevel"(): integer
 public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
 public "getSchoolType"(): $SchoolType
-public "getCastSource"(): $CastSource
-public "getSpellId"(): string
 public "getSpellLevel"(): integer
 public "setSpellLevel"(arg0: integer): void
 public "getManaCost"(): integer
+public "getSpellId"(): string
 public "setManaCost"(arg0: integer): void
-public "getOriginalManaCost"(): integer
-public "getOriginalSpellLevel"(): integer
+public "getCastSource"(): $CastSource
+get "originalManaCost"(): integer
+get "originalSpellLevel"(): integer
 get "listenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "schoolType"(): $SchoolType
-get "castSource"(): $CastSource
-get "spellId"(): string
 get "spellLevel"(): integer
 set "spellLevel"(value: integer)
 get "manaCost"(): integer
+get "spellId"(): string
 set "manaCost"(value: integer)
-get "originalManaCost"(): integer
-get "originalSpellLevel"(): integer
+get "castSource"(): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2967,8 +2967,8 @@ export class $HeartstopEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 }
@@ -3019,9 +3019,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -3071,9 +3071,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -3125,34 +3125,34 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $PlayerRecasts {
 
-constructor(arg0: $Map$Type<(string), ($RecastInstance$Type)>)
-constructor(arg0: $ServerPlayer$Type)
 constructor()
+constructor(arg0: $ServerPlayer$Type)
+constructor(arg0: $Map$Type<(string), ($RecastInstance$Type)>)
 
-public "toString"(): string
-public "removeAll"(arg0: $RecastResult$Type): void
-public "decrementRecastCount"(arg0: string): void
-public "decrementRecastCount"(arg0: $AbstractSpell$Type): void
-public "tick"(arg0: integer): void
-public "syncToPlayer"(arg0: $RecastInstance$Type): void
-public "removeRecast"(arg0: $RecastInstance$Type, arg1: $RecastResult$Type): void
-public "removeRecast"(arg0: string): void
-public "hasRecastForSpell"(arg0: string): boolean
-public "hasRecastForSpell"(arg0: $AbstractSpell$Type): boolean
-public "saveNBTData"(): $ListTag
-public "hasRecastsActive"(): boolean
-public "loadNBTData"(arg0: $ListTag$Type): void
 public "getActiveRecasts"(): $List<($RecastInstance)>
-public "syncAllToPlayer"(): void
-public "addRecast"(arg0: $RecastInstance$Type, arg1: $MagicData$Type): boolean
-public "getRecastInstance"(arg0: string): $RecastInstance
-public "tickRecasts"(): void
-public "forceAddRecast"(arg0: $RecastInstance$Type): void
-public "syncRemoveToPlayer"(arg0: string): void
-public "getAllRecasts"(): $List<($RecastInstance)>
-public "isRecastActive"(arg0: $RecastInstance$Type): boolean
+public "tick"(arg0: integer): void
 public "getRemainingRecastsForSpell"(arg0: $AbstractSpell$Type): integer
 public "getRemainingRecastsForSpell"(arg0: string): integer
+public "syncAllToPlayer"(): void
+public "tickRecasts"(): void
+public "forceAddRecast"(arg0: $RecastInstance$Type): void
+public "decrementRecastCount"(arg0: string): void
+public "decrementRecastCount"(arg0: $AbstractSpell$Type): void
+public "getAllRecasts"(): $List<($RecastInstance)>
+public "syncRemoveToPlayer"(arg0: string): void
+public "isRecastActive"(arg0: $RecastInstance$Type): boolean
+public "removeRecast"(arg0: $RecastInstance$Type, arg1: $RecastResult$Type): void
+public "removeRecast"(arg0: string): void
+public "syncToPlayer"(arg0: $RecastInstance$Type): void
+public "hasRecastForSpell"(arg0: string): boolean
+public "hasRecastForSpell"(arg0: $AbstractSpell$Type): boolean
+public "getRecastInstance"(arg0: string): $RecastInstance
+public "addRecast"(arg0: $RecastInstance$Type, arg1: $MagicData$Type): boolean
+public "saveNBTData"(): $ListTag
+public "loadNBTData"(arg0: $ListTag$Type): void
+public "hasRecastsActive"(): boolean
+public "toString"(): string
+public "removeAll"(arg0: $RecastResult$Type): void
 get "activeRecasts"(): $List<($RecastInstance)>
 get "allRecasts"(): $List<($RecastInstance)>
 }
@@ -3228,20 +3228,20 @@ static readonly "EMPTY": $SpellData
 constructor(arg0: $AbstractSpell$Type, arg1: integer)
 constructor(arg0: $AbstractSpell$Type, arg1: integer, arg2: boolean)
 
+public "getLevel"(): integer
+public "getRarity"(): $SpellRarity
+public "canRemove"(): boolean
+public "getSpell"(): $AbstractSpell
 public "isLocked"(): boolean
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "compareTo"(arg0: $SpellData$Type): integer
 public "getDisplayName"(): $Component
-public "canRemove"(): boolean
-public "getLevel"(): integer
-public "getSpell"(): $AbstractSpell
-public "getRarity"(): $SpellRarity
+get "level"(): integer
+get "rarity"(): $SpellRarity
+get "spell"(): $AbstractSpell
 get "locked"(): boolean
 get "displayName"(): $Component
-get "level"(): integer
-get "spell"(): $AbstractSpell
-get "rarity"(): $SpellRarity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3278,8 +3278,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "createEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $ItemStack$Type): $Entity
 public "hasCustomEntity"(arg0: $ItemStack$Type): boolean
+public "createEntity"(arg0: $Level$Type, arg1: $Entity$Type, arg2: $ItemStack$Type): $Entity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3298,8 +3298,8 @@ import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/ne
 
 export interface $ISerializable {
 
- "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
  "readFromBuffer"(arg0: $FriendlyByteBuf$Type): void
+ "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
 }
 
 export namespace $ISerializable {
@@ -3353,9 +3353,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $IronsExtendedArmorMaterial$Type, arg1: $ArmorItem$Type$Type, arg2: $Item$Properties$Type)
 
 public "initializeSpellContainer"(arg0: $ItemStack$Type): void
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -3400,8 +3400,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public static "of"(arg0: $ResourceLocation$Type, arg1: $MutableComponent$Type): $ItemStack
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public static "of"(arg0: $ResourceLocation$Type, arg1: $MutableComponent$Type): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3427,14 +3427,14 @@ import {$ArmorItem$Type, $ArmorItem$Type$Type} from "packages/net/minecraft/worl
 export interface $IronsExtendedArmorMaterial extends $ArmorMaterial {
 
  "getAdditionalAttributes"(): $Map<($Attribute), ($AttributeModifier)>
- "getRepairIngredient"(): $Ingredient
- "getName"(): string
- "getToughness"(): float
- "getEquipSound"(): $SoundEvent
- "getKnockbackResistance"(): float
- "getDefenseForType"(arg0: $ArmorItem$Type$Type): integer
- "getDurabilityForType"(arg0: $ArmorItem$Type$Type): integer
  "getEnchantmentValue"(): integer
+ "getDurabilityForType"(arg0: $ArmorItem$Type$Type): integer
+ "getDefenseForType"(arg0: $ArmorItem$Type$Type): integer
+ "getName"(): string
+ "getKnockbackResistance"(): float
+ "getEquipSound"(): $SoundEvent
+ "getToughness"(): float
+ "getRepairIngredient"(): $Ingredient
 }
 
 export namespace $IronsExtendedArmorMaterial {
@@ -3468,19 +3468,19 @@ export class $DefaultConfig {
 constructor(arg0: $Consumer$Type<($DefaultConfig$Type)>)
 constructor()
 
-public "build"(): $DefaultConfig
+public "setAllowCrafting"(arg0: boolean): $DefaultConfig
 public "setDeprecated"(arg0: boolean): $DefaultConfig
-public "setSchoolResource"(arg0: $ResourceLocation$Type): $DefaultConfig
 public "setCooldownSeconds"(arg0: double): $DefaultConfig
 public "setMinRarity"(arg0: $SpellRarity$Type): $DefaultConfig
+public "setSchoolResource"(arg0: $ResourceLocation$Type): $DefaultConfig
 public "setMaxLevel"(arg0: integer): $DefaultConfig
-public "setAllowCrafting"(arg0: boolean): $DefaultConfig
+public "build"(): $DefaultConfig
+set "allowCrafting"(value: boolean)
 set "deprecated"(value: boolean)
-set "schoolResource"(value: $ResourceLocation$Type)
 set "cooldownSeconds"(value: double)
 set "minRarity"(value: $SpellRarity$Type)
+set "schoolResource"(value: $ResourceLocation$Type)
 set "maxLevel"(value: integer)
-set "allowCrafting"(value: boolean)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3524,14 +3524,14 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $Item$Properties$Type, arg1: $BiConsumer$Type<($ItemStack$Type), ($LivingEntity$Type)>, arg2: $Item$Type, arg3: boolean)
 constructor(arg0: $Item$Properties$Type, arg1: $BiConsumer$Type<($ItemStack$Type), ($LivingEntity$Type)>)
+constructor(arg0: $Item$Properties$Type, arg1: $BiConsumer$Type<($ItemStack$Type), ($LivingEntity$Type)>, arg2: $Item$Type, arg3: boolean)
 
 public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3553,21 +3553,21 @@ import {$PlayerEvent, $PlayerEvent$Type} from "packages/net/minecraftforge/event
 
 export class $ChangeManaEvent extends $PlayerEvent {
 
-constructor()
 constructor(arg0: $Player$Type, arg1: $MagicData$Type, arg2: float, arg3: float)
+constructor()
 
 public "getListenerList"(): $ListenerList
 public "isCancelable"(): boolean
 public "getNewMana"(): float
 public "getOldMana"(): float
-public "setNewMana"(arg0: float): void
 public "getMagicData"(): $MagicData
+public "setNewMana"(arg0: float): void
 get "listenerList"(): $ListenerList
 get "cancelable"(): boolean
 get "newMana"(): float
 get "oldMana"(): float
-set "newMana"(value: float)
 get "magicData"(): $MagicData
+set "newMana"(value: float)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3607,19 +3607,19 @@ export class $SchoolType {
 
 constructor(arg0: $ResourceLocation$Type, arg1: $TagKey$Type<($Item$Type)>, arg2: $Component$Type, arg3: $LazyOptional$Type<($Attribute$Type)>, arg4: $LazyOptional$Type<($Attribute$Type)>, arg5: $LazyOptional$Type<($SoundEvent$Type)>, arg6: $ResourceKey$Type<($DamageType$Type)>)
 
-public "getId"(): $ResourceLocation
-public "getDisplayName"(): $Component
 public "getTargetingColor"(): $Vector3f
-public "isFocus"(arg0: $ItemStack$Type): boolean
-public "getDamageType"(): $ResourceKey<($DamageType)>
+public "getPowerFor"(arg0: $LivingEntity$Type): double
 public "getResistanceFor"(arg0: $LivingEntity$Type): double
 public "getCastSound"(): $SoundEvent
-public "getPowerFor"(arg0: $LivingEntity$Type): double
+public "isFocus"(arg0: $ItemStack$Type): boolean
+public "getDamageType"(): $ResourceKey<($DamageType)>
+public "getId"(): $ResourceLocation
+public "getDisplayName"(): $Component
+get "targetingColor"(): $Vector3f
+get "castSound"(): $SoundEvent
+get "damageType"(): $ResourceKey<($DamageType)>
 get "id"(): $ResourceLocation
 get "displayName"(): $Component
-get "targetingColor"(): $Vector3f
-get "damageType"(): $ResourceKey<($DamageType)>
-get "castSound"(): $SoundEvent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3668,9 +3668,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -3701,8 +3701,8 @@ export class $AscensionEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public static "ambientParticles"(arg0: $ClientLevel$Type, arg1: $LivingEntity$Type): void
@@ -3768,8 +3768,8 @@ constructor()
 
 public "destroy"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): void
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "spawnAfterBreak"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $ItemStack$Type, arg4: boolean): void
@@ -3822,10 +3822,10 @@ static readonly "ELDRITCH": $RegistryObject<($SchoolType)>
 
 constructor()
 
-public static "register"(arg0: $IEventBus$Type): void
+public static "getSchoolFromFocus"(arg0: $ItemStack$Type): $SchoolType
 public static "clientSetup"(arg0: $ModelEvent$RegisterAdditional$Type): void
 public static "getSchool"(arg0: $ResourceLocation$Type): $SchoolType
-public static "getSchoolFromFocus"(arg0: $ItemStack$Type): $SchoolType
+public static "register"(arg0: $IEventBus$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3947,9 +3947,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -3976,10 +3976,10 @@ static readonly "COMMAND": $CastSource
 static readonly "NONE": $CastSource
 
 
-public static "values"(): ($CastSource)[]
-public static "valueOf"(arg0: string): $CastSource
 public "respectsCooldown"(): boolean
 public "consumesMana"(): boolean
+public static "values"(): ($CastSource)[]
+public static "valueOf"(arg0: string): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4082,8 +4082,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4132,9 +4132,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -4187,97 +4187,12 @@ constructor(arg0: $Item$Properties$Type)
 
 public "isEquippedBy"(arg0: $LivingEntity$Type): boolean
 public "getEquipSound"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $ICurio$SoundInfo
-public "onUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
+public "getFortuneLevel"(arg0: $SlotContext$Type, arg1: $LootContext$Type, arg2: $ItemStack$Type): integer
 /**
  * 
  * @deprecated
  */
-public "onUnequip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
-/**
- * 
- * @deprecated
- */
-public "onEquip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
-public "onEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
-public "getLootingLevel"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: $ItemStack$Type): integer
-/**
- * 
- * @deprecated
- */
-public "canEquip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
-public "canEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-public "isEnderMask"(arg0: $SlotContext$Type, arg1: $EnderMan$Type, arg2: $ItemStack$Type): boolean
-public "canEquipFromUse"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "canRightClickEquip"(arg0: $ItemStack$Type): boolean
-public "curioBreak"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
-/**
- * 
- * @deprecated
- */
-public "curioBreak"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): void
-/**
- * 
- * @deprecated
- */
-public "curioTick"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
-public "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
-public "getSlotsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
-/**
- * 
- * @deprecated
- */
-public "writeSyncData"(arg0: $ItemStack$Type): $CompoundTag
-public "writeSyncData"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $CompoundTag
-/**
- * 
- * @deprecated
- */
-public "canSync"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): boolean
-public "canSync"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-public "hasCurioCapability"(arg0: $ItemStack$Type): boolean
-public "onEquipFromUse"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
-public "canUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "canUnequip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "getTagsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
-/**
- * 
- * @deprecated
- */
-public "curioAnimate"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
-/**
- * 
- * @deprecated
- */
-public "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
-/**
- * 
- * @deprecated
- */
-public "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
-/**
- * 
- * @deprecated
- */
-public "readSyncData"(arg0: $CompoundTag$Type, arg1: $ItemStack$Type): void
-public "readSyncData"(arg0: $SlotContext$Type, arg1: $CompoundTag$Type, arg2: $ItemStack$Type): void
-public "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean, arg4: $ItemStack$Type): $ICurio$DropRule
-/**
- * 
- * @deprecated
- */
-public "getDropRule"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): $ICurio$DropRule
+public "showAttributesTooltip"(arg0: string, arg1: $ItemStack$Type): boolean
 /**
  * 
  * @deprecated
@@ -4288,16 +4203,101 @@ public "getAttributesTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemSt
  * 
  * @deprecated
  */
-public "showAttributesTooltip"(arg0: string, arg1: $ItemStack$Type): boolean
+public "onEquip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
+public "onEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
+public "onUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "onUnequip"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
+public "canEquip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "canEquip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
+public "isEnderMask"(arg0: $SlotContext$Type, arg1: $EnderMan$Type, arg2: $ItemStack$Type): boolean
 public "makesPiglinsNeutral"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
-public "canWalkOnPowderedSnow"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 public "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type, arg2: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
 /**
  * 
  * @deprecated
  */
 public "getAttributeModifiers"(arg0: string, arg1: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "getFortuneLevel"(arg0: $SlotContext$Type, arg1: $LootContext$Type, arg2: $ItemStack$Type): integer
+public "canWalkOnPowderedSnow"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+public "getLootingLevel"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: $ItemStack$Type): integer
+public "canEquipFromUse"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+public "hasCurioCapability"(arg0: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "curioTick"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
+public "curioTick"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
+public "canUnequip"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "canUnequip"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type): boolean
+public "getSlotsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
+/**
+ * 
+ * @deprecated
+ */
+public "curioAnimate"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "writeSyncData"(arg0: $ItemStack$Type): $CompoundTag
+public "writeSyncData"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $CompoundTag
+/**
+ * 
+ * @deprecated
+ */
+public "getFortuneBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+/**
+ * 
+ * @deprecated
+ */
+public "canRightClickEquip"(arg0: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "getTagsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
+/**
+ * 
+ * @deprecated
+ */
+public "getLootingBonus"(arg0: string, arg1: $LivingEntity$Type, arg2: $ItemStack$Type, arg3: integer): integer
+public "onEquipFromUse"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "getDropRule"(arg0: $LivingEntity$Type, arg1: $ItemStack$Type): $ICurio$DropRule
+public "getDropRule"(arg0: $SlotContext$Type, arg1: $DamageSource$Type, arg2: integer, arg3: boolean, arg4: $ItemStack$Type): $ICurio$DropRule
+/**
+ * 
+ * @deprecated
+ */
+public "curioBreak"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): void
+public "curioBreak"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): void
+public "canSync"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "canSync"(arg0: string, arg1: integer, arg2: $LivingEntity$Type, arg3: $ItemStack$Type): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "readSyncData"(arg0: $CompoundTag$Type, arg1: $ItemStack$Type): void
+public "readSyncData"(arg0: $SlotContext$Type, arg1: $CompoundTag$Type, arg2: $ItemStack$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4325,8 +4325,8 @@ import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$M
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BaseEntityBlock, $BaseEntityBlock$Type} from "packages/net/minecraft/world/level/block/$BaseEntityBlock"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
@@ -4365,14 +4365,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
-public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
+public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
+public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
+public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4462,9 +4462,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -4498,65 +4498,65 @@ static readonly "MANA": string
 static readonly "COOLDOWNS": string
 static readonly "RECASTS": string
 
-constructor(arg0: $ServerPlayer$Type)
 constructor()
+constructor(arg0: $ServerPlayer$Type)
 constructor(arg0: boolean)
 
-public "toString"(): string
-public "getCastingEquipmentSlot"(): string
+public "getPlayerCastingItem"(): $ItemStack
 public "resetAdditionalCastData"(): void
 public "getCastCompletionPercent"(): float
-public "getPlayerCastingItem"(): $ItemStack
 public "setAdditionalCastData"(arg0: $ICastData$Type): void
 public "getCastDurationRemaining"(): integer
-public "getCastingSpellLevel"(): integer
-public "getAdditionalCastData"(): $ICastData
 public "setPlayerCastingItem"(arg0: $ItemStack$Type): void
+public "getAdditionalCastData"(): $ICastData
+public "getCastingSpellLevel"(): integer
+public "getCastingEquipmentSlot"(): string
 public static "getPlayerMagicData"(arg0: $LivingEntity$Type): $MagicData
 public "markPoisoned"(): void
 public "getSyncedData"(): $SyncedSpellData
-public "setServerPlayer"(arg0: $ServerPlayer$Type): void
+public "isCasting"(): boolean
+public "getCastSource"(): $CastSource
+public "initiateCast"(arg0: $AbstractSpell$Type, arg1: integer, arg2: integer, arg3: $CastSource$Type, arg4: string): void
+public "getMana"(): float
+public "getCastType"(): $CastType
+public "addMana"(arg0: float): void
 public "setMana"(arg0: float): void
 public "setSyncedData"(arg0: $SyncedSpellData$Type): void
 public "resetCastingState"(): void
-public "getMana"(): float
-public "addMana"(arg0: float): void
-public "initiateCast"(arg0: $AbstractSpell$Type, arg1: integer, arg2: integer, arg3: $CastSource$Type, arg4: string): void
-public "getPlayerRecasts"(): $PlayerRecasts
+public "setServerPlayer"(arg0: $ServerPlayer$Type): void
+public "saveNBTData"(arg0: $CompoundTag$Type): void
+public "loadNBTData"(arg0: $CompoundTag$Type): void
 public "getCastDuration"(): integer
-public "setPlayerRecasts"(arg0: $PlayerRecasts$Type): void
-public "getCastType"(): $CastType
-public "getCastingSpellId"(): string
 public "handleCastDuration"(): void
+public "getPlayerRecasts"(): $PlayerRecasts
 public "getPlayerCooldowns"(): $PlayerCooldowns
 public "getCastingSpell"(): $SpellData
-public "saveNBTData"(arg0: $CompoundTag$Type): void
+public "getCastingSpellId"(): string
+public "setPlayerRecasts"(arg0: $PlayerRecasts$Type): void
 public "popMarkedPoison"(): boolean
-public "loadNBTData"(arg0: $CompoundTag$Type): void
-public "getCastSource"(): $CastSource
-public "isCasting"(): boolean
-get "castingEquipmentSlot"(): string
-get "castCompletionPercent"(): float
+public "toString"(): string
 get "playerCastingItem"(): $ItemStack
+get "castCompletionPercent"(): float
 set "additionalCastData"(value: $ICastData$Type)
 get "castDurationRemaining"(): integer
-get "castingSpellLevel"(): integer
-get "additionalCastData"(): $ICastData
 set "playerCastingItem"(value: $ItemStack$Type)
+get "additionalCastData"(): $ICastData
+get "castingSpellLevel"(): integer
+get "castingEquipmentSlot"(): string
 get "syncedData"(): $SyncedSpellData
-set "serverPlayer"(value: $ServerPlayer$Type)
+get "casting"(): boolean
+get "castSource"(): $CastSource
+get "mana"(): float
+get "castType"(): $CastType
 set "mana"(value: float)
 set "syncedData"(value: $SyncedSpellData$Type)
-get "mana"(): float
-get "playerRecasts"(): $PlayerRecasts
+set "serverPlayer"(value: $ServerPlayer$Type)
 get "castDuration"(): integer
-set "playerRecasts"(value: $PlayerRecasts$Type)
-get "castType"(): $CastType
-get "castingSpellId"(): string
+get "playerRecasts"(): $PlayerRecasts
 get "playerCooldowns"(): $PlayerCooldowns
 get "castingSpell"(): $SpellData
-get "castSource"(): $CastSource
-get "casting"(): boolean
+get "castingSpellId"(): string
+set "playerRecasts"(value: $PlayerRecasts$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4596,8 +4596,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "getDescription"(arg0: $ItemStack$Type): $Component
 public "getDescriptionLines"(arg0: $ItemStack$Type): $List<($Component)>
+public "getDescription"(arg0: $ItemStack$Type): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4637,9 +4637,9 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
+constructor(arg0: integer, arg1: $SpellRarity$Type, arg2: $Attribute$Type, arg3: double)
 constructor(arg0: integer, arg1: $SpellRarity$Type, arg2: $Multimap$Type<($Attribute$Type), ($AttributeModifier$Type)>, arg3: $Item$Properties$Type)
 constructor(arg0: integer, arg1: $SpellRarity$Type, arg2: $Multimap$Type<($Attribute$Type), ($AttributeModifier$Type)>)
-constructor(arg0: integer, arg1: $SpellRarity$Type, arg2: $Attribute$Type, arg3: double)
 
 public "getAttributeModifiers"(arg0: $SlotContext$Type, arg1: $UUID$Type, arg2: $ItemStack$Type): $Multimap<($Attribute), ($AttributeModifier)>
 }
@@ -4665,11 +4665,11 @@ static readonly "LONG": $CastType
 static readonly "CONTINUOUS": $CastType
 
 
+public "immediatelySuppressRightClicks"(): boolean
+public "holdToCast"(): boolean
 public static "values"(): ($CastType)[]
 public static "valueOf"(arg0: string): $CastType
 public "getValue"(): integer
-public "immediatelySuppressRightClicks"(): boolean
-public "holdToCast"(): boolean
 get "value"(): integer
 }
 /**
@@ -4746,10 +4746,10 @@ static readonly "manaPerAmplifierPercent": float
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "isInstantenous"(): boolean
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
-public "applyInstantenousEffect"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: double): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyInstantenousEffect"(arg0: $Entity$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer, arg4: double): void
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public "isInstantenous"(): boolean
 public "getDescriptionLine"(arg0: $MobEffectInstance$Type): $Component
 get "instantenous"(): boolean
 }
@@ -4839,10 +4839,10 @@ import {$INBTSerializable, $INBTSerializable$Type} from "packages/net/minecraftf
 export interface $ICastDataSerializable extends $ICastData, $ISerializable, $INBTSerializable<($CompoundTag)> {
 
  "reset"(): void
- "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
  "readFromBuffer"(arg0: $FriendlyByteBuf$Type): void
- "serializeNBT"(): $CompoundTag
+ "writeToBuffer"(arg0: $FriendlyByteBuf$Type): void
  "deserializeNBT"(arg0: $CompoundTag$Type): void
+ "serializeNBT"(): $CompoundTag
 }
 
 export namespace $ICastDataSerializable {
@@ -4877,8 +4877,8 @@ import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/wo
 import {$SerializableDataTicket, $SerializableDataTicket$Type} from "packages/software/bernie/geckolib/network/$SerializableDataTicket"
 import {$IClientItemExtensions, $IClientItemExtensions$Type} from "packages/net/minecraftforge/client/extensions/common/$IClientItemExtensions"
 import {$GeoAnimatable, $GeoAnimatable$Type} from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$PacketDistributor$PacketTarget, $PacketDistributor$PacketTarget$Type} from "packages/net/minecraftforge/network/$PacketDistributor$PacketTarget"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -4907,25 +4907,25 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $IronsExtendedArmorMaterial$Type, arg1: $ArmorItem$Type$Type, arg2: $Item$Properties$Type)
 
 public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "onArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
 public "initializeClient"(arg0: $Consumer$Type<($IClientItemExtensions$Type)>): void
 public "getDefaultAttributeModifiers"(arg0: $EquipmentSlot$Type): $Multimap<($Attribute), ($AttributeModifier)>
-public "onArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public static "getId"(arg0: $ItemStack$Type): long
 public "animatableCacheOverride"(): $AnimatableInstanceCache
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public "getTick"(arg0: any): double
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
 public "isPerspectiveAware"(): boolean
-public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
-public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
+public static "getId"(arg0: $ItemStack$Type): long
 public "triggerAnim"<D>(arg0: $Entity$Type, arg1: long, arg2: string, arg3: string): void
-public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
+public "triggerAnim"<D>(arg0: long, arg1: string, arg2: string, arg3: $PacketDistributor$PacketTarget$Type): void
 public "syncAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>, arg2: D, arg3: $PacketDistributor$PacketTarget$Type): void
+public "getAnimData"<D>(arg0: long, arg1: $SerializableDataTicket$Type<(D)>): D
+public "setAnimData"<D>(arg0: $Entity$Type, arg1: long, arg2: $SerializableDataTicket$Type<(D)>, arg3: D): void
 public static "get"(arg0: $ItemStack$Type): $Equipable
-public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "getBoneResetTime"(): double
+public "shouldPlayAnimsWhileGamePaused"(): boolean
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "perspectiveAware"(): boolean
 get "boneResetTime"(): double
@@ -5034,6 +5034,7 @@ readonly "rotA": float
  "zza": float
  "effectsDirty": boolean
  "level": $Level
+ "entityJs$builder": any
 static readonly "ID_TAG": string
 static readonly "PASSENGERS_TAG": string
 static readonly "BOARDING_COOLDOWN": integer
@@ -5086,51 +5087,51 @@ readonly "random": $RandomSource
  "mainSupportingBlockPos": $Optional<($BlockPos)>
 
 
-public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
-public "canBeLeashed"(arg0: $Player$Type): boolean
-public "onSyncedDataUpdated"(arg0: $EntityDataAccessor$Type<(any)>): void
-public "initiateCastSpell"(arg0: $AbstractSpell$Type, arg1: integer): void
-public "isDrinkingPotion"(): boolean
-public "shouldSheathSword"(): boolean
-public "isAnimating"(): boolean
-public "setSyncedSpellData"(arg0: $SyncedSpellData$Type): void
-public "rideTick"(): void
-public "readAdditionalSaveData"(arg0: $CompoundTag$Type): void
 public "addAdditionalSaveData"(arg0: $CompoundTag$Type): void
 public "getMyRidingOffset"(): double
-public "getMagicData"(): $MagicData
-public "cancelCast"(): void
 public "triggerAnim"(arg0: string, arg1: string): void
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
-public "shouldAlwaysAnimateHead"(): boolean
-public "startAutoSpinAttack"(arg0: integer): void
 public "notifyDangerousProjectile"(arg0: $Projectile$Type): void
+public "setBurningDashDirectionData"(): void
+public "startAutoSpinAttack"(arg0: integer): void
+public "shouldPointArmsWhileCasting"(): boolean
+public "startDrinkingPotion"(): void
+public "shouldBeExtraAnimated"(): boolean
 public "shouldAlwaysAnimateLegs"(): boolean
+public "shouldAlwaysAnimateHead"(): boolean
 public "bobBodyWhileWalking"(): boolean
 public "setTeleportLocationBehindTarget"(arg0: integer): boolean
-public "shouldBeExtraAnimated"(): boolean
-public "startDrinkingPotion"(): void
-public "setBurningDashDirectionData"(): void
-public "shouldPointArmsWhileCasting"(): boolean
+public "registerControllers"(arg0: $AnimatableManager$ControllerRegistrar$Type): void
+public "isDrinkingPotion"(): boolean
+public "isAnimating"(): boolean
+public "shouldSheathSword"(): boolean
+public "setSyncedSpellData"(arg0: $SyncedSpellData$Type): void
+public "initiateCastSpell"(arg0: $AbstractSpell$Type, arg1: integer): void
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "readAdditionalSaveData"(arg0: $CompoundTag$Type): void
+public "rideTick"(): void
+public "onSyncedDataUpdated"(arg0: $EntityDataAccessor$Type<(any)>): void
+public "canBeLeashed"(arg0: $Player$Type): boolean
 public "isCasting"(): boolean
+public "cancelCast"(): void
+public "getMagicData"(): $MagicData
+public "getTick"(arg0: any): double
 public "getAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>): D
 public "setAnimData"<D>(arg0: $SerializableDataTicket$Type<(D)>, arg1: D): void
-public "getTick"(arg0: any): double
+public "getBoneResetTime"(): double
 public "shouldPlayAnimsWhileGamePaused"(): boolean
 public "animatableCacheOverride"(): $AnimatableInstanceCache
-public "getBoneResetTime"(): double
 public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
 public static "of"(holder: any): $FacetHolder
+get "myRidingOffset"(): double
+set "teleportLocationBehindTarget"(value: integer)
 get "drinkingPotion"(): boolean
 get "animating"(): boolean
 set "syncedSpellData"(value: $SyncedSpellData$Type)
-get "myRidingOffset"(): double
-get "magicData"(): $MagicData
 get "animatableInstanceCache"(): $AnimatableInstanceCache
-set "teleportLocationBehindTarget"(value: integer)
 get "casting"(): boolean
+get "magicData"(): $MagicData
 get "boneResetTime"(): double
 }
 /**
@@ -5180,11 +5181,11 @@ constructor(arg0: integer, arg1: $SpellRarity$Type)
 constructor()
 
 public "initializeSpellContainer"(arg0: $ItemStack$Type): void
+public "getRarity"(): $SpellRarity
+public "isUnique"(): boolean
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "canEquipFromUse"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): boolean
 public "getEquipSound"(arg0: $SlotContext$Type, arg1: $ItemStack$Type): $ICurio$SoundInfo
-public "getRarity"(): $SpellRarity
-public "isUnique"(): boolean
 public "getMaxSpellSlots"(): integer
 get "rarity"(): $SpellRarity
 get "unique"(): boolean
@@ -5217,8 +5218,8 @@ export class $TrueInvisibilityEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 }
@@ -5269,9 +5270,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -5352,17 +5353,17 @@ declare module "packages/io/redspace/ironsspellbooks/capabilities/magic/$Cooldow
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export class $CooldownInstance {
 
-constructor(arg0: integer)
 constructor(arg0: integer, arg1: integer)
+constructor(arg0: integer)
 
 public "decrement"(): void
-public "getSpellCooldown"(): integer
-public "getCooldownRemaining"(): integer
 public "getCooldownPercent"(): float
+public "getCooldownRemaining"(): integer
 public "decrementBy"(arg0: integer): void
-get "spellCooldown"(): integer
-get "cooldownRemaining"(): integer
+public "getSpellCooldown"(): integer
 get "cooldownPercent"(): float
+get "cooldownRemaining"(): integer
+get "spellCooldown"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5495,21 +5496,21 @@ import {$Potion, $Potion$Type} from "packages/net/minecraft/world/item/alchemy/$
 
 export class $AlchemistCauldronRecipe {
 
-constructor(arg0: $Potion$Type, arg1: $Item$Type, arg2: $Item$Type)
-constructor(arg0: $Item$Type, arg1: $Item$Type, arg2: $Item$Type)
 constructor(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: $ItemStack$Type)
+constructor(arg0: $Item$Type, arg1: $Item$Type, arg2: $Item$Type)
+constructor(arg0: $Potion$Type, arg1: $Item$Type, arg2: $Item$Type)
 
-public "getResult"(): $ItemStack
-public "getInput"(): $ItemStack
 public "getIngredient"(): $ItemStack
-public "createOutput"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
 public "setBaseRequirement"(arg0: integer): $AlchemistCauldronRecipe
 public "setResultLimit"(arg0: integer): $AlchemistCauldronRecipe
-get "result"(): $ItemStack
-get "input"(): $ItemStack
+public "createOutput"(arg0: $ItemStack$Type, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
+public "getInput"(): $ItemStack
+public "getResult"(): $ItemStack
 get "ingredient"(): $ItemStack
 set "baseRequirement"(value: integer)
 set "resultLimit"(value: integer)
+get "input"(): $ItemStack
+get "result"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5598,9 +5599,9 @@ constructor(arg0: $ArmorItem$Type$Type, arg1: $Item$Properties$Type)
 
 public "isEnderMask"(arg0: $ItemStack$Type, arg1: $Player$Type, arg2: $EnderMan$Type): boolean
 public "supplyRenderer"(): $GeoArmorRenderer<(any)>
-public static "getId"(arg0: $ItemStack$Type): long
 public static "registerSyncedAnimatable"(arg0: $GeoAnimatable$Type): void
 public static "getOrAssignId"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type): long
+public static "getId"(arg0: $ItemStack$Type): long
 public static "get"(arg0: $ItemStack$Type): $Equipable
 }
 /**
@@ -5667,17 +5668,17 @@ import {$SpellData, $SpellData$Type} from "packages/io/redspace/ironsspellbooks/
 
 export class $SpellSelectionManager$SpellSelectionEvent extends $PlayerEvent {
 
-constructor()
 constructor(arg0: $Player$Type, arg1: $SpellSelectionManager$Type)
+constructor()
 
 public "getListenerList"(): $ListenerList
-public "getManager"(): $SpellSelectionManager
 public "isCancelable"(): boolean
-public "addSelectionOption"(arg0: $SpellData$Type, arg1: string, arg2: integer, arg3: integer): void
+public "getManager"(): $SpellSelectionManager
 public "addSelectionOption"(arg0: $SpellData$Type, arg1: string, arg2: integer): void
+public "addSelectionOption"(arg0: $SpellData$Type, arg1: string, arg2: integer, arg3: integer): void
 get "listenerList"(): $ListenerList
-get "manager"(): $SpellSelectionManager
 get "cancelable"(): boolean
+get "manager"(): $SpellSelectionManager
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5701,8 +5702,8 @@ import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraf
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$FallingBlockEntity, $FallingBlockEntity$Type} from "packages/net/minecraft/world/entity/item/$FallingBlockEntity"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$FallingBlock, $FallingBlock$Type} from "packages/net/minecraft/world/level/block/$FallingBlock"
@@ -5742,14 +5743,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor()
 
+public "onLand"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $FallingBlockEntity$Type): void
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
+public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 public "rotate"(arg0: $BlockState$Type, arg1: $Rotation$Type): $BlockState
-public "getRenderShape"(arg0: $BlockState$Type): $RenderShape
 public "mirror"(arg0: $BlockState$Type, arg1: $Mirror$Type): $BlockState
 public "getMenuProvider"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type): $MenuProvider
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
-public "onLand"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $FallingBlockEntity$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5903,13 +5904,13 @@ static readonly "ELDRITCH_BLAST_SPELL": $RegistryObject<($AbstractSpell)>
 
 constructor()
 
-public static "register"(arg0: $IEventBus$Type): void
 public static "none"(): $NoneSpell
-public static "getSpell"(arg0: $ResourceLocation$Type): $AbstractSpell
-public static "getSpell"(arg0: string): $AbstractSpell
 public static "onConfigReload"(): void
 public static "getEnabledSpells"(): $List<($AbstractSpell)>
 public static "getSpellsForSchool"(arg0: $SchoolType$Type): $List<($AbstractSpell)>
+public static "getSpell"(arg0: $ResourceLocation$Type): $AbstractSpell
+public static "getSpell"(arg0: string): $AbstractSpell
+public static "register"(arg0: $IEventBus$Type): void
 get "enabledSpells"(): $List<($AbstractSpell)>
 }
 /**
@@ -5937,25 +5938,25 @@ static readonly "OFFHAND": string
 
 constructor(arg0: $Player$Type)
 
-public "getSpellsForSlot"(arg0: string): $List<($SpellSelectionManager$SelectionOption)>
+public "getGlobalSelectionIndex"(): integer
+public "getSelectedSpellData"(): $SpellData
+public "getCurrentSelection"(): $SpellSelection
 public "getSpellForSlot"(arg0: string, arg1: integer): $SpellData
 public "getSpellData"(arg0: integer): $SpellData
 public "getSpellCount"(): integer
-public "getSpellSlot"(arg0: integer): $SpellSelectionManager$SelectionOption
 public "getSelection"(): $SpellSelectionManager$SelectionOption
-public "getAllSpells"(): $List<($SpellSelectionManager$SelectionOption)>
 public "makeSelection"(arg0: integer): void
+public "getSpellsForSlot"(arg0: string): $List<($SpellSelectionManager$SelectionOption)>
+public "getAllSpells"(): $List<($SpellSelectionManager$SelectionOption)>
+public "getSpellSlot"(arg0: integer): $SpellSelectionManager$SelectionOption
 public "getSelectionIndex"(): integer
-public "getCurrentSelection"(): $SpellSelection
-public "getSelectedSpellData"(): $SpellData
-public "getGlobalSelectionIndex"(): integer
+get "globalSelectionIndex"(): integer
+get "selectedSpellData"(): $SpellData
+get "currentSelection"(): $SpellSelection
 get "spellCount"(): integer
 get "selection"(): $SpellSelectionManager$SelectionOption
 get "allSpells"(): $List<($SpellSelectionManager$SelectionOption)>
 get "selectionIndex"(): integer
-get "currentSelection"(): $SpellSelection
-get "selectedSpellData"(): $SpellData
-get "globalSelectionIndex"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6022,9 +6023,9 @@ export class $ThunderstormEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public static "getDamageFromAmplifier"(arg0: integer, arg1: $LivingEntity$Type): float
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
+public static "getDamageFromAmplifier"(arg0: integer, arg1: $LivingEntity$Type): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6079,15 +6080,15 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type)
 
 public static "isLoading"(arg0: $ItemStack$Type): boolean
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public static "getChargeDuration"(arg0: $ItemStack$Type): integer
 public "onEntityItemUpdate"(arg0: $ItemStack$Type, arg1: $ItemEntity$Type): boolean
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "inventoryTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Entity$Type, arg3: integer, arg4: boolean): void
+public static "setLoadingTicks"(arg0: $ItemStack$Type, arg1: integer): void
 public static "setLoading"(arg0: $ItemStack$Type, arg1: boolean): void
 public static "getLoadingTicks"(arg0: $ItemStack$Type): integer
 public static "startLoading"(arg0: $Player$Type, arg1: $ItemStack$Type): void
-public static "setLoadingTicks"(arg0: $ItemStack$Type, arg1: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6127,9 +6128,9 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Item$Properties$Type, arg1: string)
 constructor(arg0: $Item$Properties$Type)
 
-public "getDescription"(arg0: $ItemStack$Type): $Component
 public "getDescriptionLines"(arg0: $ItemStack$Type): $List<($Component)>
 public "getSlotsTooltip"(arg0: $List$Type<($Component$Type)>, arg1: $ItemStack$Type): $List<($Component)>
+public "getDescription"(arg0: $ItemStack$Type): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6211,8 +6212,8 @@ export type $EldritchManuscript_ = $EldritchManuscript$Type;
 declare module "packages/io/redspace/ironsspellbooks/api/spells/$SpellRarity" {
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 import {$ChatFormatting, $ChatFormatting$Type} from "packages/net/minecraft/$ChatFormatting"
+import {$MutableComponent, $MutableComponent$Type} from "packages/net/minecraft/network/chat/$MutableComponent"
 
 export class $SpellRarity extends $Enum<($SpellRarity)> {
 static readonly "COMMON": $SpellRarity
@@ -6222,20 +6223,20 @@ static readonly "EPIC": $SpellRarity
 static readonly "LEGENDARY": $SpellRarity
 
 
+public "getChatFormatting"(): $ChatFormatting
+public "compareRarity"(arg0: $SpellRarity$Type): integer
+public static "rarityTest"(): void
+public static "getRawRarityConfig"(): $List<(double)>
+public static "getRarityConfig"(): $List<(double)>
 public static "values"(): ($SpellRarity)[]
 public static "valueOf"(arg0: string): $SpellRarity
 public "getValue"(): integer
 public "getDisplayName"(): $MutableComponent
-public "compareRarity"(arg0: $SpellRarity$Type): integer
-public static "rarityTest"(): void
-public "getChatFormatting"(): $ChatFormatting
-public static "getRawRarityConfig"(): $List<(double)>
-public static "getRarityConfig"(): $List<(double)>
-get "value"(): integer
-get "displayName"(): $MutableComponent
 get "chatFormatting"(): $ChatFormatting
 get "rawRarityConfig"(): $List<(double)>
 get "rarityConfig"(): $List<(double)>
+get "value"(): integer
+get "displayName"(): $MutableComponent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6258,13 +6259,13 @@ export class $AnimationHolder {
 readonly "isPass": boolean
 readonly "animatesLegs": boolean
 
-constructor(arg0: string, arg1: boolean)
 constructor(arg0: string, arg1: boolean, arg2: boolean)
+constructor(arg0: string, arg1: boolean)
 
-public static "pass"(): $AnimationHolder
 public static "none"(): $AnimationHolder
 public "getForMob"(): $Optional<($RawAnimation)>
 public "getForPlayer"(): $Optional<($ResourceLocation)>
+public static "pass"(): $AnimationHolder
 get "forMob"(): $Optional<($RawAnimation)>
 get "forPlayer"(): $Optional<($ResourceLocation)>
 }
@@ -6353,55 +6354,55 @@ static readonly "PLANAR_SIGHT": long
 static readonly "HEAL_TARGET": long
 static readonly "SYNCED_SPELL_DATA": $EntityDataSerializer<($SyncedSpellData)>
 
-constructor(arg0: integer)
 constructor(arg0: $LivingEntity$Type)
+constructor(arg0: integer)
 
-public "toString"(): string
-public "getCastingEquipmentSlot"(): string
-public "getCastingSpellLevel"(): integer
-public "getSpellSelection"(): $SpellSelection
-public "doSync"(): void
-public "setSpellSelection"(arg0: $SpellSelection$Type): void
-public "syncToPlayer"(arg0: $ServerPlayer$Type): void
-public "isSpellLearned"(arg0: $AbstractSpell$Type): boolean
-public "setSpinAttackType"(arg0: $SpinAttackType$Type): void
-public "setIsCasting"(arg0: boolean, arg1: string, arg2: integer, arg3: string): void
-public "getCastingSpellId"(): string
-public "saveNBTData"(arg0: $CompoundTag$Type): void
-public "loadNBTData"(arg0: $CompoundTag$Type): void
 public "getPersistentData"(): $SyncedSpellData
+public "getCastingSpellLevel"(): integer
+public "getCastingEquipmentSlot"(): string
+public "setSpinAttackType"(arg0: $SpinAttackType$Type): void
+public "getEvasionHitsRemaining"(): integer
+public "setEvasionHitsRemaining"(arg0: integer): void
+public "setHeartstopAccumulatedDamage"(arg0: float): void
+public "getHeartstopAccumulatedDamage"(): float
+public "addHeartstopDamage"(arg0: float): void
+public "getSpinAttackType"(): $SpinAttackType
+public "getServerPlayerId"(): integer
+public "forgetAllSpells"(): void
+public "addLocalEffect"(arg0: long): void
+public "hasLocalEffect"(arg0: long): boolean
+public "hasDodgeEffect"(): boolean
+public "removeLocalEffect"(arg0: long): void
+public "isSpellLearned"(arg0: $AbstractSpell$Type): boolean
 public "addEffects"(arg0: long): void
 public "removeEffects"(arg0: long): void
 public "subtractEvasionHit"(): void
-public "getHeartstopAccumulatedDamage"(): float
-public "setHeartstopAccumulatedDamage"(arg0: float): void
-public "getEvasionHitsRemaining"(): integer
-public "setEvasionHitsRemaining"(arg0: integer): void
-public "addHeartstopDamage"(arg0: float): void
-public "getSpinAttackType"(): $SpinAttackType
+public "syncToPlayer"(arg0: $ServerPlayer$Type): void
 public "isCasting"(): boolean
 public "hasEffect"(arg0: long): boolean
-public "hasLocalEffect"(arg0: long): boolean
-public "addLocalEffect"(arg0: long): void
-public "removeLocalEffect"(arg0: long): void
-public "hasDodgeEffect"(): boolean
-public "forgetAllSpells"(): void
-public "getServerPlayerId"(): integer
+public "setIsCasting"(arg0: boolean, arg1: string, arg2: integer, arg3: string): void
+public "saveNBTData"(arg0: $CompoundTag$Type): void
+public "loadNBTData"(arg0: $CompoundTag$Type): void
+public "getCastingSpellId"(): string
+public "getSpellSelection"(): $SpellSelection
+public "doSync"(): void
+public "setSpellSelection"(arg0: $SpellSelection$Type): void
 public "learnSpell"(arg0: $AbstractSpell$Type): void
-get "castingEquipmentSlot"(): string
-get "castingSpellLevel"(): integer
-get "spellSelection"(): $SpellSelection
-set "spellSelection"(value: $SpellSelection$Type)
-set "spinAttackType"(value: $SpinAttackType$Type)
-get "castingSpellId"(): string
+public "toString"(): string
 get "persistentData"(): $SyncedSpellData
-get "heartstopAccumulatedDamage"(): float
-set "heartstopAccumulatedDamage"(value: float)
+get "castingSpellLevel"(): integer
+get "castingEquipmentSlot"(): string
+set "spinAttackType"(value: $SpinAttackType$Type)
 get "evasionHitsRemaining"(): integer
 set "evasionHitsRemaining"(value: integer)
+set "heartstopAccumulatedDamage"(value: float)
+get "heartstopAccumulatedDamage"(): float
 get "spinAttackType"(): $SpinAttackType
-get "casting"(): boolean
 get "serverPlayerId"(): integer
+get "casting"(): boolean
+get "castingSpellId"(): string
+get "spellSelection"(): $SpellSelection
+set "spellSelection"(value: $SpellSelection$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -6451,8 +6452,8 @@ export class $PlanarSightEffect extends $MagicMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer)
 
-public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "addAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 public "removeAttributeModifiers"(arg0: $LivingEntity$Type, arg1: $AttributeMap$Type, arg2: integer): void
 }
@@ -6510,8 +6511,8 @@ export class $SpellDataRegistryHolder {
 
 constructor(arg0: $RegistryObject$Type<($AbstractSpell$Type)>, arg1: integer)
 
-public static "of"(...arg0: ($SpellDataRegistryHolder$Type)[]): ($SpellDataRegistryHolder)[]
 public "getSpellData"(): $SpellData
+public static "of"(...arg0: ($SpellDataRegistryHolder$Type)[]): ($SpellDataRegistryHolder)[]
 get "spellData"(): $SpellData
 }
 /**

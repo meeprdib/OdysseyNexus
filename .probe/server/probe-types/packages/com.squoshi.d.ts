@@ -32,6 +32,7 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
+public "isCasting"(isCasting: $Function$Type<($LivingEntity$Type), (any)>): $SpellCastingMobBuilder<(T)>
 /**
  * Sets a callback function to be executed when the entity stops casting a spell.
  * 
@@ -43,7 +44,6 @@ constructor(i: $ResourceLocation$Type)
  * ```
  */
 public "onCancelledCast"(onCancelledCast: $Consumer$Type<($LivingEntity$Type)>): $SpellCastingMobBuilder<(T)>
-public "isCasting"(isCasting: $Function$Type<($LivingEntity$Type), (any)>): $SpellCastingMobBuilder<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -96,17 +96,17 @@ import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/en
 export class $CustomSpell$CastClientContext extends $Record {
 
 
+public "getLevel"(): $Level
+public "getEntity"(): $LivingEntity
+public "getCastData"(): $ICastData
+public "getSpellLevel"(): integer
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getLevel"(): $Level
-public "getEntity"(): $LivingEntity
-public "getSpellLevel"(): integer
-public "getCastData"(): $ICastData
 get "level"(): $Level
 get "entity"(): $LivingEntity
-get "spellLevel"(): integer
 get "castData"(): $ICastData
+get "spellLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -277,19 +277,19 @@ import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/en
 export class $CustomSpell$PreCastTargetingContext extends $Record {
 
 
+public "getLevel"(): $Level
+public "getPlayerMagicData"(): $MagicData
+public "getEntity"(): $LivingEntity
+public "getSpellLevel"(): integer
+public "getSpell"(): $AbstractSpell
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getPlayerMagicData"(): $MagicData
-public "getLevel"(): $Level
-public "getEntity"(): $LivingEntity
-public "getSpell"(): $AbstractSpell
-public "getSpellLevel"(): integer
-get "playerMagicData"(): $MagicData
 get "level"(): $Level
+get "playerMagicData"(): $MagicData
 get "entity"(): $LivingEntity
-get "spell"(): $AbstractSpell
 get "spellLevel"(): integer
+get "spell"(): $AbstractSpell
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -356,11 +356,11 @@ export interface $AbstractSpellWrapper {
 }
 
 export namespace $AbstractSpellWrapper {
-function of(spellHolder: $ISSKJSUtils$SpellHolder$Type): $AbstractSpell
-function exists(spellHolder: $ISSKJSUtils$SpellHolder$Type): boolean
 function isEnabled(spellHolder: $ISSKJSUtils$SpellHolder$Type): boolean
 function isSpell(o: any): boolean
 function checkStatus(spellHolder: $ISSKJSUtils$SpellHolder$Type): $AbstractSpellWrapper$SpellStatus
+function of(spellHolder: $ISSKJSUtils$SpellHolder$Type): $AbstractSpell
+function exists(spellHolder: $ISSKJSUtils$SpellHolder$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -397,18 +397,18 @@ export class $CustomSpell extends $AbstractSpell {
 
 constructor(b: $CustomSpell$Builder$Type)
 
+public "checkPreCastConditions"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, playerMagicData: $MagicData$Type): boolean
 public "getCastFinishAnimation"(): $AnimationHolder
 public "getCastStartAnimation"(): $AnimationHolder
-public "checkPreCastConditions"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, playerMagicData: $MagicData$Type): boolean
 public "getDefaultConfig"(): $DefaultConfig
 public "getSpellResource"(): $ResourceLocation
 public "getCastStartSound"(): $Optional<($SoundEvent)>
 public "getCastFinishSound"(): $Optional<($SoundEvent)>
-public "onClientCast"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, castData: $ICastData$Type): void
-public "onServerPreCast"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, playerMagicData: $MagicData$Type): void
 public "onCast"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, castSource: $CastSource$Type, playerMagicData: $MagicData$Type): void
-public "getUniqueInfo"(spellLevel: integer, caster: $LivingEntity$Type): $List<($MutableComponent)>
+public "onServerPreCast"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, playerMagicData: $MagicData$Type): void
 public "onClientPreCast"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, hand: $InteractionHand$Type, playerMagicData: $MagicData$Type): void
+public "getUniqueInfo"(spellLevel: integer, caster: $LivingEntity$Type): $List<($MutableComponent)>
+public "onClientCast"(level: $Level$Type, spellLevel: integer, entity: $LivingEntity$Type, castData: $ICastData$Type): void
 public "allowLooting"(): boolean
 public "canBeCraftedBy"(player: $Player$Type): boolean
 public "needsLearning"(): boolean
@@ -442,11 +442,11 @@ export class $SpellProjectileJS$OnAntiMagicContext extends $Record {
 
 constructor(getMagicData: $MagicData$Type, getEntity: $Entity$Type)
 
+public "getEntity"(): $Entity
+public "getMagicData"(): $MagicData
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getEntity"(): $Entity
-public "getMagicData"(): $MagicData
 get "entity"(): $Entity
 get "magicData"(): $MagicData
 }
@@ -483,8 +483,8 @@ import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$ISSKJSUtils$SchoolHolder, $ISSKJSUtils$SchoolHolder$Type} from "packages/com/squoshi/irons_spells_js/util/$ISSKJSUtils$SchoolHolder"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$CustomSpell$CastContext, $CustomSpell$CastContext$Type} from "packages/com/squoshi/irons_spells_js/spell/$CustomSpell$CastContext"
 import {$CustomSpell$PreCastContext, $CustomSpell$PreCastContext$Type} from "packages/com/squoshi/irons_spells_js/spell/$CustomSpell$PreCastContext"
+import {$CustomSpell$CastContext, $CustomSpell$CastContext$Type} from "packages/com/squoshi/irons_spells_js/spell/$CustomSpell$CastContext"
 
 export class $CustomSpell$Builder extends $BuilderBase<($CustomSpell)> {
 readonly "id": $ResourceLocation
@@ -494,70 +494,27 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
-public "createObject"(): $CustomSpell
-/**
- *     Sets the pre-cast conditions for the spell. It is a Predicate, which means it requires a boolean return value. This can be used for targeting spells and for cancelling the spell before it is casted.
- * 
- *     Example: ```js
- *     .checkPreCastConditions(ctx => {
- *         return ISSUtils.preCastTargetHelper(ctx.level, ctx.entity, ctx.playerMagicData, ctx.spell, 48, 0.35)
- *     })
- *     ```
- */
-public "checkPreCastConditions"(predicate: $Predicate$Type<($CustomSpell$PreCastTargetingContext$Type)>): $CustomSpell$Builder
 public "getRegistryType"(): $RegistryInfo<($AbstractSpell)>
-/**
- *     Sets the callback for when the spell is cast on the client side. This is what the spell does when it is casted.
- */
-public "onClientCast"(consumer: $Consumer$Type<($CustomSpell$CastClientContext$Type)>): $CustomSpell$Builder
-/**
- *     Sets the callback for when the spell is cast. This is what the spell does when it is casted.
- */
-public "onCast"(consumer: $Consumer$Type<($CustomSpell$CastContext$Type)>): $CustomSpell$Builder
-/**
- *     Sets the cooldown of the spell in seconds. Cannot be a decimal value for some reason.
- */
-public "setCooldownSeconds"(seconds: integer): $CustomSpell$Builder
-/**
- *     Sets the predicate for whether or not the spell can be crafted by a player.
- */
-public "canBeCraftedBy"(predicate: $Predicate$Type<($Player$Type)>): $CustomSpell$Builder
-/**
- *     Sets the rarity of the spell. Can be `COMMON`, `UNCOMMON`, `RARE`, `EPIC`, or `LEGENDARY`.
- */
-public "setMinRarity"(rarity: $SpellRarity$Type): $CustomSpell$Builder
-/**
- *     Sets whether or not the spell needs to be learned before it can be casted.
- */
-public "needsLearning"(needs: boolean): $CustomSpell$Builder
-/**
- *     Sets the max level of the spell. Goes up to `10` from `1`.
- */
-public "setMaxLevel"(level: integer): $CustomSpell$Builder
-/**
- *     Sets the mana cost per the spell's level. For example, you could input `10` into this method, and each level of the spell will multiply that value by the level.
- */
-public "setManaCostPerLevel"(cost: integer): $CustomSpell$Builder
-/**
- *     Sets the cast start animation for the spell.
- */
-public "setCastStartAnimation"(path: string, playOnce: boolean, animatesLegs: boolean): $CustomSpell$Builder
-/**
- *     Sets the cast finish animation for the spell.
- */
-public "setCastFinishAnimation"(path: string, playOnce: boolean, animatesLegs: boolean): $CustomSpell$Builder
-/**
- *     Sets the spell power per level.
- */
-public "setSpellPowerPerLevel"(power: integer): $CustomSpell$Builder
 /**
  *     Sets the callback for when the spell is about to be cast. This is what the spell does before it is casted.
  */
 public "onPreCast"(consumer: $Consumer$Type<($CustomSpell$PreCastContext$Type)>): $CustomSpell$Builder
 /**
+ *     Sets the sound that the spell will play when it starts casting.
+ */
+public "setStartSound"(soundEvent: $ISSKJSUtils$SoundEventHolder$Type): $CustomSpell$Builder
+/**
  *     Sets the cast type. Can be `CONTINUOUS`, `INSTANT`, `LONG`, or `NONE`.
  */
 public "setCastType"(type: $CastType$Type): $CustomSpell$Builder
+/**
+ *     Sets the callback for when the spell is about to be cast on the client side. This is what the spell does before it is casted.
+ */
+public "onPreClientCast"(consumer: $Consumer$Type<($CustomSpell$PreCastClientContext$Type)>): $CustomSpell$Builder
+/**
+ *     Sets the base spell power. Can be from `1` to `10`. The spell power per level adds on to this.
+ */
+public "setBaseSpellPower"(power: integer): $CustomSpell$Builder
 /**
  *     Sets the sound that the spell will play after it is done casting.
  */
@@ -570,21 +527,13 @@ public "setFinishSound"(soundEvent: $ISSKJSUtils$SoundEventHolder$Type): $Custom
  */
 public "setSchool"(schoolHolder: $ISSKJSUtils$SchoolHolder$Type): $CustomSpell$Builder
 /**
- *     Sets the callback for when the spell is about to be cast on the client side. This is what the spell does before it is casted.
+ *     Sets the base mana cost. The mana cost per level adds on to this.
  */
-public "onPreClientCast"(consumer: $Consumer$Type<($CustomSpell$PreCastClientContext$Type)>): $CustomSpell$Builder
-/**
- *     Sets the sound that the spell will play when it starts casting.
- */
-public "setStartSound"(soundEvent: $ISSKJSUtils$SoundEventHolder$Type): $CustomSpell$Builder
+public "setBaseManaCost"(cost: integer): $CustomSpell$Builder
 /**
  *     Sets the cast time. This is used for `LONG` or `CONTINUOUS` spell types.
  */
 public "setCastTime"(time: integer): $CustomSpell$Builder
-/**
- *     Sets the base spell power. Can be from `1` to `10`. The spell power per level adds on to this.
- */
-public "setBaseSpellPower"(power: integer): $CustomSpell$Builder
 /**
  *     Sets the unique info for the spell. It is what is displayed on the spell in-game, e.g how some spells have damage values listed.
  */
@@ -594,24 +543,74 @@ public "setUniqueInfo"(info: $BiFunction$Type<(integer), ($LivingEntity$Type), (
  */
 public "setAllowLooting"(allow: boolean): $CustomSpell$Builder
 /**
- *     Sets the base mana cost. The mana cost per level adds on to this.
+ *     Sets the mana cost per the spell's level. For example, you could input `10` into this method, and each level of the spell will multiply that value by the level.
  */
-public "setBaseManaCost"(cost: integer): $CustomSpell$Builder
+public "setManaCostPerLevel"(cost: integer): $CustomSpell$Builder
+/**
+ *     Sets the cast finish animation for the spell.
+ */
+public "setCastFinishAnimation"(path: string, playOnce: boolean, animatesLegs: boolean): $CustomSpell$Builder
+/**
+ *     Sets the cast start animation for the spell.
+ */
+public "setCastStartAnimation"(path: string, playOnce: boolean, animatesLegs: boolean): $CustomSpell$Builder
+/**
+ *     Sets the spell power per level.
+ */
+public "setSpellPowerPerLevel"(power: integer): $CustomSpell$Builder
+/**
+ *     Sets the pre-cast conditions for the spell. It is a Predicate, which means it requires a boolean return value. This can be used for targeting spells and for cancelling the spell before it is casted.
+ * 
+ *     Example: ```js
+ *     .checkPreCastConditions(ctx => {
+ *         return ISSUtils.preCastTargetHelper(ctx.level, ctx.entity, ctx.playerMagicData, ctx.spell, 48, 0.35)
+ *     })
+ *     ```
+ */
+public "checkPreCastConditions"(predicate: $Predicate$Type<($CustomSpell$PreCastTargetingContext$Type)>): $CustomSpell$Builder
+/**
+ *     Sets the callback for when the spell is cast. This is what the spell does when it is casted.
+ */
+public "onCast"(consumer: $Consumer$Type<($CustomSpell$CastContext$Type)>): $CustomSpell$Builder
+/**
+ *     Sets the callback for when the spell is cast on the client side. This is what the spell does when it is casted.
+ */
+public "onClientCast"(consumer: $Consumer$Type<($CustomSpell$CastClientContext$Type)>): $CustomSpell$Builder
+/**
+ *     Sets the predicate for whether or not the spell can be crafted by a player.
+ */
+public "canBeCraftedBy"(predicate: $Predicate$Type<($Player$Type)>): $CustomSpell$Builder
+/**
+ *     Sets whether or not the spell needs to be learned before it can be casted.
+ */
+public "needsLearning"(needs: boolean): $CustomSpell$Builder
+/**
+ *     Sets the cooldown of the spell in seconds. Cannot be a decimal value for some reason.
+ */
+public "setCooldownSeconds"(seconds: integer): $CustomSpell$Builder
+/**
+ *     Sets the rarity of the spell. Can be `COMMON`, `UNCOMMON`, `RARE`, `EPIC`, or `LEGENDARY`.
+ */
+public "setMinRarity"(rarity: $SpellRarity$Type): $CustomSpell$Builder
+/**
+ *     Sets the max level of the spell. Goes up to `10` from `1`.
+ */
+public "setMaxLevel"(level: integer): $CustomSpell$Builder
 get "registryType"(): $RegistryInfo<($AbstractSpell)>
+set "startSound"(value: $ISSKJSUtils$SoundEventHolder$Type)
+set "castType"(value: $CastType$Type)
+set "baseSpellPower"(value: integer)
+set "finishSound"(value: $ISSKJSUtils$SoundEventHolder$Type)
+set "school"(value: $ISSKJSUtils$SchoolHolder$Type)
+set "baseManaCost"(value: integer)
+set "castTime"(value: integer)
+set "uniqueInfo"(value: $BiFunction$Type<(integer), ($LivingEntity$Type), ($List$Type<($MutableComponent$Type)>)>)
+set "allowLooting"(value: boolean)
+set "manaCostPerLevel"(value: integer)
+set "spellPowerPerLevel"(value: integer)
 set "cooldownSeconds"(value: integer)
 set "minRarity"(value: $SpellRarity$Type)
 set "maxLevel"(value: integer)
-set "manaCostPerLevel"(value: integer)
-set "spellPowerPerLevel"(value: integer)
-set "castType"(value: $CastType$Type)
-set "finishSound"(value: $ISSKJSUtils$SoundEventHolder$Type)
-set "school"(value: $ISSKJSUtils$SchoolHolder$Type)
-set "startSound"(value: $ISSKJSUtils$SoundEventHolder$Type)
-set "castTime"(value: integer)
-set "baseSpellPower"(value: integer)
-set "uniqueInfo"(value: $BiFunction$Type<(integer), ($LivingEntity$Type), ($List$Type<($MutableComponent$Type)>)>)
-set "allowLooting"(value: boolean)
-set "baseManaCost"(value: integer)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -710,64 +709,64 @@ readonly "random": $RandomSource
  "wasOnFire": boolean
  "mainSupportingBlockPos": $Optional<($BlockPos)>
 
-constructor(builder: $SpellProjectileJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 constructor(entityType: $EntityType$Type<(any)>, levelIn: $Level$Type, shooter: $LivingEntity$Type)
+constructor(builder: $SpellProjectileJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
-public "onRemovedFromWorld"(): void
-public "onAddedToWorld"(): void
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "m_7380_"(pCompound: $CompoundTag$Type): void
+public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
+public "isAttackable"(): boolean
+public "setSprinting"(sprinting: boolean): void
+public "causeFallDamage"(pFallDistance: float, pMultiplier: float, pSource: $DamageSource$Type): boolean
+public "isPushable"(): boolean
 public "entityName"(): string
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "isGlowing"(): boolean
-public "push"(pEntity: $Entity$Type): void
+public "onRemovedFromWorld"(): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
+public "onAddedToWorld"(): void
+public "setSpeed"(speed: float): void
+public "m_7378_"(pCompound: $CompoundTag$Type): void
+public "rideTick"(): void
+public "stopRiding"(): void
 public "getControllingPassenger"(): $LivingEntity
 public "canFreeze"(): boolean
 public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
 public "canChangeDimensions"(): boolean
 public "setDamage"(damage: float): void
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "shouldRenderAtSqrDistance"(distance: double): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
-public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
 public "getDamage"(): float
-public "getImpactSound"(): $Optional<($SoundEvent)>
-public "stopRiding"(): void
-public "rideTick"(): void
-public "m_7378_"(pCompound: $CompoundTag$Type): void
-public "m_7380_"(pCompound: $CompoundTag$Type): void
-public "attack"(pSource: $DamageSource$Type, pAmount: float): boolean
-public "isAttackable"(): boolean
-public "setSprinting"(sprinting: boolean): void
+public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
+public "getMaxFallDistance"(): integer
+public "impactParticles"(v: double, v1: double, v2: double): void
+public "trailParticles"(): void
+public "shootFromRotation"(pShooter: $Entity$Type, pX: float, pY: float, pZ: float, pVelocity: float, pInaccuracy: float): void
+public "getSpeed"(): float
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
+public "playerTouch"(player: $Player$Type): void
 public "move"(pType: $MoverType$Type, pPos: $Vec3$Type): void
 public "tick"(): void
-public "playerTouch"(player: $Player$Type): void
-public "causeFallDamage"(pFallDistance: float, pMultiplier: float, pSource: $DamageSource$Type): boolean
-public "isPushable"(): boolean
-public "trailParticles"(): void
-public "impactParticles"(v: double, v1: double, v2: double): void
+public "getImpactSound"(): $Optional<($SoundEvent)>
+public "push"(pEntity: $Entity$Type): void
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "isFreezing"(): boolean
+public "isGlowing"(): boolean
 public "onAntiMagic"(playerMagicData: $MagicData$Type): void
-public "shootFromRotation"(pShooter: $Entity$Type, pX: float, pY: float, pZ: float, pVelocity: float, pInaccuracy: float): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
-public "getSpeed"(): float
-public "setSpeed"(speed: float): void
 public static "of"(holder: any): $FacetHolder
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "glowing"(): boolean
-get "controllingPassenger"(): $LivingEntity
-set "damage"(value: float)
-get "damage"(): float
-get "impactSound"(): $Optional<($SoundEvent)>
 get "attackable"(): boolean
 set "sprinting"(value: boolean)
 get "pushable"(): boolean
-get "speed"(): float
 set "speed"(value: float)
+get "controllingPassenger"(): $LivingEntity
+set "damage"(value: float)
+get "damage"(): float
+get "maxFallDistance"(): integer
+get "speed"(): float
+get "impactSound"(): $Optional<($SoundEvent)>
+get "freezing"(): boolean
+get "glowing"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -815,19 +814,19 @@ import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/en
 export class $CustomSpell$PreCastClientContext extends $Record {
 
 
+public "getLevel"(): $Level
+public "getPlayerMagicData"(): $MagicData
+public "getEntity"(): $LivingEntity
+public "getHand"(): $InteractionHand
+public "getSpellLevel"(): integer
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getPlayerMagicData"(): $MagicData
-public "getLevel"(): $Level
-public "getEntity"(): $LivingEntity
-public "getSpellLevel"(): integer
-public "getHand"(): $InteractionHand
-get "playerMagicData"(): $MagicData
 get "level"(): $Level
+get "playerMagicData"(): $MagicData
 get "entity"(): $LivingEntity
-get "spellLevel"(): integer
 get "hand"(): $InteractionHand
+get "spellLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -898,8 +897,8 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
-public "createObject"(): $MagicSwordItem
 public "addAdditionalAttribute"(attribute: $ISSKJSUtils$AttributeHolder$Type, modifierName: string, modifierAmount: double, modifierOperation: $AttributeModifier$Operation$Type): $MagicSwordItemBuilderJS
+public "createObject"(): $MagicSwordItem
 public "addDefaultSpell"(spell: $ISSKJSUtils$SpellHolder$Type, spellLevel: integer): $MagicSwordItemBuilderJS
 }
 /**
@@ -933,22 +932,22 @@ public "isCancelable"(): boolean
  */
 public "getSchoolType"(): $SchoolType
 /**
- *     Returns the cast source.
+ *     Returns the new spell level of the spell that was cast.
  */
-public "getCastSource"(): $CastSource
+public "getSpellLevel"(): integer
 /**
  *     Returns the spell ID of the spell that was cast.
  */
 public "getSpellId"(): string
 /**
- *     Returns the new spell level of the spell that was cast.
+ *     Returns the cast source.
  */
-public "getSpellLevel"(): integer
+public "getCastSource"(): $CastSource
 get "cancelable"(): boolean
 get "schoolType"(): $SchoolType
-get "castSource"(): $CastSource
-get "spellId"(): string
 get "spellLevel"(): integer
+get "spellId"(): string
+get "castSource"(): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -982,26 +981,6 @@ readonly "id": $ResourceLocation
 constructor(i: $ResourceLocation$Type)
 
 /**
- * Sets the impact sound for the entity using a string representation.
- * 
- * Example usage:
- * ```javascript
- * builder.setImpactSound("minecraft:entity.generic.swim");
- * ```
- */
-public "setImpactSound"(sound: any): $SpellProjectileJSBuilder
-/**
- * A consumer determining the trailing particles behind the spell.
- * 
- * Example usage:
- * ```javascript
- * builder.trailParticles(entity => {
- *     // Logic for spawning trailing particles
- * });
- * ```
- */
-public "trailParticles"(trailParticles: $Consumer$Type<($SpellProjectileJS$Type)>): $SpellProjectileJSBuilder
-/**
  * A consumer determining the impact particles for the spell.
  * 
  * Example usage:
@@ -1013,7 +992,27 @@ public "trailParticles"(trailParticles: $Consumer$Type<($SpellProjectileJS$Type)
  * ```
  */
 public "impactParticles"(impactParticles: $Consumer$Type<($SpellProjectileJS$ImpactParticleContext$Type)>): $SpellProjectileJSBuilder
+/**
+ * A consumer determining the trailing particles behind the spell.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.trailParticles(entity => {
+ *     // Logic for spawning trailing particles
+ * });
+ * ```
+ */
+public "trailParticles"(trailParticles: $Consumer$Type<($SpellProjectileJS$Type)>): $SpellProjectileJSBuilder
 public "onAntiMagic"(onAntiMagic: $Consumer$Type<($SpellProjectileJS$OnAntiMagicContext$Type)>): $SpellProjectileJSBuilder
+/**
+ * Sets the impact sound for the entity using a string representation.
+ * 
+ * Example usage:
+ * ```javascript
+ * builder.setImpactSound("minecraft:entity.generic.swim");
+ * ```
+ */
+public "setImpactSound"(sound: any): $SpellProjectileJSBuilder
 set "impactSound"(value: any)
 }
 /**
@@ -1054,9 +1053,9 @@ import {$HumanoidArm, $HumanoidArm$Type} from "packages/net/minecraft/world/enti
 import {$SpellCastingMobJSBuilder, $SpellCastingMobJSBuilder$Type} from "packages/com/squoshi/irons_spells_js/compat/entityjs/entity/builder/$SpellCastingMobJSBuilder"
 import {$MobEffectInstance, $MobEffectInstance$Type} from "packages/net/minecraft/world/effect/$MobEffectInstance"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$MobType, $MobType$Type} from "packages/net/minecraft/world/entity/$MobType"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$ItemEntity, $ItemEntity$Type} from "packages/net/minecraft/world/entity/item/$ItemEntity"
@@ -1073,8 +1072,8 @@ import {$LookControl, $LookControl$Type} from "packages/net/minecraft/world/enti
 import {$GoalSelector, $GoalSelector$Type} from "packages/net/minecraft/world/entity/ai/goal/$GoalSelector"
 import {$MagicData, $MagicData$Type} from "packages/io/redspace/ironsspellbooks/api/magic/$MagicData"
 import {$IMagicEntity, $IMagicEntity$Type} from "packages/io/redspace/ironsspellbooks/api/entity/$IMagicEntity"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$LivingEntity$Fallsounds, $LivingEntity$Fallsounds$Type} from "packages/net/minecraft/world/entity/$LivingEntity$Fallsounds"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$AnimatableInstanceCache, $AnimatableInstanceCache$Type} from "packages/software/bernie/geckolib/core/animatable/instance/$AnimatableInstanceCache"
 import {$LightningBolt, $LightningBolt$Type} from "packages/net/minecraft/world/entity/$LightningBolt"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
@@ -1144,6 +1143,7 @@ readonly "rotA": float
  "zza": float
  "effectsDirty": boolean
  "level": $Level
+ "entityJs$builder": any
 static readonly "ID_TAG": string
 static readonly "PASSENGERS_TAG": string
 static readonly "BOARDING_COOLDOWN": integer
@@ -1197,167 +1197,167 @@ readonly "random": $RandomSource
 
 constructor(builder: $SpellCastingMobJSBuilder$Type, pEntityType: $EntityType$Type<(any)>, pLevel: $Level$Type)
 
-public "jump"(): void
-public "setId"(entityId: integer): void
-public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
-public "canDisableShield"(): boolean
-public "isMultipartEntity"(): boolean
+public "canHoldItem"(stack: $ItemStack$Type): boolean
+public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
+public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
+public "getMyRidingOffset"(): double
+public "getMobType"(): $MobType
+public "onClimbable"(): boolean
+public "setSprinting"(sprinting: boolean): void
+public "isOnSameTeam"(pEntity: $Entity$Type): boolean
+public "startSleeping"(blockPos: $BlockPos$Type): void
+public "stopSleeping"(): void
+public "travel"(pTravelVector: $Vec3$Type): void
+public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
+public "getFallSounds"(): $LivingEntity$Fallsounds
+public "getExperienceReward"(): integer
+public "getArmorSlots"(): $Iterable<($ItemStack)>
+public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
+public "getHandSlots"(): $Iterable<($ItemStack)>
+public "getMainArm"(): $HumanoidArm
+public "canTakeItem"(itemStack: $ItemStack$Type): boolean
+public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
+public "isPushable"(): boolean
+public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
+public "entityName"(): string
+public "notifyDangerousProjectile"(projectile: $Projectile$Type): void
+public "setBurningDashDirectionData"(): void
+public "startAutoSpinAttack"(pAttackTicks: integer): void
+public "startDrinkingPotion"(): void
+public "setTeleportLocationBehindTarget"(distance: integer): boolean
+public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
 public "onRemovedFromWorld"(): void
+public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
 public "onAddedToWorld"(): void
 public "getParts"(): ($PartEntity<(any)>)[]
-public "canTrample"(state: $BlockState$Type, pos: $BlockPos$Type, fallDistance: float): boolean
-public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "entityName"(): string
-public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
-public "canBeLeashed"(pPlayer: $Player$Type): boolean
-public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
-public "getMaxFallDistance"(): integer
-public "isFreezing"(): boolean
-public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
-public "getAmbientSoundInterval"(): integer
-public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
-public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
-public "isSleeping"(): boolean
-public "isGlowing"(): boolean
-public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
-public "canBreatheUnderwater"(): boolean
-public "getScale"(): float
-public "shouldDropExperience"(): boolean
-public "getVisibilityPercent"(p_20969_: $Entity$Type): double
-public "canAttack"(entity: $LivingEntity$Type): boolean
-public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
-public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
-public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
-public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
-public "getJumpBoostPower"(): float
-public "canStandOnFluid"(fluidState: $FluidState$Type): boolean
-public "doHurtTarget"(pEntity: $Entity$Type): boolean
+public "isMultipartEntity"(): boolean
+public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "isDrinkingPotion"(): boolean
+public "setSyncedSpellData"(syncedSpellData: $SyncedSpellData$Type): void
+public "initiateCastSpell"(spell: $AbstractSpell$Type, spellLevel: integer): void
+public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
+public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
+public "rideTick"(): void
+public "stopRiding"(): void
+public "heal"(amount: float): void
 public "getControllingPassenger"(): $LivingEntity
+public "doHurtTarget"(pEntity: $Entity$Type): boolean
 public "canFreeze"(): boolean
 public "isSensitiveToWater"(): boolean
-public "onItemPickup"(p_21054_: $ItemEntity$Type): void
 public "lerpTo"(x: double, y: double, z: double, yaw: float, pitch: float, posRotationIncrements: integer, teleport: boolean): void
-public "onEnterCombat"(): void
 public "hasLineOfSight"(entity: $Entity$Type): boolean
+public "onItemPickup"(p_21054_: $ItemEntity$Type): void
+public "onEnterCombat"(): void
 public "onLeaveCombat"(): void
 public "onSyncedDataUpdated"(pKey: $EntityDataAccessor$Type<(any)>): void
 public "isAffectedByPotions"(): boolean
 public "attackable"(): boolean
 public "canChangeDimensions"(): boolean
+public "setId"(entityId: integer): void
+public "canDisableShield"(): boolean
+public "recreateFromPacket"(pPacket: $ClientboundAddEntityPacket$Type): void
+public "isPersistenceRequired"(): boolean
+public "canBeLeashed"(pPlayer: $Player$Type): boolean
+public "m_6071_"(pPlayer: $Player$Type, pHand: $InteractionHand$Type): $InteractionResult
+public "getMeleeAttackRangeSqr"(entity: $LivingEntity$Type): double
+public "getJumpBoostPower"(): float
+public "shouldRiderFaceForward"(player: $Player$Type): boolean
+public "onClientRemoval"(): void
+public "lavaHurt"(): void
 public "dampensVibrations"(): boolean
 public "canCollideWith"(pEntity: $Entity$Type): boolean
 public "showVehicleHealth"(): boolean
 public "thunderHit"(p_19927_: $ServerLevel$Type, p_19928_: $LightningBolt$Type): void
-public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "getBuilder"(): $BaseLivingEntityBuilder<(any)>
-public "canHoldItem"(stack: $ItemStack$Type): boolean
-public "isPersistenceRequired"(): boolean
-public "initiateCastSpell"(spell: $AbstractSpell$Type, spellLevel: integer): void
-public "isDrinkingPotion"(): boolean
-public "setSyncedSpellData"(syncedSpellData: $SyncedSpellData$Type): void
-public "getItemBySlot"(slot: $EquipmentSlot$Type): $ItemStack
-public "stopRiding"(): void
-public "heal"(amount: float): void
-public "rideTick"(): void
-public "readAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "addAdditionalSaveData"(pCompound: $CompoundTag$Type): void
-public "setItemSlot"(slot: $EquipmentSlot$Type, stack: $ItemStack$Type): void
-public "m_6475_"(pDamageSource: $DamageSource$Type, pDamageAmount: float): void
-public "getMyRidingOffset"(): double
-public "onClimbable"(): boolean
-public "getMobType"(): $MobType
-public "isOnSameTeam"(pEntity: $Entity$Type): boolean
-public "setSprinting"(sprinting: boolean): void
-public "stopSleeping"(): void
-public "startSleeping"(blockPos: $BlockPos$Type): void
-public "travel"(pTravelVector: $Vec3$Type): void
-public "canFireProjectileWeaponPredicate"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
-public "die"(damageSource: $DamageSource$Type): void
+public "getMaxFallDistance"(): integer
+public "isInvertedHealAndHarm"(): boolean
+public "getAmbientSoundInterval"(): integer
+public "removeWhenFarAway"(pDistanceToClosestPlayer: double): boolean
+public "getWalkTargetValue"(pos: $BlockPos$Type, levelReader: $LevelReader$Type): float
+public "setTarget"(target: $LivingEntity$Type): void
 public "isInvulnerableTo"(p_20122_: $DamageSource$Type): boolean
+public "playerTouch"(p_20081_: $Player$Type): void
+public "die"(damageSource: $DamageSource$Type): void
 public "aiStep"(): void
 public "tick"(): void
-public "playerTouch"(p_20081_: $Player$Type): void
-public "causeFallDamage"(distance: float, damageMultiplier: float, damageSource: $DamageSource$Type): boolean
-public "getFallSounds"(): $LivingEntity$Fallsounds
-public "getExperienceReward"(): integer
-public "onEquipItem"(slot: $EquipmentSlot$Type, previous: $ItemStack$Type, current: $ItemStack$Type): void
-public "getHandSlots"(): $Iterable<($ItemStack)>
-public "getArmorSlots"(): $Iterable<($ItemStack)>
-public "getMainArm"(): $HumanoidArm
-public "canTakeItem"(itemStack: $ItemStack$Type): boolean
-public "eat"(level: $Level$Type, itemStack: $ItemStack$Type): $ItemStack
-public "isPushable"(): boolean
-public "setTarget"(target: $LivingEntity$Type): void
-public "isInvertedHealAndHarm"(): boolean
-public "getMagicData"(): $MagicData
-public "cancelCast"(): void
 public "performRangedAttack"(pTarget: $LivingEntity$Type, pDistanceFactor: float): void
-public "shouldRiderFaceForward"(player: $Player$Type): boolean
 public "ate"(): void
-public "onClientRemoval"(): void
-public "lavaHurt"(): void
-public "getAnimatableInstanceCache"(): $AnimatableInstanceCache
+public "canFireProjectileWeapon"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
+public "canAttackType"(entityType: $EntityType$Type<(any)>): boolean
+public "canBreatheUnderwater"(): boolean
+public "getScale"(): float
+public "shouldDropExperience"(): boolean
+public "getVisibilityPercent"(p_20969_: $Entity$Type): double
+public "canBeAffected"(effectInstance: $MobEffectInstance$Type): boolean
+public "canAttack"(entity: $LivingEntity$Type): boolean
+public "onEffectAdded"(effectInstance: $MobEffectInstance$Type, entity: $Entity$Type): void
+public "getEatingSound"(itemStack: $ItemStack$Type): $SoundEvent
+public "m_5639_"(fallDistance: float, pDamageMultiplier: float): integer
+public "mayInteract"(p_146843_: $Level$Type, p_146844_: $BlockPos$Type): boolean
+public "isFreezing"(): boolean
+public "isCasting"(): boolean
+public "isSleeping"(): boolean
+public "isGlowing"(): boolean
+public "cancelCast"(): void
+public "getMagicData"(): $MagicData
+public "canFireProjectileWeapons"(projectileWeapon: $ProjectileWeaponItem$Type): boolean
 public "onJump"(): void
 public "canJump"(): boolean
-public "startAutoSpinAttack"(pAttackTicks: integer): void
-public "notifyDangerousProjectile"(projectile: $Projectile$Type): void
-public "setTeleportLocationBehindTarget"(distance: integer): boolean
-public "startDrinkingPotion"(): void
-public "setBurningDashDirectionData"(): void
-public "isCasting"(): boolean
+public "jump"(): void
 public "tickPart"(partName: string, offsetX: double, offsetY: double, offsetZ: double): void
-public "shouldJump"(): boolean
-public "ableToJump"(): boolean
-public "setThisJumping"(value: boolean): void
 /**
  * Calls a triggerable animation to be played anywhere.
  */
 public "triggerAnimation"(controllerName: string, animName: string): void
-public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
-public "getEntityType"(): $EntityType<(any)>
-public "getTypeId"(): string
-public "triggerAnim"(controllerName: string, animName: string): void
+public "setThisJumping"(value: boolean): void
+public "ableToJump"(): boolean
+public "shouldJump"(): boolean
 public "triggerAnim"<D>(relatedEntity: $Entity$Type, instanceId: long, controllerName: string, animName: string): void
+public "triggerAnim"(controllerName: string, animName: string): void
+public "registerControllers"(data: $AnimatableManager$ControllerRegistrar$Type): void
+public "getTypeId"(): string
 public "getTick"(entity: any): double
+public "getEntityType"(): $EntityType<(any)>
 public static "canUseSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "isSpectreBoundedSpyglass"(arg0: $ItemStack$Type): boolean
 public static "addSpectreBoundedTags"(arg0: $Spectre$Type, arg1: $CompoundTag$Type): void
 public static "of"(holder: any): $FacetHolder
-set "id"(value: integer)
-get "multipartEntity"(): boolean
-get "parts"(): ($PartEntity<(any)>)[]
-get "maxFallDistance"(): integer
-get "freezing"(): boolean
-get "ambientSoundInterval"(): integer
-get "sleeping"(): boolean
-get "glowing"(): boolean
-get "scale"(): float
-get "jumpBoostPower"(): float
-get "controllingPassenger"(): $LivingEntity
-get "sensitiveToWater"(): boolean
-get "affectedByPotions"(): boolean
-get "builder"(): $BaseLivingEntityBuilder<(any)>
-get "persistenceRequired"(): boolean
-get "drinkingPotion"(): boolean
-set "syncedSpellData"(value: $SyncedSpellData$Type)
 get "myRidingOffset"(): double
 get "mobType"(): $MobType
 set "sprinting"(value: boolean)
 get "fallSounds"(): $LivingEntity$Fallsounds
 get "experienceReward"(): integer
-get "handSlots"(): $Iterable<($ItemStack)>
 get "armorSlots"(): $Iterable<($ItemStack)>
+get "handSlots"(): $Iterable<($ItemStack)>
 get "mainArm"(): $HumanoidArm
 get "pushable"(): boolean
-set "target"(value: $LivingEntity$Type)
-get "invertedHealAndHarm"(): boolean
-get "magicData"(): $MagicData
-get "animatableInstanceCache"(): $AnimatableInstanceCache
 set "teleportLocationBehindTarget"(value: integer)
+get "builder"(): $BaseLivingEntityBuilder<(any)>
+get "parts"(): ($PartEntity<(any)>)[]
+get "multipartEntity"(): boolean
+get "drinkingPotion"(): boolean
+set "syncedSpellData"(value: $SyncedSpellData$Type)
+get "animatableInstanceCache"(): $AnimatableInstanceCache
+get "controllingPassenger"(): $LivingEntity
+get "sensitiveToWater"(): boolean
+get "affectedByPotions"(): boolean
+set "id"(value: integer)
+get "persistenceRequired"(): boolean
+get "jumpBoostPower"(): float
+get "maxFallDistance"(): integer
+get "invertedHealAndHarm"(): boolean
+get "ambientSoundInterval"(): integer
+set "target"(value: $LivingEntity$Type)
+get "scale"(): float
+get "freezing"(): boolean
 get "casting"(): boolean
+get "sleeping"(): boolean
+get "glowing"(): boolean
+get "magicData"(): $MagicData
 set "thisJumping"(value: boolean)
-get "entityType"(): $EntityType<(any)>
 get "typeId"(): string
+get "entityType"(): $EntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1383,20 +1383,20 @@ export class $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder {
 
 constructor()
 
+public "setIngredient"(ingredient: $ItemStack$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
+public "setBaseRequirement"(i: integer): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
+public "setPotionInput"(potionInput: $Potion$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
+public "setResultLimit"(i: integer): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
 public "register"(): $AlchemistCauldronRecipe
 public static "create"(): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
-public "setResult"(result: $ItemStack$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
 public "setInput"(input: $ItemStack$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
-public "setIngredient"(ingredient: $ItemStack$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
-public "setPotionInput"(potionInput: $Potion$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
-public "setBaseRequirement"(i: integer): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
-public "setResultLimit"(i: integer): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
-set "result"(value: $ItemStack$Type)
-set "input"(value: $ItemStack$Type)
+public "setResult"(result: $ItemStack$Type): $AlchemistCauldronKubeJSRecipes$AlchemistCauldronRecipeBuilder
 set "ingredient"(value: $ItemStack$Type)
-set "potionInput"(value: $Potion$Type)
 set "baseRequirement"(value: integer)
+set "potionInput"(value: $Potion$Type)
 set "resultLimit"(value: integer)
+set "input"(value: $ItemStack$Type)
+set "result"(value: $ItemStack$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1443,6 +1443,7 @@ export type $ISSKJSUtils$SchoolHolder_ = $ISSKJSUtils$SchoolHolder$Type;
 declare module "packages/com/squoshi/irons_spells_js/events/$SpellSelectionEventJS" {
 import {$SpellSelectionManager$SpellSelectionEvent, $SpellSelectionManager$SpellSelectionEvent$Type} from "packages/io/redspace/ironsspellbooks/api/magic/$SpellSelectionManager$SpellSelectionEvent"
 import {$PlayerEventJS, $PlayerEventJS$Type} from "packages/dev/latvian/mods/kubejs/player/$PlayerEventJS"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$SpellSelectionManager, $SpellSelectionManager$Type} from "packages/io/redspace/ironsspellbooks/api/magic/$SpellSelectionManager"
 import {$SpellData, $SpellData$Type} from "packages/io/redspace/ironsspellbooks/api/spells/$SpellData"
 
@@ -1450,11 +1451,15 @@ export class $SpellSelectionEventJS extends $PlayerEventJS {
 
 constructor(event: $SpellSelectionManager$SpellSelectionEvent$Type)
 
-public "getManager"(): $SpellSelectionManager
 /**
  *     Returns if the event is cancelable.
  */
 public "isCancelable"(): boolean
+public "getManager"(): $SpellSelectionManager
+/**
+ *     Returns the player that cast the spell.
+ */
+public "getEntity"(): $Player
 /**
  *     Adds spell option to the end of a player's spell bar.
  */
@@ -1463,8 +1468,9 @@ public "addSelectionOption"(spellData: $SpellData$Type, slotId: string, localSlo
  *     Adds spell option to the end of a player's spell bar.
  */
 public "addSelectionOption"(spellData: $SpellData$Type, slotId: string, localSlotIndex: integer, globalIndex: integer): void
-get "manager"(): $SpellSelectionManager
 get "cancelable"(): boolean
+get "manager"(): $SpellSelectionManager
+get "entity"(): $Player
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1493,15 +1499,15 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
-public "createObject"(): $Attribute
-public "setDefaultValue"(defaultValue: double): $SpellAttributeBuilderJS
 public "getRegistryType"(): $RegistryInfo<($Attribute)>
-public "setMinimumValue"(minimumValue: double): $SpellAttributeBuilderJS
+public "setDefaultValue"(defaultValue: double): $SpellAttributeBuilderJS
 public "setMaximumValue"(maximumValue: double): $SpellAttributeBuilderJS
-set "defaultValue"(value: double)
+public "setMinimumValue"(minimumValue: double): $SpellAttributeBuilderJS
+public "createObject"(): $Attribute
 get "registryType"(): $RegistryInfo<($Attribute)>
-set "minimumValue"(value: double)
+set "defaultValue"(value: double)
 set "maximumValue"(value: double)
+set "minimumValue"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1524,15 +1530,15 @@ import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/en
 export class $CustomSpell$PreCastContext extends $Record {
 
 
+public "getLevel"(): $Level
+public "getPlayerMagicData"(): $MagicData
+public "getEntity"(): $LivingEntity
+public "getSpellLevel"(): integer
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getPlayerMagicData"(): $MagicData
-public "getLevel"(): $Level
-public "getEntity"(): $LivingEntity
-public "getSpellLevel"(): integer
-get "playerMagicData"(): $MagicData
 get "level"(): $Level
+get "playerMagicData"(): $MagicData
 get "entity"(): $LivingEntity
 get "spellLevel"(): integer
 }
@@ -1566,17 +1572,17 @@ public "getNewMana"(): float
  */
 public "getOldMana"(): float
 /**
- *     Changes the value that the mana will change to during the event.
- */
-public "setNewMana"(newMana: float): void
-/**
  *     Returns the player's current MagicData.
  */
 public "getMagicData"(): $MagicData
+/**
+ *     Changes the value that the mana will change to during the event.
+ */
+public "setNewMana"(newMana: float): void
 get "newMana"(): float
 get "oldMana"(): float
-set "newMana"(value: float)
 get "magicData"(): $MagicData
+set "newMana"(value: float)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1597,8 +1603,8 @@ import {$ISSKJSUtils$AttributeHolder, $ISSKJSUtils$AttributeHolder$Type} from "p
 import {$RegistryInfo, $RegistryInfo$Type} from "packages/dev/latvian/mods/kubejs/registry/$RegistryInfo"
 import {$BuilderBase, $BuilderBase$Type} from "packages/dev/latvian/mods/kubejs/registry/$BuilderBase"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
-import {$ISSKJSUtils$SoundEventHolder, $ISSKJSUtils$SoundEventHolder$Type} from "packages/com/squoshi/irons_spells_js/util/$ISSKJSUtils$SoundEventHolder"
 import {$ISSKJSUtils$DamageTypeHolder, $ISSKJSUtils$DamageTypeHolder$Type} from "packages/com/squoshi/irons_spells_js/util/$ISSKJSUtils$DamageTypeHolder"
+import {$ISSKJSUtils$SoundEventHolder, $ISSKJSUtils$SoundEventHolder$Type} from "packages/com/squoshi/irons_spells_js/util/$ISSKJSUtils$SoundEventHolder"
 
 export class $SchoolTypeJSBuilder extends $BuilderBase<($SchoolType)> {
 readonly "id": $ResourceLocation
@@ -1608,20 +1614,20 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
-public "setName"(name: $Component$Type): $SchoolTypeJSBuilder
 public "getRegistryType"(): $RegistryInfo<($SchoolType)>
+public "setDamageType"(damageType: $ISSKJSUtils$DamageTypeHolder$Type): $SchoolTypeJSBuilder
+public "setFocus"(focus: $ResourceLocation$Type): $SchoolTypeJSBuilder
+public "setPowerAttribute"(powerAttribute: $ISSKJSUtils$AttributeHolder$Type): $SchoolTypeJSBuilder
 public "setResistanceAttribute"(resistanceAttribute: $ISSKJSUtils$AttributeHolder$Type): $SchoolTypeJSBuilder
 public "setDefaultCastSound"(defaultCastSound: $ISSKJSUtils$SoundEventHolder$Type): $SchoolTypeJSBuilder
-public "setFocus"(focus: $ResourceLocation$Type): $SchoolTypeJSBuilder
-public "setDamageType"(damageType: $ISSKJSUtils$DamageTypeHolder$Type): $SchoolTypeJSBuilder
-public "setPowerAttribute"(powerAttribute: $ISSKJSUtils$AttributeHolder$Type): $SchoolTypeJSBuilder
-set "name"(value: $Component$Type)
+public "setName"(name: $Component$Type): $SchoolTypeJSBuilder
 get "registryType"(): $RegistryInfo<($SchoolType)>
+set "damageType"(value: $ISSKJSUtils$DamageTypeHolder$Type)
+set "focus"(value: $ResourceLocation$Type)
+set "powerAttribute"(value: $ISSKJSUtils$AttributeHolder$Type)
 set "resistanceAttribute"(value: $ISSKJSUtils$AttributeHolder$Type)
 set "defaultCastSound"(value: $ISSKJSUtils$SoundEventHolder$Type)
-set "focus"(value: $ResourceLocation$Type)
-set "damageType"(value: $ISSKJSUtils$DamageTypeHolder$Type)
-set "powerAttribute"(value: $ISSKJSUtils$AttributeHolder$Type)
+set "name"(value: $Component$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1645,19 +1651,19 @@ import {$CastSource, $CastSource$Type} from "packages/io/redspace/ironsspellbook
 export class $CustomSpell$CastContext extends $Record {
 
 
+public "getLevel"(): $Level
+public "getPlayerMagicData"(): $MagicData
+public "getEntity"(): $LivingEntity
+public "getSpellLevel"(): integer
+public "getCastSource"(): $CastSource
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public "getPlayerMagicData"(): $MagicData
-public "getLevel"(): $Level
-public "getEntity"(): $LivingEntity
-public "getCastSource"(): $CastSource
-public "getSpellLevel"(): integer
-get "playerMagicData"(): $MagicData
 get "level"(): $Level
+get "playerMagicData"(): $MagicData
 get "entity"(): $LivingEntity
-get "castSource"(): $CastSource
 get "spellLevel"(): integer
+get "castSource"(): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1682,6 +1688,14 @@ export class $SpellOnCastEventJS extends $PlayerEventJS {
 constructor(event: $SpellOnCastEvent$Type)
 
 /**
+ *     Returns the original mana cost.
+ */
+public "getOriginalManaCost"(): integer
+/**
+ *     Returns the original spell level of the spell that was cast.
+ */
+public "getOriginalSpellLevel"(): integer
+/**
  *     Returns if the event is cancelable.
  */
 public "isCancelable"(): boolean
@@ -1689,14 +1703,6 @@ public "isCancelable"(): boolean
  *     Returns the school type of the spell that was cast.
  */
 public "getSchoolType"(): $SchoolType
-/**
- *     Returns the cast source.
- */
-public "getCastSource"(): $CastSource
-/**
- *     Returns the spell ID of the spell that was cast.
- */
-public "getSpellId"(): string
 /**
  *     Returns the new spell level of the spell that was cast.
  */
@@ -1710,27 +1716,27 @@ public "setSpellLevel"(spellLevel: integer): void
  */
 public "getManaCost"(): integer
 /**
+ *     Returns the spell ID of the spell that was cast.
+ */
+public "getSpellId"(): string
+/**
  *     Sets the new mana cost.
  */
 public "setManaCost"(manaCost: integer): void
 /**
- *     Returns the original mana cost.
+ *     Returns the cast source.
  */
-public "getOriginalManaCost"(): integer
-/**
- *     Returns the original spell level of the spell that was cast.
- */
-public "getOriginalSpellLevel"(): integer
+public "getCastSource"(): $CastSource
+get "originalManaCost"(): integer
+get "originalSpellLevel"(): integer
 get "cancelable"(): boolean
 get "schoolType"(): $SchoolType
-get "castSource"(): $CastSource
-get "spellId"(): string
 get "spellLevel"(): integer
 set "spellLevel"(value: integer)
 get "manaCost"(): integer
+get "spellId"(): string
 set "manaCost"(value: integer)
-get "originalManaCost"(): integer
-get "originalSpellLevel"(): integer
+get "castSource"(): $CastSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1763,11 +1769,10 @@ readonly "id": $ResourceLocation
 
 constructor(i: $ResourceLocation$Type)
 
-public "createObject"(): $SpellBook
 public "getRegistryType"(): $RegistryInfo<($Item)>
 public "addDefaultAttribute"(attribute: $ISSKJSUtils$AttributeHolder$Type, modifierName: string, modifierAmount: double, modifierOperation: $AttributeModifier$Operation$Type): $SpellBookBuilderJS
-public "addDefaultSpell"(spell: $ISSKJSUtils$SpellHolder$Type, spellLevel: integer): $SpellBookBuilderJS
 public "setMaxSpellSlots"(maxSpellSlots: integer): $SpellBookBuilderJS
+public "addDefaultSpell"(spell: $ISSKJSUtils$SpellHolder$Type, spellLevel: integer): $SpellBookBuilderJS
 get "registryType"(): $RegistryInfo<($Item)>
 set "maxSpellSlots"(value: integer)
 }

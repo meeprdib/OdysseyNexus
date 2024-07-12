@@ -5,13 +5,13 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $SkullSettings extends $SkullData {
 
- "initialized"(): boolean
+ "setInitialized"(arg0: boolean): void
  "setupHeadLayers"(arg0: $Mesh$Type): void
  "getLastTexture"(): $ResourceLocation
- "setLastTexture"(arg0: $ResourceLocation$Type): void
  "getHeadLayers"(): $Mesh
+ "setLastTexture"(arg0: $ResourceLocation$Type): void
  "getMesh"(): $Mesh
- "setInitialized"(arg0: boolean): void
+ "initialized"(): boolean
 }
 
 export namespace $SkullSettings {
@@ -36,22 +36,22 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $PlayerSettings extends $PlayerData {
 
- "setCurrentSkin"(arg0: $ResourceLocation$Type): void
+ "clearMeshes"(): void
+ "setHeadMesh"(arg0: $Mesh$Type): void
+ "setTorsoMesh"(arg0: $Mesh$Type): void
+ "setRightArmMesh"(arg0: $Mesh$Type): void
+ "setLeftLegMesh"(arg0: $Mesh$Type): void
+ "getCurrentSkin"(): $ResourceLocation
+ "setRightLegMesh"(arg0: $Mesh$Type): void
+ "hasThinArms"(): boolean
  "setLeftArmMesh"(arg0: $Mesh$Type): void
  "setThinArms"(arg0: boolean): void
- "hasThinArms"(): boolean
- "setRightArmMesh"(arg0: $Mesh$Type): void
- "setRightLegMesh"(arg0: $Mesh$Type): void
- "setHeadMesh"(arg0: $Mesh$Type): void
- "getCurrentSkin"(): $ResourceLocation
- "setTorsoMesh"(arg0: $Mesh$Type): void
- "setLeftLegMesh"(arg0: $Mesh$Type): void
- "clearMeshes"(): void
- "getLeftLegMesh"(): $Mesh
- "getRightArmMesh"(): $Mesh
- "getTorsoMesh"(): $Mesh
+ "setCurrentSkin"(arg0: $ResourceLocation$Type): void
  "getHeadMesh"(): $Mesh
  "getLeftArmMesh"(): $Mesh
+ "getTorsoMesh"(): $Mesh
+ "getRightArmMesh"(): $Mesh
+ "getLeftLegMesh"(): $Mesh
  "getRightLegMesh"(): $Mesh
 }
 
@@ -103,8 +103,8 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 
 export interface $EntityRendererInter<T extends $Entity> {
 
- "shadowShouldShowName"(arg0: T): boolean
  "shadowRenderNameTag"(arg0: T, arg1: $Component$Type, arg2: $PoseStack$Type, arg3: $MultiBufferSource$Type, arg4: integer, arg5: float): void
+ "shadowShouldShowName"(arg0: T): boolean
 }
 
 export namespace $EntityRendererInter {
@@ -155,8 +155,8 @@ export interface $Cullable {
  "isForcedVisible"(): boolean
  "setCulled"(arg0: boolean): void
  "isCulled"(): boolean
- "isOutOfCamera"(): boolean
  "setOutOfCamera"(arg0: boolean): void
+ "isOutOfCamera"(): boolean
 }
 
 export namespace $Cullable {
@@ -182,14 +182,14 @@ import {$PartPose, $PartPose$Type} from "packages/net/minecraft/client/model/geo
 
 export interface $Mesh {
 
- "copyFrom"(arg0: $ModelPart$Type): void
- "setRotation"(arg0: float, arg1: float, arg2: float): void
- "setVisible"(arg0: boolean): void
- "isVisible"(): boolean
- "setPosition"(arg0: float, arg1: float, arg2: float): void
+ "loadPose"(arg0: $PartPose$Type): void
  "render"(poseStack: $PoseStack$Type, vertexConsumer: $VertexConsumer$Type, light: integer, overlay: integer): void
  "render"(arg0: $ModelPart$Type, arg1: $PoseStack$Type, arg2: $VertexConsumer$Type, arg3: integer, arg4: integer, arg5: integer): void
- "loadPose"(arg0: $PartPose$Type): void
+ "isVisible"(): boolean
+ "setPosition"(arg0: float, arg1: float, arg2: float): void
+ "setVisible"(arg0: boolean): void
+ "setRotation"(arg0: float, arg1: float, arg2: float): void
+ "copyFrom"(arg0: $ModelPart$Type): void
 }
 
 export namespace $Mesh {
@@ -212,11 +212,11 @@ import {$Mesh, $Mesh$Type} from "packages/dev/tr7zw/skinlayers/api/$Mesh"
 
 export interface $PlayerData {
 
- "getLeftLegMesh"(): $Mesh
- "getRightArmMesh"(): $Mesh
- "getTorsoMesh"(): $Mesh
  "getHeadMesh"(): $Mesh
  "getLeftArmMesh"(): $Mesh
+ "getTorsoMesh"(): $Mesh
+ "getRightArmMesh"(): $Mesh
+ "getLeftLegMesh"(): $Mesh
  "getRightLegMesh"(): $Mesh
 }
 

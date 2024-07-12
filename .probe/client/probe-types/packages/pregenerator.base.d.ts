@@ -4,9 +4,9 @@ import {$DistanceManager, $DistanceManager$Type} from "packages/net/minecraft/se
 
 export interface $ServerChunkProviderMixin {
 
+ "getTicketManager"(): $DistanceManager
  "getChunkIfPresent"(arg0: long): $ChunkHolder
  "syncChunkUpdates"(): boolean
- "getTicketManager"(): $DistanceManager
 }
 
 export namespace $ServerChunkProviderMixin {
@@ -283,8 +283,8 @@ import {$Long2ObjectLinkedOpenHashMap, $Long2ObjectLinkedOpenHashMap$Type} from 
 
 export interface $RegionFileCacheMixin {
 
- "getRegionCache"(): $Long2ObjectLinkedOpenHashMap<($RegionFile)>
  "setRegionCache"(arg0: $Long2ObjectLinkedOpenHashMap$Type<($RegionFile$Type)>): void
+ "getRegionCache"(): $Long2ObjectLinkedOpenHashMap<($RegionFile)>
 }
 
 export namespace $RegionFileCacheMixin {
@@ -309,9 +309,9 @@ import {$IOWorker, $IOWorker$Type} from "packages/net/minecraft/world/level/chun
 
 export interface $RegionSectionCacheMixin<T> {
 
- "getIOWorker"(): $IOWorker
- "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
  "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
+ "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
+ "getIOWorker"(): $IOWorker
 }
 
 export namespace $RegionSectionCacheMixin {

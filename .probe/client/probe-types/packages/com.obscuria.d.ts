@@ -10,8 +10,8 @@ export class $Fury extends $MobEffect {
 
 constructor()
 
-public "getDescriptionId"(): string
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "getDescriptionId"(): string
 get "descriptionId"(): string
 }
 /**
@@ -38,8 +38,8 @@ export class $Knowledge extends $MobEffect {
 
 constructor()
 
-public "getDescriptionId"(): string
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "getDescriptionId"(): string
 get "descriptionId"(): string
 }
 /**
@@ -66,8 +66,8 @@ export class $Rush extends $MobEffect {
 
 constructor()
 
-public "getDescriptionId"(): string
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
+public "getDescriptionId"(): string
 get "descriptionId"(): string
 }
 /**

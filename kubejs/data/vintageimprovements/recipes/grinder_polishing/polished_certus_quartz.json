@@ -3,12 +3,12 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"item": "ae2:fluix_crystal"
+			"item": "ae2:charged_certus_quartz_crystal"
 		}
 	],
 	"results": [
 		{
-			"item": "kubejs:polished_fluix",
+			"item": "kubejs:polished_certus_quartz",
 			"count": 2
 		}
 	],

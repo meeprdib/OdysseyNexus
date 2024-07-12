@@ -3,12 +3,12 @@
 	"speed_limits": 1,
 	"ingredients": [
 		{
-			"tag": "forge:gems/certus_quartz"
+			"item": "ae2:fluix_crystal"
 		}
 	],
 	"results": [
 		{
-			"item": "kubejs:polished_certus_quartz",
+			"item": "kubejs:polished_fluix",
 			"count": 2
 		}
 	],

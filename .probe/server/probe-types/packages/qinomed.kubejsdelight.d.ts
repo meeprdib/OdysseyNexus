@@ -20,9 +20,9 @@ readonly "id": $ResourceLocation
 
 constructor(arg0: $ResourceLocation$Type)
 
-public "createObject"(): $Block
 public "servingsAmount"(arg0: integer): $FeastBlockBuilder
 public "servingItems"(arg0: ($ResourceLocation$Type)[]): $FeastBlockBuilder
+public "createObject"(): $Block
 public "hasLeftovers"(arg0: boolean): $FeastBlockBuilder
 }
 /**

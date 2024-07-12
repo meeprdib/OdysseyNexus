@@ -10,6 +10,7 @@ ServerEvents.recipes(event => {
             '@create_mechanical_spawner',
             '@gateways',
             'alexscaves:nuclear_bomb',
+            'alexscaves:nuclear_furnace_component',
             'apotheosis:sigil_of_socketing',
             'apotheosis:simple_reforging_table',
             'cataclysm:ignitium_upgrade_smithing_template',
@@ -127,6 +128,7 @@ ServerEvents.recipes(event => {
             event.remove([{ type: 'vintageimprovements:hammering'}]),
             event.remove([{ type: 'vintageimprovements:pressurizing'}]),
             event.remove([{ type: 'vintageimprovements:vacuumizing'}]),
+            event.remove([{ type: 'create_dd:seething'}]),
             event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_copper'}]),
             event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_gold'}]),
             event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_iron'}]),
@@ -140,6 +142,8 @@ ServerEvents.recipes(event => {
             event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_diamond'}]),
             event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_emerald'}]),
             event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_lazurite'}]),
+            event.remove([{ output: '#vintageimprovements:springs'}]),
+            event.remove([{ output: '#vintageimprovements:small_springs'}]),
             event.remove({id: 'minecraft:lodestone'}),
             event.remove({id: 'spelunkery:copper_ore_blasting'}),
             event.remove({id: 'spelunkery:copper_ore_smelting'}),
@@ -189,6 +193,12 @@ ServerEvents.recipes(event => {
         L: '#on:leather'
     })
 
+    event.smelting('create:andesite_alloy', 'kubejs:mycelial_blend')
+
+    event.shapeless('2x kubejs:mycelial_blend', ['kubejs:mushroom_paste', 'supplementaries:flax', 'kubejs:mushroom_paste', 'supplementaries:flax'])
+    event.recipes.farmersdelight.cutting('#on:small_mushroom', '#forge:tools/knives', ['kubejs:mushroom_paste'])
+    event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
+
     // AE2
 
     event.smelting('ae2:silicon', '#ae2:all_quartz')
@@ -196,10 +206,10 @@ ServerEvents.recipes(event => {
     event.recipes.create.pressing('kubejs:certus_quartz_sheet', 'kubejs:polished_certus_quartz')
     event.recipes.create.pressing('kubejs:fluix_sheet', 'kubejs:polished_fluix')
     event.recipes.create.sandpaper_polishing('kubejs:polished_fluix', '#forge:gems/fluix')
-    event.recipes.create.sandpaper_polishing('kubejs:polished_certus_quartz', '#forge:gems/certus_quartz')
+    event.recipes.create.sandpaper_polishing('kubejs:polished_certus_quartz', 'ae2:charged_certus_quartz_crystal')
     event.shapeless('ae2:network_tool', ['minecraft:stick', 'create_dd:kinetic_mechanism'])
-    event.recipes.create.item_application('kubejs:silicon_casing', ['kubejs:silicon_sheet', 'minecraft:quartz_block'])
-
+    event.recipes.create.item_application('kubejs:silicon_casing', ['minecraft:quartz_block', 'kubejs:silicon_sheet'])
+    
     event.shaped('ae2:item_cell_housing', [
         'SSS',
         'I I',
@@ -227,13 +237,77 @@ ServerEvents.recipes(event => {
         C: 'ae2:charged_certus_quartz_crystal'
     })
 
-    event.smelting('create:andesite_alloy', 'kubejs:mycelial_blend')
+    event.shaped('ae2:controller', [
+        'ABA',
+        'BCB',
+        'ABA'
+    ], {
+        A: 'kubejs:polished_fluix',
+        B: 'kubejs:computational_mechanism',
+        C: 'kubejs:silicon_casing'
+    })
 
-    event.shapeless('2x kubejs:mycelial_blend', ['kubejs:mushroom_paste', 'supplementaries:flax', 'kubejs:mushroom_paste', 'supplementaries:flax'])
-    event.recipes.farmersdelight.cutting('#on:small_mushroom', '#forge:tools/knives', ['kubejs:mushroom_paste'])
-    event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
+    event.shapeless('ae2:basic_card', ['kubejs:silicon_sheet', 'kubejs:certus_quartz_sheet'])
+
+    event.recipes.create.sequenced_assembly([
+        ('kubejs:computational_mechanism')
+    ], 'kubejs:silicon_sheet', [
+        event.recipes.createDeploying('kubejs:incomplete_computational_mechanism', ['kubejs:incomplete_computational_mechanism', 'kubejs:polished_certus_quartz']),
+        event.recipes.createDeploying('kubejs:incomplete_computational_mechanism', ['kubejs:incomplete_computational_mechanism', 'kubejs:polished_fluix']),
+		event.recipes.createPressing('kubejs:incomplete_computational_mechanism','kubejs:incomplete_computational_mechanism'),
+    ]).transitionalItem('kubejs:incomplete_computational_mechanism').loops(3)
+
+    event.recipes.create.mechanical_crafting('8x ae2:quantum_ring', [
+    'ABA',
+    'C C',
+    'DED'
+    ], {
+        A: 'kubejs:computational_mechanism',
+        B: 'create_dd:abstruse_mechanism',
+        C: 'kubejs:fluix_sheet',
+        D:  'minecraft:diamond_block',
+        E: 'kubejs:silicon_casing'
+    })
+
+    event.shapeless('ae2:drive', ['#storagedrawers:drawers', 'kubejs:silicon_casing'])
+    event.shapeless('ae2:chest', ['#forge:chests', 'kubejs:silicon_casing'])
+    event.shapeless('ae2:portable_item_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'createaddition:modular_accumulator', 'ae2:item_cell_housing'])
+    event.shapeless('ae2:portable_fluid_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'createaddition:modular_accumulator', 'ae2:fluid_cell_housing'])
+    event.shapeless('ae2:cell_workbench', ['kubejs:silicon_casing', '#forge:workbench'])
+
+    event.shaped('12x ae2:fluix_smart_cable', [
+        'AAA',
+        'BBB',
+        'AAA'
+    ], {
+        A: 'kubejs:silicon_sheet',
+        B: 'minecraft:redstone'
+    })
+
+    event.shaped('12x ae2:quartz_fiber', [
+        'AAA',
+        'BBB',
+        'AAA'
+    ], {
+        A: '#forge:glass',
+        B: 'minecraft:redstone'
+    })
+
+    event.shaped('ae2:energy_acceptor', [
+        ' A ',
+        'ABA',
+        ' A '
+    ], {
+        A: '#forge:ingots/electrum',
+        B: 'kubejs:silicon_casing'
+    })
 
     // Create + Create Addons
+
+    event.remove({ id: 'create:crafting/materials/andesite_alloy' })
+    event.remove({ id: 'create:crafting/materials/andesite_alloy_from_zinc' })
+    event.remove({ id: 'create:mixing/andesite_alloy' })
+    event.remove({ id: 'create:mixing/andesite_alloy_from_zinc' })
 
     event.recipes.create.sequenced_assembly([
         ('create_dd:integrated_circuit')
@@ -241,7 +315,7 @@ ServerEvents.recipes(event => {
         event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'ae2:silicon']),
         event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'create_dd:bury_blend']),
         event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'createaddition:electrum_nugget'])
-    ]).transitionalItem('create:incomplete_precision_mechanism').loops(5)
+    ]).transitionalItem('create_dd:incomplete_integrated_circuit').loops(5)
 
     event.recipes.create.sequenced_assembly([
         ('create_dd:abstruse_mechanism')
@@ -249,7 +323,7 @@ ServerEvents.recipes(event => {
         event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'kubejs:polished_fluix']),
         event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', '#forge:ender_pearls']),
         event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'createutilities:graviton_tube'])
-    ]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(3)
+    ]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(4)
 
     event.recipes.create.mixing('4x createutilities:void_steel_ingot', [
         '4x kubejs:steel_ingot',

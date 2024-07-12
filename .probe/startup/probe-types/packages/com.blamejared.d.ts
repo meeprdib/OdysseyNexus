@@ -3,9 +3,9 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $IClumpedOrb {
 
- "clumps$setClumpedMap"(arg0: $Map$Type<(integer), (integer)>): void
- "clumps$getClumpedMap"(): $Map<(integer), (integer)>
  "clumps$resolve"(): boolean
+ "clumps$getClumpedMap"(): $Map<(integer), (integer)>
+ "clumps$setClumpedMap"(arg0: $Map$Type<(integer), (integer)>): void
 }
 
 export namespace $IClumpedOrb {
@@ -124,9 +124,9 @@ declare module "packages/com/blamejared/clumps/mixin/$ExperienceOrbAccess" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ExperienceOrbAccess {
 
+ "clumps$setCount"(arg0: integer): void
  "clumps$setAge"(arg0: integer): void
  "clumps$getAge"(): integer
- "clumps$setCount"(arg0: integer): void
 }
 
 export namespace $ExperienceOrbAccess {

@@ -113,8 +113,8 @@ import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 
 export interface $ArmorStandEntityAccessor {
 
- "invokeIsSlotDisabled"(arg0: $EquipmentSlot$Type): boolean
  "invokeGetSlotFromPosition"(arg0: $Vec3$Type): $EquipmentSlot
+ "invokeIsSlotDisabled"(arg0: $EquipmentSlot$Type): boolean
 }
 
 export namespace $ArmorStandEntityAccessor {
@@ -163,8 +163,8 @@ import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraf
 
 export interface $BlockItemAccessor {
 
- "invokeCanPlace"(arg0: $BlockPlaceContext$Type, arg1: $BlockState$Type): boolean
  "invokeGetPlacementState"(arg0: $BlockPlaceContext$Type): $BlockState
+ "invokeCanPlace"(arg0: $BlockPlaceContext$Type, arg1: $BlockState$Type): boolean
 }
 
 export namespace $BlockItemAccessor {

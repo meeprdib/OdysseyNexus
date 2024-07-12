@@ -12,7 +12,9 @@
         "apotheosis:adventure/attributes/overheal",
         "apotheosis:adventure/affix_loot/affixes",
         "apotheosis:adventure/affix_loot/augmenting",
-        "apotheosis:adventure/affix_loot/reforging"
+        "apotheosis:adventure/affix_loot/reforging",
+        "apotheosis:garden/ender_lead",
+        "apotheosis:garden/sugarcane"
       ],
       "bookmarks": [],
       "completedManualQuests": []

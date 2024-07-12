@@ -11,8 +11,8 @@ export class $TSClassType extends $BaseType {
 
 constructor(classPath: $ClassPath$Type)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -113,12 +113,12 @@ readonly "variableTypes": $List<($VariableType)>
 
 constructor(clazz: $Class$Type<(any)>)
 
+public "getClassPaths"(): $Collection<($ClassPath)>
+public "getUsedClasses"(): $Set<($ClassPath)>
 public "equals"(o: any): boolean
 public "hashCode"(): integer
-public "getUsedClasses"(): $Set<($ClassPath)>
-public "getClassPaths"(): $Collection<($ClassPath)>
-get "usedClasses"(): $Set<($ClassPath)>
 get "classPaths"(): $Collection<($ClassPath)>
+get "usedClasses"(): $Set<($ClassPath)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -175,8 +175,8 @@ readonly "inner": $BaseType
 
 constructor(inner: $BaseType$Type)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -348,9 +348,9 @@ export class $Code {
 
 constructor()
 
+public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "format"(declaration: $Declaration$Type): $List<(string)>
 public "line"(declaration: $Declaration$Type): string
-public "getUsedClassPaths"(): $Collection<($ClassPath)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -410,10 +410,10 @@ export class $ScriptEventJS extends $EventJS {
 
 constructor(dump: $ScriptDump$Type)
 
-public "getTypeConverter"(): $TypeConverter
 public "getScriptType"(): $ScriptType
-get "typeConverter"(): $TypeConverter
+public "getTypeConverter"(): $TypeConverter
 get "scriptType"(): $ScriptType
+get "typeConverter"(): $TypeConverter
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -546,15 +546,22 @@ export type CraftingShaped_ = CraftingShaped$Type;
 declare module "packages/moe/wolfgirl/probejs/lang/java/clazz/$ClassPath" {
 import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
 import {$Record, $Record$Type} from "packages/java/lang/$Record"
-import {$List, $List$Type} from "packages/java/util/$List"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$List, $List$Type} from "packages/java/util/$List"
 
 export class $ClassPath extends $Record {
 
 constructor(className: string)
-constructor(parts: $List$Type<(string)>)
 constructor(clazz: $Class$Type<(any)>)
+constructor(parts: $List$Type<(string)>)
 
+public "getConcatenatedPackage"(sep: string): string
+public "getClassPathJava"(): string
+public "getConcatenated"(sep: string): string
+public "getGenerics"(): $List<(string)>
+public "getTypeScriptPath"(): string
+public "getDirPath"(base: $Path$Type): $Path
+public "makePath"(base: $Path$Type): $Path
 public "getName"(): string
 public "equals"(o: any): boolean
 public "toString"(): string
@@ -562,19 +569,12 @@ public "hashCode"(): integer
 public "getPackage"(): $List<(string)>
 public "parts"(): $List<(string)>
 public "getClassPath"(): string
-public "getConcatenatedPackage"(sep: string): string
-public "getClassPathJava"(): string
-public "getGenerics"(): $List<(string)>
-public "getDirPath"(base: $Path$Type): $Path
-public "getConcatenated"(sep: string): string
-public "makePath"(base: $Path$Type): $Path
-public "getTypeScriptPath"(): string
-get "name"(): string
-get "package"(): $List<(string)>
-get "classPath"(): string
 get "classPathJava"(): string
 get "generics"(): $List<(string)>
 get "typeScriptPath"(): string
+get "name"(): string
+get "package"(): $List<(string)>
+get "classPath"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -658,9 +658,9 @@ export class $SnippetDump {
 
 constructor()
 
-public "writeTo"(path: $Path$Type): void
-public "snippet"(name: string): $Snippet
 public "fromDocs"(): void
+public "snippet"(name: string): $Snippet
+public "writeTo"(path: $Path$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -734,24 +734,24 @@ const VOID: $JSPrimitiveType
 const THIS: $JSPrimitiveType
 const OBJECT: $JSPrimitiveType
 const NULL: $JSPrimitiveType
+function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
+function parameterized(base: $BaseType$Type, ...params: ($BaseType$Type)[]): $TSParamType
+function arrayOf(...types: ($BaseType$Type)[]): $JSArrayType
+function primitive(type: string): $JSPrimitiveType
+function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
+function ignoreContext(type: $BaseType$Type, formatType: $BaseType$FormatType$Type): $BaseType
+function typeOf(classType: $BaseType$Type): $JSTypeOfType
+function typeOf(classPath: $ClassPath$Type): $JSTypeOfType
+function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
 function object(): $JSObjectType$Builder
-function type(clazz: $Class$Type<(any)>): $TSClassType
 function type(classPath: $ClassPath$Type): $TSClassType
+function type(clazz: $Class$Type<(any)>): $TSClassType
 function generic(symbol: string): $TSVariableType
 function generic(symbol: string, extendOn: $BaseType$Type): $TSVariableType
 function lambda(): $JSLambdaType$Builder
-function literal(content: any): $JSPrimitiveType
 function or(...types: ($BaseType$Type)[]): $BaseType
+function literal(content: any): $JSPrimitiveType
 function and(...types: ($BaseType$Type)[]): $JSJoinedType$Intersection
-function parameterized(base: $BaseType$Type, ...params: ($BaseType$Type)[]): $TSParamType
-function arrayOf(...types: ($BaseType$Type)[]): $JSArrayType
-function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
-function primitive(type: string): $JSPrimitiveType
-function ignoreContext(type: $BaseType$Type, formatType: $BaseType$FormatType$Type): $BaseType
-function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
-function typeOf(classPath: $ClassPath$Type): $JSTypeOfType
-function typeOf(classType: $BaseType$Type): $JSTypeOfType
-function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -778,11 +778,11 @@ export class $ParamDecl {
 
 constructor(name: string, type: $BaseType$Type, varArg: boolean, optional: boolean)
 
+public static "formatParams"(params: $List$Type<($ParamDecl$Type)>, declaration: $Declaration$Type): string
 public "equals"(obj: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "format"(index: integer, declaration: $Declaration$Type): string
-public static "formatParams"(params: $List$Type<($ParamDecl$Type)>, declaration: $Declaration$Type): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -841,13 +841,13 @@ readonly "comments": $List<(string)>
 
 constructor()
 
-public "isEmpty"(): boolean
-public "merge"(other: $Wrapped$Type): void
 public "addCode"(inner: $Code$Type): void
 public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
-get "empty"(): boolean
+public "isEmpty"(): boolean
+public "merge"(other: $Wrapped$Type): void
 get "usedClassPaths"(): $Collection<($ClassPath)>
+get "empty"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -874,8 +874,8 @@ readonly "components": $List<($BaseType)>
 
 constructor(components: $List$Type<($BaseType$Type)>)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -1012,6 +1012,7 @@ export class DocumentedRecipes {
  "create": {crushing(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Crushing, sandpaper_polishing(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): SandpaperPolishing, haunting(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Haunting, emptying(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Emptying, compacting(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Compacting, sequenced_assembly(results: ($OutputItem$Type)[], ingredient: $InputItem$Type, sequence: ($RecipeJS$Type)[], transitionalItem?: $OutputItem$Type, loops?: number): SequencedAssembly, mixing(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Mixing, basin(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Basin, pressing(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Pressing, filling(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Filling, splashing(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Splashing, deploying(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string, keepHeldItem?: boolean): Deploying, cutting(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Cutting, mechanical_crafting(result: $OutputItem$Type, pattern: (string)[], key: {[k: string]: $InputItem$Type}): MechanicalCrafting, milling(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Milling, item_application(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string, keepHeldItem?: boolean): ItemApplication, conversion(results: (($OutputFluid$Type) | ($OutputItem$Type))[], ingredients: (($InputFluid$Type) | ($InputItem$Type))[], processingTime?: (number) | (string), heatRequirement?: string): Conversion}
  "patchouli": {}
  "dankstorage": {upgrade(result: $OutputItem$Type, pattern: (string)[], key: {[k: string]: $InputItem$Type}): Upgrade}
+ "storagedrawers": {}
  "almostunified": {}
  "zeta": {}
  "create_central_kitchen": {}
@@ -1020,7 +1021,6 @@ export class DocumentedRecipes {
  "sophisticatedbackpacks": {}
  "apotheosis": {}
  "vintageimprovements": {}
- "functionalstorage": {}
  "spelunkery": {}
  "forge": {}
  "sawmill": {woodcutting(result: $OutputItem$Type, ingredient: $InputItem$Type): Woodcutting}
@@ -1114,13 +1114,13 @@ readonly "comments": $List<(string)>
 
 constructor()
 
-public "format"(declaration: $Declaration$Type): $List<(string)>
-public "newline"(...comments: (string)[]): void
 public "addComment"(...comments: (string)[]): void
-public "formatComments"(): $List<(string)>
 public "addCommentAtStart"(...comments: (string)[]): void
+public "formatComments"(): $List<(string)>
 public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "linebreak"(): void
+public "format"(declaration: $Declaration$Type): $List<(string)>
+public "newline"(...comments: (string)[]): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1148,11 +1148,11 @@ export class $TypeDescriptor extends $AnnotationHolder implements $ClassPathProv
 
 constructor(annotations: ($Annotation$Type)[])
 
+public "getClassPaths"(): $Collection<($ClassPath)>
 public "stream"(): $Stream<($TypeDescriptor)>
 public "getClasses"(): $Collection<($Class<(any)>)>
-public "getClassPaths"(): $Collection<($ClassPath)>
-get "classes"(): $Collection<($Class<(any)>)>
 get "classPaths"(): $Collection<($ClassPath)>
+get "classes"(): $Collection<($Class<(any)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1388,10 +1388,10 @@ readonly "content": string
 
 constructor(content: string)
 
+public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "equals"(o: any): boolean
 public "hashCode"(): integer
 public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
-public "getUsedClassPaths"(): $Collection<($ClassPath)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -1419,8 +1419,8 @@ export class $TSArrayType extends $BaseType {
 
 constructor(component: $BaseType$Type)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -1444,10 +1444,10 @@ export class $AnnotationHolder {
 
 constructor(annotations: ($Annotation$Type)[])
 
-public "getAnnotation"<T extends $Annotation>(type: $Class$Type<(T)>): T
-public "getAnnotations"<T extends $Annotation>(type: $Class$Type<(T)>): $List<(T)>
-public "getAnnotations"(): ($Annotation)[]
 public "hasAnnotation"(annotation: $Class$Type<(any)>): boolean
+public "getAnnotation"<T extends $Annotation>(type: $Class$Type<(T)>): T
+public "getAnnotations"(): ($Annotation)[]
+public "getAnnotations"<T extends $Annotation>(type: $Class$Type<(T)>): $List<(T)>
 get "annotations"(): ($Annotation)[]
 }
 /**
@@ -1591,10 +1591,10 @@ readonly "returnType": $BaseType
 
 constructor(params: $List$Type<($ParamDecl$Type)>, returnType: $BaseType$Type)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "formatWithName"(name: string, declaration: $Declaration$Type, input: $BaseType$FormatType$Type): string
 public "asMethod"(methodName: string): $MethodDecl
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -1742,27 +1742,27 @@ readonly "recordedClasses": $Set<($Clazz)>
 
 constructor(manager: $ScriptManager$Type, basePath: $Path$Type, scriptPath: $Path$Type, scriptPredicate: $Predicate$Type<($Clazz$Type)>)
 
-public "getSource"(): $Path
 public "dump"(): void
+public "removeClasses"(): void
+public "retrieveClasses"(): $Set<($Class<(any)>)>
+public "acceptClasses"(classes: $Collection$Type<($Clazz$Type)>): void
 public "getGlobalFolder"(): $Path
-public "ensurePath"(path: string, script: boolean): $Path
-public "ensurePath"(path: string): $Path
-public "dumpClasses"(): void
-public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
 public "addGlobal"(identifier: string, excludedNames: $Collection$Type<(string)>, ...content: ($Code$Type)[]): void
+public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
+public "ensurePath"(path: string): $Path
+public "ensurePath"(path: string, script: boolean): $Path
 public "getTypeFolder"(): $Path
 public "getPackageFolder"(): $Path
+public "dumpClasses"(): void
 public "dumpGlobal"(): void
 public "dumpJSConfig"(): void
-public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
 public "assignType"(classPath: $Class$Type<(any)>, type: $BaseType$Type): void
-public "retrieveClasses"(): $Set<($Class<(any)>)>
-public "removeClasses"(): void
-public "acceptClasses"(classes: $Collection$Type<($Clazz$Type)>): void
-get "source"(): $Path
+public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
+public "getSource"(): $Path
 get "globalFolder"(): $Path
 get "typeFolder"(): $Path
 get "packageFolder"(): $Path
+get "source"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1986,8 +1986,8 @@ readonly "params": $List<($BaseType)>
 
 constructor(baseType: $BaseType$Type, params: $List$Type<($BaseType$Type)>)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -2047,19 +2047,19 @@ readonly "name": string
 
 constructor(name: string)
 
+public "choices"(enumeration: integer, choices: $Collection$Type<(string)>): $Snippet
+public "choices"(choices: $Collection$Type<(string)>): $Snippet
+public "description"(description: string): $Snippet
+public "getPrefixes"(): $List<(string)>
+public "registry"<T>(registry: $ResourceKey$Type<($Registry$Type<(T)>)>): $Snippet
+public "tabStop"(enumeration: integer, defaultValue: string): $Snippet
+public "tabStop"(enumeration: integer): $Snippet
+public "tabStop"(): $Snippet
+public "variable"(variable: $Variable$Type): $Snippet
 public "compile"(): $JsonObject
 public "prefix"(prefix: string): $Snippet
-public "newline"(): $Snippet
 public "literal"(content: string): $Snippet
-public "description"(description: string): $Snippet
-public "registry"<T>(registry: $ResourceKey$Type<($Registry$Type<(T)>)>): $Snippet
-public "getPrefixes"(): $List<(string)>
-public "variable"(variable: $Variable$Type): $Snippet
-public "choices"(choices: $Collection$Type<(string)>): $Snippet
-public "choices"(enumeration: integer, choices: $Collection$Type<(string)>): $Snippet
-public "tabStop"(enumeration: integer, defaultValue: string): $Snippet
-public "tabStop"(): $Snippet
-public "tabStop"(enumeration: integer): $Snippet
+public "newline"(): $Snippet
 get "prefixes"(): $List<(string)>
 }
 /**
@@ -2258,8 +2258,8 @@ readonly "rejectedClasses": $Set<($ClassPath)>
 
 constructor(manager: $ScriptManager$Type)
 
-public "reject"(clazz: $Class$Type<(any)>): void
 public "dump"(clazzes: $Collection$Type<($Clazz$Type)>): $Map<($ClassPath), ($TypeScriptFile)>
+public "reject"(clazz: $Class$Type<(any)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2314,14 +2314,14 @@ export class $VariableType extends $TypeDescriptor {
  "symbol": string
  "descriptors": $List<($TypeDescriptor)>
 
+constructor(typeVariable: $AnnotatedTypeVariable$Type)
 constructor(typeVariable: $TypeVariable$Type<(any)>, checkBounds: boolean)
 constructor(typeVariable: $AnnotatedTypeVariable$Type, checkBounds: boolean)
 constructor(typeVariable: $TypeVariable$Type<(any)>)
-constructor(typeVariable: $AnnotatedTypeVariable$Type)
 
-public "stream"(): $Stream<($TypeDescriptor)>
 public "getSymbol"(): string
 public "getDescriptors"(): $List<($TypeDescriptor)>
+public "stream"(): $Stream<($TypeDescriptor)>
 get "symbol"(): string
 get "descriptors"(): $List<($TypeDescriptor)>
 }
@@ -2378,8 +2378,8 @@ readonly "delimiter": string
 readonly "types": $List<($BaseType)>
 
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -2440,8 +2440,8 @@ readonly "symbol": string
 
 constructor(symbol: string, extendsType: $BaseType$Type)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -2552,10 +2552,10 @@ readonly "references": $Map<($ClassPath), ($Reference)>
 
 constructor()
 
-public "addClass"(path: $ClassPath$Type): void
+public "exclude"(name: string): void
 public "getSymbol"(path: $ClassPath$Type, input: boolean): string
 public "getSymbol"(path: $ClassPath$Type): string
-public "exclude"(name: string): void
+public "addClass"(path: $ClassPath$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2762,8 +2762,8 @@ readonly "members": $Map<(string), ($BaseType)>
 
 constructor(members: $Map$Type<(string), ($BaseType$Type)>)
 
-public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -2825,13 +2825,13 @@ readonly "classPath": $ClassPath
 
 constructor(self: $ClassPath$Type)
 
+public "addCode"(code: $Code$Type): void
+public "excludeSymbol"(name: string): void
+public "findCode"<T extends $Code>(type: $Class$Type<(T)>): $Optional<(T)>
+public "writeAsModule"(writer: $BufferedWriter$Type): void
 public "format"(): string
 public "write"(writer: $BufferedWriter$Type): void
 public "write"(writeTo: $Path$Type): void
-public "addCode"(code: $Code$Type): void
-public "findCode"<T extends $Code>(type: $Class$Type<(T)>): $Optional<(T)>
-public "writeAsModule"(writer: $BufferedWriter$Type): void
-public "excludeSymbol"(name: string): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

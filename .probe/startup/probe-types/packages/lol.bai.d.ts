@@ -69,16 +69,16 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export class $AbstractPacketHandler<T> implements $PacketSender {
 
 
-public "onRegister"(arg0: $ResourceLocation$Type): void
 public "send"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type, arg2: $PacketSendListener$Type): void
 public "send"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type, arg2: $GenericFutureListener$Type<(any)>): void
-public "receive"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): boolean
-public "sendInitialChannelSyncPacket"(): void
 public "onDisconnect"(): void
+public "sendInitialChannelSyncPacket"(): void
 public "canSend"(arg0: $ResourceLocation$Type): boolean
+public "receive"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): boolean
+public "onRegister"(arg0: $ResourceLocation$Type): void
+public "send"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): void
 public static "c2s"(): $PacketSender
 public static "s2c"(arg0: $ServerPlayer$Type): $PacketSender
-public "send"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -185,7 +185,7 @@ export interface $S2CPacketReceiver {
 
  "receive"(arg0: $Minecraft$Type, arg1: $ClientPacketListener$Type, arg2: $FriendlyByteBuf$Type, arg3: $PacketSender$Type): void
 
-(arg0: $ResourceLocation$Type, arg1: $S2CPacketReceiver$Type): void
+(arg0: $Minecraft$Type, arg1: $ClientPacketListener$Type, arg2: $FriendlyByteBuf$Type, arg3: $PacketSender$Type): void
 }
 
 export namespace $S2CPacketReceiver {
@@ -215,7 +215,7 @@ export interface $C2SPacketReceiver {
 
  "receive"(arg0: $MinecraftServer$Type, arg1: $ServerPlayer$Type, arg2: $ServerGamePacketListenerImpl$Type, arg3: $FriendlyByteBuf$Type, arg4: $PacketSender$Type): void
 
-(arg0: $ResourceLocation$Type, arg1: $C2SPacketReceiver$Type): void
+(arg0: $MinecraftServer$Type, arg1: $ServerPlayer$Type, arg2: $ServerGamePacketListenerImpl$Type, arg3: $FriendlyByteBuf$Type, arg4: $PacketSender$Type): void
 }
 
 export namespace $C2SPacketReceiver {

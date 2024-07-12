@@ -8,12 +8,12 @@ import {$CreativeTabEvent, $CreativeTabEvent$Type} from "packages/dev/latvian/mo
 import {$SpellSelectionEventJS, $SpellSelectionEventJS$Type} from "packages/com/squoshi/irons_spells_js/events/$SpellSelectionEventJS"
 import {$ItemModificationEventJS, $ItemModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/$ItemModificationEventJS"
 import {$RegistryEventJS, $RegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/registry/$RegistryEventJS"
-import {$ModifyLivingEntityBuilder, $ModifyLivingEntityBuilder$Type} from "packages/net/liopyu/entityjs/builders/living/modification/$ModifyLivingEntityBuilder"
 import {$StartupEventJS, $StartupEventJS$Type} from "packages/dev/latvian/mods/kubejs/event/$StartupEventJS"
 import {$BlockModificationEventJS, $BlockModificationEventJS$Type} from "packages/dev/latvian/mods/kubejs/block/$BlockModificationEventJS"
 import {$SpecialFluidHandlerEvent, $SpecialFluidHandlerEvent$Type} from "packages/dev/latvian/mods/kubejs/create/events/$SpecialFluidHandlerEvent"
 import {$ItemArmorTierRegistryEventJS, $ItemArmorTierRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/custom/$ItemArmorTierRegistryEventJS"
 import {$SpecialSpoutHandlerEvent, $SpecialSpoutHandlerEvent$Type} from "packages/dev/latvian/mods/kubejs/create/events/$SpecialSpoutHandlerEvent"
+import {$EntityModificationEventJS, $EntityModificationEventJS$Type} from "packages/net/liopyu/entityjs/events/$EntityModificationEventJS"
 import {$RecipeSchemaRegistryEventJS, $RecipeSchemaRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/recipe/$RecipeSchemaRegistryEventJS"
 import {$RemoveWorldgenEventJS, $RemoveWorldgenEventJS$Type} from "packages/dev/latvian/mods/kubejs/level/gen/$RemoveWorldgenEventJS"
 import {$ItemToolTierRegistryEventJS, $ItemToolTierRegistryEventJS$Type} from "packages/dev/latvian/mods/kubejs/item/custom/$ItemToolTierRegistryEventJS"
@@ -24,7 +24,7 @@ function add(handler: (event: $AddWorldgenEventJS) => void): void
 function remove(handler: (event: $RemoveWorldgenEventJS) => void): void
 }
 export namespace EntityJSEvents {
-function modifyEntity(handler: (event: $ModifyLivingEntityBuilder) => void): void
+function modifyEntity(handler: (event: $EntityModificationEventJS) => void): void
 function attributes(handler: (event: $ModifyAttributeEventJS) => void): void
 function spawnPlacement(handler: (event: $RegisterSpawnPlacementsEventJS) => void): void
 }

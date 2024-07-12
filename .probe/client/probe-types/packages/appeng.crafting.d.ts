@@ -4,6 +4,9 @@ import {$EncodedPatternItem, $EncodedPatternItem$Type} from "packages/appeng/cra
 import {$CraftingRecipe, $CraftingRecipe$Type} from "packages/net/minecraft/world/item/crafting/$CraftingRecipe"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
+import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
+import {$AECraftingPattern, $AECraftingPattern$Type} from "packages/appeng/crafting/pattern/$AECraftingPattern"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -22,6 +25,7 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "decode"(arg0: $AEItemKey$Type, arg1: $Level$Type): $AECraftingPattern
 public "encode"(arg0: $CraftingRecipe$Type, arg1: ($ItemStack$Type)[], arg2: $ItemStack$Type, arg3: boolean, arg4: boolean): $ItemStack
 }
 /**
@@ -40,17 +44,17 @@ declare module "packages/appeng/crafting/pattern/$EncodedPatternItem" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Output"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$IPatternDetails, $IPatternDetails$Type} from "packages/appeng/api/crafting/$IPatternDetails"
@@ -71,13 +75,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "decode"(arg0: $AEItemKey$Type, arg1: $Level$Type): $IPatternDetails
-public "decode"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: boolean): $IPatternDetails
 public "getOutput"(arg0: $ItemStack$Type): $ItemStack
+public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
-public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
+public "decode"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: boolean): $IPatternDetails
+public "decode"(arg0: $AEItemKey$Type, arg1: $Level$Type): $IPatternDetails
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -96,16 +100,16 @@ import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$Compo
 
 export class $ElapsedTimeTracker {
 
-constructor(arg0: long)
 constructor(arg0: $CompoundTag$Type)
+constructor(arg0: long)
 
 public "writeToNBT"(): $CompoundTag
-public "getRemainingItemCount"(): long
 public "getElapsedTime"(): long
 public "getStartItemCount"(): long
-get "remainingItemCount"(): long
+public "getRemainingItemCount"(): long
 get "elapsedTime"(): long
 get "startItemCount"(): long
+get "remainingItemCount"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -182,6 +186,66 @@ export type $SmithingTablePatternItem$Type = ($SmithingTablePatternItem);
  */
 declare global {
 export type $SmithingTablePatternItem_ = $SmithingTablePatternItem$Type;
+}}
+declare module "packages/appeng/crafting/pattern/$AECraftingPattern" {
+import {$IMolecularAssemblerSupportedPattern$CraftingGridAccessor, $IMolecularAssemblerSupportedPattern$CraftingGridAccessor$Type} from "packages/appeng/blockentity/crafting/$IMolecularAssemblerSupportedPattern$CraftingGridAccessor"
+import {$NonNullList, $NonNullList$Type} from "packages/net/minecraft/core/$NonNullList"
+import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
+import {$IPatternDetails$PatternInputSink, $IPatternDetails$PatternInputSink$Type} from "packages/appeng/api/crafting/$IPatternDetails$PatternInputSink"
+import {$IMolecularAssemblerSupportedPattern, $IMolecularAssemblerSupportedPattern$Type} from "packages/appeng/blockentity/crafting/$IMolecularAssemblerSupportedPattern"
+import {$IPatternDetails, $IPatternDetails$Type} from "packages/appeng/api/crafting/$IPatternDetails"
+import {$IPatternDetails$IInput, $IPatternDetails$IInput$Type} from "packages/appeng/api/crafting/$IPatternDetails$IInput"
+import {$Container, $Container$Type} from "packages/net/minecraft/world/$Container"
+import {$CraftingContainer, $CraftingContainer$Type} from "packages/net/minecraft/world/inventory/$CraftingContainer"
+import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
+
+export class $AECraftingPattern implements $IPatternDetails, $IMolecularAssemblerSupportedPattern {
+static readonly "CRAFTING_GRID_DIMENSION": integer
+static readonly "CRAFTING_GRID_SLOTS": integer
+readonly "canSubstitute": boolean
+readonly "canSubstituteFluids": boolean
+
+constructor(arg0: $AEItemKey$Type, arg1: $Level$Type)
+
+public "getInputs"(): ($IPatternDetails$IInput)[]
+public "canSubstitute"(): boolean
+public "getOutputs"(): ($GenericStack)[]
+public "fillCraftingGrid"(arg0: ($KeyCounter$Type)[], arg1: $IMolecularAssemblerSupportedPattern$CraftingGridAccessor$Type): void
+public "assemble"(arg0: $Container$Type, arg1: $Level$Type): $ItemStack
+public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
+public "canSubstituteFluids"(): boolean
+public "isSlotEnabled"(arg0: integer): boolean
+public "isItemValid"(arg0: integer, arg1: $AEItemKey$Type, arg2: $Level$Type): boolean
+public "getSparseInputs"(): ($GenericStack)[]
+public "getSparseOutputs"(): ($GenericStack)[]
+public "getValidFluid"(arg0: integer): $GenericStack
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "getDefinition"(): $AEItemKey
+public "getPrimaryOutput"(): $GenericStack
+public "pushInputsToExternalInventory"(arg0: ($KeyCounter$Type)[], arg1: $IPatternDetails$PatternInputSink$Type): void
+public "supportsPushInputsToExternalInventory"(): boolean
+get "inputs"(): ($IPatternDetails$IInput)[]
+get "outputs"(): ($GenericStack)[]
+get "sparseInputs"(): ($GenericStack)[]
+get "sparseOutputs"(): ($GenericStack)[]
+get "definition"(): $AEItemKey
+get "primaryOutput"(): $GenericStack
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AECraftingPattern$Type = ($AECraftingPattern);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $AECraftingPattern_ = $AECraftingPattern$Type;
 }}
 declare module "packages/appeng/crafting/pattern/$ProcessingPatternItem" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -304,42 +368,42 @@ import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$ICraftingSubmitResult, $ICraftingSubmitResult$Type} from "packages/appeng/api/networking/crafting/$ICraftingSubmitResult"
 import {$IGrid, $IGrid$Type} from "packages/appeng/api/networking/$IGrid"
 import {$ElapsedTimeTracker, $ElapsedTimeTracker$Type} from "packages/appeng/crafting/execution/$ElapsedTimeTracker"
-import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
 import {$ListCraftingInventory, $ListCraftingInventory$Type} from "packages/appeng/crafting/inv/$ListCraftingInventory"
 import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
+import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
 
 export class $CraftingCpuLogic {
 
 constructor(arg0: $CraftingCPUCluster$Type)
 
-public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "addListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
-public "cancel"(): void
 public "getInventory"(): $ListCraftingInventory
-public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
-public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "getLastLink"(): $ICraftingLink
+public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "tickCraftingLogic"(arg0: $IEnergyService$Type, arg1: $CraftingService$Type): void
+public "getLastLink"(): $ICraftingLink
 public "getAllWaitingFor"(arg0: $Set$Type<($AEKey$Type)>): void
 public "getWaitingFor"(arg0: $AEKey$Type): long
 public "getLastModifiedOnTick"(): long
-public "getAllItems"(arg0: $KeyCounter$Type): void
-public "isCantStoreItems"(): boolean
-public "getElapsedTimeTracker"(): $ElapsedTimeTracker
-public "getFinalJobOutput"(): $GenericStack
-public "hasJob"(): boolean
-public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
-public "getStored"(arg0: $AEKey$Type): long
+public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
+public "cancel"(): void
 public "storeItems"(): void
+public "getStored"(arg0: $AEKey$Type): long
 public "getPendingOutputs"(arg0: $AEKey$Type): long
 public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
+public "getAllItems"(arg0: $KeyCounter$Type): void
+public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
+public "getFinalJobOutput"(): $GenericStack
+public "hasJob"(): boolean
+public "isCantStoreItems"(): boolean
+public "getElapsedTimeTracker"(): $ElapsedTimeTracker
+public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 get "inventory"(): $ListCraftingInventory
 get "lastLink"(): $ICraftingLink
 get "lastModifiedOnTick"(): long
+get "finalJobOutput"(): $GenericStack
 get "cantStoreItems"(): boolean
 get "elapsedTimeTracker"(): $ElapsedTimeTracker
-get "finalJobOutput"(): $GenericStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -358,30 +422,30 @@ import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$Compo
 import {$ICraftingCPU, $ICraftingCPU$Type} from "packages/appeng/api/networking/crafting/$ICraftingCPU"
 import {$ICraftingLink, $ICraftingLink$Type} from "packages/appeng/api/networking/crafting/$ICraftingLink"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$CraftingLinkNexus, $CraftingLinkNexus$Type} from "packages/appeng/crafting/$CraftingLinkNexus"
+import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
 import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingRequester"
 
 export class $CraftingLink implements $ICraftingLink {
 
-constructor(arg0: $CompoundTag$Type, arg1: $ICraftingRequester$Type)
 constructor(arg0: $CompoundTag$Type, arg1: $ICraftingCPU$Type)
+constructor(arg0: $CompoundTag$Type, arg1: $ICraftingRequester$Type)
 
-public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
-public "isDone"(): boolean
-public "cancel"(): void
-public "isStandalone"(): boolean
-public "isCanceled"(): boolean
 public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "getCraftingID"(): $UUID
 public "setNexus"(arg0: $CraftingLinkNexus$Type): void
 public "markDone"(): void
-get "done"(): boolean
-get "standalone"(): boolean
-get "canceled"(): boolean
+public "isCanceled"(): boolean
+public "cancel"(): void
+public "isDone"(): boolean
+public "isStandalone"(): boolean
+public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 get "craftingID"(): $UUID
 set "nexus"(value: $CraftingLinkNexus$Type)
+get "canceled"(): boolean
+get "done"(): boolean
+get "standalone"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -406,13 +470,13 @@ export class $CraftingLinkNexus {
 
 constructor(arg0: $UUID$Type)
 
+public "isRequester"(arg0: $ICraftingRequester$Type): boolean
+public "setRequest"(arg0: $CraftingLink$Type): void
+public "getRequest"(): $CraftingLink
 public "removeNode"(): void
 public "isDead"(arg0: $IGrid$Type, arg1: $CraftingService$Type): boolean
-public "getRequest"(): $CraftingLink
-public "setRequest"(arg0: $CraftingLink$Type): void
-public "isRequester"(arg0: $ICraftingRequester$Type): boolean
-get "request"(): $CraftingLink
 set "request"(value: $CraftingLink$Type)
+get "request"(): $CraftingLink
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -440,11 +504,11 @@ readonly "list": $KeyCounter
 
 constructor(arg0: $ListCraftingInventory$ChangeListener$Type)
 
+public "readFromNBT"(arg0: $ListTag$Type): void
+public "writeToNBT"(): $ListTag
 public "extract"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): void
 public "clear"(): void
-public "writeToNBT"(): $ListTag
-public "readFromNBT"(arg0: $ListTag$Type): void
 public "findFuzzyTemplates"(arg0: $AEKey$Type): $Iterable<($AEKey)>
 }
 /**

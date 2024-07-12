@@ -16,20 +16,20 @@ static readonly "ItemTunnel": $TickRates
 static readonly "LightTunnel": $TickRates
 
 
-public static "values"(): ($TickRates)[]
-public static "valueOf"(arg0: string): $TickRates
-public "getMin"(): integer
 public "getMax"(): integer
+public "getMin"(): integer
 public "setMin"(arg0: integer): void
 public "setMax"(arg0: integer): void
-public "getDefaultMax"(): integer
 public "getDefaultMin"(): integer
-get "min"(): integer
+public "getDefaultMax"(): integer
+public static "values"(): ($TickRates)[]
+public static "valueOf"(arg0: string): $TickRates
 get "max"(): integer
+get "min"(): integer
 set "min"(value: integer)
 set "max"(value: integer)
-get "defaultMax"(): integer
 get "defaultMin"(): integer
+get "defaultMax"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

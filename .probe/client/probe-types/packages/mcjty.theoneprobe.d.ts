@@ -45,9 +45,9 @@ static "HELMET_SERIALIZER": $RecipeSerializer<(any)>
 
 constructor(arg0: $ShapedRecipe$Type)
 
-public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "category"(): $CraftingBookCategory
 public "getSerializer"(): $RecipeSerializer<(any)>
+public "category"(): $CraftingBookCategory
+public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 get "serializer"(): $RecipeSerializer<(any)>
 }
 /**
@@ -75,9 +75,9 @@ export class $AddProbeTagRecipeSerializer implements $RecipeSerializer<($AddProb
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddProbeTagRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $AddProbeTagRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $AddProbeTagRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddProbeTagRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $AddProbeTagRecipe
 }
@@ -193,47 +193,47 @@ export class $AbstractRecipeAdaptor implements $CraftingRecipe, $IShapedRecipe<(
 
 constructor(arg0: $ShapedRecipe$Type)
 
-public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
-public "getRecipeWidth"(): integer
-public "getRecipeHeight"(): integer
-public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "getToastSymbol"(): $ItemStack
+public "getIngredients"(): $NonNullList<($Ingredient)>
 public "getRecipe"(): $ShapedRecipe
 public "isSpecial"(): boolean
-public "getToastSymbol"(): $ItemStack
-public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
-public "getIngredients"(): $NonNullList<($Ingredient)>
+public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
+public "getRecipeWidth"(): integer
+public "getRecipeHeight"(): integer
 public "getId"(): $ResourceLocation
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
 public "category"(): $CraftingBookCategory
-public "showNotification"(): boolean
 public "isIncomplete"(): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getMod"(): string
-public "getType"(): $ResourceLocation
+public "showNotification"(): boolean
 public "getGroup"(): string
-public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
+public "setGroup"(group: string): void
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-get "recipeWidth"(): integer
-get "recipeHeight"(): integer
-get "recipe"(): $ShapedRecipe
-get "special"(): boolean
+public "getType"(): $ResourceLocation
+public "getMod"(): string
 get "toastSymbol"(): $ItemStack
 get "ingredients"(): $NonNullList<($Ingredient)>
+get "recipe"(): $ShapedRecipe
+get "special"(): boolean
+get "recipeWidth"(): integer
+get "recipeHeight"(): integer
 get "id"(): $ResourceLocation
 get "incomplete"(): boolean
 get "serializer"(): $RecipeSerializer<(any)>
-get "mod"(): string
-get "type"(): $ResourceLocation
 get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
+set "group"(value: string)
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
+get "mod"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

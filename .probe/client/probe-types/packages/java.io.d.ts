@@ -1,3 +1,29 @@
+declare module "packages/java/io/$FileNotFoundException" {
+import {$IOException, $IOException$Type} from "packages/java/io/$IOException"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $FileNotFoundException extends $IOException {
+
+constructor()
+constructor(arg0: string)
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FileNotFoundException$Type = ($FileNotFoundException);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $FileNotFoundException_ = $FileNotFoundException$Type;
+}}
 declare module "packages/java/io/$OutputStream" {
 import {$Closeable, $Closeable$Type} from "packages/java/io/$Closeable"
 import {$Flushable, $Flushable$Type} from "packages/java/io/$Flushable"
@@ -44,16 +70,16 @@ export interface $DataInput {
  "readUTF"(): string
  "readFloat"(): float
  "readChar"(): character
- "readUnsignedShort"(): integer
- "readLong"(): long
- "readByte"(): byte
- "readShort"(): short
  "readFully"(arg0: (byte)[]): void
  "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "skipBytes"(arg0: integer): integer
  "readBoolean"(): boolean
  "readUnsignedByte"(): integer
  "readDouble"(): double
+ "readUnsignedShort"(): integer
+ "readLong"(): long
+ "readByte"(): byte
+ "readShort"(): short
 }
 
 export namespace $DataInput {
@@ -786,16 +812,16 @@ public static "readUTF"(arg0: $DataInput$Type): string
 public "readUTF"(): string
 public "readFloat"(): float
 public "readChar"(): character
-public "readUnsignedShort"(): integer
-public "readLong"(): long
-public "readByte"(): byte
-public "readShort"(): short
 public "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "readFully"(arg0: (byte)[]): void
 public "skipBytes"(arg0: integer): integer
 public "readBoolean"(): boolean
 public "readUnsignedByte"(): integer
 public "readDouble"(): double
+public "readUnsignedShort"(): integer
+public "readLong"(): long
+public "readByte"(): byte
+public "readShort"(): short
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -901,16 +927,16 @@ export interface $ObjectInput extends $DataInput, $AutoCloseable {
  "readUTF"(): string
  "readFloat"(): float
  "readChar"(): character
- "readUnsignedShort"(): integer
- "readLong"(): long
- "readByte"(): byte
- "readShort"(): short
  "readFully"(arg0: (byte)[]): void
  "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "skipBytes"(arg0: integer): integer
  "readBoolean"(): boolean
  "readUnsignedByte"(): integer
  "readDouble"(): double
+ "readUnsignedShort"(): integer
+ "readLong"(): long
+ "readByte"(): byte
+ "readShort"(): short
 }
 
 export namespace $ObjectInput {
@@ -964,4 +990,33 @@ export type $BufferedReader$Type = ($BufferedReader);
  */
 declare global {
 export type $BufferedReader_ = $BufferedReader$Type;
+}}
+declare module "packages/java/io/$IOException" {
+import {$Throwable, $Throwable$Type} from "packages/java/lang/$Throwable"
+import {$Exception, $Exception$Type} from "packages/java/lang/$Exception"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $IOException extends $Exception {
+
+constructor(arg0: $Throwable$Type)
+constructor(arg0: string, arg1: $Throwable$Type)
+constructor(arg0: string)
+constructor()
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IOException$Type = ($IOException);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IOException_ = $IOException$Type;
 }}

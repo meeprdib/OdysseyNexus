@@ -130,8 +130,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
-public "setBurnTime"(arg0: integer): $APBlockItem
 public "getBurnTime"(arg0: $ItemStack$Type, arg1: $RecipeType$Type<(any)>): integer
+public "setBurnTime"(arg0: integer): $APBlockItem
 public "moonlight$setClientAnimationExtension"(arg0: any): void
 public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
@@ -163,9 +163,9 @@ export class $WarpingRecipe$Serializer implements $RecipeSerializer<($WarpingRec
 
 constructor()
 
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $WarpingRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $WarpingRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $WarpingRecipe$Type): void
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $WarpingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $WarpingRecipe
 }
@@ -204,46 +204,46 @@ static "TYPE": $WarpingRecipe$WarpRecipeType
 
 constructor(arg0: $ResourceLocation$Type, arg1: $Ingredient$Type, arg2: $ItemStack$Type, arg3: $ResourceLocation$Type)
 
-public "getResult"(): $ItemStack
-public "getInput"(): $Ingredient
-public "getDimension"(): $ResourceLocation
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
-public "isSpecial"(): boolean
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
 public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
 public "matches"(arg0: $Container$Type, arg1: $Level$Type): boolean
+public "getDimension"(): $ResourceLocation
 public "assemble"(arg0: $Container$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getId"(): $ResourceLocation
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "getInput"(): $Ingredient
+public "getResult"(): $ItemStack
+public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
 public "showNotification"(): boolean
-public "isIncomplete"(): boolean
 public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
-public "getMod"(): string
-public "getType"(): $ResourceLocation
 public "getGroup"(): string
-public "setGroup"(group: string): void
 public "getOrCreateId"(): $ResourceLocation
-public "getSchema"(): $RecipeSchema
+public "setGroup"(group: string): void
 public "hasOutput"(match: $ReplacementMatch$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "getSchema"(): $RecipeSchema
 public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
-get "result"(): $ItemStack
-get "input"(): $Ingredient
-get "dimension"(): $ResourceLocation
-get "special"(): boolean
+public "getType"(): $ResourceLocation
+public "getMod"(): string
 get "serializer"(): $RecipeSerializer<(any)>
 get "ingredients"(): $NonNullList<($Ingredient)>
+get "special"(): boolean
+get "dimension"(): $ResourceLocation
 get "id"(): $ResourceLocation
-get "toastSymbol"(): $ItemStack
+get "input"(): $Ingredient
+get "result"(): $ItemStack
 get "incomplete"(): boolean
-get "mod"(): string
-get "type"(): $ResourceLocation
+get "toastSymbol"(): $ItemStack
 get "group"(): string
-set "group"(value: string)
 get "orCreateId"(): $ResourceLocation
+set "group"(value: string)
 get "schema"(): $RecipeSchema
+get "type"(): $ResourceLocation
+get "mod"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

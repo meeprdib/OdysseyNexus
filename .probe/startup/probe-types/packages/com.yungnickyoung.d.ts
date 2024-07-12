@@ -211,10 +211,10 @@ readonly "features": $HolderSet<($PlacedFeature)>
 
 constructor(arg0: $HolderSet$Type<($PlacedFeature$Type)>)
 
-public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 public "getPlacedFeatures"(): $HolderSet<($PlacedFeature)>
-get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
+public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 get "placedFeatures"(): $HolderSet<($PlacedFeature)>
+get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -262,18 +262,18 @@ import {$DragonRespawnStage, $DragonRespawnStage$Type} from "packages/com/yungni
 
 export interface $IDragonFight {
 
- "betterendisland$initialRespawn"(): void
- "betterendisland$tickBellSound"(): void
+ "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
  "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
- "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
+ "betterendisland$hasDragonEverSpawned"(): boolean
  "betterendisland$numTimesDragonKilled"(): integer
  "betterendisland$firstExitPortalSpawn"(): boolean
- "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
- "betterendisland$hasDragonEverSpawned"(): boolean
  "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
+ "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
  "betterendisland$reset"(arg0: boolean): void
- "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
+ "betterendisland$tickBellSound"(): void
+ "betterendisland$initialRespawn"(): void
  "betterendisland$clearVanillaPillars"(): void
+ "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
 }
 
 export namespace $IDragonFight {
@@ -419,11 +419,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BoundingBoxAccessor {
 
  "setMinX"(arg0: integer): void
- "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
  "setMinZ"(arg0: integer): void
  "setMaxZ"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -594,11 +594,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BoundingBoxAccessor {
 
  "setMinX"(arg0: integer): void
- "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
  "setMinZ"(arg0: integer): void
  "setMaxZ"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1021,9 +1021,9 @@ import {$StructureManager, $StructureManager$Type} from "packages/net/minecraft/
 
 export interface $WorldGenRegionAccessor {
 
+ "getStructureManager"(): $StructureManager
  "getSize"(): integer
  "getCache"(): $List<($ChunkAccess)>
- "getStructureManager"(): $StructureManager
  "getFirstPos"(): $ChunkPos
  "getLastPos"(): $ChunkPos
 }
@@ -1443,11 +1443,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BoundingBoxAccessor {
 
  "setMinX"(arg0: integer): void
- "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
  "setMinZ"(arg0: integer): void
  "setMaxZ"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1501,14 +1501,14 @@ import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 export class $DesertWellFeatureConfiguration implements $FeatureConfiguration {
 static readonly "CODEC": $Codec<($DesertWellFeatureConfiguration)>
 
-constructor(arg0: $ResourceLocation$Type, arg1: integer)
 constructor(arg0: string, arg1: integer)
+constructor(arg0: $ResourceLocation$Type, arg1: integer)
 
-public "getLocation"(): $ResourceLocation
 public "getRadius"(): integer
+public "getLocation"(): $ResourceLocation
 public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-get "location"(): $ResourceLocation
 get "radius"(): integer
+get "location"(): $ResourceLocation
 get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 }
 /**
@@ -1655,9 +1655,9 @@ import {$StructureManager, $StructureManager$Type} from "packages/net/minecraft/
 
 export interface $WorldGenRegionAccessor {
 
+ "getStructureManager"(): $StructureManager
  "getSize"(): integer
  "getCache"(): $List<($ChunkAccess)>
- "getStructureManager"(): $StructureManager
  "getFirstPos"(): $ChunkPos
  "getLastPos"(): $ChunkPos
 }
@@ -1846,11 +1846,11 @@ static readonly "END": $DragonRespawnStage
 static readonly "CODEC": $StringRepresentable$EnumCodec<($DragonRespawnStage)>
 
 
-public static "values"(): ($DragonRespawnStage)[]
-public static "valueOf"(arg0: string): $DragonRespawnStage
+public "getSerializedName"(): string
 public "tick"(arg0: $ServerLevel$Type, arg1: $EndDragonFight$Type, arg2: $List$Type<($EndCrystal$Type)>, arg3: integer, arg4: $BlockPos$Type): void
 public static "byName"(arg0: string): $DragonRespawnStage
-public "getSerializedName"(): string
+public static "values"(): ($DragonRespawnStage)[]
+public static "valueOf"(arg0: string): $DragonRespawnStage
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
@@ -2099,11 +2099,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BoundingBoxAccessor {
 
  "setMinX"(arg0: integer): void
- "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
  "setMinZ"(arg0: integer): void
  "setMaxZ"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -2126,11 +2126,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $BoundingBoxAccessor {
 
  "setMinX"(arg0: integer): void
- "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
  "setMinZ"(arg0: integer): void
  "setMaxZ"(arg0: integer): void
+ "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -2280,9 +2280,9 @@ export class $TempleStateRegion {
 
 constructor(arg0: $Path$Type, arg1: string)
 
-public "reset"(): void
 public "setTempleCleared"(arg0: $BlockPos$Type, arg1: boolean): void
 public "isTempleCleared"(arg0: $BlockPos$Type): boolean
+public "reset"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
