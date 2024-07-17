@@ -77,7 +77,7 @@
 	tesla_coil_hurt_range = 3
 	#Tesla Coil internal capacity in FE.
 	#Range: > 0
-	tesla_coil_capacity = 40000
+	tesla_coil_capacity = 100000
 	#Energy consumed when Tesla Coil is fired (in FE).
 	#Range: > 0
 	tesla_coil_hurt_energy_required = 1000
@@ -104,7 +104,7 @@
 [alternator]
 	#Alternator efficiency relative to base conversion rate.
 	#Range: 0.01 ~ 1.0
-	generator_efficiency = 0.75
+	generator_efficiency = 0.25
 	#Alternator internal capacity in FE.
 	#Range: > 0
 	generator_capacity = 5000

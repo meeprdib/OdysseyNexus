@@ -9,6 +9,8 @@ ServerEvents.recipes(event => {
             // '@waystones',
             '@create_mechanical_spawner',
             '@gateways',
+            'apotheosis:reforging_table',
+            'apotheosis:augmenting_table',
             'alexscaves:nuclear_bomb',
             'alexscaves:nuclear_furnace_component',
             'apotheosis:sigil_of_socketing',
@@ -84,7 +86,7 @@ ServerEvents.recipes(event => {
             'sophisticatedbackpacks:stonecutter_upgrade',
             'sophisticatedbackpacks:tank_upgrade',
             'sophisticatedbackpacks:tool_swapper_upgrade',
-            'sophisticatedbackpacks:upgrade_base',
+            // 'sophisticatedbackpacks:upgrade_base',
             'sophisticatedbackpacks:void_upgrade',
             'sophisticatedbackpacks:xp_pump_upgrade',
             'spelunkery:sulfur_block',
@@ -100,6 +102,8 @@ ServerEvents.recipes(event => {
             'vintageimprovements:v_shaped_curving_head',
             'vintageimprovements:vacuum_chamber',
             'vintageimprovements:w_shaped_curving_head',
+            ['storagedrawers:redstone_upgrade', 'storagedrawers:min_redstone_upgrade', 'storagedrawers:max_redstone_upgrade', 'storagedrawers:fill_level_upgrade'],
+            ['storagedrawers:obsidian_storage_upgrade', 'storagedrawers:iron_storage_upgrade', 'storagedrawers:gold_storage_upgrade', 'storagedrawers:emerald_storage_upgrade', 'storagedrawers:upgrade_template', 'storagedrawers:diamond_storage_upgrade', 'storagedrawers:one_stack_upgrade'],
             // 'aether:iron_ring',
             // 'iceandfire:armor_copper_metal_boots',
             // 'iceandfire:armor_copper_metal_chestplate',
@@ -124,6 +128,11 @@ ServerEvents.recipes(event => {
             // 'ratatouille:mechanical_demolder',
             // 'ratatouille:squeeze_basin',
             // 'ratatouille:thresher',
+            '#vintagedelight:salt_lamp',
+            ['storagedrawers:controller_slave', 'storagedrawers:controller', 'storagedrawers:compacting_drawers_3'],
+            'storagedrawers:illumination_upgrade',
+            'storagedrawers:drawer_key',
+            'storagedrawers:void_upgrade',
             event.remove([{ type: 'vintageimprovements:coiling'}]),
             event.remove([{ type: 'vintageimprovements:hammering'}]),
             event.remove([{ type: 'vintageimprovements:pressurizing'}]),
@@ -160,6 +169,8 @@ ServerEvents.recipes(event => {
             event.remove({id: 'spelunkery:zinc_ore_blasting'}),
             event.remove({id: 'spelunkery:zinc_ore_smelting'}),
             event.remove({id: 'vintagedelight:salt_bucket_to_salt'}),
+            ['createaddition:copper_spool', 'createaddition:gold_spool', 'createaddition:festive_spool'],
+            'ae2:portable_item_cell_16k',
             console.log('Recipes nuked!')
         ]
     })
@@ -209,6 +220,12 @@ ServerEvents.recipes(event => {
     event.recipes.create.sandpaper_polishing('kubejs:polished_certus_quartz', 'ae2:charged_certus_quartz_crystal')
     event.shapeless('ae2:network_tool', ['minecraft:stick', 'create_dd:kinetic_mechanism'])
     event.recipes.create.item_application('kubejs:silicon_casing', ['minecraft:quartz_block', 'kubejs:silicon_sheet'])
+
+    event.recipes.create.mixing('ae2:fluix_crystal', [
+        Fluid.water(250),
+        '2x #on:red_stuff',
+        'ae2:charged_certus_quartz_crystal'
+    ]).heated()
     
     event.shaped('ae2:item_cell_housing', [
         'SSS',
@@ -275,13 +292,13 @@ ServerEvents.recipes(event => {
     event.shapeless('ae2:portable_fluid_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'createaddition:modular_accumulator', 'ae2:fluid_cell_housing'])
     event.shapeless('ae2:cell_workbench', ['kubejs:silicon_casing', '#forge:workbench'])
 
-    event.shaped('12x ae2:fluix_smart_cable', [
+    event.shaped('6x ae2:fluix_smart_cable', [
         'AAA',
         'BBB',
         'AAA'
     ], {
         A: 'kubejs:silicon_sheet',
-        B: 'minecraft:redstone'
+        B: 'ae2:quartz_fiber'
     })
 
     event.shaped('12x ae2:quartz_fiber', [
@@ -289,7 +306,7 @@ ServerEvents.recipes(event => {
         'BBB',
         'AAA'
     ], {
-        A: '#forge:glass',
+        A: '#forge:plates/electrum',
         B: 'minecraft:redstone'
     })
 
@@ -301,6 +318,19 @@ ServerEvents.recipes(event => {
         A: '#forge:ingots/electrum',
         B: 'kubejs:silicon_casing'
     })
+
+    event.shaped('ae2:spatial_pylon', [
+        'AAA',
+        'BCB',
+        'AAA'
+    ], {
+        A: 'kubejs:polished_fluix',
+        B: 'ae2:fluix_smart_dense_cable',
+        C: 'kubejs:silicon_casing'
+    })
+
+    event.shapeless('ae2:cable_anchor', ['#forge:rods/wooden', 'ae2:silicon'])
+    event.shapeless('ae2:toggle_bus', ['minecraft:lever', 'ae2:fluix_smart_cable'])
 
     // Create + Create Addons
 
@@ -314,7 +344,7 @@ ServerEvents.recipes(event => {
     ], 'create:copper_sheet', [
         event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'ae2:silicon']),
         event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'create_dd:bury_blend']),
-        event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', 'createaddition:electrum_nugget'])
+        event.recipes.createDeploying('create_dd:incomplete_integrated_circuit', ['create_dd:incomplete_integrated_circuit', '#forge:nuggets/electrum'])
     ]).transitionalItem('create_dd:incomplete_integrated_circuit').loops(5)
 
     event.recipes.create.sequenced_assembly([
@@ -326,7 +356,7 @@ ServerEvents.recipes(event => {
     ]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(4)
 
     event.recipes.create.mixing('4x createutilities:void_steel_ingot', [
-        '4x kubejs:steel_ingot',
+        '4x #forge:ingots/steel',
         'cataclysm:void_core'
     ]).superheated()
 
@@ -382,6 +412,65 @@ ServerEvents.recipes(event => {
     ], {
         D: 'createaddition:diamond_grit_sandpaper'
     })
+
+// Storage Drawers
+
+    event.shaped('storagedrawers:compacting_drawers_3', [
+        'ABA',
+        'ACA',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: '#on:piston',
+        C: '#storagedrawers:drawers'
+    })
+
+    event.shaped('storagedrawers:controller', [
+        'ABA',
+        'ACA',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: 'create_dd:integrated_circuit',
+        C: '#storagedrawers:drawers'
+    })
+
+    event.shaped('storagedrawers:controller_slave', [
+        'ABA',
+        'ACA',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: 'minecraft:comparator',
+        C: '#storagedrawers:drawers'
+    })
+
+    event.shaped('storagedrawers:diamond_storage_upgrade', [
+        'ABA',
+        'ABA',
+        'AAA'
+    ], {
+        A: '#forge:gems/certus_quartz',
+        B: 'sophisticatedbackpacks:upgrade_base',
+    })
+
+    event.shaped('storagedrawers:drawer_key', [
+        'AA ',
+        ' A ',
+        ' A '
+    ], {
+        A: '#forge:nuggets/gold'
+    })
+
+    event.shapeless('storagedrawers:one_stack_upgrade', ['minecraft:flint', 'sophisticatedbackpacks:upgrade_base'])
+    event.shapeless('4x storagedrawers:void_upgrade', ['createutilities:void_steel_ingot', 'sophisticatedbackpacks:upgrade_base'])
+    event.shapeless('storagedrawers:redstone_upgrade', ['minecraft:redstone', 'sophisticatedbackpacks:upgrade_base'])
+    event.shapeless('storagedrawers:min_redstone_upgrade', 'storagedrawers:redstone_upgrade')
+    event.shapeless('storagedrawers:max_redstone_upgrade', 'storagedrawers:min_redstone_upgrade')
+    event.shapeless('storagedrawers:fill_level_upgrade', 'storagedrawers:min_redstone_upgrade')
+    event.shapeless('storagedrawers:redstone_upgrade', 'storagedrawers:fill_level_upgrade')
+    event.shapeless('storagedrawers:illumination_upgrade', ['#ae2:p2p_attunements/light_p2p_tunnel', 'sophisticatedbackpacks:upgrade_base'])
+    
 
 // Ore / material processing
 
