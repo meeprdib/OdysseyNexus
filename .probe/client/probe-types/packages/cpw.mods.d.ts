@@ -112,8 +112,8 @@ import {$Manifest, $Manifest$Type} from "packages/java/util/jar/$Manifest"
 
 export interface $SecureJar$ModuleDataProvider {
 
- "findFile"(arg0: string): $Optional<($URI)>
  "verifyAndGetSigners"(arg0: string, arg1: (byte)[]): ($CodeSigner)[]
+ "findFile"(arg0: string): $Optional<($URI)>
  "name"(): string
  "descriptor"(): $ModuleDescriptor
  "uri"(): $URI
@@ -153,26 +153,26 @@ import {$Manifest, $Manifest$Type} from "packages/java/util/jar/$Manifest"
 
 export interface $SecureJar {
 
- "getFileStatus"(arg0: string): $SecureJar$Status
- "getPrimaryPath"(): $Path
- "moduleDataProvider"(): $SecureJar$ModuleDataProvider
- "hasSecurityData"(): boolean
+ "getTrustedManifestEntries"(arg0: string): $Attributes
  "getManifestSigners"(): ($CodeSigner)[]
  "verifyPath"(arg0: $Path$Type): $SecureJar$Status
- "getProviders"(): $List<($SecureJar$Provider)>
+ "getFileStatus"(arg0: string): $SecureJar$Status
+ "moduleDataProvider"(): $SecureJar$ModuleDataProvider
+ "getPrimaryPath"(): $Path
+ "hasSecurityData"(): boolean
  "getRootPath"(): $Path
- "getTrustedManifestEntries"(arg0: string): $Attributes
+ "getProviders"(): $List<($SecureJar$Provider)>
  "name"(): string
  "getPackages"(): $Set<(string)>
  "getPath"(arg0: string, ...arg1: (string)[]): $Path
 }
 
 export namespace $SecureJar {
+function from(arg0: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, ...arg1: ($Path$Type)[]): $SecureJar
 function from(...arg0: ($Path$Type)[]): $SecureJar
 function from(arg0: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, arg1: $BiPredicate$Type<(string), (string)>, ...arg2: ($Path$Type)[]): $SecureJar
-function from(arg0: $BiPredicate$Type<(string), (string)>, ...arg1: ($Path$Type)[]): $SecureJar
-function from(arg0: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, ...arg1: ($Path$Type)[]): $SecureJar
 function from(arg0: $Supplier$Type<($Manifest$Type)>, arg1: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, ...arg2: ($Path$Type)[]): $SecureJar
+function from(arg0: $BiPredicate$Type<(string), (string)>, ...arg1: ($Path$Type)[]): $SecureJar
 function from(arg0: $Supplier$Type<($Manifest$Type)>, arg1: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, arg2: $BiPredicate$Type<(string), (string)>, ...arg3: ($Path$Type)[]): $SecureJar
 }
 /**

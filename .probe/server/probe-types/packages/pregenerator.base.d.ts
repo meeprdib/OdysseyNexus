@@ -5,8 +5,8 @@ import {$DistanceManager, $DistanceManager$Type} from "packages/net/minecraft/se
 export interface $ServerChunkProviderMixin {
 
  "getTicketManager"(): $DistanceManager
- "getChunkIfPresent"(arg0: long): $ChunkHolder
  "syncChunkUpdates"(): boolean
+ "getChunkIfPresent"(arg0: long): $ChunkHolder
 }
 
 export namespace $ServerChunkProviderMixin {
@@ -208,8 +208,8 @@ import {$Iterable, $Iterable$Type} from "packages/java/lang/$Iterable"
 
 export interface $ChunkManagerMixin {
 
- "getLoadedChunks"(): $Iterable<($ChunkHolder)>
  "getStatusListener"(): $ChunkProgressListener
+ "getLoadedChunks"(): $Iterable<($ChunkHolder)>
 }
 
 export namespace $ChunkManagerMixin {
@@ -283,8 +283,8 @@ import {$Long2ObjectLinkedOpenHashMap, $Long2ObjectLinkedOpenHashMap$Type} from 
 
 export interface $RegionFileCacheMixin {
 
- "setRegionCache"(arg0: $Long2ObjectLinkedOpenHashMap$Type<($RegionFile$Type)>): void
  "getRegionCache"(): $Long2ObjectLinkedOpenHashMap<($RegionFile)>
+ "setRegionCache"(arg0: $Long2ObjectLinkedOpenHashMap$Type<($RegionFile$Type)>): void
 }
 
 export namespace $RegionFileCacheMixin {
@@ -309,8 +309,8 @@ import {$IOWorker, $IOWorker$Type} from "packages/net/minecraft/world/level/chun
 
 export interface $RegionSectionCacheMixin<T> {
 
- "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
  "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
+ "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
  "getIOWorker"(): $IOWorker
 }
 
@@ -386,10 +386,10 @@ import {$ServerStatus, $ServerStatus$Type} from "packages/net/minecraft/network/
 
 export interface $MinecraftServerMixin {
 
+ "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
+ "setPregenStatus"(arg0: $ServerStatus$Type): void
  "setServerTime"(arg0: long): void
  "getCurrentSave"(): $LevelStorageSource$LevelStorageAccess
- "setPregenStatus"(arg0: $ServerStatus$Type): void
- "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
 }
 
 export namespace $MinecraftServerMixin {

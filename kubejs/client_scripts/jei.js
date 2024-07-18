@@ -22,6 +22,7 @@ JEIEvents.hideItems(event => {
     'irons_spellbooks:lightning_upgrade_orb',
     'irons_spellbooks:nature_upgrade_orb',
     'irons_spellbooks:upgrade_orb',
+    'create_dd:kinetic_motor',
     ['storagedrawers:obsidian_storage_upgrade', 'storagedrawers:iron_storage_upgrade', 'storagedrawers:gold_storage_upgrade', 'storagedrawers:emerald_storage_upgrade', 'storagedrawers:upgrade_template'],
     // 'sophisticatedbackpacks:advanced_magnet_upgrade',
     // 'sophisticatedbackpacks:anvil_upgrade',

@@ -3,8 +3,8 @@ import {$BetterStatus, $BetterStatus$Type} from "packages/dev/wuffs/bcc/data/$Be
 
 export interface $ServerDataExtension {
 
- "setBetterData"(arg0: $BetterStatus$Type): void
  "getBetterData"(): $BetterStatus
+ "setBetterData"(arg0: $BetterStatus$Type): void
 }
 
 export namespace $ServerDataExtension {
@@ -31,15 +31,15 @@ static "CODEC": $Codec<($BetterStatus)>
 
 constructor(projectId: integer, name: string, version: string, versionId: integer, releaseType: string, isMetaData: boolean)
 
+public "versionId"(): integer
 public "isMetaData"(): boolean
-public "projectId"(): integer
 public "releaseType"(): string
+public "projectId"(): integer
 public "name"(): string
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "version"(): string
 public "hashCode"(): integer
-public "versionId"(): integer
 get "metaData"(): boolean
 }
 /**

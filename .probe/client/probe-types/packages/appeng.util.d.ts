@@ -118,30 +118,30 @@ export class $ConfigMenuInventory implements $InternalInventory {
 constructor(arg0: $GenericStackInv$Type)
 
 public "getDelegate"(): $GenericStackInv
-public "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
-public "getStackInSlot"(arg0: integer): $ItemStack
-public "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
-public "getSlotLimit"(arg0: integer): integer
 public "convertToSuitableStack"(arg0: $ItemStack$Type): $GenericStack
+public "getStackInSlot"(arg0: integer): $ItemStack
+public "getSlotLimit"(arg0: integer): integer
+public "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+public "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
 public "size"(): integer
 public "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
-public "sendChangeNotification"(arg0: integer): void
+public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+public "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
 public "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public static "wrapExternal"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
-public static "wrapExternal"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
+public "sendChangeNotification"(arg0: integer): void
+public "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+public "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "getSlotInv"(arg0: integer): $InternalInventory
+public "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+public "addItems"(arg0: $ItemStack$Type): $ItemStack
+public "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
 public "toItemHandler"(): $IItemHandler
 public "toContainer"(): $Container
 public "getRedstoneSignal"(): integer
-public "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "getSlotInv"(arg0: integer): $InternalInventory
-public "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
-public "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
-public "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
-public "addItems"(arg0: $ItemStack$Type): $ItemStack
+public static "wrapExternal"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
+public static "wrapExternal"(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
 public "mayAllowInsertion"(): boolean
-public "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
-public "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
+public "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
 public "clear"(): void
 public "isEmpty"(): boolean
 public "iterator"(): $Iterator<($ItemStack)>
@@ -170,8 +170,8 @@ import {$InternalInventory, $InternalInventory$Type} from "packages/appeng/api/i
 export interface $InternalInventoryHost {
 
  "isClientSide"(): boolean
- "saveChanges"(): void
  "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+ "saveChanges"(): void
 }
 
 export namespace $InternalInventoryHost {
@@ -203,12 +203,12 @@ export class $ConfigManager implements $IConfigManager {
 constructor(arg0: $IConfigManagerListener$Type)
 constructor(arg0: $Runnable$Type)
 
-public "getSettings"(): $Set<($Setting<(any)>)>
-public "readFromNBT"(arg0: $CompoundTag$Type): boolean
 public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "readFromNBT"(arg0: $CompoundTag$Type): boolean
+public "getSettings"(): $Set<($Setting<(any)>)>
 public "registerSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
-public "putSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
 public "getSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>): T
+public "putSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
 public "hasSetting"(arg0: $Setting$Type<(any)>): boolean
 get "settings"(): $Set<($Setting<(any)>)>
 }

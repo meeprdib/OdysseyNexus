@@ -1,127 +1,3 @@
-declare module "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/$BridgeFeature" {
-import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
-import {$RandomFeatureConfiguration, $RandomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomFeatureConfiguration"
-import {$SpikeConfiguration, $SpikeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SpikeConfiguration"
-import {$LakeFeature$Configuration, $LakeFeature$Configuration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$LakeFeature$Configuration"
-import {$BlockColumnConfiguration, $BlockColumnConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockColumnConfiguration"
-import {$MultifaceGrowthConfiguration, $MultifaceGrowthConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$MultifaceGrowthConfiguration"
-import {$RootSystemConfiguration, $RootSystemConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RootSystemConfiguration"
-import {$UnderwaterMagmaConfiguration, $UnderwaterMagmaConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$UnderwaterMagmaConfiguration"
-import {$RandomPatchConfiguration, $RandomPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomPatchConfiguration"
-import {$ProbabilityFeatureConfiguration, $ProbabilityFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ProbabilityFeatureConfiguration"
-import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
-import {$TwistingVinesConfig, $TwistingVinesConfig$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TwistingVinesConfig"
-import {$FeaturePlaceContext, $FeaturePlaceContext$Type} from "packages/net/minecraft/world/level/levelgen/feature/$FeaturePlaceContext"
-import {$DripstoneClusterConfiguration, $DripstoneClusterConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DripstoneClusterConfiguration"
-import {$AbstractTemplateFeature, $AbstractTemplateFeature$Type} from "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/$AbstractTemplateFeature"
-import {$LayerConfiguration, $LayerConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$LayerConfiguration"
-import {$HugeMushroomFeatureConfiguration, $HugeMushroomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$HugeMushroomFeatureConfiguration"
-import {$ReplaceBlockConfiguration, $ReplaceBlockConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ReplaceBlockConfiguration"
-import {$BlockStateConfiguration, $BlockStateConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockStateConfiguration"
-import {$SimpleBlockConfiguration, $SimpleBlockConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SimpleBlockConfiguration"
-import {$HugeFungusConfiguration, $HugeFungusConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$HugeFungusConfiguration"
-import {$DiskConfiguration, $DiskConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DiskConfiguration"
-import {$SeagrassFeature, $SeagrassFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$SeagrassFeature"
-import {$ReplaceSphereConfiguration, $ReplaceSphereConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ReplaceSphereConfiguration"
-import {$FossilFeatureConfiguration, $FossilFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$FossilFeatureConfiguration"
-import {$DeltaFeatureConfiguration, $DeltaFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DeltaFeatureConfiguration"
-import {$PointedDripstoneConfiguration, $PointedDripstoneConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$PointedDripstoneConfiguration"
-import {$SpringConfiguration, $SpringConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SpringConfiguration"
-import {$BlockPileConfiguration, $BlockPileConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockPileConfiguration"
-import {$OreConfiguration, $OreConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$OreConfiguration"
-import {$SimpleRandomFeatureConfiguration, $SimpleRandomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SimpleRandomFeatureConfiguration"
-import {$SculkPatchConfiguration, $SculkPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SculkPatchConfiguration"
-import {$NetherForestVegetationConfig, $NetherForestVegetationConfig$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$NetherForestVegetationConfig"
-import {$GeodeConfiguration, $GeodeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$GeodeConfiguration"
-import {$LargeDripstoneConfiguration, $LargeDripstoneConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$LargeDripstoneConfiguration"
-import {$BridgeFeatureConfig, $BridgeFeatureConfig$Type} from "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/config/$BridgeFeatureConfig"
-import {$RandomBooleanFeatureConfiguration, $RandomBooleanFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomBooleanFeatureConfiguration"
-import {$ColumnFeatureConfiguration, $ColumnFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ColumnFeatureConfiguration"
-import {$CountConfiguration, $CountConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$CountConfiguration"
-import {$VegetationPatchConfiguration, $VegetationPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$VegetationPatchConfiguration"
-import {$Feature, $Feature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$Feature"
-import {$NoneFeatureConfiguration, $NoneFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$NoneFeatureConfiguration"
-import {$EndGatewayConfiguration, $EndGatewayConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$EndGatewayConfiguration"
-
-export class $BridgeFeature extends $AbstractTemplateFeature<($BridgeFeatureConfig)> {
-static readonly "NO_OP": $Feature<($NoneFeatureConfiguration)>
-static readonly "TREE": $Feature<($TreeConfiguration)>
-static readonly "FLOWER": $Feature<($RandomPatchConfiguration)>
-static readonly "NO_BONEMEAL_FLOWER": $Feature<($RandomPatchConfiguration)>
-static readonly "RANDOM_PATCH": $Feature<($RandomPatchConfiguration)>
-static readonly "BLOCK_PILE": $Feature<($BlockPileConfiguration)>
-static readonly "SPRING": $Feature<($SpringConfiguration)>
-static readonly "CHORUS_PLANT": $Feature<($NoneFeatureConfiguration)>
-static readonly "REPLACE_SINGLE_BLOCK": $Feature<($ReplaceBlockConfiguration)>
-static readonly "VOID_START_PLATFORM": $Feature<($NoneFeatureConfiguration)>
-static readonly "DESERT_WELL": $Feature<($NoneFeatureConfiguration)>
-static readonly "FOSSIL": $Feature<($FossilFeatureConfiguration)>
-static readonly "HUGE_RED_MUSHROOM": $Feature<($HugeMushroomFeatureConfiguration)>
-static readonly "HUGE_BROWN_MUSHROOM": $Feature<($HugeMushroomFeatureConfiguration)>
-static readonly "ICE_SPIKE": $Feature<($NoneFeatureConfiguration)>
-static readonly "GLOWSTONE_BLOB": $Feature<($NoneFeatureConfiguration)>
-static readonly "FREEZE_TOP_LAYER": $Feature<($NoneFeatureConfiguration)>
-static readonly "VINES": $Feature<($NoneFeatureConfiguration)>
-static readonly "BLOCK_COLUMN": $Feature<($BlockColumnConfiguration)>
-static readonly "VEGETATION_PATCH": $Feature<($VegetationPatchConfiguration)>
-static readonly "WATERLOGGED_VEGETATION_PATCH": $Feature<($VegetationPatchConfiguration)>
-static readonly "ROOT_SYSTEM": $Feature<($RootSystemConfiguration)>
-static readonly "MULTIFACE_GROWTH": $Feature<($MultifaceGrowthConfiguration)>
-static readonly "UNDERWATER_MAGMA": $Feature<($UnderwaterMagmaConfiguration)>
-static readonly "MONSTER_ROOM": $Feature<($NoneFeatureConfiguration)>
-static readonly "BLUE_ICE": $Feature<($NoneFeatureConfiguration)>
-static readonly "ICEBERG": $Feature<($BlockStateConfiguration)>
-static readonly "FOREST_ROCK": $Feature<($BlockStateConfiguration)>
-static readonly "DISK": $Feature<($DiskConfiguration)>
-static readonly "LAKE": $Feature<($LakeFeature$Configuration)>
-static readonly "ORE": $Feature<($OreConfiguration)>
-static readonly "END_SPIKE": $Feature<($SpikeConfiguration)>
-static readonly "END_ISLAND": $Feature<($NoneFeatureConfiguration)>
-static readonly "END_GATEWAY": $Feature<($EndGatewayConfiguration)>
-static readonly "SEAGRASS": $SeagrassFeature
-static readonly "KELP": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_TREE": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_MUSHROOM": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_CLAW": $Feature<($NoneFeatureConfiguration)>
-static readonly "SEA_PICKLE": $Feature<($CountConfiguration)>
-static readonly "SIMPLE_BLOCK": $Feature<($SimpleBlockConfiguration)>
-static readonly "BAMBOO": $Feature<($ProbabilityFeatureConfiguration)>
-static readonly "HUGE_FUNGUS": $Feature<($HugeFungusConfiguration)>
-static readonly "NETHER_FOREST_VEGETATION": $Feature<($NetherForestVegetationConfig)>
-static readonly "WEEPING_VINES": $Feature<($NoneFeatureConfiguration)>
-static readonly "TWISTING_VINES": $Feature<($TwistingVinesConfig)>
-static readonly "BASALT_COLUMNS": $Feature<($ColumnFeatureConfiguration)>
-static readonly "DELTA_FEATURE": $Feature<($DeltaFeatureConfiguration)>
-static readonly "REPLACE_BLOBS": $Feature<($ReplaceSphereConfiguration)>
-static readonly "FILL_LAYER": $Feature<($LayerConfiguration)>
-static readonly "BONUS_CHEST": $BonusChestFeature
-static readonly "BASALT_PILLAR": $Feature<($NoneFeatureConfiguration)>
-static readonly "SCATTERED_ORE": $Feature<($OreConfiguration)>
-static readonly "RANDOM_SELECTOR": $Feature<($RandomFeatureConfiguration)>
-static readonly "SIMPLE_RANDOM_SELECTOR": $Feature<($SimpleRandomFeatureConfiguration)>
-static readonly "RANDOM_BOOLEAN_SELECTOR": $Feature<($RandomBooleanFeatureConfiguration)>
-static readonly "GEODE": $Feature<($GeodeConfiguration)>
-static readonly "DRIPSTONE_CLUSTER": $Feature<($DripstoneClusterConfiguration)>
-static readonly "LARGE_DRIPSTONE": $Feature<($LargeDripstoneConfiguration)>
-static readonly "POINTED_DRIPSTONE": $Feature<($PointedDripstoneConfiguration)>
-static readonly "SCULK_PATCH": $Feature<($SculkPatchConfiguration)>
-
-constructor()
-
-public "place"(arg0: $FeaturePlaceContext$Type<($BridgeFeatureConfig$Type)>): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BridgeFeature$Type = ($BridgeFeature);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $BridgeFeature_ = $BridgeFeature$Type;
-}}
 declare module "packages/com/yungnickyoung/minecraft/betterwitchhuts/mixin/accessor/$StructureProcessorAccessor" {
 import {$StructureProcessorType, $StructureProcessorType$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureProcessorType"
 
@@ -197,81 +73,21 @@ export type $WorldGenRegionAccessor$Type = ($WorldGenRegionAccessor);
 declare global {
 export type $WorldGenRegionAccessor_ = $WorldGenRegionAccessor$Type;
 }}
-declare module "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/config/$MultipleAttemptSingleRandomFeatureConfig" {
-import {$HolderSet, $HolderSet$Type} from "packages/net/minecraft/core/$HolderSet"
-import {$PlacedFeature, $PlacedFeature$Type} from "packages/net/minecraft/world/level/levelgen/placement/$PlacedFeature"
-import {$ConfiguredFeature, $ConfiguredFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$ConfiguredFeature"
-import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
-import {$FeatureConfiguration, $FeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$FeatureConfiguration"
-import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
-
-export class $MultipleAttemptSingleRandomFeatureConfig implements $FeatureConfiguration {
-static readonly "CODEC": $Codec<($MultipleAttemptSingleRandomFeatureConfig)>
-readonly "features": $HolderSet<($PlacedFeature)>
-
-constructor(arg0: $HolderSet$Type<($PlacedFeature$Type)>)
-
-public "getPlacedFeatures"(): $HolderSet<($PlacedFeature)>
-public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-get "placedFeatures"(): $HolderSet<($PlacedFeature)>
-get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MultipleAttemptSingleRandomFeatureConfig$Type = ($MultipleAttemptSingleRandomFeatureConfig);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $MultipleAttemptSingleRandomFeatureConfig_ = $MultipleAttemptSingleRandomFeatureConfig$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/config/$BridgeFeatureConfig" {
-import {$ConfiguredFeature, $ConfiguredFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$ConfiguredFeature"
-import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
-import {$FeatureConfiguration, $FeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$FeatureConfiguration"
-import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
-import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
-
-export class $BridgeFeatureConfig implements $FeatureConfiguration {
-static readonly "CODEC": $Codec<($BridgeFeatureConfig)>
-readonly "id": $ResourceLocation
- "isZAxis": boolean
-
-constructor(arg0: $ResourceLocation$Type, arg1: boolean)
-
-public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BridgeFeatureConfig$Type = ($BridgeFeatureConfig);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $BridgeFeatureConfig_ = $BridgeFeatureConfig$Type;
-}}
 declare module "packages/com/yungnickyoung/minecraft/betterendisland/world/$IDragonFight" {
 import {$DragonRespawnStage, $DragonRespawnStage$Type} from "packages/com/yungnickyoung/minecraft/betterendisland/world/$DragonRespawnStage"
 
 export interface $IDragonFight {
 
- "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
- "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
- "betterendisland$hasDragonEverSpawned"(): boolean
- "betterendisland$numTimesDragonKilled"(): integer
- "betterendisland$firstExitPortalSpawn"(): boolean
- "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
- "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
- "betterendisland$reset"(arg0: boolean): void
- "betterendisland$tickBellSound"(): void
  "betterendisland$initialRespawn"(): void
+ "betterendisland$tickBellSound"(): void
+ "betterendisland$reset"(arg0: boolean): void
+ "betterendisland$hasDragonEverSpawned"(): boolean
+ "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
+ "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
+ "betterendisland$firstExitPortalSpawn"(): boolean
+ "betterendisland$numTimesDragonKilled"(): integer
+ "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
+ "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
  "betterendisland$clearVanillaPillars"(): void
  "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
 }
@@ -413,33 +229,6 @@ export type $DesertGiantTorchFeature$Type = ($DesertGiantTorchFeature);
  */
 declare global {
 export type $DesertGiantTorchFeature_ = $DesertGiantTorchFeature$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/mixin/accessor/$BoundingBoxAccessor" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $BoundingBoxAccessor {
-
- "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
- "setMaxY"(arg0: integer): void
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinY"(arg0: integer): void
-}
-
-export namespace $BoundingBoxAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BoundingBoxAccessor$Type = ($BoundingBoxAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $BoundingBoxAccessor_ = $BoundingBoxAccessor$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/feature/swamp/$AbstractSwampFeature" {
 import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
@@ -593,12 +382,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/access
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -667,31 +456,6 @@ export type $FeaturePoolElementAccessor$Type = ($FeaturePoolElementAccessor);
  */
 declare global {
 export type $FeaturePoolElementAccessor_ = $FeaturePoolElementAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterjungletemples/mixin/accessor/$ChunkGeneratorStructureStateAccessor" {
-import {$BiomeSource, $BiomeSource$Type} from "packages/net/minecraft/world/level/biome/$BiomeSource"
-
-export interface $ChunkGeneratorStructureStateAccessor {
-
- "getBiomeSource"(): $BiomeSource
-
-(): $BiomeSource
-}
-
-export namespace $ChunkGeneratorStructureStateAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ChunkGeneratorStructureStateAccessor$Type = ($ChunkGeneratorStructureStateAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $ChunkGeneratorStructureStateAccessor_ = $ChunkGeneratorStructureStateAccessor$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/feature/desert/$ChillzoneDesertFeature" {
 import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
@@ -864,209 +628,6 @@ export type $ListPoolElementAccessor$Type = ($ListPoolElementAccessor);
  */
 declare global {
 export type $ListPoolElementAccessor_ = $ListPoolElementAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/$MultipleAttemptSingleRandomFeature" {
-import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
-import {$RandomFeatureConfiguration, $RandomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomFeatureConfiguration"
-import {$SpikeConfiguration, $SpikeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SpikeConfiguration"
-import {$LakeFeature$Configuration, $LakeFeature$Configuration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$LakeFeature$Configuration"
-import {$BlockColumnConfiguration, $BlockColumnConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockColumnConfiguration"
-import {$MultifaceGrowthConfiguration, $MultifaceGrowthConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$MultifaceGrowthConfiguration"
-import {$RootSystemConfiguration, $RootSystemConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RootSystemConfiguration"
-import {$UnderwaterMagmaConfiguration, $UnderwaterMagmaConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$UnderwaterMagmaConfiguration"
-import {$RandomPatchConfiguration, $RandomPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomPatchConfiguration"
-import {$ProbabilityFeatureConfiguration, $ProbabilityFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ProbabilityFeatureConfiguration"
-import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
-import {$TwistingVinesConfig, $TwistingVinesConfig$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TwistingVinesConfig"
-import {$FeaturePlaceContext, $FeaturePlaceContext$Type} from "packages/net/minecraft/world/level/levelgen/feature/$FeaturePlaceContext"
-import {$DripstoneClusterConfiguration, $DripstoneClusterConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DripstoneClusterConfiguration"
-import {$LayerConfiguration, $LayerConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$LayerConfiguration"
-import {$HugeMushroomFeatureConfiguration, $HugeMushroomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$HugeMushroomFeatureConfiguration"
-import {$ReplaceBlockConfiguration, $ReplaceBlockConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ReplaceBlockConfiguration"
-import {$BlockStateConfiguration, $BlockStateConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockStateConfiguration"
-import {$SimpleBlockConfiguration, $SimpleBlockConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SimpleBlockConfiguration"
-import {$HugeFungusConfiguration, $HugeFungusConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$HugeFungusConfiguration"
-import {$DiskConfiguration, $DiskConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DiskConfiguration"
-import {$SeagrassFeature, $SeagrassFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$SeagrassFeature"
-import {$ReplaceSphereConfiguration, $ReplaceSphereConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ReplaceSphereConfiguration"
-import {$FossilFeatureConfiguration, $FossilFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$FossilFeatureConfiguration"
-import {$DeltaFeatureConfiguration, $DeltaFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DeltaFeatureConfiguration"
-import {$PointedDripstoneConfiguration, $PointedDripstoneConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$PointedDripstoneConfiguration"
-import {$SpringConfiguration, $SpringConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SpringConfiguration"
-import {$BlockPileConfiguration, $BlockPileConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockPileConfiguration"
-import {$OreConfiguration, $OreConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$OreConfiguration"
-import {$SimpleRandomFeatureConfiguration, $SimpleRandomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SimpleRandomFeatureConfiguration"
-import {$SculkPatchConfiguration, $SculkPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SculkPatchConfiguration"
-import {$NetherForestVegetationConfig, $NetherForestVegetationConfig$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$NetherForestVegetationConfig"
-import {$GeodeConfiguration, $GeodeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$GeodeConfiguration"
-import {$LargeDripstoneConfiguration, $LargeDripstoneConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$LargeDripstoneConfiguration"
-import {$RandomBooleanFeatureConfiguration, $RandomBooleanFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomBooleanFeatureConfiguration"
-import {$ColumnFeatureConfiguration, $ColumnFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ColumnFeatureConfiguration"
-import {$CountConfiguration, $CountConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$CountConfiguration"
-import {$VegetationPatchConfiguration, $VegetationPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$VegetationPatchConfiguration"
-import {$Feature, $Feature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$Feature"
-import {$MultipleAttemptSingleRandomFeatureConfig, $MultipleAttemptSingleRandomFeatureConfig$Type} from "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/config/$MultipleAttemptSingleRandomFeatureConfig"
-import {$NoneFeatureConfiguration, $NoneFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$NoneFeatureConfiguration"
-import {$EndGatewayConfiguration, $EndGatewayConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$EndGatewayConfiguration"
-
-export class $MultipleAttemptSingleRandomFeature extends $Feature<($MultipleAttemptSingleRandomFeatureConfig)> {
-static readonly "NO_OP": $Feature<($NoneFeatureConfiguration)>
-static readonly "TREE": $Feature<($TreeConfiguration)>
-static readonly "FLOWER": $Feature<($RandomPatchConfiguration)>
-static readonly "NO_BONEMEAL_FLOWER": $Feature<($RandomPatchConfiguration)>
-static readonly "RANDOM_PATCH": $Feature<($RandomPatchConfiguration)>
-static readonly "BLOCK_PILE": $Feature<($BlockPileConfiguration)>
-static readonly "SPRING": $Feature<($SpringConfiguration)>
-static readonly "CHORUS_PLANT": $Feature<($NoneFeatureConfiguration)>
-static readonly "REPLACE_SINGLE_BLOCK": $Feature<($ReplaceBlockConfiguration)>
-static readonly "VOID_START_PLATFORM": $Feature<($NoneFeatureConfiguration)>
-static readonly "DESERT_WELL": $Feature<($NoneFeatureConfiguration)>
-static readonly "FOSSIL": $Feature<($FossilFeatureConfiguration)>
-static readonly "HUGE_RED_MUSHROOM": $Feature<($HugeMushroomFeatureConfiguration)>
-static readonly "HUGE_BROWN_MUSHROOM": $Feature<($HugeMushroomFeatureConfiguration)>
-static readonly "ICE_SPIKE": $Feature<($NoneFeatureConfiguration)>
-static readonly "GLOWSTONE_BLOB": $Feature<($NoneFeatureConfiguration)>
-static readonly "FREEZE_TOP_LAYER": $Feature<($NoneFeatureConfiguration)>
-static readonly "VINES": $Feature<($NoneFeatureConfiguration)>
-static readonly "BLOCK_COLUMN": $Feature<($BlockColumnConfiguration)>
-static readonly "VEGETATION_PATCH": $Feature<($VegetationPatchConfiguration)>
-static readonly "WATERLOGGED_VEGETATION_PATCH": $Feature<($VegetationPatchConfiguration)>
-static readonly "ROOT_SYSTEM": $Feature<($RootSystemConfiguration)>
-static readonly "MULTIFACE_GROWTH": $Feature<($MultifaceGrowthConfiguration)>
-static readonly "UNDERWATER_MAGMA": $Feature<($UnderwaterMagmaConfiguration)>
-static readonly "MONSTER_ROOM": $Feature<($NoneFeatureConfiguration)>
-static readonly "BLUE_ICE": $Feature<($NoneFeatureConfiguration)>
-static readonly "ICEBERG": $Feature<($BlockStateConfiguration)>
-static readonly "FOREST_ROCK": $Feature<($BlockStateConfiguration)>
-static readonly "DISK": $Feature<($DiskConfiguration)>
-static readonly "LAKE": $Feature<($LakeFeature$Configuration)>
-static readonly "ORE": $Feature<($OreConfiguration)>
-static readonly "END_SPIKE": $Feature<($SpikeConfiguration)>
-static readonly "END_ISLAND": $Feature<($NoneFeatureConfiguration)>
-static readonly "END_GATEWAY": $Feature<($EndGatewayConfiguration)>
-static readonly "SEAGRASS": $SeagrassFeature
-static readonly "KELP": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_TREE": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_MUSHROOM": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_CLAW": $Feature<($NoneFeatureConfiguration)>
-static readonly "SEA_PICKLE": $Feature<($CountConfiguration)>
-static readonly "SIMPLE_BLOCK": $Feature<($SimpleBlockConfiguration)>
-static readonly "BAMBOO": $Feature<($ProbabilityFeatureConfiguration)>
-static readonly "HUGE_FUNGUS": $Feature<($HugeFungusConfiguration)>
-static readonly "NETHER_FOREST_VEGETATION": $Feature<($NetherForestVegetationConfig)>
-static readonly "WEEPING_VINES": $Feature<($NoneFeatureConfiguration)>
-static readonly "TWISTING_VINES": $Feature<($TwistingVinesConfig)>
-static readonly "BASALT_COLUMNS": $Feature<($ColumnFeatureConfiguration)>
-static readonly "DELTA_FEATURE": $Feature<($DeltaFeatureConfiguration)>
-static readonly "REPLACE_BLOBS": $Feature<($ReplaceSphereConfiguration)>
-static readonly "FILL_LAYER": $Feature<($LayerConfiguration)>
-static readonly "BONUS_CHEST": $BonusChestFeature
-static readonly "BASALT_PILLAR": $Feature<($NoneFeatureConfiguration)>
-static readonly "SCATTERED_ORE": $Feature<($OreConfiguration)>
-static readonly "RANDOM_SELECTOR": $Feature<($RandomFeatureConfiguration)>
-static readonly "SIMPLE_RANDOM_SELECTOR": $Feature<($SimpleRandomFeatureConfiguration)>
-static readonly "RANDOM_BOOLEAN_SELECTOR": $Feature<($RandomBooleanFeatureConfiguration)>
-static readonly "GEODE": $Feature<($GeodeConfiguration)>
-static readonly "DRIPSTONE_CLUSTER": $Feature<($DripstoneClusterConfiguration)>
-static readonly "LARGE_DRIPSTONE": $Feature<($LargeDripstoneConfiguration)>
-static readonly "POINTED_DRIPSTONE": $Feature<($PointedDripstoneConfiguration)>
-static readonly "SCULK_PATCH": $Feature<($SculkPatchConfiguration)>
-
-constructor()
-
-public "place"(arg0: $FeaturePlaceContext$Type<($MultipleAttemptSingleRandomFeatureConfig$Type)>): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MultipleAttemptSingleRandomFeature$Type = ($MultipleAttemptSingleRandomFeature);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $MultipleAttemptSingleRandomFeature_ = $MultipleAttemptSingleRandomFeature$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterjungletemples/mixin/accessor/$StructureManagerAccessor" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-
-export interface $StructureManagerAccessor {
-
- "getLevel"(): $LevelAccessor
-
-(): $LevelAccessor
-}
-
-export namespace $StructureManagerAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StructureManagerAccessor$Type = ($StructureManagerAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $StructureManagerAccessor_ = $StructureManagerAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterjungletemples/mixin/accessor/$WorldGenRegionAccessor" {
-import {$ChunkPos, $ChunkPos$Type} from "packages/net/minecraft/world/level/$ChunkPos"
-import {$List, $List$Type} from "packages/java/util/$List"
-import {$ChunkAccess, $ChunkAccess$Type} from "packages/net/minecraft/world/level/chunk/$ChunkAccess"
-import {$StructureManager, $StructureManager$Type} from "packages/net/minecraft/world/level/$StructureManager"
-
-export interface $WorldGenRegionAccessor {
-
- "getStructureManager"(): $StructureManager
- "getSize"(): integer
- "getCache"(): $List<($ChunkAccess)>
- "getFirstPos"(): $ChunkPos
- "getLastPos"(): $ChunkPos
-}
-
-export namespace $WorldGenRegionAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WorldGenRegionAccessor$Type = ($WorldGenRegionAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WorldGenRegionAccessor_ = $WorldGenRegionAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/world/state/$ITempleStateCacheProvider" {
-import {$TempleStateCache, $TempleStateCache$Type} from "packages/com/yungnickyoung/minecraft/betterdeserttemples/world/state/$TempleStateCache"
-
-export interface $ITempleStateCacheProvider {
-
- "getTempleStateCache"(): $TempleStateCache
-
-(): $TempleStateCache
-}
-
-export namespace $ITempleStateCacheProvider {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ITempleStateCacheProvider$Type = ($ITempleStateCacheProvider);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $ITempleStateCacheProvider_ = $ITempleStateCacheProvider$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/feature/swamp/$SwampArchFeature" {
 import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
@@ -1442,12 +1003,12 @@ declare module "packages/com/yungnickyoung/minecraft/yungsapi/mixin/accessor/$Bo
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1464,32 +1025,6 @@ export type $BoundingBoxAccessor$Type = ($BoundingBoxAccessor);
  */
 declare global {
 export type $BoundingBoxAccessor_ = $BoundingBoxAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/world/state/$TempleStateCache" {
-import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
-import {$ConcurrentHashMap, $ConcurrentHashMap$Type} from "packages/java/util/concurrent/$ConcurrentHashMap"
-import {$TempleStateRegion, $TempleStateRegion$Type} from "packages/com/yungnickyoung/minecraft/betterdeserttemples/world/state/$TempleStateRegion"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-
-export class $TempleStateCache {
- "templeStateRegionMap": $ConcurrentHashMap<(string), ($TempleStateRegion)>
-
-constructor(arg0: $Path$Type)
-
-public "setTempleCleared"(arg0: $BlockPos$Type, arg1: boolean): void
-public "isTempleCleared"(arg0: $BlockPos$Type): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TempleStateCache$Type = ($TempleStateCache);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $TempleStateCache_ = $TempleStateCache$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/config/$DesertWellFeatureConfiguration" {
 import {$ConfiguredFeature, $ConfiguredFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$ConfiguredFeature"
@@ -1655,9 +1190,9 @@ import {$StructureManager, $StructureManager$Type} from "packages/net/minecraft/
 
 export interface $WorldGenRegionAccessor {
 
+ "getCache"(): $List<($ChunkAccess)>
  "getStructureManager"(): $StructureManager
  "getSize"(): integer
- "getCache"(): $List<($ChunkAccess)>
  "getFirstPos"(): $ChunkPos
  "getLastPos"(): $ChunkPos
 }
@@ -1676,128 +1211,6 @@ export type $WorldGenRegionAccessor$Type = ($WorldGenRegionAccessor);
  */
 declare global {
 export type $WorldGenRegionAccessor_ = $WorldGenRegionAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/yungsbridges/world/feature/$AbstractTemplateFeature" {
-import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
-import {$RandomFeatureConfiguration, $RandomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomFeatureConfiguration"
-import {$SpikeConfiguration, $SpikeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SpikeConfiguration"
-import {$LakeFeature$Configuration, $LakeFeature$Configuration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$LakeFeature$Configuration"
-import {$BlockColumnConfiguration, $BlockColumnConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockColumnConfiguration"
-import {$MultifaceGrowthConfiguration, $MultifaceGrowthConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$MultifaceGrowthConfiguration"
-import {$RootSystemConfiguration, $RootSystemConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RootSystemConfiguration"
-import {$UnderwaterMagmaConfiguration, $UnderwaterMagmaConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$UnderwaterMagmaConfiguration"
-import {$RandomPatchConfiguration, $RandomPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomPatchConfiguration"
-import {$ProbabilityFeatureConfiguration, $ProbabilityFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ProbabilityFeatureConfiguration"
-import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
-import {$TreeConfiguration, $TreeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
-import {$TwistingVinesConfig, $TwistingVinesConfig$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TwistingVinesConfig"
-import {$DripstoneClusterConfiguration, $DripstoneClusterConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DripstoneClusterConfiguration"
-import {$LayerConfiguration, $LayerConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$LayerConfiguration"
-import {$HugeMushroomFeatureConfiguration, $HugeMushroomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$HugeMushroomFeatureConfiguration"
-import {$ReplaceBlockConfiguration, $ReplaceBlockConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ReplaceBlockConfiguration"
-import {$BlockStateConfiguration, $BlockStateConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockStateConfiguration"
-import {$SimpleBlockConfiguration, $SimpleBlockConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SimpleBlockConfiguration"
-import {$HugeFungusConfiguration, $HugeFungusConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$HugeFungusConfiguration"
-import {$DiskConfiguration, $DiskConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DiskConfiguration"
-import {$SeagrassFeature, $SeagrassFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$SeagrassFeature"
-import {$ReplaceSphereConfiguration, $ReplaceSphereConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ReplaceSphereConfiguration"
-import {$FossilFeatureConfiguration, $FossilFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/$FossilFeatureConfiguration"
-import {$DeltaFeatureConfiguration, $DeltaFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$DeltaFeatureConfiguration"
-import {$PointedDripstoneConfiguration, $PointedDripstoneConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$PointedDripstoneConfiguration"
-import {$SpringConfiguration, $SpringConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SpringConfiguration"
-import {$BlockPileConfiguration, $BlockPileConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$BlockPileConfiguration"
-import {$OreConfiguration, $OreConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$OreConfiguration"
-import {$FeatureConfiguration, $FeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$FeatureConfiguration"
-import {$SimpleRandomFeatureConfiguration, $SimpleRandomFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SimpleRandomFeatureConfiguration"
-import {$SculkPatchConfiguration, $SculkPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$SculkPatchConfiguration"
-import {$NetherForestVegetationConfig, $NetherForestVegetationConfig$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$NetherForestVegetationConfig"
-import {$GeodeConfiguration, $GeodeConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$GeodeConfiguration"
-import {$LargeDripstoneConfiguration, $LargeDripstoneConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$LargeDripstoneConfiguration"
-import {$RandomBooleanFeatureConfiguration, $RandomBooleanFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$RandomBooleanFeatureConfiguration"
-import {$ColumnFeatureConfiguration, $ColumnFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$ColumnFeatureConfiguration"
-import {$CountConfiguration, $CountConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$CountConfiguration"
-import {$VegetationPatchConfiguration, $VegetationPatchConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$VegetationPatchConfiguration"
-import {$Feature, $Feature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$Feature"
-import {$NoneFeatureConfiguration, $NoneFeatureConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$NoneFeatureConfiguration"
-import {$EndGatewayConfiguration, $EndGatewayConfiguration$Type} from "packages/net/minecraft/world/level/levelgen/feature/configurations/$EndGatewayConfiguration"
-
-export class $AbstractTemplateFeature<C extends $FeatureConfiguration> extends $Feature<(C)> {
-static readonly "NO_OP": $Feature<($NoneFeatureConfiguration)>
-static readonly "TREE": $Feature<($TreeConfiguration)>
-static readonly "FLOWER": $Feature<($RandomPatchConfiguration)>
-static readonly "NO_BONEMEAL_FLOWER": $Feature<($RandomPatchConfiguration)>
-static readonly "RANDOM_PATCH": $Feature<($RandomPatchConfiguration)>
-static readonly "BLOCK_PILE": $Feature<($BlockPileConfiguration)>
-static readonly "SPRING": $Feature<($SpringConfiguration)>
-static readonly "CHORUS_PLANT": $Feature<($NoneFeatureConfiguration)>
-static readonly "REPLACE_SINGLE_BLOCK": $Feature<($ReplaceBlockConfiguration)>
-static readonly "VOID_START_PLATFORM": $Feature<($NoneFeatureConfiguration)>
-static readonly "DESERT_WELL": $Feature<($NoneFeatureConfiguration)>
-static readonly "FOSSIL": $Feature<($FossilFeatureConfiguration)>
-static readonly "HUGE_RED_MUSHROOM": $Feature<($HugeMushroomFeatureConfiguration)>
-static readonly "HUGE_BROWN_MUSHROOM": $Feature<($HugeMushroomFeatureConfiguration)>
-static readonly "ICE_SPIKE": $Feature<($NoneFeatureConfiguration)>
-static readonly "GLOWSTONE_BLOB": $Feature<($NoneFeatureConfiguration)>
-static readonly "FREEZE_TOP_LAYER": $Feature<($NoneFeatureConfiguration)>
-static readonly "VINES": $Feature<($NoneFeatureConfiguration)>
-static readonly "BLOCK_COLUMN": $Feature<($BlockColumnConfiguration)>
-static readonly "VEGETATION_PATCH": $Feature<($VegetationPatchConfiguration)>
-static readonly "WATERLOGGED_VEGETATION_PATCH": $Feature<($VegetationPatchConfiguration)>
-static readonly "ROOT_SYSTEM": $Feature<($RootSystemConfiguration)>
-static readonly "MULTIFACE_GROWTH": $Feature<($MultifaceGrowthConfiguration)>
-static readonly "UNDERWATER_MAGMA": $Feature<($UnderwaterMagmaConfiguration)>
-static readonly "MONSTER_ROOM": $Feature<($NoneFeatureConfiguration)>
-static readonly "BLUE_ICE": $Feature<($NoneFeatureConfiguration)>
-static readonly "ICEBERG": $Feature<($BlockStateConfiguration)>
-static readonly "FOREST_ROCK": $Feature<($BlockStateConfiguration)>
-static readonly "DISK": $Feature<($DiskConfiguration)>
-static readonly "LAKE": $Feature<($LakeFeature$Configuration)>
-static readonly "ORE": $Feature<($OreConfiguration)>
-static readonly "END_SPIKE": $Feature<($SpikeConfiguration)>
-static readonly "END_ISLAND": $Feature<($NoneFeatureConfiguration)>
-static readonly "END_GATEWAY": $Feature<($EndGatewayConfiguration)>
-static readonly "SEAGRASS": $SeagrassFeature
-static readonly "KELP": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_TREE": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_MUSHROOM": $Feature<($NoneFeatureConfiguration)>
-static readonly "CORAL_CLAW": $Feature<($NoneFeatureConfiguration)>
-static readonly "SEA_PICKLE": $Feature<($CountConfiguration)>
-static readonly "SIMPLE_BLOCK": $Feature<($SimpleBlockConfiguration)>
-static readonly "BAMBOO": $Feature<($ProbabilityFeatureConfiguration)>
-static readonly "HUGE_FUNGUS": $Feature<($HugeFungusConfiguration)>
-static readonly "NETHER_FOREST_VEGETATION": $Feature<($NetherForestVegetationConfig)>
-static readonly "WEEPING_VINES": $Feature<($NoneFeatureConfiguration)>
-static readonly "TWISTING_VINES": $Feature<($TwistingVinesConfig)>
-static readonly "BASALT_COLUMNS": $Feature<($ColumnFeatureConfiguration)>
-static readonly "DELTA_FEATURE": $Feature<($DeltaFeatureConfiguration)>
-static readonly "REPLACE_BLOBS": $Feature<($ReplaceSphereConfiguration)>
-static readonly "FILL_LAYER": $Feature<($LayerConfiguration)>
-static readonly "BONUS_CHEST": $BonusChestFeature
-static readonly "BASALT_PILLAR": $Feature<($NoneFeatureConfiguration)>
-static readonly "SCATTERED_ORE": $Feature<($OreConfiguration)>
-static readonly "RANDOM_SELECTOR": $Feature<($RandomFeatureConfiguration)>
-static readonly "SIMPLE_RANDOM_SELECTOR": $Feature<($SimpleRandomFeatureConfiguration)>
-static readonly "RANDOM_BOOLEAN_SELECTOR": $Feature<($RandomBooleanFeatureConfiguration)>
-static readonly "GEODE": $Feature<($GeodeConfiguration)>
-static readonly "DRIPSTONE_CLUSTER": $Feature<($DripstoneClusterConfiguration)>
-static readonly "LARGE_DRIPSTONE": $Feature<($LargeDripstoneConfiguration)>
-static readonly "POINTED_DRIPSTONE": $Feature<($PointedDripstoneConfiguration)>
-static readonly "SCULK_PATCH": $Feature<($SculkPatchConfiguration)>
-
-constructor(arg0: $Codec$Type<(C)>)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AbstractTemplateFeature$Type<C> = ($AbstractTemplateFeature<(C)>);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $AbstractTemplateFeature_<C> = $AbstractTemplateFeature$Type<(C)>;
 }}
 declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/accessor/$StructureProcessorAccessor" {
 import {$StructureProcessorType, $StructureProcessorType$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureProcessorType"
@@ -1846,9 +1259,9 @@ static readonly "END": $DragonRespawnStage
 static readonly "CODEC": $StringRepresentable$EnumCodec<($DragonRespawnStage)>
 
 
-public "getSerializedName"(): string
 public "tick"(arg0: $ServerLevel$Type, arg1: $EndDragonFight$Type, arg2: $List$Type<($EndCrystal$Type)>, arg3: integer, arg4: $BlockPos$Type): void
 public static "byName"(arg0: string): $DragonRespawnStage
+public "getSerializedName"(): string
 public static "values"(): ($DragonRespawnStage)[]
 public static "valueOf"(arg0: string): $DragonRespawnStage
 public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
@@ -1867,31 +1280,6 @@ export type $DragonRespawnStage$Type = (("summoning_pillars") | ("preparing_to_s
  */
 declare global {
 export type $DragonRespawnStage_ = $DragonRespawnStage$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/mixin/accessor/$ChunkGeneratorStructureStateAccessor" {
-import {$BiomeSource, $BiomeSource$Type} from "packages/net/minecraft/world/level/biome/$BiomeSource"
-
-export interface $ChunkGeneratorStructureStateAccessor {
-
- "getBiomeSource"(): $BiomeSource
-
-(): $BiomeSource
-}
-
-export namespace $ChunkGeneratorStructureStateAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ChunkGeneratorStructureStateAccessor$Type = ($ChunkGeneratorStructureStateAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $ChunkGeneratorStructureStateAccessor_ = $ChunkGeneratorStructureStateAccessor$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/feature/swamp/$SwampDoubleArchFeature" {
 import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
@@ -2017,31 +1405,6 @@ export type $SwampDoubleArchFeature$Type = ($SwampDoubleArchFeature);
 declare global {
 export type $SwampDoubleArchFeature_ = $SwampDoubleArchFeature$Type;
 }}
-declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/mixin/accessor/$StructureProcessorAccessor" {
-import {$StructureProcessorType, $StructureProcessorType$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureProcessorType"
-
-export interface $StructureProcessorAccessor {
-
- "callGetType"(): $StructureProcessorType<(any)>
-
-(): $StructureProcessorType<(any)>
-}
-
-export namespace $StructureProcessorAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StructureProcessorAccessor$Type = ($StructureProcessorAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $StructureProcessorAccessor_ = $StructureProcessorAccessor$Type;
-}}
 declare module "packages/com/yungnickyoung/minecraft/betteroceanmonuments/mixin/accessor/$StructureManagerAccessor" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
 
@@ -2098,39 +1461,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterwitchhuts/mixin/acces
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
+ "setMaxZ"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
+ "setMinY"(arg0: integer): void
  "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinY"(arg0: integer): void
-}
-
-export namespace $BoundingBoxAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BoundingBoxAccessor$Type = ($BoundingBoxAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $BoundingBoxAccessor_ = $BoundingBoxAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/bettermineshafts/mixin/$BoundingBoxAccessor" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $BoundingBoxAccessor {
-
- "setMinX"(arg0: integer): void
- "setMaxX"(arg0: integer): void
- "setMaxY"(arg0: integer): void
- "setMinZ"(arg0: integer): void
- "setMaxZ"(arg0: integer): void
- "setMinY"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -2271,30 +1607,6 @@ export type $SwampChurchFeature$Type = ($SwampChurchFeature);
  */
 declare global {
 export type $SwampChurchFeature_ = $SwampChurchFeature$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterdeserttemples/world/state/$TempleStateRegion" {
-import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-
-export class $TempleStateRegion {
-
-constructor(arg0: $Path$Type, arg1: string)
-
-public "setTempleCleared"(arg0: $BlockPos$Type, arg1: boolean): void
-public "isTempleCleared"(arg0: $BlockPos$Type): boolean
-public "reset"(): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TempleStateRegion$Type = ($TempleStateRegion);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $TempleStateRegion_ = $TempleStateRegion$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/feature/swamp/$SwampPillarFeature" {
 import {$BonusChestFeature, $BonusChestFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$BonusChestFeature"
@@ -2542,31 +1854,6 @@ export type $DesertSmallRuinsFeature$Type = ($DesertSmallRuinsFeature);
  */
 declare global {
 export type $DesertSmallRuinsFeature_ = $DesertSmallRuinsFeature$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterjungletemples/mixin/accessor/$StructureProcessorAccessor" {
-import {$StructureProcessorType, $StructureProcessorType$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureProcessorType"
-
-export interface $StructureProcessorAccessor {
-
- "callGetType"(): $StructureProcessorType<(any)>
-
-(): $StructureProcessorType<(any)>
-}
-
-export namespace $StructureProcessorAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StructureProcessorAccessor$Type = ($StructureProcessorAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $StructureProcessorAccessor_ = $StructureProcessorAccessor$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/yungsextras/world/config/$ResourceLocationFeatureConfiguration" {
 import {$ConfiguredFeature, $ConfiguredFeature$Type} from "packages/net/minecraft/world/level/levelgen/feature/$ConfiguredFeature"

@@ -83,38 +83,41 @@ static readonly "ROUND_HALF_EVEN": integer
  */
 static readonly "ROUND_UNNECESSARY": integer
 
+constructor(arg0: string, arg1: $MathContext$Type)
+constructor(arg0: string)
 constructor(arg0: (character)[], arg1: $MathContext$Type)
-constructor(arg0: (character)[])
-constructor(arg0: (character)[], arg1: integer, arg2: integer, arg3: $MathContext$Type)
+constructor(arg0: double)
+constructor(arg0: double, arg1: $MathContext$Type)
 constructor(arg0: (character)[], arg1: integer, arg2: integer)
-constructor(arg0: $BigInteger$Type, arg1: integer)
-constructor(arg0: $BigInteger$Type, arg1: integer, arg2: $MathContext$Type)
+constructor(arg0: (character)[], arg1: integer, arg2: integer, arg3: $MathContext$Type)
+constructor(arg0: (character)[])
 constructor(arg0: integer)
 constructor(arg0: integer, arg1: $MathContext$Type)
 constructor(arg0: long)
 constructor(arg0: long, arg1: $MathContext$Type)
-constructor(arg0: string)
-constructor(arg0: string, arg1: $MathContext$Type)
-constructor(arg0: double)
-constructor(arg0: double, arg1: $MathContext$Type)
 constructor(arg0: $BigInteger$Type)
 constructor(arg0: $BigInteger$Type, arg1: $MathContext$Type)
+constructor(arg0: $BigInteger$Type, arg1: integer)
+constructor(arg0: $BigInteger$Type, arg1: integer, arg2: $MathContext$Type)
 
+public "intValueExact"(): integer
+public "shortValueExact"(): short
+public "byteValueExact"(): byte
 public "unscaledValue"(): $BigInteger
-public "setScale"(arg0: integer, arg1: $RoundingMode$Type): $BigDecimal
 /**
  * 
  * @deprecated
  */
 public "setScale"(arg0: integer, arg1: integer): $BigDecimal
+public "setScale"(arg0: integer, arg1: $RoundingMode$Type): $BigDecimal
 public "setScale"(arg0: integer): $BigDecimal
 public "stripTrailingZeros"(): $BigDecimal
 public "scaleByPowerOfTen"(arg0: integer): $BigDecimal
 public "movePointLeft"(arg0: integer): $BigDecimal
 public "toEngineeringString"(): string
 public "toPlainString"(): string
-public "multiply"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
 public "multiply"(arg0: $BigDecimal$Type): $BigDecimal
+public "multiply"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
 public "round"(arg0: $MathContext$Type): $BigDecimal
 public "ulp"(): $BigDecimal
 public "add"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
@@ -125,8 +128,8 @@ public "hashCode"(): integer
 public "abs"(): $BigDecimal
 public "abs"(arg0: $MathContext$Type): $BigDecimal
 public "sqrt"(arg0: $MathContext$Type): $BigDecimal
-public "pow"(arg0: integer): $BigDecimal
 public "pow"(arg0: integer, arg1: $MathContext$Type): $BigDecimal
+public "pow"(arg0: integer): $BigDecimal
 public "min"(arg0: $BigDecimal$Type): $BigDecimal
 public "max"(arg0: $BigDecimal$Type): $BigDecimal
 public "signum"(): integer
@@ -135,34 +138,29 @@ public "intValue"(): integer
 public "longValue"(): long
 public "floatValue"(): float
 public "doubleValue"(): double
+public static "valueOf"(arg0: long): $BigDecimal
 public static "valueOf"(arg0: double): $BigDecimal
 public static "valueOf"(arg0: long, arg1: integer): $BigDecimal
-public static "valueOf"(arg0: long): $BigDecimal
 public "scale"(): integer
-public "negate"(arg0: $MathContext$Type): $BigDecimal
 public "negate"(): $BigDecimal
-public "intValueExact"(): integer
-public "shortValueExact"(): short
-public "byteValueExact"(): byte
-public "remainder"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
-public "remainder"(arg0: $BigDecimal$Type): $BigDecimal
-public "plus"(): $BigDecimal
+public "negate"(arg0: $MathContext$Type): $BigDecimal
 public "plus"(arg0: $MathContext$Type): $BigDecimal
+public "plus"(): $BigDecimal
 public "precision"(): integer
+/**
+ * 
+ * @deprecated
+ */
+public "divide"(arg0: $BigDecimal$Type, arg1: integer): $BigDecimal
+public "divide"(arg0: $BigDecimal$Type, arg1: $RoundingMode$Type): $BigDecimal
+public "divide"(arg0: $BigDecimal$Type): $BigDecimal
+public "divide"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
 public "divide"(arg0: $BigDecimal$Type, arg1: integer, arg2: $RoundingMode$Type): $BigDecimal
 /**
  * 
  * @deprecated
  */
 public "divide"(arg0: $BigDecimal$Type, arg1: integer, arg2: integer): $BigDecimal
-/**
- * 
- * @deprecated
- */
-public "divide"(arg0: $BigDecimal$Type, arg1: integer): $BigDecimal
-public "divide"(arg0: $BigDecimal$Type): $BigDecimal
-public "divide"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
-public "divide"(arg0: $BigDecimal$Type, arg1: $RoundingMode$Type): $BigDecimal
 public "divideToIntegralValue"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
 public "divideToIntegralValue"(arg0: $BigDecimal$Type): $BigDecimal
 public "longValueExact"(): long
@@ -173,6 +171,8 @@ public "divideAndRemainder"(arg0: $BigDecimal$Type): ($BigDecimal)[]
 public "subtract"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
 public "subtract"(arg0: $BigDecimal$Type): $BigDecimal
 public "toBigInteger"(): $BigInteger
+public "remainder"(arg0: $BigDecimal$Type, arg1: $MathContext$Type): $BigDecimal
+public "remainder"(arg0: $BigDecimal$Type): $BigDecimal
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -196,21 +196,34 @@ static readonly "ONE": $BigInteger
 static readonly "TWO": $BigInteger
 static readonly "TEN": $BigInteger
 
+constructor(arg0: integer, arg1: (byte)[])
+constructor(arg0: string, arg1: integer)
+constructor(arg0: (byte)[])
+constructor(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer)
+constructor(arg0: (byte)[], arg1: integer, arg2: integer)
+constructor(arg0: integer, arg1: integer, arg2: $Random$Type)
 constructor(arg0: string)
 constructor(arg0: integer, arg1: $Random$Type)
-constructor(arg0: integer, arg1: integer, arg2: $Random$Type)
-constructor(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer)
-constructor(arg0: (byte)[])
-constructor(arg0: (byte)[], arg1: integer, arg2: integer)
-constructor(arg0: string, arg1: integer)
-constructor(arg0: integer, arg1: (byte)[])
 
+public "modInverse"(arg0: $BigInteger$Type): $BigInteger
+public static "probablePrime"(arg0: integer, arg1: $Random$Type): $BigInteger
+public "nextProbablePrime"(): $BigInteger
+public "sqrtAndRemainder"(): ($BigInteger)[]
+public "gcd"(arg0: $BigInteger$Type): $BigInteger
+public "xor"(arg0: $BigInteger$Type): $BigInteger
+public "andNot"(arg0: $BigInteger$Type): $BigInteger
+public "clearBit"(arg0: integer): $BigInteger
+public "flipBit"(arg0: integer): $BigInteger
+public "isProbablePrime"(arg0: integer): boolean
+public "intValueExact"(): integer
+public "shortValueExact"(): short
+public "byteValueExact"(): byte
 public "multiply"(arg0: $BigInteger$Type): $BigInteger
 public "add"(arg0: $BigInteger$Type): $BigInteger
 public "bitCount"(): integer
 public "equals"(arg0: any): boolean
-public "toString"(): string
 public "toString"(arg0: integer): string
+public "toString"(): string
 public "hashCode"(): integer
 public "abs"(): $BigInteger
 public "sqrt"(): $BigInteger
@@ -228,24 +241,10 @@ public "toByteArray"(): (byte)[]
 public "mod"(arg0: $BigInteger$Type): $BigInteger
 public "setBit"(arg0: integer): $BigInteger
 public "shiftLeft"(arg0: integer): $BigInteger
-public "or"(arg0: $BigInteger$Type): $BigInteger
 public "negate"(): $BigInteger
 public "and"(arg0: $BigInteger$Type): $BigInteger
 public "not"(): $BigInteger
-public "modInverse"(arg0: $BigInteger$Type): $BigInteger
-public static "probablePrime"(arg0: integer, arg1: $Random$Type): $BigInteger
-public "nextProbablePrime"(): $BigInteger
-public "sqrtAndRemainder"(): ($BigInteger)[]
-public "gcd"(arg0: $BigInteger$Type): $BigInteger
-public "xor"(arg0: $BigInteger$Type): $BigInteger
-public "andNot"(arg0: $BigInteger$Type): $BigInteger
-public "clearBit"(arg0: integer): $BigInteger
-public "flipBit"(arg0: integer): $BigInteger
-public "isProbablePrime"(arg0: integer): boolean
-public "intValueExact"(): integer
-public "shortValueExact"(): short
-public "byteValueExact"(): byte
-public "remainder"(arg0: $BigInteger$Type): $BigInteger
+public "or"(arg0: $BigInteger$Type): $BigInteger
 public "divide"(arg0: $BigInteger$Type): $BigInteger
 public "longValueExact"(): long
 public "divideAndRemainder"(arg0: $BigInteger$Type): ($BigInteger)[]
@@ -255,6 +254,7 @@ public "subtract"(arg0: $BigInteger$Type): $BigInteger
 public "shiftRight"(arg0: integer): $BigInteger
 public "getLowestSetBit"(): integer
 public "modPow"(arg0: $BigInteger$Type, arg1: $BigInteger$Type): $BigInteger
+public "remainder"(arg0: $BigInteger$Type): $BigInteger
 set "bit"(value: integer)
 get "lowestSetBit"(): integer
 }

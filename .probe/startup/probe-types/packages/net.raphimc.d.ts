@@ -26,8 +26,8 @@ import {$MapAtlasTexture, $MapAtlasTexture$Type} from "packages/net/raphimc/imme
 
 export interface $IMapRenderer {
 
- "immediatelyFast$getMapAtlasTexture"(arg0: integer): $MapAtlasTexture
  "immediatelyFast$getAtlasMapping"(arg0: integer): integer
+ "immediatelyFast$getMapAtlasTexture"(arg0: integer): $MapAtlasTexture
 }
 
 export namespace $IMapRenderer {
@@ -61,9 +61,9 @@ constructor(id: integer)
 public "getIdentifier"(): $ResourceLocation
 public "getTexture"(): $DynamicTexture
 public "getNextMapLocation"(): integer
-public "handler$bag000$forceMipMapOff"(id: integer, ci: $CallbackInfo$Type): void
 public "getId"(): integer
 public "close"(): void
+public "handler$bag000$forceMipMapOff"(id: integer, ci: $CallbackInfo$Type): void
 get "identifier"(): $ResourceLocation
 get "texture"(): $DynamicTexture
 get "nextMapLocation"(): integer

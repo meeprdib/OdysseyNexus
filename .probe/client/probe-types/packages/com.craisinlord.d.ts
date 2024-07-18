@@ -208,10 +208,10 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 
 export interface $StructurePoolAccessor {
 
- "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
- "integratedapi_setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
  "integratedapi_getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
+ "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "integratedapi_getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
+ "integratedapi_setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
 }
 
 export namespace $StructurePoolAccessor {
@@ -330,8 +330,8 @@ declare global {
 export type $StructurePieceAccessor_ = $StructurePieceAccessor$Type;
 }}
 declare module "packages/com/craisinlord/integrated_api/mixins/structures/$SinglePoolElementAccessor" {
-import {$Holder, $Holder$Type} from "packages/net/minecraft/core/$Holder"
 import {$StructureTemplateManager, $StructureTemplateManager$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureTemplateManager"
+import {$Holder, $Holder$Type} from "packages/net/minecraft/core/$Holder"
 import {$StructureProcessorList, $StructureProcessorList$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureProcessorList"
 import {$Either, $Either$Type} from "packages/com/mojang/datafixers/util/$Either"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
@@ -339,9 +339,9 @@ import {$StructureTemplate, $StructureTemplate$Type} from "packages/net/minecraf
 
 export interface $SinglePoolElementAccessor {
 
- "integratedapi_getProcessors"(): $Holder<($StructureProcessorList)>
- "integratedapi_getTemplate"(): $Either<($ResourceLocation), ($StructureTemplate)>
  "callGetTemplate"(arg0: $StructureTemplateManager$Type): $StructureTemplate
+ "integratedapi_getTemplate"(): $Either<($ResourceLocation), ($StructureTemplate)>
+ "integratedapi_getProcessors"(): $Holder<($StructureProcessorList)>
 }
 
 export namespace $SinglePoolElementAccessor {

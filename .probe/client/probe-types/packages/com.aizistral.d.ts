@@ -2,8 +2,8 @@ declare module "packages/com/aizistral/nochatreports/common/core/$ServerDataExte
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ServerDataExtension {
 
- "setPreventsChatReports"(arg0: boolean): void
  "preventsChatReports"(): boolean
+ "setPreventsChatReports"(arg0: boolean): void
 }
 
 export namespace $ServerDataExtension {

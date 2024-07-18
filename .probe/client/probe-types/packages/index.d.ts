@@ -1,5 +1,4 @@
 /// <reference path="xaero.common.d.ts" />
-/// <reference path="com.hlysine.d.ts" />
 /// <reference path="software.bernie.d.ts" />
 /// <reference path="com.aizistral.d.ts" />
 /// <reference path="architectspalette.content.d.ts" />

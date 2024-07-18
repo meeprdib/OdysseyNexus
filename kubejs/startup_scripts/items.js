@@ -11,4 +11,5 @@ StartupEvents.registry('item', event => {
     event.create('incomplete_computational_mechanism').displayName('Incomplete Computational Mechanism').rarity('rare')
     event.create('nuclear_mechanism').displayName('Nuclear Mechanism')
     event.create('incomplete_nuclear_mechanism').displayName('Incomplete Nuclear Mechanism')
+    event.create('chorus_gummy').displayName('Chorus Gummy').hunger(2).saturation(0)
 })

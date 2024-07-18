@@ -24,8 +24,8 @@ import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/c
 
 export interface $SmithingTransformRecipeAccessor {
 
- "getAddition"(): $Ingredient
  "getTemplate"(): $Ingredient
+ "getAddition"(): $Ingredient
  "getBase"(): $Ingredient
 }
 
@@ -174,8 +174,8 @@ import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/c
 
 export interface $SmithingTrimRecipeAccessor {
 
- "getAddition"(): $Ingredient
  "getTemplate"(): $Ingredient
+ "getAddition"(): $Ingredient
  "getBase"(): $Ingredient
 }
 
@@ -200,11 +200,11 @@ import {$Slot, $Slot$Type} from "packages/net/minecraft/world/inventory/$Slot"
 export interface $HandledScreenAccessor {
 
  "getY"(): integer
- "getBackgroundHeight"(): integer
  "invokeGetSlotAt"(arg0: double, arg1: double): $Slot
  "getFocusedSlot"(): $Slot
  "getBackgroundWidth"(): integer
  "getX"(): integer
+ "getBackgroundHeight"(): integer
 }
 
 export namespace $HandledScreenAccessor {

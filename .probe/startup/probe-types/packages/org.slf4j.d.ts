@@ -6,24 +6,24 @@ import {$Marker, $Marker$Type} from "packages/org/slf4j/$Marker"
 
 export interface $Logger {
 
- "isDebugEnabled"(): boolean
- "isDebugEnabled"(arg0: $Marker$Type): boolean
- "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
- "atError"(): $LoggingEventBuilder
  "atLevel"(arg0: $Level$Type): $LoggingEventBuilder
  "atWarn"(): $LoggingEventBuilder
  "atDebug"(): $LoggingEventBuilder
- "atTrace"(): $LoggingEventBuilder
+ "atError"(): $LoggingEventBuilder
  "atInfo"(): $LoggingEventBuilder
+ "atTrace"(): $LoggingEventBuilder
+ "isEnabledForLevel"(arg0: $Level$Type): boolean
+ "makeLoggingEventBuilder"(arg0: $Level$Type): $LoggingEventBuilder
+ "isDebugEnabled"(arg0: $Marker$Type): boolean
+ "isDebugEnabled"(): boolean
+ "isTraceEnabled"(arg0: $Marker$Type): boolean
+ "isTraceEnabled"(): boolean
  "isWarnEnabled"(): boolean
  "isWarnEnabled"(arg0: $Marker$Type): boolean
- "isTraceEnabled"(): boolean
- "isTraceEnabled"(arg0: $Marker$Type): boolean
+ "isInfoEnabled"(): boolean
+ "isInfoEnabled"(arg0: $Marker$Type): boolean
  "isErrorEnabled"(arg0: $Marker$Type): boolean
  "isErrorEnabled"(): boolean
- "isInfoEnabled"(arg0: $Marker$Type): boolean
- "isInfoEnabled"(): boolean
- "isEnabledForLevel"(arg0: $Level$Type): boolean
  "getName"(): string
  "info"(arg0: string, arg1: any): void
  "info"(arg0: string): void
@@ -103,11 +103,11 @@ static readonly "DEBUG": $Level
 static readonly "TRACE": $Level
 
 
-public static "intToLevel"(arg0: integer): $Level
 public "toInt"(): integer
 public "toString"(): string
 public static "values"(): ($Level)[]
 public static "valueOf"(arg0: string): $Level
+public static "intToLevel"(arg0: integer): $Level
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -128,11 +128,11 @@ import {$Marker, $Marker$Type} from "packages/org/slf4j/$Marker"
 
 export interface $LoggingEventBuilder {
 
+ "addMarker"(arg0: $Marker$Type): $LoggingEventBuilder
+ "addArgument"(arg0: any): $LoggingEventBuilder
+ "addArgument"(arg0: $Supplier$Type<(any)>): $LoggingEventBuilder
  "addKeyValue"(arg0: string, arg1: any): $LoggingEventBuilder
  "addKeyValue"(arg0: string, arg1: $Supplier$Type<(any)>): $LoggingEventBuilder
- "addMarker"(arg0: $Marker$Type): $LoggingEventBuilder
- "addArgument"(arg0: $Supplier$Type<(any)>): $LoggingEventBuilder
- "addArgument"(arg0: any): $LoggingEventBuilder
  "setMessage"(arg0: string): $LoggingEventBuilder
  "setMessage"(arg0: $Supplier$Type<(string)>): $LoggingEventBuilder
  "log"(arg0: string, arg1: any): void

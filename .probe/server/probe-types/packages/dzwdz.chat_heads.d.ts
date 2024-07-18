@@ -28,8 +28,8 @@ import {$PlayerInfo, $PlayerInfo$Type} from "packages/net/minecraft/client/multi
 
 export interface $Ownable {
 
- "chatheads$setOwner"(arg0: $PlayerInfo$Type): void
  "chatheads$getOwner"(): $PlayerInfo
+ "chatheads$setOwner"(arg0: $PlayerInfo$Type): void
 }
 
 export namespace $Ownable {

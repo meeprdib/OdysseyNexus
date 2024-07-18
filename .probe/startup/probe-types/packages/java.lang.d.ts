@@ -1514,8 +1514,9 @@ declare global {
 export type $ModuleReference_ = $ModuleReference$Type;
 }}
 declare module "packages/java/lang/invoke/$VarHandle$VarHandleDesc" {
-import {$DynamicConstantDesc, $DynamicConstantDesc$Type} from "packages/java/lang/constant/$DynamicConstantDesc"
 import {$VarHandle, $VarHandle$Type} from "packages/java/lang/invoke/$VarHandle"
+import {$DynamicConstantDesc, $DynamicConstantDesc$Type} from "packages/java/lang/constant/$DynamicConstantDesc"
+import {$MethodHandles$Lookup, $MethodHandles$Lookup$Type} from "packages/java/lang/invoke/$MethodHandles$Lookup"
 import {$ClassDesc, $ClassDesc$Type} from "packages/java/lang/constant/$ClassDesc"
 
 /**
@@ -1526,11 +1527,12 @@ import {$ClassDesc, $ClassDesc$Type} from "packages/java/lang/constant/$ClassDes
 export class $VarHandle$VarHandleDesc extends $DynamicConstantDesc<($VarHandle)> {
 
 
+public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public "toString"(): string
+public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$Type): $VarHandle
 public static "ofField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public "varType"(): $ClassDesc
 public static "ofArray"(arg0: $ClassDesc$Type): $VarHandle$VarHandleDesc
-public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

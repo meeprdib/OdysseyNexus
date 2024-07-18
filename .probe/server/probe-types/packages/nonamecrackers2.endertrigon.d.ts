@@ -3,8 +3,8 @@ import {$EnderDragonPart, $EnderDragonPart$Type} from "packages/net/minecraft/wo
 
 export interface $IMixinEnderDragon {
 
- "callTickPart"(arg0: $EnderDragonPart$Type, arg1: double, arg2: double, arg3: double): void
  "callGetHeadYOffset"(): float
+ "callTickPart"(arg0: $EnderDragonPart$Type, arg1: double, arg2: double, arg3: double): void
 }
 
 export namespace $IMixinEnderDragon {
@@ -73,8 +73,8 @@ declare module "packages/nonamecrackers2/endertrigon/common/util/$DragonStrafeEx
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DragonStrafeExtension {
 
- "getTimesStrafing"(): integer
  "setTimesStrafing"(arg0: integer): void
+ "getTimesStrafing"(): integer
  "countStrafe"(): void
 }
 
@@ -105,12 +105,12 @@ readonly "neck": $EnderDragonPart
 constructor(arg0: $EnderDragon$Type, arg1: $EnderDragonPart$Type, arg2: $EnderDragonPart$Type, arg3: float, arg4: float, arg5: float, arg6: float, arg7: integer)
 
 public "tick"(): void
+public "getLatencyOffset"(): integer
 public "getRenderYRotOffset"(): float
 public "getRenderXRotOffset"(): float
-public "getLatencyOffset"(): integer
+get "latencyOffset"(): integer
 get "renderYRotOffset"(): float
 get "renderXRotOffset"(): float
-get "latencyOffset"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -177,8 +177,8 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$FallingBlockEntity, $FallingBlockEntity$Type} from "packages/net/minecraft/world/entity/item/$FallingBlockEntity"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$FallingBlockEntity, $FallingBlockEntity$Type} from "packages/net/minecraft/world/entity/item/$FallingBlockEntity"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
@@ -222,11 +222,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "onLand"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $BlockState$Type, arg4: $FallingBlockEntity$Type): void
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getTicker"<T extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
 }

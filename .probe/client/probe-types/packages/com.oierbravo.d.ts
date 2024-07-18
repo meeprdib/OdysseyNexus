@@ -9,8 +9,8 @@ export class $SpawnerRecipe$SpawnerRecipeWrapper extends $SimpleContainer {
 constructor(arg0: $FluidStack$Type)
 
 public "getFluidStack"(): $FluidStack
-public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
 public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type): boolean
+public static "stillValidBlockEntity"(arg0: $BlockEntity$Type, arg1: $Player$Type, arg2: integer): boolean
 public static "tryClear"(arg0: any): void
 get "fluidStack"(): $FluidStack
 }
@@ -41,9 +41,9 @@ static readonly "ID": $ResourceLocation
 
 constructor()
 
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SpawnerRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $SpawnerRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $SpawnerRecipe$Type): void
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $SpawnerRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $SpawnerRecipe
 }
@@ -117,25 +117,25 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
-public "getBlockEntityClass"(): $Class<($SpawnerBlockEntity)>
 public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
-public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "getMinimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
 public "isPathfindable"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $PathComputationType$Type): boolean
 public "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type, arg4: boolean): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($SpawnerBlockEntity)>
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "getBlockEntityClass"(): $Class<($SpawnerBlockEntity)>
 public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $SpawnerBlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($SpawnerBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
 public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($SpawnerBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($SpawnerBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($SpawnerBlockEntity)>
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityType"(): $BlockEntityType<(any)>
 get "minimumRequiredSpeedLevel"(): $IRotate$SpeedLevel
 get "blockEntityClass"(): $Class<($SpawnerBlockEntity)>
-get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -193,53 +193,53 @@ export class $SpawnerRecipe implements $Recipe<($SimpleContainer)>, $IRecipeType
 
 constructor(arg0: $SpawnerRecipeBuilder$SpawnerRecipeParams$Type)
 
+public "getId"(): $ResourceLocation
+public "getProcessingTime"(): integer
 public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "getFluidAmount"(): integer
-public "assemble"(arg0: $SimpleContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
 public "getFluidIngredient"(): $FluidIngredient
-public "getProcessingTime"(): integer
-public "getMob"(): $EntityType<(any)>
-public "getId"(): $ResourceLocation
 public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "getMob"(): $EntityType<(any)>
+public "assemble"(arg0: $SimpleContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getFluidAmount"(): integer
+public "matches"(arg0: $FluidStack$Type): boolean
 public "matches"(arg0: $SpawnerRecipe$SpawnerRecipeWrapper$Type, arg1: $Level$Type): boolean
 public "matches"(arg0: $SimpleContainer$Type, arg1: $Level$Type): boolean
-public "matches"(arg0: $FluidStack$Type): boolean
+public "isSpecial"(): boolean
+public "getRemainingItems"(arg0: $SimpleContainer$Type): $NonNullList<($ItemStack)>
+public "showNotification"(): boolean
+public "getIngredients"(): $NonNullList<($Ingredient)>
 public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
-public "showNotification"(): boolean
-public "getRemainingItems"(arg0: $SimpleContainer$Type): $NonNullList<($ItemStack)>
-public "getIngredients"(): $NonNullList<($Ingredient)>
-public "isSpecial"(): boolean
 public "getSerializer"<T extends $RecipeSerializer<(any)>>(): T
 public "getId"(): $ResourceLocation
 public "getType"<T extends $RecipeType<(any)>>(): T
-public "getGroup"(): string
-public "getOrCreateId"(): $ResourceLocation
-public "setGroup"(group: string): void
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getGroup"(): string
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getSchema"(): $RecipeSchema
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
-get "serializer"(): $RecipeSerializer<(any)>
-get "fluidAmount"(): integer
-get "fluidIngredient"(): $FluidIngredient
-get "processingTime"(): integer
-get "mob"(): $EntityType<(any)>
 get "id"(): $ResourceLocation
+get "processingTime"(): integer
+get "serializer"(): $RecipeSerializer<(any)>
+get "fluidIngredient"(): $FluidIngredient
+get "mob"(): $EntityType<(any)>
+get "fluidAmount"(): integer
+get "special"(): boolean
+get "ingredients"(): $NonNullList<($Ingredient)>
 get "incomplete"(): boolean
 get "toastSymbol"(): $ItemStack
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "special"(): boolean
 get "serializer"(): T
 get "id"(): $ResourceLocation
 get "type"(): T
-get "group"(): string
-get "orCreateId"(): $ResourceLocation
 set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "group"(): string
 get "schema"(): $RecipeSchema
 get "type"(): $ResourceLocation
 get "mod"(): string
@@ -283,21 +283,21 @@ export class $SpawnerBlockEntity extends $KineticBlockEntity {
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "getRange"(): integer
-public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
-public "getProcessingSpeed"(): integer
-public "tick"(): void
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "spawnParticles"(): void
-public static "getCapacityMultiplier"(): integer
-public "getSpawnBlockPosition"(arg0: $Direction$Type, arg1: boolean): $List<($BlockPos)>
+public "addBehaviours"(arg0: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "tick"(): void
 public "collectSpawnGroup"(): $List<($SpawnerBlockEntity)>
 public "getProgressPercent"(): integer
+public static "getCapacityMultiplier"(): integer
+public "getSpawnBlockPosition"(arg0: $Direction$Type, arg1: boolean): $List<($BlockPos)>
+public "addToGoggleTooltip"(arg0: $List$Type<($Component$Type)>, arg1: boolean): boolean
+public "getProcessingSpeed"(): integer
 public "write"(arg0: $CompoundTag$Type, arg1: boolean): void
+public "spawnParticles"(): void
 get "range"(): integer
-get "processingSpeed"(): integer
-get "capacityMultiplier"(): integer
 get "progressPercent"(): integer
+get "capacityMultiplier"(): integer
+get "processingSpeed"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

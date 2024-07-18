@@ -42,10 +42,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "isRandomlyTicking"(state: $BlockState$Type): boolean
 public "geyserEruption"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type): void
 public "getSourceBlock"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type): $BlockState
-public "isRandomlyTicking"(state: $BlockState$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "onPlace"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
@@ -97,15 +97,15 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(properties: $Item$Properties$Type)
 
 public "getBlock"(): $Block
-public "getAmount"(stack: $ItemStack$Type): integer
 public "getSaltToPlace"(stack: $ItemStack$Type): integer
 public static "getBlockEntityData"(stack: $ItemStack$Type): $CompoundTag
-public "setAmount"(stack: $ItemStack$Type, amount: integer): void
-public static "updateCustomBlockEntityTag"(level: $Level$Type, player: $Player$Type, pos: $BlockPos$Type, stack: $ItemStack$Type): boolean
-public "updatePlacementContext"(context: $BlockPlaceContext$Type): $BlockPlaceContext
 public "place"(context: $BlockPlaceContext$Type): $InteractionResult
+public "setAmount"(stack: $ItemStack$Type, amount: integer): void
 public "useOn"(context: $UseOnContext$Type): $InteractionResult
+public "getAmount"(stack: $ItemStack$Type): integer
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "updatePlacementContext"(context: $BlockPlaceContext$Type): $BlockPlaceContext
+public static "updateCustomBlockEntityTag"(level: $Level$Type, player: $Player$Type, pos: $BlockPos$Type, stack: $ItemStack$Type): boolean
 get "block"(): $Block
 }
 /**
@@ -254,9 +254,9 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "neighborChanged"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, neighborBlock: $Block$Type, neighborPos: $BlockPos$Type, moving: boolean): void
 public "updateIndirectNeighbourShapes"(state: $BlockState$Type, world: $LevelAccessor$Type, pos: $BlockPos$Type, var1: integer, var2: integer): void
 public "isPathfindable"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $PathComputationType$Type): boolean
-public "neighborChanged"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, neighborBlock: $Block$Type, neighborPos: $BlockPos$Type, moving: boolean): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, otherState: $BlockState$Type, world: $LevelAccessor$Type, pos: $BlockPos$Type, otherPos: $BlockPos$Type): $BlockState
 public "onPlace"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, moving: boolean): void
 public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
@@ -264,8 +264,8 @@ public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, p
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(state: $BlockState$Type, world: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, world: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, world: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "randomTick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "entityInside"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): void
 }
@@ -394,8 +394,8 @@ static readonly "SCULK_PATCH": $Feature<($SculkPatchConfiguration)>
 constructor(codec: $Codec$Type<($HugeConkFungusFeatureConfig$Type)>)
 
 public static "validTreePos"(level: $LevelSimulatedReader$Type, pos: $BlockPos$Type): boolean
-public static "isBlockWater"(level: $LevelSimulatedReader$Type, pos: $BlockPos$Type): boolean
 public static "isAirOrLeaves"(level: $LevelSimulatedReader$Type, pos: $BlockPos$Type): boolean
+public static "isBlockWater"(level: $LevelSimulatedReader$Type, pos: $BlockPos$Type): boolean
 public "place"(context: $FeaturePlaceContext$Type<($HugeConkFungusFeatureConfig$Type)>): boolean
 }
 /**
@@ -471,9 +471,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "newBlockEntity"(pos: $BlockPos$Type, state: $BlockState$Type): $BlockEntity
 public "getTicker"<T extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, blockEntityType: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "getRenderShape"(state: $BlockState$Type): $RenderShape
@@ -481,8 +481,8 @@ public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, p
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 }
 /**
@@ -574,8 +574,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(flowingFluid: $Supplier$Type<($FlowingFluid$Type)>, properties: $BlockBehaviour$Properties$Type)
 
-public "pickupBlock"(level: $LevelAccessor$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "setTickCounter"(tick: integer): integer
+public "pickupBlock"(level: $LevelAccessor$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "entityInside"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): void
 set "tickCounter"(value: integer)
@@ -627,14 +627,14 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(color: $DyeColor$Type, block: $Block$Type, properties: $Item$Properties$Type)
 
-public "getGlowstick"(item: $Item$Type): $Optional<($DyeColor)>
 public "getColor"(item: $GlowstickItem$Type): $DyeColor
+public "getGlowstick"(item: $Item$Type): $Optional<($DyeColor)>
 public "use"(level: $Level$Type, player: $Player$Type, usedHand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -787,10 +787,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
 public "getDustColor"(state: $BlockState$Type, reader: $BlockGetter$Type, pos: $BlockPos$Type): integer
 public "onLand"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, replaceableState: $BlockState$Type, fallingBlock: $FallingBlockEntity$Type): void
 public "fallOn"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, entity: $Entity$Type, height: float): void
-public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "entityInside"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): void
 }
@@ -841,10 +841,10 @@ constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "use"(level: $Level$Type, player: $Player$Type, usedHand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1173,12 +1173,12 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public "setYLevel"(stack: $ItemStack$Type, amount: integer): void
-public "getYLevel"(stack: $ItemStack$Type): integer
 public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
+public "getYLevel"(stack: $ItemStack$Type): integer
+public "setYLevel"(stack: $ItemStack$Type, amount: integer): void
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "inventoryTick"(stack: $ItemStack$Type, levelIn: $Level$Type, entityIn: $Entity$Type, itemSlot: integer, isSelected: boolean): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1334,16 +1334,16 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "checkNeighborsForChannel"(pos: $BlockPos$Type, level: $LevelAccessor$Type, dir: $Direction$Type): boolean
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getFireSpread"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): integer
-public "getFlammability"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): integer
 public "isFlammable"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): boolean
+public "getFlammability"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): integer
+public "checkNeighborsForChannel"(pos: $BlockPos$Type, level: $LevelAccessor$Type, dir: $Direction$Type): boolean
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, pos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
+public "getFireSpread"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, direction: $Direction$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1388,10 +1388,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1457,14 +1457,14 @@ constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "performBonemeal"(level: $ServerLevel$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): void
-public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "isBonemealSuccess"(level: $Level$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "growMushroom"(level: $ServerLevel$Type, pos: $BlockPos$Type, state: $BlockState$Type, random: $RandomSource$Type): boolean
+public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "isPathfindable"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $PathComputationType$Type): boolean
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "canBeReplaced"(state: $BlockState$Type, useContext: $BlockPlaceContext$Type): boolean
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
+public "growMushroom"(level: $ServerLevel$Type, pos: $BlockPos$Type, state: $BlockState$Type, random: $RandomSource$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1529,8 +1529,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "blast"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): void
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "blast"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): void
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
@@ -1593,9 +1593,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
 public "newBlockEntity"(pos: $BlockPos$Type, state: $BlockState$Type): $BlockEntity
 public "getTicker"<T extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, blockEntityType: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
 public "getRenderShape"(state: $BlockState$Type): $RenderShape
 public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
 public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
@@ -1707,10 +1707,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1762,13 +1762,13 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public static "getChiseled"(state: $BlockState$Type): $Optional<($BlockState)>
 public "getUseDuration"(stack: $ItemStack$Type): integer
 public static "addOptional"(map: $ImmutableBiMap$Builder$Type<($Block$Type), ($Block$Type)>, moddedId: string, moddedId2: string): void
-public "use"(level: $Level$Type, player: $Player$Type, usedHand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public static "getChiseled"(state: $BlockState$Type): $Optional<($BlockState)>
 public "onUseTick"(level: $Level$Type, livingEntity: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseDuration: integer): void
-public "releaseUsing"(stack: $ItemStack$Type, level: $Level$Type, livingEntity: $LivingEntity$Type, timeCharged: integer): void
+public "use"(level: $Level$Type, player: $Player$Type, usedHand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "releaseUsing"(stack: $ItemStack$Type, level: $Level$Type, livingEntity: $LivingEntity$Type, timeCharged: integer): void
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "isValidRepairItem"(stack: $ItemStack$Type, repairCandidate: $ItemStack$Type): boolean
 }
@@ -1790,8 +1790,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $IParachuteEntity {
 
  "getParachuteTicks"(): integer
- "getParachute"(): $ItemStack
  "setParachute"(arg0: $ItemStack$Type): void
+ "getParachute"(): $ItemStack
  "hasParachute"(): boolean
 }
 
@@ -1862,13 +1862,13 @@ constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "performBonemeal"(level: $ServerLevel$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): void
-public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "isBonemealSuccess"(level: $Level$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "growMushroom"(level: $ServerLevel$Type, pos: $BlockPos$Type, state: $BlockState$Type, random: $RandomSource$Type): boolean
+public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
+public "growMushroom"(level: $ServerLevel$Type, pos: $BlockPos$Type, state: $BlockState$Type, random: $RandomSource$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1895,8 +1895,8 @@ import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$ModFluidRenderProperties, $ModFluidRenderProperties$Type} from "packages/net/mehvahdjukaar/moonlight/api/client/$ModFluidRenderProperties"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
@@ -1908,19 +1908,19 @@ static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
 constructor(properties: $ModFlowingFluid$Properties$Type, block: $Supplier$Type<(any)>)
 
-public "createRenderProperties"(): $ModFluidRenderProperties
 public "getSource"(): $Fluid
 public "getFlowing"(): $Fluid
-public "getBucket"(): $Item
-public "m_213811_"(level: $Level$Type, pos: $BlockPos$Type, state: $FluidState$Type, random: $RandomSource$Type): void
-public "getTickDelay"(level: $LevelReader$Type): integer
-public "getPickupSound"(): $Optional<($SoundEvent)>
+public "createRenderProperties"(): $ModFluidRenderProperties
 public "isSource"(state: $FluidState$Type): boolean
 public "getAmount"(state: $FluidState$Type): integer
+public "getTickDelay"(level: $LevelReader$Type): integer
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "m_213811_"(level: $Level$Type, pos: $BlockPos$Type, state: $FluidState$Type, random: $RandomSource$Type): void
+public "getBucket"(): $Item
 get "source"(): $Fluid
 get "flowing"(): $Fluid
-get "bucket"(): $Item
 get "pickupSound"(): $Optional<($SoundEvent)>
+get "bucket"(): $Item
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2024,8 +2024,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public "setStoredXP"(stack: $ItemStack$Type, amount: integer): void
 public "getStoredXP"(stack: $ItemStack$Type): integer
+public "setStoredXP"(stack: $ItemStack$Type, amount: integer): void
 public "addXP"(stack: $ItemStack$Type, amount: integer): integer
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
@@ -2231,18 +2231,18 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "animateTick"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getPistonPushReaction"(state: $BlockState$Type): $PushReaction
+public "animateTick"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onRemove"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
-public "isSignalSource"(state: $BlockState$Type): boolean
 public "getFluidState"(state: $BlockState$Type): $FluidState
+public "isSignalSource"(state: $BlockState$Type): boolean
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
+public "getPistonPushReaction"(state: $BlockState$Type): $PushReaction
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -2272,8 +2272,8 @@ import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
@@ -2310,8 +2310,8 @@ public "getStateForPlacement"(ctx: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2349,50 +2349,50 @@ readonly "byproduct": $ItemStack
 
 constructor(id: $ResourceLocation$Type, recipeGroup: string, ingredient: $ItemStack$Type, result: $ItemStack$Type, resultCount: integer, byproduct: $ItemStack$Type, byproductMin: integer, byproductMax: integer, experience: integer, requiresDiamondGrindstone: boolean)
 
+public "assemble"(container: $Container$Type, registryAccess: $RegistryAccess$Type): $ItemStack
+public "matches"(pContainer: $Container$Type, pLevel: $Level$Type): boolean
+public "getId"(): $ResourceLocation
+public "isSpecial"(): boolean
+public static "getRecipes"(level: $Level$Type): $List<($GrindstonePolishingRecipe)>
 public "canCraftInDimensions"(pWidth: integer, pHeight: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public static "getRecipes"(level: $Level$Type): $List<($GrindstonePolishingRecipe)>
-public "isSpecial"(): boolean
-public "getExperience"(): integer
-public "matches"(pContainer: $Container$Type, pLevel: $Level$Type): boolean
-public "getResultCount"(): integer
-public "assemble"(container: $Container$Type, registryAccess: $RegistryAccess$Type): $ItemStack
-public "getByproductMin"(): integer
-public "getByproductMax"(): integer
-public "getByproduct"(): $ItemStack
-public "getId"(): $ResourceLocation
 public "getResultItem"(registryAccess: $RegistryAccess$Type): $ItemStack
+public "getResultCount"(): integer
 public "isRequiresDiamondGrindstone"(): boolean
+public "getExperience"(): integer
+public "getByproductMin"(): integer
+public "getByproduct"(): $ItemStack
+public "getByproductMax"(): integer
+public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
+public "showNotification"(): boolean
+public "getIngredients"(): $NonNullList<($Ingredient)>
 public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
-public "showNotification"(): boolean
-public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
-public "getIngredients"(): $NonNullList<($Ingredient)>
-public "getGroup"(): string
-public "getOrCreateId"(): $ResourceLocation
-public "setGroup"(group: string): void
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getGroup"(): string
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getSchema"(): $RecipeSchema
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
-get "serializer"(): $RecipeSerializer<(any)>
-get "special"(): boolean
-get "experience"(): integer
-get "resultCount"(): integer
-get "byproductMin"(): integer
-get "byproductMax"(): integer
-get "byproduct"(): $ItemStack
 get "id"(): $ResourceLocation
+get "special"(): boolean
+get "serializer"(): $RecipeSerializer<(any)>
+get "resultCount"(): integer
 get "requiresDiamondGrindstone"(): boolean
+get "experience"(): integer
+get "byproductMin"(): integer
+get "byproduct"(): $ItemStack
+get "byproductMax"(): integer
+get "ingredients"(): $NonNullList<($Ingredient)>
 get "incomplete"(): boolean
 get "toastSymbol"(): $ItemStack
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "group"(): string
-get "orCreateId"(): $ResourceLocation
 set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "group"(): string
 get "schema"(): $RecipeSchema
 get "type"(): $ResourceLocation
 get "mod"(): string
@@ -2460,10 +2460,10 @@ constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "getFluidState"(state: $BlockState$Type): $FluidState
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -2516,19 +2516,19 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public "setPlayerX"(stack: $ItemStack$Type, amount: integer): void
-public "getPlayerZ"(stack: $ItemStack$Type): integer
+public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
+public "setTickCounter"(tick: integer): integer
 public "getPlayerX"(stack: $ItemStack$Type): integer
+public "getPlayerZ"(stack: $ItemStack$Type): integer
+public static "addMagnetiteTags"(lodestoneDimension: $ResourceKey$Type<($Level$Type)>, pos: $BlockPos$Type, compoundTag: $CompoundTag$Type): void
 public "setPlayerZ"(stack: $ItemStack$Type, amount: integer): void
 public static "isMagnetiteNearby"(stack: $ItemStack$Type): boolean
-public static "addMagnetiteTags"(lodestoneDimension: $ResourceKey$Type<($Level$Type)>, pos: $BlockPos$Type, compoundTag: $CompoundTag$Type): void
+public "setPlayerX"(stack: $ItemStack$Type, amount: integer): void
 public static "getNorthPosition"(level: $Level$Type): $GlobalPos
 public static "getMagnetitePos"(compoundTag: $CompoundTag$Type): $GlobalPos
-public "setTickCounter"(tick: integer): integer
-public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "isFoil"(stack: $ItemStack$Type): boolean
 set "tickCounter"(value: integer)
 }
@@ -2581,28 +2581,28 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
+public "getUseDuration"(stack: $ItemStack$Type): integer
 public "setUsed"(stack: $ItemStack$Type, used: boolean): void
+public "animateItemFirstPerson"(entity: $LivingEntity$Type, stack: $ItemStack$Type, hand: $InteractionHand$Type, matrixStack: $PoseStack$Type, partialTicks: float, pitch: float, attackAnim: float, handHeight: float): void
+public "getUsed"(stack: $ItemStack$Type): boolean
+public "setTickCounter"(tick: integer): void
 public "poseLeftArm"<T extends $LivingEntity>(itemStack: $ItemStack$Type, model: $HumanoidModel$Type<(T)>, entity: T, humanoidArm: $HumanoidArm$Type): boolean
 public "poseRightArm"<T extends $LivingEntity>(itemStack: $ItemStack$Type, model: $HumanoidModel$Type<(T)>, entity: T, humanoidArm: $HumanoidArm$Type): boolean
-public "getUsed"(stack: $ItemStack$Type): boolean
-public "getUseDuration"(stack: $ItemStack$Type): integer
-public "animateItemFirstPerson"(entity: $LivingEntity$Type, stack: $ItemStack$Type, hand: $InteractionHand$Type, matrixStack: $PoseStack$Type, partialTicks: float, pitch: float, attackAnim: float, handHeight: float): void
-public "setTickCounter"(tick: integer): void
-public "setActive"(stack: $ItemStack$Type, active: boolean): void
-public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "onUseTick"(level: $Level$Type, livingEntity: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseDuration: integer): void
-public "releaseUsing"(stack: $ItemStack$Type, level: $Level$Type, livingEntity: $LivingEntity$Type, timeCharged: integer): void
-public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "inventoryTick"(stack: $ItemStack$Type, levelIn: $Level$Type, entityIn: $Entity$Type, itemSlot: integer, isSelected: boolean): void
-public "isValidRepairItem"(stack: $ItemStack$Type, repairCandidate: $ItemStack$Type): boolean
-public static "getParachute"(entity: $LivingEntity$Type): $ItemStack
 public static "getActive"(stack: $ItemStack$Type): boolean
-public static "attachToItem"(target: $Item$Type, object: $IFirstPersonAnimationProvider$Type): void
+public static "getParachute"(entity: $LivingEntity$Type): $ItemStack
+public "onUseTick"(level: $Level$Type, livingEntity: $LivingEntity$Type, stack: $ItemStack$Type, remainingUseDuration: integer): void
+public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "inventoryTick"(stack: $ItemStack$Type, levelIn: $Level$Type, entityIn: $Entity$Type, itemSlot: integer, isSelected: boolean): void
+public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
+public "releaseUsing"(stack: $ItemStack$Type, level: $Level$Type, livingEntity: $LivingEntity$Type, timeCharged: integer): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
+public "isValidRepairItem"(stack: $ItemStack$Type, repairCandidate: $ItemStack$Type): boolean
+public "setActive"(stack: $ItemStack$Type, active: boolean): void
 public "animateItemFirstPerson"(entity: $Player$Type, stack: $ItemStack$Type, hand: $InteractionHand$Type, arm: $HumanoidArm$Type, poseStack: $PoseStack$Type, partialTicks: float, pitch: float, attackAnim: float, handHeight: float): void
+public static "attachToItem"(target: $Item$Type, object: $IFirstPersonAnimationProvider$Type): void
 public static "get"(target: $Item$Type): $IFirstPersonAnimationProvider
-public "isTwoHanded"(): boolean
 public static "attachToItem"(target: $Item$Type, object: $IThirdPersonAnimationProvider$Type): void
+public "isTwoHanded"(): boolean
 set "tickCounter"(value: integer)
 get "twoHanded"(): boolean
 }
@@ -2664,11 +2664,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type, map: $Map$Type<($Item$Type), ($CauldronInteraction$Type)>)
 
-public "isFull"(state: $BlockState$Type): boolean
 public "animateTick"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public static "lowerFillLevel"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): void
+public "isFull"(state: $BlockState$Type): boolean
 public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
 public "entityInside"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): void
+public static "lowerFillLevel"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2703,8 +2703,8 @@ import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/wo
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
-import {$GlobalPos, $GlobalPos$Type} from "packages/net/minecraft/core/$GlobalPos"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$GlobalPos, $GlobalPos$Type} from "packages/net/minecraft/core/$GlobalPos"
 import {$IThirdPersonAnimationProvider, $IThirdPersonAnimationProvider$Type} from "packages/net/mehvahdjukaar/moonlight/api/item/$IThirdPersonAnimationProvider"
 import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
 import {$UseAnim, $UseAnim$Type} from "packages/net/minecraft/world/item/$UseAnim"
@@ -2728,32 +2728,32 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public "setPlayerX"(stack: $ItemStack$Type, amount: integer): void
-public "getTollRange"(): integer
-public static "distanceToAmethyst"(playerPos: $Vec3i$Type, amethystPos: $BlockPos$Type): double
-public "poseLeftArm"<T extends $LivingEntity>(itemStack: $ItemStack$Type, model: $HumanoidModel$Type<(T)>, entity: T, humanoidArm: $HumanoidArm$Type): boolean
-public "getPlayerZ"(stack: $ItemStack$Type): integer
-public "getPlayerX"(stack: $ItemStack$Type): integer
-public static "isAmethystNearby"(stack: $ItemStack$Type): boolean
-public static "getAmethystPos"(compoundTag: $CompoundTag$Type): $GlobalPos
-public "poseRightArm"<T extends $LivingEntity>(itemStack: $ItemStack$Type, model: $HumanoidModel$Type<(T)>, entity: T, humanoidArm: $HumanoidArm$Type): boolean
-public "setPlayerZ"(stack: $ItemStack$Type, amount: integer): void
-public "getModifierAngle"(entity: $Entity$Type, l: long, blockPos: $BlockPos$Type): float
 public "getUseDuration"(stack: $ItemStack$Type): integer
+public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
 public "animateItemFirstPerson"(entity: $LivingEntity$Type, stack: $ItemStack$Type, hand: $InteractionHand$Type, poseStack: $PoseStack$Type, partialTicks: float, pitch: float, attackAnim: float, handHeight: float): void
 public "setTickCounter"(tick: integer): integer
 public static "addAmethystTags"(lodestoneDimension: $ResourceKey$Type<($Level$Type)>, pos: $BlockPos$Type, compoundTag: $CompoundTag$Type): void
-public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
+public "getPlayerX"(stack: $ItemStack$Type): integer
+public static "isAmethystNearby"(stack: $ItemStack$Type): boolean
+public "getPlayerZ"(stack: $ItemStack$Type): integer
+public static "distanceToAmethyst"(playerPos: $Vec3i$Type, amethystPos: $BlockPos$Type): double
+public "getTollRange"(): integer
+public static "getAmethystPos"(compoundTag: $CompoundTag$Type): $GlobalPos
+public "poseLeftArm"<T extends $LivingEntity>(itemStack: $ItemStack$Type, model: $HumanoidModel$Type<(T)>, entity: T, humanoidArm: $HumanoidArm$Type): boolean
+public "setPlayerZ"(stack: $ItemStack$Type, amount: integer): void
+public "setPlayerX"(stack: $ItemStack$Type, amount: integer): void
+public "getModifierAngle"(entity: $Entity$Type, l: long, blockPos: $BlockPos$Type): float
+public "poseRightArm"<T extends $LivingEntity>(itemStack: $ItemStack$Type, model: $HumanoidModel$Type<(T)>, entity: T, humanoidArm: $HumanoidArm$Type): boolean
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "getUseAnimation"(stack: $ItemStack$Type): $UseAnim
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public static "attachToItem"(target: $Item$Type, object: $IFirstPersonAnimationProvider$Type): void
 public "animateItemFirstPerson"(entity: $Player$Type, stack: $ItemStack$Type, hand: $InteractionHand$Type, arm: $HumanoidArm$Type, poseStack: $PoseStack$Type, partialTicks: float, pitch: float, attackAnim: float, handHeight: float): void
+public static "attachToItem"(target: $Item$Type, object: $IFirstPersonAnimationProvider$Type): void
 public static "get"(target: $Item$Type): $IFirstPersonAnimationProvider
-public "isTwoHanded"(): boolean
 public static "attachToItem"(target: $Item$Type, object: $IThirdPersonAnimationProvider$Type): void
-get "tollRange"(): integer
+public "isTwoHanded"(): boolean
 set "tickCounter"(value: integer)
+get "tollRange"(): integer
 get "twoHanded"(): boolean
 }
 /**
@@ -2829,21 +2829,21 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getPistonPushReaction"(state: $BlockState$Type): $PushReaction
 public "stepOn"(world: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, entity: $Entity$Type): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
-public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
+public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
+public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
-public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
+public "getPistonPushReaction"(state: $BlockState$Type): $PushReaction
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public "onEntityStepOn"(state: $BlockState$Type, entity: $Entity$Type): void
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
@@ -2891,10 +2891,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3099,17 +3099,17 @@ public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onPlace"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, handIn: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
-public "canBeReplaced"(state: $BlockState$Type, useContext: $BlockPlaceContext$Type): boolean
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
+public "canBeReplaced"(state: $BlockState$Type, useContext: $BlockPlaceContext$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -3202,10 +3202,10 @@ constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "updatePlacementContext"(context: $BlockPlaceContext$Type): $BlockPlaceContext
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3307,9 +3307,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(bl: boolean, properties: $BlockBehaviour$Properties$Type)
 
-public "getShapeProperty"(): $Property<($RailShape)>
-public static "getDistance"(level: $BlockGetter$Type, pos: $BlockPos$Type): integer
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public static "getDistance"(level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "getShapeProperty"(): $Property<($RailShape)>
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onPlace"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
@@ -3410,11 +3410,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "isRandomlyTicking"(state: $BlockState$Type): boolean
 public "getDustColor"(state: $BlockState$Type, reader: $BlockGetter$Type, pos: $BlockPos$Type): integer
 public "onLand"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, replaceableState: $BlockState$Type, fallingBlock: $FallingBlockEntity$Type): void
 public "fallOn"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, entity: $Entity$Type, height: float): void
-public "isRandomlyTicking"(state: $BlockState$Type): boolean
-public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "randomTick"(state: $BlockState$Type, serverLevel: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "entityInside"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): void
@@ -3476,9 +3476,9 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "stepOn"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, entity: $Entity$Type): void
 public "animateTick"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "isRandomlyTicking"(state: $BlockState$Type): boolean
-public "stepOn"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, entity: $Entity$Type): void
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "randomTick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "attack"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type): void
@@ -3583,10 +3583,10 @@ constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "updatePlacementContext"(context: $BlockPlaceContext$Type): $BlockPlaceContext
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3631,10 +3631,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3677,8 +3677,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public "removeGlow"(player: $Player$Type, stack: $ItemStack$Type, level: $Level$Type): void
 public "tollFork"(player: $Player$Type, stack: $ItemStack$Type, level: $Level$Type): void
+public "removeGlow"(player: $Player$Type, stack: $ItemStack$Type, level: $Level$Type): void
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 }
@@ -3725,10 +3725,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3805,11 +3805,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(fluid: $Fluid$Type, properties: $Item$Properties$Type)
 
-public "setTickCounter"(tick: integer): integer
 public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
+public "setTickCounter"(tick: integer): integer
 public "useOn"(context: $UseOnContext$Type): $InteractionResult
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "inventoryTick"(stack: $ItemStack$Type, levelIn: $Level$Type, entityIn: $Entity$Type, itemSlot: integer, isSelected: boolean): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "getBoolean"(stack: $ItemStack$Type): boolean
 public "setBoolean"(stack: $ItemStack$Type, tears: boolean): void
 set "tickCounter"(value: integer)
@@ -3865,12 +3865,12 @@ constructor(properties: $Item$Properties$Type)
 
 public static "toggleCompactor"(player: $Player$Type, stack: $ItemStack$Type, level: $Level$Type): void
 public static "getCompressedIngot"(stack: $ItemStack$Type): $Optional<($ItemStack)>
-public static "getCompressedNugget"(stack: $ItemStack$Type): $Optional<($ItemStack)>
 public static "addOptional"(map: $ImmutableBiMap$Builder$Type<($Item$Type), ($Item$Type)>, moddedId: string, moddedId2: string): void
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "isFoil"(stack: $ItemStack$Type): boolean
+public static "getCompressedNugget"(stack: $ItemStack$Type): $Optional<($ItemStack)>
 public static "getMode"(stack: $ItemStack$Type): $HandheldCompactorItem$CompressionMode
 }
 /**
@@ -3929,10 +3929,10 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "performBonemeal"(level: $ServerLevel$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): void
-public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "isBonemealSuccess"(level: $Level$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "growMushroom"(level: $ServerLevel$Type, pos: $BlockPos$Type, state: $BlockState$Type, random: $RandomSource$Type): boolean
+public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "growMushroom"(level: $ServerLevel$Type, pos: $BlockPos$Type, state: $BlockState$Type, random: $RandomSource$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3986,20 +3986,20 @@ constructor(properties: $Item$Properties$Type)
 
 public static "getAnchorPos"(compoundTag: $CompoundTag$Type): $GlobalPos
 public static "addLocationTags"(anchorDimension: $ResourceKey$Type<($Level$Type)>, pos: $BlockPos$Type, compoundTag: $CompoundTag$Type): void
-public "setTickCounter"(tick: integer): integer
 public "shouldCauseReequipAnimation"(oldStack: $ItemStack$Type, newStack: $ItemStack$Type, slotChanged: boolean): boolean
+public "setTickCounter"(tick: integer): integer
 public "useOn"(context: $UseOnContext$Type): $InteractionResult
 public "finishUsingItem"(stack: $ItemStack$Type, level: $Level$Type, livingEntity: $LivingEntity$Type): $ItemStack
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "inventoryTick"(stack: $ItemStack$Type, levelIn: $Level$Type, entityIn: $Entity$Type, itemSlot: integer, isSelected: boolean): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "isFoil"(stack: $ItemStack$Type): boolean
-public "getEatingSound"(): $SoundEvent
 public "getDrinkingSound"(): $SoundEvent
+public "getEatingSound"(): $SoundEvent
 public "getBoolean"(stack: $ItemStack$Type): boolean
 public "setBoolean"(stack: $ItemStack$Type, tears: boolean): void
 set "tickCounter"(value: integer)
-get "eatingSound"(): $SoundEvent
 get "drinkingSound"(): $SoundEvent
+get "eatingSound"(): $SoundEvent
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4060,8 +4060,8 @@ static readonly "CODEC": $Codec<($StonePattern)>
 
 
 public "setSeed"(seed: integer): void
-public "shouldPlacePrimaryStone"(blockPos: $BlockPos$Type): boolean
 public "shouldPlaceSecondaryStone"(blockPos: $BlockPos$Type): boolean
+public "shouldPlacePrimaryStone"(blockPos: $BlockPos$Type): boolean
 set "seed"(value: integer)
 }
 /**
@@ -4134,10 +4134,10 @@ public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighb
 public "onPlace"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
 public "getFluidState"(state: $BlockState$Type): $FluidState
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -4297,8 +4297,8 @@ public "stepOn"(world: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
-public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 public "onEntityStepOn"(state: $BlockState$Type, entity: $Entity$Type): void
 }
@@ -4345,10 +4345,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4507,8 +4507,8 @@ static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<(
 readonly "properties": $BlockBehaviour$Properties
 
 
-public "triggerEvent"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, id: integer, param: integer): boolean
 public "getRenderShape"(state: $BlockState$Type): $RenderShape
+public "triggerEvent"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, id: integer, param: integer): boolean
 public "getMenuProvider"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): $MenuProvider
 public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
 public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
@@ -4539,8 +4539,8 @@ import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$ModFluidRenderProperties, $ModFluidRenderProperties$Type} from "packages/net/mehvahdjukaar/moonlight/api/client/$ModFluidRenderProperties"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
@@ -4552,19 +4552,19 @@ static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
 constructor(properties: $ModFlowingFluid$Properties$Type, block: $Supplier$Type<(any)>)
 
-public "createRenderProperties"(): $ModFluidRenderProperties
 public "getSource"(): $Fluid
 public "getFlowing"(): $Fluid
-public "getBucket"(): $Item
-public "m_213811_"(level: $Level$Type, pos: $BlockPos$Type, state: $FluidState$Type, random: $RandomSource$Type): void
-public "getTickDelay"(level: $LevelReader$Type): integer
-public "getPickupSound"(): $Optional<($SoundEvent)>
+public "createRenderProperties"(): $ModFluidRenderProperties
 public "isSource"(state: $FluidState$Type): boolean
 public "getAmount"(state: $FluidState$Type): integer
+public "getTickDelay"(level: $LevelReader$Type): integer
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "m_213811_"(level: $Level$Type, pos: $BlockPos$Type, state: $FluidState$Type, random: $RandomSource$Type): void
+public "getBucket"(): $Item
 get "source"(): $Fluid
 get "flowing"(): $Fluid
-get "bucket"(): $Item
 get "pickupSound"(): $Optional<($SoundEvent)>
+get "bucket"(): $Item
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4591,8 +4591,8 @@ import {$Projectile, $Projectile$Type} from "packages/net/minecraft/world/entity
 import {$SimpleWaterloggedBlock, $SimpleWaterloggedBlock$Type} from "packages/net/minecraft/world/level/block/$SimpleWaterloggedBlock"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$PushReaction, $PushReaction$Type} from "packages/net/minecraft/world/level/material/$PushReaction"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$PushReaction, $PushReaction$Type} from "packages/net/minecraft/world/level/material/$PushReaction"
 import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -4643,27 +4643,27 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public static "getSticks"(level: $Level$Type, pos: $BlockPos$Type): integer
-public static "explode"(level: $Level$Type, pos: $BlockPos$Type): void
 public "wasExploded"(level: $Level$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): void
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "dropFromExplosion"(explosion: $Explosion$Type): boolean
-public "getPistonPushReaction"(state: $BlockState$Type): $PushReaction
+public static "explode"(level: $Level$Type, pos: $BlockPos$Type): void
 public "onProjectileHit"(level: $Level$Type, state: $BlockState$Type, hit: $BlockHitResult$Type, projectile: $Projectile$Type): void
+public static "getSticks"(level: $Level$Type, pos: $BlockPos$Type): integer
 public "neighborChanged"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, block: $Block$Type, fromPos: $BlockPos$Type, isMoving: boolean): void
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, currentPos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
 public "onPlace"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
 public "onRemove"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
-public "isSignalSource"(state: $BlockState$Type): boolean
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
-public "canBeReplaced"(state: $BlockState$Type, useContext: $BlockPlaceContext$Type): boolean
 public "getFluidState"(state: $BlockState$Type): $FluidState
+public "isSignalSource"(state: $BlockState$Type): boolean
+public "canBeReplaced"(state: $BlockState$Type, useContext: $BlockPlaceContext$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
+public "getPistonPushReaction"(state: $BlockState$Type): $PushReaction
 public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
 public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
 public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
 get "pickupSound"(): $Optional<($SoundEvent)>
 }
@@ -4772,8 +4772,8 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(properties: $BlockBehaviour$Properties$Type)
 
 public "performBonemeal"(level: $ServerLevel$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): void
-public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 public "isBonemealSuccess"(level: $Level$Type, random: $RandomSource$Type, pos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "isValidBonemealTarget"(level: $LevelReader$Type, pos: $BlockPos$Type, state: $BlockState$Type, isClient: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4853,21 +4853,21 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "setPlacedBy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "isRandomlyTicking"(state: $BlockState$Type): boolean
 public "newBlockEntity"(pos: $BlockPos$Type, state: $BlockState$Type): $BlockEntity
 public "getTicker"<T extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, blockEntityType: $BlockEntityType$Type<(T)>): $BlockEntityTicker<(T)>
-public "isRandomlyTicking"(state: $BlockState$Type): boolean
-public "setPlacedBy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
-public static "getFlow"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type): integer
-public "triggerEvent"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, id: integer, param: integer): boolean
-public "getRenderShape"(state: $BlockState$Type): $RenderShape
 public "onRemove"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, movedByPiston: boolean): void
+public "getRenderShape"(state: $BlockState$Type): $RenderShape
+public "triggerEvent"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, id: integer, param: integer): boolean
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "hasAnalogOutputSignal"(state: $BlockState$Type): boolean
-public "getMenuProvider"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): $MenuProvider
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "getAnalogOutputSignal"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): integer
-public "randomTick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
+public "getMenuProvider"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): $MenuProvider
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
+public "randomTick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
+public static "getFlow"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4912,10 +4912,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(block: $Block$Type, properties: $Item$Properties$Type)
 
 public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
-public "moonlight$setClientAnimationExtension"(arg0: any): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$setClientAnimationExtension"(arg0: any): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4959,11 +4959,11 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(properties: $Item$Properties$Type)
 
-public static "toggleMagnet"(player: $Player$Type, stack: $ItemStack$Type, level: $Level$Type): void
 public "getMagnetRange"(): integer
+public static "toggleMagnet"(player: $Player$Type, stack: $ItemStack$Type, level: $Level$Type): void
 public "use"(level: $Level$Type, player: $Player$Type, hand: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
-public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "inventoryTick"(stack: $ItemStack$Type, level: $Level$Type, entity: $Entity$Type, slotId: integer, isSelected: boolean): void
+public "appendHoverText"(stack: $ItemStack$Type, level: $Level$Type, tooltip: $List$Type<($Component$Type)>, context: $TooltipFlag$Type): void
 public "isFoil"(stack: $ItemStack$Type): boolean
 get "magnetRange"(): integer
 }
@@ -4988,8 +4988,8 @@ import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -5020,8 +5020,8 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "randomTick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
 }
 /**
@@ -5283,10 +5283,10 @@ public "getRenderShape"(state: $BlockState$Type): $RenderShape
 public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
 public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
 public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "getMenuProvider"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): $MenuProvider
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
+public "getMenuProvider"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type): $MenuProvider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -5313,9 +5313,9 @@ export class $GrindstonePolishingRecipe$Serializer implements $RecipeSerializer<
 
 constructor()
 
+public "fromJson"(pRecipeId: $ResourceLocation$Type, jsonObject: $JsonObject$Type): $GrindstonePolishingRecipe
 public "fromNetwork"(pRecipeId: $ResourceLocation$Type, pBuffer: $FriendlyByteBuf$Type): $GrindstonePolishingRecipe
 public "toNetwork"(pBuffer: $FriendlyByteBuf$Type, pRecipe: $GrindstonePolishingRecipe$Type): void
-public "fromJson"(pRecipeId: $ResourceLocation$Type, jsonObject: $JsonObject$Type): $GrindstonePolishingRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $GrindstonePolishingRecipe
 }
@@ -5419,24 +5419,24 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "fallOn"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, entity: $Entity$Type, height: float): void
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "getMaxLayers"(): integer
-public "layerProperty"(): $IntegerProperty
-public "getMinLayers"(): integer
-public "shouldFall"(belowState: $BlockState$Type): boolean
-public "getLayers"(state: $BlockState$Type): integer
-public "getDefaultShape"(state: $BlockState$Type): $VoxelShape
+public "fallOn"(level: $Level$Type, state: $BlockState$Type, pos: $BlockPos$Type, entity: $Entity$Type, height: float): void
 public "isPathfindable"(state: $BlockState$Type, world: $BlockGetter$Type, pos: $BlockPos$Type, type: $PathComputationType$Type): boolean
 public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, facingState: $BlockState$Type, world: $LevelAccessor$Type, currentPos: $BlockPos$Type, otherPos: $BlockPos$Type): $BlockState
 public "onPlace"(state: $BlockState$Type, worldIn: $Level$Type, pos: $BlockPos$Type, oldState: $BlockState$Type, isMoving: boolean): void
-public "useShapeForLightOcclusion"(state: $BlockState$Type): boolean
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "useShapeForLightOcclusion"(state: $BlockState$Type): boolean
 public "getCollisionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
 public "getBlockSupportShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getVisualShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, pRand: $RandomSource$Type): void
+public "getVisualShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "getDefaultShape"(state: $BlockState$Type): $VoxelShape
+public "getMaxLayers"(): integer
+public "layerProperty"(): $IntegerProperty
+public "getLayers"(state: $BlockState$Type): integer
+public "getMinLayers"(): integer
+public "shouldFall"(belowState: $BlockState$Type): boolean
 get "maxLayers"(): integer
 get "minLayers"(): integer
 }

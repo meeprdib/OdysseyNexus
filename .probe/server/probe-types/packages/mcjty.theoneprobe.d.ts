@@ -75,9 +75,9 @@ export class $AddProbeTagRecipeSerializer implements $RecipeSerializer<($AddProb
 
 constructor()
 
+public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddProbeTagRecipe
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $AddProbeTagRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $AddProbeTagRecipe$Type): void
-public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $AddProbeTagRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $AddProbeTagRecipe
 }
@@ -193,44 +193,44 @@ export class $AbstractRecipeAdaptor implements $CraftingRecipe, $IShapedRecipe<(
 
 constructor(arg0: $ShapedRecipe$Type)
 
-public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
-public "getToastSymbol"(): $ItemStack
-public "getIngredients"(): $NonNullList<($Ingredient)>
+public "getId"(): $ResourceLocation
 public "getRecipe"(): $ShapedRecipe
 public "isSpecial"(): boolean
-public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
-public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
+public "canCraftInDimensions"(arg0: integer, arg1: integer): boolean
+public "getIngredients"(): $NonNullList<($Ingredient)>
+public "getToastSymbol"(): $ItemStack
+public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
 public "getRecipeWidth"(): integer
 public "getRecipeHeight"(): integer
-public "getId"(): $ResourceLocation
-public "getResultItem"(arg0: $RegistryAccess$Type): $ItemStack
+public "assemble"(arg0: $CraftingContainer$Type, arg1: $RegistryAccess$Type): $ItemStack
+public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
 public "matches"(arg0: $CraftingContainer$Type, arg1: $Level$Type): boolean
 public "category"(): $CraftingBookCategory
+public "showNotification"(): boolean
 public "isIncomplete"(): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "showNotification"(): boolean
-public "getGroup"(): string
-public "getOrCreateId"(): $ResourceLocation
-public "setGroup"(group: string): void
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getGroup"(): string
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getSchema"(): $RecipeSchema
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
-get "toastSymbol"(): $ItemStack
-get "ingredients"(): $NonNullList<($Ingredient)>
+get "id"(): $ResourceLocation
 get "recipe"(): $ShapedRecipe
 get "special"(): boolean
+get "ingredients"(): $NonNullList<($Ingredient)>
+get "toastSymbol"(): $ItemStack
 get "recipeWidth"(): integer
 get "recipeHeight"(): integer
-get "id"(): $ResourceLocation
 get "incomplete"(): boolean
 get "serializer"(): $RecipeSerializer<(any)>
-get "group"(): string
-get "orCreateId"(): $ResourceLocation
 set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "group"(): string
 get "schema"(): $RecipeSchema
 get "type"(): $ResourceLocation
 get "mod"(): string

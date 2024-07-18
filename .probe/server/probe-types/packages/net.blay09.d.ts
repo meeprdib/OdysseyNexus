@@ -2,8 +2,8 @@ declare module "packages/net/blay09/mods/balm/mixin/$MouseHandlerAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MouseHandlerAccessor {
 
- "getMouseY"(): double
  "getMouseX"(): double
+ "getMouseY"(): double
 }
 
 export namespace $MouseHandlerAccessor {
@@ -101,13 +101,13 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $AbstractContainerScreenAccessor {
 
- "getImageHeight"(): integer
- "getHoveredSlot"(): $Slot
- "getTopPos"(): integer
+ "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
  "getImageWidth"(): integer
  "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
+ "getTopPos"(): integer
+ "getHoveredSlot"(): $Slot
  "getLeftPos"(): integer
- "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
+ "getImageHeight"(): integer
 }
 
 export namespace $AbstractContainerScreenAccessor {
@@ -129,8 +129,8 @@ declare module "packages/net/blay09/mods/balm/mixin/$SlotAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $SlotAccessor {
 
- "setX"(arg0: integer): void
  "setY"(arg0: integer): void
+ "setX"(arg0: integer): void
 }
 
 export namespace $SlotAccessor {
@@ -156,9 +156,9 @@ import {$NarratableEntry, $NarratableEntry$Type} from "packages/net/minecraft/cl
 
 export interface $ScreenAccessor {
 
+ "balm_getChildren"(): $List<($GuiEventListener)>
  "balm_getRenderables"(): $List<($Renderable)>
  "balm_getNarratables"(): $List<($NarratableEntry)>
- "balm_getChildren"(): $List<($GuiEventListener)>
 }
 
 export namespace $ScreenAccessor {

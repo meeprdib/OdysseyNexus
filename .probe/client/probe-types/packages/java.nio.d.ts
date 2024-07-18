@@ -15,17 +15,17 @@ static readonly "OP_ACCEPT": integer
 
 
 public "selector"(): $Selector
+public "cancel"(): void
 public "interestOpsOr"(arg0: integer): integer
 public "interestOpsAnd"(arg0: integer): integer
 public "isConnectable"(): boolean
 public "isAcceptable"(): boolean
-public "cancel"(): void
 public "interestOps"(): integer
 public "interestOps"(arg0: integer): $SelectionKey
 public "readyOps"(): integer
-public "attachment"(): any
 public "attach"(arg0: any): any
 public "channel"(): $SelectableChannel
+public "attachment"(): any
 public "isValid"(): boolean
 public "isReadable"(): boolean
 public "isWritable"(): boolean
@@ -153,27 +153,26 @@ import {$Readable, $Readable$Type} from "packages/java/lang/$Readable"
 export class $CharBuffer extends $Buffer implements $Comparable<($CharBuffer)>, $Appendable, charseq, $Readable {
 
 
+public "mismatch"(arg0: $CharBuffer$Type): integer
 public "get"(): character
 public "get"(arg0: integer): character
 public "get"(arg0: (character)[], arg1: integer, arg2: integer): $CharBuffer
 public "get"(arg0: (character)[]): $CharBuffer
 public "get"(arg0: integer, arg1: (character)[]): $CharBuffer
 public "get"(arg0: integer, arg1: (character)[], arg2: integer, arg3: integer): $CharBuffer
-public "put"(arg0: $CharBuffer$Type): $CharBuffer
 public "put"(arg0: string, arg1: integer, arg2: integer): $CharBuffer
-public "put"(arg0: integer, arg1: (character)[]): $CharBuffer
 public "put"(arg0: integer, arg1: character): $CharBuffer
-public "put"(arg0: integer, arg1: (character)[], arg2: integer, arg3: integer): $CharBuffer
+public "put"(arg0: $CharBuffer$Type): $CharBuffer
+public "put"(arg0: string): $CharBuffer
 public "put"(arg0: (character)[]): $CharBuffer
 public "put"(arg0: (character)[], arg1: integer, arg2: integer): $CharBuffer
 public "put"(arg0: integer, arg1: $CharBuffer$Type, arg2: integer, arg3: integer): $CharBuffer
+public "put"(arg0: integer, arg1: (character)[], arg2: integer, arg3: integer): $CharBuffer
 public "put"(arg0: character): $CharBuffer
-public "put"(arg0: string): $CharBuffer
+public "put"(arg0: integer, arg1: (character)[]): $CharBuffer
 public "equals"(arg0: any): boolean
 public "length"(): integer
 public "toString"(): string
-public "append"(arg0: charseq, arg1: integer, arg2: integer): $CharBuffer
-public "append"(arg0: character): $CharBuffer
 public "hashCode"(): integer
 public "compareTo"(arg0: $CharBuffer$Type): integer
 public "clear"(): $CharBuffer
@@ -181,25 +180,25 @@ public static "wrap"(arg0: (character)[], arg1: integer, arg2: integer): $CharBu
 public static "wrap"(arg0: (character)[]): $CharBuffer
 public static "wrap"(arg0: charseq): $CharBuffer
 public static "wrap"(arg0: charseq, arg1: integer, arg2: integer): $CharBuffer
+public "position"(arg0: integer): $CharBuffer
 public "charAt"(arg0: integer): character
 public "isEmpty"(): boolean
-public "limit"(arg0: integer): $CharBuffer
+public "subSequence"(arg0: integer, arg1: integer): $CharBuffer
 public "chars"(): $IntStream
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (character)[]
 public "arrayOffset"(): integer
 public "read"(arg0: $CharBuffer$Type): integer
-public "reset"(): $CharBuffer
-public "flip"(): $CharBuffer
-public "slice"(): $CharBuffer
+public "mark"(): $CharBuffer
+public "rewind"(): $CharBuffer
 public "slice"(arg0: integer, arg1: integer): $CharBuffer
+public "slice"(): $CharBuffer
 public "duplicate"(): $CharBuffer
 public "order"(): $ByteOrder
 public static "allocate"(arg0: integer): $CharBuffer
 public "asReadOnlyBuffer"(): $CharBuffer
 public "compact"(): $CharBuffer
-public "mismatch"(arg0: $CharBuffer$Type): integer
 public static "compare"(arg0: charseq, arg1: charseq): integer
 public "codePoints"(): $IntStream
 get "empty"(): boolean
@@ -351,39 +350,41 @@ import {$ByteOrder, $ByteOrder$Type} from "packages/java/nio/$ByteOrder"
 export class $IntBuffer extends $Buffer implements $Comparable<($IntBuffer)> {
 
 
+public "mismatch"(arg0: $IntBuffer$Type): integer
 public "get"(): integer
-public "get"(arg0: integer, arg1: (integer)[]): $IntBuffer
 public "get"(arg0: integer): integer
-public "get"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): $IntBuffer
 public "get"(arg0: (integer)[], arg1: integer, arg2: integer): $IntBuffer
 public "get"(arg0: (integer)[]): $IntBuffer
-public "put"(arg0: (integer)[]): $IntBuffer
-public "put"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): $IntBuffer
-public "put"(arg0: integer, arg1: (integer)[]): $IntBuffer
-public "put"(arg0: (integer)[], arg1: integer, arg2: integer): $IntBuffer
-public "put"(arg0: integer, arg1: $IntBuffer$Type, arg2: integer, arg3: integer): $IntBuffer
+public "get"(arg0: integer, arg1: (integer)[]): $IntBuffer
+public "get"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): $IntBuffer
 public "put"(arg0: $IntBuffer$Type): $IntBuffer
-public "put"(arg0: integer, arg1: integer): $IntBuffer
+public "put"(arg0: integer, arg1: (integer)[]): $IntBuffer
+public "put"(arg0: integer, arg1: (integer)[], arg2: integer, arg3: integer): $IntBuffer
+public "put"(arg0: integer, arg1: $IntBuffer$Type, arg2: integer, arg3: integer): $IntBuffer
+public "put"(arg0: (integer)[], arg1: integer, arg2: integer): $IntBuffer
+public "put"(arg0: (integer)[]): $IntBuffer
 public "put"(arg0: integer): $IntBuffer
+public "put"(arg0: integer, arg1: integer): $IntBuffer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $IntBuffer$Type): integer
-public static "wrap"(arg0: (integer)[]): $IntBuffer
+public "clear"(): $IntBuffer
 public static "wrap"(arg0: (integer)[], arg1: integer, arg2: integer): $IntBuffer
+public static "wrap"(arg0: (integer)[]): $IntBuffer
 public "position"(arg0: integer): $IntBuffer
 public "limit"(arg0: integer): $IntBuffer
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (integer)[]
 public "arrayOffset"(): integer
+public "reset"(): $IntBuffer
 public "rewind"(): $IntBuffer
-public "duplicate"(): $IntBuffer
+public "slice"(arg0: integer, arg1: integer): $IntBuffer
 public "order"(): $ByteOrder
 public static "allocate"(arg0: integer): $IntBuffer
 public "asReadOnlyBuffer"(): $IntBuffer
 public "compact"(): $IntBuffer
-public "mismatch"(arg0: $IntBuffer$Type): integer
 get "direct"(): boolean
 }
 /**
@@ -592,8 +593,8 @@ import {$Watchable, $Watchable$Type} from "packages/java/nio/file/$Watchable"
 export interface $WatchKey {
 
  "watchable"(): $Watchable
- "pollEvents"(): $List<($WatchEvent<(any)>)>
  "cancel"(): void
+ "pollEvents"(): $List<($WatchEvent<(any)>)>
  "reset"(): boolean
  "isValid"(): boolean
 }
@@ -632,59 +633,63 @@ import {$CharBuffer, $CharBuffer$Type} from "packages/java/nio/$CharBuffer"
 export class $ByteBuffer extends $Buffer implements $Comparable<($ByteBuffer)> {
 
 
-public "get"(arg0: integer): byte
-public "get"(): byte
+public "mismatch"(arg0: $ByteBuffer$Type): integer
+public "get"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuffer
 public "get"(arg0: (byte)[]): $ByteBuffer
+public "get"(): byte
 public "get"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuffer
 public "get"(arg0: integer, arg1: (byte)[]): $ByteBuffer
-public "get"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuffer
-public "put"(arg0: byte): $ByteBuffer
+public "get"(arg0: integer): byte
 public "put"(arg0: integer, arg1: byte): $ByteBuffer
 public "put"(arg0: $ByteBuffer$Type): $ByteBuffer
+public "put"(arg0: integer, arg1: $ByteBuffer$Type, arg2: integer, arg3: integer): $ByteBuffer
 public "put"(arg0: integer, arg1: (byte)[]): $ByteBuffer
-public "put"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuffer
 public "put"(arg0: (byte)[]): $ByteBuffer
 public "put"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuffer
-public "put"(arg0: integer, arg1: $ByteBuffer$Type, arg2: integer, arg3: integer): $ByteBuffer
+public "put"(arg0: integer, arg1: (byte)[], arg2: integer, arg3: integer): $ByteBuffer
+public "put"(arg0: byte): $ByteBuffer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $ByteBuffer$Type): integer
-public "getShort"(): short
 public "getShort"(arg0: integer): short
+public "getShort"(): short
 public "putShort"(arg0: integer, arg1: short): $ByteBuffer
 public "putShort"(arg0: short): $ByteBuffer
 public "getChar"(): character
 public "getChar"(arg0: integer): character
-public "putChar"(arg0: character): $ByteBuffer
 public "putChar"(arg0: integer, arg1: character): $ByteBuffer
-public "getInt"(arg0: integer): integer
+public "putChar"(arg0: character): $ByteBuffer
 public "getInt"(): integer
-public "putInt"(arg0: integer): $ByteBuffer
+public "getInt"(arg0: integer): integer
 public "putInt"(arg0: integer, arg1: integer): $ByteBuffer
+public "putInt"(arg0: integer): $ByteBuffer
 public "getLong"(arg0: integer): long
 public "getLong"(): long
 public "putLong"(arg0: integer, arg1: long): $ByteBuffer
 public "putLong"(arg0: long): $ByteBuffer
-public "getFloat"(arg0: integer): float
 public "getFloat"(): float
-public "putFloat"(arg0: integer, arg1: float): $ByteBuffer
+public "getFloat"(arg0: integer): float
 public "putFloat"(arg0: float): $ByteBuffer
+public "putFloat"(arg0: integer, arg1: float): $ByteBuffer
 public "getDouble"(arg0: integer): double
 public "getDouble"(): double
-public "putDouble"(arg0: integer, arg1: double): $ByteBuffer
 public "putDouble"(arg0: double): $ByteBuffer
+public "putDouble"(arg0: integer, arg1: double): $ByteBuffer
 public "clear"(): $ByteBuffer
-public static "wrap"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuffer
 public static "wrap"(arg0: (byte)[]): $ByteBuffer
+public static "wrap"(arg0: (byte)[], arg1: integer, arg2: integer): $ByteBuffer
+public "position"(arg0: integer): $ByteBuffer
+public "limit"(arg0: integer): $ByteBuffer
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (byte)[]
 public "arrayOffset"(): integer
 public "mark"(): $ByteBuffer
-public "rewind"(): $ByteBuffer
-public "slice"(arg0: integer, arg1: integer): $ByteBuffer
+public "reset"(): $ByteBuffer
+public "flip"(): $ByteBuffer
 public "slice"(): $ByteBuffer
+public "slice"(arg0: integer, arg1: integer): $ByteBuffer
 public "duplicate"(): $ByteBuffer
 public "order"(): $ByteOrder
 public "order"(arg0: $ByteOrder$Type): $ByteBuffer
@@ -700,7 +705,6 @@ public "asIntBuffer"(): $IntBuffer
 public "asLongBuffer"(): $LongBuffer
 public "asFloatBuffer"(): $FloatBuffer
 public "asDoubleBuffer"(): $DoubleBuffer
-public "mismatch"(arg0: $ByteBuffer$Type): integer
 get "short"(): short
 get "char"(): character
 get "int"(): integer
@@ -740,10 +744,10 @@ export interface $MulticastChannel extends $NetworkChannel {
  "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
  "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
  "close"(): void
- "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
  "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "getLocalAddress"(): $SocketAddress
  "supportedOptions"(): $Set<($SocketOption<(any)>)>
+ "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
  "bind"(arg0: $SocketAddress$Type): $NetworkChannel
  "isOpen"(): boolean
 }
@@ -1015,9 +1019,9 @@ export interface $BasicFileAttributes {
  "creationTime"(): $FileTime
  "isSymbolicLink"(): boolean
  "fileKey"(): any
+ "isOther"(): boolean
  "isDirectory"(): boolean
  "isRegularFile"(): boolean
- "isOther"(): boolean
 }
 
 export namespace $BasicFileAttributes {
@@ -1129,8 +1133,8 @@ public "bind"(arg0: $SocketAddress$Type, arg1: integer): $ServerSocketChannel
 public "accept"(): $SocketChannel
 public static "open"(): $ServerSocketChannel
 public static "open"(arg0: $ProtocolFamily$Type): $ServerSocketChannel
-public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
+public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "isOpen"(): boolean
 public "close"(): void
 get "localAddress"(): $SocketAddress
@@ -1160,39 +1164,41 @@ import {$ByteOrder, $ByteOrder$Type} from "packages/java/nio/$ByteOrder"
 export class $ShortBuffer extends $Buffer implements $Comparable<($ShortBuffer)> {
 
 
+public "mismatch"(arg0: $ShortBuffer$Type): integer
 public "get"(): short
-public "get"(arg0: integer, arg1: (short)[]): $ShortBuffer
 public "get"(arg0: integer): short
-public "get"(arg0: integer, arg1: (short)[], arg2: integer, arg3: integer): $ShortBuffer
 public "get"(arg0: (short)[], arg1: integer, arg2: integer): $ShortBuffer
 public "get"(arg0: (short)[]): $ShortBuffer
-public "put"(arg0: (short)[]): $ShortBuffer
-public "put"(arg0: integer, arg1: (short)[], arg2: integer, arg3: integer): $ShortBuffer
-public "put"(arg0: integer, arg1: (short)[]): $ShortBuffer
-public "put"(arg0: (short)[], arg1: integer, arg2: integer): $ShortBuffer
-public "put"(arg0: integer, arg1: $ShortBuffer$Type, arg2: integer, arg3: integer): $ShortBuffer
+public "get"(arg0: integer, arg1: (short)[]): $ShortBuffer
+public "get"(arg0: integer, arg1: (short)[], arg2: integer, arg3: integer): $ShortBuffer
 public "put"(arg0: $ShortBuffer$Type): $ShortBuffer
-public "put"(arg0: integer, arg1: short): $ShortBuffer
+public "put"(arg0: integer, arg1: (short)[]): $ShortBuffer
+public "put"(arg0: integer, arg1: (short)[], arg2: integer, arg3: integer): $ShortBuffer
+public "put"(arg0: integer, arg1: $ShortBuffer$Type, arg2: integer, arg3: integer): $ShortBuffer
+public "put"(arg0: (short)[], arg1: integer, arg2: integer): $ShortBuffer
+public "put"(arg0: (short)[]): $ShortBuffer
 public "put"(arg0: short): $ShortBuffer
+public "put"(arg0: integer, arg1: short): $ShortBuffer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $ShortBuffer$Type): integer
-public static "wrap"(arg0: (short)[]): $ShortBuffer
+public "clear"(): $ShortBuffer
 public static "wrap"(arg0: (short)[], arg1: integer, arg2: integer): $ShortBuffer
+public static "wrap"(arg0: (short)[]): $ShortBuffer
 public "position"(arg0: integer): $ShortBuffer
 public "limit"(arg0: integer): $ShortBuffer
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (short)[]
 public "arrayOffset"(): integer
+public "reset"(): $ShortBuffer
 public "rewind"(): $ShortBuffer
-public "duplicate"(): $ShortBuffer
+public "slice"(arg0: integer, arg1: integer): $ShortBuffer
 public "order"(): $ByteOrder
 public static "allocate"(arg0: integer): $ShortBuffer
 public "asReadOnlyBuffer"(): $ShortBuffer
 public "compact"(): $ShortBuffer
-public "mismatch"(arg0: $ShortBuffer$Type): integer
 get "direct"(): boolean
 }
 /**
@@ -1260,15 +1266,14 @@ export class $SocketChannel extends $AbstractSelectableChannel implements $ByteC
 
 
 public "validOps"(): integer
+public "isConnectionPending"(): boolean
+public "finishConnect"(): boolean
+public "getRemoteAddress"(): $SocketAddress
 public "isConnected"(): boolean
-public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $SocketChannel
 public "getLocalAddress"(): $SocketAddress
 public "shutdownOutput"(): $SocketChannel
 public "shutdownInput"(): $SocketChannel
 public "socket"(): $Socket
-public "isConnectionPending"(): boolean
-public "finishConnect"(): boolean
-public "getRemoteAddress"(): $SocketAddress
 public "write"(arg0: $ByteBuffer$Type): integer
 public "write"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
 public "write"(arg0: ($ByteBuffer$Type)[]): long
@@ -1279,14 +1284,14 @@ public "connect"(arg0: $SocketAddress$Type): boolean
 public static "open"(arg0: $ProtocolFamily$Type): $SocketChannel
 public static "open"(): $SocketChannel
 public static "open"(arg0: $SocketAddress$Type): $SocketChannel
-public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
+public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "isOpen"(): boolean
 public "close"(): void
-get "connected"(): boolean
-get "localAddress"(): $SocketAddress
 get "connectionPending"(): boolean
 get "remoteAddress"(): $SocketAddress
+get "connected"(): boolean
+get "localAddress"(): $SocketAddress
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1349,12 +1354,12 @@ export class $FileLock implements $AutoCloseable {
 public "acquiredBy"(): $Channel
 public "isShared"(): boolean
 public "overlaps"(arg0: long, arg1: long): boolean
+public "channel"(): $FileChannel
 public "toString"(): string
 public "position"(): long
 public "size"(): long
 public "close"(): void
 public "release"(): void
-public "channel"(): $FileChannel
 public "isValid"(): boolean
 get "shared"(): boolean
 get "valid"(): boolean
@@ -1435,13 +1440,13 @@ export class $MembershipKey {
 
 
 public "drop"(): void
+public "channel"(): $MulticastChannel
+public "group"(): $InetAddress
+public "block"(arg0: $InetAddress$Type): $MembershipKey
+public "isValid"(): boolean
 public "unblock"(arg0: $InetAddress$Type): $MembershipKey
 public "networkInterface"(): $NetworkInterface
 public "sourceAddress"(): $InetAddress
-public "group"(): $InetAddress
-public "block"(arg0: $InetAddress$Type): $MembershipKey
-public "channel"(): $MulticastChannel
-public "isValid"(): boolean
 get "valid"(): boolean
 }
 /**
@@ -1599,39 +1604,41 @@ import {$ByteOrder, $ByteOrder$Type} from "packages/java/nio/$ByteOrder"
 export class $DoubleBuffer extends $Buffer implements $Comparable<($DoubleBuffer)> {
 
 
+public "mismatch"(arg0: $DoubleBuffer$Type): integer
 public "get"(): double
-public "get"(arg0: integer, arg1: (double)[]): $DoubleBuffer
 public "get"(arg0: integer): double
-public "get"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): $DoubleBuffer
 public "get"(arg0: (double)[], arg1: integer, arg2: integer): $DoubleBuffer
 public "get"(arg0: (double)[]): $DoubleBuffer
-public "put"(arg0: (double)[]): $DoubleBuffer
-public "put"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): $DoubleBuffer
-public "put"(arg0: integer, arg1: (double)[]): $DoubleBuffer
-public "put"(arg0: (double)[], arg1: integer, arg2: integer): $DoubleBuffer
-public "put"(arg0: integer, arg1: $DoubleBuffer$Type, arg2: integer, arg3: integer): $DoubleBuffer
+public "get"(arg0: integer, arg1: (double)[]): $DoubleBuffer
+public "get"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): $DoubleBuffer
 public "put"(arg0: $DoubleBuffer$Type): $DoubleBuffer
-public "put"(arg0: integer, arg1: double): $DoubleBuffer
+public "put"(arg0: integer, arg1: (double)[]): $DoubleBuffer
+public "put"(arg0: integer, arg1: (double)[], arg2: integer, arg3: integer): $DoubleBuffer
+public "put"(arg0: integer, arg1: $DoubleBuffer$Type, arg2: integer, arg3: integer): $DoubleBuffer
+public "put"(arg0: (double)[], arg1: integer, arg2: integer): $DoubleBuffer
+public "put"(arg0: (double)[]): $DoubleBuffer
 public "put"(arg0: double): $DoubleBuffer
+public "put"(arg0: integer, arg1: double): $DoubleBuffer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $DoubleBuffer$Type): integer
-public static "wrap"(arg0: (double)[]): $DoubleBuffer
+public "clear"(): $DoubleBuffer
 public static "wrap"(arg0: (double)[], arg1: integer, arg2: integer): $DoubleBuffer
+public static "wrap"(arg0: (double)[]): $DoubleBuffer
 public "position"(arg0: integer): $DoubleBuffer
 public "limit"(arg0: integer): $DoubleBuffer
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (double)[]
 public "arrayOffset"(): integer
+public "reset"(): $DoubleBuffer
 public "rewind"(): $DoubleBuffer
-public "duplicate"(): $DoubleBuffer
+public "slice"(arg0: integer, arg1: integer): $DoubleBuffer
 public "order"(): $ByteOrder
 public static "allocate"(arg0: integer): $DoubleBuffer
 public "asReadOnlyBuffer"(): $DoubleBuffer
 public "compact"(): $DoubleBuffer
-public "mismatch"(arg0: $DoubleBuffer$Type): integer
 get "direct"(): boolean
 }
 /**
@@ -1780,14 +1787,14 @@ export class $DatagramChannel extends $AbstractSelectableChannel implements $Byt
 
 
 public "validOps"(): integer
-public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
+public "getRemoteAddress"(): $SocketAddress
 public "isConnected"(): boolean
 public "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $DatagramChannel
 public "getLocalAddress"(): $SocketAddress
 public "socket"(): $DatagramSocket
-public "getRemoteAddress"(): $SocketAddress
-public "disconnect"(): $DatagramChannel
+public "send"(arg0: $ByteBuffer$Type, arg1: $SocketAddress$Type): integer
 public "receive"(arg0: $ByteBuffer$Type): $SocketAddress
+public "disconnect"(): $DatagramChannel
 public "write"(arg0: ($ByteBuffer$Type)[], arg1: integer, arg2: integer): long
 public "write"(arg0: $ByteBuffer$Type): integer
 public "write"(arg0: ($ByteBuffer$Type)[]): long
@@ -1800,12 +1807,12 @@ public static "open"(arg0: $ProtocolFamily$Type): $DatagramChannel
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type): $MembershipKey
 public "join"(arg0: $InetAddress$Type, arg1: $NetworkInterface$Type, arg2: $InetAddress$Type): $MembershipKey
 public "close"(): void
-public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "supportedOptions"(): $Set<($SocketOption<(any)>)>
+public "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
 public "isOpen"(): boolean
+get "remoteAddress"(): $SocketAddress
 get "connected"(): boolean
 get "localAddress"(): $SocketAddress
-get "remoteAddress"(): $SocketAddress
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1865,39 +1872,41 @@ import {$ByteOrder, $ByteOrder$Type} from "packages/java/nio/$ByteOrder"
 export class $FloatBuffer extends $Buffer implements $Comparable<($FloatBuffer)> {
 
 
+public "mismatch"(arg0: $FloatBuffer$Type): integer
 public "get"(): float
-public "get"(arg0: integer, arg1: (float)[]): $FloatBuffer
 public "get"(arg0: integer): float
-public "get"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
 public "get"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
 public "get"(arg0: (float)[]): $FloatBuffer
-public "put"(arg0: (float)[]): $FloatBuffer
-public "put"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
-public "put"(arg0: integer, arg1: (float)[]): $FloatBuffer
-public "put"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
-public "put"(arg0: integer, arg1: $FloatBuffer$Type, arg2: integer, arg3: integer): $FloatBuffer
+public "get"(arg0: integer, arg1: (float)[]): $FloatBuffer
+public "get"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
 public "put"(arg0: $FloatBuffer$Type): $FloatBuffer
-public "put"(arg0: integer, arg1: float): $FloatBuffer
+public "put"(arg0: integer, arg1: (float)[]): $FloatBuffer
+public "put"(arg0: integer, arg1: (float)[], arg2: integer, arg3: integer): $FloatBuffer
+public "put"(arg0: integer, arg1: $FloatBuffer$Type, arg2: integer, arg3: integer): $FloatBuffer
+public "put"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
+public "put"(arg0: (float)[]): $FloatBuffer
 public "put"(arg0: float): $FloatBuffer
+public "put"(arg0: integer, arg1: float): $FloatBuffer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $FloatBuffer$Type): integer
-public static "wrap"(arg0: (float)[]): $FloatBuffer
+public "clear"(): $FloatBuffer
 public static "wrap"(arg0: (float)[], arg1: integer, arg2: integer): $FloatBuffer
+public static "wrap"(arg0: (float)[]): $FloatBuffer
 public "position"(arg0: integer): $FloatBuffer
 public "limit"(arg0: integer): $FloatBuffer
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (float)[]
 public "arrayOffset"(): integer
+public "reset"(): $FloatBuffer
 public "rewind"(): $FloatBuffer
-public "duplicate"(): $FloatBuffer
+public "slice"(arg0: integer, arg1: integer): $FloatBuffer
 public "order"(): $ByteOrder
 public static "allocate"(arg0: integer): $FloatBuffer
 public "asReadOnlyBuffer"(): $FloatBuffer
 public "compact"(): $FloatBuffer
-public "mismatch"(arg0: $FloatBuffer$Type): integer
 get "direct"(): boolean
 }
 /**
@@ -1929,14 +1938,14 @@ import {$AbstractSelector, $AbstractSelector$Type} from "packages/java/nio/chann
 export class $SelectorProvider {
 
 
-public "openPipe"(): $Pipe
 public "openSelector"(): $AbstractSelector
 public "openDatagramChannel"(): $DatagramChannel
 public "openDatagramChannel"(arg0: $ProtocolFamily$Type): $DatagramChannel
-public "openServerSocketChannel"(): $ServerSocketChannel
 public "openServerSocketChannel"(arg0: $ProtocolFamily$Type): $ServerSocketChannel
-public "openSocketChannel"(arg0: $ProtocolFamily$Type): $SocketChannel
+public "openServerSocketChannel"(): $ServerSocketChannel
 public "openSocketChannel"(): $SocketChannel
+public "openSocketChannel"(arg0: $ProtocolFamily$Type): $SocketChannel
+public "openPipe"(): $Pipe
 public static "provider"(): $SelectorProvider
 public "inheritedChannel"(): $Channel
 }
@@ -2043,10 +2052,10 @@ import {$SocketOption, $SocketOption$Type} from "packages/java/net/$SocketOption
  */
 export interface $NetworkChannel extends $Channel {
 
- "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
  "setOption"<T>(arg0: $SocketOption$Type<(T)>, arg1: T): $NetworkChannel
  "getLocalAddress"(): $SocketAddress
  "supportedOptions"(): $Set<($SocketOption<(any)>)>
+ "getOption"<T>(arg0: $SocketOption$Type<(T)>): T
  "bind"(arg0: $SocketAddress$Type): $NetworkChannel
  "isOpen"(): boolean
  "close"(): void
@@ -2401,39 +2410,41 @@ import {$ByteOrder, $ByteOrder$Type} from "packages/java/nio/$ByteOrder"
 export class $LongBuffer extends $Buffer implements $Comparable<($LongBuffer)> {
 
 
+public "mismatch"(arg0: $LongBuffer$Type): integer
 public "get"(): long
-public "get"(arg0: integer, arg1: (long)[]): $LongBuffer
 public "get"(arg0: integer): long
-public "get"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
 public "get"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
 public "get"(arg0: (long)[]): $LongBuffer
-public "put"(arg0: (long)[]): $LongBuffer
-public "put"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
-public "put"(arg0: integer, arg1: (long)[]): $LongBuffer
-public "put"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
-public "put"(arg0: integer, arg1: $LongBuffer$Type, arg2: integer, arg3: integer): $LongBuffer
+public "get"(arg0: integer, arg1: (long)[]): $LongBuffer
+public "get"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
 public "put"(arg0: $LongBuffer$Type): $LongBuffer
-public "put"(arg0: integer, arg1: long): $LongBuffer
+public "put"(arg0: integer, arg1: (long)[]): $LongBuffer
+public "put"(arg0: integer, arg1: (long)[], arg2: integer, arg3: integer): $LongBuffer
+public "put"(arg0: integer, arg1: $LongBuffer$Type, arg2: integer, arg3: integer): $LongBuffer
+public "put"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
+public "put"(arg0: (long)[]): $LongBuffer
 public "put"(arg0: long): $LongBuffer
+public "put"(arg0: integer, arg1: long): $LongBuffer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $LongBuffer$Type): integer
-public static "wrap"(arg0: (long)[]): $LongBuffer
+public "clear"(): $LongBuffer
 public static "wrap"(arg0: (long)[], arg1: integer, arg2: integer): $LongBuffer
+public static "wrap"(arg0: (long)[]): $LongBuffer
 public "position"(arg0: integer): $LongBuffer
 public "limit"(arg0: integer): $LongBuffer
 public "isDirect"(): boolean
 public "hasArray"(): boolean
 public "array"(): (long)[]
 public "arrayOffset"(): integer
+public "reset"(): $LongBuffer
 public "rewind"(): $LongBuffer
-public "duplicate"(): $LongBuffer
+public "slice"(arg0: integer, arg1: integer): $LongBuffer
 public "order"(): $ByteOrder
 public static "allocate"(arg0: integer): $LongBuffer
 public "asReadOnlyBuffer"(): $LongBuffer
 public "compact"(): $LongBuffer
-public "mismatch"(arg0: $LongBuffer$Type): integer
 get "direct"(): boolean
 }
 /**
@@ -2570,13 +2581,13 @@ import {$SelectionKey, $SelectionKey$Type} from "packages/java/nio/channels/$Sel
 export class $Selector implements $Closeable {
 
 
-public "wakeup"(): $Selector
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>, arg1: long): integer
 public "select"(arg0: long): integer
 public "select"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
 public "select"(): integer
-public "selectNow"(): integer
+public "wakeup"(): $Selector
 public "selectNow"(arg0: $Consumer$Type<($SelectionKey$Type)>): integer
+public "selectNow"(): integer
 public "selectedKeys"(): $Set<($SelectionKey)>
 public "isOpen"(): boolean
 public "provider"(): $SelectorProvider
@@ -2807,6 +2818,8 @@ import {$Locale, $Locale$Type} from "packages/java/util/$Locale"
 export class $Charset implements $Comparable<($Charset)> {
 
 
+public "aliases"(): $Set<(string)>
+public static "isSupported"(arg0: string): boolean
 public "name"(): string
 public static "forName"(arg0: string): $Charset
 public "equals"(arg0: any): boolean
@@ -2816,8 +2829,8 @@ public "compareTo"(arg0: $Charset$Type): integer
 public "newDecoder"(): $CharsetDecoder
 public "decode"(arg0: $ByteBuffer$Type): $CharBuffer
 public "newEncoder"(): $CharsetEncoder
-public "encode"(arg0: string): $ByteBuffer
 public "encode"(arg0: $CharBuffer$Type): $ByteBuffer
+public "encode"(arg0: string): $ByteBuffer
 public static "defaultCharset"(): $Charset
 public "canEncode"(): boolean
 public "contains"(arg0: $Charset$Type): boolean
@@ -2825,8 +2838,6 @@ public "isRegistered"(): boolean
 public static "availableCharsets"(): $SortedMap<(string), ($Charset)>
 public "displayName"(): string
 public "displayName"(arg0: $Locale$Type): string
-public "aliases"(): $Set<(string)>
-public static "isSupported"(arg0: string): boolean
 get "registered"(): boolean
 }
 /**

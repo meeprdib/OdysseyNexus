@@ -71,9 +71,9 @@ import {$CommonVertexAttribute, $CommonVertexAttribute$Type} from "packages/net/
 
 export interface $VertexFormatDescription {
 
- "containsElement"(arg0: $CommonVertexAttribute$Type): boolean
- "getElementOffset"(arg0: $CommonVertexAttribute$Type): integer
  "isSimpleFormat"(): boolean
+ "getElementOffset"(arg0: $CommonVertexAttribute$Type): integer
+ "containsElement"(arg0: $CommonVertexAttribute$Type): boolean
  "id"(): integer
  "stride"(): integer
 }

@@ -75,9 +75,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "getOutput"(arg0: $ItemStack$Type): $ItemStack
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "decode"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: boolean): $IPatternDetails
@@ -104,12 +104,12 @@ constructor(arg0: $CompoundTag$Type)
 constructor(arg0: long)
 
 public "writeToNBT"(): $CompoundTag
+public "getRemainingItemCount"(): long
 public "getElapsedTime"(): long
 public "getStartItemCount"(): long
-public "getRemainingItemCount"(): long
+get "remainingItemCount"(): long
 get "elapsedTime"(): long
 get "startItemCount"(): long
-get "remainingItemCount"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -210,26 +210,26 @@ readonly "canSubstituteFluids": boolean
 
 constructor(arg0: $AEItemKey$Type, arg1: $Level$Type)
 
-public "getInputs"(): ($IPatternDetails$IInput)[]
-public "canSubstitute"(): boolean
 public "getOutputs"(): ($GenericStack)[]
-public "fillCraftingGrid"(arg0: ($KeyCounter$Type)[], arg1: $IMolecularAssemblerSupportedPattern$CraftingGridAccessor$Type): void
-public "assemble"(arg0: $Container$Type, arg1: $Level$Type): $ItemStack
-public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
-public "canSubstituteFluids"(): boolean
+public "getInputs"(): ($IPatternDetails$IInput)[]
 public "isSlotEnabled"(arg0: integer): boolean
-public "isItemValid"(arg0: integer, arg1: $AEItemKey$Type, arg2: $Level$Type): boolean
+public "canSubstitute"(): boolean
 public "getSparseInputs"(): ($GenericStack)[]
 public "getSparseOutputs"(): ($GenericStack)[]
+public "isItemValid"(arg0: integer, arg1: $AEItemKey$Type, arg2: $Level$Type): boolean
+public "assemble"(arg0: $Container$Type, arg1: $Level$Type): $ItemStack
+public "fillCraftingGrid"(arg0: ($KeyCounter$Type)[], arg1: $IMolecularAssemblerSupportedPattern$CraftingGridAccessor$Type): void
+public "getRemainingItems"(arg0: $CraftingContainer$Type): $NonNullList<($ItemStack)>
+public "canSubstituteFluids"(): boolean
 public "getValidFluid"(arg0: integer): $GenericStack
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getDefinition"(): $AEItemKey
-public "getPrimaryOutput"(): $GenericStack
-public "pushInputsToExternalInventory"(arg0: ($KeyCounter$Type)[], arg1: $IPatternDetails$PatternInputSink$Type): void
 public "supportsPushInputsToExternalInventory"(): boolean
-get "inputs"(): ($IPatternDetails$IInput)[]
+public "pushInputsToExternalInventory"(arg0: ($KeyCounter$Type)[], arg1: $IPatternDetails$PatternInputSink$Type): void
+public "getPrimaryOutput"(): $GenericStack
 get "outputs"(): ($GenericStack)[]
+get "inputs"(): ($IPatternDetails$IInput)[]
 get "sparseInputs"(): ($GenericStack)[]
 get "sparseOutputs"(): ($GenericStack)[]
 get "definition"(): $AEItemKey
@@ -362,8 +362,8 @@ import {$CraftingCPUCluster, $CraftingCPUCluster$Type} from "packages/appeng/me/
 import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
 import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingRequester"
 import {$IEnergyService, $IEnergyService$Type} from "packages/appeng/api/networking/energy/$IEnergyService"
-import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$ICraftingLink, $ICraftingLink$Type} from "packages/appeng/api/networking/crafting/$ICraftingLink"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$ICraftingSubmitResult, $ICraftingSubmitResult$Type} from "packages/appeng/api/networking/crafting/$ICraftingSubmitResult"
 import {$IGrid, $IGrid$Type} from "packages/appeng/api/networking/$IGrid"
@@ -376,34 +376,34 @@ export class $CraftingCpuLogic {
 
 constructor(arg0: $CraftingCPUCluster$Type)
 
-public "addListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
-public "getInventory"(): $ListCraftingInventory
-public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "writeToNBT"(arg0: $CompoundTag$Type): void
-public "tickCraftingLogic"(arg0: $IEnergyService$Type, arg1: $CraftingService$Type): void
 public "getLastLink"(): $ICraftingLink
+public "tickCraftingLogic"(arg0: $IEnergyService$Type, arg1: $CraftingService$Type): void
 public "getAllWaitingFor"(arg0: $Set$Type<($AEKey$Type)>): void
-public "getWaitingFor"(arg0: $AEKey$Type): long
-public "getLastModifiedOnTick"(): long
-public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
+public "getInventory"(): $ListCraftingInventory
+public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "addListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
 public "cancel"(): void
-public "storeItems"(): void
-public "getStored"(arg0: $AEKey$Type): long
-public "getPendingOutputs"(arg0: $AEKey$Type): long
-public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
+public "removeListener"(arg0: $Consumer$Type<($AEKey$Type)>): void
+public "getElapsedTimeTracker"(): $ElapsedTimeTracker
 public "getAllItems"(arg0: $KeyCounter$Type): void
+public "getLastModifiedOnTick"(): long
+public "getWaitingFor"(arg0: $AEKey$Type): long
 public "trySubmitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
 public "getFinalJobOutput"(): $GenericStack
 public "hasJob"(): boolean
 public "isCantStoreItems"(): boolean
-public "getElapsedTimeTracker"(): $ElapsedTimeTracker
+public "storeItems"(): void
+public "executeCrafting"(arg0: integer, arg1: $CraftingService$Type, arg2: $IEnergyService$Type, arg3: $Level$Type): integer
+public "getStored"(arg0: $AEKey$Type): long
+public "getPendingOutputs"(arg0: $AEKey$Type): long
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
-get "inventory"(): $ListCraftingInventory
 get "lastLink"(): $ICraftingLink
+get "inventory"(): $ListCraftingInventory
+get "elapsedTimeTracker"(): $ElapsedTimeTracker
 get "lastModifiedOnTick"(): long
 get "finalJobOutput"(): $GenericStack
 get "cantStoreItems"(): boolean
-get "elapsedTimeTracker"(): $ElapsedTimeTracker
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -429,23 +429,23 @@ import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api
 
 export class $CraftingLink implements $ICraftingLink {
 
-constructor(arg0: $CompoundTag$Type, arg1: $ICraftingCPU$Type)
 constructor(arg0: $CompoundTag$Type, arg1: $ICraftingRequester$Type)
+constructor(arg0: $CompoundTag$Type, arg1: $ICraftingCPU$Type)
 
-public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "getCraftingID"(): $UUID
-public "setNexus"(arg0: $CraftingLinkNexus$Type): void
-public "markDone"(): void
-public "isCanceled"(): boolean
+public "writeToNBT"(arg0: $CompoundTag$Type): void
 public "cancel"(): void
 public "isDone"(): boolean
+public "isCanceled"(): boolean
 public "isStandalone"(): boolean
+public "setNexus"(arg0: $CraftingLinkNexus$Type): void
+public "markDone"(): void
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 get "craftingID"(): $UUID
-set "nexus"(value: $CraftingLinkNexus$Type)
-get "canceled"(): boolean
 get "done"(): boolean
+get "canceled"(): boolean
 get "standalone"(): boolean
+set "nexus"(value: $CraftingLinkNexus$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -471,10 +471,10 @@ export class $CraftingLinkNexus {
 constructor(arg0: $UUID$Type)
 
 public "isRequester"(arg0: $ICraftingRequester$Type): boolean
+public "isDead"(arg0: $IGrid$Type, arg1: $CraftingService$Type): boolean
 public "setRequest"(arg0: $CraftingLink$Type): void
 public "getRequest"(): $CraftingLink
 public "removeNode"(): void
-public "isDead"(arg0: $IGrid$Type, arg1: $CraftingService$Type): boolean
 set "request"(value: $CraftingLink$Type)
 get "request"(): $CraftingLink
 }
@@ -504,8 +504,8 @@ readonly "list": $KeyCounter
 
 constructor(arg0: $ListCraftingInventory$ChangeListener$Type)
 
-public "readFromNBT"(arg0: $ListTag$Type): void
 public "writeToNBT"(): $ListTag
+public "readFromNBT"(arg0: $ListTag$Type): void
 public "extract"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): void
 public "clear"(): void

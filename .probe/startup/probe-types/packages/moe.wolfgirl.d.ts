@@ -158,12 +158,12 @@ readonly "variableTypes": $List<($VariableType)>
 
 constructor(clazz: $Class$Type<(any)>)
 
-public "getClassPaths"(): $Collection<($ClassPath)>
 public "getUsedClasses"(): $Set<($ClassPath)>
+public "getClassPaths"(): $Collection<($ClassPath)>
 public "equals"(o: any): boolean
 public "hashCode"(): integer
-get "classPaths"(): $Collection<($ClassPath)>
 get "usedClasses"(): $Set<($ClassPath)>
+get "classPaths"(): $Collection<($ClassPath)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -580,10 +580,10 @@ export class $ScriptEventJS extends $EventJS {
 
 constructor(dump: $ScriptDump$Type)
 
-public "getScriptType"(): $ScriptType
 public "getTypeConverter"(): $TypeConverter
-get "scriptType"(): $ScriptType
+public "getScriptType"(): $ScriptType
 get "typeConverter"(): $TypeConverter
+get "scriptType"(): $ScriptType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -949,22 +949,22 @@ export type WorldgenFeatureSizeType_ = WorldgenFeatureSizeType$Type;
 declare module "packages/moe/wolfgirl/probejs/lang/java/clazz/$ClassPath" {
 import {$Path, $Path$Type} from "packages/java/nio/file/$Path"
 import {$Record, $Record$Type} from "packages/java/lang/$Record"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 
 export class $ClassPath extends $Record {
 
 constructor(className: string)
-constructor(clazz: $Class$Type<(any)>)
 constructor(parts: $List$Type<(string)>)
+constructor(clazz: $Class$Type<(any)>)
 
 public "getConcatenatedPackage"(sep: string): string
-public "getClassPathJava"(): string
-public "getConcatenated"(sep: string): string
-public "getGenerics"(): $List<(string)>
 public "getTypeScriptPath"(): string
 public "getDirPath"(base: $Path$Type): $Path
 public "makePath"(base: $Path$Type): $Path
+public "getConcatenated"(sep: string): string
+public "getGenerics"(): $List<(string)>
+public "getClassPathJava"(): string
 public "getName"(): string
 public "equals"(o: any): boolean
 public "toString"(): string
@@ -972,9 +972,9 @@ public "hashCode"(): integer
 public "getPackage"(): $List<(string)>
 public "parts"(): $List<(string)>
 public "getClassPath"(): string
-get "classPathJava"(): string
-get "generics"(): $List<(string)>
 get "typeScriptPath"(): string
+get "generics"(): $List<(string)>
+get "classPathJava"(): string
 get "name"(): string
 get "package"(): $List<(string)>
 get "classPath"(): string
@@ -1029,8 +1029,8 @@ export class $SnippetDump {
 
 constructor()
 
-public "fromDocs"(): void
 public "snippet"(name: string): $Snippet
+public "fromDocs"(): void
 public "writeTo"(path: $Path$Type): void
 }
 /**
@@ -1208,24 +1208,24 @@ const VOID: $JSPrimitiveType
 const THIS: $JSPrimitiveType
 const OBJECT: $JSPrimitiveType
 const NULL: $JSPrimitiveType
-function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
 function parameterized(base: $BaseType$Type, ...params: ($BaseType$Type)[]): $TSParamType
 function arrayOf(...types: ($BaseType$Type)[]): $JSArrayType
 function primitive(type: string): $JSPrimitiveType
-function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
-function ignoreContext(type: $BaseType$Type, formatType: $BaseType$FormatType$Type): $BaseType
+function custom(formatter: $BiFunction$Type<($Declaration$Type), ($BaseType$FormatType$Type), (string)>, ...imports: ($ClassPath$Type)[]): $BaseType
+function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
 function typeOf(classType: $BaseType$Type): $JSTypeOfType
 function typeOf(classPath: $ClassPath$Type): $JSTypeOfType
-function typeOf(clazz: $Class$Type<(any)>): $JSTypeOfType
+function ignoreContext(type: $BaseType$Type, formatType: $BaseType$FormatType$Type): $BaseType
+function typeMaybeGeneric(clazz: $Class$Type<(any)>): $BaseType
 function object(): $JSObjectType$Builder
 function type(classPath: $ClassPath$Type): $TSClassType
 function type(clazz: $Class$Type<(any)>): $TSClassType
 function generic(symbol: string): $TSVariableType
 function generic(symbol: string, extendOn: $BaseType$Type): $TSVariableType
 function lambda(): $JSLambdaType$Builder
+function and(...types: ($BaseType$Type)[]): $JSJoinedType$Intersection
 function or(...types: ($BaseType$Type)[]): $BaseType
 function literal(content: any): $JSPrimitiveType
-function and(...types: ($BaseType$Type)[]): $JSJoinedType$Intersection
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1441,8 +1441,8 @@ readonly "comments": $List<(string)>
 constructor()
 
 public "addCode"(inner: $Code$Type): void
-public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "isEmpty"(): boolean
 public "merge"(other: $Wrapped$Type): void
 get "usedClassPaths"(): $Collection<($ClassPath)>
@@ -1657,13 +1657,13 @@ readonly "comments": $List<(string)>
 
 constructor()
 
+public "newline"(...comments: (string)[]): void
 public "addComment"(...comments: (string)[]): void
-public "addCommentAtStart"(...comments: (string)[]): void
-public "formatComments"(): $List<(string)>
 public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "linebreak"(): void
+public "formatComments"(): $List<(string)>
+public "addCommentAtStart"(...comments: (string)[]): void
 public "format"(declaration: $Declaration$Type): $List<(string)>
-public "newline"(...comments: (string)[]): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2565,9 +2565,9 @@ readonly "returnType": $BaseType
 
 constructor(params: $List$Type<($ParamDecl$Type)>, returnType: $BaseType$Type)
 
+public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "formatWithName"(name: string, declaration: $Declaration$Type, input: $BaseType$FormatType$Type): string
 public "asMethod"(methodName: string): $MethodDecl
-public "getUsedClassPaths"(): $Collection<($ClassPath)>
 public "format"(declaration: $Declaration$Type, input: $BaseType$FormatType$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
@@ -2638,8 +2638,8 @@ readonly "comments": $List<(string)>
 
 constructor(name: string, variableTypes: $List$Type<($TSVariableType$Type)>, params: $List$Type<($ParamDecl$Type)>, returnType: $BaseType$Type)
 
-public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 public "getUsedClassPaths"(): $Collection<($ClassPath)>
+public "formatRaw"(declaration: $Declaration$Type): $List<(string)>
 get "usedClassPaths"(): $Collection<($ClassPath)>
 }
 /**
@@ -2738,26 +2738,26 @@ readonly "recordedClasses": $Set<($Clazz)>
 
 constructor(manager: $ScriptManager$Type, basePath: $Path$Type, scriptPath: $Path$Type, scriptPredicate: $Predicate$Type<($Clazz$Type)>)
 
+public "getGlobalFolder"(): $Path
 public "dump"(): void
-public "removeClasses"(): void
+public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
+public "assignType"(classPath: $Class$Type<(any)>, type: $BaseType$Type): void
 public "retrieveClasses"(): $Set<($Class<(any)>)>
 public "acceptClasses"(classes: $Collection$Type<($Clazz$Type)>): void
-public "getGlobalFolder"(): $Path
-public "addGlobal"(identifier: string, excludedNames: $Collection$Type<(string)>, ...content: ($Code$Type)[]): void
-public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
+public "removeClasses"(): void
+public "getPackageFolder"(): $Path
 public "ensurePath"(path: string): $Path
 public "ensurePath"(path: string, script: boolean): $Path
 public "getTypeFolder"(): $Path
-public "getPackageFolder"(): $Path
 public "dumpClasses"(): void
+public "addGlobal"(identifier: string, excludedNames: $Collection$Type<(string)>, ...content: ($Code$Type)[]): void
+public "addGlobal"(identifier: string, ...content: ($Code$Type)[]): void
 public "dumpGlobal"(): void
 public "dumpJSConfig"(): void
-public "assignType"(classPath: $Class$Type<(any)>, type: $BaseType$Type): void
-public "assignType"(classPath: $ClassPath$Type, type: $BaseType$Type): void
 public "getSource"(): $Path
 get "globalFolder"(): $Path
-get "typeFolder"(): $Path
 get "packageFolder"(): $Path
+get "typeFolder"(): $Path
 get "source"(): $Path
 }
 /**
@@ -3272,19 +3272,19 @@ readonly "name": string
 
 constructor(name: string)
 
-public "choices"(enumeration: integer, choices: $Collection$Type<(string)>): $Snippet
-public "choices"(choices: $Collection$Type<(string)>): $Snippet
+public "newline"(): $Snippet
 public "description"(description: string): $Snippet
-public "getPrefixes"(): $List<(string)>
 public "registry"<T>(registry: $ResourceKey$Type<($Registry$Type<(T)>)>): $Snippet
+public "variable"(variable: $Variable$Type): $Snippet
+public "getPrefixes"(): $List<(string)>
 public "tabStop"(enumeration: integer, defaultValue: string): $Snippet
 public "tabStop"(enumeration: integer): $Snippet
 public "tabStop"(): $Snippet
-public "variable"(variable: $Variable$Type): $Snippet
+public "choices"(enumeration: integer, choices: $Collection$Type<(string)>): $Snippet
+public "choices"(choices: $Collection$Type<(string)>): $Snippet
 public "compile"(): $JsonObject
 public "prefix"(prefix: string): $Snippet
 public "literal"(content: string): $Snippet
-public "newline"(): $Snippet
 get "prefixes"(): $List<(string)>
 }
 /**
@@ -3629,8 +3629,8 @@ readonly "rejectedClasses": $Set<($ClassPath)>
 
 constructor(manager: $ScriptManager$Type)
 
-public "dump"(clazzes: $Collection$Type<($Clazz$Type)>): $Map<($ClassPath), ($TypeScriptFile)>
 public "reject"(clazz: $Class$Type<(any)>): void
+public "dump"(clazzes: $Collection$Type<($Clazz$Type)>): $Map<($ClassPath), ($TypeScriptFile)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3710,11 +3710,11 @@ constructor(typeVariable: $TypeVariable$Type<(any)>, checkBounds: boolean)
 constructor(typeVariable: $AnnotatedTypeVariable$Type, checkBounds: boolean)
 constructor(typeVariable: $TypeVariable$Type<(any)>)
 
-public "getSymbol"(): string
 public "getDescriptors"(): $List<($TypeDescriptor)>
+public "getSymbol"(): string
 public "stream"(): $Stream<($TypeDescriptor)>
-get "symbol"(): string
 get "descriptors"(): $List<($TypeDescriptor)>
+get "symbol"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4140,9 +4140,9 @@ readonly "references": $Map<($ClassPath), ($Reference)>
 
 constructor()
 
-public "exclude"(name: string): void
 public "getSymbol"(path: $ClassPath$Type, input: boolean): string
 public "getSymbol"(path: $ClassPath$Type): string
+public "exclude"(name: string): void
 public "addClass"(path: $ClassPath$Type): void
 }
 /**
@@ -4388,8 +4388,8 @@ readonly "classPath": $ClassPath
 constructor(self: $ClassPath$Type)
 
 public "addCode"(code: $Code$Type): void
-public "excludeSymbol"(name: string): void
 public "findCode"<T extends $Code>(type: $Class$Type<(T)>): $Optional<(T)>
+public "excludeSymbol"(name: string): void
 public "writeAsModule"(writer: $BufferedWriter$Type): void
 public "format"(): string
 public "write"(writer: $BufferedWriter$Type): void
@@ -4415,13 +4415,13 @@ export class $Reference extends $Record {
 
 constructor(classPath: $ClassPath$Type, original: string, input: string)
 
+public "getImport"(): string
 public "equals"(o: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "original"(): string
 public "classPath"(): $ClassPath
 public "input"(): string
-public "getImport"(): string
 get "import"(): string
 }
 /**

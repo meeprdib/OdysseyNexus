@@ -34,19 +34,19 @@ export class $AssemblerAnimationStatus {
 
 constructor(arg0: byte, arg1: $ItemStack$Type)
 
-public "setTicksUntilParticles"(arg0: float): void
-public "setAccumulatedTicks"(arg0: float): void
-public "getTicksUntilParticles"(): float
-public "getAccumulatedTicks"(): float
-public "getSpeed"(): byte
 public "isExpired"(): boolean
+public "getSpeed"(): byte
+public "setTicksUntilParticles"(arg0: float): void
+public "getTicksUntilParticles"(): float
+public "setAccumulatedTicks"(arg0: float): void
+public "getAccumulatedTicks"(): float
 public "getIs"(): $ItemStack
-set "ticksUntilParticles"(value: float)
-set "accumulatedTicks"(value: float)
-get "ticksUntilParticles"(): float
-get "accumulatedTicks"(): float
-get "speed"(): byte
 get "expired"(): boolean
+get "speed"(): byte
+set "ticksUntilParticles"(value: float)
+get "ticksUntilParticles"(): float
+set "accumulatedTicks"(value: float)
+get "accumulatedTicks"(): float
 get "is"(): $ItemStack
 }
 /**
@@ -134,46 +134,46 @@ static readonly "PROPERTY": $ModelProperty<($CableBusRenderState)>
 
 constructor()
 
-public "getFacades"(): $EnumMap<($Direction), ($FacadeRenderState)>
-public "getCableColor"(): $AEColor
+public "getPos"(): $BlockPos
 public "setChannelsOnSide"(arg0: $EnumMap$Type<($Direction$Type), (integer)>): void
 public "getChannelsOnSide"(): $EnumMap<($Direction), (integer)>
-public "getBoundingBoxes"(): $List<($AABB)>
+public "getCableColor"(): $AEColor
+public "getFacades"(): $EnumMap<($Direction), ($FacadeRenderState)>
 public "getAttachments"(): $EnumMap<($Direction), ($IPartModel)>
-public "getConnectionTypes"(): $EnumMap<($Direction), ($AECableType)>
+public "getBoundingBoxes"(): $List<($AABB)>
 public "getPartModelData"(): $EnumMap<($Direction), ($ModelData)>
-public "getCoreType"(): $CableCoreType
 public "getCableType"(): $AECableType
-public "setCableType"(arg0: $AECableType$Type): void
-public "setCoreType"(arg0: $CableCoreType$Type): void
+public "getConnectionTypes"(): $EnumMap<($Direction), ($AECableType)>
 public "setCableColor"(arg0: $AEColor$Type): void
+public "setCableType"(arg0: $AECableType$Type): void
 public "setConnectionTypes"(arg0: $EnumMap$Type<($Direction$Type), ($AECableType$Type)>): void
-public "setPos"(arg0: $BlockPos$Type): void
-public "getPos"(): $BlockPos
-public "setCableBusAdjacent"(arg0: $EnumSet$Type<($Direction$Type)>): void
-public "getCableBusAdjacent"(): $EnumSet<($Direction)>
+public "setCoreType"(arg0: $CableCoreType$Type): void
+public "getCoreType"(): $CableCoreType
 public "getAttachmentConnections"(): $EnumMap<($Direction), (integer)>
+public "getCableBusAdjacent"(): $EnumSet<($Direction)>
+public "setCableBusAdjacent"(arg0: $EnumSet$Type<($Direction$Type)>): void
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
-get "facades"(): $EnumMap<($Direction), ($FacadeRenderState)>
-get "cableColor"(): $AEColor
+public "setPos"(arg0: $BlockPos$Type): void
+get "pos"(): $BlockPos
 set "channelsOnSide"(value: $EnumMap$Type<($Direction$Type), (integer)>)
 get "channelsOnSide"(): $EnumMap<($Direction), (integer)>
-get "boundingBoxes"(): $List<($AABB)>
+get "cableColor"(): $AEColor
+get "facades"(): $EnumMap<($Direction), ($FacadeRenderState)>
 get "attachments"(): $EnumMap<($Direction), ($IPartModel)>
-get "connectionTypes"(): $EnumMap<($Direction), ($AECableType)>
+get "boundingBoxes"(): $List<($AABB)>
 get "partModelData"(): $EnumMap<($Direction), ($ModelData)>
-get "coreType"(): $CableCoreType
 get "cableType"(): $AECableType
-set "cableType"(value: $AECableType$Type)
-set "coreType"(value: $CableCoreType$Type)
+get "connectionTypes"(): $EnumMap<($Direction), ($AECableType)>
 set "cableColor"(value: $AEColor$Type)
+set "cableType"(value: $AECableType$Type)
 set "connectionTypes"(value: $EnumMap$Type<($Direction$Type), ($AECableType$Type)>)
-set "pos"(value: $BlockPos$Type)
-get "pos"(): $BlockPos
-set "cableBusAdjacent"(value: $EnumSet$Type<($Direction$Type)>)
-get "cableBusAdjacent"(): $EnumSet<($Direction)>
+set "coreType"(value: $CableCoreType$Type)
+get "coreType"(): $CableCoreType
 get "attachmentConnections"(): $EnumMap<($Direction), (integer)>
+get "cableBusAdjacent"(): $EnumSet<($Direction)>
+set "cableBusAdjacent"(value: $EnumSet$Type<($Direction$Type)>)
+set "pos"(value: $BlockPos$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

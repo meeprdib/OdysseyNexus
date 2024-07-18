@@ -79,8 +79,8 @@ import {WorldgenStructure, WorldgenStructure$Type} from "packages/moe/wolfgirl/p
 import {SoftFluids, SoftFluids$Type} from "packages/moe/wolfgirl/probejs/generated/registry/moonlight/SoftFluids"
 import {ParticleType, ParticleType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/ParticleType"
 import {WorldgenStructurePlacement, WorldgenStructurePlacement$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenStructurePlacement"
-import {BiomeModifier, BiomeModifier$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/BiomeModifier"
 import {StructureRepaletters, StructureRepaletters$Type} from "packages/moe/wolfgirl/probejs/generated/registry/blueprint/StructureRepaletters"
+import {BiomeModifier, BiomeModifier$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/BiomeModifier"
 import {WorldgenPlacedFeature, WorldgenPlacedFeature$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenPlacedFeature"
 import {PositionSourceType, PositionSourceType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/PositionSourceType"
 import {FluidType, FluidType$Type} from "packages/moe/wolfgirl/probejs/generated/registry/forge/FluidType"
@@ -201,11 +201,11 @@ function registry(extra: "forge:global_loot_modifier_serializers", handler: (eve
 function registry(extra: "forge:holder_set_type", handler: (event: HolderSetType) => void): void
 function registry(extra: "forge:structure_modifier_serializers", handler: (event: StructureModifierSerializers) => void): void
 function registry(extra: "integrated_api:json_conditions", handler: (event: JsonConditions) => void): void
+function registry(extra: "forge:structure_modifier", handler: (event: StructureModifier) => void): void
+function registry(extra: "moonlight:map_markers", handler: (event: MapMarkers) => void): void
+function registry(extra: "blueprint:structure_repaletters", handler: (event: StructureRepaletters) => void): void
+function registry(extra: "blueprint:modded_biome_slices", handler: (event: ModdedBiomeSlices) => void): void
 function registry(extra: "moonlight:soft_fluids", handler: (event: SoftFluids) => void): void
 function registry(extra: "forge:biome_modifier", handler: (event: BiomeModifier) => void): void
-function registry(extra: "blueprint:modded_biome_slices", handler: (event: ModdedBiomeSlices) => void): void
-function registry(extra: "forge:structure_modifier", handler: (event: StructureModifier) => void): void
-function registry(extra: "blueprint:structure_repaletters", handler: (event: StructureRepaletters) => void): void
-function registry(extra: "moonlight:map_markers", handler: (event: MapMarkers) => void): void
 }
 }

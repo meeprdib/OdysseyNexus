@@ -14,9 +14,9 @@ export class $CodecRecipeSerializer<R extends $Recipe<(any)>> implements $Recipe
 constructor(recipeType: $RecipeType$Type<(R)>, codec: $Function$Type<($ResourceLocation$Type), ($Codec$Type<(R)>)>)
 constructor(recipeType: $RecipeType$Type<(R)>, jsonCodec: $Function$Type<($ResourceLocation$Type), ($Codec$Type<(R)>)>, networkCodec: $Function$Type<($ResourceLocation$Type), ($Codec$Type<(R)>)>)
 
-public "toNetwork"(buffer: $FriendlyByteBuf$Type, recipe: R): void
-public "fromJson"(id: $ResourceLocation$Type, json: $JsonObject$Type): R
 public "fromNetwork"(id: $ResourceLocation$Type, buffer: $FriendlyByteBuf$Type): R
+public "fromJson"(id: $ResourceLocation$Type, json: $JsonObject$Type): R
+public "toNetwork"(buffer: $FriendlyByteBuf$Type, recipe: R): void
 public "type"(): $RecipeType<(R)>
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): R

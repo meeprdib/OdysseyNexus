@@ -37,8 +37,8 @@ import {$SoundSource, $SoundSource$Type} from "packages/net/minecraft/sounds/$So
 import {$SceneBuilder$EffectInstructions, $SceneBuilder$EffectInstructions$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuilder$EffectInstructions"
 import {$PonderScene, $PonderScene$Type} from "packages/com/simibubi/create/foundation/ponder/$PonderScene"
 import {$SceneBuilder$SpecialInstructions, $SceneBuilder$SpecialInstructions$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuilder$SpecialInstructions"
-import {$TextWindowElement$Builder, $TextWindowElement$Builder$Type} from "packages/com/simibubi/create/foundation/ponder/element/$TextWindowElement$Builder"
 import {$ParticleInstructions, $ParticleInstructions$Type} from "packages/com/almostreliable/ponderjs/particles/$ParticleInstructions"
+import {$TextWindowElement$Builder, $TextWindowElement$Builder$Type} from "packages/com/simibubi/create/foundation/ponder/element/$TextWindowElement$Builder"
 import {$SceneBuilder$WorldInstructions, $SceneBuilder$WorldInstructions$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuilder$WorldInstructions"
 import {$SceneBuilder, $SceneBuilder$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuilder"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -55,29 +55,29 @@ readonly "effects": $SceneBuilder$EffectInstructions
 constructor(arg0: $PonderScene$Type)
 
 public "getWorld"(): $ExtendedSceneBuilder$ExtendedWorldInstructions
-public "getLevel"(): $ExtendedSceneBuilder$ExtendedWorldInstructions
 public "getEffects"(): $SceneBuilder$EffectInstructions
-public "getOverlay"(): $SceneBuilder$OverlayInstructions
+public "getLevel"(): $ExtendedSceneBuilder$ExtendedWorldInstructions
 public "playSound"(arg0: $SoundEvent$Type, arg1: float): void
-public "playSound"(arg0: $SoundEvent$Type): void
 public "playSound"(arg0: $SoundEvent$Type, arg1: $SoundSource$Type, arg2: float, arg3: float): void
-public "showControls"(arg0: integer, arg1: $Vec3$Type, arg2: $Pointing$Type): $InputWindowElement
-public "sharedText"(arg0: integer, arg1: $ResourceLocation$Type): $TextWindowElement$Builder
-public "sharedText"(arg0: integer, arg1: $ResourceLocation$Type, arg2: $Vec3$Type): $TextWindowElement$Builder
-public "encapsulateBounds"(arg0: $BlockPos$Type): void
+public "playSound"(arg0: $SoundEvent$Type): void
 public "getSpecial"(): $SceneBuilder$SpecialInstructions
 public "getParticles"(): $ParticleInstructions
-public "showStructure"(): void
 public "showStructure"(arg0: integer): void
+public "showStructure"(): void
+public "encapsulateBounds"(arg0: $BlockPos$Type): void
+public "getOverlay"(): $SceneBuilder$OverlayInstructions
+public "showControls"(arg0: integer, arg1: $Vec3$Type, arg2: $Pointing$Type): $InputWindowElement
+public "sharedText"(arg0: integer, arg1: $ResourceLocation$Type, arg2: $Vec3$Type): $TextWindowElement$Builder
+public "sharedText"(arg0: integer, arg1: $ResourceLocation$Type): $TextWindowElement$Builder
 public "getDebug"(): $SceneBuilder$DebugInstructions
 public "text"(arg0: integer, arg1: string): $TextWindowElement$Builder
 public "text"(arg0: integer, arg1: string, arg2: $Vec3$Type): $TextWindowElement$Builder
 get "world"(): $ExtendedSceneBuilder$ExtendedWorldInstructions
-get "level"(): $ExtendedSceneBuilder$ExtendedWorldInstructions
 get "effects"(): $SceneBuilder$EffectInstructions
-get "overlay"(): $SceneBuilder$OverlayInstructions
+get "level"(): $ExtendedSceneBuilder$ExtendedWorldInstructions
 get "special"(): $SceneBuilder$SpecialInstructions
 get "particles"(): $ParticleInstructions
+get "overlay"(): $SceneBuilder$OverlayInstructions
 get "debug"(): $SceneBuilder$DebugInstructions
 }
 /**
@@ -120,9 +120,9 @@ import {$PonderScene, $PonderScene$Type} from "packages/com/simibubi/create/foun
 
 export interface $SceneBuilderAccessor {
 
+ "ponderjs$setWorldInstructions"(arg0: $SceneBuilder$WorldInstructions$Type): void
  "ponderjs$getPonderScene"(): $PonderScene
  "ponderjs$setSpecialInstructions"(arg0: $SceneBuilder$SpecialInstructions$Type): void
- "ponderjs$setWorldInstructions"(arg0: $SceneBuilder$WorldInstructions$Type): void
 }
 
 export namespace $SceneBuilderAccessor {
@@ -178,9 +178,9 @@ export interface $ILootCondition extends $ILootHandler, $Predicate<($LootContext
 
  "applyLootHandler"(context: $LootContext$Type, loot: $List$Type<($ItemStack$Type)>): boolean
  "test"(arg0: $LootContext$Type): boolean
- "or"(arg0: $Predicate$Type<(any)>): $Predicate<($LootContext)>
  "negate"(): $Predicate<($LootContext)>
  "and"(arg0: $Predicate$Type<(any)>): $Predicate<($LootContext)>
+ "or"(arg0: $Predicate$Type<(any)>): $Predicate<($LootContext)>
 
 (context: $LootContext$Type, loot: $List$Type<($ItemStack$Type)>): boolean
 }
@@ -271,8 +271,6 @@ constructor(arg0: $Set$Type<($Item$Type)>)
 
 public "scene"(arg0: string, arg1: string, arg2: string, arg3: $ExtendedPonderStoryBoard$Type): $PonderBuilderJS
 public "scene"(arg0: string, arg1: string, arg2: $ExtendedPonderStoryBoard$Type): $PonderBuilderJS
-public "getSelf"(): $PonderBuilderJS
-get "self"(): $PonderBuilderJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -298,18 +296,18 @@ export class $ParticleDataBuilder<O extends $ParticleDataBuilder<(O), (PO)>, PO 
 constructor()
 
 public "lifetime"(arg0: integer): O
+public "gravity"(arg0: float): O
+public "motion"(arg0: $Vec3$Type): O
 public "collision"(arg0: boolean): O
 public "transformPosition"(arg0: $ParticleTransformation$Simple$Type): O
 public "area"(arg0: $Vec3$Type): O
-public "gravity"(arg0: float): O
-public "motion"(arg0: $Vec3$Type): O
-public "density"(arg0: integer): O
 public "roll"(arg0: float): O
-public "speed"(arg0: $Vec3$Type): O
-public "friction"(arg0: float): O
-public "withinBlockSpace"(): O
 public "physics"(arg0: boolean): O
 public "transformMotion"(arg0: $ParticleTransformation$Simple$Type): O
+public "speed"(arg0: $Vec3$Type): O
+public "friction"(arg0: float): O
+public "density"(arg0: integer): O
+public "withinBlockSpace"(): O
 public "scale"(arg0: float): O
 public "transform"(arg0: $ParticleTransformation$Type): O
 public "delta"(arg0: $Vec3$Type): O
@@ -356,11 +354,11 @@ declare module "packages/com/almostreliable/ponderjs/mixin/$ParticleAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ParticleAccessor {
 
+ "ponderjs$setStoppedByCollision"(arg0: boolean): void
+ "ponderjs$setHasPhysics"(arg0: boolean): void
  "ponderjs$setGravity"(arg0: float): void
  "ponderjs$setFriction"(arg0: float): void
  "ponderjs$setLifetime"(arg0: integer): void
- "ponderjs$setHasPhysics"(arg0: boolean): void
- "ponderjs$setStoppedByCollision"(arg0: boolean): void
  "ponderjs$setAlpha"(arg0: float): void
  "ponderjs$setRoll"(arg0: float): void
 }
@@ -399,27 +397,27 @@ export class $ExtendedSceneBuilder$ExtendedWorldInstructions extends $SceneBuild
 
 constructor(arg0: $ExtendedSceneBuilder$Type)
 
+public "modifyBlockEntityNBT"(arg0: $Selection$Type, arg1: $Consumer$Type<($CompoundTag$Type)>): void
+public "modifyBlockEntityNBT"(arg0: $Selection$Type, arg1: boolean, arg2: $Consumer$Type<($CompoundTag$Type)>): void
 public "createEntity"(arg0: $EntityType$Type<(any)>, arg1: $Vec3$Type, arg2: $Consumer$Type<($Entity$Type)>): $ElementLink<($EntityElement)>
 public "createEntity"(arg0: $EntityType$Type<(any)>, arg1: $Vec3$Type): $ElementLink<($EntityElement)>
-public "modifyBlockEntityNBT"(arg0: $Selection$Type, arg1: boolean, arg2: $Consumer$Type<($CompoundTag$Type)>): void
-public "modifyBlockEntityNBT"(arg0: $Selection$Type, arg1: $Consumer$Type<($CompoundTag$Type)>): void
+public "removeEntity"(arg0: $ElementLink$Type<($EntityElement$Type)>): void
+/**
+ * 
+ * @deprecated
+ */
+public "modifyTileNBT"(arg0: $Selection$Type, arg1: $Consumer$Type<($CompoundTag$Type)>, arg2: boolean): void
+/**
+ * 
+ * @deprecated
+ */
+public "modifyTileNBT"(arg0: $Selection$Type, arg1: $Consumer$Type<($CompoundTag$Type)>): void
 public "modifyBlock"(arg0: $BlockPos$Type, arg1: $BlockStateFunction$Type, arg2: boolean): void
 public "setBlocks"(arg0: $Selection$Type, arg1: boolean, arg2: $BlockState$Type): void
 public "setBlocks"(arg0: $Selection$Type, arg1: $BlockState$Type): void
 public "modifyBlocks"(arg0: $Selection$Type, arg1: boolean, arg2: $BlockStateFunction$Type): void
 public "modifyBlocks"(arg0: $Selection$Type, arg1: $BlockStateFunction$Type): void
 public "modifyBlocks"(arg0: $Selection$Type, arg1: $BlockStateFunction$Type, arg2: boolean): void
-/**
- * 
- * @deprecated
- */
-public "modifyTileNBT"(arg0: $Selection$Type, arg1: $Consumer$Type<($CompoundTag$Type)>): void
-/**
- * 
- * @deprecated
- */
-public "modifyTileNBT"(arg0: $Selection$Type, arg1: $Consumer$Type<($CompoundTag$Type)>, arg2: boolean): void
-public "removeEntity"(arg0: $ElementLink$Type<($EntityElement$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -469,8 +467,8 @@ export class $Config$Serializer<T extends $Config> {
 constructor()
 
 public "deserialize"(arg0: $JsonObject$Type): T
-public "serialize"(arg0: T): $JsonObject
 public "safeGet"<V>(supplier: $Supplier$Type<(V)>, defaultValue: V): V
+public "serialize"(arg0: T): $JsonObject
 public "isInvalid"(): boolean
 get "invalid"(): boolean
 }
@@ -489,18 +487,18 @@ export type $Config$Serializer_<T> = $Config$Serializer$Type<(T)>;
 declare module "packages/com/almostreliable/lootjs/forge/filters/$ForgeItemFilter" {
 import {$ItemFilter, $ItemFilter$Type} from "packages/com/almostreliable/lootjs/filters/$ItemFilter"
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$ResourceLocationFilter, $ResourceLocationFilter$Type} from "packages/com/almostreliable/lootjs/filters/$ResourceLocationFilter"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 
 export interface $ForgeItemFilter extends $ItemFilter {
 
  "test"(arg0: $ItemStack$Type): boolean
- "or"(other: $ItemFilter$Type): $ItemFilter
  "negate"(): $ItemFilter
  "and"(other: $ItemFilter$Type): $ItemFilter
- "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+ "or"(other: $ItemFilter$Type): $ItemFilter
  "and"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+ "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
 
 (...actions: (string)[]): $ItemFilter
 }
@@ -509,12 +507,12 @@ export namespace $ForgeItemFilter {
 function canPerformAction(...actions: (string)[]): $ItemFilter
 function canPerformAnyAction(...actions: (string)[]): $ItemFilter
 function custom(predicate: $Predicate$Type<($ItemStack$Type)>): $ItemFilter
-function equipmentSlot(slot: $EquipmentSlot$Type): $ItemFilter
 function hasEnchantment(filter: $ResourceLocationFilter$Type): $ItemFilter
 function hasEnchantment(filter: $ResourceLocationFilter$Type, min: integer, max: integer): $ItemFilter
-function or(...itemFilters: ($ItemFilter$Type)[]): $ItemFilter
 function and(...itemFilters: ($ItemFilter$Type)[]): $ItemFilter
 function not(itemFilter: $ItemFilter$Type): $ItemFilter
+function or(...itemFilters: ($ItemFilter$Type)[]): $ItemFilter
+function equipmentSlot(slot: $EquipmentSlot$Type): $ItemFilter
 function isEqual<T>(arg0: any): $Predicate<($ItemStack)>
 function not<T>(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
 }
@@ -561,16 +559,16 @@ declare module "packages/com/almostreliable/ponderjs/api/$SceneBuildingUtilDeleg
 import {$SceneBuildingUtil, $SceneBuildingUtil$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuildingUtil"
 import {$SceneBuildingUtil$SelectionUtil, $SceneBuildingUtil$SelectionUtil$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuildingUtil$SelectionUtil"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$SceneBuildingUtil$PositionUtil, $SceneBuildingUtil$PositionUtil$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuildingUtil$PositionUtil"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$SceneBuildingUtil$PositionUtil, $SceneBuildingUtil$PositionUtil$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuildingUtil$PositionUtil"
 import {$SceneBuildingUtil$VectorUtil, $SceneBuildingUtil$VectorUtil$Type} from "packages/com/simibubi/create/foundation/ponder/$SceneBuildingUtil$VectorUtil"
 
 export class $SceneBuildingUtilDelegate {
 
 constructor(arg0: $SceneBuildingUtil$Type)
 
-public "getGrid"(): $SceneBuildingUtil$PositionUtil
 public "getDefaultState"(arg0: $Block$Type): $BlockState
+public "getGrid"(): $SceneBuildingUtil$PositionUtil
 public "getVector"(): $SceneBuildingUtil$VectorUtil
 public "getSelect"(): $SceneBuildingUtil$SelectionUtil
 get "grid"(): $SceneBuildingUtil$PositionUtil
@@ -698,38 +696,38 @@ static readonly "SERIALIZER": $RecipeSerializer<($ClientRecipeTracker)>
 static readonly "TYPE": $RecipeType<($ClientRecipeTracker)>
 
 
+public "assemble"(container: $Container$Type, registryAccess: $RegistryAccess$Type): $ItemStack
+public "matches"(container: $Container$Type, level: $Level$Type): boolean
+public "getId"(): $ResourceLocation
+public "getLink"(recipeId: $ResourceLocation$Type): $ClientRecipeTracker$ClientRecipeLink
 public "canCraftInDimensions"(width: integer, height: integer): boolean
 public "getSerializer"(): $RecipeSerializer<(any)>
-public "matches"(container: $Container$Type, level: $Level$Type): boolean
-public "getLink"(recipeId: $ResourceLocation$Type): $ClientRecipeTracker$ClientRecipeLink
-public "assemble"(container: $Container$Type, registryAccess: $RegistryAccess$Type): $ItemStack
-public "getId"(): $ResourceLocation
 public "getResultItem"(registryAccess: $RegistryAccess$Type): $ItemStack
+public "isSpecial"(): boolean
+public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
+public "showNotification"(): boolean
+public "getIngredients"(): $NonNullList<($Ingredient)>
 public "isIncomplete"(): boolean
 public "getToastSymbol"(): $ItemStack
-public "showNotification"(): boolean
-public "getRemainingItems"(arg0: $Container$Type): $NonNullList<($ItemStack)>
-public "getIngredients"(): $NonNullList<($Ingredient)>
-public "isSpecial"(): boolean
-public "getGroup"(): string
-public "getOrCreateId"(): $ResourceLocation
-public "setGroup"(group: string): void
-public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "replaceInput"(match: $ReplacementMatch$Type, arg1: $InputReplacement$Type): boolean
+public "setGroup"(group: string): void
+public "getOrCreateId"(): $ResourceLocation
+public "getGroup"(): string
+public "hasOutput"(match: $ReplacementMatch$Type): boolean
 public "getSchema"(): $RecipeSchema
-public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "hasInput"(match: $ReplacementMatch$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$Type, arg1: $OutputReplacement$Type): boolean
 public "getType"(): $ResourceLocation
 public "getMod"(): string
-get "serializer"(): $RecipeSerializer<(any)>
 get "id"(): $ResourceLocation
+get "serializer"(): $RecipeSerializer<(any)>
+get "special"(): boolean
+get "ingredients"(): $NonNullList<($Ingredient)>
 get "incomplete"(): boolean
 get "toastSymbol"(): $ItemStack
-get "ingredients"(): $NonNullList<($Ingredient)>
-get "special"(): boolean
-get "group"(): string
-get "orCreateId"(): $ResourceLocation
 set "group"(value: string)
+get "orCreateId"(): $ResourceLocation
+get "group"(): string
 get "schema"(): $RecipeSchema
 get "type"(): $ResourceLocation
 get "mod"(): string
@@ -760,14 +758,14 @@ export class $AddAttributesFunction$Builder implements $LootItemFunction$Builder
 
 constructor()
 
-public "simple"(probability: float, attribute: $Attribute$Type, amount: $NumberProvider$Type): $AddAttributesFunction$Builder
 public "simple"(attribute: $Attribute$Type, amount: $NumberProvider$Type): $AddAttributesFunction$Builder
-public "build"(): $AddAttributesFunction
-public "add"(attribute: $Attribute$Type, amount: $NumberProvider$Type, action: $Consumer$Type<($AddAttributesFunction$Modifier$Builder$Type)>): $AddAttributesFunction$Builder
-public "add"(modifier: $AddAttributesFunction$Modifier$Type): $AddAttributesFunction$Builder
+public "simple"(probability: float, attribute: $Attribute$Type, amount: $NumberProvider$Type): $AddAttributesFunction$Builder
 public "preserveDefaults"(flag: boolean): $AddAttributesFunction$Builder
 public "forSlots"(probability: float, attribute: $Attribute$Type, amount: $NumberProvider$Type, slots: ($EquipmentSlot$Type)[]): $AddAttributesFunction$Builder
 public "forSlots"(attribute: $Attribute$Type, amount: $NumberProvider$Type, slots: ($EquipmentSlot$Type)[]): $AddAttributesFunction$Builder
+public "build"(): $AddAttributesFunction
+public "add"(modifier: $AddAttributesFunction$Modifier$Type): $AddAttributesFunction$Builder
+public "add"(attribute: $Attribute$Type, amount: $NumberProvider$Type, action: $Consumer$Type<($AddAttributesFunction$Modifier$Builder$Type)>): $AddAttributesFunction$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -895,11 +893,11 @@ export class $AlmostKube {
 
 
 public static "getUnifyConfig"(): $UnifyConfig
-public static "getItemIds"(tag: $ResourceLocation$Type): $Set<(string)>
 public static "getTags"(): $Set<(string)>
-public static "getPreferredTagForItem"(stack: $ItemStack$Type): string
+public static "getItemIds"(tag: $ResourceLocation$Type): $Set<(string)>
 public static "getPreferredItemForTag"(tag: $ResourceLocation$Type): $ItemStack
 public static "getReplacementForItem"(stack: $ItemStack$Type): $ItemStack
+public static "getPreferredTagForItem"(stack: $ItemStack$Type): string
 get "unifyConfig"(): $UnifyConfig
 get "tags"(): $Set<(string)>
 }
@@ -929,12 +927,12 @@ constructor()
 
 public "isNot"(tag: $ResourceLocation$Type): $DamageSourcePredicateBuilderJS
 public "is"(tag: $ResourceLocation$Type): $DamageSourcePredicateBuilderJS
-public "matchDirectEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $DamageSourcePredicateBuilderJS
-public "matchSourceEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $DamageSourcePredicateBuilderJS
 public "anyType"(...names: (string)[]): $DamageSourcePredicateBuilderJS
+public "matchSourceEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $DamageSourcePredicateBuilderJS
+public "matchDirectEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $DamageSourcePredicateBuilderJS
 public "and"(arg0: $LootItemCondition$Builder$Type): $AllOfCondition$Builder
-public "or"(arg0: $LootItemCondition$Builder$Type): $AnyOfCondition$Builder
 public "invert"(): $LootItemCondition$Builder
+public "or"(arg0: $LootItemCondition$Builder$Type): $AnyOfCondition$Builder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -960,17 +958,17 @@ export class $AddAttributesFunction$Modifier$Builder {
 
 constructor(attribute: $Attribute$Type, amount: $NumberProvider$Type)
 
-public "setSlots"(slots: ($EquipmentSlot$Type)[]): void
 public "setUuid"(uuid: $UUID$Type): void
+public "setSlots"(slots: ($EquipmentSlot$Type)[]): void
+public "setOperation"(operation: $AttributeModifier$Operation$Type): void
+public "setProbability"(probability: float): void
 public "build"(): $AddAttributesFunction$Modifier
 public "setName"(name: string): void
-public "setProbability"(probability: float): void
-public "setOperation"(operation: $AttributeModifier$Operation$Type): void
-set "slots"(value: ($EquipmentSlot$Type)[])
 set "uuid"(value: $UUID$Type)
-set "name"(value: string)
-set "probability"(value: float)
+set "slots"(value: ($EquipmentSlot$Type)[])
 set "operation"(value: $AttributeModifier$Operation$Type)
+set "probability"(value: float)
+set "name"(value: string)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -994,23 +992,23 @@ import {$NumberProvider, $NumberProvider$Type} from "packages/net/minecraft/worl
 
 export interface $LootActionsContainer<A extends $LootActionsContainer<(any)>> {
 
- "addAction"(arg0: $ILootAction$Type): A
- "addLoot"(...entries: ($LootEntry$Type)[]): A
- "triggerLightningStrike"(shouldDamage: boolean): A
  "addAlternativesLoot"(...entries: ($LootEntry$Type)[]): A
+ "triggerLightningStrike"(shouldDamage: boolean): A
  "dropExperience"(amount: integer): A
+ "addAction"(arg0: $ILootAction$Type): A
  "modifyLoot"(filter: $ItemFilter$Type, callback: $ModifyLootAction$Callback$Type): A
- "addWeightedLoot"(numberProvider: $NumberProvider$Type, poolEntries: ($LootEntry$Type)[]): A
- "addWeightedLoot"(numberProvider: $NumberProvider$Type, allowDuplicateLoot: boolean, poolEntries: ($LootEntry$Type)[]): A
- "addWeightedLoot"(poolEntries: ($LootEntry$Type)[]): A
- "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type): A
- "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type, preserveCount: boolean): A
- "addSequenceLoot"(...entries: ($LootEntry$Type)[]): A
+ "addLoot"(...entries: ($LootEntry$Type)[]): A
  "removeLoot"(filter: $ItemFilter$Type): A
- "triggerExplosion"(radius: float, destroy: boolean, fire: boolean): A
+ "addWeightedLoot"(numberProvider: $NumberProvider$Type, allowDuplicateLoot: boolean, poolEntries: ($LootEntry$Type)[]): A
+ "addWeightedLoot"(numberProvider: $NumberProvider$Type, poolEntries: ($LootEntry$Type)[]): A
+ "addWeightedLoot"(poolEntries: ($LootEntry$Type)[]): A
+ "addSequenceLoot"(...entries: ($LootEntry$Type)[]): A
  "triggerExplosion"(radius: float, mode: $Explosion$BlockInteraction$Type, fire: boolean): A
+ "triggerExplosion"(radius: float, destroy: boolean, fire: boolean): A
+ "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type, preserveCount: boolean): A
+ "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type): A
 
-(arg0: $ILootAction$Type): A
+(...entries: ($LootEntry$Type)[]): A
 }
 
 export namespace $LootActionsContainer {
@@ -1110,7 +1108,6 @@ import {$EntityPredicateBuilderJS, $EntityPredicateBuilderJS$Type} from "package
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$LootItemFunction, $LootItemFunction$Type} from "packages/net/minecraft/world/level/storage/loot/functions/$LootItemFunction"
 import {$LootConditionsContainer, $LootConditionsContainer$Type} from "packages/com/almostreliable/lootjs/kube/$LootConditionsContainer"
 import {$AddAttributesFunction$Builder, $AddAttributesFunction$Builder$Type} from "packages/com/almostreliable/lootjs/loot/$AddAttributesFunction$Builder"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
@@ -1148,91 +1145,90 @@ static readonly "DEPRECATED_MSG": string
 
 constructor()
 
-public "addAction"(action: $ILootAction$Type): $LootActionsBuilderJS
 public "logName"(logName: string): $LootActionsBuilderJS
-public "addFunction"(lootItemFunction: $LootItemFunction$Type): $LootActionsBuilderJS
 public "getLogName"(alternative: string): string
+public "addAction"(action: $ILootAction$Type): $LootActionsBuilderJS
 public "playerAction"(action: $Consumer$Type<($ServerPlayer$Type)>): $LootActionsBuilderJS
 public "group"(callback: $Consumer$Type<($GroupedLootBuilder$Type)>): $LootActionsBuilderJS
 public "apply"(action: $Consumer$Type<($LootContextJS$Type)>): $LootActionsBuilderJS
 public "pool"(callback: $Consumer$Type<($GroupedLootBuilder$Type)>): $LootActionsBuilderJS
-public "killedByPlayer"(): $LootActionsBuilderJS
-public "addCondition"(builder: $LootItemCondition$Builder$Type): $LootActionsBuilderJS
-public "entityPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $LootActionsBuilderJS
-public "randomChanceWithEnchantment"(enchantment: $Enchantment$Type, chances: (float)[]): $LootActionsBuilderJS
 public "directKillerPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $LootActionsBuilderJS
+public "randomChanceWithEnchantment"(enchantment: $Enchantment$Type, chances: (float)[]): $LootActionsBuilderJS
 public "customDistanceToPlayer"(action: $Consumer$Type<($DistancePredicateBuilder$Type)>): $LootActionsBuilderJS
 public "blockEntityPredicate"(predicate: $Predicate$Type<($BlockEntity$Type)>): $LootActionsBuilderJS
-public "randomChance"(value: float): $LootActionsBuilderJS
+public "biome"(...resolvers: ($Resolver$Type)[]): $LootActionsBuilderJS
+public "entityPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $LootActionsBuilderJS
+public "randomChanceWithLooting"(value: float, looting: float): $LootActionsBuilderJS
+public "killedByPlayer"(): $LootActionsBuilderJS
 public "lightLevel"(min: integer, max: integer): $LootActionsBuilderJS
 public "survivesExplosion"(): $LootActionsBuilderJS
-public "randomChanceWithLooting"(value: float, looting: float): $LootActionsBuilderJS
-public "biome"(...resolvers: ($Resolver$Type)[]): $LootActionsBuilderJS
-public "timeCheck"(period: long, min: integer, max: integer): $LootActionsBuilderJS
+public "addCondition"(builder: $LootItemCondition$Builder$Type): $LootActionsBuilderJS
+public "randomChance"(value: float): $LootActionsBuilderJS
+public "matchMainHand"(filter: $ItemFilter$Type): $LootActionsBuilderJS
 public "timeCheck"(min: integer, max: integer): $LootActionsBuilderJS
+public "timeCheck"(period: long, min: integer, max: integer): $LootActionsBuilderJS
 public "matchLoot"(filter: $ItemFilter$Type): $LootActionsBuilderJS
 public "matchLoot"(filter: $ItemFilter$Type, exact: boolean): $LootActionsBuilderJS
-public "matchMainHand"(filter: $ItemFilter$Type): $LootActionsBuilderJS
 public "matchOffHand"(filter: $ItemFilter$Type): $LootActionsBuilderJS
 public "matchEquip"(slot: $EquipmentSlot$Type, filter: $ItemFilter$Type): $LootActionsBuilderJS
-public "weatherCheck"(map: $Map$Type<(string), (boolean)>): $LootActionsBuilderJS
 public "matchBlockState"(block: $Block$Type, propertyMap: $Map$Type<(string), (string)>): $LootActionsBuilderJS
-public "randomTableBonus"(enchantment: $Enchantment$Type, chances: (float)[]): $LootActionsBuilderJS
-public "anyDimension"(...dimensions: ($ResourceLocation$Type)[]): $LootActionsBuilderJS
 public "anyStructure"(idOrTags: (string)[], exact: boolean): $LootActionsBuilderJS
+public "randomTableBonus"(enchantment: $Enchantment$Type, chances: (float)[]): $LootActionsBuilderJS
+public "weatherCheck"(map: $Map$Type<(string), (boolean)>): $LootActionsBuilderJS
 public "anyBiome"(...resolvers: ($Resolver$Type)[]): $LootActionsBuilderJS
-public "matchFluid"(resolver: $Resolver$Type): $LootActionsBuilderJS
+public "anyDimension"(...dimensions: ($ResourceLocation$Type)[]): $LootActionsBuilderJS
 public "matchEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $LootActionsBuilderJS
-public "matchPlayer"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $LootActionsBuilderJS
 public "matchDamageSource"(action: $Consumer$Type<($DamageSourcePredicateBuilderJS$Type)>): $LootActionsBuilderJS
+public "matchKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $LootActionsBuilderJS
+public "matchPlayer"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $LootActionsBuilderJS
+public "playerPredicate"(predicate: $Predicate$Type<($ServerPlayer$Type)>): $LootActionsBuilderJS
 public "killerPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $LootActionsBuilderJS
-public "hasAnyStage"(...stages: (string)[]): $LootActionsBuilderJS
-public "createConditions"(action: $Consumer$Type<($LootConditionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $List<($ILootCondition)>
+public "matchFluid"(resolver: $Resolver$Type): $LootActionsBuilderJS
 public "matchDirectKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $LootActionsBuilderJS
 public "distanceToKiller"(bounds: $MinMaxBounds$Doubles$Type): $LootActionsBuilderJS
-public "matchKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $LootActionsBuilderJS
-public "playerPredicate"(predicate: $Predicate$Type<($ServerPlayer$Type)>): $LootActionsBuilderJS
+public "hasAnyStage"(...stages: (string)[]): $LootActionsBuilderJS
+public "createConditions"(action: $Consumer$Type<($LootConditionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $List<($ILootCondition)>
 public "customCondition"(json: $JsonObject$Type): $LootActionsBuilderJS
-public "or"(action: $Consumer$Type<($LootConditionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $LootActionsBuilderJS
 public "and"(action: $Consumer$Type<($LootConditionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $LootActionsBuilderJS
 public "not"(action: $Consumer$Type<($LootConditionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $LootActionsBuilderJS
-public "damage"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
-public "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): $LootActionsBuilderJS
-public "simulateExplosionDecay"(): $LootActionsBuilderJS
+public "or"(action: $Consumer$Type<($LootConditionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $LootActionsBuilderJS
 public "addLore"(...components: ($Component$Type)[]): $LootActionsBuilderJS
+public "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): $LootActionsBuilderJS
 public "applyOreBonus"(enchantment: $Enchantment$Type): $LootActionsBuilderJS
+public "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): $LootActionsBuilderJS
+public "enchantWithLevels"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
+public "applyLootingBonus"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
+public "enchantRandomly"(): $LootActionsBuilderJS
+public "enchantRandomly"(enchantments: ($Enchantment$Type)[]): $LootActionsBuilderJS
 public "smeltLoot"(): $LootActionsBuilderJS
 public "addPotion"(potion: $Potion$Type): $LootActionsBuilderJS
-public "applyLootingBonus"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
-public "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): $LootActionsBuilderJS
-public "enchantWithLevels"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
-public "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): $LootActionsBuilderJS
-public "enchantRandomly"(enchantments: ($Enchantment$Type)[]): $LootActionsBuilderJS
-public "enchantRandomly"(): $LootActionsBuilderJS
-public "customFunction"(json: $JsonObject$Type): $LootActionsBuilderJS
-public "addNBT"(tag: $CompoundTag$Type): $LootActionsBuilderJS
 public "limitCount"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
 public "limitCount"(numberProviderMin: $NumberProvider$Type, numberProviderMax: $NumberProvider$Type): $LootActionsBuilderJS
-public "addNbt"(tag: $CompoundTag$Type): $LootActionsBuilderJS
 public "replaceLore"(...components: ($Component$Type)[]): $LootActionsBuilderJS
+public "addNBT"(tag: $CompoundTag$Type): $LootActionsBuilderJS
+public "addNbt"(tag: $CompoundTag$Type): $LootActionsBuilderJS
+public "customFunction"(json: $JsonObject$Type): $LootActionsBuilderJS
+public "damage"(numberProvider: $NumberProvider$Type): $LootActionsBuilderJS
 public "addFunction"(builder: $LootItemFunction$Builder$Type): $LootActionsBuilderJS
+public "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): $LootActionsBuilderJS
+public "simulateExplosionDecay"(): $LootActionsBuilderJS
 public "setName"(component: $Component$Type): $LootActionsBuilderJS
-public "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $LootActionsBuilderJS
 public "addAttributes"(action: $Consumer$Type<($AddAttributesFunction$Builder$Type)>): $LootActionsBuilderJS
-public "addLoot"(...entries: ($LootEntry$Type)[]): $LootActionsBuilderJS
-public "triggerLightningStrike"(shouldDamage: boolean): $LootActionsBuilderJS
+public "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<($LootActionsBuilderJS$Type)>)>): $LootActionsBuilderJS
 public "addAlternativesLoot"(...entries: ($LootEntry$Type)[]): $LootActionsBuilderJS
+public "triggerLightningStrike"(shouldDamage: boolean): $LootActionsBuilderJS
 public "dropExperience"(amount: integer): $LootActionsBuilderJS
 public "modifyLoot"(filter: $ItemFilter$Type, callback: $ModifyLootAction$Callback$Type): $LootActionsBuilderJS
-public "addWeightedLoot"(numberProvider: $NumberProvider$Type, poolEntries: ($LootEntry$Type)[]): $LootActionsBuilderJS
-public "addWeightedLoot"(numberProvider: $NumberProvider$Type, allowDuplicateLoot: boolean, poolEntries: ($LootEntry$Type)[]): $LootActionsBuilderJS
-public "addWeightedLoot"(poolEntries: ($LootEntry$Type)[]): $LootActionsBuilderJS
-public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type): $LootActionsBuilderJS
-public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type, preserveCount: boolean): $LootActionsBuilderJS
-public "addSequenceLoot"(...entries: ($LootEntry$Type)[]): $LootActionsBuilderJS
+public "addLoot"(...entries: ($LootEntry$Type)[]): $LootActionsBuilderJS
 public "removeLoot"(filter: $ItemFilter$Type): $LootActionsBuilderJS
-public "triggerExplosion"(radius: float, destroy: boolean, fire: boolean): $LootActionsBuilderJS
+public "addWeightedLoot"(numberProvider: $NumberProvider$Type, allowDuplicateLoot: boolean, poolEntries: ($LootEntry$Type)[]): $LootActionsBuilderJS
+public "addWeightedLoot"(numberProvider: $NumberProvider$Type, poolEntries: ($LootEntry$Type)[]): $LootActionsBuilderJS
+public "addWeightedLoot"(poolEntries: ($LootEntry$Type)[]): $LootActionsBuilderJS
+public "addSequenceLoot"(...entries: ($LootEntry$Type)[]): $LootActionsBuilderJS
 public "triggerExplosion"(radius: float, mode: $Explosion$BlockInteraction$Type, fire: boolean): $LootActionsBuilderJS
+public "triggerExplosion"(radius: float, destroy: boolean, fire: boolean): $LootActionsBuilderJS
+public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type, preserveCount: boolean): $LootActionsBuilderJS
+public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type): $LootActionsBuilderJS
 set "name"(value: $Component$Type)
 }
 /**
@@ -1248,8 +1244,8 @@ declare global {
 export type $LootActionsBuilderJS_ = $LootActionsBuilderJS$Type;
 }}
 declare module "packages/com/almostreliable/lootjs/loot/$LootFunctionsContainer" {
-import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$LootItemFunction$Builder, $LootItemFunction$Builder$Type} from "packages/net/minecraft/world/level/storage/loot/functions/$LootItemFunction$Builder"
 import {$ItemFilter, $ItemFilter$Type} from "packages/com/almostreliable/lootjs/filters/$ItemFilter"
@@ -1262,32 +1258,32 @@ import {$Potion, $Potion$Type} from "packages/net/minecraft/world/item/alchemy/$
 
 export interface $LootFunctionsContainer<F extends $LootFunctionsContainer<(any)>> {
 
- "damage"(numberProvider: $NumberProvider$Type): F
- "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): F
- "simulateExplosionDecay"(): F
  "addLore"(...components: ($Component$Type)[]): F
+ "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): F
  "applyOreBonus"(enchantment: $Enchantment$Type): F
+ "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): F
+ "enchantWithLevels"(numberProvider: $NumberProvider$Type): F
+ "applyLootingBonus"(numberProvider: $NumberProvider$Type): F
+ "enchantRandomly"(): F
+ "enchantRandomly"(enchantments: ($Enchantment$Type)[]): F
  "smeltLoot"(): F
  "addPotion"(potion: $Potion$Type): F
- "applyLootingBonus"(numberProvider: $NumberProvider$Type): F
- "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): F
- "enchantWithLevels"(numberProvider: $NumberProvider$Type): F
- "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): F
- "enchantRandomly"(enchantments: ($Enchantment$Type)[]): F
- "enchantRandomly"(): F
- "customFunction"(json: $JsonObject$Type): F
- "addNBT"(tag: $CompoundTag$Type): F
  "limitCount"(numberProvider: $NumberProvider$Type): F
  "limitCount"(numberProviderMin: $NumberProvider$Type, numberProviderMax: $NumberProvider$Type): F
- "addNbt"(tag: $CompoundTag$Type): F
  "replaceLore"(...components: ($Component$Type)[]): F
+ "addNBT"(tag: $CompoundTag$Type): F
+ "addNbt"(tag: $CompoundTag$Type): F
+ "customFunction"(json: $JsonObject$Type): F
+ "damage"(numberProvider: $NumberProvider$Type): F
  "addFunction"(builder: $LootItemFunction$Builder$Type): F
  "addFunction"(arg0: $LootItemFunction$Type): F
+ "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): F
+ "simulateExplosionDecay"(): F
  "setName"(component: $Component$Type): F
- "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<(F)>)>): F
  "addAttributes"(action: $Consumer$Type<($AddAttributesFunction$Builder$Type)>): F
+ "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<(F)>)>): F
 
-(numberProvider: $NumberProvider$Type): F
+(...components: ($Component$Type)[]): F
 }
 
 export namespace $LootFunctionsContainer {
@@ -1312,9 +1308,9 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 export interface $ResourceLocationFilter extends $Predicate<($ResourceLocation)> {
 
  "test"(arg0: $ResourceLocation$Type): boolean
- "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ResourceLocation)>
  "negate"(): $Predicate<($ResourceLocation)>
  "and"(arg0: $Predicate$Type<(any)>): $Predicate<($ResourceLocation)>
+ "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ResourceLocation)>
 
 (arg0: $ResourceLocation$Type): boolean
 }
@@ -1337,18 +1333,18 @@ export type $ResourceLocationFilter_ = $ResourceLocationFilter$Type;
 }}
 declare module "packages/com/almostreliable/lootjs/filters/$ItemFilter" {
 import {$Predicate, $Predicate$Type} from "packages/java/util/function/$Predicate"
-import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$ResourceLocationFilter, $ResourceLocationFilter$Type} from "packages/com/almostreliable/lootjs/filters/$ResourceLocationFilter"
+import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 
 export interface $ItemFilter extends $Predicate<($ItemStack)> {
 
  "test"(arg0: $ItemStack$Type): boolean
- "or"(other: $ItemFilter$Type): $ItemFilter
  "negate"(): $ItemFilter
  "and"(other: $ItemFilter$Type): $ItemFilter
- "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+ "or"(other: $ItemFilter$Type): $ItemFilter
  "and"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
+ "or"(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
 
 (predicate: $Predicate$Type<($ItemStack$Type)>): $ItemFilter
 }
@@ -1378,12 +1374,12 @@ const ENCHANTABLE: $ItemFilter
 const ENCHANTED: $ItemFilter
 const BLOCK: $ItemFilter
 function custom(predicate: $Predicate$Type<($ItemStack$Type)>): $ItemFilter
-function equipmentSlot(slot: $EquipmentSlot$Type): $ItemFilter
 function hasEnchantment(filter: $ResourceLocationFilter$Type): $ItemFilter
 function hasEnchantment(filter: $ResourceLocationFilter$Type, min: integer, max: integer): $ItemFilter
-function or(...itemFilters: ($ItemFilter$Type)[]): $ItemFilter
 function and(...itemFilters: ($ItemFilter$Type)[]): $ItemFilter
 function not(itemFilter: $ItemFilter$Type): $ItemFilter
+function or(...itemFilters: ($ItemFilter$Type)[]): $ItemFilter
+function equipmentSlot(slot: $EquipmentSlot$Type): $ItemFilter
 function isEqual<T>(arg0: any): $Predicate<($ItemStack)>
 function not<T>(arg0: $Predicate$Type<(any)>): $Predicate<($ItemStack)>
 }
@@ -1409,16 +1405,16 @@ constructor()
 
 public static "ofInt"(o: any): $MinMaxBounds$Ints
 public static "ofDoubles"(o: any): $MinMaxBounds$Doubles
+public "getVanillaDoubles"(): $MinMaxBounds$Doubles
 public "matchesSqr"(value: double): boolean
 public "getVanillaInt"(): $MinMaxBounds$Ints
-public "getVanillaDoubles"(): $MinMaxBounds$Doubles
 public "toString"(): string
 public "min"(min: double): $IntervalJS
 public "max"(max: double): $IntervalJS
 public "matches"(value: double): boolean
 public "between"(min: double, max: double): $IntervalJS
-get "vanillaInt"(): $MinMaxBounds$Ints
 get "vanillaDoubles"(): $MinMaxBounds$Doubles
+get "vanillaInt"(): $MinMaxBounds$Ints
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1456,49 +1452,49 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $LootConditionsContainer<B extends $LootConditionsContainer<(any)>> {
 
- "killedByPlayer"(): B
- "addCondition"(builder: $LootItemCondition$Builder$Type): B
- "addCondition"(arg0: $ILootCondition$Type): B
- "entityPredicate"(predicate: $Predicate$Type<($Entity$Type)>): B
- "randomChanceWithEnchantment"(enchantment: $Enchantment$Type, chances: (float)[]): B
  "directKillerPredicate"(predicate: $Predicate$Type<($Entity$Type)>): B
+ "randomChanceWithEnchantment"(enchantment: $Enchantment$Type, chances: (float)[]): B
  "customDistanceToPlayer"(action: $Consumer$Type<($DistancePredicateBuilder$Type)>): B
  "blockEntityPredicate"(predicate: $Predicate$Type<($BlockEntity$Type)>): B
- "randomChance"(value: float): B
+ "biome"(...resolvers: ($Resolver$Type)[]): B
+ "entityPredicate"(predicate: $Predicate$Type<($Entity$Type)>): B
+ "randomChanceWithLooting"(value: float, looting: float): B
+ "killedByPlayer"(): B
  "lightLevel"(min: integer, max: integer): B
  "survivesExplosion"(): B
- "randomChanceWithLooting"(value: float, looting: float): B
- "biome"(...resolvers: ($Resolver$Type)[]): B
- "timeCheck"(period: long, min: integer, max: integer): B
+ "addCondition"(arg0: $ILootCondition$Type): B
+ "addCondition"(builder: $LootItemCondition$Builder$Type): B
+ "randomChance"(value: float): B
+ "matchMainHand"(filter: $ItemFilter$Type): B
  "timeCheck"(min: integer, max: integer): B
+ "timeCheck"(period: long, min: integer, max: integer): B
  "matchLoot"(filter: $ItemFilter$Type): B
  "matchLoot"(filter: $ItemFilter$Type, exact: boolean): B
- "matchMainHand"(filter: $ItemFilter$Type): B
  "matchOffHand"(filter: $ItemFilter$Type): B
  "matchEquip"(slot: $EquipmentSlot$Type, filter: $ItemFilter$Type): B
- "weatherCheck"(map: $Map$Type<(string), (boolean)>): B
  "matchBlockState"(block: $Block$Type, propertyMap: $Map$Type<(string), (string)>): B
- "randomTableBonus"(enchantment: $Enchantment$Type, chances: (float)[]): B
- "anyDimension"(...dimensions: ($ResourceLocation$Type)[]): B
  "anyStructure"(idOrTags: (string)[], exact: boolean): B
+ "randomTableBonus"(enchantment: $Enchantment$Type, chances: (float)[]): B
+ "weatherCheck"(map: $Map$Type<(string), (boolean)>): B
  "anyBiome"(...resolvers: ($Resolver$Type)[]): B
- "matchFluid"(resolver: $Resolver$Type): B
+ "anyDimension"(...dimensions: ($ResourceLocation$Type)[]): B
  "matchEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): B
- "matchPlayer"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): B
  "matchDamageSource"(action: $Consumer$Type<($DamageSourcePredicateBuilderJS$Type)>): B
+ "matchKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): B
+ "matchPlayer"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): B
+ "playerPredicate"(predicate: $Predicate$Type<($ServerPlayer$Type)>): B
  "killerPredicate"(predicate: $Predicate$Type<($Entity$Type)>): B
- "hasAnyStage"(...stages: (string)[]): B
- "createConditions"(action: $Consumer$Type<($LootConditionsContainer$Type<(B)>)>): $List<($ILootCondition)>
+ "matchFluid"(resolver: $Resolver$Type): B
  "matchDirectKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): B
  "distanceToKiller"(bounds: $MinMaxBounds$Doubles$Type): B
- "matchKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): B
- "playerPredicate"(predicate: $Predicate$Type<($ServerPlayer$Type)>): B
+ "hasAnyStage"(...stages: (string)[]): B
+ "createConditions"(action: $Consumer$Type<($LootConditionsContainer$Type<(B)>)>): $List<($ILootCondition)>
  "customCondition"(json: $JsonObject$Type): B
- "or"(action: $Consumer$Type<($LootConditionsContainer$Type<(B)>)>): B
  "and"(action: $Consumer$Type<($LootConditionsContainer$Type<(B)>)>): B
  "not"(action: $Consumer$Type<($LootConditionsContainer$Type<(B)>)>): B
+ "or"(action: $Consumer$Type<($LootConditionsContainer$Type<(B)>)>): B
 
-(): B
+(predicate: $Predicate$Type<($Entity$Type)>): B
 }
 
 export namespace $LootConditionsContainer {
@@ -1529,8 +1525,8 @@ export interface $ParticleTransformation {
 }
 
 export namespace $ParticleTransformation {
-function onlyMotion(arg0: $ParticleTransformation$Simple$Type): $ParticleTransformation
 function onlyPosition(arg0: $ParticleTransformation$Simple$Type): $ParticleTransformation
+function onlyMotion(arg0: $ParticleTransformation$Simple$Type): $ParticleTransformation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1664,9 +1660,9 @@ export class $ClientRecipeTracker$Serializer implements $RecipeSerializer<($Clie
 
 constructor()
 
+public "fromJson"(recipeId: $ResourceLocation$Type, json: $JsonObject$Type): $ClientRecipeTracker
 public "fromNetwork"(recipeId: $ResourceLocation$Type, buffer: $FriendlyByteBuf$Type): $ClientRecipeTracker
 public "toNetwork"(buffer: $FriendlyByteBuf$Type, recipe: $ClientRecipeTracker$Type): void
-public "fromJson"(recipeId: $ResourceLocation$Type, json: $JsonObject$Type): $ClientRecipeTracker
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ClientRecipeTracker
 }
@@ -1734,25 +1730,25 @@ constructor(modPriorities: $List$Type<(string)>, stoneStrata: $List$Type<(string
 
 public "clearCache"(): void
 public "getTagOwnerships"(): $Map<($ResourceLocation), ($Set<($ResourceLocation)>)>
-public "bakeAndValidateTags"(tags: $Map$Type<($ResourceLocation$Type), ($Collection$Type<($Holder$Type<($Item$Type)>)>)>): $Set<($UnifyTag<($Item)>)>
-public "shouldInheritBlockTag"(itemTag: $UnifyTag$Type<($Block$Type)>, dominantTags: $Set$Type<($UnifyTag$Type<($Item$Type)>)>): boolean
-public "getPriorityOverrides"(): $Map<($ResourceLocation), (string)>
-public "shouldInheritItemTag"(itemTag: $UnifyTag$Type<($Item$Type)>, dominantTags: $Set$Type<($UnifyTag$Type<($Item$Type)>)>): boolean
-public "getMaterials"(): $List<(string)>
-public "bakeTags"(): $Set<($UnifyTag<($Item)>)>
-public "getStoneStrata"(): $List<(string)>
-public "getModPriorities"(): $List<(string)>
-public "includeRecipeType"(type: $ResourceLocation$Type): boolean
-public "includeRecipe"(recipe: $ResourceLocation$Type): boolean
-public "includeItem"(item: $ResourceLocation$Type): boolean
-public "getCustomTags"(): $Map<($ResourceLocation), ($Set<($ResourceLocation)>)>
 public "reiOrJeiDisabled"(): boolean
+public "bakeAndValidateTags"(tags: $Map$Type<($ResourceLocation$Type), ($Collection$Type<($Holder$Type<($Item$Type)>)>)>): $Set<($UnifyTag<($Item)>)>
+public "getMaterials"(): $List<(string)>
+public "getModPriorities"(): $List<(string)>
+public "getStoneStrata"(): $List<(string)>
+public "bakeTags"(): $Set<($UnifyTag<($Item)>)>
+public "includeRecipe"(recipe: $ResourceLocation$Type): boolean
+public "getCustomTags"(): $Map<($ResourceLocation), ($Set<($ResourceLocation)>)>
+public "includeItem"(item: $ResourceLocation$Type): boolean
+public "includeRecipeType"(type: $ResourceLocation$Type): boolean
+public "shouldInheritItemTag"(itemTag: $UnifyTag$Type<($Item$Type)>, dominantTags: $Set$Type<($UnifyTag$Type<($Item$Type)>)>): boolean
+public "getPriorityOverrides"(): $Map<($ResourceLocation), (string)>
+public "shouldInheritBlockTag"(itemTag: $UnifyTag$Type<($Block$Type)>, dominantTags: $Set$Type<($UnifyTag$Type<($Item$Type)>)>): boolean
 get "tagOwnerships"(): $Map<($ResourceLocation), ($Set<($ResourceLocation)>)>
-get "priorityOverrides"(): $Map<($ResourceLocation), (string)>
 get "materials"(): $List<(string)>
-get "stoneStrata"(): $List<(string)>
 get "modPriorities"(): $List<(string)>
+get "stoneStrata"(): $List<(string)>
 get "customTags"(): $Map<($ResourceLocation), ($Set<($ResourceLocation)>)>
+get "priorityOverrides"(): $Map<($ResourceLocation), (string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1790,55 +1786,55 @@ export class $LootContextJS {
 
 constructor(context: $LootContext$Type)
 
-public "addLoot"(lootEntry: $LootEntry$Type): void
-public "getLevel"(): $ServerLevel
-public "getDamageSource"(): $DamageSource
-public "getExplosionRadius"(): float
-public "getLootTableId"(): $ResourceLocation
-public "isCanceled"(): boolean
-public "cancel"(): void
-public "getEntity"(): $Entity
 public "getBlockPos"(): $BlockPos
-public "getLoot"(): $List<($ItemStack)>
-public "getCustomData"(): $Map<(string), (any)>
+public "cancel"(): void
 public "getRandom"(): $RandomSource
+public "isCanceled"(): boolean
+public "getEntity"(): $Entity
+public "getLevel"(): $ServerLevel
+public "getLoot"(): $List<($ItemStack)>
+public "getLootTableId"(): $ResourceLocation
+public "getDamageSource"(): $DamageSource
 public "getServer"(): $MinecraftServer
 public "getPlayer"(): $ServerPlayer
+public "addLoot"(lootEntry: $LootEntry$Type): void
+public "getExplosionRadius"(): float
 public "getTool"(): $ItemStack
+public "getCustomData"(): $Map<(string), (any)>
 public "removeLoot"(itemFilter: $ItemFilter$Type): void
-public "getType"(): $LootContextType
-public "getPosition"(): $Vec3
-public "forEachLoot"(action: $Consumer$Type<($ItemStack$Type)>): void
-public "getKillerEntity"(): $Entity
-public "isExploded"(): boolean
-public "hasLoot"(ingredient: $ItemFilter$Type): boolean
 public "getDestroyedBlock"(): $BlockContainerJS
+public "getKillerEntity"(): $Entity
+public "getLooting"(): integer
+public "getLuck"(): float
+public "isExploded"(): boolean
 public "getVanillaContext"(): $LootContext
 public "lootSize"(): integer
-public "getLooting"(): integer
+public "hasLoot"(ingredient: $ItemFilter$Type): boolean
+public "forEachLoot"(action: $Consumer$Type<($ItemStack$Type)>): void
 public "findLoot"(itemFilter: $ItemFilter$Type): $List<($ItemStack)>
-public "getLuck"(): float
-get "level"(): $ServerLevel
-get "damageSource"(): $DamageSource
-get "explosionRadius"(): float
-get "lootTableId"(): $ResourceLocation
+public "getType"(): $LootContextType
+public "getPosition"(): $Vec3
+get "blockPos"(): $BlockPos
+get "random"(): $RandomSource
 get "canceled"(): boolean
 get "entity"(): $Entity
-get "blockPos"(): $BlockPos
+get "level"(): $ServerLevel
 get "loot"(): $List<($ItemStack)>
-get "customData"(): $Map<(string), (any)>
-get "random"(): $RandomSource
+get "lootTableId"(): $ResourceLocation
+get "damageSource"(): $DamageSource
 get "server"(): $MinecraftServer
 get "player"(): $ServerPlayer
+get "explosionRadius"(): float
 get "tool"(): $ItemStack
-get "type"(): $LootContextType
-get "position"(): $Vec3
-get "killerEntity"(): $Entity
-get "exploded"(): boolean
+get "customData"(): $Map<(string), (any)>
 get "destroyedBlock"(): $BlockContainerJS
-get "vanillaContext"(): $LootContext
+get "killerEntity"(): $Entity
 get "looting"(): integer
 get "luck"(): float
+get "exploded"(): boolean
+get "vanillaContext"(): $LootContext
+get "type"(): $LootContextType
+get "position"(): $Vec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1894,11 +1890,12 @@ declare global {
 export type $AddAttributesFunction_ = $AddAttributesFunction$Type;
 }}
 declare module "packages/com/almostreliable/lootjs/core/$LootEntry" {
-import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$LootItemFunction$Builder, $LootItemFunction$Builder$Type} from "packages/net/minecraft/world/level/storage/loot/functions/$LootItemFunction$Builder"
 import {$LootContext, $LootContext$Type} from "packages/net/minecraft/world/level/storage/loot/$LootContext"
+import {$LootItemFunction, $LootItemFunction$Type} from "packages/net/minecraft/world/level/storage/loot/functions/$LootItemFunction"
 import {$LootFunctionsContainer, $LootFunctionsContainer$Type} from "packages/com/almostreliable/lootjs/loot/$LootFunctionsContainer"
 import {$LootConditionsContainer, $LootConditionsContainer$Type} from "packages/com/almostreliable/lootjs/kube/$LootConditionsContainer"
 import {$AddAttributesFunction$Builder, $AddAttributesFunction$Builder$Type} from "packages/com/almostreliable/lootjs/loot/$AddAttributesFunction$Builder"
@@ -1913,40 +1910,41 @@ import {$LootEntry$Generator, $LootEntry$Generator$Type} from "packages/com/almo
 
 export class $LootEntry implements $LootFunctionsContainer<($LootEntry)> {
 
-constructor(itemStack: $ItemStack$Type)
 constructor(item: $Item$Type)
+constructor(itemStack: $ItemStack$Type)
 constructor(generator: $LootEntry$Generator$Type)
 
-public "when"(action: $Consumer$Type<($LootConditionsContainer$Type<(any)>)>): $LootEntry
 public "withChance"(chance: integer): $LootEntry
 public "getWeight"(): integer
 public "createItem"(context: $LootContext$Type): $ItemStack
-public "matchesConditions"(context: $LootContext$Type): boolean
-public "hasWeight"(): boolean
+public "addFunction"(lootItemFunction: $LootItemFunction$Type): $LootEntry
 public "withWeight"(weight: integer): $LootEntry
-public "damage"(numberProvider: $NumberProvider$Type): $LootEntry
-public "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): $LootEntry
-public "simulateExplosionDecay"(): $LootEntry
+public "hasWeight"(): boolean
+public "matchesConditions"(context: $LootContext$Type): boolean
+public "when"(action: $Consumer$Type<($LootConditionsContainer$Type<(any)>)>): $LootEntry
 public "addLore"(...components: ($Component$Type)[]): $LootEntry
+public "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): $LootEntry
 public "applyOreBonus"(enchantment: $Enchantment$Type): $LootEntry
+public "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): $LootEntry
+public "enchantWithLevels"(numberProvider: $NumberProvider$Type): $LootEntry
+public "applyLootingBonus"(numberProvider: $NumberProvider$Type): $LootEntry
+public "enchantRandomly"(): $LootEntry
+public "enchantRandomly"(enchantments: ($Enchantment$Type)[]): $LootEntry
 public "smeltLoot"(): $LootEntry
 public "addPotion"(potion: $Potion$Type): $LootEntry
-public "applyLootingBonus"(numberProvider: $NumberProvider$Type): $LootEntry
-public "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): $LootEntry
-public "enchantWithLevels"(numberProvider: $NumberProvider$Type): $LootEntry
-public "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): $LootEntry
-public "enchantRandomly"(enchantments: ($Enchantment$Type)[]): $LootEntry
-public "enchantRandomly"(): $LootEntry
-public "customFunction"(json: $JsonObject$Type): $LootEntry
-public "addNBT"(tag: $CompoundTag$Type): $LootEntry
 public "limitCount"(numberProvider: $NumberProvider$Type): $LootEntry
 public "limitCount"(numberProviderMin: $NumberProvider$Type, numberProviderMax: $NumberProvider$Type): $LootEntry
-public "addNbt"(tag: $CompoundTag$Type): $LootEntry
 public "replaceLore"(...components: ($Component$Type)[]): $LootEntry
+public "addNBT"(tag: $CompoundTag$Type): $LootEntry
+public "addNbt"(tag: $CompoundTag$Type): $LootEntry
+public "customFunction"(json: $JsonObject$Type): $LootEntry
+public "damage"(numberProvider: $NumberProvider$Type): $LootEntry
 public "addFunction"(builder: $LootItemFunction$Builder$Type): $LootEntry
+public "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): $LootEntry
+public "simulateExplosionDecay"(): $LootEntry
 public "setName"(component: $Component$Type): $LootEntry
-public "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<($LootEntry$Type)>)>): $LootEntry
 public "addAttributes"(action: $Consumer$Type<($AddAttributesFunction$Builder$Type)>): $LootEntry
+public "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<($LootEntry$Type)>)>): $LootEntry
 get "weight"(): integer
 set "name"(value: $Component$Type)
 }
@@ -2017,9 +2015,9 @@ export interface $LootItemConditionMixin extends $ILootCondition {
 
  "applyLootHandler"(context: $LootContext$Type, loot: $List$Type<($ItemStack$Type)>): boolean
  "test"(arg0: $LootContext$Type): boolean
- "or"(arg0: $Predicate$Type<(any)>): $Predicate<($LootContext)>
  "negate"(): $Predicate<($LootContext)>
  "and"(arg0: $Predicate$Type<(any)>): $Predicate<($LootContext)>
+ "or"(arg0: $Predicate$Type<(any)>): $Predicate<($LootContext)>
 
 (context: $LootContext$Type, loot: $List$Type<($ItemStack$Type)>): boolean
 }
@@ -2058,24 +2056,23 @@ constructor()
 public "matchBlock"(resolver: $Resolver$Type, propertyMap: $Map$Type<(string), (string)>): $EntityPredicateBuilderJS
 public "matchBlock"(resolver: $Resolver$Type): $EntityPredicateBuilderJS
 public "nbt"(nbt: $CompoundTag$Type): $EntityPredicateBuilderJS
-public "hasEffect"(effect: $MobEffect$Type): $EntityPredicateBuilderJS
 public "hasEffect"(effect: $MobEffect$Type, amplifier: integer): $EntityPredicateBuilderJS
-public "isInWater"(flag: boolean): $EntityPredicateBuilderJS
+public "hasEffect"(effect: $MobEffect$Type): $EntityPredicateBuilderJS
+public "isBaby"(flag: boolean): $EntityPredicateBuilderJS
 public "matchFluid"(resolver: $Resolver$Type): $EntityPredicateBuilderJS
+public "isInWater"(flag: boolean): $EntityPredicateBuilderJS
 public "matchTargetedEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $EntityPredicateBuilderJS
-public "build"(): $EntityPredicate
 public "anyType"(...resolvers: ($Resolver$Type)[]): $EntityPredicateBuilderJS
-public "isSwimming"(flag: boolean): $EntityPredicateBuilderJS
-public "isUndeadMob"(flag: boolean): $EntityPredicateBuilderJS
-public "isCreature"(flag: boolean): $EntityPredicateBuilderJS
-public "isArthropodMob"(flag: boolean): $EntityPredicateBuilderJS
+public "matchSlot"(slot: $EquipmentSlot$Type, itemFilter: $ItemFilter$Type): $EntityPredicateBuilderJS
 public "isSprinting"(flag: boolean): $EntityPredicateBuilderJS
 public "isOnFire"(flag: boolean): $EntityPredicateBuilderJS
-public "isMonster"(flag: boolean): $EntityPredicateBuilderJS
+public "isCreature"(flag: boolean): $EntityPredicateBuilderJS
 public "isOnGround"(flag: boolean): $EntityPredicateBuilderJS
 public "matchMount"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $EntityPredicateBuilderJS
 public "isWaterMob"(flag: boolean): $EntityPredicateBuilderJS
-public "matchSlot"(slot: $EquipmentSlot$Type, itemFilter: $ItemFilter$Type): $EntityPredicateBuilderJS
+public "isArthropodMob"(flag: boolean): $EntityPredicateBuilderJS
+public "isIllegarMob"(flag: boolean): $EntityPredicateBuilderJS
+public "isUnderWater"(flag: boolean): $EntityPredicateBuilderJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2106,13 +2103,13 @@ export class $ParticleInstructions {
 
 constructor(arg0: $SceneBuilder$Type)
 
+public "fluid"(arg0: integer, arg1: $FluidStackJS$Type, arg2: $Vec3$Type): $ParticleDataBuilder<(any), (any)>
 public "dust"(arg0: integer, arg1: $Color$Type, arg2: $Vec3$Type): $ParticleDataBuilder$DustParticleDataBuilder
 public "dust"(arg0: integer, arg1: $Color$Type, arg2: $Color$Type, arg3: $Vec3$Type): $ParticleDataBuilder$DustParticleDataBuilder
-public "fluid"(arg0: integer, arg1: $FluidStackJS$Type, arg2: $Vec3$Type): $ParticleDataBuilder<(any), (any)>
+public "rotationIndicator"(arg0: integer, arg1: $Vec3$Type, arg2: float, arg3: float, arg4: $Direction$Axis$Type): $ParticleDataBuilder<(any), (any)>
+public "basin"(arg0: integer, arg1: $FluidStackJS$Type, arg2: $Vec3$Type): $ParticleDataBuilder<(any), (any)>
 public "simple"(arg0: integer, arg1: $ParticleType$Type<(any)>, arg2: $Vec3$Type): $ParticleDataBuilder<(any), (any)>
 public "drip"(arg0: integer, arg1: $FluidStackJS$Type, arg2: $Vec3$Type): $ParticleDataBuilder<(any), (any)>
-public "basin"(arg0: integer, arg1: $FluidStackJS$Type, arg2: $Vec3$Type): $ParticleDataBuilder<(any), (any)>
-public "rotationIndicator"(arg0: integer, arg1: $Vec3$Type, arg2: float, arg3: float, arg4: $Direction$Axis$Type): $ParticleDataBuilder<(any), (any)>
 public "block"(arg0: integer, arg1: $BlockState$Type, arg2: $Vec3$Type): $ParticleDataBuilder$Static
 public "item"(arg0: integer, arg1: $ItemStack$Type, arg2: $Vec3$Type): $ParticleDataBuilder$Static
 }
@@ -2133,7 +2130,6 @@ import {$EntityPredicateBuilderJS, $EntityPredicateBuilderJS$Type} from "package
 import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObject"
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
-import {$LootItemFunction, $LootItemFunction$Type} from "packages/net/minecraft/world/level/storage/loot/functions/$LootItemFunction"
 import {$GroupedLootAction, $GroupedLootAction$Type} from "packages/com/almostreliable/lootjs/loot/action/$GroupedLootAction"
 import {$LootConditionsContainer, $LootConditionsContainer$Type} from "packages/com/almostreliable/lootjs/kube/$LootConditionsContainer"
 import {$AddAttributesFunction$Builder, $AddAttributesFunction$Builder$Type} from "packages/com/almostreliable/lootjs/loot/$AddAttributesFunction$Builder"
@@ -2171,85 +2167,85 @@ constructor()
 
 public "addAction"(action: $ILootAction$Type): $GroupedLootBuilder
 public "rolls"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
-public "addFunction"(lootItemFunction: $LootItemFunction$Type): $GroupedLootBuilder
+public "addCondition"(condition: $ILootCondition$Type): $GroupedLootBuilder
 public "build"(): $GroupedLootAction
-public "killedByPlayer"(): $GroupedLootBuilder
-public "addCondition"(builder: $LootItemCondition$Builder$Type): $GroupedLootBuilder
-public "entityPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $GroupedLootBuilder
-public "randomChanceWithEnchantment"(enchantment: $Enchantment$Type, chances: (float)[]): $GroupedLootBuilder
 public "directKillerPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $GroupedLootBuilder
+public "randomChanceWithEnchantment"(enchantment: $Enchantment$Type, chances: (float)[]): $GroupedLootBuilder
 public "customDistanceToPlayer"(action: $Consumer$Type<($DistancePredicateBuilder$Type)>): $GroupedLootBuilder
 public "blockEntityPredicate"(predicate: $Predicate$Type<($BlockEntity$Type)>): $GroupedLootBuilder
-public "randomChance"(value: float): $GroupedLootBuilder
+public "biome"(...resolvers: ($Resolver$Type)[]): $GroupedLootBuilder
+public "entityPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $GroupedLootBuilder
+public "randomChanceWithLooting"(value: float, looting: float): $GroupedLootBuilder
+public "killedByPlayer"(): $GroupedLootBuilder
 public "lightLevel"(min: integer, max: integer): $GroupedLootBuilder
 public "survivesExplosion"(): $GroupedLootBuilder
-public "randomChanceWithLooting"(value: float, looting: float): $GroupedLootBuilder
-public "biome"(...resolvers: ($Resolver$Type)[]): $GroupedLootBuilder
-public "timeCheck"(period: long, min: integer, max: integer): $GroupedLootBuilder
+public "addCondition"(builder: $LootItemCondition$Builder$Type): $GroupedLootBuilder
+public "randomChance"(value: float): $GroupedLootBuilder
+public "matchMainHand"(filter: $ItemFilter$Type): $GroupedLootBuilder
 public "timeCheck"(min: integer, max: integer): $GroupedLootBuilder
+public "timeCheck"(period: long, min: integer, max: integer): $GroupedLootBuilder
 public "matchLoot"(filter: $ItemFilter$Type): $GroupedLootBuilder
 public "matchLoot"(filter: $ItemFilter$Type, exact: boolean): $GroupedLootBuilder
-public "matchMainHand"(filter: $ItemFilter$Type): $GroupedLootBuilder
 public "matchOffHand"(filter: $ItemFilter$Type): $GroupedLootBuilder
 public "matchEquip"(slot: $EquipmentSlot$Type, filter: $ItemFilter$Type): $GroupedLootBuilder
-public "weatherCheck"(map: $Map$Type<(string), (boolean)>): $GroupedLootBuilder
 public "matchBlockState"(block: $Block$Type, propertyMap: $Map$Type<(string), (string)>): $GroupedLootBuilder
-public "randomTableBonus"(enchantment: $Enchantment$Type, chances: (float)[]): $GroupedLootBuilder
-public "anyDimension"(...dimensions: ($ResourceLocation$Type)[]): $GroupedLootBuilder
 public "anyStructure"(idOrTags: (string)[], exact: boolean): $GroupedLootBuilder
+public "randomTableBonus"(enchantment: $Enchantment$Type, chances: (float)[]): $GroupedLootBuilder
+public "weatherCheck"(map: $Map$Type<(string), (boolean)>): $GroupedLootBuilder
 public "anyBiome"(...resolvers: ($Resolver$Type)[]): $GroupedLootBuilder
-public "matchFluid"(resolver: $Resolver$Type): $GroupedLootBuilder
+public "anyDimension"(...dimensions: ($ResourceLocation$Type)[]): $GroupedLootBuilder
 public "matchEntity"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $GroupedLootBuilder
-public "matchPlayer"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $GroupedLootBuilder
 public "matchDamageSource"(action: $Consumer$Type<($DamageSourcePredicateBuilderJS$Type)>): $GroupedLootBuilder
+public "matchKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $GroupedLootBuilder
+public "matchPlayer"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $GroupedLootBuilder
+public "playerPredicate"(predicate: $Predicate$Type<($ServerPlayer$Type)>): $GroupedLootBuilder
 public "killerPredicate"(predicate: $Predicate$Type<($Entity$Type)>): $GroupedLootBuilder
-public "hasAnyStage"(...stages: (string)[]): $GroupedLootBuilder
-public "createConditions"(action: $Consumer$Type<($LootConditionsContainer$Type<($GroupedLootBuilder$Type)>)>): $List<($ILootCondition)>
+public "matchFluid"(resolver: $Resolver$Type): $GroupedLootBuilder
 public "matchDirectKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $GroupedLootBuilder
 public "distanceToKiller"(bounds: $MinMaxBounds$Doubles$Type): $GroupedLootBuilder
-public "matchKiller"(action: $Consumer$Type<($EntityPredicateBuilderJS$Type)>): $GroupedLootBuilder
-public "playerPredicate"(predicate: $Predicate$Type<($ServerPlayer$Type)>): $GroupedLootBuilder
+public "hasAnyStage"(...stages: (string)[]): $GroupedLootBuilder
+public "createConditions"(action: $Consumer$Type<($LootConditionsContainer$Type<($GroupedLootBuilder$Type)>)>): $List<($ILootCondition)>
 public "customCondition"(json: $JsonObject$Type): $GroupedLootBuilder
-public "or"(action: $Consumer$Type<($LootConditionsContainer$Type<($GroupedLootBuilder$Type)>)>): $GroupedLootBuilder
 public "and"(action: $Consumer$Type<($LootConditionsContainer$Type<($GroupedLootBuilder$Type)>)>): $GroupedLootBuilder
 public "not"(action: $Consumer$Type<($LootConditionsContainer$Type<($GroupedLootBuilder$Type)>)>): $GroupedLootBuilder
-public "damage"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
-public "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): $GroupedLootBuilder
-public "simulateExplosionDecay"(): $GroupedLootBuilder
+public "or"(action: $Consumer$Type<($LootConditionsContainer$Type<($GroupedLootBuilder$Type)>)>): $GroupedLootBuilder
 public "addLore"(...components: ($Component$Type)[]): $GroupedLootBuilder
+public "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): $GroupedLootBuilder
 public "applyOreBonus"(enchantment: $Enchantment$Type): $GroupedLootBuilder
+public "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): $GroupedLootBuilder
+public "enchantWithLevels"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
+public "applyLootingBonus"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
+public "enchantRandomly"(): $GroupedLootBuilder
+public "enchantRandomly"(enchantments: ($Enchantment$Type)[]): $GroupedLootBuilder
 public "smeltLoot"(): $GroupedLootBuilder
 public "addPotion"(potion: $Potion$Type): $GroupedLootBuilder
-public "applyLootingBonus"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
-public "applyBonus"(enchantment: $Enchantment$Type, multiplier: integer): $GroupedLootBuilder
-public "enchantWithLevels"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
-public "enchantWithLevels"(numberProvider: $NumberProvider$Type, allowTreasure: boolean): $GroupedLootBuilder
-public "enchantRandomly"(enchantments: ($Enchantment$Type)[]): $GroupedLootBuilder
-public "enchantRandomly"(): $GroupedLootBuilder
-public "customFunction"(json: $JsonObject$Type): $GroupedLootBuilder
-public "addNBT"(tag: $CompoundTag$Type): $GroupedLootBuilder
 public "limitCount"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
 public "limitCount"(numberProviderMin: $NumberProvider$Type, numberProviderMax: $NumberProvider$Type): $GroupedLootBuilder
-public "addNbt"(tag: $CompoundTag$Type): $GroupedLootBuilder
 public "replaceLore"(...components: ($Component$Type)[]): $GroupedLootBuilder
+public "addNBT"(tag: $CompoundTag$Type): $GroupedLootBuilder
+public "addNbt"(tag: $CompoundTag$Type): $GroupedLootBuilder
+public "customFunction"(json: $JsonObject$Type): $GroupedLootBuilder
+public "damage"(numberProvider: $NumberProvider$Type): $GroupedLootBuilder
 public "addFunction"(builder: $LootItemFunction$Builder$Type): $GroupedLootBuilder
+public "applyBinomialDistributionBonus"(enchantment: $Enchantment$Type, probability: float, n: integer): $GroupedLootBuilder
+public "simulateExplosionDecay"(): $GroupedLootBuilder
 public "setName"(component: $Component$Type): $GroupedLootBuilder
-public "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<($GroupedLootBuilder$Type)>)>): $GroupedLootBuilder
 public "addAttributes"(action: $Consumer$Type<($AddAttributesFunction$Builder$Type)>): $GroupedLootBuilder
-public "addLoot"(...entries: ($LootEntry$Type)[]): $GroupedLootBuilder
-public "triggerLightningStrike"(shouldDamage: boolean): $GroupedLootBuilder
+public "functions"(filter: $ItemFilter$Type, action: $Consumer$Type<($LootFunctionsContainer$Type<($GroupedLootBuilder$Type)>)>): $GroupedLootBuilder
 public "addAlternativesLoot"(...entries: ($LootEntry$Type)[]): $GroupedLootBuilder
+public "triggerLightningStrike"(shouldDamage: boolean): $GroupedLootBuilder
 public "dropExperience"(amount: integer): $GroupedLootBuilder
 public "modifyLoot"(filter: $ItemFilter$Type, callback: $ModifyLootAction$Callback$Type): $GroupedLootBuilder
-public "addWeightedLoot"(numberProvider: $NumberProvider$Type, poolEntries: ($LootEntry$Type)[]): $GroupedLootBuilder
-public "addWeightedLoot"(numberProvider: $NumberProvider$Type, allowDuplicateLoot: boolean, poolEntries: ($LootEntry$Type)[]): $GroupedLootBuilder
-public "addWeightedLoot"(poolEntries: ($LootEntry$Type)[]): $GroupedLootBuilder
-public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type): $GroupedLootBuilder
-public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type, preserveCount: boolean): $GroupedLootBuilder
-public "addSequenceLoot"(...entries: ($LootEntry$Type)[]): $GroupedLootBuilder
+public "addLoot"(...entries: ($LootEntry$Type)[]): $GroupedLootBuilder
 public "removeLoot"(filter: $ItemFilter$Type): $GroupedLootBuilder
-public "triggerExplosion"(radius: float, destroy: boolean, fire: boolean): $GroupedLootBuilder
+public "addWeightedLoot"(numberProvider: $NumberProvider$Type, allowDuplicateLoot: boolean, poolEntries: ($LootEntry$Type)[]): $GroupedLootBuilder
+public "addWeightedLoot"(numberProvider: $NumberProvider$Type, poolEntries: ($LootEntry$Type)[]): $GroupedLootBuilder
+public "addWeightedLoot"(poolEntries: ($LootEntry$Type)[]): $GroupedLootBuilder
+public "addSequenceLoot"(...entries: ($LootEntry$Type)[]): $GroupedLootBuilder
 public "triggerExplosion"(radius: float, mode: $Explosion$BlockInteraction$Type, fire: boolean): $GroupedLootBuilder
+public "triggerExplosion"(radius: float, destroy: boolean, fire: boolean): $GroupedLootBuilder
+public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type, preserveCount: boolean): $GroupedLootBuilder
+public "replaceLoot"(filter: $ItemFilter$Type, lootEntry: $LootEntry$Type): $GroupedLootBuilder
 set "name"(value: $Component$Type)
 }
 /**
@@ -2275,16 +2271,16 @@ export class $LootModificationEventJS extends $EventJS {
 
 constructor()
 
-public "disableLootModification"(...filters: ($ResourceLocationFilter$Type)[]): void
+public "enableLogging"(): void
+public "disableZombieHeadDrop"(): void
 public "addLootTableModifier"(...filters: ($ResourceLocationFilter$Type)[]): $LootActionsBuilderJS
 public "addLootTypeModifier"(...types: ($LootContextType$Type)[]): $LootActionsBuilderJS
+public "disableSkeletonHeadDrop"(): void
+public "disableLootModification"(...filters: ($ResourceLocationFilter$Type)[]): void
 public "addEntityLootModifier"(...entities: ($EntityType$Type<(any)>)[]): $LootActionsBuilderJS
 public "addBlockLootModifier"(o: any): $LootActionsBuilderJS
-public "disableWitherStarDrop"(): void
-public "disableSkeletonHeadDrop"(): void
 public "disableCreeperHeadDrop"(): void
-public "disableZombieHeadDrop"(): void
-public "enableLogging"(): void
+public "disableWitherStarDrop"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2302,21 +2298,21 @@ declare module "packages/com/almostreliable/lootjs/predicate/$ExtendedEntityFlag
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ExtendedEntityFlagsPredicate$IBuilder<T> {
 
- "isInWater"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
  "isBaby"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isInWater"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
  "build"(): T
- "isSwimming"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isUnderWater"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isUndeadMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isCreature"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isArthropodMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isSprinting"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isCrouching"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isOnFire"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
  "isMonster"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isSprinting"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isOnFire"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isSwimming"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isCreature"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
  "isOnGround"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
- "isIllegarMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isCrouching"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
  "isWaterMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isArthropodMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isUndeadMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isIllegarMob"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
+ "isUnderWater"(arg0: boolean): $ExtendedEntityFlagsPredicate$IBuilder<(T)>
 }
 
 export namespace $ExtendedEntityFlagsPredicate$IBuilder {

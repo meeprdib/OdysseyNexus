@@ -29,9 +29,9 @@ import {$Serializable, $Serializable$Type} from "packages/java/io/$Serializable"
 
 export interface $Key extends $Serializable {
 
+ "getFormat"(): string
  "getEncoded"(): (byte)[]
  "getAlgorithm"(): string
- "getFormat"(): string
 }
 
 export namespace $Key {
@@ -58,13 +58,13 @@ export class $Provider$Service {
 
 constructor(arg0: $Provider$Type, arg1: string, arg2: string, arg3: string, arg4: $List$Type<(string)>, arg5: $Map$Type<(string), (string)>)
 
-public "supportsParameter"(arg0: any): boolean
 public "toString"(): string
 public "newInstance"(arg0: any): any
 public "getType"(): string
 public "getClassName"(): string
 public "getAttribute"(arg0: string): string
 public "getAlgorithm"(): string
+public "supportsParameter"(arg0: any): boolean
 public "getProvider"(): $Provider
 get "type"(): string
 get "className"(): string
@@ -189,29 +189,29 @@ export class $SecureRandom extends $Random {
 constructor(arg0: (byte)[])
 constructor()
 
-public "setSeed"(arg0: long): void
+public static "getSeed"(arg0: integer): (byte)[]
 public "setSeed"(arg0: (byte)[]): void
+public "setSeed"(arg0: long): void
 public "generateSeed"(arg0: integer): (byte)[]
 public static "getInstanceStrong"(): $SecureRandom
-public "reseed"(arg0: $SecureRandomParameters$Type): void
 public "reseed"(): void
+public "reseed"(arg0: $SecureRandomParameters$Type): void
 public "toString"(): string
-public static "getInstance"(arg0: string, arg1: string): $SecureRandom
-public static "getInstance"(arg0: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $Provider$Type): $SecureRandom
-public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: string): $SecureRandom
+public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type): $SecureRandom
+public static "getInstance"(arg0: string): $SecureRandom
+public static "getInstance"(arg0: string, arg1: string): $SecureRandom
 public static "getInstance"(arg0: string, arg1: $SecureRandomParameters$Type, arg2: $Provider$Type): $SecureRandom
 public "getParameters"(): $SecureRandomParameters
+public "nextBytes"(arg0: (byte)[]): void
+public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$Type): void
 public "getAlgorithm"(): string
 public "getProvider"(): $Provider
-public static "getSeed"(arg0: integer): (byte)[]
-public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$Type): void
-public "nextBytes"(arg0: (byte)[]): void
 public static "getDefault"(): $RandomGenerator
 public static "of"(arg0: string): $RandomGenerator
-set "seed"(value: long)
 set "seed"(value: (byte)[])
+set "seed"(value: long)
 get "instanceStrong"(): $SecureRandom
 get "parameters"(): $SecureRandomParameters
 get "algorithm"(): string
@@ -361,8 +361,8 @@ declare module "packages/java/security/$Provider" {
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
 import {$Provider$Service, $Provider$Service$Type} from "packages/java/security/$Provider$Service"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$Enumeration, $Enumeration$Type} from "packages/java/util/$Enumeration"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$InputStream, $InputStream$Type} from "packages/java/io/$InputStream"
 import {$Properties, $Properties$Type} from "packages/java/util/$Properties"
@@ -373,12 +373,6 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 export class $Provider extends $Properties {
 
 
-public "getService"(arg0: string, arg1: string): $Provider$Service
-public "getServices"(): $Set<($Provider$Service)>
-public "configure"(arg0: string): $Provider
-public "isConfigured"(): boolean
-public "getVersionStr"(): string
-public "getInfo"(): string
 public "getName"(): string
 public "remove"(arg0: any): any
 public "remove"(arg0: any, arg1: any): boolean
@@ -389,8 +383,8 @@ public "toString"(): string
 public "values"(): $Collection<(any)>
 public "load"(arg0: $InputStream$Type): void
 public "clear"(): void
-public "replace"(arg0: any, arg1: any, arg2: any): boolean
 public "replace"(arg0: any, arg1: any): any
+public "replace"(arg0: any, arg1: any, arg2: any): boolean
 public "replaceAll"(arg0: $BiFunction$Type<(any), (any), (any)>): void
 public "elements"(): $Enumeration<(any)>
 public "merge"(arg0: any, arg1: any, arg2: $BiFunction$Type<(any), (any), (any)>): any
@@ -409,6 +403,12 @@ public "computeIfPresent"(arg0: any, arg1: $BiFunction$Type<(any), (any), (any)>
  * @deprecated
  */
 public "getVersion"(): double
+public "getService"(arg0: string, arg1: string): $Provider$Service
+public "getServices"(): $Set<($Provider$Service)>
+public "configure"(arg0: string): $Provider
+public "isConfigured"(): boolean
+public "getVersionStr"(): string
+public "getInfo"(): string
 public static "copyOf"<K, V>(arg0: $Map$Type<(any), (any)>): $Map<(K), (V)>
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V): $Map<(K), (V)>
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): $Map<(K), (V)>
@@ -423,12 +423,12 @@ public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, a
 public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V): $Map<(K), (V)>
 public static "entry"<K, V>(arg0: K, arg1: V): $Map$Entry<(K), (V)>
 public static "ofEntries"<K, V>(...arg0: ($Map$Entry$Type<(any), (any)>)[]): $Map<(K), (V)>
+get "name"(): string
+get "version"(): double
 get "services"(): $Set<($Provider$Service)>
 get "configured"(): boolean
 get "versionStr"(): string
 get "info"(): string
-get "name"(): string
-get "version"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -694,9 +694,9 @@ import {$Destroyable, $Destroyable$Type} from "packages/javax/security/auth/$Des
 
 export interface $PrivateKey extends $Key, $Destroyable {
 
+ "getFormat"(): string
  "getEncoded"(): (byte)[]
  "getAlgorithm"(): string
- "getFormat"(): string
  "destroy"(): void
  "isDestroyed"(): boolean
 }
@@ -803,9 +803,9 @@ import {$Key, $Key$Type} from "packages/java/security/$Key"
 
 export interface $PublicKey extends $Key {
 
+ "getFormat"(): string
  "getEncoded"(): (byte)[]
  "getAlgorithm"(): string
- "getFormat"(): string
 }
 
 export namespace $PublicKey {

@@ -82,45 +82,45 @@ import {$Vector3f, $Vector3f$Type} from "packages/org/joml/$Vector3f"
 import {$Vector2f, $Vector2f$Type} from "packages/org/joml/$Vector2f"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$QuadView, $QuadView$Type} from "packages/appeng/thirdparty/fabric/$QuadView"
-import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 import {$BakedQuad, $BakedQuad$Type} from "packages/net/minecraft/client/renderer/block/model/$BakedQuad"
+import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 
 export interface $MutableQuadView extends $QuadView {
 
+ "uv"(arg0: integer, arg1: float, arg2: float): $MutableQuadView
+ "uv"(arg0: integer, arg1: $Vector2f$Type): $MutableQuadView
+ "fromVanilla"(arg0: $BakedQuad$Type, arg1: $Direction$Type): $MutableQuadView
+ "fromVanilla"(arg0: (integer)[], arg1: integer): $MutableQuadView
  "lightmap"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $MutableQuadView
  "lightmap"(arg0: integer, arg1: integer): $MutableQuadView
  "colorIndex"(arg0: integer): $MutableQuadView
- "uv"(arg0: integer, arg1: $Vector2f$Type): $MutableQuadView
- "uv"(arg0: integer, arg1: float, arg2: float): $MutableQuadView
  "nominalFace"(arg0: $Direction$Type): $MutableQuadView
  "cullFace"(arg0: $Direction$Type): $MutableQuadView
  "spriteBake"(arg0: $TextureAtlasSprite$Type, arg1: integer): $MutableQuadView
- "fromVanilla"(arg0: (integer)[], arg1: integer): $MutableQuadView
- "fromVanilla"(arg0: $BakedQuad$Type, arg1: $Direction$Type): $MutableQuadView
  "pos"(arg0: integer, arg1: float, arg2: float, arg3: float): $MutableQuadView
  "pos"(arg0: integer, arg1: $Vector3f$Type): $MutableQuadView
- "color"(arg0: integer, arg1: integer): $MutableQuadView
  "color"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $MutableQuadView
+ "color"(arg0: integer, arg1: integer): $MutableQuadView
+ "tag"(arg0: integer): $MutableQuadView
  "normal"(arg0: integer, arg1: $Vector3f$Type): $MutableQuadView
  "normal"(arg0: integer, arg1: float, arg2: float, arg3: float): $MutableQuadView
- "tag"(arg0: integer): $MutableQuadView
  "normalX"(arg0: integer): float
  "normalY"(arg0: integer): float
- "lightmap"(arg0: integer): integer
- "hasNormal"(arg0: integer): boolean
- "toVanilla"(arg0: (integer)[], arg1: integer): void
  "normalZ"(arg0: integer): float
+ "hasNormal"(arg0: integer): boolean
+ "copyTo"(arg0: $MutableQuadView$Type): void
+ "toVanilla"(arg0: (integer)[], arg1: integer): void
+ "lightmap"(arg0: integer): integer
  "colorIndex"(): integer
- "copyUv"(arg0: integer, arg1: $Vector2f$Type): $Vector2f
  "nominalFace"(): $Direction
- "copyPos"(arg0: integer, arg1: $Vector3f$Type): $Vector3f
+ "cullFace"(): $Direction
  "lightFace"(): $Direction
  "toBakedQuad"(arg0: $TextureAtlasSprite$Type): $BakedQuad
- "toBlockBakedQuad"(): $BakedQuad
+ "copyPos"(arg0: integer, arg1: $Vector3f$Type): $Vector3f
  "posByIndex"(arg0: integer, arg1: integer): float
- "cullFace"(): $Direction
+ "copyUv"(arg0: integer, arg1: $Vector2f$Type): $Vector2f
  "copyNormal"(arg0: integer, arg1: $Vector3f$Type): $Vector3f
- "copyTo"(arg0: $MutableQuadView$Type): void
+ "toBlockBakedQuad"(): $BakedQuad
  "faceNormal"(): $Vector3f
  "x"(arg0: integer): float
  "v"(arg0: integer): float
@@ -166,21 +166,21 @@ export interface $QuadView {
 
  "normalX"(arg0: integer): float
  "normalY"(arg0: integer): float
- "lightmap"(arg0: integer): integer
- "hasNormal"(arg0: integer): boolean
- "toVanilla"(arg0: (integer)[], arg1: integer): void
  "normalZ"(arg0: integer): float
+ "hasNormal"(arg0: integer): boolean
+ "copyTo"(arg0: $MutableQuadView$Type): void
+ "toVanilla"(arg0: (integer)[], arg1: integer): void
+ "lightmap"(arg0: integer): integer
  "colorIndex"(): integer
- "copyUv"(arg0: integer, arg1: $Vector2f$Type): $Vector2f
  "nominalFace"(): $Direction
- "copyPos"(arg0: integer, arg1: $Vector3f$Type): $Vector3f
+ "cullFace"(): $Direction
  "lightFace"(): $Direction
  "toBakedQuad"(arg0: $TextureAtlasSprite$Type): $BakedQuad
- "toBlockBakedQuad"(): $BakedQuad
+ "copyPos"(arg0: integer, arg1: $Vector3f$Type): $Vector3f
  "posByIndex"(arg0: integer, arg1: integer): float
- "cullFace"(): $Direction
+ "copyUv"(arg0: integer, arg1: $Vector2f$Type): $Vector2f
  "copyNormal"(arg0: integer, arg1: $Vector3f$Type): $Vector3f
- "copyTo"(arg0: $MutableQuadView$Type): void
+ "toBlockBakedQuad"(): $BakedQuad
  "faceNormal"(): $Vector3f
  "x"(arg0: integer): float
  "v"(arg0: integer): float

@@ -102,6 +102,7 @@ ServerEvents.recipes(event => {
             'vintageimprovements:v_shaped_curving_head',
             'vintageimprovements:vacuum_chamber',
             'vintageimprovements:w_shaped_curving_head',
+            'create_dd:kinetic_motor',
             ['storagedrawers:redstone_upgrade', 'storagedrawers:min_redstone_upgrade', 'storagedrawers:max_redstone_upgrade', 'storagedrawers:fill_level_upgrade'],
             ['storagedrawers:obsidian_storage_upgrade', 'storagedrawers:iron_storage_upgrade', 'storagedrawers:gold_storage_upgrade', 'storagedrawers:emerald_storage_upgrade', 'storagedrawers:upgrade_template', 'storagedrawers:diamond_storage_upgrade', 'storagedrawers:one_stack_upgrade'],
             // 'aether:iron_ring',
@@ -210,6 +211,13 @@ ServerEvents.recipes(event => {
     event.recipes.farmersdelight.cutting('#on:small_mushroom', '#forge:tools/knives', ['kubejs:mushroom_paste'])
     event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
 
+    event.recipes.farmersdelight.cooking(
+	    ['#forge:fruits/chorus', 'minecraft:honey_bottle', 'minecraft:kelp', '#forge:sugar'],
+	    'kubejs:chorus_gummy',
+	    30,
+	    10,
+	)
+
     // AE2
 
     event.smelting('ae2:silicon', '#ae2:all_quartz')
@@ -220,10 +228,12 @@ ServerEvents.recipes(event => {
     event.recipes.create.sandpaper_polishing('kubejs:polished_certus_quartz', 'ae2:charged_certus_quartz_crystal')
     event.shapeless('ae2:network_tool', ['minecraft:stick', 'create_dd:kinetic_mechanism'])
     event.recipes.create.item_application('kubejs:silicon_casing', ['minecraft:quartz_block', 'kubejs:silicon_sheet'])
+    event.recipes.create.item_application('ae2:quantum_link', ['#forge:glass', 'ae2:fluix_crystal'])
+
 
     event.recipes.create.mixing('ae2:fluix_crystal', [
         Fluid.water(250),
-        '2x #on:red_stuff',
+        '8x #on:red_stuff',
         'ae2:charged_certus_quartz_crystal'
     ]).heated()
     
@@ -271,6 +281,7 @@ ServerEvents.recipes(event => {
     ], 'kubejs:silicon_sheet', [
         event.recipes.createDeploying('kubejs:incomplete_computational_mechanism', ['kubejs:incomplete_computational_mechanism', 'kubejs:polished_certus_quartz']),
         event.recipes.createDeploying('kubejs:incomplete_computational_mechanism', ['kubejs:incomplete_computational_mechanism', 'kubejs:polished_fluix']),
+        event.recipes.createDeploying('kubejs:incomplete_computational_mechanism', ['kubejs:incomplete_computational_mechanism', 'create_dd:integrated_circuit']),
 		event.recipes.createPressing('kubejs:incomplete_computational_mechanism','kubejs:incomplete_computational_mechanism'),
     ]).transitionalItem('kubejs:incomplete_computational_mechanism').loops(3)
 
@@ -285,6 +296,19 @@ ServerEvents.recipes(event => {
         D:  'minecraft:diamond_block',
         E: 'kubejs:silicon_casing'
     })
+
+    event.recipes.create.mechanical_crafting('ae2:spatial_anchor', [
+        ' BBB ',
+        'BCACB',
+        'BAEAB',
+        'BCACB',
+        ' BBB '
+        ], {
+            A: 'kubejs:computational_mechanism',
+            B: 'ae2:spatial_pylon',
+            C: 'create_dd:integrated_circuit',
+            E: 'createutilities:void_casing'
+        })
 
     event.shapeless('ae2:drive', ['#storagedrawers:drawers', 'kubejs:silicon_casing'])
     event.shapeless('ae2:chest', ['#forge:chests', 'kubejs:silicon_casing'])
@@ -329,8 +353,49 @@ ServerEvents.recipes(event => {
         C: 'kubejs:silicon_casing'
     })
 
+    event.shaped('ae2:crafting_unit', [
+        'ABA',
+        'BCB',
+        'ABA'
+    ], {
+        A: 'kubejs:silicon_sheet',
+        B: '#forge:workbench',
+        C: 'kubejs:silicon_casing'
+    })
+
+    event.shaped('ae2:cell_component_16k', [
+        'ABA',
+        'BAB',
+        'ABA'
+    ], {
+        A: '#forge:gems/certus_quartz',
+        B: 'ae2:silicon'
+    })
+
+    event.shaped('ae2:spatial_cell_component_128', [
+        'ABA',
+        'BAB',
+        'ABA'
+    ], {
+        A: '#forge:gems/fluix',
+        B: 'ae2:silicon'
+    })
+
+    event.shaped('ae2:io_port', [
+        'AAA',
+        'BCB',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: 'kubejs:computational_mechanism',
+        C: 'ae2:io_port'
+    })
+
     event.shapeless('ae2:cable_anchor', ['#forge:rods/wooden', 'ae2:silicon'])
     event.shapeless('ae2:toggle_bus', ['minecraft:lever', 'ae2:fluix_smart_cable'])
+    event.shapeless('ae2:crafting_accelerator', ['ae2:crafting_unit', 'create_dd:integrated_circuit'])
+    event.shapeless('ae2:pattern_provider', ['ae2:crafting_unit', 'ae2:blank_pattern'])
+    event.shapeless('ae2:memory_card', ['kubejs:silicon_sheet', '#forge:plates/electrum'])
 
     // Create + Create Addons
 
