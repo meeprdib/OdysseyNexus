@@ -58,8 +58,8 @@ import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/ne
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -78,9 +78,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -189,8 +189,8 @@ import {$CreativeModeTab$Output, $CreativeModeTab$Output$Type} from "packages/ne
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -209,9 +209,9 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
+public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "addToMainCreativeTab"(arg0: $CreativeModeTab$Output$Type): void
-public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -318,8 +318,8 @@ export class $ChunkLoaderBlockEntity extends $AEBaseBlockEntity implements $Serv
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "onLoad"(): void
-public "setRemoved"(): void
 public "serverTick"(): void
+public "setRemoved"(): void
 public static "tryClear"(arg0: any): void
 }
 /**
@@ -401,8 +401,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$AEBaseItem, $AEBaseItem$Type} from "packages/appeng/items/$AEBaseItem"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$InteractionResultHolder, $InteractionResultHolder$Type} from "packages/net/minecraft/world/$InteractionResultHolder"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -421,8 +421,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 public "use"(arg0: $Level$Type, arg1: $Player$Type, arg2: $InteractionHand$Type): $InteractionResultHolder<($ItemStack)>
+public "onItemUseFirst"(arg0: $ItemStack$Type, arg1: $UseOnContext$Type): $InteractionResult
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -439,8 +439,8 @@ export type $DebugCardItem_ = $DebugCardItem$Type;
 declare module "packages/appeng/debug/$ItemGenBlockEntity" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$LazyOptional, $LazyOptional$Type} from "packages/net/minecraftforge/common/util/$LazyOptional"
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$InternalInventory, $InternalInventory$Type} from "packages/appeng/api/inventories/$InternalInventory"
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$InternalInventoryHost, $InternalInventoryHost$Type} from "packages/appeng/util/inv/$InternalInventoryHost"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
@@ -455,12 +455,12 @@ export class $ItemGenBlockEntity extends $AEBaseBlockEntity implements $Internal
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "onReady"(): void
+public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
+public "setItem"(arg0: $Item$Type): void
 public "loadTag"(arg0: $CompoundTag$Type): void
+public "onReady"(): void
 public "m_183515_"(arg0: $CompoundTag$Type): void
 public "clearRemoved"(): void
-public "setItem"(arg0: $Item$Type): void
-public "onChangeInventory"(arg0: $InternalInventory$Type, arg1: integer): void
 public "isClientSide"(): boolean
 public "saveChanges"(): void
 public static "tryClear"(arg0: any): void
@@ -496,16 +496,16 @@ export class $EnergyGeneratorBlockEntity extends $AEBaseBlockEntity implements $
 constructor(arg0: $BlockEntityType$Type<(any)>, arg1: $BlockPos$Type, arg2: $BlockState$Type)
 
 public "getCapability"<T>(arg0: $Capability$Type<(T)>, arg1: $Direction$Type): $LazyOptional<(T)>
-public "canReceive"(): boolean
 public "receiveEnergy"(arg0: integer, arg1: boolean): integer
-public "getMaxEnergyStored"(): integer
-public "extractEnergy"(arg0: integer, arg1: boolean): integer
 public "getEnergyStored"(): integer
+public "getMaxEnergyStored"(): integer
+public "canReceive"(): boolean
+public "extractEnergy"(arg0: integer, arg1: boolean): integer
 public "canExtract"(): boolean
 public "serverTick"(): void
 public static "tryClear"(arg0: any): void
-get "maxEnergyStored"(): integer
 get "energyStored"(): integer
+get "maxEnergyStored"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

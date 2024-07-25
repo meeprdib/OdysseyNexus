@@ -195,11 +195,11 @@ import {$AnnotatedElement, $AnnotatedElement$Type} from "packages/java/lang/refl
  */
 export interface $AnnotatedType extends $AnnotatedElement {
 
- "getAnnotatedOwnerType"(): $AnnotatedType
  "getAnnotation"<T extends $Annotation>(arg0: $Class$Type<(T)>): T
  "getAnnotations"(): ($Annotation)[]
  "getDeclaredAnnotations"(): ($Annotation)[]
  "getType"(): $Type
+ "getAnnotatedOwnerType"(): $AnnotatedType
  "isAnnotationPresent"(arg0: $Class$Type<(any)>): boolean
  "getAnnotationsByType"<T extends $Annotation>(arg0: $Class$Type<(T)>): (T)[]
  "getDeclaredAnnotation"<T extends $Annotation>(arg0: $Class$Type<(T)>): T
@@ -844,8 +844,8 @@ public "provides"(arg0: string, arg1: $List$Type<(string)>): $ModuleDescriptor$B
 public "provides"(arg0: $ModuleDescriptor$Provides$Type): $ModuleDescriptor$Builder
 public "requires"(arg0: $Set$Type<($ModuleDescriptor$Requires$Modifier$Type)>, arg1: string, arg2: $ModuleDescriptor$Version$Type): $ModuleDescriptor$Builder
 public "requires"(arg0: $ModuleDescriptor$Requires$Type): $ModuleDescriptor$Builder
-public "requires"(arg0: string): $ModuleDescriptor$Builder
 public "requires"(arg0: $Set$Type<($ModuleDescriptor$Requires$Modifier$Type)>, arg1: string): $ModuleDescriptor$Builder
+public "requires"(arg0: string): $ModuleDescriptor$Builder
 public "mainClass"(arg0: string): $ModuleDescriptor$Builder
 }
 /**
@@ -1514,9 +1514,8 @@ declare global {
 export type $ModuleReference_ = $ModuleReference$Type;
 }}
 declare module "packages/java/lang/invoke/$VarHandle$VarHandleDesc" {
-import {$VarHandle, $VarHandle$Type} from "packages/java/lang/invoke/$VarHandle"
 import {$DynamicConstantDesc, $DynamicConstantDesc$Type} from "packages/java/lang/constant/$DynamicConstantDesc"
-import {$MethodHandles$Lookup, $MethodHandles$Lookup$Type} from "packages/java/lang/invoke/$MethodHandles$Lookup"
+import {$VarHandle, $VarHandle$Type} from "packages/java/lang/invoke/$VarHandle"
 import {$ClassDesc, $ClassDesc$Type} from "packages/java/lang/constant/$ClassDesc"
 
 /**
@@ -1527,11 +1526,10 @@ import {$ClassDesc, $ClassDesc$Type} from "packages/java/lang/constant/$ClassDes
 export class $VarHandle$VarHandleDesc extends $DynamicConstantDesc<($VarHandle)> {
 
 
-public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public "toString"(): string
-public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$Type): $VarHandle
 public static "ofField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public "varType"(): $ClassDesc
+public static "ofStaticField"(arg0: $ClassDesc$Type, arg1: string, arg2: $ClassDesc$Type): $VarHandle$VarHandleDesc
 public static "ofArray"(arg0: $ClassDesc$Type): $VarHandle$VarHandleDesc
 }
 /**
@@ -2157,13 +2155,6 @@ import {$AnnotatedElement, $AnnotatedElement$Type} from "packages/java/lang/refl
 export class $Package extends $NamedPackage implements $AnnotatedElement {
 
 
-public "getSpecificationTitle"(): string
-public "getSpecificationVersion"(): string
-public "getSpecificationVendor"(): string
-public "getImplementationTitle"(): string
-public "getImplementationVersion"(): string
-public "getImplementationVendor"(): string
-public "isCompatibleWith"(arg0: string): boolean
 public "getName"(): string
 public "toString"(): string
 public "hashCode"(): integer
@@ -2179,20 +2170,27 @@ public "getAnnotations"(): ($Annotation)[]
 public "getDeclaredAnnotation"<A extends $Annotation>(arg0: $Class$Type<(A)>): A
 public "getDeclaredAnnotationsByType"<A extends $Annotation>(arg0: $Class$Type<(A)>): (A)[]
 public "getDeclaredAnnotations"(): ($Annotation)[]
-public "isSealed"(): boolean
 public "isSealed"(arg0: $URL$Type): boolean
+public "isSealed"(): boolean
 public static "getPackages"(): ($Package)[]
+public "getSpecificationTitle"(): string
+public "getSpecificationVersion"(): string
+public "getSpecificationVendor"(): string
+public "getImplementationTitle"(): string
+public "getImplementationVersion"(): string
+public "getImplementationVendor"(): string
+public "isCompatibleWith"(arg0: string): boolean
+get "name"(): string
+get "annotations"(): ($Annotation)[]
+get "declaredAnnotations"(): ($Annotation)[]
+get "sealed"(): boolean
+get "packages"(): ($Package)[]
 get "specificationTitle"(): string
 get "specificationVersion"(): string
 get "specificationVendor"(): string
 get "implementationTitle"(): string
 get "implementationVersion"(): string
 get "implementationVendor"(): string
-get "name"(): string
-get "annotations"(): ($Annotation)[]
-get "declaredAnnotations"(): ($Annotation)[]
-get "sealed"(): boolean
-get "packages"(): ($Package)[]
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2337,10 +2335,10 @@ import {$GenericDeclaration, $GenericDeclaration$Type} from "packages/java/lang/
  */
 export interface $TypeVariable<D extends $GenericDeclaration> extends $Type, $AnnotatedElement {
 
- "getGenericDeclaration"(): D
- "getAnnotatedBounds"(): ($AnnotatedType)[]
  "getName"(): string
  "getBounds"(): ($Type)[]
+ "getGenericDeclaration"(): D
+ "getAnnotatedBounds"(): ($AnnotatedType)[]
  "getTypeName"(): string
  "isAnnotationPresent"(arg0: $Class$Type<(any)>): boolean
  "getAnnotation"<T extends $Annotation>(arg0: $Class$Type<(T)>): T
@@ -2494,8 +2492,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "compareTo"(arg0: $ModuleDescriptor$Requires$Type): integer
-public "rawCompiledVersion"(): $Optional<(string)>
 public "compiledVersion"(): $Optional<($ModuleDescriptor$Version)>
+public "rawCompiledVersion"(): $Optional<(string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

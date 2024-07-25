@@ -12,19 +12,19 @@ import {$IDrawable, $IDrawable$Type} from "packages/mezz/jei/api/gui/drawable/$I
 
 export interface $IRecipeSlotBuilder extends $IIngredientAcceptor<($IRecipeSlotBuilder)> {
 
+ "setOverlay"(arg0: $IDrawable$Type, arg1: integer, arg2: integer): $IRecipeSlotBuilder
  "setBackground"(arg0: $IDrawable$Type, arg1: integer, arg2: integer): $IRecipeSlotBuilder
  "addTooltipCallback"(arg0: $IRecipeSlotTooltipCallback$Type): $IRecipeSlotBuilder
- "setSlotName"(arg0: string): $IRecipeSlotBuilder
  "setFluidRenderer"(arg0: long, arg1: boolean, arg2: integer, arg3: integer): $IRecipeSlotBuilder
  "setCustomRenderer"<T>(arg0: $IIngredientType$Type<(T)>, arg1: $IIngredientRenderer$Type<(T)>): $IRecipeSlotBuilder
- "setOverlay"(arg0: $IDrawable$Type, arg1: integer, arg2: integer): $IRecipeSlotBuilder
- "addIngredient"<I>(arg0: $IIngredientType$Type<(I)>, arg1: I): $IRecipeSlotBuilder
+ "setSlotName"(arg0: string): $IRecipeSlotBuilder
  "addItemStack"(arg0: $ItemStack$Type): $IRecipeSlotBuilder
+ "addIngredient"<I>(arg0: $IIngredientType$Type<(I)>, arg1: I): $IRecipeSlotBuilder
+ "addIngredients"(arg0: $Ingredient$Type): $IRecipeSlotBuilder
+ "addIngredients"<I>(arg0: $IIngredientType$Type<(I)>, arg1: $List$Type<(I)>): $IRecipeSlotBuilder
+ "addItemStacks"(arg0: $List$Type<($ItemStack$Type)>): $IRecipeSlotBuilder
  "addFluidStack"(arg0: $Fluid$Type, arg1: long): $IRecipeSlotBuilder
  "addFluidStack"(arg0: $Fluid$Type, arg1: long, arg2: $CompoundTag$Type): $IRecipeSlotBuilder
- "addIngredients"<I>(arg0: $IIngredientType$Type<(I)>, arg1: $List$Type<(I)>): $IRecipeSlotBuilder
- "addIngredients"(arg0: $Ingredient$Type): $IRecipeSlotBuilder
- "addItemStacks"(arg0: $List$Type<($ItemStack$Type)>): $IRecipeSlotBuilder
  "addIngredientsUnsafe"(arg0: $List$Type<(any)>): $IRecipeSlotBuilder
 }
 
@@ -49,22 +49,22 @@ import {$IIngredientType, $IIngredientType$Type} from "packages/mezz/jei/api/ing
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$RecipeType, $RecipeType$Type} from "packages/mezz/jei/api/recipe/$RecipeType"
-import {$IVanillaRecipeFactory, $IVanillaRecipeFactory$Type} from "packages/mezz/jei/api/recipe/vanilla/$IVanillaRecipeFactory"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$IIngredientManager, $IIngredientManager$Type} from "packages/mezz/jei/api/runtime/$IIngredientManager"
+import {$IVanillaRecipeFactory, $IVanillaRecipeFactory$Type} from "packages/mezz/jei/api/recipe/vanilla/$IVanillaRecipeFactory"
 import {$IIngredientVisibility, $IIngredientVisibility$Type} from "packages/mezz/jei/api/runtime/$IIngredientVisibility"
+import {$IIngredientManager, $IIngredientManager$Type} from "packages/mezz/jei/api/runtime/$IIngredientManager"
 
 export interface $IRecipeRegistration {
 
- "getVanillaRecipeFactory"(): $IVanillaRecipeFactory
- "getIngredientManager"(): $IIngredientManager
- "getIngredientVisibility"(): $IIngredientVisibility
- "addIngredientInfo"<T>(arg0: T, arg1: $IIngredientType$Type<(T)>, ...arg2: ($Component$Type)[]): void
- "addIngredientInfo"<T>(arg0: $List$Type<(T)>, arg1: $IIngredientType$Type<(T)>, ...arg2: ($Component$Type)[]): void
+ "addRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $List$Type<(T)>): void
  "getJeiHelpers"(): $IJeiHelpers
+ "addIngredientInfo"<T>(arg0: $List$Type<(T)>, arg1: $IIngredientType$Type<(T)>, ...arg2: ($Component$Type)[]): void
+ "addIngredientInfo"<T>(arg0: T, arg1: $IIngredientType$Type<(T)>, ...arg2: ($Component$Type)[]): void
+ "getIngredientVisibility"(): $IIngredientVisibility
  "addItemStackInfo"(arg0: $ItemStack$Type, ...arg1: ($Component$Type)[]): void
  "addItemStackInfo"(arg0: $List$Type<($ItemStack$Type)>, ...arg1: ($Component$Type)[]): void
- "addRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $List$Type<(T)>): void
+ "getVanillaRecipeFactory"(): $IVanillaRecipeFactory
+ "getIngredientManager"(): $IIngredientManager
 }
 
 export namespace $IRecipeRegistration {
@@ -85,24 +85,24 @@ export type $IRecipeRegistration_ = $IRecipeRegistration$Type;
 declare module "packages/mezz/jei/api/gui/ingredient/$IRecipeSlotView" {
 import {$IIngredientType, $IIngredientType$Type} from "packages/mezz/jei/api/ingredients/$IIngredientType"
 import {$RecipeIngredientRole, $RecipeIngredientRole$Type} from "packages/mezz/jei/api/recipe/$RecipeIngredientRole"
-import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/ingredients/$ITypedIngredient"
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export interface $IRecipeSlotView {
 
+ "isEmpty"(): boolean
+ "getSlotName"(): $Optional<(string)>
+ "getAllIngredients"(): $Stream<($ITypedIngredient<(any)>)>
  "getIngredients"<T>(arg0: $IIngredientType$Type<(T)>): $Stream<(T)>
+ "drawHighlight"(arg0: $GuiGraphics$Type, arg1: integer): void
+ "getRole"(): $RecipeIngredientRole
+ "getItemStacks"(): $Stream<($ItemStack)>
  "getDisplayedItemStack"(): $Optional<($ItemStack)>
  "getDisplayedIngredient"(): $Optional<($ITypedIngredient<(any)>)>
  "getDisplayedIngredient"<T>(arg0: $IIngredientType$Type<(T)>): $Optional<(T)>
- "getAllIngredients"(): $Stream<($ITypedIngredient<(any)>)>
- "drawHighlight"(arg0: $GuiGraphics$Type, arg1: integer): void
- "getRole"(): $RecipeIngredientRole
- "getSlotName"(): $Optional<(string)>
- "getItemStacks"(): $Stream<($ItemStack)>
- "isEmpty"(): boolean
 }
 
 export namespace $IRecipeSlotView {
@@ -140,19 +140,19 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 
 export interface $IRecipeManager {
 
- "hideRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $Collection$Type<(T)>): void
+ "addRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $List$Type<(T)>): void
+ "getRecipeType"(arg0: $ResourceLocation$Type): $Optional<($RecipeType<(any)>)>
  "hideRecipeCategory"(arg0: $RecipeType$Type<(any)>): void
- "createRecipeLookup"<R>(arg0: $RecipeType$Type<(R)>): $IRecipeLookup<(R)>
+ "hideRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $Collection$Type<(T)>): void
  "getRecipeCategory"<T>(arg0: $RecipeType$Type<(T)>): $IRecipeCategory<(T)>
  "unhideRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $Collection$Type<(T)>): void
  "createRecipeCatalystLookup"(arg0: $RecipeType$Type<(any)>): $IRecipeCatalystLookup
- "getRecipeType"(arg0: $ResourceLocation$Type): $Optional<($RecipeType<(any)>)>
  "createRecipeCategoryLookup"(): $IRecipeCategoriesLookup
- "createRecipeLayoutDrawable"<T>(arg0: $IRecipeCategory$Type<(T)>, arg1: T, arg2: $IFocusGroup$Type, arg3: $IScalableDrawable$Type, arg4: integer): $Optional<($IRecipeLayoutDrawable<(T)>)>
+ "createRecipeLookup"<R>(arg0: $RecipeType$Type<(R)>): $IRecipeLookup<(R)>
  "createRecipeLayoutDrawable"<T>(arg0: $IRecipeCategory$Type<(T)>, arg1: T, arg2: $IFocusGroup$Type): $Optional<($IRecipeLayoutDrawable<(T)>)>
+ "createRecipeLayoutDrawable"<T>(arg0: $IRecipeCategory$Type<(T)>, arg1: T, arg2: $IFocusGroup$Type, arg3: $IScalableDrawable$Type, arg4: integer): $Optional<($IRecipeLayoutDrawable<(T)>)>
  "createRecipeSlotDrawable"(arg0: $RecipeIngredientRole$Type, arg1: $List$Type<($Optional$Type<($ITypedIngredient$Type<(any)>)>)>, arg2: $Set$Type<(integer)>, arg3: integer, arg4: integer, arg5: integer): $IRecipeSlotDrawable
  "unhideRecipeCategory"(arg0: $RecipeType$Type<(any)>): void
- "addRecipes"<T>(arg0: $RecipeType$Type<(T)>, arg1: $List$Type<(T)>): void
 }
 
 export namespace $IRecipeManager {
@@ -181,8 +181,8 @@ import {$IFocus, $IFocus$Type} from "packages/mezz/jei/api/recipe/$IFocus"
 export interface $IRecipesGui {
 
  "getIngredientUnderMouse"<T>(arg0: $IIngredientType$Type<(T)>): $Optional<(T)>
- "showTypes"(arg0: $List$Type<($RecipeType$Type<(any)>)>): void
  "showRecipes"<T>(arg0: $IRecipeCategory$Type<(T)>, arg1: $List$Type<(T)>, arg2: $List$Type<($IFocus$Type<(any)>)>): void
+ "showTypes"(arg0: $List$Type<($RecipeType$Type<(any)>)>): void
  "show"(arg0: $List$Type<($IFocus$Type<(any)>)>): void
  "show"<V>(arg0: $IFocus$Type<(V)>): void
 }
@@ -204,28 +204,28 @@ export type $IRecipesGui_ = $IRecipesGui$Type;
 }}
 declare module "packages/mezz/jei/api/helpers/$IJeiHelpers" {
 import {$IModIdHelper, $IModIdHelper$Type} from "packages/mezz/jei/api/helpers/$IModIdHelper"
-import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
-import {$RecipeType, $RecipeType$Type} from "packages/mezz/jei/api/recipe/$RecipeType"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$RecipeType, $RecipeType$Type} from "packages/mezz/jei/api/recipe/$RecipeType"
+import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$IColorHelper, $IColorHelper$Type} from "packages/mezz/jei/api/helpers/$IColorHelper"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$IIngredientManager, $IIngredientManager$Type} from "packages/mezz/jei/api/runtime/$IIngredientManager"
-import {$IFocusFactory, $IFocusFactory$Type} from "packages/mezz/jei/api/recipe/$IFocusFactory"
-import {$IStackHelper, $IStackHelper$Type} from "packages/mezz/jei/api/helpers/$IStackHelper"
 import {$IGuiHelper, $IGuiHelper$Type} from "packages/mezz/jei/api/helpers/$IGuiHelper"
+import {$IStackHelper, $IStackHelper$Type} from "packages/mezz/jei/api/helpers/$IStackHelper"
+import {$IFocusFactory, $IFocusFactory$Type} from "packages/mezz/jei/api/recipe/$IFocusFactory"
 import {$IPlatformFluidHelper, $IPlatformFluidHelper$Type} from "packages/mezz/jei/api/helpers/$IPlatformFluidHelper"
 
 export interface $IJeiHelpers {
 
- "getIngredientManager"(): $IIngredientManager
- "getFocusFactory"(): $IFocusFactory
+ "getGuiHelper"(): $IGuiHelper
+ "getRecipeType"(arg0: $ResourceLocation$Type): $Optional<($RecipeType<(any)>)>
+ "getModIdHelper"(): $IModIdHelper
  "getAllRecipeTypes"(): $Stream<($RecipeType<(any)>)>
  "getColorHelper"(): $IColorHelper
  "getStackHelper"(): $IStackHelper
- "getGuiHelper"(): $IGuiHelper
+ "getFocusFactory"(): $IFocusFactory
+ "getIngredientManager"(): $IIngredientManager
  "getPlatformFluidHelper"(): $IPlatformFluidHelper<(any)>
- "getRecipeType"(arg0: $ResourceLocation$Type): $Optional<($RecipeType<(any)>)>
- "getModIdHelper"(): $IModIdHelper
 }
 
 export namespace $IJeiHelpers {
@@ -250,9 +250,9 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 
 export interface $IColorHelper {
 
- "getColors"(arg0: $TextureAtlasSprite$Type, arg1: integer, arg2: integer): $List<(integer)>
- "getColors"(arg0: $ItemStack$Type, arg1: integer): $List<(integer)>
  "getClosestColorName"(arg0: integer): string
+ "getColors"(arg0: $ItemStack$Type, arg1: integer): $List<(integer)>
+ "getColors"(arg0: $TextureAtlasSprite$Type, arg1: integer, arg2: integer): $List<(integer)>
 }
 
 export namespace $IColorHelper {
@@ -302,11 +302,11 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $IJeiBrewingRecipe {
 
- "getIngredients"(): $List<($ItemStack)>
  "getBrewingSteps"(): integer
  "getUid"(): $ResourceLocation
- "getPotionInputs"(): $List<($ItemStack)>
+ "getIngredients"(): $List<($ItemStack)>
  "getPotionOutput"(): $ItemStack
+ "getPotionInputs"(): $List<($ItemStack)>
 }
 
 export namespace $IJeiBrewingRecipe {
@@ -333,8 +333,8 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 export interface $IFocus<V> {
 
  "getTypedValue"(): $ITypedIngredient<(V)>
- "getRole"(): $RecipeIngredientRole
  "checkedCast"<T>(arg0: $IIngredientType$Type<(T)>): $Optional<($IFocus<(T)>)>
+ "getRole"(): $RecipeIngredientRole
 }
 
 export namespace $IFocus {
@@ -362,13 +362,13 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IFocusGroup {
 
- "getItemStackFocuses"(arg0: $RecipeIngredientRole$Type): $Stream<($IFocus<($ItemStack)>)>
- "getItemStackFocuses"(): $Stream<($IFocus<($ItemStack)>)>
  "isEmpty"(): boolean
+ "getAllFocuses"(): $List<($IFocus<(any)>)>
  "getFocuses"<T>(arg0: $IIngredientType$Type<(T)>): $Stream<($IFocus<(T)>)>
  "getFocuses"<T>(arg0: $IIngredientType$Type<(T)>, arg1: $RecipeIngredientRole$Type): $Stream<($IFocus<(T)>)>
  "getFocuses"(arg0: $RecipeIngredientRole$Type): $Stream<($IFocus<(any)>)>
- "getAllFocuses"(): $List<($IFocus<(any)>)>
+ "getItemStackFocuses"(): $Stream<($IFocus<($ItemStack)>)>
+ "getItemStackFocuses"(arg0: $RecipeIngredientRole$Type): $Stream<($IFocus<($ItemStack)>)>
 }
 
 export namespace $IFocusGroup {
@@ -392,9 +392,9 @@ import {$InputConstants$Key, $InputConstants$Key$Type} from "packages/com/mojang
 
 export interface $IJeiKeyMapping {
 
+ "isUnbound"(): boolean
  "getTranslatedKeyMessage"(): $Component
  "isActiveAndMatches"(arg0: $InputConstants$Key$Type): boolean
- "isUnbound"(): boolean
 }
 
 export namespace $IJeiKeyMapping {
@@ -420,12 +420,12 @@ export class $RecipeType<T> {
 
 constructor(arg0: $ResourceLocation$Type, arg1: $Class$Type<(any)>)
 
-public "getRecipeClass"(): $Class<(any)>
-public "getUid"(): $ResourceLocation
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public static "create"<T>(arg0: string, arg1: string, arg2: $Class$Type<(any)>): $RecipeType<(T)>
+public "getRecipeClass"(): $Class<(any)>
+public "getUid"(): $ResourceLocation
 get "recipeClass"(): $Class<(any)>
 get "uid"(): $ResourceLocation
 }
@@ -481,19 +481,19 @@ import {$IRecipeSlotsView, $IRecipeSlotsView$Type} from "packages/mezz/jei/api/g
 export interface $IRecipeLayoutDrawable<R> {
 
  "isMouseOver"(arg0: double, arg1: double): boolean
- "getRecipe"(): R
- "getIngredientUnderMouse"<T>(arg0: integer, arg1: integer, arg2: $IIngredientType$Type<(T)>): $Optional<(T)>
- "getItemStackUnderMouse"(arg0: integer, arg1: integer): $Optional<($ItemStack)>
  "getRecipeCategory"(): $IRecipeCategory<(R)>
+ "getItemStackUnderMouse"(arg0: integer, arg1: integer): $Optional<($ItemStack)>
+ "getIngredientUnderMouse"<T>(arg0: integer, arg1: integer, arg2: $IIngredientType$Type<(T)>): $Optional<(T)>
+ "getRecipe"(): R
  "setPosition"(arg0: integer, arg1: integer): void
  "drawRecipe"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
- "getRecipeBookmarkButtonArea"(): $Rect2i
- "getRecipeSlotUnderMouse"(arg0: double, arg1: double): $Optional<($IRecipeSlotDrawable)>
- "getRecipeTransferButtonArea"(): $Rect2i
  "getRect"(): $Rect2i
+ "getRecipeSlotsView"(): $IRecipeSlotsView
  "drawOverlays"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
  "getRectWithBorder"(): $Rect2i
- "getRecipeSlotsView"(): $IRecipeSlotsView
+ "getRecipeTransferButtonArea"(): $Rect2i
+ "getRecipeBookmarkButtonArea"(): $Rect2i
+ "getRecipeSlotUnderMouse"(arg0: double, arg1: double): $Optional<($IRecipeSlotDrawable)>
 }
 
 export namespace $IRecipeLayoutDrawable {
@@ -638,8 +638,8 @@ declare global {
 export type $IEditModeConfig$HideMode_ = $IEditModeConfig$HideMode$Type;
 }}
 declare module "packages/mezz/jei/api/recipe/category/$IRecipeCategory" {
-import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$IRecipeLayoutBuilder, $IRecipeLayoutBuilder$Type} from "packages/mezz/jei/api/gui/builder/$IRecipeLayoutBuilder"
+import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$RecipeType, $RecipeType$Type} from "packages/mezz/jei/api/recipe/$RecipeType"
 import {$IDrawable, $IDrawable$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawable"
@@ -651,18 +651,18 @@ import {$IRecipeSlotsView, $IRecipeSlotsView$Type} from "packages/mezz/jei/api/g
 
 export interface $IRecipeCategory<T> {
 
- "draw"(arg0: T, arg1: $IRecipeSlotsView$Type, arg2: $GuiGraphics$Type, arg3: double, arg4: double): void
- "isHandled"(arg0: T): boolean
- "getTitle"(): $Component
- "getIcon"(): $IDrawable
- "setRecipe"(arg0: $IRecipeLayoutBuilder$Type, arg1: T, arg2: $IFocusGroup$Type): void
+ "getBackground"(): $IDrawable
  "handleInput"(arg0: T, arg1: double, arg2: double, arg3: $InputConstants$Key$Type): boolean
- "getRegistryName"(arg0: T): $ResourceLocation
- "getRecipeType"(): $RecipeType<(T)>
+ "setRecipe"(arg0: $IRecipeLayoutBuilder$Type, arg1: T, arg2: $IFocusGroup$Type): void
+ "isHandled"(arg0: T): boolean
  "getHeight"(): integer
  "getWidth"(): integer
+ "getRecipeType"(): $RecipeType<(T)>
+ "getRegistryName"(arg0: T): $ResourceLocation
+ "getTitle"(): $Component
+ "draw"(arg0: T, arg1: $IRecipeSlotsView$Type, arg2: $GuiGraphics$Type, arg3: double, arg4: double): void
+ "getIcon"(): $IDrawable
  "getTooltipStrings"(arg0: T, arg1: $IRecipeSlotsView$Type, arg2: double, arg3: double): $List<($Component)>
- "getBackground"(): $IDrawable
 }
 
 export namespace $IRecipeCategory {
@@ -689,8 +689,8 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 export interface $IModIdHelper {
 
  "getModNameForModId"(arg0: string): string
- "isDisplayingModNameEnabled"(): boolean
  "getFormattedModNameForModId"(arg0: string): string
+ "isDisplayingModNameEnabled"(): boolean
  "addModNameToIngredientTooltip"<T>(arg0: $List$Type<($Component$Type)>, arg1: T, arg2: $IIngredientHelper$Type<(T)>): $List<($Component)>
  "addModNameToIngredientTooltip"<T>(arg0: $List$Type<($Component$Type)>, arg1: $ITypedIngredient$Type<(T)>): $List<($Component)>
 }
@@ -736,17 +736,17 @@ declare global {
 export type $RecipeIngredientRole_ = $RecipeIngredientRole$Type;
 }}
 declare module "packages/mezz/jei/api/recipe/$IRecipeCategoriesLookup" {
-import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$IRecipeCategory, $IRecipeCategory$Type} from "packages/mezz/jei/api/recipe/category/$IRecipeCategory"
-import {$RecipeType, $RecipeType$Type} from "packages/mezz/jei/api/recipe/$RecipeType"
+import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
+import {$RecipeType, $RecipeType$Type} from "packages/mezz/jei/api/recipe/$RecipeType"
 
 export interface $IRecipeCategoriesLookup {
 
- "includeHidden"(): $IRecipeCategoriesLookup
- "limitTypes"(arg0: $Collection$Type<($RecipeType$Type<(any)>)>): $IRecipeCategoriesLookup
- "limitFocus"(arg0: $Collection$Type<(any)>): $IRecipeCategoriesLookup
  "get"(): $Stream<($IRecipeCategory<(any)>)>
+ "includeHidden"(): $IRecipeCategoriesLookup
+ "limitFocus"(arg0: $Collection$Type<(any)>): $IRecipeCategoriesLookup
+ "limitTypes"(arg0: $Collection$Type<($RecipeType$Type<(any)>)>): $IRecipeCategoriesLookup
 }
 
 export namespace $IRecipeCategoriesLookup {
@@ -768,8 +768,8 @@ declare module "packages/mezz/jei/api/gui/$ITickTimer" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $ITickTimer {
 
- "getMaxValue"(): integer
  "getValue"(): integer
+ "getMaxValue"(): integer
 }
 
 export namespace $ITickTimer {
@@ -821,11 +821,11 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $ICraftingGridHelper {
 
- "createAndSetOutputs"<T>(arg0: $IRecipeLayoutBuilder$Type, arg1: $IIngredientType$Type<(T)>, arg2: $List$Type<(T)>): $IRecipeSlotBuilder
- "createAndSetOutputs"(arg0: $IRecipeLayoutBuilder$Type, arg1: $List$Type<($ItemStack$Type)>): $IRecipeSlotBuilder
+ "setInputs"<T>(arg0: $List$Type<($IRecipeSlotBuilder$Type)>, arg1: $IIngredientType$Type<(T)>, arg2: $List$Type<($List$Type<(T)>)>, arg3: integer, arg4: integer): void
  "createAndSetInputs"(arg0: $IRecipeLayoutBuilder$Type, arg1: $List$Type<($List$Type<($ItemStack$Type)>)>, arg2: integer, arg3: integer): $List<($IRecipeSlotBuilder)>
  "createAndSetInputs"<T>(arg0: $IRecipeLayoutBuilder$Type, arg1: $IIngredientType$Type<(T)>, arg2: $List$Type<($List$Type<(T)>)>, arg3: integer, arg4: integer): $List<($IRecipeSlotBuilder)>
- "setInputs"<T>(arg0: $List$Type<($IRecipeSlotBuilder$Type)>, arg1: $IIngredientType$Type<(T)>, arg2: $List$Type<($List$Type<(T)>)>, arg3: integer, arg4: integer): void
+ "createAndSetOutputs"(arg0: $IRecipeLayoutBuilder$Type, arg1: $List$Type<($ItemStack$Type)>): $IRecipeSlotBuilder
+ "createAndSetOutputs"<T>(arg0: $IRecipeLayoutBuilder$Type, arg1: $IIngredientType$Type<(T)>, arg2: $List$Type<(T)>): $IRecipeSlotBuilder
 }
 
 export namespace $ICraftingGridHelper {
@@ -873,28 +873,28 @@ export type $IScalableDrawable_ = $IScalableDrawable$Type;
 declare module "packages/mezz/jei/api/helpers/$IGuiHelper" {
 import {$IIngredientType, $IIngredientType$Type} from "packages/mezz/jei/api/ingredients/$IIngredientType"
 import {$ITickTimer, $ITickTimer$Type} from "packages/mezz/jei/api/gui/$ITickTimer"
-import {$IDrawableAnimated, $IDrawableAnimated$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawableAnimated"
 import {$IDrawableBuilder, $IDrawableBuilder$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawableBuilder"
+import {$IDrawableAnimated, $IDrawableAnimated$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawableAnimated"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$IDrawable, $IDrawable$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawable"
 import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/ingredients/$ITypedIngredient"
+import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$IDrawableStatic, $IDrawableStatic$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawableStatic"
 import {$ICraftingGridHelper, $ICraftingGridHelper$Type} from "packages/mezz/jei/api/gui/ingredient/$ICraftingGridHelper"
 import {$IDrawableAnimated$StartDirection, $IDrawableAnimated$StartDirection$Type} from "packages/mezz/jei/api/gui/drawable/$IDrawableAnimated$StartDirection"
 
 export interface $IGuiHelper {
 
- "createDrawable"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): $IDrawableStatic
+ "getSlotDrawable"(): $IDrawableStatic
  "createDrawableIngredient"<V>(arg0: $ITypedIngredient$Type<(V)>): $IDrawable
  "createDrawableIngredient"<V>(arg0: $IIngredientType$Type<(V)>, arg1: V): $IDrawable
+ "createDrawable"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): $IDrawableStatic
  "createCraftingGridHelper"(): $ICraftingGridHelper
- "getSlotDrawable"(): $IDrawableStatic
- "createBlankDrawable"(arg0: integer, arg1: integer): $IDrawableStatic
- "createAnimatedDrawable"(arg0: $IDrawableStatic$Type, arg1: integer, arg2: $IDrawableAnimated$StartDirection$Type, arg3: boolean): $IDrawableAnimated
- "createDrawableItemStack"(arg0: $ItemStack$Type): $IDrawable
  "drawableBuilder"(arg0: $ResourceLocation$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer): $IDrawableBuilder
  "createTickTimer"(arg0: integer, arg1: integer, arg2: boolean): $ITickTimer
+ "createBlankDrawable"(arg0: integer, arg1: integer): $IDrawableStatic
+ "createDrawableItemStack"(arg0: $ItemStack$Type): $IDrawable
+ "createAnimatedDrawable"(arg0: $IDrawableStatic$Type, arg1: integer, arg2: $IDrawableAnimated$StartDirection$Type, arg3: boolean): $IDrawableAnimated
 }
 
 export namespace $IGuiHelper {
@@ -919,34 +919,34 @@ import {$IIngredientHelper, $IIngredientHelper$Type} from "packages/mezz/jei/api
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$IIngredientRenderer, $IIngredientRenderer$Type} from "packages/mezz/jei/api/ingredients/$IIngredientRenderer"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IIngredientRenderer, $IIngredientRenderer$Type} from "packages/mezz/jei/api/ingredients/$IIngredientRenderer"
 import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/ingredients/$ITypedIngredient"
 
 export interface $IIngredientManager {
 
+ "getRegisteredIngredientTypes"(): $Collection<($IIngredientType<(any)>)>
+ "getAllIngredients"<V>(arg0: $IIngredientType$Type<(V)>): $Collection<(V)>
  "getIngredientHelper"<V>(arg0: $IIngredientType$Type<(V)>): $IIngredientHelper<(V)>
  "getIngredientHelper"<V>(arg0: V): $IIngredientHelper<(V)>
- "addIngredientsAtRuntime"<V>(arg0: $IIngredientType$Type<(V)>, arg1: $Collection$Type<(V)>): void
- "getIngredientRenderer"<V>(arg0: $IIngredientType$Type<(V)>): $IIngredientRenderer<(V)>
- "getIngredientRenderer"<V>(arg0: V): $IIngredientRenderer<(V)>
- "normalizeTypedIngredient"<V>(arg0: $ITypedIngredient$Type<(V)>): $ITypedIngredient<(V)>
- "getTypedIngredientByUid"<V>(arg0: $IIngredientType$Type<(V)>, arg1: string): $Optional<($ITypedIngredient<(V)>)>
- "createTypedIngredient"<V>(arg0: V): $Optional<($ITypedIngredient<(V)>)>
- "createTypedIngredient"<V>(arg0: $IIngredientType$Type<(V)>, arg1: V): $Optional<($ITypedIngredient<(V)>)>
- "getIngredientTypeForUid"(arg0: string): $Optional<($IIngredientType<(any)>)>
- "getIngredientTypeChecked"<V>(arg0: $Class$Type<(any)>): $Optional<($IIngredientType<(V)>)>
- "getIngredientTypeChecked"<V>(arg0: V): $Optional<($IIngredientType<(V)>)>
  "removeIngredientsAtRuntime"<V>(arg0: $IIngredientType$Type<(V)>, arg1: $Collection$Type<(V)>): void
- "getAllIngredients"<V>(arg0: $IIngredientType$Type<(V)>): $Collection<(V)>
- "getRegisteredIngredientTypes"(): $Collection<($IIngredientType<(any)>)>
+ "addIngredientsAtRuntime"<V>(arg0: $IIngredientType$Type<(V)>, arg1: $Collection$Type<(V)>): void
  "registerIngredientListener"(arg0: $IIngredientManager$IIngredientListener$Type): void
- "getAllItemStacks"(): $Collection<($ItemStack)>
 /**
  * 
  * @deprecated
  */
  "getIngredientByUid"<V>(arg0: $IIngredientType$Type<(V)>, arg1: string): $Optional<(V)>
+ "getAllItemStacks"(): $Collection<($ItemStack)>
+ "normalizeTypedIngredient"<V>(arg0: $ITypedIngredient$Type<(V)>): $ITypedIngredient<(V)>
+ "getIngredientTypeForUid"(arg0: string): $Optional<($IIngredientType<(any)>)>
+ "getIngredientTypeChecked"<V>(arg0: V): $Optional<($IIngredientType<(V)>)>
+ "getIngredientTypeChecked"<V>(arg0: $Class$Type<(any)>): $Optional<($IIngredientType<(V)>)>
+ "getTypedIngredientByUid"<V>(arg0: $IIngredientType$Type<(V)>, arg1: string): $Optional<($ITypedIngredient<(V)>)>
+ "createTypedIngredient"<V>(arg0: V): $Optional<($ITypedIngredient<(V)>)>
+ "createTypedIngredient"<V>(arg0: $IIngredientType$Type<(V)>, arg1: V): $Optional<($ITypedIngredient<(V)>)>
+ "getIngredientRenderer"<V>(arg0: $IIngredientType$Type<(V)>): $IIngredientRenderer<(V)>
+ "getIngredientRenderer"<V>(arg0: V): $IIngredientRenderer<(V)>
 }
 
 export namespace $IIngredientManager {
@@ -971,10 +971,10 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $ITypedIngredient<T> {
 
+ "getType"(): $IIngredientType<(T)>
  "getIngredient"<V>(arg0: $IIngredientType$Type<(V)>): $Optional<(V)>
  "getIngredient"(): T
  "getItemStack"(): $Optional<($ItemStack)>
- "getType"(): $IIngredientType<(T)>
 }
 
 export namespace $ITypedIngredient {
@@ -1026,12 +1026,12 @@ import {$IRecipeSlotBuilder, $IRecipeSlotBuilder$Type} from "packages/mezz/jei/a
 
 export interface $IRecipeLayoutBuilder {
 
- "addInvisibleIngredients"(arg0: $RecipeIngredientRole$Type): $IIngredientAcceptor<(any)>
- "moveRecipeTransferButton"(arg0: integer, arg1: integer): void
  "addSlot"(arg0: $RecipeIngredientRole$Type, arg1: integer, arg2: integer): $IRecipeSlotBuilder
- "createFocusLink"(...arg0: ($IIngredientAcceptor$Type<(any)>)[]): void
+ "moveRecipeTransferButton"(arg0: integer, arg1: integer): void
+ "addInvisibleIngredients"(arg0: $RecipeIngredientRole$Type): $IIngredientAcceptor<(any)>
  "setShapeless"(arg0: integer, arg1: integer): void
  "setShapeless"(): void
+ "createFocusLink"(...arg0: ($IIngredientAcceptor$Type<(any)>)[]): void
 }
 
 export namespace $IRecipeLayoutBuilder {
@@ -1062,9 +1062,9 @@ import {$IRecipeSlotsView, $IRecipeSlotsView$Type} from "packages/mezz/jei/api/g
 export interface $IRecipeTransferHandler<C extends $AbstractContainerMenu, R> {
 
  "getRecipeType"(): $RecipeType<(R)>
+ "getMenuType"(): $Optional<($MenuType<(C)>)>
  "getContainerClass"(): $Class<(any)>
  "transferRecipe"(arg0: C, arg1: R, arg2: $IRecipeSlotsView$Type, arg3: $Player$Type, arg4: boolean, arg5: boolean): $IRecipeTransferError
- "getMenuType"(): $Optional<($MenuType<(C)>)>
 }
 
 export namespace $IRecipeTransferHandler {
@@ -1088,8 +1088,8 @@ import {$List, $List$Type} from "packages/java/util/$List"
 
 export interface $IJeiConfigFile {
 
- "getCategories"(): $List<(any)>
  "getPath"(): $Path
+ "getCategories"(): $List<(any)>
 }
 
 export namespace $IJeiConfigFile {
@@ -1114,9 +1114,9 @@ import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 
 export interface $IIngredientTypeWithSubtypes<B, I> extends $IIngredientType<(I)> {
 
+ "getBase"(arg0: I): B
  "getIngredientBaseClass"(): $Class<(any)>
  "getIngredientClass"(): $Class<(any)>
- "getBase"(arg0: I): B
  "castIngredient"(arg0: any): $Optional<(I)>
  "getUid"(): string
 }
@@ -1181,18 +1181,18 @@ import {$IIngredientVisibility, $IIngredientVisibility$Type} from "packages/mezz
 
 export interface $IJeiRuntime {
 
- "getRecipeTransferManager"(): $IRecipeTransferManager
- "getRecipesGui"(): $IRecipesGui
- "getIngredientFilter"(): $IIngredientFilter
- "getKeyMappings"(): $IJeiKeyMappings
- "getIngredientManager"(): $IIngredientManager
- "getScreenHelper"(): $IScreenHelper
  "getRecipeManager"(): $IRecipeManager
- "getIngredientVisibility"(): $IIngredientVisibility
+ "getIngredientFilter"(): $IIngredientFilter
+ "getScreenHelper"(): $IScreenHelper
  "getJeiHelpers"(): $IJeiHelpers
- "getEditModeConfig"(): $IEditModeConfig
+ "getRecipesGui"(): $IRecipesGui
  "getBookmarkOverlay"(): $IBookmarkOverlay
+ "getEditModeConfig"(): $IEditModeConfig
+ "getKeyMappings"(): $IJeiKeyMappings
  "getConfigManager"(): $IJeiConfigManager
+ "getRecipeTransferManager"(): $IRecipeTransferManager
+ "getIngredientVisibility"(): $IIngredientVisibility
+ "getIngredientManager"(): $IIngredientManager
  "getIngredientListOverlay"(): $IIngredientListOverlay
 }
 
@@ -1214,14 +1214,14 @@ export type $IJeiRuntime_ = $IJeiRuntime$Type;
 declare module "packages/mezz/jei/api/gui/ingredient/$IRecipeSlotsView" {
 import {$RecipeIngredientRole, $RecipeIngredientRole$Type} from "packages/mezz/jei/api/recipe/$RecipeIngredientRole"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$IRecipeSlotView, $IRecipeSlotView$Type} from "packages/mezz/jei/api/gui/ingredient/$IRecipeSlotView"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$IRecipeSlotView, $IRecipeSlotView$Type} from "packages/mezz/jei/api/gui/ingredient/$IRecipeSlotView"
 
 export interface $IRecipeSlotsView {
 
- "getSlotViews"(): $List<($IRecipeSlotView)>
- "getSlotViews"(arg0: $RecipeIngredientRole$Type): $List<($IRecipeSlotView)>
  "findSlotByName"(arg0: string): $Optional<($IRecipeSlotView)>
+ "getSlotViews"(arg0: $RecipeIngredientRole$Type): $List<($IRecipeSlotView)>
+ "getSlotViews"(): $List<($IRecipeSlotView)>
 }
 
 export namespace $IRecipeSlotsView {
@@ -1251,25 +1251,25 @@ import {$UidContext, $UidContext$Type} from "packages/mezz/jei/api/ingredients/s
 
 export interface $IIngredientHelper<V> {
 
+ "getDisplayName"(arg0: V): string
  "isValidIngredient"(arg0: V): boolean
- "getResourceLocation"(arg0: V): $ResourceLocation
- "normalizeIngredient"(arg0: V): V
- "isHiddenFromRecipeViewersByTags"(arg0: V): boolean
- "isIngredientOnServer"(arg0: V): boolean
- "getErrorInfo"(arg0: V): string
  "getUniqueId"(arg0: V, arg1: $UidContext$Type): string
+ "getResourceLocation"(arg0: V): $ResourceLocation
+ "getAmount"(arg0: V): long
+ "getErrorInfo"(arg0: V): string
+ "getColors"(arg0: V): $Iterable<(integer)>
+ "getDisplayModId"(arg0: V): string
+ "copyWithAmount"(arg0: V, arg1: long): V
+ "getTagStream"(arg0: V): $Stream<($ResourceLocation)>
+ "hasSubtypes"(arg0: V): boolean
+ "getCheatItemStack"(arg0: V): $ItemStack
+ "getTagEquivalent"(arg0: $Collection$Type<(V)>): $Optional<($ResourceLocation)>
  "getWildcardId"(arg0: V): string
  "getIngredientType"(): $IIngredientType<(V)>
- "copyWithAmount"(arg0: V, arg1: long): V
  "copyIngredient"(arg0: V): V
- "hasSubtypes"(arg0: V): boolean
- "getDisplayModId"(arg0: V): string
- "getTagStream"(arg0: V): $Stream<($ResourceLocation)>
- "getTagEquivalent"(arg0: $Collection$Type<(V)>): $Optional<($ResourceLocation)>
- "getColors"(arg0: V): $Iterable<(integer)>
- "getCheatItemStack"(arg0: V): $ItemStack
- "getAmount"(arg0: V): long
- "getDisplayName"(arg0: V): string
+ "normalizeIngredient"(arg0: V): V
+ "isIngredientOnServer"(arg0: V): boolean
+ "isHiddenFromRecipeViewersByTags"(arg0: V): boolean
 }
 
 export namespace $IIngredientHelper {
@@ -1329,8 +1329,8 @@ export interface $IIngredientListOverlay {
  "getVisibleIngredients"<T>(arg0: $IIngredientType$Type<(T)>): $List<(T)>
  "getIngredientUnderMouse"(): $Optional<($ITypedIngredient<(any)>)>
  "getIngredientUnderMouse"<T>(arg0: $IIngredientType$Type<(T)>): T
- "hasKeyboardFocus"(): boolean
  "isListDisplayed"(): boolean
+ "hasKeyboardFocus"(): boolean
 }
 
 export namespace $IIngredientListOverlay {
@@ -1436,10 +1436,10 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 
 export interface $IEditModeConfig {
 
- "isIngredientHiddenUsingConfigFile"<V>(arg0: $ITypedIngredient$Type<(V)>): boolean
  "getIngredientHiddenUsingConfigFile"<V>(arg0: $ITypedIngredient$Type<(V)>): $Set<($IEditModeConfig$HideMode)>
  "hideIngredientUsingConfigFile"<V>(arg0: $ITypedIngredient$Type<(V)>, arg1: $IEditModeConfig$HideMode$Type): void
  "showIngredientUsingConfigFile"<V>(arg0: $ITypedIngredient$Type<(V)>, arg1: $IEditModeConfig$HideMode$Type): void
+ "isIngredientHiddenUsingConfigFile"<V>(arg0: $ITypedIngredient$Type<(V)>): boolean
 }
 
 export namespace $IEditModeConfig {
@@ -1463,10 +1463,10 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $IDrawableAnimated extends $IDrawable {
 
- "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
- "draw"(arg0: $GuiGraphics$Type): void
  "getHeight"(): integer
  "getWidth"(): integer
+ "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
+ "draw"(arg0: $GuiGraphics$Type): void
 }
 
 export namespace $IDrawableAnimated {
@@ -1494,11 +1494,11 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $IIngredientRenderer<T> {
 
- "render"(arg0: $GuiGraphics$Type, arg1: T): void
  "getTooltip"(arg0: T, arg1: $TooltipFlag$Type): $List<($Component)>
  "getFontRenderer"(arg0: $Minecraft$Type, arg1: T): $Font
  "getHeight"(): integer
  "getWidth"(): integer
+ "render"(arg0: $GuiGraphics$Type, arg1: T): void
 }
 
 export namespace $IIngredientRenderer {
@@ -1526,13 +1526,13 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IIngredientAcceptor<THIS extends $IIngredientAcceptor<(THIS)>> {
 
- "addIngredient"<I>(arg0: $IIngredientType$Type<(I)>, arg1: I): THIS
  "addItemStack"(arg0: $ItemStack$Type): THIS
+ "addIngredient"<I>(arg0: $IIngredientType$Type<(I)>, arg1: I): THIS
+ "addIngredients"(arg0: $Ingredient$Type): THIS
+ "addIngredients"<I>(arg0: $IIngredientType$Type<(I)>, arg1: $List$Type<(I)>): THIS
+ "addItemStacks"(arg0: $List$Type<($ItemStack$Type)>): THIS
  "addFluidStack"(arg0: $Fluid$Type, arg1: long): THIS
  "addFluidStack"(arg0: $Fluid$Type, arg1: long, arg2: $CompoundTag$Type): THIS
- "addIngredients"<I>(arg0: $IIngredientType$Type<(I)>, arg1: $List$Type<(I)>): THIS
- "addIngredients"(arg0: $Ingredient$Type): THIS
- "addItemStacks"(arg0: $List$Type<($ItemStack$Type)>): THIS
  "addIngredientsUnsafe"(arg0: $List$Type<(any)>): THIS
 }
 
@@ -1559,9 +1559,9 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 
 export interface $IBookmarkOverlay {
 
- "getIngredientUnderMouse"(): $Optional<($ITypedIngredient<(any)>)>
- "getIngredientUnderMouse"<T>(arg0: $IIngredientType$Type<(T)>): T
  "getItemStackUnderMouse"(): $ItemStack
+ "getIngredientUnderMouse"<T>(arg0: $IIngredientType$Type<(T)>): T
+ "getIngredientUnderMouse"(): $Optional<($ITypedIngredient<(any)>)>
 }
 
 export namespace $IBookmarkOverlay {
@@ -1636,10 +1636,10 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 
 export interface $IRecipeCatalystLookup {
 
- "includeHidden"(): $IRecipeCatalystLookup
- "getItemStack"(): $Stream<($ItemStack)>
- "get"(): $Stream<($ITypedIngredient<(any)>)>
  "get"<S>(arg0: $IIngredientType$Type<(S)>): $Stream<(S)>
+ "get"(): $Stream<($ITypedIngredient<(any)>)>
+ "getItemStack"(): $Stream<($ItemStack)>
+ "includeHidden"(): $IRecipeCatalystLookup
 }
 
 export namespace $IRecipeCatalystLookup {
@@ -1664,10 +1664,10 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IIngredientFilter {
 
- "getFilteredIngredients"<T>(arg0: $IIngredientType$Type<(T)>): $List<(T)>
- "getFilterText"(): string
- "setFilterText"(arg0: string): void
  "getFilteredItemStacks"(): $List<($ItemStack)>
+ "setFilterText"(arg0: string): void
+ "getFilterText"(): string
+ "getFilteredIngredients"<T>(arg0: $IIngredientType$Type<(T)>): $List<(T)>
 }
 
 export namespace $IIngredientFilter {
@@ -1691,9 +1691,9 @@ import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 
 export interface $IRecipeLookup<R> {
 
+ "get"(): $Stream<(R)>
  "includeHidden"(): $IRecipeLookup<(R)>
  "limitFocus"(arg0: $Collection$Type<(any)>): $IRecipeLookup<(R)>
- "get"(): $Stream<(R)>
 }
 
 export namespace $IRecipeLookup {
@@ -1719,9 +1719,9 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 
 export interface $IGhostIngredientHandler<T extends $Screen> {
 
- "shouldHighlightTargets"(): boolean
- "onComplete"(): void
  "getTargetsTyped"<I>(arg0: T, arg1: $ITypedIngredient$Type<(I)>, arg2: boolean): $List<($IGhostIngredientHandler$Target<(I)>)>
+ "onComplete"(): void
+ "shouldHighlightTargets"(): boolean
 }
 
 export namespace $IGhostIngredientHandler {
@@ -1747,10 +1747,10 @@ import {$IDrawableAnimated$StartDirection, $IDrawableAnimated$StartDirection$Typ
 
 export interface $IDrawableBuilder {
 
- "addPadding"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IDrawableBuilder
- "setTextureSize"(arg0: integer, arg1: integer): $IDrawableBuilder
  "build"(): $IDrawableStatic
  "trim"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IDrawableBuilder
+ "addPadding"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $IDrawableBuilder
+ "setTextureSize"(arg0: integer, arg1: integer): $IDrawableBuilder
  "buildAnimated"(arg0: integer, arg1: $IDrawableAnimated$StartDirection$Type, arg2: boolean): $IDrawableAnimated
  "buildAnimated"(arg0: $ITickTimer$Type, arg1: $IDrawableAnimated$StartDirection$Type): $IDrawableAnimated
 }
@@ -1778,8 +1778,8 @@ import {$IRecipeSlotTooltipCallback, $IRecipeSlotTooltipCallback$Type} from "pac
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui/$GuiGraphics"
 import {$List, $List$Type} from "packages/java/util/$List"
-import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$IRecipeSlotView, $IRecipeSlotView$Type} from "packages/mezz/jei/api/gui/ingredient/$IRecipeSlotView"
 import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/ingredients/$ITypedIngredient"
 import {$Rect2i, $Rect2i$Type} from "packages/net/minecraft/client/renderer/$Rect2i"
@@ -1791,16 +1791,16 @@ export interface $IRecipeSlotDrawable extends $IRecipeSlotView {
  "addTooltipCallback"(arg0: $IRecipeSlotTooltipCallback$Type): void
  "getRect"(): $Rect2i
  "drawHoverOverlays"(arg0: $GuiGraphics$Type): void
+ "isEmpty"(): boolean
+ "getSlotName"(): $Optional<(string)>
+ "getAllIngredients"(): $Stream<($ITypedIngredient<(any)>)>
  "getIngredients"<T>(arg0: $IIngredientType$Type<(T)>): $Stream<(T)>
+ "drawHighlight"(arg0: $GuiGraphics$Type, arg1: integer): void
+ "getRole"(): $RecipeIngredientRole
+ "getItemStacks"(): $Stream<($ItemStack)>
  "getDisplayedItemStack"(): $Optional<($ItemStack)>
  "getDisplayedIngredient"(): $Optional<($ITypedIngredient<(any)>)>
  "getDisplayedIngredient"<T>(arg0: $IIngredientType$Type<(T)>): $Optional<(T)>
- "getAllIngredients"(): $Stream<($ITypedIngredient<(any)>)>
- "drawHighlight"(arg0: $GuiGraphics$Type, arg1: integer): void
- "getRole"(): $RecipeIngredientRole
- "getSlotName"(): $Optional<(string)>
- "getItemStacks"(): $Stream<($ItemStack)>
- "isEmpty"(): boolean
 }
 
 export namespace $IRecipeSlotDrawable {
@@ -1825,10 +1825,10 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 export interface $IDrawableStatic extends $IDrawable {
 
  "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer): void
- "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
- "draw"(arg0: $GuiGraphics$Type): void
  "getHeight"(): integer
  "getWidth"(): integer
+ "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
+ "draw"(arg0: $GuiGraphics$Type): void
 }
 
 export namespace $IDrawableStatic {
@@ -1851,12 +1851,12 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 
 export interface $IGuiProperties {
 
+ "getGuiLeft"(): integer
+ "getGuiTop"(): integer
  "getScreenHeight"(): integer
  "getScreenWidth"(): integer
- "getGuiTop"(): integer
- "getGuiLeft"(): integer
- "getGuiYSize"(): integer
  "getScreenClass"(): $Class<(any)>
+ "getGuiYSize"(): integer
  "getGuiXSize"(): integer
 }
 
@@ -1908,8 +1908,8 @@ import {$ITypedIngredient, $ITypedIngredient$Type} from "packages/mezz/jei/api/i
 
 export interface $IIngredientManager$IIngredientListener {
 
- "onIngredientsRemoved"<V>(arg0: $IIngredientHelper$Type<(V)>, arg1: $Collection$Type<($ITypedIngredient$Type<(V)>)>): void
  "onIngredientsAdded"<V>(arg0: $IIngredientHelper$Type<(V)>, arg1: $Collection$Type<($ITypedIngredient$Type<(V)>)>): void
+ "onIngredientsRemoved"<V>(arg0: $IIngredientHelper$Type<(V)>, arg1: $Collection$Type<($ITypedIngredient$Type<(V)>)>): void
 }
 
 export namespace $IIngredientManager$IIngredientListener {
@@ -1960,10 +1960,10 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $IDrawable {
 
- "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
- "draw"(arg0: $GuiGraphics$Type): void
  "getHeight"(): integer
  "getWidth"(): integer
+ "draw"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer): void
+ "draw"(arg0: $GuiGraphics$Type): void
 }
 
 export namespace $IDrawable {
@@ -2013,10 +2013,10 @@ import {$IIngredientTypeWithSubtypes, $IIngredientTypeWithSubtypes$Type} from "p
 
 export interface $IPlatformFluidHelper<T> {
 
- "getFluidIngredientType"(): $IIngredientTypeWithSubtypes<($Fluid), (T)>
- "bucketVolume"(): long
- "create"(arg0: $Fluid$Type, arg1: long, arg2: $CompoundTag$Type): T
  "create"(arg0: $Fluid$Type, arg1: long): T
+ "create"(arg0: $Fluid$Type, arg1: long, arg2: $CompoundTag$Type): T
+ "bucketVolume"(): long
+ "getFluidIngredientType"(): $IIngredientTypeWithSubtypes<($Fluid), (T)>
 }
 
 export namespace $IPlatformFluidHelper {
@@ -2047,9 +2047,9 @@ import {$AbstractContainerScreen, $AbstractContainerScreen$Type} from "packages/
 
 export interface $IScreenHelper {
 
- "getGuiExclusionAreas"(arg0: $Screen$Type): $Stream<($Rect2i)>
- "getGhostIngredientHandler"<T extends $Screen>(arg0: T): $Optional<($IGhostIngredientHandler<(T)>)>
  "getGuiClickableArea"(arg0: $AbstractContainerScreen$Type<(any)>, arg1: double, arg2: double): $Stream<($IGuiClickableArea)>
+ "getGhostIngredientHandler"<T extends $Screen>(arg0: T): $Optional<($IGhostIngredientHandler<(T)>)>
+ "getGuiExclusionAreas"(arg0: $Screen$Type): $Stream<($Rect2i)>
  "getClickableIngredientUnderMouse"(arg0: $Screen$Type, arg1: double, arg2: double): $Stream<($IClickableIngredient<(any)>)>
  "getGuiProperties"<T extends $Screen>(arg0: T): $Optional<($IGuiProperties)>
 }
@@ -2078,13 +2078,13 @@ import {$IRecipeSlotsView, $IRecipeSlotsView$Type} from "packages/mezz/jei/api/g
 
 export interface $IRecipeTransferError {
 
- "getTooltip"(): $List<($Component)>
  "getType"(): $IRecipeTransferError$Type
- "getMissingCountHint"(): integer
+ "getTooltip"(): $List<($Component)>
  "getButtonHighlightColor"(): integer
+ "getMissingCountHint"(): integer
  "showError"(arg0: $GuiGraphics$Type, arg1: integer, arg2: integer, arg3: $IRecipeSlotsView$Type, arg4: integer, arg5: integer): void
 
-(): $List<($Component)>
+(): $IRecipeTransferError$Type
 }
 
 export namespace $IRecipeTransferError {
@@ -2108,11 +2108,11 @@ import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 
 export interface $IIngredientType<T> {
 
+ "getIngredientClass"(): $Class<(any)>
  "castIngredient"(arg0: any): $Optional<(T)>
  "getUid"(): string
- "getIngredientClass"(): $Class<(any)>
 
-(arg0: any): $Optional<(T)>
+(): $Class<(any)>
 }
 
 export namespace $IIngredientType {
@@ -2136,8 +2136,8 @@ import {$Rect2i, $Rect2i$Type} from "packages/net/minecraft/client/renderer/$Rec
 
 export interface $IGhostIngredientHandler$Target<I> extends $Consumer<(I)> {
 
- "getArea"(): $Rect2i
  "accept"(arg0: I): void
+ "getArea"(): $Rect2i
  "andThen"(arg0: $Consumer$Type<(any)>): $Consumer<(I)>
 }
 

@@ -9,8 +9,6 @@ export class $CopycatByteBlock$Byte extends $Record {
 
 constructor(x: boolean, y: boolean, z: boolean)
 
-public "relative"(direction: $Direction$Type): $CopycatByteBlock$Byte
-public "mirror"(mirror: $Mirror$Type): $CopycatByteBlock$Byte
 public "get"(axis: $Direction$Axis$Type): boolean
 public "equals"(obj: any): boolean
 public "toString"(): string
@@ -21,6 +19,8 @@ public "copy"(): $CopycatByteBlock$Byte
 public "z"(): boolean
 public "y"(): boolean
 public "rotate"(rotation: $Rotation$Type): $CopycatByteBlock$Byte
+public "relative"(direction: $Direction$Type): $CopycatByteBlock$Byte
+public "mirror"(mirror: $Mirror$Type): $CopycatByteBlock$Byte
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -34,62 +34,6 @@ export type $CopycatByteBlock$Byte$Type = ($CopycatByteBlock$Byte);
 declare global {
 export type $CopycatByteBlock$Byte_ = $CopycatByteBlock$Byte$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/stairs/$WrappedStairsBlock" {
-import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$StairsShape, $StairsShape$Type} from "packages/net/minecraft/world/level/block/state/properties/$StairsShape"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$StairBlock, $StairBlock$Type} from "packages/net/minecraft/world/level/block/$StairBlock"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-
-export class $WrappedStairsBlock extends $StairBlock {
-static readonly "FACING": $DirectionProperty
-static readonly "HALF": $EnumProperty<($Half)>
-static readonly "SHAPE": $EnumProperty<($StairsShape)>
-static readonly "WATERLOGGED": $BooleanProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(state: $BlockState$Type, properties: $BlockBehaviour$Properties$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedStairsBlock$Type = ($WrappedStairsBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedStairsBlock_ = $WrappedStairsBlock$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock$FaceShape" {
 import {$Direction$AxisDirection, $Direction$AxisDirection$Type} from "packages/net/minecraft/core/$Direction$AxisDirection"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
@@ -102,24 +46,24 @@ export class $CopycatStairsBlock$FaceShape {
 
 constructor()
 
-public "isFull"(): boolean
-public "fillRight"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
-public "fillLeft"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
-public "fillPositive"(): $CopycatStairsBlock$FaceShape
-public "fillNegative"(): $CopycatStairsBlock$FaceShape
-public "canConnect"(): boolean
-public "countBlocks"(): integer
-public "fillRow"(top: boolean, direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
-public "fillRow"(top: boolean): $CopycatStairsBlock$FaceShape
-public "fillAll"(): $CopycatStairsBlock$FaceShape
-public "fillTop"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
-public "fillTop"(): $CopycatStairsBlock$FaceShape
-public "fillBottom"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
-public "fillBottom"(): $CopycatStairsBlock$FaceShape
 public "equals"(obj: any): boolean
 public "set"(bottomNegative: boolean, bottomPositive: boolean, topNegative: boolean, topPositive: boolean): $CopycatStairsBlock$FaceShape
 public "rotate"(angle: integer): $CopycatStairsBlock$FaceShape
 public "rotate"(angle: float): $CopycatStairsBlock$FaceShape
+public "isFull"(): boolean
+public "fillBottom"(): $CopycatStairsBlock$FaceShape
+public "fillBottom"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
+public "fillAll"(): $CopycatStairsBlock$FaceShape
+public "fillTop"(): $CopycatStairsBlock$FaceShape
+public "fillTop"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
+public "fillRow"(top: boolean): $CopycatStairsBlock$FaceShape
+public "fillRow"(top: boolean, direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
+public "canConnect"(): boolean
+public "fillLeft"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "fillRight"(relativeTo: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "fillPositive"(): $CopycatStairsBlock$FaceShape
+public "fillNegative"(): $CopycatStairsBlock$FaceShape
+public "countBlocks"(): integer
 public "fillColumn"(direction: $Direction$AxisDirection$Type): $CopycatStairsBlock$FaceShape
 get "full"(): boolean
 }
@@ -135,136 +79,48 @@ export type $CopycatStairsBlock$FaceShape$Type = ($CopycatStairsBlock$FaceShape)
 declare global {
 export type $CopycatStairsBlock$FaceShape_ = $CopycatStairsBlock$FaceShape$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MaterialItemStorage$MaterialItem" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-
-export class $MaterialItemStorage$MaterialItem {
-static "EMPTY": $MaterialItemStorage$MaterialItem
-
-constructor(material: $BlockState$Type, consumedItem: $ItemStack$Type)
-constructor(material: $BlockState$Type, consumedItem: $ItemStack$Type, enableCT: boolean)
-
-public static "deserialize"(tag: $CompoundTag$Type): $MaterialItemStorage$MaterialItem
-public "setEnableCT"(enableCT: boolean): void
-public "enableCT"(): boolean
-public "consumedItem"(): $ItemStack
-public "setMaterial"(material: $BlockState$Type): void
-public "setConsumedItem"(stack: $ItemStack$Type): void
-public "serialize"(): $CompoundTag
-public "material"(): $BlockState
-public "serializeSafe"(): $CompoundTag
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MaterialItemStorage$MaterialItem$Type = ($MaterialItemStorage$MaterialItem);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $MaterialItemStorage$MaterialItem_ = $MaterialItemStorage$MaterialItem$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/button/$WrappedButton$Wood" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$AttachFace, $AttachFace$Type} from "packages/net/minecraft/world/level/block/state/properties/$AttachFace"
-import {$ButtonBlock, $ButtonBlock$Type} from "packages/net/minecraft/world/level/block/$ButtonBlock"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
-
-export class $WrappedButton$Wood extends $ButtonBlock {
-static readonly "POWERED": $BooleanProperty
-static readonly "FACE": $EnumProperty<($AttachFace)>
-static readonly "FACING": $DirectionProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type, pTicksToStayPressed: integer, pArrowsCanPress: boolean)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedButton$Wood$Type = ($WrappedButton$Wood);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedButton$Wood_ = $WrappedButton$Wood$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/slab/$CopycatSlabBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$BlockStateTransform, $BlockStateTransform$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$WaterloggedMultiStateCopycatBlock"
 import {$SlabType, $SlabType$Type} from "packages/net/minecraft/world/level/block/state/properties/$SlabType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$CopycatSlabBlock$FaceShape, $CopycatSlabBlock$FaceShape$Type} from "packages/com/copycatsplus/copycats/content/copycat/slab/$CopycatSlabBlock$FaceShape"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
-import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$WaterloggedMultiStateCopycatBlock"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
 
-export class $CopycatSlabBlock extends $WaterloggedMultiStateCopycatBlock implements $ICopycatWithWrappedBlock<($Block)> {
+export class $CopycatSlabBlock extends $WaterloggedMultiStateCopycatBlock {
 static readonly "AXIS": $EnumProperty<($Direction$Axis)>
 static readonly "SLAB_TYPE": $EnumProperty<($SlabType)>
-static readonly "TRANSFORM": $EnumProperty<($BlockStateTransform)>
 /**
  * 
  * @deprecated
@@ -289,37 +145,38 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "mirror"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, mirror: $Mirror$Type): void
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "partExists"(state: $BlockState$Type, property: string): boolean
-public "maxMaterials"(): integer
-public "vectorScale"(state: $BlockState$Type): $Vec3i
-public "storageProperties"(): $Set<(string)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatSlabBlock$FaceShape
-public "getWrappedBlock"(): $Block
+public "getColorIndex"(property: string): integer
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public static "setApparentDirection"(state: $BlockState$Type, direction: $Direction$Type): $BlockState
-public static "getApparentDirection"(state: $BlockState$Type): $Direction
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatSlabBlock$FaceShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "rotate"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, rotation: $Rotation$Type): void
-public static "unwrap"<B extends $Block>(block: $Block$Type): $Block
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "setApparentDirection"(state: $BlockState$Type, direction: $Direction$Type): $BlockState
+public static "getApparentDirection"(state: $BlockState$Type): $Direction
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "defaultProperty"(): string
+public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "partExists"(state: $BlockState$Type, property: string): boolean
+public "transformStorage"(state: $BlockState$Type, be: $IMultiStateCopycatBlockEntity$Type, transform: $StructureTransform$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-get "wrappedBlock"(): $Block
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -333,17 +190,142 @@ export type $CopycatSlabBlock$Type = ($CopycatSlabBlock);
 declare global {
 export type $CopycatSlabBlock_ = $CopycatSlabBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/shaft/$CopycatShaftBlock" {
+declare module "packages/com/copycatsplus/copycats/content/copycat/fluid_pipe/$CopycatGlassFluidPipeBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
 import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
-import {$IFunctionalCopycatBlockEntity, $IFunctionalCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$GlassFluidPipeBlock, $GlassFluidPipeBlock$Type} from "packages/com/simibubi/create/content/fluids/pipes/$GlassFluidPipeBlock"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $CopycatGlassFluidPipeBlock extends $GlassFluidPipeBlock implements $ICopycatBlock {
+static readonly "ALT": $BooleanProperty
+static readonly "AXIS": $EnumProperty<($Direction$Axis)>
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "getCloneItemStack"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type): $ItemStack
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "toRegularPipe"(world: $LevelAccessor$Type, pos: $BlockPos$Type, state: $BlockState$Type): $BlockState
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "stateType"(): $StateType
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAxisOf"(arg0: $BlockState$Type): $Direction$Axis
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatGlassFluidPipeBlock$Type = ($CopycatGlassFluidPipeBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatGlassFluidPipeBlock_ = $CopycatGlassFluidPipeBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/shaft/$CopycatShaftBlock" {
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
@@ -362,16 +344,16 @@ import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/leve
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
-import {$IFunctionalCopycatBlock, $IFunctionalCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlock"
 import {$ShaftBlock, $ShaftBlock$Type} from "packages/com/simibubi/create/content/kinetics/simpleRelays/$ShaftBlock"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatShaftBlock extends $ShaftBlock implements $IFunctionalCopycatBlock, $ICustomCTBlocking {
+export class $CopycatShaftBlock extends $ShaftBlock implements $ICopycatBlock, $ICustomCTBlocking {
 static readonly "placementHelperId": integer
 static readonly "AXIS": $EnumProperty<($Direction$Axis)>
 /**
@@ -398,39 +380,46 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
-public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
-public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
-public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
-public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
-public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
 public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
 public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
 public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
-public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
-public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
-public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
-public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
 public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
 public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
-public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
-public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
 public "isAcceptedRegardless"(material: $BlockState$Type): boolean
-public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $IFunctionalCopycatBlockEntity
-public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
 public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
 public static "wrappedColor"(): $BlockColor
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "stateType"(): $StateType
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 get "blockEntityType"(): $BlockEntityType<(any)>
@@ -450,13 +439,14 @@ export type $CopycatShaftBlock_ = $CopycatShaftBlock$Type;
 declare module "packages/com/copycatsplus/copycats/content/copycat/layer/$CopycatLayerBlock" {
 import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -466,21 +456,18 @@ import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/cre
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
 import {$ISpecialBlockItemRequirement, $ISpecialBlockItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockItemRequirement"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatLayerBlock extends $CTWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
+export class $CopycatLayerBlock extends $CCWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
 static readonly "FACING": $DirectionProperty
 static readonly "LAYERS": $IntegerProperty
 /**
@@ -507,29 +494,24 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "useShapeForLightOcclusion"(state: $BlockState$Type): boolean
-public "getOcclusionShape"(pState: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): $VoxelShape
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "getShadeBrightness"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): float
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -543,40 +525,201 @@ export type $CopycatLayerBlock$Type = ($CopycatLayerBlock);
 declare global {
 export type $CopycatLayerBlock_ = $CopycatLayerBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/ladder/$CopycatLadderBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$CopycatPressurePlateBlock" {
 import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$PressurePlateBlock, $PressurePlateBlock$Type} from "packages/net/minecraft/world/level/block/$PressurePlateBlock"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$PressurePlateBlock$Sensitivity, $PressurePlateBlock$Sensitivity$Type} from "packages/net/minecraft/world/level/block/$PressurePlateBlock$Sensitivity"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$WrappedLadderBlock, $WrappedLadderBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/ladder/$WrappedLadderBlock"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
 
-export class $CopycatLadderBlock extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedLadderBlock)>, $IStateType {
+export class $CopycatPressurePlateBlock extends $PressurePlateBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
+static readonly "POWERED": $BooleanProperty
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(sensitivity: $PressurePlateBlock$Sensitivity$Type, properties: $BlockBehaviour$Properties$Type, type: $BlockSetType$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatPressurePlateBlock$Type = ($CopycatPressurePlateBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatPressurePlateBlock_ = $CopycatPressurePlateBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/ladder/$CopycatLadderBlock" {
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$LadderBlock, $LadderBlock$Type} from "packages/net/minecraft/world/level/block/$LadderBlock"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+
+export class $CopycatLadderBlock extends $LadderBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
 static "RAILS": $BooleanProperty
 static "STEPS": $BooleanProperty
-static "ladder": $WrappedLadderBlock
+static readonly "FACING": $DirectionProperty
+static readonly "WATERLOGGED": $BooleanProperty
 /**
  * 
  * @deprecated
@@ -601,20 +744,63 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
 public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getOcclusionShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): $VoxelShape
+public "canSurvive"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public static "unwrap"<B extends $Block>(block: $WrappedLadderBlock$Type): $Block
-public "stateType"(): $StateType
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -631,18 +817,22 @@ export type $CopycatLadderBlock_ = $CopycatLadderBlock$Type;
 declare module "packages/com/copycatsplus/copycats/content/copycat/bytes/$CopycatByteBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
 import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$BlockStateTransform, $BlockStateTransform$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform"
+import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$WaterloggedMultiStateCopycatBlock"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
 import {$CopycatByteBlock$Byte, $CopycatByteBlock$Byte$Type} from "packages/com/copycatsplus/copycats/content/copycat/bytes/$CopycatByteBlock$Byte"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
@@ -653,13 +843,11 @@ import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
-import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$WaterloggedMultiStateCopycatBlock"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export class $CopycatByteBlock extends $WaterloggedMultiStateCopycatBlock {
@@ -673,7 +861,6 @@ static "BOTTOM_SE": $BooleanProperty
 static "BOTTOM_SW": $BooleanProperty
 static readonly "allBytes": $List<($CopycatByteBlock$Byte)>
 static readonly "byteMap": $Map<(string), ($CopycatByteBlock$Byte)>
-static readonly "TRANSFORM": $EnumProperty<($BlockStateTransform)>
 /**
  * 
  * @deprecated
@@ -698,33 +885,39 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "mirror"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, mirror: $Mirror$Type): void
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getColorIndex"(property: string): integer
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public static "bite"(x: boolean, y: boolean, z: boolean): $CopycatByteBlock$Byte
-public "partExists"(state: $BlockState$Type, property: string): boolean
-public "maxMaterials"(): integer
-public "vectorScale"(state: $BlockState$Type): $Vec3i
-public "storageProperties"(): $Set<(string)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public static "getByteFromVec"(vec: $Vec3$Type, pos: $BlockPos$Type): $CopycatByteBlock$Byte
-public static "clampToBlockPos"(vec: $Vec3$Type, pos: $BlockPos$Type): $Vec3
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public static "getByteFromVec"(vec: $Vec3$Type, pos: $BlockPos$Type): $CopycatByteBlock$Byte
+public static "clampToBlockPos"(vec: $Vec3$Type, pos: $BlockPos$Type): $Vec3
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public static "bite"(x: boolean, y: boolean, z: boolean): $CopycatByteBlock$Byte
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "defaultProperty"(): string
+public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "partExists"(state: $BlockState$Type, property: string): boolean
+public "transformStorage"(state: $BlockState$Type, be: $IMultiStateCopycatBlockEntity$Type, transform: $StructureTransform$Type): void
 public static "byByte"(x: boolean, y: boolean, z: boolean): $BooleanProperty
 public static "byByte"(bite: $CopycatByteBlock$Byte$Type): $BooleanProperty
-public "rotate"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, rotation: $Rotation$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -738,154 +931,17 @@ export type $CopycatByteBlock$Type = ($CopycatByteBlock);
 declare global {
 export type $CopycatByteBlock_ = $CopycatByteBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$CopycatHeavyWeightedPressurePlate" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
-import {$WrappedPressurePlate$HeavyWeighted, $WrappedPressurePlate$HeavyWeighted$Type} from "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$HeavyWeighted"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatHeavyWeightedPressurePlate extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedPressurePlate$HeavyWeighted)>, $IStateType {
-static "pressurePlate": $WrappedPressurePlate$HeavyWeighted
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$HeavyWeighted$Type): $Block
-public "stateType"(): $StateType
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatHeavyWeightedPressurePlate$Type = ($CopycatHeavyWeightedPressurePlate);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatHeavyWeightedPressurePlate_ = $CopycatHeavyWeightedPressurePlate$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$Stone" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$PressurePlateBlock, $PressurePlateBlock$Type} from "packages/net/minecraft/world/level/block/$PressurePlateBlock"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$PressurePlateBlock$Sensitivity, $PressurePlateBlock$Sensitivity$Type} from "packages/net/minecraft/world/level/block/$PressurePlateBlock$Sensitivity"
-import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
-
-export class $WrappedPressurePlate$Stone extends $PressurePlateBlock {
-static readonly "POWERED": $BooleanProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pSensitivity: $PressurePlateBlock$Sensitivity$Type, pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedPressurePlate$Stone$Type = ($WrappedPressurePlate$Stone);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedPressurePlate$Stone_ = $WrappedPressurePlate$Stone$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/slope_layer/$CopycatSlopeLayerBlock" {
 import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -896,22 +952,19 @@ import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/cre
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
 import {$ISpecialBlockItemRequirement, $ISpecialBlockItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockItemRequirement"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatSlopeLayerBlock extends $CTWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
+export class $CopycatSlopeLayerBlock extends $CCWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
 static readonly "FACING": $DirectionProperty
 static readonly "HALF": $EnumProperty<($Half)>
 static readonly "LAYERS": $IntegerProperty
@@ -939,28 +992,24 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
 public "useShapeForLightOcclusion"(state: $BlockState$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "getShadeBrightness"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): float
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -974,69 +1023,87 @@ export type $CopycatSlopeLayerBlock$Type = ($CopycatSlopeLayerBlock);
 declare global {
 export type $CopycatSlopeLayerBlock_ = $CopycatSlopeLayerBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking" {
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MaterialItemStorage$MaterialItem" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 
-export interface $ICustomCTBlocking {
+export class $MaterialItemStorage$MaterialItem {
 
- "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
- "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-}
+constructor(material: $BlockState$Type, consumedItem: $ItemStack$Type)
+constructor(material: $BlockState$Type, consumedItem: $ItemStack$Type, enableCT: boolean)
 
-export namespace $ICustomCTBlocking {
-const probejs$$marker: never
+public static "deserialize"(tag: $CompoundTag$Type): $MaterialItemStorage$MaterialItem
+public "serializeSafe"(): $CompoundTag
+public "serialize"(): $CompoundTag
+public "material"(): $BlockState
+public "setConsumedItem"(stack: $ItemStack$Type): void
+public "enableCT"(): boolean
+public "consumedItem"(): $ItemStack
+public "setEnableCT"(enableCT: boolean): void
+public "setMaterial"(material: $BlockState$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ICustomCTBlocking$Type = ($ICustomCTBlocking);
+export type $MaterialItemStorage$MaterialItem$Type = ($MaterialItemStorage$MaterialItem);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $ICustomCTBlocking_ = $ICustomCTBlocking$Type;
+export type $MaterialItemStorage$MaterialItem_ = $MaterialItemStorage$MaterialItem$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/button/$CopycatWoodenButtonBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$CopycatWeightedPressurePlate" {
+import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$WeightedPressurePlateBlock, $WeightedPressurePlateBlock$Type} from "packages/net/minecraft/world/level/block/$WeightedPressurePlateBlock"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$WrappedButton$Wood, $WrappedButton$Wood$Type} from "packages/com/copycatsplus/copycats/content/copycat/button/$WrappedButton$Wood"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
 
-export class $CopycatWoodenButtonBlock extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedButton$Wood)>, $IStateType {
-static "button": $WrappedButton$Wood
+export class $CopycatWeightedPressurePlate extends $WeightedPressurePlateBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
+static readonly "POWER": $IntegerProperty
 /**
  * 
  * @deprecated
@@ -1059,40 +1126,73 @@ static readonly "UPDATE_LIMIT": integer
 static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
 readonly "properties": $BlockBehaviour$Properties
 
-constructor(pProperties: $BlockBehaviour$Properties$Type)
+constructor(maxWeight: integer, pProperties: $BlockBehaviour$Properties$Type, type: $BlockSetType$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getDirectSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "getSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public static "unwrap"<B extends $Block>(block: $WrappedButton$Wood$Type): $Block
-public "stateType"(): $StateType
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CopycatWoodenButtonBlock$Type = ($CopycatWoodenButtonBlock);
+export type $CopycatWeightedPressurePlate$Type = ($CopycatWeightedPressurePlate);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $CopycatWoodenButtonBlock_ = $CopycatWoodenButtonBlock$Type;
+export type $CopycatWeightedPressurePlate_ = $CopycatWeightedPressurePlate$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/board/$CopycatCatwalkItem" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -1121,10 +1221,10 @@ constructor(builder: $Item$Properties$Type)
 
 public "getDescriptionId"(): string
 public "registerBlocks"(map: $Map$Type<($Block$Type), ($Item$Type)>, self: $Item$Type): void
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 get "descriptionId"(): string
 }
 /**
@@ -1155,13 +1255,13 @@ static readonly "INNER_TOP": $CCBlockStateProperties$VerticalStairShape
 static readonly "INNER_BOTTOM": $CCBlockStateProperties$VerticalStairShape
 
 
+public static "values"(): ($CCBlockStateProperties$VerticalStairShape)[]
+public static "valueOf"(name: string): $CCBlockStateProperties$VerticalStairShape
 public "isTop"(): boolean
 public "isOuter"(): boolean
 public "getSerializedName"(): string
-public static "values"(): ($CCBlockStateProperties$VerticalStairShape)[]
-public static "valueOf"(name: string): $CCBlockStateProperties$VerticalStairShape
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "top"(): boolean
 get "outer"(): boolean
@@ -1179,174 +1279,6 @@ export type $CCBlockStateProperties$VerticalStairShape$Type = (("straight") | ("
 declare global {
 export type $CCBlockStateProperties$VerticalStairShape_ = $CCBlockStateProperties$VerticalStairShape$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$BlockStateTransform, $BlockStateTransform$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
-import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
-import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$IForgeBlock, $IForgeBlock$Type} from "packages/net/minecraftforge/common/extensions/$IForgeBlock"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity"
-import {$IFunctionalCopycatBlock, $IFunctionalCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlock"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
-import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
-import {$ISpecialBlockItemRequirement, $ISpecialBlockItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockItemRequirement"
-import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$IFunctionalCopycatBlockEntity, $IFunctionalCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlockEntity"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
-import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$ScaledBlockAndTintGetter, $ScaledBlockAndTintGetter$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$ScaledBlockAndTintGetter"
-
-export class $MultiStateCopycatBlock extends $Block implements $IFunctionalCopycatBlock, $IBE<($MultiStateCopycatBlockEntity)>, $IWrenchable, $ISpecialBlockItemRequirement, $IStateType, $IForgeBlock {
-static readonly "TRANSFORM": $EnumProperty<($BlockStateTransform)>
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-public "mirror"(arg0: $BlockState$Type, arg1: $MultiStateCopycatBlockEntity$Type, arg2: $Mirror$Type): void
-public "getPropertyFromInteraction"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $Vec3i$Type, arg3: $BlockPos$Type, arg4: $Direction$Type, arg5: $Vec3$Type): string
-public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isAcceptedRegardless"(material: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public static "multiPlatformGetShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getVectorFromProperty"(arg0: $BlockState$Type, arg1: string): $Vec3i
-public "getPropertyFromRender"(renderingProperty: string, state: $BlockState$Type, level: $ScaledBlockAndTintGetter$Type, vector: $Vec3i$Type, blockPos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): string
-public static "multiPlatformGetAppearance"(block: $MultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
-public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
-public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
-public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "partExists"(arg0: $BlockState$Type, arg1: string): boolean
-public "maxMaterials"(): integer
-public "vectorScale"(arg0: $BlockState$Type): $Vec3i
-public "storageProperties"(): $Set<(string)>
-public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
-public "stateType"(): $StateType
-public "allowCTAppearance"(block: $MultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
-public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
-public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
-public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
-public "fallOn"(pLevel: $Level$Type, state: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
-public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
-public static "wrappedColor"(): $BlockColor
-public "getTicker"<S extends $BlockEntity>(p_153212_: $Level$Type, p_153213_: $BlockState$Type, p_153214_: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, pos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
-public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
-public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "tick"(state: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, random: $RandomSource$Type): void
-public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
-public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
-public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
-public "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
-public "getProperty"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hit: $BlockHitResult$Type, targetingSolid: boolean): string
-public "getProperty"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hitVec: $Vec3$Type, face: $Direction$Type, targetingSolid: boolean): string
-public "rotate"(arg0: $BlockState$Type, arg1: $MultiStateCopycatBlockEntity$Type, arg2: $Rotation$Type): void
-public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
-public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $IFunctionalCopycatBlockEntity
-public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $MultiStateCopycatBlockEntity
-public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($MultiStateCopycatBlockEntity$Type)>): void
-public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($MultiStateCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
-public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MultiStateCopycatBlockEntity)>
-public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
-public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
-public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MultiStateCopycatBlock$Type = ($MultiStateCopycatBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $MultiStateCopycatBlock_ = $MultiStateCopycatBlock$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/slab/$CopycatSlabBlock$FaceShape" {
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
 import {$SlabType, $SlabType$Type} from "packages/net/minecraft/world/level/block/state/properties/$SlabType"
@@ -1358,12 +1290,12 @@ static readonly "BOTTOM": $CopycatSlabBlock$FaceShape
 static readonly "NONE": $CopycatSlabBlock$FaceShape
 
 
-public "hasContact"(): boolean
+public static "values"(): ($CopycatSlabBlock$FaceShape)[]
+public static "valueOf"(name: string): $CopycatSlabBlock$FaceShape
 public static "forSlabSide"(type: $SlabType$Type): $CopycatSlabBlock$FaceShape
 public static "fullOrNone"(value: boolean): $CopycatSlabBlock$FaceShape
 public static "canConnect"(shape1: $CopycatSlabBlock$FaceShape$Type, shape2: $CopycatSlabBlock$FaceShape$Type): boolean
-public static "values"(): ($CopycatSlabBlock$FaceShape)[]
-public static "valueOf"(name: string): $CopycatSlabBlock$FaceShape
+public "hasContact"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1377,164 +1309,50 @@ export type $CopycatSlabBlock$FaceShape$Type = (("top") | ("bottom") | ("none") 
 declare global {
 export type $CopycatSlabBlock$FaceShape_ = $CopycatSlabBlock$FaceShape$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform" {
-import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
-import {$StringRepresentable, $StringRepresentable$Type} from "packages/net/minecraft/util/$StringRepresentable"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MaterialItemStorage" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$Keyable, $Keyable$Type} from "packages/com/mojang/serialization/$Keyable"
-import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
-import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-
-export class $BlockStateTransform extends $Enum<($BlockStateTransform)> implements $StringRepresentable {
-static readonly "ABCD": $BlockStateTransform
-static readonly "BCDA": $BlockStateTransform
-static readonly "CDAB": $BlockStateTransform
-static readonly "DABC": $BlockStateTransform
-static readonly "ADCB": $BlockStateTransform
-static readonly "DCBA": $BlockStateTransform
-static readonly "CBAD": $BlockStateTransform
-static readonly "BADC": $BlockStateTransform
-
-
-public "flipZ"(): $BlockStateTransform
-public "flipX"(): $BlockStateTransform
-public "getCounterClockwise"(): $BlockStateTransform
-public "getClockwise"(): $BlockStateTransform
-public "undoTransform"(rotate: $Consumer$Type<($Rotation$Type)>, mirror: $Consumer$Type<($Mirror$Type)>): void
-public "getSerializedName"(): string
-public static "values"(): ($BlockStateTransform)[]
-public static "valueOf"(name: string): $BlockStateTransform
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
-public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
-public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
-get "counterClockwise"(): $BlockStateTransform
-get "clockwise"(): $BlockStateTransform
-get "serializedName"(): string
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BlockStateTransform$Type = (("bcda") | ("dabc") | ("dcba") | ("badc") | ("cdab") | ("cbad") | ("abcd") | ("adcb")) | ($BlockStateTransform);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $BlockStateTransform_ = $BlockStateTransform$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$Wooden" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$List, $List$Type} from "packages/java/util/$List"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$PressurePlateBlock, $PressurePlateBlock$Type} from "packages/net/minecraft/world/level/block/$PressurePlateBlock"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$PressurePlateBlock$Sensitivity, $PressurePlateBlock$Sensitivity$Type} from "packages/net/minecraft/world/level/block/$PressurePlateBlock$Sensitivity"
-import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
+import {$MaterialItemStorage$MaterialItem, $MaterialItemStorage$MaterialItem$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MaterialItemStorage$MaterialItem"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $WrappedPressurePlate$Wooden extends $PressurePlateBlock {
-static readonly "POWERED": $BooleanProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
+export class $MaterialItemStorage {
 
-constructor(pSensitivity: $PressurePlateBlock$Sensitivity$Type, pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type)
 
+public static "create"(properties: $Set$Type<(string)>): $MaterialItemStorage
+public "deserialize"(tag: $CompoundTag$Type): boolean
+public "getMaterialMap"(): $Map<(string), ($BlockState)>
+public "storeMaterialItem"(property: string, materialItem: $MaterialItemStorage$MaterialItem$Type): void
+public "serializeSafe"(): $CompoundTag
+public "serialize"(): $CompoundTag
+public "remapStorage"(keyMapper: $Function$Type<(string), (string)>): void
+public "getAllMaterials"(): $Set<($BlockState)>
+public "getMaterialItem"(property: string): $MaterialItemStorage$MaterialItem
+public "getAllConsumedItems"(): $List<($ItemStack)>
+public "hasCustomMaterial"(property: string): boolean
+public "getAllProperties"(): $Set<(string)>
+get "materialMap"(): $Map<(string), ($BlockState)>
+get "allMaterials"(): $Set<($BlockState)>
+get "allConsumedItems"(): $List<($ItemStack)>
+get "allProperties"(): $Set<(string)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WrappedPressurePlate$Wooden$Type = ($WrappedPressurePlate$Wooden);
+export type $MaterialItemStorage$Type = ($MaterialItemStorage);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $WrappedPressurePlate$Wooden_ = $WrappedPressurePlate$Wooden$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/trapdoor/$WrappedTrapdoorBlock" {
-import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$TrapDoorBlock, $TrapDoorBlock$Type} from "packages/net/minecraft/world/level/block/$TrapDoorBlock"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
-
-export class $WrappedTrapdoorBlock extends $TrapDoorBlock {
-static readonly "OPEN": $BooleanProperty
-static readonly "HALF": $EnumProperty<($Half)>
-static readonly "POWERED": $BooleanProperty
-static readonly "WATERLOGGED": $BooleanProperty
-static readonly "FACING": $DirectionProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedTrapdoorBlock$Type = ($WrappedTrapdoorBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedTrapdoorBlock_ = $WrappedTrapdoorBlock$Type;
+export type $MaterialItemStorage_ = $MaterialItemStorage$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/ghost_block/$CopycatGhostBlock" {
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
@@ -1544,18 +1362,16 @@ import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$CTCopycatBlock, $CTCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTCopycatBlock"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$CCCopycatBlock, $CCCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlock"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatGhostBlock extends $CTCopycatBlock implements $ICopycatWithWrappedBlock<($Block)>, $IStateType {
+export class $CopycatGhostBlock extends $CCCopycatBlock implements $IStateType {
 /**
  * 
  * @deprecated
@@ -1580,15 +1396,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
-public "getWrappedBlock"(): $Block
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public static "unwrap"<B extends $Block>(block: $Block$Type): $Block
-public "stateType"(): $StateType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(blockAndTintGetter: $BlockAndTintGetter$Type, blockPos: $BlockPos$Type, blockPos1: $BlockPos$Type, blockState: $BlockState$Type): boolean
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $Block
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1602,24 +1417,63 @@ export type $CopycatGhostBlock$Type = ($CopycatGhostBlock);
 declare global {
 export type $CopycatGhostBlock_ = $CopycatGhostBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/button/$WrappedButton$Stone" {
+declare module "packages/com/copycatsplus/copycats/content/copycat/door/$CopycatDoorBlock" {
 import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$AttachFace, $AttachFace$Type} from "packages/net/minecraft/world/level/block/state/properties/$AttachFace"
-import {$ButtonBlock, $ButtonBlock$Type} from "packages/net/minecraft/world/level/block/$ButtonBlock"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$DoorBlock, $DoorBlock$Type} from "packages/net/minecraft/world/level/block/$DoorBlock"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$DoorHingeSide, $DoorHingeSide$Type} from "packages/net/minecraft/world/level/block/state/properties/$DoorHingeSide"
+import {$DoubleBlockHalf, $DoubleBlockHalf$Type} from "packages/net/minecraft/world/level/block/state/properties/$DoubleBlockHalf"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
 import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
 
-export class $WrappedButton$Stone extends $ButtonBlock {
-static readonly "POWERED": $BooleanProperty
-static readonly "FACE": $EnumProperty<($AttachFace)>
+export class $CopycatDoorBlock extends $DoorBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
 static readonly "FACING": $DirectionProperty
+static readonly "OPEN": $BooleanProperty
+static readonly "HINGE": $EnumProperty<($DoorHingeSide)>
+static readonly "POWERED": $BooleanProperty
+static readonly "HALF": $EnumProperty<($DoubleBlockHalf)>
 /**
  * 
  * @deprecated
@@ -1642,31 +1496,86 @@ static readonly "UPDATE_LIMIT": integer
 static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
 readonly "properties": $BlockBehaviour$Properties
 
-constructor(pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type, pTicksToStayPressed: integer, pArrowsCanPress: boolean)
+constructor(properties: $BlockBehaviour$Properties$Type, type: $BlockSetType$Type)
 
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(p_153212_: $Level$Type, p_153213_: $BlockState$Type, p_153214_: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WrappedButton$Stone$Type = ($WrappedButton$Stone);
+export type $CopycatDoorBlock$Type = ($CopycatDoorBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $WrappedButton$Stone_ = $WrappedButton$Stone$Type;
+export type $CopycatDoorBlock_ = $CopycatDoorBlock$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_slice/$CopycatVerticalSliceBlock" {
 import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
@@ -1676,21 +1585,18 @@ import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/cre
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
 import {$ISpecialBlockItemRequirement, $ISpecialBlockItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockItemRequirement"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatVerticalSliceBlock extends $CTWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
+export class $CopycatVerticalSliceBlock extends $CCWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
 static readonly "FACING": $DirectionProperty
 static readonly "LAYERS": $IntegerProperty
 /**
@@ -1717,28 +1623,22 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1752,59 +1652,8 @@ export type $CopycatVerticalSliceBlock$Type = ($CopycatVerticalSliceBlock);
 declare global {
 export type $CopycatVerticalSliceBlock_ = $CopycatVerticalSliceBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
-import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$ISpecialBlockEntityItemRequirement, $ISpecialBlockEntityItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockEntityItemRequirement"
-import {$ITransformableBlockEntity, $ITransformableBlockEntity$Type} from "packages/com/simibubi/create/content/contraptions/$ITransformableBlockEntity"
-import {$CopycatBlockEntity, $CopycatBlockEntity$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlockEntity"
-import {$CTCopycatBlockEntity, $CTCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTCopycatBlockEntity"
-import {$IPartialSafeNBT, $IPartialSafeNBT$Type} from "packages/com/simibubi/create/foundation/utility/$IPartialSafeNBT"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-
-export interface $IFunctionalCopycatBlockEntity extends $CTCopycatBlockEntity, $ISpecialBlockEntityItemRequirement, $ITransformableBlockEntity, $IPartialSafeNBT {
-
- "getCopycatBlockEntity"(): $CopycatBlockEntity
- "getBlockPos"(): $BlockPos
- "writeSafe"(tag: $CompoundTag$Type): void
- "setMaterial"(material: $BlockState$Type): void
- "cycleMaterial"(): boolean
- "setConsumedItem"(consumedItem: $ItemStack$Type): void
- "hasCustomMaterial"(): boolean
- "isCTEnabled"(): boolean
- "setCTEnabled"(value: boolean): void
- "callRedraw"(): void
- "getConsumedItem"(): $ItemStack
- "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
- "getLevel"(): $Level
- "getMaterial"(): $BlockState
- "m_142339_"(level: $Level$Type): void
- "getBlockState"(): $BlockState
- "transform"(transform: $StructureTransform$Type): void
- "write"(compound: $CompoundTag$Type, clientPacket: boolean): void
- "read"(compound: $CompoundTag$Type, clientPacket: boolean): void
-}
-
-export namespace $IFunctionalCopycatBlockEntity {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IFunctionalCopycatBlockEntity$Type = ($IFunctionalCopycatBlockEntity);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $IFunctionalCopycatBlockEntity_ = $IFunctionalCopycatBlockEntity$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/block/$CopycatBlockBlock" {
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
@@ -1814,18 +1663,16 @@ import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$CTCopycatBlock, $CTCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTCopycatBlock"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$CCCopycatBlock, $CCCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlock"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatBlockBlock extends $CTCopycatBlock implements $ICopycatWithWrappedBlock<($Block)>, $IStateType {
+export class $CopycatBlockBlock extends $CCCopycatBlock implements $IStateType {
 /**
  * 
  * @deprecated
@@ -1850,16 +1697,13 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "getWrappedBlock"(): $Block
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public static "unwrap"<B extends $Block>(block: $Block$Type): $Block
-public "stateType"(): $StateType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-get "wrappedBlock"(): $Block
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1873,71 +1717,25 @@ export type $CopycatBlockBlock$Type = ($CopycatBlockBlock);
 declare global {
 export type $CopycatBlockBlock_ = $CopycatBlockBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$LightWeighted" {
-import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$WeightedPressurePlateBlock, $WeightedPressurePlateBlock$Type} from "packages/net/minecraft/world/level/block/$WeightedPressurePlateBlock"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
-
-export class $WrappedPressurePlate$LightWeighted extends $WeightedPressurePlateBlock {
-static readonly "POWER": $IntegerProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pMaxWeight: integer, pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedPressurePlate$LightWeighted$Type = ($WrappedPressurePlate$LightWeighted);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedPressurePlate$LightWeighted_ = $WrappedPressurePlate$LightWeighted$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/half_layer/$CopycatHalfLayerBlock" {
 import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$BlockStateTransform, $BlockStateTransform$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform"
+import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$WaterloggedMultiStateCopycatBlock"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
@@ -1948,20 +1746,18 @@ import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
-import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$WaterloggedMultiStateCopycatBlock"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
 
 export class $CopycatHalfLayerBlock extends $WaterloggedMultiStateCopycatBlock {
 static readonly "AXIS": $EnumProperty<($Direction$Axis)>
 static readonly "HALF": $EnumProperty<($Half)>
 static readonly "POSITIVE_LAYERS": $IntegerProperty
 static readonly "NEGATIVE_LAYERS": $IntegerProperty
-static readonly "TRANSFORM": $EnumProperty<($BlockStateTransform)>
 /**
  * 
  * @deprecated
@@ -1986,29 +1782,34 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "mirror"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, mirror: $Mirror$Type): void
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "partExists"(state: $BlockState$Type, property: string): boolean
-public "maxMaterials"(): integer
-public "vectorScale"(state: $BlockState$Type): $Vec3i
-public "storageProperties"(): $Set<(string)>
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getColorIndex"(property: string): integer
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
-public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(state: $BlockState$Type, mirrorIn: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "rotate"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, rotation: $Rotation$Type): void
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "defaultProperty"(): string
+public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "partExists"(state: $BlockState$Type, property: string): boolean
+public "transformStorage"(state: $BlockState$Type, be: $IMultiStateCopycatBlockEntity$Type, transform: $StructureTransform$Type): void
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2022,257 +1823,100 @@ export type $CopycatHalfLayerBlock$Type = ($CopycatHalfLayerBlock);
 declare global {
 export type $CopycatHalfLayerBlock_ = $CopycatHalfLayerBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$CopycatStonePressurePlate" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$WrappedPressurePlate$Stone, $WrappedPressurePlate$Stone$Type} from "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$Stone"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MultiStateCopycatBlockEntity" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$MaterialItemStorage, $MaterialItemStorage$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MaterialItemStorage"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
+import {$ModelData, $ModelData$Type} from "packages/net/minecraftforge/client/model/data/$ModelData"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockEntityBehaviour, $BlockEntityBehaviour$Type} from "packages/com/simibubi/create/foundation/blockEntity/behaviour/$BlockEntityBehaviour"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatStonePressurePlate extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedPressurePlate$Stone)>, $IStateType {
-static "pressurePlate": $WrappedPressurePlate$Stone
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$Stone$Type): $Block
-public "stateType"(): $StateType
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatStonePressurePlate$Type = ($CopycatStonePressurePlate);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatStonePressurePlate_ = $CopycatStonePressurePlate$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$CopycatBlockEntity, $CopycatBlockEntity$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlockEntity"
-import {$ICTCopycatBlock, $ICTCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICTCopycatBlock"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-import {$WaterloggedCopycatBlock, $WaterloggedCopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$WaterloggedCopycatBlock"
-
-export class $CTWaterloggedCopycatBlock extends $WaterloggedCopycatBlock implements $ICTCopycatBlock {
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<($CopycatBlockEntity)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<($CopycatBlockEntity)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CTWaterloggedCopycatBlock$Type = ($CTWaterloggedCopycatBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CTWaterloggedCopycatBlock_ = $CTWaterloggedCopycatBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/button/$CopycatStoneButtonBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$WrappedButton$Stone, $WrappedButton$Stone$Type} from "packages/com/copycatsplus/copycats/content/copycat/button/$WrappedButton$Stone"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$SmartBlockEntity, $SmartBlockEntity$Type} from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
+import {$HolderGetter, $HolderGetter$Type} from "packages/net/minecraft/core/$HolderGetter"
 
-export class $CopycatStoneButtonBlock extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedButton$Stone)>, $IStateType {
-static "button": $WrappedButton$Stone
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
+export class $MultiStateCopycatBlockEntity extends $SmartBlockEntity implements $IMultiStateCopycatBlockEntity {
+ "blockState": $BlockState
 
-constructor(pProperties: $BlockBehaviour$Properties$Type)
+constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type): $BlockState
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getDirectSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "getSignal"(pBlockState: $BlockState$Type, pBlockAccess: $BlockGetter$Type, pPos: $BlockPos$Type, pSide: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public static "unwrap"<B extends $Block>(block: $WrappedButton$Stone$Type): $Block
-public "stateType"(): $StateType
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "write"(tag: $CompoundTag$Type, clientPacket: boolean): void
+public "read"(tag: $CompoundTag$Type, clientPacket: boolean): void
+public "migrateData"(copycatBlockEntity: $ICopycatBlockEntity$Type): void
+public "setMaterialItemStorageInternal"(storage: $MaterialItemStorage$Type): void
+public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "writeSafe"(tag: $CompoundTag$Type): void
+public "getMaterialItemStorage"(): $MaterialItemStorage
+public "getModelData"(): $ModelData
+public "transform"(transform: $StructureTransform$Type): void
+public "init"(): void
+public static "write"(self: $IMultiStateCopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+public static "read"(self: $IMultiStateCopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+public "getBlock"(): $IMultiStateCopycatBlock
+public "getMaterial"(): $BlockState
+public static "writeSafe"(self: $IMultiStateCopycatBlockEntity$Type, tag: $CompoundTag$Type): void
+public "setMaterialInternal"(material: $BlockState$Type): void
+public "setConsumedItemInternal"(consumedItem: $ItemStack$Type): void
+public "setCTEnabledInternal"(value: boolean): void
+public "setConsumedItem"(property: string, itemStack: $ItemStack$Type): void
+public "hasCustomMaterial"(): boolean
+public "setEnableCT"(property: string, value: boolean): void
+public "cycleMaterial"(property: string): boolean
+public "setMaterial"(property: string, blockState: $BlockState$Type): void
+public "isCTEnabled"(): boolean
+public "getConsumedItem"(): $ItemStack
+public static "write"(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+public static "write"(tag: $CompoundTag$Type, stack: $ItemStack$Type, material: $BlockState$Type, enableCT: boolean): void
+public static "read"(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+public "notifyUpdate"(): void
+public "blockHolderGetter"(): $HolderGetter<($Block)>
+public static "writeSafe"(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type): void
+public "getLevel"(): $Level
+public "setLevel"(arg0: $Level$Type): void
+public "setBlockState"(arg0: $BlockState$Type): void
+public "setConsumedItem"(stack: $ItemStack$Type): void
+public "cycleMaterial"(): boolean
+public "setMaterial"(blockState: $BlockState$Type): void
+public "setCTEnabled"(value: boolean): void
+public "getBlockState"(): $BlockState
+public "getBlockPos"(): $BlockPos
+set "materialItemStorageInternal"(value: $MaterialItemStorage$Type)
+get "materialItemStorage"(): $MaterialItemStorage
+get "modelData"(): $ModelData
+get "block"(): $IMultiStateCopycatBlock
+get "material"(): $BlockState
+set "materialInternal"(value: $BlockState$Type)
+set "consumedItemInternal"(value: $ItemStack$Type)
+set "cTEnabledInternal"(value: boolean)
+get "cTEnabled"(): boolean
+get "consumedItem"(): $ItemStack
+get "level"(): $Level
+set "level"(value: $Level$Type)
+set "blockState"(value: $BlockState$Type)
+set "consumedItem"(value: $ItemStack$Type)
+set "material"(value: $BlockState$Type)
+set "cTEnabled"(value: boolean)
+get "blockState"(): $BlockState
+get "blockPos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CopycatStoneButtonBlock$Type = ($CopycatStoneButtonBlock);
+export type $MultiStateCopycatBlockEntity$Type = ($MultiStateCopycatBlockEntity);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $CopycatStoneButtonBlock_ = $CopycatStoneButtonBlock$Type;
+export type $MultiStateCopycatBlockEntity_ = $MultiStateCopycatBlockEntity$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/board/$CopycatBoxItem" {
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
@@ -2301,10 +1945,10 @@ constructor(builder: $Item$Properties$Type)
 
 public "getDescriptionId"(): string
 public "registerBlocks"(map: $Map$Type<($Block$Type), ($Item$Type)>, self: $Item$Type): void
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 get "descriptionId"(): string
 }
 /**
@@ -2319,126 +1963,36 @@ export type $CopycatBoxItem$Type = ($CopycatBoxItem);
 declare global {
 export type $CopycatBoxItem_ = $CopycatBoxItem$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$CopycatWoodenPressurePlate" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$WrappedPressurePlate$Wooden, $WrappedPressurePlate$Wooden$Type} from "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$Wooden"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatWoodenPressurePlate extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedPressurePlate$Wooden)>, $IStateType {
-static "pressurePlate": $WrappedPressurePlate$Wooden
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "isSignalSource"(pState: $BlockState$Type): boolean
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$Wooden$Type): $Block
-public "stateType"(): $StateType
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatWoodenPressurePlate$Type = ($CopycatWoodenPressurePlate);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatWoodenPressurePlate_ = $CopycatWoodenPressurePlate$Type;
-}}
 declare module "packages/com/copycatsplus/copycats/content/copycat/beam/$CopycatBeamBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatBeamBlock extends $CTWaterloggedCopycatBlock implements $IStateType {
+export class $CopycatBeamBlock extends $CCWaterloggedCopycatBlock implements $IStateType {
 static readonly "AXIS": $EnumProperty<($Direction$Axis)>
 /**
  * 
@@ -2464,25 +2018,19 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "rotate"(state: $BlockState$Type, rot: $Rotation$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2496,120 +2044,180 @@ export type $CopycatBeamBlock$Type = ($CopycatBeamBlock);
 declare global {
 export type $CopycatBeamBlock_ = $CopycatBeamBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/mixin/copycat/base/$CopycatBlockEntityAccessor" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-
-export interface $CopycatBlockEntityAccessor {
-
- "callRead"(arg0: $CompoundTag$Type, arg1: boolean): void
- "callWrite"(arg0: $CompoundTag$Type, arg1: boolean): void
-}
-
-export namespace $CopycatBlockEntityAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatBlockEntityAccessor$Type = ($CopycatBlockEntityAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatBlockEntityAccessor_ = $CopycatBlockEntityAccessor$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$ICTCopycatBlock" {
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MultiStateCopycatBlock" {
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$IForgeBlock, $IForgeBlock$Type} from "packages/net/minecraftforge/common/extensions/$IForgeBlock"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
+import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MultiStateCopycatBlockEntity"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
-import {$CopycatBlockEntity, $CopycatBlockEntity$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlockEntity"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
 import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export interface $ICTCopycatBlock extends $IBE<($CopycatBlockEntity)> {
-
- "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
- "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
- "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CopycatBlockEntity
- "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CopycatBlockEntity$Type)>): void
- "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
- "getBlockEntityType"(): $BlockEntityType<(any)>
- "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
- "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
- "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CopycatBlockEntity)>
- "getBlockEntityClass"(): $Class<($CopycatBlockEntity)>
- "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
-}
-
-export namespace $ICTCopycatBlock {
-function onRemove(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ICTCopycatBlock$Type = ($ICTCopycatBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $ICTCopycatBlock_ = $ICTCopycatBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock" {
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$ScaledBlockAndTintGetter, $ScaledBlockAndTintGetter$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/model/$ScaledBlockAndTintGetter"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
 
-export interface $ICopycatWithWrappedBlock<B extends $Block> {
+export class $MultiStateCopycatBlock extends $Block implements $IMultiStateCopycatBlock, $IBE<($MultiStateCopycatBlockEntity)>, $IForgeBlock {
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
 
- "getWrappedBlock"(): B
+constructor(properties: $BlockBehaviour$Properties$Type)
 
-(): B
-}
-
-export namespace $ICopycatWithWrappedBlock {
-function unwrap<B>(block: B): $Block
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(p_153212_: $Level$Type, p_153213_: $BlockState$Type, p_153214_: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, state: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "getAppearance"(state: $BlockState$Type, renderView: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, sourceState: $BlockState$Type, sourcePos: $BlockPos$Type): $BlockState
+public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "getColorIndex"(arg0: string): integer
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public "canOcclude"(property: string, level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "isIgnoredConnectivitySide"(arg0: string, arg1: $BlockAndTintGetter$Type, arg2: $BlockState$Type, arg3: $Direction$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): boolean
+public "getAcceptedBlockState"(property: string, pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "canConnectTexturesToward"(arg0: string, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: $BlockState$Type): boolean
+public "getVectorFromProperty"(arg0: $BlockState$Type, arg1: string): $Vec3i
+public "getPropertyFromRender"(renderingProperty: string, state: $BlockState$Type, level: $ScaledBlockAndTintGetter$Type, vector: $Vec3i$Type, blockPos: $BlockPos$Type): string
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $IMultiStateCopycatBlockEntity
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hit: $BlockHitResult$Type, targetingSolid: boolean): string
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hitVec: $Vec3$Type, face: $Direction$Type, targetingSolid: boolean): string
+public "getPropertyFromInteraction"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $Vec3i$Type, arg3: $BlockPos$Type, arg4: $Direction$Type, arg5: $Vec3$Type): string
+public "defaultProperty"(): string
+public "vectorScale"(arg0: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "toggleCT"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "stateType"(): $StateType
+public "partExists"(arg0: $BlockState$Type, arg1: string): boolean
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "fillEmptyParts"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, material: $BlockState$Type): void
+public "transformStorage"(arg0: $BlockState$Type, arg1: $IMultiStateCopycatBlockEntity$Type, arg2: $StructureTransform$Type): void
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $MultiStateCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($MultiStateCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($MultiStateCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($MultiStateCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+get "blockEntityClass"(): $Class<($MultiStateCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ICopycatWithWrappedBlock$Type<B> = ($ICopycatWithWrappedBlock<(B)>);
+export type $MultiStateCopycatBlock$Type = ($MultiStateCopycatBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $ICopycatWithWrappedBlock_<B> = $ICopycatWithWrappedBlock$Type<(B)>;
+export type $MultiStateCopycatBlock_ = $MultiStateCopycatBlock$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/half_panel/$CopycatHalfPanelBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
@@ -2617,21 +2225,18 @@ import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraf
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatHalfPanelBlock extends $CTWaterloggedCopycatBlock implements $IStateType {
+export class $CopycatHalfPanelBlock extends $CCWaterloggedCopycatBlock implements $IStateType {
 static readonly "FACING": $DirectionProperty
 static readonly "OFFSET": $DirectionProperty
 /**
@@ -2658,28 +2263,22 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public static "getOffsetAxis"(facing: $Direction$Type, offset: $Direction$Type): $Direction$Axis
-public static "getOffsetFacing"(facing: $Direction$Type, offset: $Direction$Type): $Direction
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public static "getOffsetAxis"(facing: $Direction$Type, offset: $Direction$Type): $Direction$Axis
+public static "getOffsetFacing"(facing: $Direction$Type, offset: $Direction$Type): $Direction
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2706,17 +2305,17 @@ static readonly "LEFT": $CCBlockStateProperties$Side
 static readonly "RIGHT": $CCBlockStateProperties$Side
 
 
-public "isRight"(): boolean
-public "getOpposite"(): $CCBlockStateProperties$Side
-public "getSerializedName"(): string
 public static "values"(): ($CCBlockStateProperties$Side)[]
 public static "valueOf"(name: string): $CCBlockStateProperties$Side
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public "isRight"(): boolean
+public "getSerializedName"(): string
+public "getOpposite"(): $CCBlockStateProperties$Side
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "right"(): boolean
-get "opposite"(): $CCBlockStateProperties$Side
 get "serializedName"(): string
+get "opposite"(): $CCBlockStateProperties$Side
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2732,17 +2331,17 @@ export type $CCBlockStateProperties$Side_ = $CCBlockStateProperties$Side$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/slope/$CopycatSlopeBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
@@ -2751,22 +2350,19 @@ import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatSlopeBlock extends $CTWaterloggedCopycatBlock implements $IStateType, $ICustomCTBlocking {
+export class $CopycatSlopeBlock extends $CCWaterloggedCopycatBlock implements $IStateType, $ICustomCTBlocking {
 static readonly "FACING": $DirectionProperty
 static readonly "HALF": $EnumProperty<($Half)>
 /**
@@ -2793,28 +2389,22 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2828,93 +2418,47 @@ export type $CopycatSlopeBlock$Type = ($CopycatSlopeBlock);
 declare global {
 export type $CopycatSlopeBlock_ = $CopycatSlopeBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$CTCopycatBlock" {
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking" {
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$ICTCopycatBlock, $ICTCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICTCopycatBlock"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CTCopycatBlock extends $CopycatBlock implements $ICTCopycatBlock {
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
+export interface $ICustomCTBlocking {
 
-constructor(pProperties: $BlockBehaviour$Properties$Type)
+ "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+ "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+}
 
-public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "allowCTAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): boolean
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+export namespace $ICustomCTBlocking {
+const probejs$$marker: never
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CTCopycatBlock$Type = ($CTCopycatBlock);
+export type $ICustomCTBlocking$Type = ($ICustomCTBlocking);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $CTCopycatBlock_ = $CTCopycatBlock$Type;
+export type $ICustomCTBlocking_ = $ICustomCTBlocking$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$WaterloggedMultiStateCopycatBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$SoundEvent"
-import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$CopycatBaseBlock" {
+import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$BlockStateTransform, $BlockStateTransform$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform"
-import {$ProperWaterloggedBlock, $ProperWaterloggedBlock$Type} from "packages/com/simibubi/create/foundation/block/$ProperWaterloggedBlock"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$MultiStateCopycatBlock, $MultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlock"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 
-export class $WaterloggedMultiStateCopycatBlock extends $MultiStateCopycatBlock implements $ProperWaterloggedBlock {
-static readonly "TRANSFORM": $EnumProperty<($BlockStateTransform)>
+export class $CopycatBaseBlock extends $Block {
+static readonly "BASE_TYPE_COUNT": integer
+static readonly "BASE_TYPE": $IntegerProperty
 /**
  * 
  * @deprecated
@@ -2939,47 +2483,35 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "getFluidState"(pState: $BlockState$Type): $FluidState
-public "withWater"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
-public "fluidState"(arg0: $BlockState$Type): $FluidState
-public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
-public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
-public "getPickupSound"(): $Optional<($SoundEvent)>
-public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
-public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
-get "pickupSound"(): $Optional<($SoundEvent)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WaterloggedMultiStateCopycatBlock$Type = ($WaterloggedMultiStateCopycatBlock);
+export type $CopycatBaseBlock$Type = ($CopycatBaseBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $WaterloggedMultiStateCopycatBlock_ = $WaterloggedMultiStateCopycatBlock$Type;
+export type $CopycatBaseBlock_ = $CopycatBaseBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$HeavyWeighted" {
-import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$WrappedCopycatBlock" {
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$WeightedPressurePlateBlock, $WeightedPressurePlateBlock$Type} from "packages/net/minecraft/world/level/block/$WeightedPressurePlateBlock"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $WrappedPressurePlate$HeavyWeighted extends $WeightedPressurePlateBlock {
-static readonly "POWER": $IntegerProperty
+export class $WrappedCopycatBlock extends $CopycatBlock {
 /**
  * 
  * @deprecated
@@ -3002,900 +2534,78 @@ static readonly "UPDATE_LIMIT": integer
 static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
 readonly "properties": $BlockBehaviour$Properties
 
-constructor(pMaxWeight: integer, pProperties: $BlockBehaviour$Properties$Type, pType: $BlockSetType$Type)
+constructor(pProperties: $BlockBehaviour$Properties$Type)
 
+public "getWrapped"(): $ICopycatBlock
+public "setWrapped"(wrapped: $ICopycatBlock$Type): void
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+get "wrapped"(): $ICopycatBlock
+set "wrapped"(value: $ICopycatBlock$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WrappedPressurePlate$HeavyWeighted$Type = ($WrappedPressurePlate$HeavyWeighted);
+export type $WrappedCopycatBlock$Type = ($WrappedCopycatBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $WrappedPressurePlate$HeavyWeighted_ = $WrappedPressurePlate$HeavyWeighted$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType" {
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-
-export interface $IStateType {
-
- "stateType"(): $StateType
-}
-
-export namespace $IStateType {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IStateType$Type = ($IStateType);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $IStateType_ = $IStateType$Type;
+export type $WrappedCopycatBlock_ = $WrappedCopycatBlock$Type;
 }}
 declare module "packages/com/copycatsplus/copycats/content/copycat/fence/$CopycatFenceBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
 import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$WrappedFenceBlock, $WrappedFenceBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/fence/$WrappedFenceBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$WaterloggedCopycatWrappedBlock, $WaterloggedCopycatWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$WaterloggedCopycatWrappedBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatFenceBlock extends $WaterloggedCopycatWrappedBlock<($WrappedFenceBlock)> implements $IStateType {
-static "fence": $WrappedFenceBlock
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-public static "byDirection"(direction: $Direction$Type): $BooleanProperty
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "propagatesSkylightDown"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getOcclusionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getVisualShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatFenceBlock$Type = ($CopycatFenceBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatFenceBlock_ = $CopycatFenceBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_stairs/$CopycatVerticalStairBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$CCBlockStateProperties$VerticalStairShape, $CCBlockStateProperties$VerticalStairShape$Type} from "packages/com/copycatsplus/copycats/$CCBlockStateProperties$VerticalStairShape"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$CopycatStairsBlock$FaceShape, $CopycatStairsBlock$FaceShape$Type} from "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock$FaceShape"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$CCBlockStateProperties$Side, $CCBlockStateProperties$Side$Type} from "packages/com/copycatsplus/copycats/$CCBlockStateProperties$Side"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatVerticalStairBlock extends $CTWaterloggedCopycatBlock implements $ICustomCTBlocking, $IStateType {
-static readonly "FACING": $DirectionProperty
-static readonly "SIDE": $EnumProperty<($CCBlockStateProperties$Side)>
-static readonly "SHAPE": $EnumProperty<($CCBlockStateProperties$VerticalStairShape)>
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, pos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
-public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
-public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
-public "useShapeForLightOcclusion"(pState: $BlockState$Type): boolean
-public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public static "isStairs"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatVerticalStairBlock$Type = ($CopycatVerticalStairBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatVerticalStairBlock_ = $CopycatVerticalStairBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$CopycatStairsBlock$FaceShape, $CopycatStairsBlock$FaceShape$Type} from "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock$FaceShape"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$WrappedStairsBlock, $WrappedStairsBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/stairs/$WrappedStairsBlock"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$WaterloggedCopycatWrappedBlock, $WaterloggedCopycatWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$WaterloggedCopycatWrappedBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatStairsBlock extends $WaterloggedCopycatWrappedBlock<($WrappedStairsBlock)> implements $ICustomCTBlocking, $IStateType {
-static "stairs": $WrappedStairsBlock
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "wasExploded"(pLevel: $Level$Type, pPos: $BlockPos$Type, pExplosion: $Explosion$Type): void
-public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
-public "animateTick"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
-public "isRandomlyTicking"(pState: $BlockState$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "destroy"(pLevel: $LevelAccessor$Type, pPos: $BlockPos$Type, pState: $BlockState$Type): void
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "onPlace"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pOldState: $BlockState$Type, pIsMoving: boolean): void
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "useShapeForLightOcclusion"(pState: $BlockState$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "randomTick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "attack"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type): void
-public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatStairsBlock$Type = ($CopycatStairsBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatStairsBlock_ = $CopycatStairsBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/slice/$CopycatSliceBlock" {
-import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
-import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$ISpecialBlockItemRequirement, $ISpecialBlockItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockItemRequirement"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatSliceBlock extends $CTWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
-static readonly "HALF": $EnumProperty<($Half)>
-static readonly "FACING": $DirectionProperty
-static readonly "LAYERS": $IntegerProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
-public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatSliceBlock$Type = ($CopycatSliceBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatSliceBlock_ = $CopycatSliceBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$StateType" {
-import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
-
-export class $StateType extends $Enum<($StateType)> {
-static readonly "SINGULAR": $StateType
-static readonly "MULTI": $StateType
-
-
-public static "values"(): ($StateType)[]
-public static "valueOf"(name: string): $StateType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StateType$Type = (("singular") | ("multi")) | ($StateType);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $StateType_ = $StateType$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$CTCopycatBlockEntity" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $CTCopycatBlockEntity {
-
- "isCTEnabled"(): boolean
- "setCTEnabled"(arg0: boolean): void
- "callRedraw"(): void
-}
-
-export namespace $CTCopycatBlockEntity {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CTCopycatBlockEntity$Type = ($CTCopycatBlockEntity);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CTCopycatBlockEntity_ = $CTCopycatBlockEntity$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/ladder/$WrappedLadderBlock" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$LadderBlock, $LadderBlock$Type} from "packages/net/minecraft/world/level/block/$LadderBlock"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-
-export class $WrappedLadderBlock extends $LadderBlock {
-static readonly "FACING": $DirectionProperty
-static readonly "WATERLOGGED": $BooleanProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedLadderBlock$Type = ($WrappedLadderBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedLadderBlock_ = $WrappedLadderBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/wall/$CopycatWallBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$WallSide, $WallSide$Type} from "packages/net/minecraft/world/level/block/state/properties/$WallSide"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$WrappedWallBlock, $WrappedWallBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/wall/$WrappedWallBlock"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$WaterloggedCopycatWrappedBlock, $WaterloggedCopycatWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$WaterloggedCopycatWrappedBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatWallBlock extends $WaterloggedCopycatWrappedBlock<($WrappedWallBlock)> implements $IStateType {
-static "wall": $WrappedWallBlock
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-public static "byDirection"(direction: $Direction$Type): $EnumProperty<($WallSide)>
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "propagatesSkylightDown"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatWallBlock$Type = ($CopycatWallBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatWallBlock_ = $CopycatWallBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/fence_gate/$WrappedFenceGateBlock" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$WoodType, $WoodType$Type} from "packages/net/minecraft/world/level/block/state/properties/$WoodType"
-import {$FenceGateBlock, $FenceGateBlock$Type} from "packages/net/minecraft/world/level/block/$FenceGateBlock"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-
-export class $WrappedFenceGateBlock extends $FenceGateBlock {
-static readonly "OPEN": $BooleanProperty
-static readonly "POWERED": $BooleanProperty
-static readonly "IN_WALL": $BooleanProperty
-static readonly "FACING": $DirectionProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type, pType: $WoodType$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedFenceGateBlock$Type = ($WrappedFenceGateBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedFenceGateBlock_ = $WrappedFenceGateBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/$WaterloggedCopycatWrappedBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
-
-export class $WaterloggedCopycatWrappedBlock<W extends $Block> extends $CTWaterloggedCopycatBlock implements $ICopycatWithWrappedBlock<(W)> {
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
-public "copyState"(arg0: $BlockState$Type, arg1: $BlockState$Type, arg2: boolean): $BlockState
-public "use"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
-public "getWrappedBlock"(): W
-public static "unwrap"<B extends $Block>(block: W): $Block
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "wrappedBlock"(): W
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WaterloggedCopycatWrappedBlock$Type<W> = ($WaterloggedCopycatWrappedBlock<(W)>);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WaterloggedCopycatWrappedBlock_<W> = $WaterloggedCopycatWrappedBlock$Type<(W)>;
-}}
-declare module "packages/com/copycatsplus/copycats/mixin/copycat/$VoxelShapeAccessor" {
-import {$DiscreteVoxelShape, $DiscreteVoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$DiscreteVoxelShape"
-import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
-import {$DoubleList, $DoubleList$Type} from "packages/it/unimi/dsi/fastutil/doubles/$DoubleList"
-
-export interface $VoxelShapeAccessor {
-
- "copycats$callGetCoords"(arg0: $Direction$Axis$Type): $DoubleList
- "copycats$setShape"(arg0: $DiscreteVoxelShape$Type): void
- "copycats$getShape"(): $DiscreteVoxelShape
-}
-
-export namespace $VoxelShapeAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VoxelShapeAccessor$Type = ($VoxelShapeAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $VoxelShapeAccessor_ = $VoxelShapeAccessor$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_slope/$CopycatVerticalSlopeBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatVerticalSlopeBlock extends $CTWaterloggedCopycatBlock implements $IStateType, $ICustomCTBlocking {
-static readonly "FACING": $DirectionProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(pProperties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
-public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatVerticalSlopeBlock$Type = ($CopycatVerticalSlopeBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatVerticalSlopeBlock_ = $CopycatVerticalSlopeBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/fence/$WrappedFenceBlock" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
 import {$FenceBlock, $FenceBlock$Type} from "packages/net/minecraft/world/level/block/$FenceBlock"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 
-export class $WrappedFenceBlock extends $FenceBlock {
+export class $CopycatFenceBlock extends $FenceBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
 static readonly "NORTH": $BooleanProperty
 static readonly "EAST": $BooleanProperty
 static readonly "SOUTH": $BooleanProperty
@@ -3926,31 +2636,1206 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public static "byDirection"(direction: $Direction$Type): $BooleanProperty
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "collisionExtendsVertically"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, collidingEntity: $Entity$Type): boolean
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $WrappedFenceBlock$Type = ($WrappedFenceBlock);
+export type $CopycatFenceBlock$Type = ($CopycatFenceBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $WrappedFenceBlock_ = $WrappedFenceBlock$Type;
+export type $CopycatFenceBlock_ = $CopycatFenceBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_step/$CopycatVerticalStepBlock" {
+declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_stairs/$CopycatVerticalStairBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$CCBlockStateProperties$VerticalStairShape, $CCBlockStateProperties$VerticalStairShape$Type} from "packages/com/copycatsplus/copycats/$CCBlockStateProperties$VerticalStairShape"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$CopycatStairsBlock$FaceShape, $CopycatStairsBlock$FaceShape$Type} from "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock$FaceShape"
+import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$CCBlockStateProperties$Side, $CCBlockStateProperties$Side$Type} from "packages/com/copycatsplus/copycats/$CCBlockStateProperties$Side"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $CopycatVerticalStairBlock extends $CCWaterloggedCopycatBlock implements $ICustomCTBlocking, $IStateType {
+static readonly "FACING": $DirectionProperty
+static readonly "SIDE": $EnumProperty<($CCBlockStateProperties$Side)>
+static readonly "SHAPE": $EnumProperty<($CCBlockStateProperties$VerticalStairShape)>
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(pProperties: $BlockBehaviour$Properties$Type)
+
+public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "updateShape"(state: $BlockState$Type, direction: $Direction$Type, neighborState: $BlockState$Type, level: $LevelAccessor$Type, pos: $BlockPos$Type, neighborPos: $BlockPos$Type): $BlockState
+public "useShapeForLightOcclusion"(pState: $BlockState$Type): boolean
+public "rotate"(state: $BlockState$Type, rotation: $Rotation$Type): $BlockState
+public "mirror"(state: $BlockState$Type, mirror: $Mirror$Type): $BlockState
+public "getShape"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, context: $CollisionContext$Type): $VoxelShape
+public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
+public static "isStairs"(state: $BlockState$Type): boolean
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatVerticalStairBlock$Type = ($CopycatVerticalStairBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatVerticalStairBlock_ = $CopycatVerticalStairBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock" {
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$CopycatStairsBlock$FaceShape, $CopycatStairsBlock$FaceShape$Type} from "packages/com/copycatsplus/copycats/content/copycat/stairs/$CopycatStairsBlock$FaceShape"
+import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$StairBlock, $StairBlock$Type} from "packages/net/minecraft/world/level/block/$StairBlock"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$StairsShape, $StairsShape$Type} from "packages/net/minecraft/world/level/block/state/properties/$StairsShape"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+
+export class $CopycatStairsBlock extends $StairBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $ICustomCTBlocking, $IStateType {
+static readonly "FACING": $DirectionProperty
+static readonly "HALF": $EnumProperty<($Half)>
+static readonly "SHAPE": $EnumProperty<($StairsShape)>
+static readonly "WATERLOGGED": $BooleanProperty
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public static "getFaceShape"(state: $BlockState$Type, face: $Direction$Type): $CopycatStairsBlock$FaceShape
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatStairsBlock$Type = ($CopycatStairsBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatStairsBlock_ = $CopycatStairsBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlock" {
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $CCCopycatBlock extends $Block implements $IBE<($CCCopycatBlockEntity)>, $ICopycatBlock {
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(pProperties: $BlockBehaviour$Properties$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public static "getMaterial"(level: $BlockGetter$Type, pos: $BlockPos$Type): $BlockState
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "stateType"(): $StateType
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CCCopycatBlock$Type = ($CCCopycatBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CCCopycatBlock_ = $CCCopycatBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$WaterloggedMultiStateCopycatBlock" {
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$SoundEvent"
+import {$MultiStateCopycatBlock, $MultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MultiStateCopycatBlock"
+import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$ProperWaterloggedBlock, $ProperWaterloggedBlock$Type} from "packages/com/simibubi/create/foundation/block/$ProperWaterloggedBlock"
+import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $WaterloggedMultiStateCopycatBlock extends $MultiStateCopycatBlock implements $ProperWaterloggedBlock {
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type)
+
+public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "getFluidState"(pState: $BlockState$Type): $FluidState
+public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public "withWater"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
+public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
+public "fluidState"(arg0: $BlockState$Type): $FluidState
+public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
+get "pickupSound"(): $Optional<($SoundEvent)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $WaterloggedMultiStateCopycatBlock$Type = ($WaterloggedMultiStateCopycatBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $WaterloggedMultiStateCopycatBlock_ = $WaterloggedMultiStateCopycatBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/slice/$CopycatSliceBlock" {
+import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
+import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
+import {$ISpecialBlockItemRequirement, $ISpecialBlockItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockItemRequirement"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $CopycatSliceBlock extends $CCWaterloggedCopycatBlock implements $ISpecialBlockItemRequirement, $IStateType {
+static readonly "HALF": $EnumProperty<($Half)>
+static readonly "FACING": $DirectionProperty
+static readonly "LAYERS": $IntegerProperty
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(pProperties: $BlockBehaviour$Properties$Type)
+
+public "getRequiredItems"(state: $BlockState$Type, blockEntity: $BlockEntity$Type): $ItemRequirement
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
+public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
+public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
+public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
+public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatSliceBlock$Type = ($CopycatSliceBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatSliceBlock_ = $CopycatSliceBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/button/$CopycatButtonBlock" {
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$ButtonBlock, $ButtonBlock$Type} from "packages/net/minecraft/world/level/block/$ButtonBlock"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$AttachFace, $AttachFace$Type} from "packages/net/minecraft/world/level/block/state/properties/$AttachFace"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
+
+export class $CopycatButtonBlock extends $ButtonBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
+static readonly "POWERED": $BooleanProperty
+static readonly "FACE": $EnumProperty<($AttachFace)>
+static readonly "FACING": $DirectionProperty
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type, type: $BlockSetType$Type, ticksToStayPressed: integer, arrowsCanPress: boolean)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatButtonBlock$Type = ($CopycatButtonBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatButtonBlock_ = $CopycatButtonBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock" {
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$ITransformableBlock, $ITransformableBlock$Type} from "packages/com/simibubi/create/content/contraptions/$ITransformableBlock"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export interface $ICopycatBlock extends $IWrenchable, $IStateType, $ITransformableBlock {
+
+ "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+ "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+ "m_6402_"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+ "m_5707_"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+ "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+ "m_6810_"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+ "m_6227_"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+ "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+ "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+ "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+ "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+ "isAcceptedRegardless"(material: $BlockState$Type): boolean
+ "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+ "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+ "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+ "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+ "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+ "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+ "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+ "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+ "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+ "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+ "stateType"(): $StateType
+}
+
+export namespace $ICopycatBlock {
+function getMaterial(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+function hidesNeighborFace(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+function getAppearance(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+function wrappedColor(): $BlockColor
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ICopycatBlock$Type = ($ICopycatBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $ICopycatBlock_ = $ICopycatBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/wall/$CopycatWallBlock" {
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$WallSide, $WallSide$Type} from "packages/net/minecraft/world/level/block/state/properties/$WallSide"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$WallBlock, $WallBlock$Type} from "packages/net/minecraft/world/level/block/$WallBlock"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $CopycatWallBlock extends $WallBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
+static readonly "UP": $BooleanProperty
+static readonly "EAST_WALL": $EnumProperty<($WallSide)>
+static readonly "NORTH_WALL": $EnumProperty<($WallSide)>
+static readonly "SOUTH_WALL": $EnumProperty<($WallSide)>
+static readonly "WEST_WALL": $EnumProperty<($WallSide)>
+static readonly "WATERLOGGED": $BooleanProperty
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public static "byDirection"(direction: $Direction$Type): $EnumProperty<($WallSide)>
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "collisionExtendsVertically"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, collidingEntity: $Entity$Type): boolean
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatWallBlock$Type = ($CopycatWallBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatWallBlock_ = $CopycatWallBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
+import {$ModelData, $ModelData$Type} from "packages/net/minecraftforge/client/model/data/$ModelData"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockEntityBehaviour, $BlockEntityBehaviour$Type} from "packages/com/simibubi/create/foundation/blockEntity/behaviour/$BlockEntityBehaviour"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$SmartBlockEntity, $SmartBlockEntity$Type} from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
+import {$List, $List$Type} from "packages/java/util/$List"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$HolderGetter, $HolderGetter$Type} from "packages/net/minecraft/core/$HolderGetter"
+
+export class $CCCopycatBlockEntity extends $SmartBlockEntity implements $ICopycatBlockEntity {
+ "blockState": $BlockState
+
+constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
+
+public "write"(tag: $CompoundTag$Type, clientPacket: boolean): void
+public "read"(tag: $CompoundTag$Type, clientPacket: boolean): void
+public "getMaterial"(): $BlockState
+public "notifyUpdate"(): void
+public "blockHolderGetter"(): $HolderGetter<($Block)>
+public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
+public "writeSafe"(tag: $CompoundTag$Type): void
+public "setMaterialInternal"(material: $BlockState$Type): void
+public "setConsumedItemInternal"(consumedItem: $ItemStack$Type): void
+public "setCTEnabledInternal"(value: boolean): void
+public "getLevel"(): $Level
+public "setLevel"(level: $Level$Type): void
+public "setBlockState"(blockState: $BlockState$Type): void
+public "getModelData"(): $ModelData
+public "isCTEnabled"(): boolean
+public "getConsumedItem"(): $ItemStack
+public "getBlockState"(): $BlockState
+public "getBlockPos"(): $BlockPos
+public "transform"(transform: $StructureTransform$Type): void
+public "init"(): void
+public static "write"(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+public static "write"(tag: $CompoundTag$Type, stack: $ItemStack$Type, material: $BlockState$Type, enableCT: boolean): void
+public static "read"(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+public "getBlock"(): $ICopycatBlock
+public "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
+public static "writeSafe"(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type): void
+public "setConsumedItem"(stack: $ItemStack$Type): void
+public "hasCustomMaterial"(): boolean
+public "cycleMaterial"(): boolean
+public "setMaterial"(blockState: $BlockState$Type): void
+public "setCTEnabled"(value: boolean): void
+get "material"(): $BlockState
+set "materialInternal"(value: $BlockState$Type)
+set "consumedItemInternal"(value: $ItemStack$Type)
+set "cTEnabledInternal"(value: boolean)
+get "level"(): $Level
+set "level"(value: $Level$Type)
+set "blockState"(value: $BlockState$Type)
+get "modelData"(): $ModelData
+get "cTEnabled"(): boolean
+get "consumedItem"(): $ItemStack
+get "blockState"(): $BlockState
+get "blockPos"(): $BlockPos
+get "block"(): $ICopycatBlock
+set "consumedItem"(value: $ItemStack$Type)
+set "material"(value: $BlockState$Type)
+set "cTEnabled"(value: boolean)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CCCopycatBlockEntity$Type = ($CCCopycatBlockEntity);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CCCopycatBlockEntity_ = $CCCopycatBlockEntity$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity" {
+import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
+import {$MaterialItemStorage, $MaterialItemStorage$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$MaterialItemStorage"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
+import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$HolderGetter, $HolderGetter$Type} from "packages/net/minecraft/core/$HolderGetter"
+
+export interface $IMultiStateCopycatBlockEntity extends $ICopycatBlockEntity {
+
+ "transform"(transform: $StructureTransform$Type): void
+ "init"(): void
+ "getBlock"(): $IMultiStateCopycatBlock
+ "getMaterial"(): $BlockState
+ "setMaterialItemStorageInternal"(arg0: $MaterialItemStorage$Type): void
+ "setMaterialInternal"(material: $BlockState$Type): void
+ "setConsumedItemInternal"(consumedItem: $ItemStack$Type): void
+ "setCTEnabledInternal"(value: boolean): void
+ "getMaterialItemStorage"(): $MaterialItemStorage
+ "setConsumedItem"(property: string, itemStack: $ItemStack$Type): void
+ "hasCustomMaterial"(): boolean
+ "setEnableCT"(property: string, value: boolean): void
+ "cycleMaterial"(property: string): boolean
+ "setMaterial"(property: string, blockState: $BlockState$Type): void
+ "isCTEnabled"(): boolean
+ "getConsumedItem"(): $ItemStack
+ "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
+ "notifyUpdate"(): void
+ "blockHolderGetter"(): $HolderGetter<($Block)>
+ "m_58904_"(): $Level
+ "m_142339_"(arg0: $Level$Type): void
+ "m_155250_"(arg0: $BlockState$Type): void
+ "setConsumedItem"(stack: $ItemStack$Type): void
+ "cycleMaterial"(): boolean
+ "setMaterial"(blockState: $BlockState$Type): void
+ "setCTEnabled"(value: boolean): void
+ "m_58900_"(): $BlockState
+ "m_58899_"(): $BlockPos
+ "writeSafe"(arg0: $CompoundTag$Type): void
+}
+
+export namespace $IMultiStateCopycatBlockEntity {
+function write(self: $IMultiStateCopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+function read(self: $IMultiStateCopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+function writeSafe(self: $IMultiStateCopycatBlockEntity$Type, tag: $CompoundTag$Type): void
+function write(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+function write(tag: $CompoundTag$Type, stack: $ItemStack$Type, material: $BlockState$Type, enableCT: boolean): void
+function read(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+function writeSafe(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IMultiStateCopycatBlockEntity$Type = ($IMultiStateCopycatBlockEntity);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IMultiStateCopycatBlockEntity_ = $IMultiStateCopycatBlockEntity$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType" {
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+
+/**
+ * 
+ * @deprecated
+ */
+export interface $IStateType {
+
+ "stateType"(): $StateType
+}
+
+export namespace $IStateType {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IStateType$Type = ($IStateType);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $IStateType_ = $IStateType$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/mixin/copycat/$VoxelShapeAccessor" {
+import {$DiscreteVoxelShape, $DiscreteVoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$DiscreteVoxelShape"
+import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
+import {$DoubleList, $DoubleList$Type} from "packages/it/unimi/dsi/fastutil/doubles/$DoubleList"
+
+export interface $VoxelShapeAccessor {
+
+ "copycats$callGetCoords"(arg0: $Direction$Axis$Type): $DoubleList
+ "copycats$getShape"(): $DiscreteVoxelShape
+ "copycats$setShape"(arg0: $DiscreteVoxelShape$Type): void
+}
+
+export namespace $VoxelShapeAccessor {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VoxelShapeAccessor$Type = ($VoxelShapeAccessor);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $VoxelShapeAccessor_ = $VoxelShapeAccessor$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_slope/$CopycatVerticalSlopeBlock" {
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
+import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
@@ -3958,20 +3843,18 @@ import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraf
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$CTWaterloggedCopycatBlock, $CTWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$CTWaterloggedCopycatBlock"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatVerticalStepBlock extends $CTWaterloggedCopycatBlock implements $IStateType {
+export class $CopycatVerticalSlopeBlock extends $CCWaterloggedCopycatBlock implements $IStateType, $ICustomCTBlocking {
 static readonly "FACING": $DirectionProperty
 /**
  * 
@@ -3997,384 +3880,185 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
+public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
 public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatVerticalStepBlock$Type = ($CopycatVerticalStepBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatVerticalStepBlock_ = $CopycatVerticalStepBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/fence_gate/$CopycatFenceGateBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$WrappedFenceGateBlock, $WrappedFenceGateBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/fence_gate/$WrappedFenceGateBlock"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$WaterloggedCopycatWrappedBlock, $WaterloggedCopycatWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$WaterloggedCopycatWrappedBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatFenceGateBlock extends $WaterloggedCopycatWrappedBlock<($WrappedFenceGateBlock)> implements $IStateType {
-static "fenceGate": $WrappedFenceGateBlock
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
 public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public "neighborChanged"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pBlock: $Block$Type, pFromPos: $BlockPos$Type, pIsMoving: boolean): void
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getCollisionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "getBlockSupportShape"(pState: $BlockState$Type, pReader: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
-public "getOcclusionShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): $VoxelShape
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
-public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CopycatFenceGateBlock$Type = ($CopycatFenceGateBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $CopycatFenceGateBlock_ = $CopycatFenceGateBlock$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity" {
-import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
-import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
-import {$BlockEntityBehaviour, $BlockEntityBehaviour$Type} from "packages/com/simibubi/create/foundation/blockEntity/behaviour/$BlockEntityBehaviour"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$ISpecialBlockEntityItemRequirement, $ISpecialBlockEntityItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockEntityItemRequirement"
-import {$ITransformableBlockEntity, $ITransformableBlockEntity$Type} from "packages/com/simibubi/create/content/contraptions/$ITransformableBlockEntity"
-import {$CopycatBlockEntity, $CopycatBlockEntity$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlockEntity"
-import {$IFunctionalCopycatBlockEntity, $IFunctionalCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlockEntity"
-import {$MaterialItemStorage, $MaterialItemStorage$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MaterialItemStorage"
-import {$SmartBlockEntity, $SmartBlockEntity$Type} from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
-import {$List, $List$Type} from "packages/java/util/$List"
-import {$IPartialSafeNBT, $IPartialSafeNBT$Type} from "packages/com/simibubi/create/foundation/utility/$IPartialSafeNBT"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-
-export class $MultiStateCopycatBlockEntity extends $SmartBlockEntity implements $IFunctionalCopycatBlockEntity, $ISpecialBlockEntityItemRequirement, $ITransformableBlockEntity, $IPartialSafeNBT {
- "blockState": $BlockState
-
-constructor(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type)
-
-public "migrateData"(copycatBlockEntity: $CopycatBlockEntity$Type): void
-public "getMaterialItemStorage"(): $MaterialItemStorage
-public "getCopycatBlockEntity"(): $CopycatBlockEntity
-public "addBehaviours"(behaviours: $List$Type<($BlockEntityBehaviour$Type)>): void
-public "writeSafe"(tag: $CompoundTag$Type): void
-public "setEnableCT"(property: string, value: boolean): void
-public "updateTransform"(): void
-public "setMaterial"(property: string, blockState: $BlockState$Type): void
-public "cycleMaterial"(property: string): boolean
-public "setConsumedItem"(property: string, itemStack: $ItemStack$Type): void
-public "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
-public "getMaterial"(): $BlockState
-public "redraw"(): void
-public "setLevel"(level: $Level$Type): void
-public "requestModelUpdate"(): void
-public "transform"(transform: $StructureTransform$Type): void
-public "write"(tag: $CompoundTag$Type, clientPacket: boolean): void
-public "read"(tag: $CompoundTag$Type, clientPacket: boolean): void
-public static "create"(type: $BlockEntityType$Type<(any)>, pos: $BlockPos$Type, state: $BlockState$Type): $MultiStateCopycatBlockEntity
-public "getBlockPos"(): $BlockPos
-public "setMaterial"(material: $BlockState$Type): void
-public "cycleMaterial"(): boolean
-public "setConsumedItem"(consumedItem: $ItemStack$Type): void
-public "hasCustomMaterial"(): boolean
-public "isCTEnabled"(): boolean
-public "setCTEnabled"(value: boolean): void
-public "callRedraw"(): void
-public "getConsumedItem"(): $ItemStack
-public "getLevel"(): $Level
-public "getBlockState"(): $BlockState
-get "materialItemStorage"(): $MaterialItemStorage
-get "copycatBlockEntity"(): $CopycatBlockEntity
-get "material"(): $BlockState
-set "level"(value: $Level$Type)
-get "blockPos"(): $BlockPos
-set "material"(value: $BlockState$Type)
-set "consumedItem"(value: $ItemStack$Type)
-get "cTEnabled"(): boolean
-set "cTEnabled"(value: boolean)
-get "consumedItem"(): $ItemStack
-get "level"(): $Level
-get "blockState"(): $BlockState
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MultiStateCopycatBlockEntity$Type = ($MultiStateCopycatBlockEntity);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $MultiStateCopycatBlockEntity_ = $MultiStateCopycatBlockEntity$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/trapdoor/$CopycatTrapdoorBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$WrappedTrapdoorBlock, $WrappedTrapdoorBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/trapdoor/$WrappedTrapdoorBlock"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
-import {$WaterloggedCopycatWrappedBlock, $WaterloggedCopycatWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$WaterloggedCopycatWrappedBlock"
-import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $CopycatTrapdoorBlock extends $WaterloggedCopycatWrappedBlock<($WrappedTrapdoorBlock)> implements $IStateType {
-static "trapdoor": $WrappedTrapdoorBlock
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
 public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "copyState"(from: $BlockState$Type, to: $BlockState$Type, includeWaterlogged: boolean): $BlockState
-public "neighborChanged"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pBlock: $Block$Type, pFromPos: $BlockPos$Type, pIsMoving: boolean): void
-public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
-public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
-public "stateType"(): $StateType
-public static "unwrap"<B extends $Block>(block: B): $Block
-public "getBlockEntityType"(): $BlockEntityType<(any)>
-public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "getTicker"<S extends $BlockEntity>(arg0: $Level$Type, arg1: $BlockState$Type, arg2: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
-public "getBlockEntityClass"(): $Class<(T)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
-get "blockEntityType"(): $BlockEntityType<(any)>
-get "blockEntityClass"(): $Class<(T)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CopycatTrapdoorBlock$Type = ($CopycatTrapdoorBlock);
+export type $CopycatVerticalSlopeBlock$Type = ($CopycatVerticalSlopeBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $CopycatTrapdoorBlock_ = $CopycatTrapdoorBlock$Type;
+export type $CopycatVerticalSlopeBlock_ = $CopycatVerticalSlopeBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlock" {
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock" {
 import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$ScaledBlockAndTintGetter, $ScaledBlockAndTintGetter$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/model/$ScaledBlockAndTintGetter"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$IWrenchable, $IWrenchable$Type} from "packages/com/simibubi/create/content/equipment/wrench/$IWrenchable"
-import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
-import {$IFunctionalCopycatBlockEntity, $IFunctionalCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/functional/$IFunctionalCopycatBlockEntity"
-import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
-import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
-import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
 
-export interface $IFunctionalCopycatBlock extends $IWrenchable {
+export interface $IMultiStateCopycatBlock extends $ICopycatBlock, $IStateType {
 
- "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
- "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
- "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
- "isAcceptedRegardless"(material: $BlockState$Type): boolean
- "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
- "m_6402_"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
- "m_5707_"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
- "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $IFunctionalCopycatBlockEntity
- "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
- "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
+ "getColorIndex"(arg0: string): integer
  "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+ "m_6402_"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+ "m_5707_"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+ "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+ "canOcclude"(property: string, level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+ "m_6810_"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+ "m_6227_"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+ "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+ "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+ "isIgnoredConnectivitySide"(arg0: string, arg1: $BlockAndTintGetter$Type, arg2: $BlockState$Type, arg3: $Direction$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): boolean
+ "getAcceptedBlockState"(property: string, pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+ "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+ "canConnectTexturesToward"(arg0: string, arg1: $BlockAndTintGetter$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: $BlockState$Type): boolean
+ "getVectorFromProperty"(arg0: $BlockState$Type, arg1: string): $Vec3i
+ "getPropertyFromRender"(renderingProperty: string, state: $BlockState$Type, level: $ScaledBlockAndTintGetter$Type, vector: $Vec3i$Type, blockPos: $BlockPos$Type): string
+ "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $IMultiStateCopycatBlockEntity
+ "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hit: $BlockHitResult$Type, targetingSolid: boolean): string
+ "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hitVec: $Vec3$Type, face: $Direction$Type, targetingSolid: boolean): string
+ "getPropertyFromInteraction"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $Vec3i$Type, arg3: $BlockPos$Type, arg4: $Direction$Type, arg5: $Vec3$Type): string
+ "defaultProperty"(): string
+ "vectorScale"(arg0: $BlockState$Type): $Vec3i
+ "storageProperties"(): $Set<(string)>
+ "toggleCT"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+ "stateType"(): $StateType
+ "partExists"(arg0: $BlockState$Type, arg1: string): boolean
+ "fillEmptyParts"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, material: $BlockState$Type): void
+ "transformStorage"(arg0: $BlockState$Type, arg1: $IMultiStateCopycatBlockEntity$Type, arg2: $StructureTransform$Type): void
+ "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
  "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
- "m_6810_"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
- "m_6227_"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
- "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+ "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+ "isAcceptedRegardless"(material: $BlockState$Type): boolean
+ "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+ "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+ "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
  "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
- "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
  "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+ "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+ "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
 }
 
-export namespace $IFunctionalCopycatBlock {
-function getMaterial(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+export namespace $IMultiStateCopycatBlock {
+function getMaterial(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+function hidesNeighborFace(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+function getAppearance(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 function wrappedColor(): $BlockColor
+function blockShapeOverride(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+function getMaterial(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+function getAppearance(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $IFunctionalCopycatBlock$Type = ($IFunctionalCopycatBlock);
+export type $IMultiStateCopycatBlock$Type = ($IMultiStateCopycatBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $IFunctionalCopycatBlock_ = $IFunctionalCopycatBlock$Type;
+export type $IMultiStateCopycatBlock_ = $IMultiStateCopycatBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$CopycatLightWeightedPressurePlate" {
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$StateType" {
+import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
+
+/**
+ * 
+ * @deprecated
+ */
+export class $StateType extends $Enum<($StateType)> {
+static readonly "SINGULAR": $StateType
+static readonly "MULTI": $StateType
+
+
+public static "values"(): ($StateType)[]
+public static "valueOf"(name: string): $StateType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StateType$Type = (("singular") | ("multi")) | ($StateType);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $StateType_ = $StateType$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/vertical_step/$CopycatVerticalStepBlock" {
 import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
 import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$StateType"
 import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
-import {$CopycatBlock, $CopycatBlock$Type} from "packages/com/simibubi/create/content/decoration/copycat/$CopycatBlock"
-import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$CCWaterloggedCopycatBlock, $CCWaterloggedCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$IStateType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
-import {$WrappedPressurePlate$LightWeighted, $WrappedPressurePlate$LightWeighted$Type} from "packages/com/copycatsplus/copycats/content/copycat/pressure_plate/$WrappedPressurePlate$LightWeighted"
-import {$ICopycatWithWrappedBlock, $ICopycatWithWrappedBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICopycatWithWrappedBlock"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
-export class $CopycatLightWeightedPressurePlate extends $CopycatBlock implements $ICopycatWithWrappedBlock<($WrappedPressurePlate$LightWeighted)>, $IStateType {
-static "pressurePlate": $WrappedPressurePlate$LightWeighted
+export class $CopycatVerticalStepBlock extends $CCWaterloggedCopycatBlock implements $IStateType {
+static readonly "FACING": $DirectionProperty
 /**
  * 
  * @deprecated
@@ -4399,82 +4083,85 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(pProperties: $BlockBehaviour$Properties$Type)
 
-public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
-public "isPossibleToRespawnInThis"(pState: $BlockState$Type): boolean
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
-public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
-public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
-public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "isSignalSource"(pState: $BlockState$Type): boolean
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "rotate"(pState: $BlockState$Type, pRot: $Rotation$Type): $BlockState
 public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
-public "canSurvive"(pState: $BlockState$Type, pLevel: $LevelReader$Type, pPos: $BlockPos$Type): boolean
-public "tick"(pState: $BlockState$Type, pLevel: $ServerLevel$Type, pPos: $BlockPos$Type, pRandom: $RandomSource$Type): void
-public "getDirectSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "getSignal"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pDirection: $Direction$Type): integer
-public "entityInside"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type): void
-public static "unwrap"<B extends $Block>(block: $WrappedPressurePlate$LightWeighted$Type): $Block
-public "stateType"(): $StateType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $CopycatLightWeightedPressurePlate$Type = ($CopycatLightWeightedPressurePlate);
+export type $CopycatVerticalStepBlock$Type = ($CopycatVerticalStepBlock);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $CopycatLightWeightedPressurePlate_ = $CopycatLightWeightedPressurePlate$Type;
+export type $CopycatVerticalStepBlock_ = $CopycatVerticalStepBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/board/$CopycatBoardBlock" {
-import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+declare module "packages/com/copycatsplus/copycats/content/copycat/fence_gate/$CopycatFenceGateBlock" {
 import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
-import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/$ICustomCTBlocking"
-import {$BlockStateTransform, $BlockStateTransform$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$BlockStateTransform"
-import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
 import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
-import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
-import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$FenceGateBlock, $FenceGateBlock$Type} from "packages/net/minecraft/world/level/block/$FenceGateBlock"
 import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
 import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
 import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$MultiStateCopycatBlockEntity, $MultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MultiStateCopycatBlockEntity"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
 import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
-import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
-import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$WaterloggedMultiStateCopycatBlock"
-import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
-import {$ScaledBlockAndTintGetter, $ScaledBlockAndTintGetter$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$ScaledBlockAndTintGetter"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
 import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
 
-export class $CopycatBoardBlock extends $WaterloggedMultiStateCopycatBlock implements $ICustomCTBlocking {
-static "UP": $BooleanProperty
-static "DOWN": $BooleanProperty
-static "NORTH": $BooleanProperty
-static "SOUTH": $BooleanProperty
-static "EAST": $BooleanProperty
-static "WEST": $BooleanProperty
-static readonly "PROPERTY_BY_DIRECTION": $Map<($Direction), ($BooleanProperty)>
-static readonly "TRANSFORM": $EnumProperty<($BlockStateTransform)>
+export class $CopycatFenceGateBlock extends $FenceGateBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
+static readonly "OPEN": $BooleanProperty
+static readonly "POWERED": $BooleanProperty
+static readonly "IN_WALL": $BooleanProperty
+static readonly "FACING": $DirectionProperty
 /**
  * 
  * @deprecated
@@ -4499,34 +4186,562 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(properties: $BlockBehaviour$Properties$Type)
 
-public "mirror"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, mirror: $Mirror$Type): void
-public static "byDirection"(direction: $Direction$Type): $BooleanProperty
-public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
-public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
-public "shouldFaceAlwaysRender"(state: $BlockState$Type, face: $Direction$Type): boolean
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "collisionExtendsVertically"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, collidingEntity: $Entity$Type): boolean
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatFenceGateBlock$Type = ($CopycatFenceGateBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatFenceGateBlock_ = $CopycatFenceGateBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/trapdoor/$CopycatTrapdoorBlock" {
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$IBE, $IBE$Type} from "packages/com/simibubi/create/foundation/block/$IBE"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$DirectionProperty, $DirectionProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$Half, $Half$Type} from "packages/net/minecraft/world/level/block/state/properties/$Half"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$GameEventListener, $GameEventListener$Type} from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$TrapDoorBlock, $TrapDoorBlock$Type} from "packages/net/minecraft/world/level/block/$TrapDoorBlock"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$CCCopycatBlockEntity, $CCCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$Function, $Function$Type} from "packages/java/util/function/$Function"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$IStateType, $IStateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$IStateType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$BlockEntityTicker, $BlockEntityTicker$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import {$BlockSetType, $BlockSetType$Type} from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
+
+export class $CopycatTrapdoorBlock extends $TrapDoorBlock implements $ICopycatBlock, $IBE<($CCCopycatBlockEntity)>, $IStateType {
+static readonly "OPEN": $BooleanProperty
+static readonly "HALF": $EnumProperty<($Half)>
+static readonly "POWERED": $BooleanProperty
+static readonly "WATERLOGGED": $BooleanProperty
+static readonly "FACING": $DirectionProperty
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type, type: $BlockSetType$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getTicker"<S extends $BlockEntity>(level: $Level$Type, state: $BlockState$Type, type: $BlockEntityType$Type<(S)>): $BlockEntityTicker<(S)>
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getBlockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "setPlacedBy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlacer: $LivingEntity$Type, pStack: $ItemStack$Type): void
+public "playerWillDestroy"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pNewState: $BlockState$Type, pIsMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "getBlockEntity"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $CCCopycatBlockEntity
+public "getBlockEntityOptional"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type): $Optional<($CCCopycatBlockEntity)>
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "withBlockEntityDo"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Consumer$Type<($CCCopycatBlockEntity$Type)>): void
+public "onBlockEntityUse"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $Function$Type<($CCCopycatBlockEntity$Type), ($InteractionResult$Type)>): $InteractionResult
+public "newBlockEntity"(arg0: $BlockPos$Type, arg1: $BlockState$Type): $BlockEntity
+public "stateType"(): $StateType
+public "playRotateSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getRotatedBlockState"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+public "updateAfterWrenched"(arg0: $BlockState$Type, arg1: $UseOnContext$Type): $BlockState
+public "playRemoveSound"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "getListener"<T extends $BlockEntity>(arg0: $ServerLevel$Type, arg1: T): $GameEventListener
+get "blockEntityClass"(): $Class<($CCCopycatBlockEntity)>
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatTrapdoorBlock$Type = ($CopycatTrapdoorBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatTrapdoorBlock_ = $CopycatTrapdoorBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/cogwheel/$CopycatCogWheelBlock" {
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$PushReaction, $PushReaction$Type} from "packages/net/minecraft/world/level/material/$PushReaction"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$IForgeBlock, $IForgeBlock$Type} from "packages/net/minecraftforge/common/extensions/$IForgeBlock"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$ScaledBlockAndTintGetter, $ScaledBlockAndTintGetter$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/model/$ScaledBlockAndTintGetter"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$CogWheelBlock, $CogWheelBlock$Type} from "packages/com/simibubi/create/content/kinetics/simpleRelays/$CogWheelBlock"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
+
+export class $CopycatCogWheelBlock extends $CogWheelBlock implements $IMultiStateCopycatBlock, $IForgeBlock {
+static readonly "AXIS": $EnumProperty<($Direction$Axis)>
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "getColorIndex"(property: string): integer
+public "fallOn"(pLevel: $Level$Type, state: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public static "small"(properties: $BlockBehaviour$Properties$Type): $CopycatCogWheelBlock
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "getAppearance"(state: $BlockState$Type, renderView: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, sourceState: $BlockState$Type, sourcePos: $BlockPos$Type): $BlockState
+public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+public "use"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public static "large"(properties: $BlockBehaviour$Properties$Type): $CopycatCogWheelBlock
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
 public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "getAcceptedBlockState"(property: string, pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
 public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
-public "getPropertyFromRender"(renderingProperty: string, state: $BlockState$Type, level: $ScaledBlockAndTintGetter$Type, vector: $Vec3i$Type, blockPos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): string
-public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
-public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
-public "partExists"(state: $BlockState$Type, property: string): boolean
-public "maxMaterials"(): integer
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "defaultProperty"(): string
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
 public "vectorScale"(state: $BlockState$Type): $Vec3i
 public "storageProperties"(): $Set<(string)>
-public "canFaceBeOccluded"(state: $BlockState$Type, face: $Direction$Type): boolean
-public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "partExists"(state: $BlockState$Type, property: string): boolean
+public "transformStorage"(state: $BlockState$Type, be: $IMultiStateCopycatBlockEntity$Type, transform: $StructureTransform$Type): void
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public "canOcclude"(property: string, level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "getPropertyFromRender"(renderingProperty: string, state: $BlockState$Type, level: $ScaledBlockAndTintGetter$Type, vector: $Vec3i$Type, blockPos: $BlockPos$Type): string
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $IMultiStateCopycatBlockEntity
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hit: $BlockHitResult$Type, targetingSolid: boolean): string
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, hitVec: $Vec3$Type, face: $Direction$Type, targetingSolid: boolean): string
+public "toggleCT"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, hit: $BlockHitResult$Type): $InteractionResult
+public "stateType"(): $StateType
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public "fillEmptyParts"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, material: $BlockState$Type): void
+public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+public "getPistonPushReaction"(arg0: $BlockState$Type): $PushReaction
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public static "isDedicatedCogWheel"(arg0: $Block$Type): boolean
+public static "isSmallCogItem"(arg0: $ItemStack$Type): boolean
+public static "isLargeCogItem"(arg0: $ItemStack$Type): boolean
+public static "isSmallCog"(arg0: $BlockState$Type): boolean
+public static "isSmallCog"(arg0: $Block$Type): boolean
+public static "isDedicatedCogItem"(arg0: $ItemStack$Type): boolean
+public static "isLargeCog"(arg0: $BlockState$Type): boolean
+public static "isLargeCog"(arg0: $Block$Type): boolean
+public "hasShaftTowards"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Direction$Type): boolean
+public "getRotationAxis"(arg0: $BlockState$Type): $Direction$Axis
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatCogWheelBlock$Type = ($CopycatCogWheelBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatCogWheelBlock_ = $CopycatCogWheelBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$CCWaterloggedCopycatBlock" {
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$SoundEvent, $SoundEvent$Type} from "packages/net/minecraft/sounds/$SoundEvent"
+import {$Fluid, $Fluid$Type} from "packages/net/minecraft/world/level/material/$Fluid"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$ProperWaterloggedBlock, $ProperWaterloggedBlock$Type} from "packages/com/simibubi/create/foundation/block/$ProperWaterloggedBlock"
+import {$CCCopycatBlock, $CCCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$CCCopycatBlock"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$FluidState, $FluidState$Type} from "packages/net/minecraft/world/level/material/$FluidState"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $CCWaterloggedCopycatBlock extends $CCCopycatBlock implements $ProperWaterloggedBlock {
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(pProperties: $BlockBehaviour$Properties$Type)
+
+public "getStateForPlacement"(pContext: $BlockPlaceContext$Type): $BlockState
+public "updateShape"(pState: $BlockState$Type, pDirection: $Direction$Type, pNeighborState: $BlockState$Type, pLevel: $LevelAccessor$Type, pCurrentPos: $BlockPos$Type, pNeighborPos: $BlockPos$Type): $BlockState
+public "getFluidState"(pState: $BlockState$Type): $FluidState
+public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public "withWater"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
+public "updateWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): void
+public "fluidState"(arg0: $BlockState$Type): $FluidState
+public "canPlaceLiquid"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Fluid$Type): boolean
+public "placeLiquid"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $FluidState$Type): boolean
+public "getPickupSound"(): $Optional<($SoundEvent)>
+public "pickupBlock"(arg0: $LevelAccessor$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type): $ItemStack
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+public "getPickupSound"(arg0: $BlockState$Type): $Optional<($SoundEvent)>
+get "pickupSound"(): $Optional<($SoundEvent)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CCWaterloggedCopycatBlock$Type = ($CCWaterloggedCopycatBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CCWaterloggedCopycatBlock_ = $CCWaterloggedCopycatBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/content/copycat/board/$CopycatBoardBlock" {
+import {$LevelAccessor, $LevelAccessor$Type} from "packages/net/minecraft/world/level/$LevelAccessor"
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$ICustomCTBlocking, $ICustomCTBlocking$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICustomCTBlocking"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$Mirror, $Mirror$Type} from "packages/net/minecraft/world/level/block/$Mirror"
+import {$WaterloggedMultiStateCopycatBlock, $WaterloggedMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$WaterloggedMultiStateCopycatBlock"
+import {$PathComputationType, $PathComputationType$Type} from "packages/net/minecraft/world/level/pathfinder/$PathComputationType"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
+import {$ScaledBlockAndTintGetter, $ScaledBlockAndTintGetter$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/model/$ScaledBlockAndTintGetter"
+import {$IMultiStateCopycatBlock, $IMultiStateCopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlock"
+import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$IPlantable, $IPlantable$Type} from "packages/net/minecraftforge/common/$IPlantable"
+import {$Rotation, $Rotation$Type} from "packages/net/minecraft/world/level/block/$Rotation"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$IMultiStateCopycatBlockEntity, $IMultiStateCopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/multistate/$IMultiStateCopycatBlockEntity"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $CopycatBoardBlock extends $WaterloggedMultiStateCopycatBlock implements $ICustomCTBlocking {
+static "UP": $BooleanProperty
+static "DOWN": $BooleanProperty
+static "NORTH": $BooleanProperty
+static "SOUTH": $BooleanProperty
+static "EAST": $BooleanProperty
+static "WEST": $BooleanProperty
+static readonly "PROPERTY_BY_DIRECTION": $Map<($Direction), ($BooleanProperty)>
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type)
+
+public "getColorIndex"(property: string): integer
+public "blockCTTowards"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, ctPos: $BlockPos$Type, connectingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
 public "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "getStateForPlacement"(context: $BlockPlaceContext$Type): $BlockState
 public "isPathfindable"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pType: $PathComputationType$Type): boolean
 public "rotate"(pState: $BlockState$Type, pRotation: $Rotation$Type): $BlockState
-public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "canBeReplaced"(pState: $BlockState$Type, pUseContext: $BlockPlaceContext$Type): boolean
+public "mirror"(pState: $BlockState$Type, pMirror: $Mirror$Type): $BlockState
 public "getShape"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
+public static "byDirection"(direction: $Direction$Type): $BooleanProperty
+public "supportsExternalFaceHiding"(state: $BlockState$Type): boolean
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
 public static "directionToProperty"(direction: $Direction$Type): string
-public "rotate"(state: $BlockState$Type, be: $MultiStateCopycatBlockEntity$Type, rotation: $Rotation$Type): void
+public "isIgnoredConnectivitySide"(property: string, reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "canConnectTexturesToward"(property: string, reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "getVectorFromProperty"(state: $BlockState$Type, property: string): $Vec3i
+public "getPropertyFromRender"(renderingProperty: string, state: $BlockState$Type, level: $ScaledBlockAndTintGetter$Type, vector: $Vec3i$Type, blockPos: $BlockPos$Type): string
+public "getPropertyFromInteraction"(state: $BlockState$Type, level: $BlockGetter$Type, hitLocation: $Vec3i$Type, blockPos: $BlockPos$Type, facing: $Direction$Type, unscaledHit: $Vec3$Type): string
+public "defaultProperty"(): string
+public "vectorScale"(state: $BlockState$Type): $Vec3i
+public "storageProperties"(): $Set<(string)>
+public "partExists"(state: $BlockState$Type, property: string): boolean
+public "transformStorage"(state: $BlockState$Type, be: $IMultiStateCopycatBlockEntity$Type, transform: $StructureTransform$Type): void
 public "isCTBlocked"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type, connectingPos: $BlockPos$Type, blockingPos: $BlockPos$Type, face: $Direction$Type): $Optional<(boolean)>
 public static "withWater"(arg0: $LevelAccessor$Type, arg1: $BlockState$Type, arg2: $BlockPos$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type, property: string): $BlockState
+public static "getAppearance"(block: $IMultiStateCopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public static "wrappedColor"(): $BlockColor
+public static "blockShapeOverride"(pState: $BlockState$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type, pContext: $CollisionContext$Type): $VoxelShape
 public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "canSustainPlant"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $Direction$Type, arg4: $IPlantable$Type): boolean
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -4540,49 +4755,190 @@ export type $CopycatBoardBlock$Type = ($CopycatBoardBlock);
 declare global {
 export type $CopycatBoardBlock_ = $CopycatBoardBlock$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MaterialItemStorage" {
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$Function, $Function$Type} from "packages/java/util/function/$Function"
-import {$MaterialItemStorage$MaterialItem, $MaterialItemStorage$MaterialItem$Type} from "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$MaterialItemStorage$MaterialItem"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$List, $List$Type} from "packages/java/util/$List"
+import {$ItemRequirement, $ItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ItemRequirement"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
-import {$Map, $Map$Type} from "packages/java/util/$Map"
+import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
+import {$ISpecialBlockEntityItemRequirement, $ISpecialBlockEntityItemRequirement$Type} from "packages/com/simibubi/create/content/schematics/requirement/$ISpecialBlockEntityItemRequirement"
+import {$ITransformableBlockEntity, $ITransformableBlockEntity$Type} from "packages/com/simibubi/create/content/contraptions/$ITransformableBlockEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$IPartialSafeNBT, $IPartialSafeNBT$Type} from "packages/com/simibubi/create/foundation/utility/$IPartialSafeNBT"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$HolderGetter, $HolderGetter$Type} from "packages/net/minecraft/core/$HolderGetter"
 
-export class $MaterialItemStorage {
+export interface $ICopycatBlockEntity extends $ISpecialBlockEntityItemRequirement, $ITransformableBlockEntity, $IPartialSafeNBT {
 
+ "transform"(transform: $StructureTransform$Type): void
+ "init"(): void
+ "getBlock"(): $ICopycatBlock
+ "getRequiredItems"(state: $BlockState$Type): $ItemRequirement
+ "getMaterial"(): $BlockState
+ "notifyUpdate"(): void
+ "blockHolderGetter"(): $HolderGetter<($Block)>
+ "setMaterialInternal"(arg0: $BlockState$Type): void
+ "setConsumedItemInternal"(arg0: $ItemStack$Type): void
+ "setCTEnabledInternal"(arg0: boolean): void
+ "m_58904_"(): $Level
+ "m_142339_"(arg0: $Level$Type): void
+ "m_155250_"(arg0: $BlockState$Type): void
+ "setConsumedItem"(stack: $ItemStack$Type): void
+ "hasCustomMaterial"(): boolean
+ "cycleMaterial"(): boolean
+ "setMaterial"(blockState: $BlockState$Type): void
+ "isCTEnabled"(): boolean
+ "setCTEnabled"(value: boolean): void
+ "getConsumedItem"(): $ItemStack
+ "m_58900_"(): $BlockState
+ "m_58899_"(): $BlockPos
+ "writeSafe"(arg0: $CompoundTag$Type): void
+}
 
-public "deserialize"(tag: $CompoundTag$Type): boolean
-public "getAllConsumedItems"(): $List<($ItemStack)>
-public "getMaterialItem"(property: string): $MaterialItemStorage$MaterialItem
-public "getAllMaterials"(): $Set<($BlockState)>
-public "getAllProperties"(): $Set<(string)>
-public "hasCustomMaterial"(property: string): boolean
-public "storeMaterialItem"(property: string, materialItem: $MaterialItemStorage$MaterialItem$Type): void
-public "remapStorage"(keyMapper: $Function$Type<(string), (string)>): void
-public "serialize"(): $CompoundTag
-public "getMaterialMap"(): $Map<(string), ($BlockState)>
-public "serializeSafe"(): $CompoundTag
-public static "create"(maxStorage: integer, properties: $Set$Type<(string)>): $MaterialItemStorage
-get "allConsumedItems"(): $List<($ItemStack)>
-get "allMaterials"(): $Set<($BlockState)>
-get "allProperties"(): $Set<(string)>
-get "materialMap"(): $Map<(string), ($BlockState)>
+export namespace $ICopycatBlockEntity {
+function write(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+function write(tag: $CompoundTag$Type, stack: $ItemStack$Type, material: $BlockState$Type, enableCT: boolean): void
+function read(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type, clientPacket: boolean): void
+function writeSafe(self: $ICopycatBlockEntity$Type, tag: $CompoundTag$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MaterialItemStorage$Type = ($MaterialItemStorage);
+export type $ICopycatBlockEntity$Type = ($ICopycatBlockEntity);
 /**
  * Global type exported for convenience, use class-specific
  * types if there's a naming conflict.
  */
 declare global {
-export type $MaterialItemStorage_ = $MaterialItemStorage$Type;
+export type $ICopycatBlockEntity_ = $ICopycatBlockEntity$Type;
 }}
-declare module "packages/com/copycatsplus/copycats/content/copycat/base/multistate/$ScaledBlockAndTintGetter" {
+declare module "packages/com/copycatsplus/copycats/content/copycat/fluid_pipe/$CopycatFluidPipeBlock" {
+import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
+import {$BlockColor, $BlockColor$Type} from "packages/net/minecraft/client/color/block/$BlockColor"
+import {$StructureTransform, $StructureTransform$Type} from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
+import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
+import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
+import {$StateType, $StateType$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$StateType"
+import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$ICopycatBlock, $ICopycatBlock$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlock"
+import {$BlockGetter, $BlockGetter$Type} from "packages/net/minecraft/world/level/$BlockGetter"
+import {$EntityType, $EntityType$Type} from "packages/net/minecraft/world/entity/$EntityType"
+import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
+import {$BlockHitResult, $BlockHitResult$Type} from "packages/net/minecraft/world/phys/$BlockHitResult"
+import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$FluidPipeBlock, $FluidPipeBlock$Type} from "packages/com/simibubi/create/content/fluids/pipes/$FluidPipeBlock"
+import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
+import {$SpawnPlacements$Type, $SpawnPlacements$Type$Type} from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
+import {$InteractionResult, $InteractionResult$Type} from "packages/net/minecraft/world/$InteractionResult"
+import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$BlockEntityType, $BlockEntityType$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
+import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
+import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/level/$LevelReader"
+import {$UseOnContext, $UseOnContext$Type} from "packages/net/minecraft/world/item/context/$UseOnContext"
+import {$HitResult, $HitResult$Type} from "packages/net/minecraft/world/phys/$HitResult"
+import {$ICopycatBlockEntity, $ICopycatBlockEntity$Type} from "packages/com/copycatsplus/copycats/foundation/copycat/$ICopycatBlockEntity"
+import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
+import {$SoundType, $SoundType$Type} from "packages/net/minecraft/world/level/block/$SoundType"
+import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
+import {$Explosion, $Explosion$Type} from "packages/net/minecraft/world/level/$Explosion"
+import {$BlockAndTintGetter, $BlockAndTintGetter$Type} from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import {$Map, $Map$Type} from "packages/java/util/$Map"
+
+export class $CopycatFluidPipeBlock extends $FluidPipeBlock implements $ICopycatBlock {
+static readonly "NORTH": $BooleanProperty
+static readonly "EAST": $BooleanProperty
+static readonly "SOUTH": $BooleanProperty
+static readonly "WEST": $BooleanProperty
+static readonly "UP": $BooleanProperty
+static readonly "DOWN": $BooleanProperty
+static readonly "PROPERTY_BY_DIRECTION": $Map<($Direction), ($BooleanProperty)>
+/**
+ * 
+ * @deprecated
+ */
+static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
+static readonly "UPDATE_NEIGHBORS": integer
+static readonly "UPDATE_CLIENTS": integer
+static readonly "UPDATE_INVISIBLE": integer
+static readonly "UPDATE_IMMEDIATE": integer
+static readonly "UPDATE_KNOWN_SHAPE": integer
+static readonly "UPDATE_SUPPRESS_DROPS": integer
+static readonly "UPDATE_MOVE_BY_PISTON": integer
+static readonly "UPDATE_NONE": integer
+static readonly "UPDATE_ALL": integer
+static readonly "UPDATE_ALL_IMMEDIATE": integer
+static readonly "INDESTRUCTIBLE": float
+static readonly "INSTANT": float
+static readonly "UPDATE_LIMIT": integer
+ "descriptionId": string
+static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
+readonly "properties": $BlockBehaviour$Properties
+
+constructor(properties: $BlockBehaviour$Properties$Type)
+
+public "getCloneItemStack"(state: $BlockState$Type, target: $HitResult$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): $ItemStack
+public "fallOn"(pLevel: $Level$Type, pState: $BlockState$Type, pPos: $BlockPos$Type, pEntity: $Entity$Type, p_152430_: float): void
+public "addRunningEffects"(state: $BlockState$Type, level: $Level$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getFriction"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): float
+public "onWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "setPlacedBy"(worldIn: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, placer: $LivingEntity$Type, stack: $ItemStack$Type): void
+public "playerWillDestroy"(level: $Level$Type, pos: $BlockPos$Type, state: $BlockState$Type, player: $Player$Type): void
+public "isValidSpawn"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, type: $SpawnPlacements$Type$Type, entityType: $EntityType$Type<(any)>): boolean
+public "canHarvestBlock"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, player: $Player$Type): boolean
+public "canEntityDestroy"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, entity: $Entity$Type): boolean
+public "getAppearance"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "onRemove"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, newState: $BlockState$Type, isMoving: boolean): void
+public "use"(state: $BlockState$Type, world: $Level$Type, pos: $BlockPos$Type, player: $Player$Type, hand: $InteractionHand$Type, ray: $BlockHitResult$Type): $InteractionResult
+public "getDestroyProgress"(pState: $BlockState$Type, pPlayer: $Player$Type, pLevel: $BlockGetter$Type, pPos: $BlockPos$Type): float
+public "getBlockEntityType"(): $BlockEntityType<(any)>
+public "addLandingEffects"(state1: $BlockState$Type, level: $ServerLevel$Type, pos: $BlockPos$Type, state2: $BlockState$Type, entity: $LivingEntity$Type, numberOfParticles: integer): boolean
+public "getSoundType"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type, entity: $Entity$Type): $SoundType
+public "getEnchantPowerBonus"(state: $BlockState$Type, level: $LevelReader$Type, pos: $BlockPos$Type): float
+public "getExplosionResistance"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type, explosion: $Explosion$Type): float
+public "onSneakWrenched"(state: $BlockState$Type, context: $UseOnContext$Type): $InteractionResult
+public "getLightEmission"(state: $BlockState$Type, level: $BlockGetter$Type, pos: $BlockPos$Type): integer
+public "isIgnoredConnectivitySide"(reader: $BlockAndTintGetter$Type, state: $BlockState$Type, face: $Direction$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type): boolean
+public "getAcceptedBlockState"(pLevel: $Level$Type, pPos: $BlockPos$Type, item: $ItemStack$Type, face: $Direction$Type): $BlockState
+public "canConnectTexturesToward"(reader: $BlockAndTintGetter$Type, fromPos: $BlockPos$Type, toPos: $BlockPos$Type, state: $BlockState$Type): boolean
+public "transform"(state: $BlockState$Type, transform: $StructureTransform$Type): $BlockState
+public static "getMaterial"(reader: $BlockGetter$Type, targetPos: $BlockPos$Type): $BlockState
+public static "hidesNeighborFace"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborState: $BlockState$Type, dir: $Direction$Type): boolean
+public "canOcclude"(level: $BlockGetter$Type, state: $BlockState$Type, pos: $BlockPos$Type): boolean
+public static "getAppearance"(block: $ICopycatBlock$Type, state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type, side: $Direction$Type, queryState: $BlockState$Type, queryPos: $BlockPos$Type): $BlockState
+public "shapeCanOccludeNeighbor"(level: $BlockGetter$Type, pos: $BlockPos$Type, state: $BlockState$Type, neighborPos: $BlockPos$Type, dir: $Direction$Type): $Optional<(boolean)>
+public static "wrappedColor"(): $BlockColor
+public "isAcceptedRegardless"(material: $BlockState$Type): boolean
+public "getCopycatBlockEntity"(worldIn: $BlockGetter$Type, pos: $BlockPos$Type): $ICopycatBlockEntity
+public "canToggleCT"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "toggleCT"(pState: $BlockState$Type, pLevel: $Level$Type, pPos: $BlockPos$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type): $InteractionResult
+public "prepareMaterial"(pLevel: $Level$Type, pPos: $BlockPos$Type, pState: $BlockState$Type, pPlayer: $Player$Type, pHand: $InteractionHand$Type, pHit: $BlockHitResult$Type, material: $BlockState$Type): $BlockState
+public "isCTEnabled"(state: $BlockState$Type, level: $BlockAndTintGetter$Type, pos: $BlockPos$Type): boolean
+public "stateType"(): $StateType
+public static "onRemove"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+get "blockEntityType"(): $BlockEntityType<(any)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CopycatFluidPipeBlock$Type = ($CopycatFluidPipeBlock);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $CopycatFluidPipeBlock_ = $CopycatFluidPipeBlock$Type;
+}}
+declare module "packages/com/copycatsplus/copycats/foundation/copycat/model/$ScaledBlockAndTintGetter" {
 import {$ModelDataManager, $ModelDataManager$Type} from "packages/net/minecraftforge/client/model/data/$ModelDataManager"
 import {$LevelLightEngine, $LevelLightEngine$Type} from "packages/net/minecraft/world/level/lighting/$LevelLightEngine"
 import {$Vec3i, $Vec3i$Type} from "packages/net/minecraft/core/$Vec3i"
@@ -4614,54 +4970,57 @@ export class $ScaledBlockAndTintGetter implements $BlockAndTintGetter {
 constructor(renderingProperty: string, wrapped: $BlockAndTintGetter$Type, origin: $BlockPos$Type, originInner: $Vec3i$Type, scale: $Vec3i$Type, filter: $Predicate$Type<($BlockPos$Type)>)
 
 public "getWrapped"(): $BlockAndTintGetter
-public "getRenderingProperty"(): string
-public "getTruePos"(pos: $BlockPos$Type): $BlockPos
-public "getInner"(pos: $BlockPos$Type): $Vec3i
+public "getBlockState"(pPos: $BlockPos$Type): $BlockState
 public "getBlockEntity"(pPos: $BlockPos$Type): $BlockEntity
-public "getMinBuildHeight"(): integer
+public "getScale"(): $Vec3i
+public "getInner"(pos: $BlockPos$Type): $Vec3i
+public "getTruePos"(pos: $BlockPos$Type): $BlockPos
 public "getFluidState"(pPos: $BlockPos$Type): $FluidState
+public "getRenderingProperty"(): string
+public "getMinBuildHeight"(): integer
+public "getLightEngine"(): $LevelLightEngine
+public "getPropertyForRender"(state: $BlockState$Type, pos: $BlockPos$Type): string
 public "getBlockTint"(pBlockPos: $BlockPos$Type, pColorResolver: $ColorResolver$Type): integer
 public "getHeight"(): integer
 public "getShade"(pDirection: $Direction$Type, pShade: boolean): float
-public "getBlockState"(pPos: $BlockPos$Type): $BlockState
-public "getLightEngine"(): $LevelLightEngine
 public "getScaledPos"(pos: $BlockPos$Type): $BlockPos
+public "canSeeSky"(arg0: $BlockPos$Type): boolean
 public "getRawBrightness"(arg0: $BlockPos$Type, arg1: integer): integer
 public "getBrightness"(arg0: $LightLayer$Type, arg1: $BlockPos$Type): integer
-public "canSeeSky"(arg0: $BlockPos$Type): boolean
 public "clip"(arg0: $ClipContext$Type): $BlockHitResult
 public "getBlockEntity"<T extends $BlockEntity>(arg0: $BlockPos$Type, arg1: $BlockEntityType$Type<(T)>): $Optional<(T)>
 public "getBlockStates"(arg0: $AABB$Type): $Stream<($BlockState)>
 public "getLightEmission"(arg0: $BlockPos$Type): integer
-public "getMaxLightLevel"(): integer
-public "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
 public "isBlockInLine"(arg0: $ClipBlockStateContext$Type): $BlockHitResult
-public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
-public "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
+public "getMaxLightLevel"(): integer
 public "getBlockFloorHeight"(arg0: $BlockPos$Type): double
+public "clipWithInteractionOverride"(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: $BlockPos$Type, arg3: $VoxelShape$Type, arg4: $BlockState$Type): $BlockHitResult
+public "getBlockFloorHeight"(arg0: $VoxelShape$Type, arg1: $Supplier$Type<($VoxelShape$Type)>): double
+public static "traverseBlocks"<T, C>(arg0: $Vec3$Type, arg1: $Vec3$Type, arg2: C, arg3: $BiFunction$Type<(C), ($BlockPos$Type), (T)>, arg4: $Function$Type<(C), (T)>): T
 public "getShade"(arg0: float, arg1: float, arg2: float, arg3: boolean): float
-public "getSectionIndex"(arg0: integer): integer
-public "getSectionsCount"(): integer
-public "getSectionYFromSectionIndex"(arg0: integer): integer
-public "getSectionIndexFromSectionY"(arg0: integer): integer
-public "getMinSection"(): integer
-public "isOutsideBuildHeight"(arg0: integer): boolean
-public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
-public "getMaxSection"(): integer
-public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
 public "getMaxBuildHeight"(): integer
-public "getModelDataManager"(): $ModelDataManager
+public "isOutsideBuildHeight"(arg0: $BlockPos$Type): boolean
+public "getSectionYFromSectionIndex"(arg0: integer): integer
+public static "create"(arg0: integer, arg1: integer): $LevelHeightAccessor
+public "getSectionIndexFromSectionY"(arg0: integer): integer
+public "getSectionIndex"(arg0: integer): integer
+public "isOutsideBuildHeight"(arg0: integer): boolean
+public "getMaxSection"(): integer
+public "getMinSection"(): integer
+public "getSectionsCount"(): integer
 public "getExistingBlockEntity"(arg0: $BlockPos$Type): $BlockEntity
+public "getModelDataManager"(): $ModelDataManager
 get "wrapped"(): $BlockAndTintGetter
+get "scale"(): $Vec3i
 get "renderingProperty"(): string
 get "minBuildHeight"(): integer
-get "height"(): integer
 get "lightEngine"(): $LevelLightEngine
+get "height"(): integer
 get "maxLightLevel"(): integer
-get "sectionsCount"(): integer
-get "minSection"(): integer
-get "maxSection"(): integer
 get "maxBuildHeight"(): integer
+get "maxSection"(): integer
+get "minSection"(): integer
+get "sectionsCount"(): integer
 get "modelDataManager"(): $ModelDataManager
 }
 /**
@@ -4675,60 +5034,4 @@ export type $ScaledBlockAndTintGetter$Type = ($ScaledBlockAndTintGetter);
  */
 declare global {
 export type $ScaledBlockAndTintGetter_ = $ScaledBlockAndTintGetter$Type;
-}}
-declare module "packages/com/copycatsplus/copycats/content/copycat/wall/$WrappedWallBlock" {
-import {$BooleanProperty, $BooleanProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
-import {$Object2ByteLinkedOpenHashMap, $Object2ByteLinkedOpenHashMap$Type} from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteLinkedOpenHashMap"
-import {$Block$BlockStatePairKey, $Block$BlockStatePairKey$Type} from "packages/net/minecraft/world/level/block/$Block$BlockStatePairKey"
-import {$BlockBehaviour$Properties, $BlockBehaviour$Properties$Type} from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
-import {$IdMapper, $IdMapper$Type} from "packages/net/minecraft/core/$IdMapper"
-import {$WallSide, $WallSide$Type} from "packages/net/minecraft/world/level/block/state/properties/$WallSide"
-import {$WallBlock, $WallBlock$Type} from "packages/net/minecraft/world/level/block/$WallBlock"
-import {$ThreadLocal, $ThreadLocal$Type} from "packages/java/lang/$ThreadLocal"
-
-export class $WrappedWallBlock extends $WallBlock {
-static readonly "UP": $BooleanProperty
-static readonly "EAST_WALL": $EnumProperty<($WallSide)>
-static readonly "NORTH_WALL": $EnumProperty<($WallSide)>
-static readonly "SOUTH_WALL": $EnumProperty<($WallSide)>
-static readonly "WEST_WALL": $EnumProperty<($WallSide)>
-static readonly "WATERLOGGED": $BooleanProperty
-/**
- * 
- * @deprecated
- */
-static readonly "BLOCK_STATE_REGISTRY": $IdMapper<($BlockState)>
-static readonly "UPDATE_NEIGHBORS": integer
-static readonly "UPDATE_CLIENTS": integer
-static readonly "UPDATE_INVISIBLE": integer
-static readonly "UPDATE_IMMEDIATE": integer
-static readonly "UPDATE_KNOWN_SHAPE": integer
-static readonly "UPDATE_SUPPRESS_DROPS": integer
-static readonly "UPDATE_MOVE_BY_PISTON": integer
-static readonly "UPDATE_NONE": integer
-static readonly "UPDATE_ALL": integer
-static readonly "UPDATE_ALL_IMMEDIATE": integer
-static readonly "INDESTRUCTIBLE": float
-static readonly "INSTANT": float
-static readonly "UPDATE_LIMIT": integer
- "descriptionId": string
-static readonly "OCCLUSION_CACHE": $ThreadLocal<($Object2ByteLinkedOpenHashMap<($Block$BlockStatePairKey)>)>
-readonly "properties": $BlockBehaviour$Properties
-
-constructor(properties: $BlockBehaviour$Properties$Type)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WrappedWallBlock$Type = ($WrappedWallBlock);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WrappedWallBlock_ = $WrappedWallBlock$Type;
 }}

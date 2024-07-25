@@ -101,13 +101,13 @@ import {$GuiGraphics, $GuiGraphics$Type} from "packages/net/minecraft/client/gui
 
 export interface $AbstractContainerScreenAccessor {
 
- "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
- "getImageWidth"(): integer
- "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
  "getTopPos"(): integer
- "getHoveredSlot"(): $Slot
  "getLeftPos"(): integer
+ "getImageWidth"(): integer
  "getImageHeight"(): integer
+ "getHoveredSlot"(): $Slot
+ "callRenderSlot"(arg0: $GuiGraphics$Type, arg1: $Slot$Type): void
+ "callIsHovering"(arg0: $Slot$Type, arg1: double, arg2: double): boolean
 }
 
 export namespace $AbstractContainerScreenAccessor {

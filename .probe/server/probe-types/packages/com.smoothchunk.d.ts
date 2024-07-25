@@ -2,8 +2,8 @@ declare module "packages/com/smoothchunk/world/$IChunkTimeSave" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IChunkTimeSave {
 
- "smoothchunk$getNextSaveTime"(): long
  "smoothchunk$setSaveTimePoint"(arg0: long): void
+ "smoothchunk$getNextSaveTime"(): long
 }
 
 export namespace $IChunkTimeSave {

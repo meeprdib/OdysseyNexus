@@ -4,8 +4,8 @@ import {$ISubMenuHost, $ISubMenuHost$Type} from "packages/appeng/api/storage/$IS
 
 export interface $ISubMenu {
 
- "getLocator"(): $MenuLocator
  "getHost"(): $ISubMenuHost
+ "getLocator"(): $MenuLocator
 }
 
 export namespace $ISubMenu {

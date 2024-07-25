@@ -48,48 +48,23 @@ export type $StructureProcessorAccessor$Type = ($StructureProcessorAccessor);
 declare global {
 export type $StructureProcessorAccessor_ = $StructureProcessorAccessor$Type;
 }}
-declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/accessor/$WorldGenRegionAccessor" {
-import {$StructureManager, $StructureManager$Type} from "packages/net/minecraft/world/level/$StructureManager"
-
-export interface $WorldGenRegionAccessor {
-
- "getStructureManager"(): $StructureManager
-
-(): $StructureManager
-}
-
-export namespace $WorldGenRegionAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WorldGenRegionAccessor$Type = ($WorldGenRegionAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $WorldGenRegionAccessor_ = $WorldGenRegionAccessor$Type;
-}}
 declare module "packages/com/yungnickyoung/minecraft/betterendisland/world/$IDragonFight" {
 import {$DragonRespawnStage, $DragonRespawnStage$Type} from "packages/com/yungnickyoung/minecraft/betterendisland/world/$DragonRespawnStage"
 
 export interface $IDragonFight {
 
+ "betterendisland$hasDragonEverSpawned"(): boolean
+ "betterendisland$numTimesDragonKilled"(): integer
+ "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
+ "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
+ "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
+ "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
+ "betterendisland$firstExitPortalSpawn"(): boolean
+ "betterendisland$reset"(arg0: boolean): void
+ "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
+ "betterendisland$clearVanillaPillars"(): void
  "betterendisland$initialRespawn"(): void
  "betterendisland$tickBellSound"(): void
- "betterendisland$reset"(arg0: boolean): void
- "betterendisland$hasDragonEverSpawned"(): boolean
- "betterendisland$getDragonRespawnStage"(): $DragonRespawnStage
- "betterendisland$setFirstExitPortalSpawn"(arg0: boolean): void
- "betterendisland$firstExitPortalSpawn"(): boolean
- "betterendisland$numTimesDragonKilled"(): integer
- "betterendisland$setNumTimesDragonKilled"(arg0: integer): void
- "betterendisland$setHasDragonEverSpawned"(arg0: boolean): void
- "betterendisland$clearVanillaPillars"(): void
- "betterendisland$setDragonRespawnStage"(arg0: $DragonRespawnStage$Type): void
 }
 
 export namespace $IDragonFight {
@@ -378,33 +353,6 @@ export type $ProjectileAccessor$Type = ($ProjectileAccessor);
 declare global {
 export type $ProjectileAccessor_ = $ProjectileAccessor$Type;
 }}
-declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/accessor/$BoundingBoxAccessor" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $BoundingBoxAccessor {
-
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
- "setMinX"(arg0: integer): void
- "setMinY"(arg0: integer): void
- "setMaxX"(arg0: integer): void
- "setMaxY"(arg0: integer): void
-}
-
-export namespace $BoundingBoxAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BoundingBoxAccessor$Type = ($BoundingBoxAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $BoundingBoxAccessor_ = $BoundingBoxAccessor$Type;
-}}
 declare module "packages/com/yungnickyoung/minecraft/yungsapi/mixin/accessor/$SinglePoolElementAccessor" {
 import {$StructureTemplateManager, $StructureTemplateManager$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureTemplateManager"
 import {$StructureTemplate, $StructureTemplate$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureTemplate"
@@ -584,8 +532,8 @@ declare module "packages/com/yungnickyoung/minecraft/betterendisland/world/$IEnd
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IEndSpike {
 
- "betterendisland$setCrystalYOffsetFromPillarHeight"(arg0: integer): void
  "betterendisland$getCrystalYOffset"(): integer
+ "betterendisland$setCrystalYOffsetFromPillarHeight"(arg0: integer): void
 }
 
 export namespace $IEndSpike {
@@ -1003,12 +951,12 @@ declare module "packages/com/yungnickyoung/minecraft/yungsapi/mixin/accessor/$Bo
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
  "setMinY"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {
@@ -1036,14 +984,14 @@ import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 export class $DesertWellFeatureConfiguration implements $FeatureConfiguration {
 static readonly "CODEC": $Codec<($DesertWellFeatureConfiguration)>
 
-constructor(arg0: string, arg1: integer)
 constructor(arg0: $ResourceLocation$Type, arg1: integer)
+constructor(arg0: string, arg1: integer)
 
-public "getRadius"(): integer
 public "getLocation"(): $ResourceLocation
+public "getRadius"(): integer
 public "getFeatures"(): $Stream<($ConfiguredFeature<(any), (any)>)>
-get "radius"(): integer
 get "location"(): $ResourceLocation
+get "radius"(): integer
 get "features"(): $Stream<($ConfiguredFeature<(any), (any)>)>
 }
 /**
@@ -1190,9 +1138,9 @@ import {$StructureManager, $StructureManager$Type} from "packages/net/minecraft/
 
 export interface $WorldGenRegionAccessor {
 
+ "getSize"(): integer
  "getCache"(): $List<($ChunkAccess)>
  "getStructureManager"(): $StructureManager
- "getSize"(): integer
  "getFirstPos"(): $ChunkPos
  "getLastPos"(): $ChunkPos
 }
@@ -1211,31 +1159,6 @@ export type $WorldGenRegionAccessor$Type = ($WorldGenRegionAccessor);
  */
 declare global {
 export type $WorldGenRegionAccessor_ = $WorldGenRegionAccessor$Type;
-}}
-declare module "packages/com/yungnickyoung/minecraft/betterdungeons/mixin/accessor/$StructureProcessorAccessor" {
-import {$StructureProcessorType, $StructureProcessorType$Type} from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureProcessorType"
-
-export interface $StructureProcessorAccessor {
-
- "callGetType"(): $StructureProcessorType<(any)>
-
-(): $StructureProcessorType<(any)>
-}
-
-export namespace $StructureProcessorAccessor {
-const probejs$$marker: never
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StructureProcessorAccessor$Type = ($StructureProcessorAccessor);
-/**
- * Global type exported for convenience, use class-specific
- * types if there's a naming conflict.
- */
-declare global {
-export type $StructureProcessorAccessor_ = $StructureProcessorAccessor$Type;
 }}
 declare module "packages/com/yungnickyoung/minecraft/betterendisland/world/$DragonRespawnStage" {
 import {$StringRepresentable$EnumCodec, $StringRepresentable$EnumCodec$Type} from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
@@ -1259,13 +1182,13 @@ static readonly "END": $DragonRespawnStage
 static readonly "CODEC": $StringRepresentable$EnumCodec<($DragonRespawnStage)>
 
 
+public static "values"(): ($DragonRespawnStage)[]
+public static "valueOf"(arg0: string): $DragonRespawnStage
 public "tick"(arg0: $ServerLevel$Type, arg1: $EndDragonFight$Type, arg2: $List$Type<($EndCrystal$Type)>, arg3: integer, arg4: $BlockPos$Type): void
 public static "byName"(arg0: string): $DragonRespawnStage
 public "getSerializedName"(): string
-public static "values"(): ($DragonRespawnStage)[]
-public static "valueOf"(arg0: string): $DragonRespawnStage
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
@@ -1461,12 +1384,12 @@ declare module "packages/com/yungnickyoung/minecraft/betterwitchhuts/mixin/acces
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $BoundingBoxAccessor {
 
- "setMaxZ"(arg0: integer): void
- "setMinZ"(arg0: integer): void
  "setMinX"(arg0: integer): void
  "setMinY"(arg0: integer): void
- "setMaxX"(arg0: integer): void
  "setMaxY"(arg0: integer): void
+ "setMaxX"(arg0: integer): void
+ "setMinZ"(arg0: integer): void
+ "setMaxZ"(arg0: integer): void
 }
 
 export namespace $BoundingBoxAccessor {

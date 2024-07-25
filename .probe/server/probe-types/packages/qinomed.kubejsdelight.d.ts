@@ -21,9 +21,9 @@ readonly "id": $ResourceLocation
 constructor(arg0: $ResourceLocation$Type)
 
 public "createObject"(): $Block
-public "servingItems"(arg0: ($ResourceLocation$Type)[]): $FeastBlockBuilder
-public "servingsAmount"(arg0: integer): $FeastBlockBuilder
 public "hasLeftovers"(arg0: boolean): $FeastBlockBuilder
+public "servingsAmount"(arg0: integer): $FeastBlockBuilder
+public "servingItems"(arg0: ($ResourceLocation$Type)[]): $FeastBlockBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

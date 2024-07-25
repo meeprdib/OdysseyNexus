@@ -1,3 +1,26 @@
+declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalBooleanRef" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $LocalBooleanRef {
+
+ "get"(): boolean
+ "set"(arg0: boolean): void
+}
+
+export namespace $LocalBooleanRef {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LocalBooleanRef$Type = ($LocalBooleanRef);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $LocalBooleanRef_ = $LocalBooleanRef$Type;
+}}
 declare module "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $Operation<R> {
@@ -67,6 +90,29 @@ export type $LocalRef$Type<T> = ($LocalRef<(T)>);
  */
 declare global {
 export type $LocalRef_<T> = $LocalRef$Type<(T)>;
+}}
+declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalLongRef" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $LocalLongRef {
+
+ "get"(): long
+ "set"(arg0: long): void
+}
+
+export namespace $LocalLongRef {
+const probejs$$marker: never
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LocalLongRef$Type = ($LocalLongRef);
+/**
+ * Global type exported for convenience, use class-specific
+ * types if there's a naming conflict.
+ */
+declare global {
+export type $LocalLongRef_ = $LocalLongRef$Type;
 }}
 declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalFloatRef" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!

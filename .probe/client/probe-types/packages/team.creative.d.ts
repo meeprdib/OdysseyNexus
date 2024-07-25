@@ -27,9 +27,9 @@ import {$ByteBuffer, $ByteBuffer$Type} from "packages/java/nio/$ByteBuffer"
 
 export interface $BufferBuilderAccessor {
 
+ "getBuffer"(): $ByteBuffer
  "getVertices"(): integer
  "getNextElementByte"(): integer
- "getBuffer"(): $ByteBuffer
 }
 
 export namespace $BufferBuilderAccessor {
@@ -104,8 +104,8 @@ declare module "packages/team/creative/playerrevive/mixin/$LocalPlayerAccessor" 
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $LocalPlayerAccessor {
 
- "getHandsBusy"(): boolean
  "setHandsBusy"(arg0: boolean): void
+ "getHandsBusy"(): boolean
 }
 
 export namespace $LocalPlayerAccessor {
@@ -154,17 +154,17 @@ import {$CombatEntry, $CombatEntry$Type} from "packages/net/minecraft/world/dama
 
 export interface $CombatTrackerAccessor {
 
- "setCombatEndTime"(arg0: integer): void
- "getInCombat"(): boolean
- "getLastDamageTime"(): integer
- "setLastDamageTime"(arg0: integer): void
- "setInCombat"(arg0: boolean): void
- "getCombatStartTime"(): integer
+ "getEntries"(): $List<($CombatEntry)>
+ "setCombatStartTime"(arg0: integer): void
  "getCombatEndTime"(): integer
+ "setLastDamageTime"(arg0: integer): void
+ "getCombatStartTime"(): integer
+ "getLastDamageTime"(): integer
+ "getInCombat"(): boolean
  "getTakingDamage"(): boolean
  "setTakingDamage"(arg0: boolean): void
- "setCombatStartTime"(arg0: integer): void
- "getEntries"(): $List<($CombatEntry)>
+ "setInCombat"(arg0: boolean): void
+ "setCombatEndTime"(arg0: integer): void
 }
 
 export namespace $CombatTrackerAccessor {

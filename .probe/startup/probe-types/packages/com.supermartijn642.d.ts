@@ -5,9 +5,9 @@ import {$Pair, $Pair$Type} from "packages/com/supermartijn642/fusion/api/util/$P
 export interface $SpritePreparationContext {
 
  "getIdentifier"(): $ResourceLocation
- "getOriginalFrameSize"(): $Pair<(integer), (integer)>
- "getTextureWidth"(): integer
  "getTextureHeight"(): integer
+ "getTextureWidth"(): integer
+ "getOriginalFrameSize"(): $Pair<(integer), (integer)>
  "getOriginalFrameHeight"(): integer
  "getOriginalFrameWith"(): integer
 }
@@ -59,19 +59,19 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 
 export interface $SpriteCreationContext {
 
- "createOriginalSprite"(): $TextureAtlasSprite
- "getAtlasWidth"(): integer
- "getSpritePositionX"(): integer
- "getTextureWidth"(): integer
- "getTextureHeight"(): integer
- "getAtlasHeight"(): integer
- "getSpritePositionY"(): integer
  "getTextureIdentifier"(): $ResourceLocation
+ "getSpritePositionX"(): integer
+ "getTextureHeight"(): integer
+ "getSpritePositionY"(): integer
+ "getAtlasWidth"(): integer
+ "getTextureWidth"(): integer
+ "getAtlasHeight"(): integer
+ "createOriginalSprite"(): $TextureAtlasSprite
  "getAtlas"(): $TextureAtlas
- "getMipmapLevels"(): integer
- "getSpriteWidth"(): integer
  "getTextureBuffers"(): ($NativeImage)[]
  "getSpriteHeight"(): integer
+ "getMipmapLevels"(): integer
+ "getSpriteWidth"(): integer
 }
 
 export namespace $SpriteCreationContext {
@@ -100,9 +100,9 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $ModelType<T> extends $Serializer<(T)> {
 
- "getModelDependencies"(data: T): $Collection<($ResourceLocation)>
- "bake"(context: $ModelBakingContext$Type, data: T): $BakedModel
  "getAsVanillaModel"(data: T): $BlockModel
+ "bake"(context: $ModelBakingContext$Type, data: T): $BakedModel
+ "getModelDependencies"(data: T): $Collection<($ResourceLocation)>
  "deserialize"(json: $JsonObject$Type): T
  "serialize"(value: T): $JsonObject
 }
@@ -127,13 +127,13 @@ import {$JsonObject, $JsonObject$Type} from "packages/com/google/gson/$JsonObjec
 import {$SpritePreparationContext, $SpritePreparationContext$Type} from "packages/com/supermartijn642/fusion/api/texture/$SpritePreparationContext"
 import {$Serializer, $Serializer$Type} from "packages/com/supermartijn642/fusion/api/util/$Serializer"
 import {$SpriteCreationContext, $SpriteCreationContext$Type} from "packages/com/supermartijn642/fusion/api/texture/$SpriteCreationContext"
-import {$Pair, $Pair$Type} from "packages/com/supermartijn642/fusion/api/util/$Pair"
 import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
+import {$Pair, $Pair$Type} from "packages/com/supermartijn642/fusion/api/util/$Pair"
 
 export interface $TextureType<T> extends $Serializer<(T)> {
 
- "getFrameSize"(context: $SpritePreparationContext$Type, data: T): $Pair<(integer), (integer)>
  "createSprite"(context: $SpriteCreationContext$Type, data: T): $TextureAtlasSprite
+ "getFrameSize"(context: $SpritePreparationContext$Type, data: T): $Pair<(integer), (integer)>
  "deserialize"(json: $JsonObject$Type): T
  "serialize"(value: T): $JsonObject
 }
@@ -154,8 +154,8 @@ declare global {
 export type $TextureType_<T> = $TextureType$Type<(T)>;
 }}
 declare module "packages/com/supermartijn642/fusion/api/model/$ModelBakingContext" {
-import {$ModelBaker, $ModelBaker$Type} from "packages/net/minecraft/client/resources/model/$ModelBaker"
 import {$ModelState, $ModelState$Type} from "packages/net/minecraft/client/resources/model/$ModelState"
+import {$ModelBaker, $ModelBaker$Type} from "packages/net/minecraft/client/resources/model/$ModelBaker"
 import {$ModelInstance, $ModelInstance$Type} from "packages/com/supermartijn642/fusion/api/model/$ModelInstance"
 import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/resources/$ResourceLocation"
 import {$SpriteIdentifier, $SpriteIdentifier$Type} from "packages/com/supermartijn642/fusion/api/model/$SpriteIdentifier"
@@ -163,12 +163,12 @@ import {$TextureAtlasSprite, $TextureAtlasSprite$Type} from "packages/net/minecr
 
 export interface $ModelBakingContext {
 
+ "getModel"(identifier: $ResourceLocation$Type): $ModelInstance<(any)>
+ "getTransformation"(): $ModelState
+ "getModelIdentifier"(): $ResourceLocation
+ "getModelBaker"(): $ModelBaker
  "getTexture"(atlas: $ResourceLocation$Type, texture: $ResourceLocation$Type): $TextureAtlasSprite
  "getTexture"(identifier: $SpriteIdentifier$Type): $TextureAtlasSprite
- "getModel"(identifier: $ResourceLocation$Type): $ModelInstance<(any)>
- "getModelBaker"(): $ModelBaker
- "getModelIdentifier"(): $ResourceLocation
- "getTransformation"(): $ModelState
  "getBlockTexture"(texture: $ResourceLocation$Type): $TextureAtlasSprite
 }
 
@@ -243,8 +243,6 @@ import {$BiFunction, $BiFunction$Type} from "packages/java/util/function/$BiFunc
 export class $Pair<X, Y> {
 
 
-public "mapLeft"<S>(mapper: $Function$Type<(X), (S)>): $Pair<(S), (Y)>
-public "mapRight"<S>(mapper: $Function$Type<(Y), (S)>): $Pair<(X), (S)>
 public "left"(): X
 public "right"(): Y
 public "equals"(o: any): boolean
@@ -253,6 +251,8 @@ public "apply"(consumer: $BiConsumer$Type<(X), (Y)>): void
 public "map"<R, S>(mapLeft: $Function$Type<(X), (R)>, mapRight: $Function$Type<(Y), (S)>): $Pair<(R), (S)>
 public static "of"<X, Y>(left: X, right: Y): $Pair<(X), (Y)>
 public "flatMap"<S>(mapper: $BiFunction$Type<(X), (Y), (S)>): S
+public "mapRight"<S>(mapper: $Function$Type<(Y), (S)>): $Pair<(X), (S)>
+public "mapLeft"<S>(mapper: $Function$Type<(X), (S)>): $Pair<(S), (Y)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -276,11 +276,11 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $ModelInstance<T> {
 
+ "getAsVanillaModel"(): $BlockModel
+ "bake"(context: $ModelBakingContext$Type): $BakedModel
  "getModelType"(): $ModelType<(T)>
  "getModelDependencies"(): $Collection<($ResourceLocation)>
- "bake"(context: $ModelBakingContext$Type): $BakedModel
  "getModelData"(): T
- "getAsVanillaModel"(): $BlockModel
 }
 
 export namespace $ModelInstance {
@@ -310,8 +310,8 @@ export interface $SpriteIdentifier {
 }
 
 export namespace $SpriteIdentifier {
-function of(material: $Material$Type): $SpriteIdentifier
 function of(atlas: $ResourceLocation$Type, texture: $ResourceLocation$Type): $SpriteIdentifier
+function of(material: $Material$Type): $SpriteIdentifier
 function missing(): $SpriteIdentifier
 }
 /**

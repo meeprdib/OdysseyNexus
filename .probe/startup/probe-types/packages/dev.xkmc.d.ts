@@ -142,19 +142,19 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 
 export class $EffectFunc extends $Record {
 
-constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: $Int2IntFunction$Type, arg2: $Int2IntFunction$Type)
 constructor(eff: $Supplier$Type<($MobEffect$Type)>, duration: $Int2IntFunction$Type, amplifier: $Int2IntFunction$Type, chance: $Int2FloatFunction$Type)
 constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: $Int2IntFunction$Type)
+constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: $Int2IntFunction$Type, arg2: $Int2IntFunction$Type)
 
-public "getChance"(arg0: integer): float
-public "chance"(): $Int2FloatFunction
-public "getEffect"(arg0: integer): $MobEffectInstance
-public "amplifier"(): $Int2IntFunction
-public "eff"(): $Supplier<($MobEffect)>
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "duration"(): $Int2IntFunction
+public "getEffect"(arg0: integer): $MobEffectInstance
+public "amplifier"(): $Int2IntFunction
+public "getChance"(arg0: integer): float
+public "chance"(): $Int2FloatFunction
+public "eff"(): $Supplier<($MobEffect)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -183,11 +183,11 @@ static readonly "SMALL": $DurianLeavesBlock$Fruit
 static readonly "FRUITS": $DurianLeavesBlock$Fruit
 
 
-public "getSerializedName"(): string
 public static "values"(): ($DurianLeavesBlock$Fruit)[]
 public static "valueOf"(arg0: string): $DurianLeavesBlock$Fruit
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): string
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
@@ -343,10 +343,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -412,7 +412,6 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $Supplier$Type<($Item$Type)>, arg2: $FDBushType$Type)
 
-public "getDoubleBlockStart"(): integer
 /**
  * 
  * @deprecated
@@ -423,6 +422,7 @@ public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, ar
  * @deprecated
  */
 public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "getDoubleBlockStart"(): integer
 get "doubleBlockStart"(): integer
 }
 /**
@@ -474,16 +474,16 @@ export class $NamedEntry<T extends $NamedEntry<(T)>> {
 
 constructor(arg0: $L2Registrate$RegistryInstance$Type<(T)>)
 
-public "getThis"(): T
-public "getDescriptionId"(): string
-public "getRegistryName"(): $ResourceLocation
 public "getDesc"(): $MutableComponent
 public "getID"(): string
-get "this"(): T
-get "descriptionId"(): string
-get "registryName"(): $ResourceLocation
+public "getRegistryName"(): $ResourceLocation
+public "getDescriptionId"(): string
+public "getThis"(): T
 get "desc"(): $MutableComponent
 get "iD"(): string
+get "registryName"(): $ResourceLocation
+get "descriptionId"(): string
+get "this"(): T
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -541,20 +541,20 @@ import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/
 
 export interface $FruitPlant<T extends ($Enum<(T)>) & ($FruitPlant<(T)>)> extends $PlantDataEntry<(T)> {
 
- "getFruitTag"(): $TagKey<($Item)>
  "getFruit"(): $Item
+ "getFruitTag"(): $TagKey<($Item)>
+ "getName"(): string
+ "registerComposter"(): void
+ "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
  "registerPlacements"(arg0: $BootstapContext$Type<($PlacedFeature$Type)>): void
  "getPlacementKey"(): $ResourceKey<($PlacedFeature)>
  "genRecipe"(arg0: $RegistrateRecipeProvider$Type): void
- "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
- "registerComposter"(): void
- "getName"(): string
 }
 
 export namespace $FruitPlant {
-function addFruitTags<T>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
 function run(arg0: $Consumer$Type<($PlantDataEntry$Type<(any)>)>): void
 function gen<T>(arg0: T, arg1: $BiConsumer$Type<($PlantDataEntry$Type<(any)>), (T)>): void
+function addFruitTags<T>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -754,8 +754,8 @@ export class $AbstractShapedRecipe$Serializer<T extends $AbstractShapedRecipe<(T
 
 constructor(arg0: $AbstractShapedRecipe$RecipeFactory$Type<(T)>)
 
-public "toJson"(arg0: T, arg1: $JsonObject$Type): void
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): T
+public "toJson"(arg0: T, arg1: $JsonObject$Type): void
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): T
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 }
@@ -779,18 +779,18 @@ import {$MobEffect, $MobEffect$Type} from "packages/net/minecraft/world/effect/$
 
 export class $EffectEntry extends $Record {
 
-constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: integer, arg2: integer)
-constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: integer)
 constructor(eff: $Supplier$Type<($MobEffect$Type)>, duration: integer, amplifier: integer, chance: float)
+constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: integer)
+constructor(arg0: $Supplier$Type<($MobEffect$Type)>, arg1: integer, arg2: integer)
 
-public "chance"(): float
-public "getEffect"(): $MobEffectInstance
-public "amplifier"(): integer
-public "eff"(): $Supplier<($MobEffect)>
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "duration"(): integer
+public "getEffect"(): $MobEffectInstance
+public "amplifier"(): integer
+public "chance"(): float
+public "eff"(): $Supplier<($MobEffect)>
 get "effect"(): $MobEffectInstance
 }
 /**
@@ -815,19 +815,19 @@ export class $DelayedEntityRender extends $Record {
 
 constructor(entity: $LivingEntity$Type, region: $IconRenderRegion$Type, rl: $ResourceLocation$Type, tx: float, ty: float, tw: float, th: float)
 
-public "entity"(): $LivingEntity
-public "ty"(): float
-public "tx"(): float
-public static "icon"(arg0: $LivingEntity$Type, arg1: $IconRenderRegion$Type, arg2: $ResourceLocation$Type): $DelayedEntityRender
-public static "icon"(arg0: $LivingEntity$Type, arg1: $ResourceLocation$Type): $DelayedEntityRender
 public "rl"(): $ResourceLocation
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "th"(): float
 public "resize"(arg0: $IconRenderRegion$Type): $DelayedEntityRender
-public "tw"(): float
 public "region"(): $IconRenderRegion
+public "tw"(): float
+public "entity"(): $LivingEntity
+public static "icon"(arg0: $LivingEntity$Type, arg1: $IconRenderRegion$Type, arg2: $ResourceLocation$Type): $DelayedEntityRender
+public static "icon"(arg0: $LivingEntity$Type, arg1: $ResourceLocation$Type): $DelayedEntityRender
+public "tx"(): float
+public "ty"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -862,8 +862,8 @@ import {$LevelReader, $LevelReader$Type} from "packages/net/minecraft/world/leve
 import {$EnumProperty, $EnumProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
 import {$ServerLevel, $ServerLevel$Type} from "packages/net/minecraft/server/level/$ServerLevel"
-import {$RegistrateBlockLootTables, $RegistrateBlockLootTables$Type} from "packages/com/tterrag/registrate/providers/loot/$RegistrateBlockLootTables"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$RegistrateBlockLootTables, $RegistrateBlockLootTables$Type} from "packages/com/tterrag/registrate/providers/loot/$RegistrateBlockLootTables"
 
 export class $PassableLeavesBlock extends $BaseLeavesBlock implements $BonemealableBlock {
 static readonly "STATE": $EnumProperty<($PassableLeavesBlock$State)>
@@ -895,14 +895,14 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $Block$Type, arg2: $Block$Type, arg3: $Item$Type): void
-public "flowerState"(): $BlockState
-public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
+public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $Block$Type, arg2: $Block$Type, arg3: $Item$Type): void
+public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
+public "flowerState"(): $BlockState
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
 public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
 public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
-public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -921,8 +921,8 @@ import {$RegistrateRecipeProvider, $RegistrateRecipeProvider$Type} from "package
 import {$PlacedFeature, $PlacedFeature$Type} from "packages/net/minecraft/world/level/levelgen/placement/$PlacedFeature"
 import {$ItemBuilder, $ItemBuilder$Type} from "packages/com/tterrag/registrate/builders/$ItemBuilder"
 import {$BootstapContext, $BootstapContext$Type} from "packages/net/minecraft/data/worldgen/$BootstapContext"
-import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
+import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$L2Registrate, $L2Registrate$Type} from "packages/dev/xkmc/l2library/base/$L2Registrate"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
@@ -933,19 +933,19 @@ import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/
 
 export interface $PlantDataEntry<E extends ($Enum<(E)>) & ($PlantDataEntry<(E)>)> {
 
+ "getName"(): string
+ "registerComposter"(): void
+ "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
  "registerPlacements"(arg0: $BootstapContext$Type<($PlacedFeature$Type)>): void
  "getPlacementKey"(): $ResourceKey<($PlacedFeature)>
  "genRecipe"(arg0: $RegistrateRecipeProvider$Type): void
- "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
- "registerComposter"(): void
- "getName"(): string
 }
 
 export namespace $PlantDataEntry {
 const LIST: $List<($Supplier<(($PlantDataEntry<(any)>)[])>)>
-function addFruitTags<T>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
 function run(arg0: $Consumer$Type<($PlantDataEntry$Type<(any)>)>): void
 function gen<T>(arg0: T, arg1: $BiConsumer$Type<($PlantDataEntry$Type<(any)>), (T)>): void
+function addFruitTags<T>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1081,9 +1081,9 @@ export class $L2Registrate$GenericBuilder<T extends $NamedEntry<(T)>, P extends 
 
 
 public "defaultLang"(): $L2Registrate$GenericBuilder<(T), (P)>
-public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
-public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 public static "of"<T>(arg0: $Supplier$Type<(T)>, arg1: $NonNullSupplier$Type<(string)>): $NonNullSupplier<(T)>
+public static "of"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
+public static "lazy"<T>(arg0: $Supplier$Type<(T)>): $NonNullSupplier<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1152,9 +1152,6 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $Block$Type, arg2: $Block$Type, arg3: $Item$Type): void
-public "flowerState"(): $BlockState
-public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
 public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Player$Type, arg4: $InteractionHand$Type, arg5: $BlockHitResult$Type): $InteractionResult
 /**
  * 
@@ -1162,6 +1159,9 @@ public "use"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, ar
  */
 public "getCollisionShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
+public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $Block$Type, arg2: $Block$Type, arg3: $Item$Type): void
+public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
+public "flowerState"(): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1220,11 +1220,11 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "build"<T extends $FDCauldronBlock>(arg0: $DataGenContext$Type<($Block$Type), (T)>, arg1: $RegistrateBlockstateProvider$Type): void
 public "isFull"(arg0: $BlockState$Type): boolean
 public "getInteractions"(): $Map<($Item), ($CauldronInteraction)>
+public "animateTick"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "entityInside"(arg0: $BlockState$Type, arg1: $Level$Type, arg2: $BlockPos$Type, arg3: $Entity$Type): void
-public "build"<T extends $FDCauldronBlock>(arg0: $DataGenContext$Type<($Block$Type), (T)>, arg1: $RegistrateBlockstateProvider$Type): void
 get "interactions"(): $Map<($Item), ($CauldronInteraction)>
 }
 /**
@@ -1254,9 +1254,9 @@ export class $RangeSearchEffect extends $MobEffect {
  "color": integer
 
 
+public "getEntitiesInRange"<T extends $Entity>(arg0: $LivingEntity$Type, arg1: $Class$Type<(T)>): $List<(T)>
 public "applyEffectTick"(arg0: $LivingEntity$Type, arg1: integer): void
 public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
-public "getEntitiesInRange"<T extends $Entity>(arg0: $LivingEntity$Type, arg1: $Class$Type<(T)>): $List<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1344,14 +1344,14 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
-public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
 /**
  * 
  * @deprecated
  */
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1480,10 +1480,10 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $FruitType$Type)
 
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
-public "canStickTo"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
 public "isStickyBlock"(arg0: $BlockState$Type): boolean
-public "showJellySlideParticles"(arg0: $Entity$Type): void
+public "canStickTo"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
 public "showJellyJumpParticles"(arg0: $Entity$Type): void
+public "showJellySlideParticles"(arg0: $Entity$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1522,31 +1522,31 @@ readonly "configKey": $ResourceKey<($ConfiguredFeature<(any), (any)>)>
 readonly "placementKey": $ResourceKey<($PlacedFeature)>
 
 
-public "getSeed"(): $ItemNameBlockItem
-public "registerPlacements"(arg0: $BootstapContext$Type<($PlacedFeature$Type)>): void
-public "getPlacementKey"(): $ResourceKey<($PlacedFeature)>
-public "genRecipe"(arg0: $RegistrateRecipeProvider$Type): void
-public "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
-public "registerComposter"(): void
-public "getSlice"(): $Item
-public "getAttachedStem"(): $AttachedStemBlock
-public "getMelonBlock"(): $StemGrownBlock
-public static "registerColor"(arg0: $RegisterColorHandlersEvent$Block$Type): void
-public "getStem"(): $StemBlock
 public "getName"(): string
 public static "values"(): ($FDMelons)[]
 public static "valueOf"(arg0: string): $FDMelons
 public static "register"(): void
-public static "addFruitTags"<T extends $Item>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
+public "getSeed"(): $ItemNameBlockItem
+public "registerComposter"(): void
+public "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
+public "getSlice"(): $Item
+public "registerPlacements"(arg0: $BootstapContext$Type<($PlacedFeature$Type)>): void
+public "getPlacementKey"(): $ResourceKey<($PlacedFeature)>
+public "genRecipe"(arg0: $RegistrateRecipeProvider$Type): void
+public "getAttachedStem"(): $AttachedStemBlock
+public "getStem"(): $StemBlock
+public static "registerColor"(arg0: $RegisterColorHandlersEvent$Block$Type): void
+public "getMelonBlock"(): $StemGrownBlock
 public static "run"(arg0: $Consumer$Type<($PlantDataEntry$Type<(any)>)>): void
 public static "gen"<T>(arg0: T, arg1: $BiConsumer$Type<($PlantDataEntry$Type<(any)>), (T)>): void
-get "seed"(): $ItemNameBlockItem
-get "placementKey"(): $ResourceKey<($PlacedFeature)>
-get "slice"(): $Item
-get "attachedStem"(): $AttachedStemBlock
-get "melonBlock"(): $StemGrownBlock
-get "stem"(): $StemBlock
+public static "addFruitTags"<T extends $Item>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
 get "name"(): string
+get "seed"(): $ItemNameBlockItem
+get "slice"(): $Item
+get "placementKey"(): $ResourceKey<($PlacedFeature)>
+get "attachedStem"(): $AttachedStemBlock
+get "stem"(): $StemBlock
+get "melonBlock"(): $StemGrownBlock
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1658,14 +1658,14 @@ static readonly "FLUID_STATE_REGISTRY": $IdMapper<($FluidState)>
 
 constructor(arg0: $ForgeFlowingFluid$Properties$Type, arg1: $FruitType$Type)
 
-public "getSource"(): $Fluid
-public "getFlowing"(): $Fluid
-public "isSource"(arg0: $FluidState$Type): boolean
-public "getAmount"(arg0: $FluidState$Type): integer
 public "getBucket"(): $Item
-get "source"(): $Fluid
-get "flowing"(): $Fluid
+public "getAmount"(arg0: $FluidState$Type): integer
+public "isSource"(arg0: $FluidState$Type): boolean
+public "getFlowing"(): $Fluid
+public "getSource"(): $Fluid
 get "bucket"(): $Item
+get "flowing"(): $Fluid
+get "source"(): $Fluid
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1734,8 +1734,8 @@ import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/world/item/$Item$Properties"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$EquipmentSlot, $EquipmentSlot$Type} from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
@@ -1754,8 +1754,8 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor(arg0: $Item$Properties$Type)
 
-public "onArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
 public "getEquipmentSlot"(arg0: $ItemStack$Type): $EquipmentSlot
+public "onArmorTick"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $Player$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1946,10 +1946,10 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type)
 
 public "registerBlocks"(arg0: $Map$Type<($Block$Type), ($Item$Type)>, arg1: $Item$Type): void
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
-public "moonlight$getClientAnimationExtension"(): any
 public "moonlight$setClientAnimationExtension"(arg0: any): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2020,13 +2020,13 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $Block$Type, arg2: $Block$Type, arg3: $Item$Type): void
-public "flowerState"(): $BlockState
-public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
-public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
 public "canSurvive"(arg0: $BlockState$Type, arg1: $LevelReader$Type, arg2: $BlockPos$Type): boolean
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
+public "getShape"(arg0: $BlockState$Type, arg1: $BlockGetter$Type, arg2: $BlockPos$Type, arg3: $CollisionContext$Type): $VoxelShape
+public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $Block$Type, arg2: $Block$Type, arg3: $Item$Type): void
+public "buildLeavesModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type, arg2: string): void
+public "flowerState"(): $BlockState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2085,9 +2085,9 @@ readonly "properties": $BlockBehaviour$Properties
 constructor(arg0: $BlockBehaviour$Properties$Type, arg1: $FruitType$Type)
 
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $BlockGetter$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
+public "isStickyBlock"(arg0: $BlockState$Type): boolean
 public "isSlimeBlock"(arg0: $BlockState$Type): boolean
 public "canStickTo"(arg0: $BlockState$Type, arg1: $BlockState$Type): boolean
-public "isStickyBlock"(arg0: $BlockState$Type): boolean
 public "stepOn"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $Entity$Type): void
 }
 /**
@@ -2120,8 +2120,8 @@ export class $RangeRenderEffect extends $RangeSearchEffect implements $ClientRen
  "color": integer
 
 
-public "render"(arg0: $LivingEntity$Type, arg1: integer, arg2: $Consumer$Type<($DelayedEntityRender$Type)>): void
 public "onClientLevelRender"(arg0: $AbstractClientPlayer$Type, arg1: $MobEffectInstance$Type): void
+public "render"(arg0: $LivingEntity$Type, arg1: integer, arg2: $Consumer$Type<($DelayedEntityRender$Type)>): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2174,16 +2174,16 @@ static readonly "MAX_BAR_WIDTH": integer
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type, arg2: $IFDFood$Type)
 constructor(arg0: $Block$Type, arg1: $Item$Properties$Type, arg2: $IFDFood$Type, arg3: $UseAnim$Type)
 
-public "food"(): $IFDFood
 public "place"(arg0: $BlockPlaceContext$Type): $InteractionResult
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getDrinkingSound"(): $SoundEvent
-public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
-public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
-public "moonlight$getClientAnimationExtension"(): any
+public "food"(): $IFDFood
 public "moonlight$setClientAnimationExtension"(arg0: any): void
+public "moonlight$getClientAnimationExtension"(): any
+public "moonlight$addAdditionalBehavior"(arg0: $AdditionalItemPlacement$Type): void
+public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 get "drinkingSound"(): $SoundEvent
 }
 /**
@@ -2286,29 +2286,29 @@ readonly "configKey": $ResourceKey<($ConfiguredFeature<(any), (any)>)>
 readonly "placementKey": $ResourceKey<($PlacedFeature)>
 
 
-public "getSeed"(): $Item
-public "registerPlacements"(arg0: $BootstapContext$Type<($PlacedFeature$Type)>): void
-public "getPlacementKey"(): $ResourceKey<($PlacedFeature)>
-public "genRecipe"(arg0: $RegistrateRecipeProvider$Type): void
-public "getBush"(): $BushBlock
-public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $BushBlock$Type): void
-public "buildBushModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type): void
-public "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
-public "registerComposter"(): void
-public "getFruit"(): $Item
 public "getName"(): string
 public static "values"(): ($FDBushes)[]
 public static "valueOf"(arg0: string): $FDBushes
 public static "register"(): void
+public "getSeed"(): $Item
+public "getFruit"(): $Item
+public "registerComposter"(): void
+public "registerConfigs"(arg0: $BootstapContext$Type<($ConfiguredFeature$Type<(any), (any)>)>): void
+public "registerPlacements"(arg0: $BootstapContext$Type<($PlacedFeature$Type)>): void
+public "getPlacementKey"(): $ResourceKey<($PlacedFeature)>
+public "genRecipe"(arg0: $RegistrateRecipeProvider$Type): void
+public "buildLoot"(arg0: $RegistrateBlockLootTables$Type, arg1: $BushBlock$Type): void
+public "getBush"(): $BushBlock
+public "buildBushModel"(arg0: $DataGenContext$Type<($Block$Type), (any)>, arg1: $RegistrateBlockstateProvider$Type): void
 public "getFruitTag"(): $TagKey<($Item)>
-public static "addFruitTags"<T extends $Item>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
 public static "run"(arg0: $Consumer$Type<($PlantDataEntry$Type<(any)>)>): void
 public static "gen"<T>(arg0: T, arg1: $BiConsumer$Type<($PlantDataEntry$Type<(any)>), (T)>): void
+public static "addFruitTags"<T extends $Item>(arg0: string, arg1: $ItemBuilder$Type<(T), ($L2Registrate$Type)>): $ItemBuilder<(T), ($L2Registrate)>
+get "name"(): string
 get "seed"(): $Item
+get "fruit"(): $Item
 get "placementKey"(): $ResourceKey<($PlacedFeature)>
 get "bush"(): $BushBlock
-get "fruit"(): $Item
-get "name"(): string
 get "fruitTag"(): $TagKey<($Item)>
 }
 /**
@@ -2374,16 +2374,16 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $BlockBehaviour$Properties$Type)
 
-public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
-public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
-public "getDoubleBlockStart"(): integer
 public "isRandomlyTicking"(arg0: $BlockState$Type): boolean
-public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
-public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
-public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "setPlacedBy"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: $LivingEntity$Type, arg4: $ItemStack$Type): void
+public "getStateForPlacement"(arg0: $BlockPlaceContext$Type): $BlockState
 public "updateShape"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $BlockState$Type, arg3: $LevelAccessor$Type, arg4: $BlockPos$Type, arg5: $BlockPos$Type): $BlockState
 public "randomTick"(arg0: $BlockState$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $RandomSource$Type): void
 public "setGrowth"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: integer, arg3: integer): void
+public "getDoubleBlockStart"(): integer
+public "isValidBonemealTarget"(arg0: $LevelReader$Type, arg1: $BlockPos$Type, arg2: $BlockState$Type, arg3: boolean): boolean
+public "performBonemeal"(arg0: $ServerLevel$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): void
+public "isBonemealSuccess"(arg0: $Level$Type, arg1: $RandomSource$Type, arg2: $BlockPos$Type, arg3: $BlockState$Type): boolean
 get "doubleBlockStart"(): integer
 }
 /**
@@ -2435,10 +2435,10 @@ readonly "properties": $BlockBehaviour$Properties
 
 constructor(arg0: $FDMelons$Type, arg1: $BlockBehaviour$Properties$Type)
 
-public "getAttachedStem"(): $AttachedStemBlock
 public "getStem"(): $StemBlock
-get "attachedStem"(): $AttachedStemBlock
+public "getAttachedStem"(): $AttachedStemBlock
 get "stem"(): $StemBlock
+get "attachedStem"(): $AttachedStemBlock
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2466,8 +2466,8 @@ export class $AbstractShapelessRecipe$Serializer<T extends $AbstractShapelessRec
 
 constructor(arg0: $AbstractShapelessRecipe$RecipeFactory$Type<(T)>)
 
-public "toJson"(arg0: T, arg1: $JsonObject$Type): void
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): T
+public "toJson"(arg0: T, arg1: $JsonObject$Type): void
 public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): T
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 }
@@ -2493,8 +2493,8 @@ import {$Item$Properties, $Item$Properties$Type} from "packages/net/minecraft/wo
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$Block, $Block$Type} from "packages/net/minecraft/world/level/block/$Block"
-import {$FoodProperties, $FoodProperties$Type} from "packages/net/minecraft/world/food/$FoodProperties"
 import {$LivingEntity, $LivingEntity$Type} from "packages/net/minecraft/world/entity/$LivingEntity"
+import {$FoodProperties, $FoodProperties$Type} from "packages/net/minecraft/world/food/$FoodProperties"
 import {$IFDFood, $IFDFood$Type} from "packages/dev/xkmc/fruitsdelight/init/food/$IFDFood"
 import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$TooltipFlag, $TooltipFlag$Type} from "packages/net/minecraft/world/item/$TooltipFlag"
@@ -2517,20 +2517,20 @@ static readonly "MAX_BAR_WIDTH": integer
  "descriptionId": string
  "renderProperties": any
 
-constructor(arg0: $Item$Properties$Type, arg1: $IFDFood$Type, arg2: $UseAnim$Type)
 constructor(arg0: $Item$Properties$Type, arg1: $IFDFood$Type)
+constructor(arg0: $Item$Properties$Type, arg1: $IFDFood$Type, arg2: $UseAnim$Type)
 
-public "getFoodProperties"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): $FoodProperties
-public "food"(): $IFDFood
+public static "color"(arg0: $ItemStack$Type, arg1: integer): integer
 public "fillItemCategory"(arg0: integer, arg1: $CreativeModeTabModifier$Type): void
 public static "setContent"(arg0: $FDFoodItem$Type, arg1: $FruitType$Type): $ItemStack
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
 public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "appendHoverText"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $List$Type<($Component$Type)>, arg3: $TooltipFlag$Type): void
 public "getDrinkingSound"(): $SoundEvent
+public "getFoodProperties"(arg0: $ItemStack$Type, arg1: $LivingEntity$Type): $FoodProperties
+public "food"(): $IFDFood
 public static "getFoodEffects"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
 public static "getFoodEffects"(arg0: $FoodProperties$Type, arg1: $List$Type<($Component$Type)>): void
-public static "color"(arg0: $ItemStack$Type, arg1: integer): integer
 get "drinkingSound"(): $SoundEvent
 }
 /**
@@ -2589,11 +2589,11 @@ static readonly "FLOWERS": $PassableLeavesBlock$State
 static readonly "FRUITS": $PassableLeavesBlock$State
 
 
-public "getSerializedName"(): string
 public static "values"(): ($PassableLeavesBlock$State)[]
 public static "valueOf"(arg0: string): $PassableLeavesBlock$State
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): string
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
@@ -2620,8 +2620,8 @@ import {$EnchantmentCategory, $EnchantmentCategory$Type} from "packages/net/mine
 import {$Recipe, $Recipe$Type} from "packages/net/minecraft/world/item/crafting/$Recipe"
 import {$CreativeModeTab$Builder, $CreativeModeTab$Builder$Type} from "packages/net/minecraft/world/item/$CreativeModeTab$Builder"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
-import {$EnchantmentBuilder$EnchantmentFactory, $EnchantmentBuilder$EnchantmentFactory$Type} from "packages/com/tterrag/registrate/builders/$EnchantmentBuilder$EnchantmentFactory"
 import {$RecipeType, $RecipeType$Type} from "packages/net/minecraft/world/item/crafting/$RecipeType"
+import {$EnchantmentBuilder$EnchantmentFactory, $EnchantmentBuilder$EnchantmentFactory$Type} from "packages/com/tterrag/registrate/builders/$EnchantmentBuilder$EnchantmentFactory"
 import {$Enchantment, $Enchantment$Type} from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import {$NamedEntry, $NamedEntry$Type} from "packages/dev/xkmc/l2library/base/$NamedEntry"
 import {$NonNullSupplier, $NonNullSupplier$Type} from "packages/com/tterrag/registrate/util/nullness/$NonNullSupplier"
@@ -2633,8 +2633,8 @@ export class $L2Registrate extends $AbstractRegistrate<($L2Registrate)> {
 
 constructor(arg0: string)
 
-public "buildModCreativeTab"(arg0: string, arg1: string, arg2: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $RegistryEntry<($CreativeModeTab)>
-public "buildL2CreativeTab"(arg0: string, arg1: string, arg2: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $RegistryEntry<($CreativeModeTab)>
+public "generic"<T extends $NamedEntry<(T)>, P extends T>(arg0: $L2Registrate$RegistryInstance$Type<(T)>, arg1: string, arg2: $NonNullSupplier$Type<(P)>): $L2Registrate$GenericBuilder<(T), (P)>
+public "recipe"<T extends $Recipe<(any)>>(arg0: string): $RegistryEntry<($RecipeType<(T)>)>
 public "enchantment"<T extends $Enchantment>(arg0: string, arg1: $EnchantmentCategory$Type, arg2: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>, arg3: string): $EnchantmentBuilder<(T), ($L2Registrate)>
 /**
  * 
@@ -2642,9 +2642,9 @@ public "enchantment"<T extends $Enchantment>(arg0: string, arg1: $EnchantmentCat
  */
 public "enchantment"<T extends $Enchantment>(arg0: string, arg1: $EnchantmentCategory$Type, arg2: $EnchantmentBuilder$EnchantmentFactory$Type<(T)>): $EnchantmentBuilder<(T), ($L2Registrate)>
 public "newRegistry"<E extends $NamedEntry<(E)>>(arg0: string, arg1: $Class$Type<(any)>): $L2Registrate$RegistryInstance<(E)>
+public "buildModCreativeTab"(arg0: string, arg1: string, arg2: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $RegistryEntry<($CreativeModeTab)>
 public "effect"<T extends $MobEffect>(arg0: string, arg1: $NonNullSupplier$Type<(T)>, arg2: string): $NoConfigBuilder<($MobEffect), (T), ($L2Registrate)>
-public "generic"<T extends $NamedEntry<(T)>, P extends T>(arg0: $L2Registrate$RegistryInstance$Type<(T)>, arg1: string, arg2: $NonNullSupplier$Type<(P)>): $L2Registrate$GenericBuilder<(T), (P)>
-public "recipe"<T extends $Recipe<(any)>>(arg0: string): $RegistryEntry<($RecipeType<(T)>)>
+public "buildL2CreativeTab"(arg0: string, arg1: string, arg2: $Consumer$Type<($CreativeModeTab$Builder$Type)>): $RegistryEntry<($CreativeModeTab)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2721,9 +2721,9 @@ import {$FoodType, $FoodType$Type} from "packages/dev/xkmc/fruitsdelight/init/fo
 
 export interface $IFDFood {
 
- "fruit"(): $FruitType
- "getEffects"(): ($EffectEntry)[]
  "getType"(): $FoodType
+ "getEffects"(): ($EffectEntry)[]
+ "fruit"(): $FruitType
 }
 
 export namespace $IFDFood {
@@ -2933,11 +2933,11 @@ static readonly "BUDDING": $DurianLeavesBlock$Leaf
 static readonly "BARE": $DurianLeavesBlock$Leaf
 
 
-public "getSerializedName"(): string
 public static "values"(): ($DurianLeavesBlock$Leaf)[]
 public static "valueOf"(arg0: string): $DurianLeavesBlock$Leaf
-public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
+public "getSerializedName"(): string
 public static "fromEnumWithMapping"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>, arg1: $Function$Type<(string), (string)>): $StringRepresentable$EnumCodec<(E)>
+public static "fromEnum"<E extends ($Enum<(E)>) & ($StringRepresentable)>(arg0: $Supplier$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "keys"(arg0: ($StringRepresentable$Type)[]): $Keyable
 get "serializedName"(): string
 }
@@ -2986,11 +2986,11 @@ readonly "tags": ($TagKey<($Item)>)[]
 readonly "effectLevel": integer
 
 
-public "model"<T>(arg0: $ItemBuilder$Type<($Item$Type), (T)>, arg1: integer, arg2: $FruitType$Type): $ItemBuilder<($Item), (T)>
 public "build"(arg0: $Item$Properties$Type, arg1: $IFDFood$Type, arg2: $Block$Type): $Item
 public "build"(arg0: $Item$Properties$Type, arg1: $IFDFood$Type): $Item
 public static "values"(): ($FoodType)[]
 public static "valueOf"(arg0: string): $FoodType
+public "model"<T>(arg0: $ItemBuilder$Type<($Item$Type), (T)>, arg1: integer, arg2: $FruitType$Type): $ItemBuilder<($Item), (T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3094,17 +3094,17 @@ readonly "jellyCost": integer
 readonly "eff": $List<($EffectFunc)>
 
 
-public "getFruitTag"(): $Ingredient
-public "getJello"(): $Item
-public "getFruit"(): $Item
-public "getJelly"(): $Item
 public static "values"(): ($FruitType)[]
 public static "valueOf"(arg0: string): $FruitType
 public static "empty"(): $FruitType
-get "fruitTag"(): $Ingredient
-get "jello"(): $Item
+public "getFruit"(): $Item
+public "getFruitTag"(): $Ingredient
+public "getJelly"(): $Item
+public "getJello"(): $Item
 get "fruit"(): $Item
+get "fruitTag"(): $Ingredient
 get "jelly"(): $Item
+get "jello"(): $Item
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

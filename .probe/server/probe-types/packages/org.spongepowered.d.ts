@@ -11,15 +11,15 @@ export class $CallbackInfo implements $Cancellable {
 
 constructor(arg0: string, arg1: boolean)
 
-public "cancel"(): void
-public "isCancelled"(): boolean
-public "isCancellable"(): boolean
-public static "getCallInfoClassName"(arg0: $Type$Type): string
 public "toString"(): string
 public "getId"(): string
+public "cancel"(): void
+public static "getCallInfoClassName"(arg0: $Type$Type): string
+public "isCancelled"(): boolean
+public "isCancellable"(): boolean
+get "id"(): string
 get "cancelled"(): boolean
 get "cancellable"(): boolean
-get "id"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -43,10 +43,10 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export class $Args {
 
 
-public "setAll"(...arg0: (any)[]): void
 public "get"<T>(arg0: integer): T
 public "size"(): integer
 public "set"<T>(arg0: integer, arg1: T): void
+public "setAll"(...arg0: (any)[]): void
 set "all"(value: (any)[])
 }
 /**
@@ -100,37 +100,37 @@ import {$CallbackInfo, $CallbackInfo$Type} from "packages/org/spongepowered/asm/
  */
 export class $CallbackInfoReturnable<R> extends $CallbackInfo {
 
-constructor(arg0: string, arg1: boolean, arg2: double)
-constructor(arg0: string, arg1: boolean, arg2: character)
-constructor(arg0: string, arg1: boolean, arg2: byte)
-constructor(arg0: string, arg1: boolean, arg2: R)
-constructor(arg0: string, arg1: boolean)
-constructor(arg0: string, arg1: boolean, arg2: boolean)
-constructor(arg0: string, arg1: boolean, arg2: short)
-constructor(arg0: string, arg1: boolean, arg2: long)
-constructor(arg0: string, arg1: boolean, arg2: integer)
 constructor(arg0: string, arg1: boolean, arg2: float)
+constructor(arg0: string, arg1: boolean, arg2: integer)
+constructor(arg0: string, arg1: boolean, arg2: long)
+constructor(arg0: string, arg1: boolean, arg2: short)
+constructor(arg0: string, arg1: boolean, arg2: boolean)
+constructor(arg0: string, arg1: boolean)
+constructor(arg0: string, arg1: boolean, arg2: R)
+constructor(arg0: string, arg1: boolean, arg2: byte)
+constructor(arg0: string, arg1: boolean, arg2: character)
+constructor(arg0: string, arg1: boolean, arg2: double)
 
 public "getReturnValue"(): R
-public "getReturnValueJ"(): long
-public "getReturnValueI"(): integer
-public "setReturnValue"(arg0: R): void
-public "getReturnValueC"(): character
-public "getReturnValueZ"(): boolean
-public "getReturnValueF"(): float
 public "getReturnValueD"(): double
-public "getReturnValueS"(): short
+public "getReturnValueJ"(): long
+public "setReturnValue"(arg0: R): void
+public "getReturnValueF"(): float
 public "getReturnValueB"(): byte
+public "getReturnValueZ"(): boolean
+public "getReturnValueC"(): character
+public "getReturnValueS"(): short
+public "getReturnValueI"(): integer
 get "returnValue"(): R
-get "returnValueJ"(): long
-get "returnValueI"(): integer
-set "returnValue"(value: R)
-get "returnValueC"(): character
-get "returnValueZ"(): boolean
-get "returnValueF"(): float
 get "returnValueD"(): double
-get "returnValueS"(): short
+get "returnValueJ"(): long
+set "returnValue"(value: R)
+get "returnValueF"(): float
 get "returnValueB"(): byte
+get "returnValueZ"(): boolean
+get "returnValueC"(): character
+get "returnValueS"(): short
+get "returnValueI"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

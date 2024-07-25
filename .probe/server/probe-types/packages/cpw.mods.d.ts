@@ -50,8 +50,8 @@ const MODULE_VERSION: $Pattern
 const NUMBERLIKE_PARTS: $Pattern
 const ILLEGAL_KEYWORDS: $List<(string)>
 const KEYWORD_PARTS: $Pattern
-function fromFileName(arg0: $Path$Type, arg1: $Set$Type<(string)>, arg2: $List$Type<($SecureJar$Provider$Type)>): $SimpleJarMetadata
 function from(arg0: $SecureJar$Type, ...arg1: ($Path$Type)[]): $JarMetadata
+function fromFileName(arg0: $Path$Type, arg1: $Set$Type<(string)>, arg2: $List$Type<($SecureJar$Provider$Type)>): $SimpleJarMetadata
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -87,8 +87,8 @@ public "hashCode"(): integer
 public "pkgs"(): $Set<(string)>
 public "descriptor"(): $ModuleDescriptor
 public "providers"(): $List<($SecureJar$Provider)>
-public static "fromFileName"(arg0: $Path$Type, arg1: $Set$Type<(string)>, arg2: $List$Type<($SecureJar$Provider$Type)>): $SimpleJarMetadata
 public static "from"(arg0: $SecureJar$Type, ...arg1: ($Path$Type)[]): $JarMetadata
+public static "fromFileName"(arg0: $Path$Type, arg1: $Set$Type<(string)>, arg2: $List$Type<($SecureJar$Provider$Type)>): $SimpleJarMetadata
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -112,13 +112,13 @@ import {$Manifest, $Manifest$Type} from "packages/java/util/jar/$Manifest"
 
 export interface $SecureJar$ModuleDataProvider {
 
- "verifyAndGetSigners"(arg0: string, arg1: (byte)[]): ($CodeSigner)[]
- "findFile"(arg0: string): $Optional<($URI)>
  "name"(): string
  "descriptor"(): $ModuleDescriptor
  "uri"(): $URI
  "open"(arg0: string): $Optional<($InputStream)>
  "getManifest"(): $Manifest
+ "verifyAndGetSigners"(arg0: string, arg1: (byte)[]): ($CodeSigner)[]
+ "findFile"(arg0: string): $Optional<($URI)>
 }
 
 export namespace $SecureJar$ModuleDataProvider {
@@ -144,8 +144,8 @@ import {$Attributes, $Attributes$Type} from "packages/java/util/jar/$Attributes"
 import {$Function, $Function$Type} from "packages/java/util/function/$Function"
 import {$SecureJar$Provider, $SecureJar$Provider$Type} from "packages/cpw/mods/jarhandling/$SecureJar$Provider"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
-import {$SecureJar$ModuleDataProvider, $SecureJar$ModuleDataProvider$Type} from "packages/cpw/mods/jarhandling/$SecureJar$ModuleDataProvider"
 import {$List, $List$Type} from "packages/java/util/$List"
+import {$SecureJar$ModuleDataProvider, $SecureJar$ModuleDataProvider$Type} from "packages/cpw/mods/jarhandling/$SecureJar$ModuleDataProvider"
 import {$SecureJar$Status, $SecureJar$Status$Type} from "packages/cpw/mods/jarhandling/$SecureJar$Status"
 import {$JarMetadata, $JarMetadata$Type} from "packages/cpw/mods/jarhandling/$JarMetadata"
 import {$Supplier, $Supplier$Type} from "packages/java/util/function/$Supplier"
@@ -153,27 +153,27 @@ import {$Manifest, $Manifest$Type} from "packages/java/util/jar/$Manifest"
 
 export interface $SecureJar {
 
- "getTrustedManifestEntries"(arg0: string): $Attributes
- "getManifestSigners"(): ($CodeSigner)[]
- "verifyPath"(arg0: $Path$Type): $SecureJar$Status
- "getFileStatus"(arg0: string): $SecureJar$Status
- "moduleDataProvider"(): $SecureJar$ModuleDataProvider
- "getPrimaryPath"(): $Path
- "hasSecurityData"(): boolean
- "getRootPath"(): $Path
- "getProviders"(): $List<($SecureJar$Provider)>
  "name"(): string
  "getPackages"(): $Set<(string)>
  "getPath"(arg0: string, ...arg1: (string)[]): $Path
+ "getTrustedManifestEntries"(arg0: string): $Attributes
+ "getFileStatus"(arg0: string): $SecureJar$Status
+ "getProviders"(): $List<($SecureJar$Provider)>
+ "getRootPath"(): $Path
+ "verifyPath"(arg0: $Path$Type): $SecureJar$Status
+ "hasSecurityData"(): boolean
+ "moduleDataProvider"(): $SecureJar$ModuleDataProvider
+ "getPrimaryPath"(): $Path
+ "getManifestSigners"(): ($CodeSigner)[]
 }
 
 export namespace $SecureJar {
 function from(arg0: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, ...arg1: ($Path$Type)[]): $SecureJar
-function from(...arg0: ($Path$Type)[]): $SecureJar
-function from(arg0: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, arg1: $BiPredicate$Type<(string), (string)>, ...arg2: ($Path$Type)[]): $SecureJar
-function from(arg0: $Supplier$Type<($Manifest$Type)>, arg1: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, ...arg2: ($Path$Type)[]): $SecureJar
 function from(arg0: $BiPredicate$Type<(string), (string)>, ...arg1: ($Path$Type)[]): $SecureJar
+function from(...arg0: ($Path$Type)[]): $SecureJar
+function from(arg0: $Supplier$Type<($Manifest$Type)>, arg1: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, ...arg2: ($Path$Type)[]): $SecureJar
 function from(arg0: $Supplier$Type<($Manifest$Type)>, arg1: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, arg2: $BiPredicate$Type<(string), (string)>, ...arg3: ($Path$Type)[]): $SecureJar
+function from(arg0: $Function$Type<($SecureJar$Type), ($JarMetadata$Type)>, arg1: $BiPredicate$Type<(string), (string)>, ...arg2: ($Path$Type)[]): $SecureJar
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -197,12 +197,12 @@ export class $SecureJar$Provider extends $Record {
 
 constructor(serviceName: string, providers: $List$Type<(string)>)
 
-public static "fromPath"(arg0: $Path$Type, arg1: $BiPredicate$Type<(string), (string)>): $SecureJar$Provider
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "providers"(): $List<(string)>
 public "serviceName"(): string
+public static "fromPath"(arg0: $Path$Type, arg1: $BiPredicate$Type<(string), (string)>): $SecureJar$Provider
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

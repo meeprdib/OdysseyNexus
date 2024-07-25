@@ -3,9 +3,9 @@ import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/c
 
 export interface $AccessorSmithingTrimRecipe {
 
+ "getBase"(): $Ingredient
  "getTemplate"(): $Ingredient
  "getAddition"(): $Ingredient
- "getBase"(): $Ingredient
 }
 
 export namespace $AccessorSmithingTrimRecipe {
@@ -30,9 +30,9 @@ import {$ResultContainer, $ResultContainer$Type} from "packages/net/minecraft/wo
 
 export interface $AccessorInventoryMenu {
 
- "getCraftSlots"(): $CraftingContainer
- "getResultSlots"(): $ResultContainer
  "getOwner"(): $Player
+ "getResultSlots"(): $ResultContainer
+ "getCraftSlots"(): $CraftingContainer
 }
 
 export namespace $AccessorInventoryMenu {
@@ -55,9 +55,9 @@ import {$Ingredient, $Ingredient$Type} from "packages/net/minecraft/world/item/c
 
 export interface $AccessorSmithingTransformRecipe {
 
+ "getBase"(): $Ingredient
  "getTemplate"(): $Ingredient
  "getAddition"(): $Ingredient
- "getBase"(): $Ingredient
 }
 
 export namespace $AccessorSmithingTransformRecipe {
@@ -89,22 +89,22 @@ readonly "category": $EnchantmentCategory
 constructor()
 
 public static "canEnchant"(arg0: $Item$Type): boolean
-public "getMinCost"(arg0: integer): integer
-public "getMaxCost"(arg0: integer): integer
 public "getRarity"(): $Enchantment$Rarity
 public "canEnchant"(arg0: $ItemStack$Type): boolean
-public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
-public "isTradeable"(): boolean
-public "getMaxLevel"(): integer
-public "isDiscoverable"(): boolean
-public "isTreasureOnly"(): boolean
+public "getMinCost"(arg0: integer): integer
+public "getMaxCost"(arg0: integer): integer
 public "isAllowedOnBooks"(): boolean
+public "canApplyAtEnchantingTable"(arg0: $ItemStack$Type): boolean
+public "isTreasureOnly"(): boolean
+public "isTradeable"(): boolean
+public "isDiscoverable"(): boolean
+public "getMaxLevel"(): integer
 get "rarity"(): $Enchantment$Rarity
-get "tradeable"(): boolean
-get "maxLevel"(): integer
-get "discoverable"(): boolean
-get "treasureOnly"(): boolean
 get "allowedOnBooks"(): boolean
+get "treasureOnly"(): boolean
+get "tradeable"(): boolean
+get "discoverable"(): boolean
+get "maxLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -125,9 +125,9 @@ import {$ResultContainer, $ResultContainer$Type} from "packages/net/minecraft/wo
 
 export interface $AccessorCraftingMenu {
 
- "getCraftSlots"(): $CraftingContainer
- "getResultSlots"(): $ResultContainer
  "getPlayer"(): $Player
+ "getResultSlots"(): $ResultContainer
+ "getCraftSlots"(): $CraftingContainer
 }
 
 export namespace $AccessorCraftingMenu {

@@ -50,6 +50,7 @@
     "on:salt_block",
     "forge:bones/wither",
     "forge:sap",
+    "on:sap_bucket",
     "forge:buckets/{material}"
   ],
   "materials": [

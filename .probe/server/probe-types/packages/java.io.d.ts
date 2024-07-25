@@ -37,12 +37,12 @@ export class $OutputStream implements $Closeable, $Flushable {
 
 constructor()
 
-public static "nullOutputStream"(): $OutputStream
 public "flush"(): void
-public "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "write"(arg0: (byte)[]): void
+public "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "write"(arg0: integer): void
 public "close"(): void
+public static "nullOutputStream"(): $OutputStream
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -68,14 +68,14 @@ export interface $DataInput {
  "readLine"(): string
  "readInt"(): integer
  "readUTF"(): string
- "readUnsignedShort"(): integer
- "readFloat"(): float
  "readChar"(): character
+ "readFloat"(): float
+ "readUnsignedShort"(): integer
  "readLong"(): long
  "readByte"(): byte
  "readShort"(): short
- "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "readFully"(arg0: (byte)[]): void
+ "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "skipBytes"(arg0: integer): integer
  "readBoolean"(): boolean
  "readUnsignedByte"(): integer
@@ -142,47 +142,47 @@ import {$Locale, $Locale$Type} from "packages/java/util/$Locale"
  */
 export class $PrintStream extends $FilterOutputStream implements $Appendable, $Closeable {
 
-constructor(arg0: $OutputStream$Type)
-constructor(arg0: $OutputStream$Type, arg1: boolean)
-constructor(arg0: $OutputStream$Type, arg1: boolean, arg2: string)
-constructor(arg0: $File$Type, arg1: $Charset$Type)
-constructor(arg0: string, arg1: $Charset$Type)
-constructor(arg0: $OutputStream$Type, arg1: boolean, arg2: $Charset$Type)
 constructor(arg0: string, arg1: string)
 constructor(arg0: string)
+constructor(arg0: $OutputStream$Type, arg1: boolean, arg2: $Charset$Type)
+constructor(arg0: $OutputStream$Type, arg1: boolean, arg2: string)
+constructor(arg0: string, arg1: $Charset$Type)
 constructor(arg0: $File$Type, arg1: string)
+constructor(arg0: $File$Type, arg1: $Charset$Type)
 constructor(arg0: $File$Type)
+constructor(arg0: $OutputStream$Type)
+constructor(arg0: $OutputStream$Type, arg1: boolean)
 
-public "writeBytes"(arg0: (byte)[]): void
-public "checkError"(): boolean
-public "println"(arg0: (character)[]): void
-public "println"(arg0: boolean): void
-public "println"(arg0: long): void
-public "println"(arg0: integer): void
-public "println"(arg0: character): void
+public "println"(arg0: string): void
+public "println"(arg0: any): void
 public "println"(arg0: float): void
 public "println"(arg0: double): void
+public "println"(arg0: (character)[]): void
+public "println"(arg0: boolean): void
 public "println"(): void
-public "println"(arg0: any): void
-public "println"(arg0: string): void
+public "println"(arg0: character): void
+public "println"(arg0: integer): void
+public "println"(arg0: long): void
 public "flush"(): void
 public "format"(arg0: string, ...arg1: (any)[]): $PrintStream
 public "format"(arg0: $Locale$Type, arg1: string, ...arg2: (any)[]): $PrintStream
 public "printf"(arg0: $Locale$Type, arg1: string, ...arg2: (any)[]): $PrintStream
 public "printf"(arg0: string, ...arg1: (any)[]): $PrintStream
-public "write"(arg0: integer): void
 public "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
+public "write"(arg0: integer): void
 public "write"(arg0: (byte)[]): void
 public "print"(arg0: boolean): void
-public "print"(arg0: long): void
-public "print"(arg0: float): void
-public "print"(arg0: double): void
-public "print"(arg0: (character)[]): void
-public "print"(arg0: any): void
 public "print"(arg0: string): void
+public "print"(arg0: (character)[]): void
+public "print"(arg0: long): void
+public "print"(arg0: double): void
+public "print"(arg0: float): void
 public "print"(arg0: character): void
 public "print"(arg0: integer): void
+public "print"(arg0: any): void
 public "close"(): void
+public "writeBytes"(arg0: (byte)[]): void
+public "checkError"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -210,49 +210,52 @@ import {$Locale, $Locale$Type} from "packages/java/util/$Locale"
  */
 export class $PrintWriter extends $Writer {
 
-constructor(arg0: $File$Type, arg1: $Charset$Type)
-constructor(arg0: $File$Type, arg1: string)
-constructor(arg0: $File$Type)
-constructor(arg0: $OutputStream$Type)
-constructor(arg0: $Writer$Type, arg1: boolean)
-constructor(arg0: $Writer$Type)
-constructor(arg0: $OutputStream$Type, arg1: boolean)
-constructor(arg0: $OutputStream$Type, arg1: boolean, arg2: $Charset$Type)
 constructor(arg0: string)
 constructor(arg0: string, arg1: string)
 constructor(arg0: string, arg1: $Charset$Type)
+constructor(arg0: $File$Type)
+constructor(arg0: $File$Type, arg1: string)
+constructor(arg0: $File$Type, arg1: $Charset$Type)
+constructor(arg0: $Writer$Type)
+constructor(arg0: $Writer$Type, arg1: boolean)
+constructor(arg0: $OutputStream$Type, arg1: boolean, arg2: $Charset$Type)
+constructor(arg0: $OutputStream$Type, arg1: boolean)
+constructor(arg0: $OutputStream$Type)
 
-public "checkError"(): boolean
 public "println"(arg0: (character)[]): void
+public "println"(): void
+public "println"(arg0: boolean): void
+public "println"(arg0: string): void
+public "println"(arg0: any): void
 public "println"(arg0: double): void
 public "println"(arg0: float): void
-public "println"(arg0: any): void
-public "println"(arg0: string): void
-public "println"(arg0: boolean): void
-public "println"(arg0: character): void
-public "println"(arg0: integer): void
 public "println"(arg0: long): void
-public "println"(): void
+public "println"(arg0: integer): void
+public "println"(arg0: character): void
+public "append"(arg0: charseq, arg1: integer, arg2: integer): $PrintWriter
+public "append"(arg0: character): $PrintWriter
+public "append"(arg0: charseq): $PrintWriter
 public "flush"(): void
-public "format"(arg0: $Locale$Type, arg1: string, ...arg2: (any)[]): $PrintWriter
 public "format"(arg0: string, ...arg1: (any)[]): $PrintWriter
+public "format"(arg0: $Locale$Type, arg1: string, ...arg2: (any)[]): $PrintWriter
 public "printf"(arg0: string, ...arg1: (any)[]): $PrintWriter
 public "printf"(arg0: $Locale$Type, arg1: string, ...arg2: (any)[]): $PrintWriter
+public "write"(arg0: (character)[], arg1: integer, arg2: integer): void
 public "write"(arg0: string): void
+public "write"(arg0: string, arg1: integer, arg2: integer): void
 public "write"(arg0: (character)[]): void
 public "write"(arg0: integer): void
-public "write"(arg0: (character)[], arg1: integer, arg2: integer): void
-public "write"(arg0: string, arg1: integer, arg2: integer): void
+public "print"(arg0: float): void
 public "print"(arg0: long): void
 public "print"(arg0: integer): void
-public "print"(arg0: float): void
-public "print"(arg0: double): void
-public "print"(arg0: (character)[]): void
-public "print"(arg0: string): void
-public "print"(arg0: any): void
-public "print"(arg0: boolean): void
 public "print"(arg0: character): void
+public "print"(arg0: boolean): void
+public "print"(arg0: any): void
+public "print"(arg0: string): void
+public "print"(arg0: (character)[]): void
+public "print"(arg0: double): void
 public "close"(): void
+public "checkError"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -283,11 +286,11 @@ export interface $ObjectOutput extends $DataOutput, $AutoCloseable {
  "write"(arg0: integer): void
  "writeObject"(arg0: any): void
  "close"(): void
- "writeBytes"(arg0: string): void
  "writeInt"(arg0: integer): void
  "writeUTF"(arg0: string): void
- "writeFloat"(arg0: float): void
+ "writeBytes"(arg0: string): void
  "writeChar"(arg0: integer): void
+ "writeFloat"(arg0: float): void
  "writeLong"(arg0: long): void
  "writeBoolean"(arg0: boolean): void
  "writeByte"(arg0: integer): void
@@ -352,10 +355,10 @@ static readonly "separator": string
 static readonly "pathSeparatorChar": character
 static readonly "pathSeparator": string
 
-constructor(arg0: string, arg1: string)
-constructor(arg0: $File$Type, arg1: string)
-constructor(arg0: $URI$Type)
 constructor(arg0: string)
+constructor(arg0: string, arg1: string)
+constructor(arg0: $URI$Type)
+constructor(arg0: $File$Type, arg1: string)
 
 public "getName"(): string
 public "equals"(arg0: any): boolean
@@ -389,21 +392,21 @@ public "mkdir"(): boolean
 public "getCanonicalFile"(): $File
 public "getParentFile"(): $File
 public "mkdirs"(): boolean
-public "setWritable"(arg0: boolean, arg1: boolean): boolean
 public "setWritable"(arg0: boolean): boolean
+public "setWritable"(arg0: boolean, arg1: boolean): boolean
 public "setReadable"(arg0: boolean): boolean
 public "setReadable"(arg0: boolean, arg1: boolean): boolean
 public "setExecutable"(arg0: boolean, arg1: boolean): boolean
 public "setExecutable"(arg0: boolean): boolean
 public static "listRoots"(): ($File)[]
-public static "createTempFile"(arg0: string, arg1: string): $File
 public static "createTempFile"(arg0: string, arg1: string, arg2: $File$Type): $File
+public static "createTempFile"(arg0: string, arg1: string): $File
 public "canWrite"(): boolean
 public "isFile"(): boolean
 public "lastModified"(): long
 public "deleteOnExit"(): void
-public "listFiles"(arg0: $FileFilter$Type): ($File)[]
 public "listFiles"(arg0: $FilenameFilter$Type): ($File)[]
+public "listFiles"(arg0: $FileFilter$Type): ($File)[]
 public "listFiles"(): ($File)[]
 public "setLastModified"(arg0: long): boolean
 public "canExecute"(): boolean
@@ -497,15 +500,15 @@ export class $DataOutputStream extends $FilterOutputStream implements $DataOutpu
 
 constructor(arg0: $OutputStream$Type)
 
-public "writeBytes"(arg0: string): void
 public "flush"(): void
 public "size"(): integer
 public "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "write"(arg0: integer): void
 public "writeInt"(arg0: integer): void
 public "writeUTF"(arg0: string): void
-public "writeFloat"(arg0: float): void
+public "writeBytes"(arg0: string): void
 public "writeChar"(arg0: integer): void
+public "writeFloat"(arg0: float): void
 public "writeLong"(arg0: long): void
 public "writeBoolean"(arg0: boolean): void
 public "writeByte"(arg0: integer): void
@@ -659,17 +662,16 @@ import {$Flushable, $Flushable$Type} from "packages/java/io/$Flushable"
 export class $Writer implements $Appendable, $Closeable, $Flushable {
 
 
-public static "nullWriter"(): $Writer
-public "append"(arg0: character): $Writer
 public "append"(arg0: charseq, arg1: integer, arg2: integer): $Writer
-public "append"(arg0: charseq): $Writer
+public "append"(arg0: character): $Writer
 public "flush"(): void
-public "write"(arg0: integer): void
-public "write"(arg0: (character)[]): void
-public "write"(arg0: (character)[], arg1: integer, arg2: integer): void
-public "write"(arg0: string): void
 public "write"(arg0: string, arg1: integer, arg2: integer): void
+public "write"(arg0: integer): void
+public "write"(arg0: string): void
+public "write"(arg0: (character)[], arg1: integer, arg2: integer): void
+public "write"(arg0: (character)[]): void
 public "close"(): void
+public static "nullWriter"(): $Writer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -753,14 +755,14 @@ export {} // Mark the file as a module, do not remove unless there are other imp
  */
 export interface $DataOutput {
 
- "writeBytes"(arg0: string): void
  "write"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "write"(arg0: (byte)[]): void
  "write"(arg0: integer): void
  "writeInt"(arg0: integer): void
  "writeUTF"(arg0: string): void
- "writeFloat"(arg0: float): void
+ "writeBytes"(arg0: string): void
  "writeChar"(arg0: integer): void
+ "writeFloat"(arg0: float): void
  "writeLong"(arg0: long): void
  "writeBoolean"(arg0: boolean): void
  "writeByte"(arg0: integer): void
@@ -808,9 +810,9 @@ public "readLine"(): string
 public "readInt"(): integer
 public static "readUTF"(arg0: $DataInput$Type): string
 public "readUTF"(): string
-public "readUnsignedShort"(): integer
-public "readFloat"(): float
 public "readChar"(): character
+public "readFloat"(): float
+public "readUnsignedShort"(): integer
 public "readLong"(): long
 public "readByte"(): byte
 public "readShort"(): short
@@ -923,14 +925,14 @@ export interface $ObjectInput extends $DataInput, $AutoCloseable {
  "readLine"(): string
  "readInt"(): integer
  "readUTF"(): string
- "readUnsignedShort"(): integer
- "readFloat"(): float
  "readChar"(): character
+ "readFloat"(): float
+ "readUnsignedShort"(): integer
  "readLong"(): long
  "readByte"(): byte
  "readShort"(): short
- "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "readFully"(arg0: (byte)[]): void
+ "readFully"(arg0: (byte)[], arg1: integer, arg2: integer): void
  "skipBytes"(arg0: integer): integer
  "readBoolean"(): boolean
  "readUnsignedByte"(): integer
@@ -963,8 +965,8 @@ import {$Reader, $Reader$Type} from "packages/java/io/$Reader"
  */
 export class $BufferedReader extends $Reader {
 
-constructor(arg0: $Reader$Type)
 constructor(arg0: $Reader$Type, arg1: integer)
+constructor(arg0: $Reader$Type)
 
 public "lines"(): $Stream<(string)>
 public "read"(): integer

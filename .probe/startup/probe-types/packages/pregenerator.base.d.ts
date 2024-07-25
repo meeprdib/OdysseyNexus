@@ -4,9 +4,9 @@ import {$DistanceManager, $DistanceManager$Type} from "packages/net/minecraft/se
 
 export interface $ServerChunkProviderMixin {
 
- "getTicketManager"(): $DistanceManager
  "syncChunkUpdates"(): boolean
  "getChunkIfPresent"(arg0: long): $ChunkHolder
+ "getTicketManager"(): $DistanceManager
 }
 
 export namespace $ServerChunkProviderMixin {
@@ -31,9 +31,9 @@ import {$TabNavigationBar, $TabNavigationBar$Type} from "packages/net/minecraft/
 
 export interface $CreateNewWorldMixin {
 
- "getTempPath"(): $Path
  "getParentScreen"(): $Screen
  "getNavBar"(): $TabNavigationBar
+ "getTempPath"(): $Path
 }
 
 export namespace $CreateNewWorldMixin {
@@ -208,8 +208,8 @@ import {$Iterable, $Iterable$Type} from "packages/java/lang/$Iterable"
 
 export interface $ChunkManagerMixin {
 
- "getStatusListener"(): $ChunkProgressListener
  "getLoadedChunks"(): $Iterable<($ChunkHolder)>
+ "getStatusListener"(): $ChunkProgressListener
 }
 
 export namespace $ChunkManagerMixin {
@@ -283,8 +283,8 @@ import {$Long2ObjectLinkedOpenHashMap, $Long2ObjectLinkedOpenHashMap$Type} from 
 
 export interface $RegionFileCacheMixin {
 
- "getRegionCache"(): $Long2ObjectLinkedOpenHashMap<($RegionFile)>
  "setRegionCache"(arg0: $Long2ObjectLinkedOpenHashMap$Type<($RegionFile$Type)>): void
+ "getRegionCache"(): $Long2ObjectLinkedOpenHashMap<($RegionFile)>
 }
 
 export namespace $RegionFileCacheMixin {
@@ -310,8 +310,8 @@ import {$IOWorker, $IOWorker$Type} from "packages/net/minecraft/world/level/chun
 export interface $RegionSectionCacheMixin<T> {
 
  "getStorage"(): $Long2ObjectMap<($Optional<(T)>)>
- "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
  "getIOWorker"(): $IOWorker
+ "setStorage"(arg0: $Long2ObjectMap$Type<($Optional$Type<(T)>)>): void
 }
 
 export namespace $RegionSectionCacheMixin {
@@ -386,10 +386,10 @@ import {$ServerStatus, $ServerStatus$Type} from "packages/net/minecraft/network/
 
 export interface $MinecraftServerMixin {
 
- "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
- "setPregenStatus"(arg0: $ServerStatus$Type): void
- "setServerTime"(arg0: long): void
  "getCurrentSave"(): $LevelStorageSource$LevelStorageAccess
+ "setServerTime"(arg0: long): void
+ "setPregenStatus"(arg0: $ServerStatus$Type): void
+ "rebuildPregenStatus"(arg0: $ServerStatus$Type): void
 }
 
 export namespace $MinecraftServerMixin {

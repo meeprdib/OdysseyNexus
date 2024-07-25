@@ -3,9 +3,9 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $IMixinEditBox {
 
  "getIsEditableKonkrete"(): boolean
- "onValueChangeKonkrete"(arg0: string): void
- "getMaxLengthKonkrete"(): integer
  "getHightlightPosKonkrete"(): integer
+ "getMaxLengthKonkrete"(): integer
+ "onValueChangeKonkrete"(arg0: string): void
 }
 
 export namespace $IMixinEditBox {

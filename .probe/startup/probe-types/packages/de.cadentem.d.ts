@@ -2,8 +2,8 @@ declare module "packages/de/cadentem/additional_attributes/mixin/$FishingHookAcc
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $FishingHookAccess {
 
- "setTimeUntilLured"(arg0: integer): void
  "getLureSpeed"(): integer
+ "setTimeUntilLured"(arg0: integer): void
 }
 
 export namespace $FishingHookAccess {

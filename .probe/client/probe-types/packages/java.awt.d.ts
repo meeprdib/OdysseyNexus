@@ -5,52 +5,52 @@ export class $SampleModel {
 
 constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
 
-public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[], arg5: $DataBuffer$Type): (double)[]
-public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[], arg5: $DataBuffer$Type): (float)[]
-public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: $DataBuffer$Type): (integer)[]
-public "getPixel"(arg0: integer, arg1: integer, arg2: (float)[], arg3: $DataBuffer$Type): (float)[]
-public "getPixel"(arg0: integer, arg1: integer, arg2: (double)[], arg3: $DataBuffer$Type): (double)[]
-public "getPixel"(arg0: integer, arg1: integer, arg2: (integer)[], arg3: $DataBuffer$Type): (integer)[]
-public "createCompatibleSampleModel"(arg0: integer, arg1: integer): $SampleModel
-public "getHeight"(): integer
-public "getWidth"(): integer
 public "getNumBands"(): integer
 public "getSampleSize"(arg0: integer): integer
 public "getSampleSize"(): (integer)[]
-public "getDataType"(): integer
-public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[], arg5: $DataBuffer$Type): void
-public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[], arg5: $DataBuffer$Type): void
-public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: $DataBuffer$Type): void
+public "getHeight"(): integer
+public "getWidth"(): integer
 public "createDataBuffer"(): $DataBuffer
 public "createSubsetSampleModel"(arg0: (integer)[]): $SampleModel
-public "setDataElements"(arg0: integer, arg1: integer, arg2: any, arg3: $DataBuffer$Type): void
 public "setDataElements"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: any, arg5: $DataBuffer$Type): void
+public "setDataElements"(arg0: integer, arg1: integer, arg2: any, arg3: $DataBuffer$Type): void
 public "getDataElements"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: any, arg5: $DataBuffer$Type): any
 public "getDataElements"(arg0: integer, arg1: integer, arg2: any, arg3: $DataBuffer$Type): any
 public "setSample"(arg0: integer, arg1: integer, arg2: integer, arg3: float, arg4: $DataBuffer$Type): void
 public "setSample"(arg0: integer, arg1: integer, arg2: integer, arg3: double, arg4: $DataBuffer$Type): void
 public "setSample"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $DataBuffer$Type): void
-public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (float)[], arg6: $DataBuffer$Type): void
 public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (double)[], arg6: $DataBuffer$Type): void
+public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (float)[], arg6: $DataBuffer$Type): void
 public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[], arg6: $DataBuffer$Type): void
 public "getNumDataElements"(): integer
 public "getTransferType"(): integer
 public "getSample"(arg0: integer, arg1: integer, arg2: integer, arg3: $DataBuffer$Type): integer
 public "getSampleFloat"(arg0: integer, arg1: integer, arg2: integer, arg3: $DataBuffer$Type): float
 public "getSampleDouble"(arg0: integer, arg1: integer, arg2: integer, arg3: $DataBuffer$Type): double
-public "setPixel"(arg0: integer, arg1: integer, arg2: (double)[], arg3: $DataBuffer$Type): void
+public "createCompatibleSampleModel"(arg0: integer, arg1: integer): $SampleModel
+public "getPixel"(arg0: integer, arg1: integer, arg2: (double)[], arg3: $DataBuffer$Type): (double)[]
+public "getPixel"(arg0: integer, arg1: integer, arg2: (float)[], arg3: $DataBuffer$Type): (float)[]
+public "getPixel"(arg0: integer, arg1: integer, arg2: (integer)[], arg3: $DataBuffer$Type): (integer)[]
+public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[], arg5: $DataBuffer$Type): void
+public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[], arg5: $DataBuffer$Type): void
+public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: $DataBuffer$Type): void
+public "getDataType"(): integer
 public "setPixel"(arg0: integer, arg1: integer, arg2: (integer)[], arg3: $DataBuffer$Type): void
+public "setPixel"(arg0: integer, arg1: integer, arg2: (double)[], arg3: $DataBuffer$Type): void
 public "setPixel"(arg0: integer, arg1: integer, arg2: (float)[], arg3: $DataBuffer$Type): void
+public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[], arg5: $DataBuffer$Type): (double)[]
+public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: $DataBuffer$Type): (integer)[]
+public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[], arg5: $DataBuffer$Type): (float)[]
 public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[], arg6: $DataBuffer$Type): (integer)[]
-public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (float)[], arg6: $DataBuffer$Type): (float)[]
 public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (double)[], arg6: $DataBuffer$Type): (double)[]
-get "height"(): integer
-get "width"(): integer
+public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (float)[], arg6: $DataBuffer$Type): (float)[]
 get "numBands"(): integer
 get "sampleSize"(): (integer)[]
-get "dataType"(): integer
+get "height"(): integer
+get "width"(): integer
 get "numDataElements"(): integer
 get "transferType"(): integer
+get "dataType"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -103,17 +103,25 @@ static readonly "CYAN": $Color
 static readonly "blue": $Color
 static readonly "BLUE": $Color
 
-constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
-constructor(arg0: integer, arg1: integer, arg2: integer)
 constructor(arg0: float, arg1: float, arg2: float, arg3: float)
-constructor(arg0: $ColorSpace$Type, arg1: (float)[], arg2: float)
 constructor(arg0: integer)
-constructor(arg0: float, arg1: float, arg2: float)
 constructor(arg0: integer, arg1: boolean)
+constructor(arg0: float, arg1: float, arg2: float)
+constructor(arg0: integer, arg1: integer, arg2: integer)
+constructor(arg0: $ColorSpace$Type, arg1: (float)[], arg2: float)
+constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
 
-public "getComponents"(arg0: $ColorSpace$Type, arg1: (float)[]): (float)[]
-public "getComponents"(arg0: (float)[]): (float)[]
+public "equals"(arg0: any): boolean
+public "toString"(): string
+public "hashCode"(): integer
+public static "decode"(arg0: string): $Color
 public "createContext"(arg0: $ColorModel$Type, arg1: $Rectangle$Type, arg2: $Rectangle2D$Type, arg3: $AffineTransform$Type, arg4: $RenderingHints$Type): $PaintContext
+public "getComponents"(arg0: (float)[]): (float)[]
+public "getComponents"(arg0: $ColorSpace$Type, arg1: (float)[]): (float)[]
+public "getTransparency"(): integer
+public static "getColor"(arg0: string, arg1: integer): $Color
+public static "getColor"(arg0: string): $Color
+public static "getColor"(arg0: string, arg1: $Color$Type): $Color
 public "getRGB"(): integer
 public "getRed"(): integer
 public "getGreen"(): integer
@@ -126,24 +134,16 @@ public "brighter"(): $Color
 public "darker"(): $Color
 public static "RGBtoHSB"(arg0: integer, arg1: integer, arg2: integer, arg3: (float)[]): (float)[]
 public static "getHSBColor"(arg0: float, arg1: float, arg2: float): $Color
-public "getColorComponents"(arg0: $ColorSpace$Type, arg1: (float)[]): (float)[]
 public "getColorComponents"(arg0: (float)[]): (float)[]
+public "getColorComponents"(arg0: $ColorSpace$Type, arg1: (float)[]): (float)[]
 public "getColorSpace"(): $ColorSpace
-public "getTransparency"(): integer
-public static "getColor"(arg0: string, arg1: integer): $Color
-public static "getColor"(arg0: string, arg1: $Color$Type): $Color
-public static "getColor"(arg0: string): $Color
-public "equals"(arg0: any): boolean
-public "toString"(): string
-public "hashCode"(): integer
-public static "decode"(arg0: string): $Color
+get "transparency"(): integer
 get "rGB"(): integer
 get "red"(): integer
 get "green"(): integer
 get "blue"(): integer
 get "alpha"(): integer
 get "colorSpace"(): $ColorSpace
-get "transparency"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -163,22 +163,22 @@ import {$Cloneable, $Cloneable$Type} from "packages/java/lang/$Cloneable"
 export class $Point2D implements $Cloneable {
 
 
-public "getY"(): double
-public static "distanceSq"(arg0: double, arg1: double, arg2: double, arg3: double): double
-public "distanceSq"(arg0: double, arg1: double): double
-public "distanceSq"(arg0: $Point2D$Type): double
-public "setLocation"(arg0: $Point2D$Type): void
-public "setLocation"(arg0: double, arg1: double): void
-public "getX"(): double
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "clone"(): any
 public "distance"(arg0: $Point2D$Type): double
-public "distance"(arg0: double, arg1: double): double
 public static "distance"(arg0: double, arg1: double, arg2: double, arg3: double): double
+public "distance"(arg0: double, arg1: double): double
+public "getY"(): double
+public "distanceSq"(arg0: double, arg1: double): double
+public static "distanceSq"(arg0: double, arg1: double, arg2: double, arg3: double): double
+public "distanceSq"(arg0: $Point2D$Type): double
+public "getX"(): double
+public "setLocation"(arg0: double, arg1: double): void
+public "setLocation"(arg0: $Point2D$Type): void
 get "y"(): double
-set "location"(value: $Point2D$Type)
 get "x"(): double
+set "location"(value: $Point2D$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -196,10 +196,10 @@ declare module "packages/java/awt/geom/$PathIterator" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $PathIterator {
 
- "isDone"(): boolean
- "currentSegment"(arg0: (double)[]): integer
- "currentSegment"(arg0: (float)[]): integer
  "next"(): void
+ "isDone"(): boolean
+ "currentSegment"(arg0: (float)[]): integer
+ "currentSegment"(arg0: (double)[]): integer
  "getWindingRule"(): integer
 }
 
@@ -282,43 +282,6 @@ export class $ColorModel implements $Transparency {
 
 constructor(arg0: integer)
 
-public "getComponents"(arg0: integer, arg1: (integer)[], arg2: integer): (integer)[]
-public "getComponents"(arg0: any, arg1: (integer)[], arg2: integer): (integer)[]
-public "getNumComponents"(): integer
-public "getRGB"(arg0: integer): integer
-public "getRGB"(arg0: any): integer
-public "getRed"(arg0: integer): integer
-public "getRed"(arg0: any): integer
-public "getGreen"(arg0: integer): integer
-public "getGreen"(arg0: any): integer
-public "getBlue"(arg0: integer): integer
-public "getBlue"(arg0: any): integer
-public "getAlpha"(arg0: integer): integer
-public "getAlpha"(arg0: any): integer
-public "getColorSpace"(): $ColorSpace
-public "getTransparency"(): integer
-public "isCompatibleSampleModel"(arg0: $SampleModel$Type): boolean
-public "createCompatibleSampleModel"(arg0: integer, arg1: integer): $SampleModel
-public "isAlphaPremultiplied"(): boolean
-public "hasAlpha"(): boolean
-public "getComponentSize"(arg0: integer): integer
-public "getComponentSize"(): (integer)[]
-public "getDataElements"(arg0: (integer)[], arg1: integer, arg2: any): any
-public "getDataElements"(arg0: integer, arg1: any): any
-public "getDataElements"(arg0: (float)[], arg1: integer, arg2: any): any
-public "createCompatibleWritableRaster"(arg0: integer, arg1: integer): $WritableRaster
-public "getTransferType"(): integer
-public "getUnnormalizedComponents"(arg0: (float)[], arg1: integer, arg2: (integer)[], arg3: integer): (integer)[]
-public "getDataElement"(arg0: (integer)[], arg1: integer): integer
-public "getDataElement"(arg0: (float)[], arg1: integer): integer
-public "getNormalizedComponents"(arg0: any, arg1: (float)[], arg2: integer): (float)[]
-public "getNormalizedComponents"(arg0: (integer)[], arg1: integer, arg2: (float)[], arg3: integer): (float)[]
-public static "getRGBdefault"(): $ColorModel
-public "getPixelSize"(): integer
-public "getNumColorComponents"(): integer
-public "coerceData"(arg0: $WritableRaster$Type, arg1: boolean): $ColorModel
-public "isCompatibleRaster"(arg0: $Raster$Type): boolean
-public "getAlphaRaster"(arg0: $WritableRaster$Type): $WritableRaster
 /**
  * 
  * @deprecated
@@ -327,15 +290,52 @@ public "finalize"(): void
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-get "numComponents"(): integer
-get "colorSpace"(): $ColorSpace
-get "transparency"(): integer
-get "alphaPremultiplied"(): boolean
+public "getComponentSize"(): (integer)[]
+public "getComponentSize"(arg0: integer): integer
+public "getComponents"(arg0: any, arg1: (integer)[], arg2: integer): (integer)[]
+public "getComponents"(arg0: integer, arg1: (integer)[], arg2: integer): (integer)[]
+public "getDataElements"(arg0: (float)[], arg1: integer, arg2: any): any
+public "getDataElements"(arg0: (integer)[], arg1: integer, arg2: any): any
+public "getDataElements"(arg0: integer, arg1: any): any
+public "createCompatibleWritableRaster"(arg0: integer, arg1: integer): $WritableRaster
+public "getTransferType"(): integer
+public "getUnnormalizedComponents"(arg0: (float)[], arg1: integer, arg2: (integer)[], arg3: integer): (integer)[]
+public "getDataElement"(arg0: (float)[], arg1: integer): integer
+public "getDataElement"(arg0: (integer)[], arg1: integer): integer
+public "getNormalizedComponents"(arg0: any, arg1: (float)[], arg2: integer): (float)[]
+public "getNormalizedComponents"(arg0: (integer)[], arg1: integer, arg2: (float)[], arg3: integer): (float)[]
+public static "getRGBdefault"(): $ColorModel
+public "getPixelSize"(): integer
+public "getNumColorComponents"(): integer
+public "coerceData"(arg0: $WritableRaster$Type, arg1: boolean): $ColorModel
+public "isCompatibleRaster"(arg0: $Raster$Type): boolean
+public "getAlphaRaster"(arg0: $WritableRaster$Type): $WritableRaster
+public "hasAlpha"(): boolean
+public "getTransparency"(): integer
+public "isCompatibleSampleModel"(arg0: $SampleModel$Type): boolean
+public "createCompatibleSampleModel"(arg0: integer, arg1: integer): $SampleModel
+public "isAlphaPremultiplied"(): boolean
+public "getNumComponents"(): integer
+public "getRGB"(arg0: integer): integer
+public "getRGB"(arg0: any): integer
+public "getRed"(arg0: any): integer
+public "getRed"(arg0: integer): integer
+public "getGreen"(arg0: any): integer
+public "getGreen"(arg0: integer): integer
+public "getBlue"(arg0: integer): integer
+public "getBlue"(arg0: any): integer
+public "getAlpha"(arg0: integer): integer
+public "getAlpha"(arg0: any): integer
+public "getColorSpace"(): $ColorSpace
 get "componentSize"(): (integer)[]
 get "transferType"(): integer
 get "rGBdefault"(): $ColorModel
 get "pixelSize"(): integer
 get "numColorComponents"(): integer
+get "transparency"(): integer
+get "alphaPremultiplied"(): boolean
+get "numComponents"(): integer
+get "colorSpace"(): $ColorSpace
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -362,50 +362,50 @@ import {$AffineTransform, $AffineTransform$Type} from "packages/java/awt/geom/$A
 export class $RectangularShape implements $Shape, $Cloneable {
 
 
-public "getY"(): double
-public "getMaxY"(): double
-public "getMinY"(): double
-public "intersects"(arg0: $Rectangle2D$Type): boolean
-public "getX"(): double
-public "getHeight"(): double
-public "getWidth"(): double
-public "getMinX"(): double
-public "getMaxX"(): double
-public "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterator
-public "setFrame"(arg0: $Point2D$Type, arg1: $Dimension2D$Type): void
-public "setFrame"(arg0: $Rectangle2D$Type): void
-public "setFrame"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setFrameFromDiagonal"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setFrameFromDiagonal"(arg0: $Point2D$Type, arg1: $Point2D$Type): void
+public "clone"(): any
+public "isEmpty"(): boolean
+public "contains"(arg0: $Rectangle2D$Type): boolean
+public "contains"(arg0: $Point2D$Type): boolean
+public "getBounds"(): $Rectangle
 public "setFrameFromCenter"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "setFrameFromCenter"(arg0: $Point2D$Type, arg1: $Point2D$Type): void
 public "getCenterX"(): double
 public "getCenterY"(): double
+public "getY"(): double
+public "getHeight"(): double
+public "getWidth"(): double
+public "getX"(): double
+public "getMaxX"(): double
+public "getMinX"(): double
+public "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterator
+public "setFrame"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "setFrame"(arg0: $Point2D$Type, arg1: $Dimension2D$Type): void
+public "setFrame"(arg0: $Rectangle2D$Type): void
+public "setFrameFromDiagonal"(arg0: $Point2D$Type, arg1: $Point2D$Type): void
+public "setFrameFromDiagonal"(arg0: double, arg1: double, arg2: double, arg3: double): void
+public "intersects"(arg0: $Rectangle2D$Type): boolean
 public "getFrame"(): $Rectangle2D
-public "clone"(): any
-public "isEmpty"(): boolean
-public "contains"(arg0: $Point2D$Type): boolean
-public "contains"(arg0: $Rectangle2D$Type): boolean
-public "getBounds"(): $Rectangle
-public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "getMaxY"(): double
+public "getMinY"(): double
+public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "contains"(arg0: double, arg1: double): boolean
 public "getBounds2D"(): $Rectangle2D
 public "getPathIterator"(arg0: $AffineTransform$Type): $PathIterator
-public "contains"(arg0: double, arg1: double): boolean
-public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-get "y"(): double
-get "maxY"(): double
-get "minY"(): double
-get "x"(): double
-get "height"(): double
-get "width"(): double
-get "minX"(): double
-get "maxX"(): double
-set "frame"(value: $Rectangle2D$Type)
-get "centerX"(): double
-get "centerY"(): double
-get "frame"(): $Rectangle2D
+public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 get "empty"(): boolean
 get "bounds"(): $Rectangle
+get "centerX"(): double
+get "centerY"(): double
+get "y"(): double
+get "height"(): double
+get "width"(): double
+get "x"(): double
+get "maxX"(): double
+get "minX"(): double
+set "frame"(value: $Rectangle2D$Type)
+get "frame"(): $Rectangle2D
+get "maxY"(): double
+get "minY"(): double
 get "bounds2D"(): $Rectangle2D
 }
 /**
@@ -427,22 +427,22 @@ export class $WritableRaster extends $Raster {
 
 
 public "createWritableChild"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: (integer)[]): $WritableRaster
-public "setRect"(arg0: integer, arg1: integer, arg2: $Raster$Type): void
 public "setRect"(arg0: $Raster$Type): void
-public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[]): void
-public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[]): void
-public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[]): void
-public "setDataElements"(arg0: integer, arg1: integer, arg2: $Raster$Type): void
+public "setRect"(arg0: integer, arg1: integer, arg2: $Raster$Type): void
 public "setDataElements"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: any): void
+public "setDataElements"(arg0: integer, arg1: integer, arg2: $Raster$Type): void
 public "setDataElements"(arg0: integer, arg1: integer, arg2: any): void
 public "setSample"(arg0: integer, arg1: integer, arg2: integer, arg3: double): void
 public "setSample"(arg0: integer, arg1: integer, arg2: integer, arg3: float): void
 public "setSample"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
 public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (float)[]): void
-public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (double)[]): void
 public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[]): void
+public "setSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (double)[]): void
 public "getWritableParent"(): $WritableRaster
 public "createWritableTranslatedChild"(arg0: integer, arg1: integer): $WritableRaster
+public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[]): void
+public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[]): void
+public "setPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[]): void
 public "setPixel"(arg0: integer, arg1: integer, arg2: (integer)[]): void
 public "setPixel"(arg0: integer, arg1: integer, arg2: (float)[]): void
 public "setPixel"(arg0: integer, arg1: integer, arg2: (double)[]): void
@@ -469,24 +469,24 @@ export class $Point extends $Point2D implements $Serializable {
  "x": integer
  "y": integer
 
-constructor()
-constructor(arg0: $Point$Type)
 constructor(arg0: integer, arg1: integer)
+constructor(arg0: $Point$Type)
+constructor()
 
-public "getY"(): double
-public "setLocation"(arg0: $Point$Type): void
-public "setLocation"(arg0: integer, arg1: integer): void
-public "setLocation"(arg0: double, arg1: double): void
-public "getX"(): double
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "getLocation"(): $Point
 public "move"(arg0: integer, arg1: integer): void
+public "getY"(): double
+public "getX"(): double
 public "translate"(arg0: integer, arg1: integer): void
-get "y"(): double
-set "location"(value: $Point$Type)
-get "x"(): double
+public "setLocation"(arg0: $Point$Type): void
+public "setLocation"(arg0: integer, arg1: integer): void
+public "setLocation"(arg0: double, arg1: double): void
 get "location"(): $Point
+get "y"(): double
+get "x"(): double
+set "location"(value: $Point$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -518,52 +518,52 @@ static readonly "TYPE_GENERAL_ROTATION": integer
 static readonly "TYPE_MASK_ROTATION": integer
 static readonly "TYPE_GENERAL_TRANSFORM": integer
 
-constructor()
+constructor(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float)
+constructor(arg0: (float)[])
 constructor(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double)
 constructor(arg0: (double)[])
-constructor(arg0: (float)[])
-constructor(arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float)
+constructor()
 constructor(arg0: $AffineTransform$Type)
 
-public "invert"(): void
-public "setTransform"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): void
-public "setTransform"(arg0: $AffineTransform$Type): void
-public "shear"(arg0: double, arg1: double): void
-public "getScaleX"(): double
-public "getScaleY"(): double
-public "getMatrix"(arg0: (double)[]): void
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "clone"(): any
 public "scale"(arg0: double, arg1: double): void
 public "transform"(arg0: (float)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
-public "transform"(arg0: $Point2D$Type, arg1: $Point2D$Type): $Point2D
 public "transform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
-public "transform"(arg0: ($Point2D$Type)[], arg1: integer, arg2: ($Point2D$Type)[], arg3: integer, arg4: integer): void
+public "transform"(arg0: $Point2D$Type, arg1: $Point2D$Type): $Point2D
 public "transform"(arg0: (float)[], arg1: integer, arg2: (float)[], arg3: integer, arg4: integer): void
+public "transform"(arg0: ($Point2D$Type)[], arg1: integer, arg2: ($Point2D$Type)[], arg3: integer, arg4: integer): void
 public "transform"(arg0: (double)[], arg1: integer, arg2: (float)[], arg3: integer, arg4: integer): void
 public "getType"(): integer
 public "isIdentity"(): boolean
 public "rotate"(arg0: double, arg1: double): void
 public "rotate"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "rotate"(arg0: double, arg1: double, arg2: double): void
 public "rotate"(arg0: double): void
+public "rotate"(arg0: double, arg1: double, arg2: double): void
+public "shear"(arg0: double, arg1: double): void
+public "invert"(): void
+public "getMatrix"(arg0: (double)[]): void
 public "translate"(arg0: double, arg1: double): void
+public "getScaleX"(): double
+public "getScaleY"(): double
+public "setTransform"(arg0: $AffineTransform$Type): void
+public "setTransform"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): void
 public "setToTranslation"(arg0: double, arg1: double): void
-public "setToRotation"(arg0: double, arg1: double): void
-public "setToRotation"(arg0: double): void
 public "setToRotation"(arg0: double, arg1: double, arg2: double): void
+public "setToRotation"(arg0: double): void
 public "setToRotation"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "setToQuadrantRotation"(arg0: integer): void
+public "setToRotation"(arg0: double, arg1: double): void
 public "setToQuadrantRotation"(arg0: integer, arg1: double, arg2: double): void
+public "setToQuadrantRotation"(arg0: integer): void
 public "setToScale"(arg0: double, arg1: double): void
 public "setToShear"(arg0: double, arg1: double): void
 public static "getTranslateInstance"(arg0: double, arg1: double): $AffineTransform
-public static "getRotateInstance"(arg0: double, arg1: double, arg2: double, arg3: double): $AffineTransform
-public static "getRotateInstance"(arg0: double, arg1: double): $AffineTransform
 public static "getRotateInstance"(arg0: double): $AffineTransform
+public static "getRotateInstance"(arg0: double, arg1: double, arg2: double, arg3: double): $AffineTransform
 public static "getRotateInstance"(arg0: double, arg1: double, arg2: double): $AffineTransform
+public static "getRotateInstance"(arg0: double, arg1: double): $AffineTransform
 public static "getQuadrantRotateInstance"(arg0: integer): $AffineTransform
 public static "getQuadrantRotateInstance"(arg0: integer, arg1: double, arg2: double): $AffineTransform
 public static "getScaleInstance"(arg0: double, arg1: double): $AffineTransform
@@ -573,21 +573,21 @@ public "getShearX"(): double
 public "getShearY"(): double
 public "getTranslateX"(): double
 public "getTranslateY"(): double
-public "quadrantRotate"(arg0: integer): void
 public "quadrantRotate"(arg0: integer, arg1: double, arg2: double): void
+public "quadrantRotate"(arg0: integer): void
 public "setToIdentity"(): void
 public "concatenate"(arg0: $AffineTransform$Type): void
 public "preConcatenate"(arg0: $AffineTransform$Type): void
 public "createInverse"(): $AffineTransform
 public "inverseTransform"(arg0: $Point2D$Type, arg1: $Point2D$Type): $Point2D
 public "inverseTransform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
-public "deltaTransform"(arg0: $Point2D$Type, arg1: $Point2D$Type): $Point2D
 public "deltaTransform"(arg0: (double)[], arg1: integer, arg2: (double)[], arg3: integer, arg4: integer): void
+public "deltaTransform"(arg0: $Point2D$Type, arg1: $Point2D$Type): $Point2D
 public "createTransformedShape"(arg0: $Shape$Type): $Shape
-get "scaleX"(): double
-get "scaleY"(): double
 get "type"(): integer
 get "identity"(): boolean
+get "scaleX"(): double
+get "scaleY"(): double
 set "toRotation"(value: double)
 set "toQuadrantRotation"(value: integer)
 get "determinant"(): double
@@ -617,16 +617,16 @@ import {$AffineTransform, $AffineTransform$Type} from "packages/java/awt/geom/$A
 
 export interface $Shape {
 
- "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
- "intersects"(arg0: $Rectangle2D$Type): boolean
+ "contains"(arg0: $Rectangle2D$Type): boolean
+ "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+ "contains"(arg0: double, arg1: double): boolean
+ "contains"(arg0: $Point2D$Type): boolean
+ "getBounds"(): $Rectangle
  "getBounds2D"(): $Rectangle2D
  "getPathIterator"(arg0: $AffineTransform$Type): $PathIterator
  "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterator
- "contains"(arg0: double, arg1: double): boolean
- "contains"(arg0: $Rectangle2D$Type): boolean
- "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
- "contains"(arg0: $Point2D$Type): boolean
- "getBounds"(): $Rectangle
+ "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+ "intersects"(arg0: $Rectangle2D$Type): boolean
 }
 
 export namespace $Shape {
@@ -658,13 +658,20 @@ static readonly "OUT_RIGHT": integer
 static readonly "OUT_BOTTOM": integer
 
 
+public "add"(arg0: double, arg1: double): void
+public "add"(arg0: $Point2D$Type): void
+public "add"(arg0: $Rectangle2D$Type): void
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "contains"(arg0: double, arg1: double): boolean
+public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public static "union"(arg0: $Rectangle2D$Type, arg1: $Rectangle2D$Type, arg2: $Rectangle2D$Type): void
 public static "intersect"(arg0: $Rectangle2D$Type, arg1: $Rectangle2D$Type, arg2: $Rectangle2D$Type): void
-public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "setRect"(arg0: double, arg1: double, arg2: double, arg3: double): void
 public "setRect"(arg0: $Rectangle2D$Type): void
 public "getBounds2D"(): $Rectangle2D
-public "outcode"(arg0: $Point2D$Type): integer
 public "outcode"(arg0: double, arg1: double): integer
+public "outcode"(arg0: $Point2D$Type): integer
 public "createIntersection"(arg0: $Rectangle2D$Type): $Rectangle2D
 public "createUnion"(arg0: $Rectangle2D$Type): $Rectangle2D
 public "getPathIterator"(arg0: $AffineTransform$Type): $PathIterator
@@ -672,14 +679,7 @@ public "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterat
 public "intersectsLine"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "intersectsLine"(arg0: $Line2D$Type): boolean
 public "setFrame"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "add"(arg0: $Point2D$Type): void
-public "add"(arg0: double, arg1: double): void
-public "add"(arg0: $Rectangle2D$Type): void
-public "equals"(arg0: any): boolean
-public "hashCode"(): integer
-public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "contains"(arg0: double, arg1: double): boolean
-public static "union"(arg0: $Rectangle2D$Type, arg1: $Rectangle2D$Type, arg2: $Rectangle2D$Type): void
+public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 set "rect"(value: $Rectangle2D$Type)
 get "bounds2D"(): $Rectangle2D
 }
@@ -701,14 +701,14 @@ import {$Cloneable, $Cloneable$Type} from "packages/java/lang/$Cloneable"
 export class $Dimension2D implements $Cloneable {
 
 
+public "clone"(): any
+public "setSize"(arg0: double, arg1: double): void
+public "setSize"(arg0: $Dimension2D$Type): void
 public "getHeight"(): double
 public "getWidth"(): double
-public "clone"(): any
-public "setSize"(arg0: $Dimension2D$Type): void
-public "setSize"(arg0: double, arg1: double): void
+set "size"(value: $Dimension2D$Type)
 get "height"(): double
 get "width"(): double
-set "size"(value: $Dimension2D$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -852,39 +852,27 @@ import {$DataBuffer, $DataBuffer$Type} from "packages/java/awt/image/$DataBuffer
 export class $Raster {
 
 
-public "createChild"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: (integer)[]): $Raster
-public "getMinY"(): integer
-public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[]): (double)[]
-public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[]): (integer)[]
-public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[]): (float)[]
-public "getPixel"(arg0: integer, arg1: integer, arg2: (double)[]): (double)[]
-public "getPixel"(arg0: integer, arg1: integer, arg2: (integer)[]): (integer)[]
-public "getPixel"(arg0: integer, arg1: integer, arg2: (float)[]): (float)[]
-public static "createWritableRaster"(arg0: $SampleModel$Type, arg1: $Point$Type): $WritableRaster
-public static "createWritableRaster"(arg0: $SampleModel$Type, arg1: $DataBuffer$Type, arg2: $Point$Type): $WritableRaster
-public static "createPackedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: (integer)[], arg4: $Point$Type): $WritableRaster
-public static "createPackedRaster"(arg0: $DataBuffer$Type, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: $Point$Type): $WritableRaster
-public static "createPackedRaster"(arg0: $DataBuffer$Type, arg1: integer, arg2: integer, arg3: integer, arg4: $Point$Type): $WritableRaster
-public static "createPackedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $Point$Type): $WritableRaster
+public "getBounds"(): $Rectangle
+public "getParent"(): $Raster
+public "getDataBuffer"(): $DataBuffer
+public "getNumBands"(): integer
+public "getHeight"(): integer
+public "getWidth"(): integer
+public "getMinX"(): integer
 public static "createInterleavedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[], arg6: $Point$Type): $WritableRaster
 public static "createInterleavedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Point$Type): $WritableRaster
 public static "createInterleavedRaster"(arg0: $DataBuffer$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[], arg6: $Point$Type): $WritableRaster
 public static "createRaster"(arg0: $SampleModel$Type, arg1: $DataBuffer$Type, arg2: $Point$Type): $Raster
-public "getHeight"(): integer
-public "getWidth"(): integer
-public "getDataBuffer"(): $DataBuffer
-public "getNumBands"(): integer
-public "getMinX"(): integer
 public "getDataElements"(arg0: integer, arg1: integer, arg2: any): any
 public "getDataElements"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: any): any
 public static "createBandedRaster"(arg0: $DataBuffer$Type, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: (integer)[], arg6: $Point$Type): $WritableRaster
-public static "createBandedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Point$Type): $WritableRaster
 public static "createBandedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: (integer)[], arg6: $Point$Type): $WritableRaster
+public static "createBandedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $Point$Type): $WritableRaster
 public "getNumDataElements"(): integer
-public "createCompatibleWritableRaster"(arg0: integer, arg1: integer): $WritableRaster
 public "createCompatibleWritableRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $WritableRaster
-public "createCompatibleWritableRaster"(arg0: $Rectangle$Type): $WritableRaster
 public "createCompatibleWritableRaster"(): $WritableRaster
+public "createCompatibleWritableRaster"(arg0: $Rectangle$Type): $WritableRaster
+public "createCompatibleWritableRaster"(arg0: integer, arg1: integer): $WritableRaster
 public "getTransferType"(): integer
 public "getSample"(arg0: integer, arg1: integer, arg2: integer): integer
 public "getSampleFloat"(arg0: integer, arg1: integer, arg2: integer): float
@@ -892,25 +880,37 @@ public "getSampleDouble"(arg0: integer, arg1: integer, arg2: integer): double
 public "getSampleModelTranslateX"(): integer
 public "getSampleModelTranslateY"(): integer
 public "createTranslatedChild"(arg0: integer, arg1: integer): $Raster
+public static "createWritableRaster"(arg0: $SampleModel$Type, arg1: $DataBuffer$Type, arg2: $Point$Type): $WritableRaster
+public static "createWritableRaster"(arg0: $SampleModel$Type, arg1: $Point$Type): $WritableRaster
+public static "createPackedRaster"(arg0: $DataBuffer$Type, arg1: integer, arg2: integer, arg3: integer, arg4: $Point$Type): $WritableRaster
+public static "createPackedRaster"(arg0: $DataBuffer$Type, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[], arg5: $Point$Type): $WritableRaster
+public static "createPackedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: (integer)[], arg4: $Point$Type): $WritableRaster
+public static "createPackedRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: $Point$Type): $WritableRaster
+public "getPixel"(arg0: integer, arg1: integer, arg2: (double)[]): (double)[]
+public "getPixel"(arg0: integer, arg1: integer, arg2: (float)[]): (float)[]
+public "getPixel"(arg0: integer, arg1: integer, arg2: (integer)[]): (integer)[]
+public "createChild"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: (integer)[]): $Raster
+public "getSampleModel"(): $SampleModel
+public "getMinY"(): integer
+public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (double)[]): (double)[]
+public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (integer)[]): (integer)[]
+public "getPixels"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: (float)[]): (float)[]
+public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[]): (integer)[]
 public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (double)[]): (double)[]
 public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (float)[]): (float)[]
-public "getSamples"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: (integer)[]): (integer)[]
-public "getSampleModel"(): $SampleModel
-public "getBounds"(): $Rectangle
-public "getParent"(): $Raster
-get "minY"(): integer
-get "height"(): integer
-get "width"(): integer
+get "bounds"(): $Rectangle
+get "parent"(): $Raster
 get "dataBuffer"(): $DataBuffer
 get "numBands"(): integer
+get "height"(): integer
+get "width"(): integer
 get "minX"(): integer
 get "numDataElements"(): integer
 get "transferType"(): integer
 get "sampleModelTranslateX"(): integer
 get "sampleModelTranslateY"(): integer
 get "sampleModel"(): $SampleModel
-get "bounds"(): $Rectangle
-get "parent"(): $Raster
+get "minY"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -960,20 +960,20 @@ static readonly "CS_PYCC": integer
 static readonly "CS_GRAY": integer
 
 
+public "getName"(arg0: integer): string
+public static "getInstance"(arg0: integer): $ColorSpace
+public "getType"(): integer
+public "isCS_sRGB"(): boolean
+public "getMinValue"(arg0: integer): float
+public "getMaxValue"(arg0: integer): float
+public "fromRGB"(arg0: (float)[]): (float)[]
 public "getNumComponents"(): integer
 public "toRGB"(arg0: (float)[]): (float)[]
 public "toCIEXYZ"(arg0: (float)[]): (float)[]
 public "fromCIEXYZ"(arg0: (float)[]): (float)[]
-public "getMinValue"(arg0: integer): float
-public "getMaxValue"(arg0: integer): float
-public "isCS_sRGB"(): boolean
-public "fromRGB"(arg0: (float)[]): (float)[]
-public "getName"(arg0: integer): string
-public static "getInstance"(arg0: integer): $ColorSpace
-public "getType"(): integer
-get "numComponents"(): integer
-get "cS_sRGB"(): boolean
 get "type"(): integer
+get "cS_sRGB"(): boolean
+get "numComponents"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -995,23 +995,23 @@ export class $Dimension extends $Dimension2D implements $Serializable {
  "width": integer
  "height": integer
 
-constructor(arg0: integer, arg1: integer)
 constructor(arg0: $Dimension$Type)
 constructor()
+constructor(arg0: integer, arg1: integer)
 
-public "getHeight"(): double
-public "getWidth"(): double
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public "getSize"(): $Dimension
-public "setSize"(arg0: integer, arg1: integer): void
 public "setSize"(arg0: $Dimension$Type): void
 public "setSize"(arg0: double, arg1: double): void
-get "height"(): double
-get "width"(): double
+public "setSize"(arg0: integer, arg1: integer): void
+public "getHeight"(): double
+public "getWidth"(): double
 get "size"(): $Dimension
 set "size"(value: $Dimension$Type)
+get "height"(): double
+get "width"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1045,49 +1045,24 @@ static readonly "OUT_TOP": integer
 static readonly "OUT_RIGHT": integer
 static readonly "OUT_BOTTOM": integer
 
+constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
+constructor(arg0: integer, arg1: integer)
 constructor(arg0: $Dimension$Type)
+constructor(arg0: $Point$Type)
 constructor(arg0: $Rectangle$Type)
 constructor()
-constructor(arg0: integer, arg1: integer)
-constructor(arg0: integer, arg1: integer, arg2: integer, arg3: integer)
-constructor(arg0: $Point$Type)
 constructor(arg0: $Point$Type, arg1: $Dimension$Type)
 
-public "getY"(): double
-public "setBounds"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "setBounds"(arg0: $Rectangle$Type): void
-public "setLocation"(arg0: $Point$Type): void
-public "setLocation"(arg0: integer, arg1: integer): void
-public "intersection"(arg0: $Rectangle$Type): $Rectangle
-public "intersects"(arg0: $Rectangle$Type): boolean
-public "setRect"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "getX"(): double
-public "getHeight"(): double
-public "getWidth"(): double
-/**
- * 
- * @deprecated
- */
-public "inside"(arg0: integer, arg1: integer): boolean
-/**
- * 
- * @deprecated
- */
-public "reshape"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
-public "getBounds2D"(): $Rectangle2D
-public "outcode"(arg0: double, arg1: double): integer
-public "createIntersection"(arg0: $Rectangle2D$Type): $Rectangle2D
-public "createUnion"(arg0: $Rectangle2D$Type): $Rectangle2D
-public "add"(arg0: integer, arg1: integer): void
-public "add"(arg0: $Point$Type): void
 public "add"(arg0: $Rectangle$Type): void
+public "add"(arg0: $Point$Type): void
+public "add"(arg0: integer, arg1: integer): void
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "isEmpty"(): boolean
+public "contains"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): boolean
+public "contains"(arg0: $Rectangle$Type): boolean
 public "contains"(arg0: $Point$Type): boolean
 public "contains"(arg0: integer, arg1: integer): boolean
-public "contains"(arg0: $Rectangle$Type): boolean
-public "contains"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): boolean
 public "getBounds"(): $Rectangle
 public "getLocation"(): $Point
 public "getSize"(): $Dimension
@@ -1102,30 +1077,55 @@ public "resize"(arg0: integer, arg1: integer): void
  * @deprecated
  */
 public "move"(arg0: integer, arg1: integer): void
-public "setSize"(arg0: $Dimension$Type): void
 public "setSize"(arg0: integer, arg1: integer): void
-public "translate"(arg0: integer, arg1: integer): void
+public "setSize"(arg0: $Dimension$Type): void
 public "union"(arg0: $Rectangle$Type): $Rectangle
-public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "intersects"(arg0: $Rectangle2D$Type): boolean
-public "getPathIterator"(arg0: $AffineTransform$Type): $PathIterator
-public "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterator
-public "contains"(arg0: double, arg1: double): boolean
+public "getY"(): double
+public "getHeight"(): double
+public "getWidth"(): double
+public "getX"(): double
+public "setRect"(arg0: double, arg1: double, arg2: double, arg3: double): void
+/**
+ * 
+ * @deprecated
+ */
+public "reshape"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "getBounds2D"(): $Rectangle2D
+public "outcode"(arg0: double, arg1: double): integer
+public "createIntersection"(arg0: $Rectangle2D$Type): $Rectangle2D
+public "createUnion"(arg0: $Rectangle2D$Type): $Rectangle2D
+public "intersects"(arg0: $Rectangle$Type): boolean
+public "translate"(arg0: integer, arg1: integer): void
+public "intersection"(arg0: $Rectangle$Type): $Rectangle
+public "setLocation"(arg0: $Point$Type): void
+public "setLocation"(arg0: integer, arg1: integer): void
+/**
+ * 
+ * @deprecated
+ */
+public "inside"(arg0: integer, arg1: integer): boolean
+public "setBounds"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): void
+public "setBounds"(arg0: $Rectangle$Type): void
 public "contains"(arg0: $Rectangle2D$Type): boolean
 public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "contains"(arg0: double, arg1: double): boolean
 public "contains"(arg0: $Point2D$Type): boolean
-get "y"(): double
-set "bounds"(value: $Rectangle$Type)
-set "location"(value: $Point$Type)
-get "x"(): double
-get "height"(): double
-get "width"(): double
-get "bounds2D"(): $Rectangle2D
+public "getPathIterator"(arg0: $AffineTransform$Type): $PathIterator
+public "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterator
+public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "intersects"(arg0: $Rectangle2D$Type): boolean
 get "empty"(): boolean
 get "bounds"(): $Rectangle
 get "location"(): $Point
 get "size"(): $Dimension
 set "size"(value: $Dimension$Type)
+get "y"(): double
+get "height"(): double
+get "width"(): double
+get "x"(): double
+get "bounds2D"(): $Rectangle2D
+set "location"(value: $Point$Type)
+set "bounds"(value: $Rectangle$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1151,29 +1151,29 @@ static readonly "TYPE_DOUBLE": integer
 static readonly "TYPE_UNDEFINED": integer
 
 
+public "getSize"(): integer
+public "getOffset"(): integer
 public "getOffsets"(): (integer)[]
+public "getNumBanks"(): integer
+public "getElemFloat"(arg0: integer, arg1: integer): float
+public "getElemFloat"(arg0: integer): float
+public "setElemFloat"(arg0: integer, arg1: float): void
+public "setElemFloat"(arg0: integer, arg1: integer, arg2: float): void
+public "getElemDouble"(arg0: integer, arg1: integer): double
+public "getElemDouble"(arg0: integer): double
+public "setElemDouble"(arg0: integer, arg1: integer, arg2: double): void
+public "setElemDouble"(arg0: integer, arg1: double): void
 public "getElem"(arg0: integer): integer
 public "getElem"(arg0: integer, arg1: integer): integer
 public "setElem"(arg0: integer, arg1: integer, arg2: integer): void
 public "setElem"(arg0: integer, arg1: integer): void
 public static "getDataTypeSize"(arg0: integer): integer
 public "getDataType"(): integer
-public "getNumBanks"(): integer
-public "getElemFloat"(arg0: integer): float
-public "getElemFloat"(arg0: integer, arg1: integer): float
-public "setElemFloat"(arg0: integer, arg1: integer, arg2: float): void
-public "setElemFloat"(arg0: integer, arg1: float): void
-public "getElemDouble"(arg0: integer): double
-public "getElemDouble"(arg0: integer, arg1: integer): double
-public "setElemDouble"(arg0: integer, arg1: integer, arg2: double): void
-public "setElemDouble"(arg0: integer, arg1: double): void
-public "getSize"(): integer
-public "getOffset"(): integer
-get "offsets"(): (integer)[]
-get "dataType"(): integer
-get "numBanks"(): integer
 get "size"(): integer
 get "offset"(): integer
+get "offsets"(): (integer)[]
+get "numBanks"(): integer
+get "dataType"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1199,50 +1199,50 @@ import {$AffineTransform, $AffineTransform$Type} from "packages/java/awt/geom/$A
 export class $Line2D implements $Shape, $Cloneable {
 
 
+public "clone"(): any
+public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "contains"(arg0: $Rectangle2D$Type): boolean
+public "contains"(arg0: $Point2D$Type): boolean
+public "contains"(arg0: double, arg1: double): boolean
+public "getBounds"(): $Rectangle
 public "setLine"(arg0: $Point2D$Type, arg1: $Point2D$Type): void
 public "setLine"(arg0: $Line2D$Type): void
 public "setLine"(arg0: double, arg1: double, arg2: double, arg3: double): void
-public "intersects"(arg0: $Rectangle2D$Type): boolean
-public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
 public "getPathIterator"(arg0: $AffineTransform$Type): $PathIterator
 public "getPathIterator"(arg0: $AffineTransform$Type, arg1: double): $PathIterator
 public "getX1"(): double
 public "getY1"(): double
 public "getX2"(): double
 public "getY2"(): double
-public "intersectsLine"(arg0: $Line2D$Type): boolean
 public "intersectsLine"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "clone"(): any
-public "contains"(arg0: double, arg1: double): boolean
-public "contains"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
-public "contains"(arg0: $Rectangle2D$Type): boolean
-public "contains"(arg0: $Point2D$Type): boolean
-public "getBounds"(): $Rectangle
-public static "relativeCCW"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): integer
+public "intersectsLine"(arg0: $Line2D$Type): boolean
+public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double): boolean
+public "intersects"(arg0: $Rectangle2D$Type): boolean
 public "relativeCCW"(arg0: double, arg1: double): integer
 public "relativeCCW"(arg0: $Point2D$Type): integer
+public static "relativeCCW"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): integer
 public static "linesIntersect"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double, arg6: double, arg7: double): boolean
-public "ptSegDistSq"(arg0: $Point2D$Type): double
 public "ptSegDistSq"(arg0: double, arg1: double): double
 public static "ptSegDistSq"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): double
-public "ptSegDist"(arg0: double, arg1: double): double
+public "ptSegDistSq"(arg0: $Point2D$Type): double
 public "ptSegDist"(arg0: $Point2D$Type): double
+public "ptSegDist"(arg0: double, arg1: double): double
 public static "ptSegDist"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): double
-public "ptLineDistSq"(arg0: $Point2D$Type): double
 public "ptLineDistSq"(arg0: double, arg1: double): double
+public "ptLineDistSq"(arg0: $Point2D$Type): double
 public static "ptLineDistSq"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): double
-public "ptLineDist"(arg0: double, arg1: double): double
 public "ptLineDist"(arg0: $Point2D$Type): double
 public static "ptLineDist"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): double
+public "ptLineDist"(arg0: double, arg1: double): double
 public "getP1"(): $Point2D
 public "getP2"(): $Point2D
 public "getBounds2D"(): $Rectangle2D
+get "bounds"(): $Rectangle
 set "line"(value: $Line2D$Type)
 get "x1"(): double
 get "y1"(): double
 get "x2"(): double
 get "y2"(): double
-get "bounds"(): $Rectangle
 get "p1"(): $Point2D
 get "p2"(): $Point2D
 get "bounds2D"(): $Rectangle2D
@@ -1265,9 +1265,9 @@ import {$ColorModel, $ColorModel$Type} from "packages/java/awt/image/$ColorModel
 
 export interface $PaintContext {
 
+ "getRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Raster
  "dispose"(): void
  "getColorModel"(): $ColorModel
- "getRaster"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $Raster
 }
 
 export namespace $PaintContext {

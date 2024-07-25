@@ -185,8 +185,8 @@ export class $stateCache {
 
 constructor(arg0: $Path$Type)
 
-public "setCleared"(arg0: $BlockPos$Type, arg1: boolean): void
 public "isCleared"(arg0: $BlockPos$Type): boolean
+public "setCleared"(arg0: $BlockPos$Type, arg1: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -209,8 +209,8 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 export interface $StructurePoolAccessor {
 
  "integratedapi_getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
- "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "integratedapi_getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
+ "integratedapi_setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
  "integratedapi_setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
 }
 
@@ -237,9 +237,9 @@ export class $stateRegion {
 
 constructor(arg0: $Path$Type, arg1: string)
 
-public "setCleared"(arg0: $BlockPos$Type, arg1: boolean): void
 public "reset"(): void
 public "isCleared"(arg0: $BlockPos$Type): boolean
+public "setCleared"(arg0: $BlockPos$Type, arg1: boolean): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -340,8 +340,8 @@ import {$StructureTemplate, $StructureTemplate$Type} from "packages/net/minecraf
 export interface $SinglePoolElementAccessor {
 
  "callGetTemplate"(arg0: $StructureTemplateManager$Type): $StructureTemplate
- "integratedapi_getTemplate"(): $Either<($ResourceLocation), ($StructureTemplate)>
  "integratedapi_getProcessors"(): $Holder<($StructureProcessorList)>
+ "integratedapi_getTemplate"(): $Either<($ResourceLocation), ($StructureTemplate)>
 }
 
 export namespace $SinglePoolElementAccessor {

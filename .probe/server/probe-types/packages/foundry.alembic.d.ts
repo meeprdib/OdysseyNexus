@@ -9,11 +9,11 @@ static readonly "CODEC": $Codec<($AlembicPotionRecipe)>
 
 constructor(reagent: $Ingredient$Type, base: $Ingredient$Type)
 
-public "reagent"(): $Ingredient
 public "base"(): $Ingredient
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public "reagent"(): $Ingredient
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -47,21 +47,21 @@ static readonly "MAX_NAME_LENGTH": integer
 
 constructor(arg0: string, arg1: double, arg2: double, arg3: double)
 
+public "setMaxValue"(arg0: double): void
+public "setMinValue"(arg0: double): void
 public static "clearCache"(): void
+public "getBaseUUID"(): $UUID
 public "setBaseValue"(arg0: double): void
 public "setDescriptionId"(arg0: string): void
-public "getBaseUUID"(): $UUID
-public "setMinValue"(arg0: double): void
-public "setMaxValue"(arg0: double): void
 public static "toValueComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Operation$Type, arg2: double, arg3: $TooltipFlag$Type): $MutableComponent
-public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
-public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
 public static "isNullOrAddition"(arg0: $AttributeModifier$Operation$Type): boolean
+public static "toComponent"(arg0: $Attribute$Type, arg1: $AttributeModifier$Type, arg2: $TooltipFlag$Type): $MutableComponent
+public static "toBaseComponent"(arg0: $Attribute$Type, arg1: double, arg2: double, arg3: boolean, arg4: $TooltipFlag$Type): $MutableComponent
+set "maxValue"(value: double)
+set "minValue"(value: double)
+get "baseUUID"(): $UUID
 set "baseValue"(value: double)
 set "descriptionId"(value: string)
-get "baseUUID"(): $UUID
-set "minValue"(value: double)
-set "maxValue"(value: double)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -79,8 +79,8 @@ declare module "packages/foundry/alembic/util/$TagOrElements" {
 import {$TagOrElements$Lazy, $TagOrElements$Lazy$Type} from "packages/foundry/alembic/util/$TagOrElements$Lazy"
 import {$ExtraCodecs$TagOrElementLocation, $ExtraCodecs$TagOrElementLocation$Type} from "packages/net/minecraft/util/$ExtraCodecs$TagOrElementLocation"
 import {$TagOrElements$BuiltInLazy, $TagOrElements$BuiltInLazy$Type} from "packages/foundry/alembic/util/$TagOrElements$BuiltInLazy"
-import {$Registry, $Registry$Type} from "packages/net/minecraft/core/$Registry"
 import {$ICondition$IContext, $ICondition$IContext$Type} from "packages/net/minecraftforge/common/crafting/conditions/$ICondition$IContext"
+import {$Registry, $Registry$Type} from "packages/net/minecraft/core/$Registry"
 import {$ResourceKey, $ResourceKey$Type} from "packages/net/minecraft/resources/$ResourceKey"
 import {$Codec, $Codec$Type} from "packages/com/mojang/serialization/$Codec"
 import {$TagOrElements$Immediate, $TagOrElements$Immediate$Type} from "packages/foundry/alembic/util/$TagOrElements$Immediate"
@@ -88,11 +88,11 @@ import {$TagOrElements$Immediate, $TagOrElements$Immediate$Type} from "packages/
 export class $TagOrElements<T> {
 
 
-public static "lazyCodec"<T>(arg0: $ResourceKey$Type<(any)>): $Codec<($TagOrElements$Lazy<(T)>)>
-public "getTagOrElementLocation"(): $ExtraCodecs$TagOrElementLocation
-public static "builtInLazyCodec"<T>(arg0: $Registry$Type<(T)>): $Codec<($TagOrElements$BuiltInLazy<(T)>)>
-public static "codec"<T>(arg0: $ResourceKey$Type<(any)>, arg1: $ICondition$IContext$Type): $Codec<($TagOrElements$Immediate<(T)>)>
 public "toString"(): string
+public static "codec"<T>(arg0: $ResourceKey$Type<(any)>, arg1: $ICondition$IContext$Type): $Codec<($TagOrElements$Immediate<(T)>)>
+public "getTagOrElementLocation"(): $ExtraCodecs$TagOrElementLocation
+public static "lazyCodec"<T>(arg0: $ResourceKey$Type<(any)>): $Codec<($TagOrElements$Lazy<(T)>)>
+public static "builtInLazyCodec"<T>(arg0: $Registry$Type<(T)>): $Codec<($TagOrElements$BuiltInLazy<(T)>)>
 get "tagOrElementLocation"(): $ExtraCodecs$TagOrElementLocation
 }
 /**
@@ -180,31 +180,31 @@ export class $AlembicPotionDataHolder {
 static readonly "EMPTY": $AlembicPotionDataHolder
 static readonly "CODEC": $Codec<($AlembicPotionDataHolder)>
 
-constructor(arg0: float, arg1: $AttributeModifier$Operation$Type, arg2: boolean, arg3: $Set$Type<($TagOrElements$Lazy$Type<($DamageType$Type)>)>, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $JsonElement$Type)
 constructor()
+constructor(arg0: float, arg1: $AttributeModifier$Operation$Type, arg2: boolean, arg3: $Set$Type<($TagOrElements$Lazy$Type<($DamageType$Type)>)>, arg4: integer, arg5: integer, arg6: integer, arg7: integer, arg8: integer, arg9: $JsonElement$Type)
 
+public "getValue"(): float
 public "getOperation"(): $AttributeModifier$Operation
-public "isVanillaOverride"(): boolean
-public "getImmunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
-public "getMaxAmplifier"(): integer
-public "getUUID"(): $UUID
-public "getBaseDuration"(): integer
-public "getRecipe"(): $AlembicPotionRecipe
 public "getMaxStrengthLevel"(): integer
 public "getAmplifierPerLevel"(): integer
 public "getColor"(): integer
-public "getValue"(): float
+public "getRecipe"(): $AlembicPotionRecipe
+public "isVanillaOverride"(): boolean
+public "getImmunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
+public "getBaseDuration"(): integer
+public "getUUID"(): $UUID
+public "getMaxAmplifier"(): integer
+get "value"(): float
 get "operation"(): $AttributeModifier$Operation
-get "vanillaOverride"(): boolean
-get "immunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
-get "maxAmplifier"(): integer
-get "uUID"(): $UUID
-get "baseDuration"(): integer
-get "recipe"(): $AlembicPotionRecipe
 get "maxStrengthLevel"(): integer
 get "amplifierPerLevel"(): integer
 get "color"(): integer
-get "value"(): float
+get "recipe"(): $AlembicPotionRecipe
+get "vanillaOverride"(): boolean
+get "immunities"(): $Set<($TagOrElements$Lazy<($DamageType)>)>
+get "baseDuration"(): integer
+get "uUID"(): $UUID
+get "maxAmplifier"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -222,8 +222,8 @@ declare module "packages/foundry/alembic/mixin/$MobEffectInstanceAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $MobEffectInstanceAccessor {
 
- "setDuration"(arg0: integer): void
  "getDuration"(): integer
+ "setDuration"(arg0: integer): void
 }
 
 export namespace $MobEffectInstanceAccessor {
@@ -279,10 +279,10 @@ export class $FrostbiteMobEffect extends $ExtendedMobEffect {
 
 constructor()
 
-public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
-public "doClientSideEffectTick"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): boolean
 public "shouldTickEffect"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type, arg2: integer, arg3: integer): boolean
+public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
+public "doClientSideEffectTick"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -312,9 +312,9 @@ export class $FireMobEffect extends $ExtendedMobEffect {
 
 constructor(arg0: $MobEffectCategory$Type, arg1: integer, arg2: string)
 
-public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 public "tick"(arg0: $LivingEntity$Type, arg1: $MobEffectInstance$Type, arg2: integer): void
 public "shouldTickEffect"(arg0: $MobEffectInstance$Type, arg1: $LivingEntity$Type, arg2: integer, arg3: integer): boolean
+public "onApplication"(arg0: $MobEffectInstance$Type, arg1: $Entity$Type, arg2: $LivingEntity$Type, arg3: integer): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

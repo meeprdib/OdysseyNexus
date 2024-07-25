@@ -2,12 +2,12 @@ declare module "packages/appeng/me/cluster/implementations/$CraftingCPUCluster" 
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$ICraftingCPU, $ICraftingCPU$Type} from "packages/appeng/api/networking/crafting/$ICraftingCPU"
-import {$ICraftingPlan, $ICraftingPlan$Type} from "packages/appeng/api/networking/crafting/$ICraftingPlan"
 import {$IConfigManager, $IConfigManager$Type} from "packages/appeng/api/util/$IConfigManager"
+import {$ICraftingPlan, $ICraftingPlan$Type} from "packages/appeng/api/networking/crafting/$ICraftingPlan"
 import {$CraftingCpuLogic, $CraftingCpuLogic$Type} from "packages/appeng/crafting/execution/$CraftingCpuLogic"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
 import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
 import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingRequester"
@@ -26,51 +26,51 @@ readonly "craftingLogic": $CraftingCpuLogic
 
 constructor(arg0: $BlockPos$Type, arg1: $BlockPos$Type)
 
-public "getGrid"(): $IGrid
-public "writeToNBT"(arg0: $CompoundTag$Type): void
-public "readFromNBT"(arg0: $CompoundTag$Type): void
-public "getBoundsMin"(): $BlockPos
-public "updateStatus"(arg0: boolean): void
-public "getBoundsMax"(): $BlockPos
-public "submitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
-public "getLevel"(): $Level
-public "markDirty"(): void
-public "getBlockEntities"(): $Iterator<($CraftingBlockEntity)>
-public "getAvailableStorage"(): long
-public "canBeAutoSelectedFor"(arg0: $IActionSource$Type): boolean
-public "breakCluster"(): void
-public "updateName"(): void
-public "getConfigManager"(): $IConfigManager
-public "isBusy"(): boolean
-public "isPreferredFor"(arg0: $IActionSource$Type): boolean
-public "getCoProcessors"(): integer
-public "getJobStatus"(): $CraftingJobStatus
-public "cancelJob"(): void
-public "getSelectionMode"(): $CpuSelectionMode
-public "getSrc"(): $IActionSource
-public "updateOutput"(arg0: $GenericStack$Type): void
 public "getNode"(): $IGridNode
 public "getName"(): $Component
 public "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
 public "destroy"(): void
 public "isDestroyed"(): boolean
 public "isActive"(): boolean
-get "grid"(): $IGrid
-get "boundsMin"(): $BlockPos
-get "boundsMax"(): $BlockPos
-get "level"(): $Level
-get "blockEntities"(): $Iterator<($CraftingBlockEntity)>
-get "availableStorage"(): long
-get "configManager"(): $IConfigManager
-get "busy"(): boolean
-get "coProcessors"(): integer
-get "jobStatus"(): $CraftingJobStatus
-get "selectionMode"(): $CpuSelectionMode
-get "src"(): $IActionSource
+public "getGrid"(): $IGrid
+public "readFromNBT"(arg0: $CompoundTag$Type): void
+public "writeToNBT"(arg0: $CompoundTag$Type): void
+public "getLevel"(): $Level
+public "markDirty"(): void
+public "getConfigManager"(): $IConfigManager
+public "breakCluster"(): void
+public "updateName"(): void
+public "updateOutput"(arg0: $GenericStack$Type): void
+public "canBeAutoSelectedFor"(arg0: $IActionSource$Type): boolean
+public "getAvailableStorage"(): long
+public "getBoundsMin"(): $BlockPos
+public "updateStatus"(arg0: boolean): void
+public "getBoundsMax"(): $BlockPos
+public "submitJob"(arg0: $IGrid$Type, arg1: $ICraftingPlan$Type, arg2: $IActionSource$Type, arg3: $ICraftingRequester$Type): $ICraftingSubmitResult
+public "isPreferredFor"(arg0: $IActionSource$Type): boolean
+public "isBusy"(): boolean
+public "getCoProcessors"(): integer
+public "cancelJob"(): void
+public "getSelectionMode"(): $CpuSelectionMode
+public "getJobStatus"(): $CraftingJobStatus
+public "getBlockEntities"(): $Iterator<($CraftingBlockEntity)>
+public "getSrc"(): $IActionSource
 get "node"(): $IGridNode
 get "name"(): $Component
 get "destroyed"(): boolean
 get "active"(): boolean
+get "grid"(): $IGrid
+get "level"(): $Level
+get "configManager"(): $IConfigManager
+get "availableStorage"(): long
+get "boundsMin"(): $BlockPos
+get "boundsMax"(): $BlockPos
+get "busy"(): boolean
+get "coProcessors"(): integer
+get "selectionMode"(): $CpuSelectionMode
+get "jobStatus"(): $CraftingJobStatus
+get "blockEntities"(): $Iterator<($CraftingBlockEntity)>
+get "src"(): $IActionSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -104,8 +104,8 @@ import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$ICraftingProvider, $ICraftingProvider$Type} from "packages/appeng/api/networking/crafting/$ICraftingProvider"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
 import {$ICraftingSimulationRequester, $ICraftingSimulationRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingSimulationRequester"
+import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
 import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingRequester"
 import {$IGridServiceProvider, $IGridServiceProvider$Type} from "packages/appeng/api/networking/$IGridServiceProvider"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
@@ -117,30 +117,25 @@ export class $CraftingService implements $ICraftingService, $IGridServiceProvide
 
 constructor(arg0: $IGrid$Type, arg1: $IStorageService$Type, arg2: $IEnergyService$Type)
 
+public "removeNode"(arg0: $IGridNode$Type): void
 public "getProviders"(arg0: $IPatternDetails$Type): $Iterable<($ICraftingProvider)>
-public "addNode"(arg0: $IGridNode$Type, arg1: $CompoundTag$Type): void
-public "addLink"(arg0: $CraftingLink$Type): void
 public "onServerEndTick"(): void
-public "getFuzzyCraftable"(arg0: $AEKey$Type, arg1: $AEKeyFilter$Type): $AEKey
-public "getRequestedAmount"(arg0: $AEKey$Type): long
-public "getCpus"(): $ImmutableSet<($ICraftingCPU)>
-public "getCraftingFor"(arg0: $AEKey$Type): $Collection<($IPatternDetails)>
-public "submitJob"(arg0: $ICraftingPlan$Type, arg1: $ICraftingRequester$Type, arg2: $ICraftingCPU$Type, arg3: boolean, arg4: $IActionSource$Type): $ICraftingSubmitResult
-public "isRequesting"(arg0: $AEKey$Type): boolean
-public "canEmitFor"(arg0: $AEKey$Type): boolean
-public "getCraftables"(arg0: $AEKeyFilter$Type): $Set<($AEKey)>
-public "isRequestingAny"(): boolean
+public "addNode"(arg0: $IGridNode$Type, arg1: $CompoundTag$Type): void
 public "refreshNodeCraftingProvider"(arg0: $IGridNode$Type): void
 public "beginCraftingCalculation"(arg0: $Level$Type, arg1: $ICraftingSimulationRequester$Type, arg2: $AEKey$Type, arg3: long, arg4: $CalculationStrategy$Type): $Future<($ICraftingPlan)>
+public "getFuzzyCraftable"(arg0: $AEKey$Type, arg1: $AEKeyFilter$Type): $AEKey
+public "canEmitFor"(arg0: $AEKey$Type): boolean
+public "getCraftingFor"(arg0: $AEKey$Type): $Collection<($IPatternDetails)>
+public "getRequestedAmount"(arg0: $AEKey$Type): long
+public "getCpus"(): $ImmutableSet<($ICraftingCPU)>
+public "isRequestingAny"(): boolean
+public "isRequesting"(arg0: $AEKey$Type): boolean
+public "submitJob"(arg0: $ICraftingPlan$Type, arg1: $ICraftingRequester$Type, arg2: $ICraftingCPU$Type, arg3: boolean, arg4: $IActionSource$Type): $ICraftingSubmitResult
+public "getCraftables"(arg0: $AEKeyFilter$Type): $Set<($AEKey)>
+public "addLink"(arg0: $CraftingLink$Type): void
 public "insertIntoCpus"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type): long
 public "hasCpu"(arg0: $ICraftingCPU$Type): boolean
-public "removeNode"(arg0: $IGridNode$Type): void
 public "isCraftable"(arg0: $AEKey$Type): boolean
-/**
- * 
- * @deprecated
- */
-public "addNode"(arg0: $IGridNode$Type): void
 public "onServerStartTick"(): void
 public "onLevelEndTick"(arg0: $Level$Type): void
 public "onLevelStartTick"(arg0: $Level$Type): void
@@ -155,6 +150,11 @@ public "onSplit"(arg0: $IGridStorage$Type): void
  * @deprecated
  */
 public "onJoin"(arg0: $IGridStorage$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "addNode"(arg0: $IGridNode$Type): void
 /**
  * 
  * @deprecated
@@ -187,24 +187,24 @@ export class $SpatialPylonCluster implements $IAECluster {
 
 constructor(arg0: $ServerLevel$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type)
 
-public "setLevel"(): $ServerLevel
-public "getBoundsMin"(): $BlockPos
-public "getCurrentAxis"(): $SpatialPylonCluster$Axis
-public "updateStatus"(arg0: boolean): void
-public "getBoundsMax"(): $BlockPos
-public "setValid"(arg0: boolean): void
-public "getBlockEntities"(): $Iterator<($SpatialPylonBlockEntity)>
 public "size"(): integer
 public "destroy"(): void
 public "isDestroyed"(): boolean
 public "isValid"(): boolean
-get "boundsMin"(): $BlockPos
-get "currentAxis"(): $SpatialPylonCluster$Axis
-get "boundsMax"(): $BlockPos
-set "valid"(value: boolean)
-get "blockEntities"(): $Iterator<($SpatialPylonBlockEntity)>
+public "setLevel"(): $ServerLevel
+public "getBoundsMin"(): $BlockPos
+public "updateStatus"(arg0: boolean): void
+public "getBoundsMax"(): $BlockPos
+public "setValid"(arg0: boolean): void
+public "getCurrentAxis"(): $SpatialPylonCluster$Axis
+public "getBlockEntities"(): $Iterator<($SpatialPylonBlockEntity)>
 get "destroyed"(): boolean
 get "valid"(): boolean
+get "boundsMin"(): $BlockPos
+get "boundsMax"(): $BlockPos
+set "valid"(value: boolean)
+get "currentAxis"(): $SpatialPylonCluster$Axis
+get "blockEntities"(): $Iterator<($SpatialPylonBlockEntity)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -231,24 +231,24 @@ export class $QuantumCluster implements $IAECluster, $IActionHost {
 
 constructor(arg0: $BlockPos$Type, arg1: $BlockPos$Type)
 
-public "getActionableNode"(): $IGridNode
-public "getBoundsMin"(): $BlockPos
-public "updateStatus"(arg0: boolean): void
-public "getBoundsMax"(): $BlockPos
-public "onUnload"(arg0: $LevelEvent$Unload$Type): void
-public "isCorner"(arg0: $QuantumBridgeBlockEntity$Type): boolean
-public "getBlockEntities"(): $Iterator<($QuantumBridgeBlockEntity)>
-public "setUpdateStatus"(arg0: boolean): void
-public "getCenter"(): $QuantumBridgeBlockEntity
 public "toString"(): string
 public "destroy"(): void
 public "isDestroyed"(): boolean
+public "onUnload"(arg0: $LevelEvent$Unload$Type): void
+public "getActionableNode"(): $IGridNode
+public "isCorner"(arg0: $QuantumBridgeBlockEntity$Type): boolean
+public "setUpdateStatus"(arg0: boolean): void
+public "getBoundsMin"(): $BlockPos
+public "updateStatus"(arg0: boolean): void
+public "getBoundsMax"(): $BlockPos
+public "getBlockEntities"(): $Iterator<($QuantumBridgeBlockEntity)>
+public "getCenter"(): $QuantumBridgeBlockEntity
+get "destroyed"(): boolean
 get "actionableNode"(): $IGridNode
 get "boundsMin"(): $BlockPos
 get "boundsMax"(): $BlockPos
 get "blockEntities"(): $Iterator<($QuantumBridgeBlockEntity)>
 get "center"(): $QuantumBridgeBlockEntity
-get "destroyed"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -279,15 +279,15 @@ import {$IOwnerAwareBlockEntity, $IOwnerAwareBlockEntity$Type} from "packages/ap
 
 export interface $IGridConnectedBlockEntity extends $IActionHost, $IOwnerAwareBlockEntity, $IInWorldGridNodeHost {
 
- "getGridNode"(): $IGridNode
+ "setOwner"(arg0: $Player$Type): void
  "getGridNode"(arg0: $Direction$Type): $IGridNode
- "getActionableNode"(): $IGridNode
+ "getGridNode"(): $IGridNode
  "getMainNode"(): $IManagedGridNode
- "ifGridPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
- "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
+ "getActionableNode"(): $IGridNode
  "getGridConnectableSides"(arg0: $BlockOrientation$Type): $Set<($Direction)>
  "saveChanges"(): void
- "setOwner"(arg0: $Player$Type): void
+ "ifGridPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
+ "onMainNodeStateChanged"(arg0: $IGridNodeListener$State$Type): void
  "getCableConnectionType"(arg0: $Direction$Type): $AECableType
 }
 
@@ -337,12 +337,12 @@ import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
 
 export interface $IAECluster {
 
+ "destroy"(): void
+ "isDestroyed"(): boolean
  "getBoundsMin"(): $BlockPos
  "updateStatus"(arg0: boolean): void
  "getBoundsMax"(): $BlockPos
  "getBlockEntities"(): $Iterator<(any)>
- "destroy"(): void
- "isDestroyed"(): boolean
 }
 
 export namespace $IAECluster {
@@ -365,9 +365,9 @@ import {$IAECluster, $IAECluster$Type} from "packages/appeng/me/cluster/$IAEClus
 
 export interface $IAEMultiBlock<Cluster extends $IAECluster> {
 
- "getCluster"(): Cluster
- "disconnect"(arg0: boolean): void
  "isValid"(): boolean
+ "disconnect"(arg0: boolean): void
+ "getCluster"(): Cluster
 }
 
 export namespace $IAEMultiBlock {

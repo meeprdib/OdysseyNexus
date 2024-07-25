@@ -6,9 +6,9 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IFacadeItem {
 
- "getTextureItem"(arg0: $ItemStack$Type): $ItemStack
  "createPartFromItemStack"(arg0: $ItemStack$Type, arg1: $Direction$Type): $IFacadePart
  "getTextureBlockState"(arg0: $ItemStack$Type): $BlockState
+ "getTextureItem"(arg0: $ItemStack$Type): $ItemStack
 }
 
 export namespace $IFacadeItem {
@@ -40,12 +40,12 @@ import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actiona
 export interface $IMEChest extends $IChestOrDrive, $IEnergySource {
 
  "isPowered"(): boolean
- "getOriginalCellInventory"(arg0: integer): $StorageCell
+ "getCellInventory"(arg0: integer): $MEStorage
  "isCellBlinking"(arg0: integer): boolean
  "getCellItem"(arg0: integer): $Item
  "getCellCount"(): integer
  "getCellStatus"(arg0: integer): $CellState
- "getCellInventory"(arg0: integer): $MEStorage
+ "getOriginalCellInventory"(arg0: integer): $StorageCell
  "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
  "getActionableNode"(): $IGridNode
 }
@@ -120,13 +120,13 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $ISpatialService extends $IGridService {
 
- "hasRegion"(): boolean
- "currentEfficiency"(): float
- "isValidRegion"(): boolean
- "getMax"(): $BlockPos
  "getMin"(): $BlockPos
+ "getMax"(): $BlockPos
  "getLevel"(): $Level
  "requiredPower"(): long
+ "currentEfficiency"(): float
+ "isValidRegion"(): boolean
+ "hasRegion"(): boolean
 }
 
 export namespace $ISpatialService {
@@ -156,23 +156,23 @@ export class $GenericStack extends $Record {
 
 constructor(what: $AEKey$Type, amount: long)
 
-public static "unwrapItemStack"(arg0: $ItemStack$Type): $GenericStack
-public static "fromFluidStack"(arg0: $FluidStack$Type): $GenericStack
-public static "fromItemStack"(arg0: $ItemStack$Type): $GenericStack
-public static "wrapInItemStack"(arg0: $AEKey$Type, arg1: long): $ItemStack
-public static "wrapInItemStack"(arg0: $GenericStack$Type): $ItemStack
-public static "readTag"(arg0: $CompoundTag$Type): $GenericStack
-public static "writeTag"(arg0: $GenericStack$Type): $CompoundTag
-public static "getStackSizeOrZero"(arg0: $GenericStack$Type): long
-public static "writeBuffer"(arg0: $GenericStack$Type, arg1: $FriendlyByteBuf$Type): void
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
 public static "isWrapped"(arg0: $ItemStack$Type): boolean
 public static "sum"(arg0: $GenericStack$Type, arg1: $GenericStack$Type): $GenericStack
 public "what"(): $AEKey
-public "amount"(): long
+public static "writeBuffer"(arg0: $GenericStack$Type, arg1: $FriendlyByteBuf$Type): void
 public static "readBuffer"(arg0: $FriendlyByteBuf$Type): $GenericStack
+public "amount"(): long
+public static "unwrapItemStack"(arg0: $ItemStack$Type): $GenericStack
+public static "wrapInItemStack"(arg0: $AEKey$Type, arg1: long): $ItemStack
+public static "wrapInItemStack"(arg0: $GenericStack$Type): $ItemStack
+public static "getStackSizeOrZero"(arg0: $GenericStack$Type): long
+public static "writeTag"(arg0: $GenericStack$Type): $CompoundTag
+public static "readTag"(arg0: $CompoundTag$Type): $GenericStack
+public static "fromItemStack"(arg0: $ItemStack$Type): $GenericStack
+public static "fromFluidStack"(arg0: $FluidStack$Type): $GenericStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -193,10 +193,10 @@ import {$BlockOrientation, $BlockOrientation$Type} from "packages/appeng/api/ori
 
 export interface $IOrientableBlock {
 
- "getOrientation"(arg0: $BlockState$Type): $BlockOrientation
  "getOrientationStrategy"(): $IOrientationStrategy
+ "getOrientation"(arg0: $BlockState$Type): $BlockOrientation
 
-(arg0: $BlockState$Type): $BlockOrientation
+(): $IOrientationStrategy
 }
 
 export namespace $IOrientableBlock {
@@ -278,12 +278,12 @@ readonly "englishName": string
 readonly "contrastTextColor": integer
 
 
-public "getVariantByTintIndex"(arg0: integer): integer
-public "getEnglishName"(): string
-public static "fromDye"(arg0: $DyeColor$Type): $AEColor
 public "toString"(): string
 public static "values"(): ($AEColor)[]
 public static "valueOf"(arg0: string): $AEColor
+public "getEnglishName"(): string
+public "getVariantByTintIndex"(arg0: integer): integer
+public static "fromDye"(arg0: $DyeColor$Type): $AEColor
 get "englishName"(): string
 }
 /**
@@ -306,14 +306,9 @@ import {$IGridStorage, $IGridStorage$Type} from "packages/appeng/api/networking/
 
 export interface $IGridServiceProvider {
 
-/**
- * 
- * @deprecated
- */
- "addNode"(arg0: $IGridNode$Type): void
- "addNode"(arg0: $IGridNode$Type, arg1: $CompoundTag$Type): void
- "onServerStartTick"(): void
+ "removeNode"(arg0: $IGridNode$Type): void
  "onServerEndTick"(): void
+ "onServerStartTick"(): void
  "onLevelEndTick"(arg0: $Level$Type): void
  "onLevelStartTick"(arg0: $Level$Type): void
  "saveNodeData"(arg0: $IGridNode$Type, arg1: $CompoundTag$Type): void
@@ -327,12 +322,17 @@ export interface $IGridServiceProvider {
  * @deprecated
  */
  "onJoin"(arg0: $IGridStorage$Type): void
+ "addNode"(arg0: $IGridNode$Type, arg1: $CompoundTag$Type): void
+/**
+ * 
+ * @deprecated
+ */
+ "addNode"(arg0: $IGridNode$Type): void
 /**
  * 
  * @deprecated
  */
  "populateGridStorage"(arg0: $IGridStorage$Type): void
- "removeNode"(arg0: $IGridNode$Type): void
 }
 
 export namespace $IGridServiceProvider {
@@ -362,8 +362,8 @@ export interface $ICellWorkbenchItem extends $IUpgradeableItem {
 
  "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
  "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
- "isEditable"(arg0: $ItemStack$Type): boolean
  "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
+ "isEditable"(arg0: $ItemStack$Type): boolean
  "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
  "asItem"(): $Item
 }
@@ -398,49 +398,49 @@ import {$ItemTransfer, $ItemTransfer$Type} from "packages/appeng/api/inventories
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$ItemLike"
 import {$Container, $Container$Type} from "packages/net/minecraft/world/$Container"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IUpgradeInventory extends $InternalInventory {
 
- "writeToNBT"(arg0: $CompoundTag$Type, arg1: string): void
  "readFromNBT"(arg0: $CompoundTag$Type, arg1: string): void
+ "writeToNBT"(arg0: $CompoundTag$Type, arg1: string): void
  "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
- "isInstalled"(arg0: $ItemLike$Type): boolean
  "getUpgradableItem"(): $ItemLike
  "getMaxInstalled"(arg0: $ItemLike$Type): integer
- "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
- "getStackInSlot"(arg0: integer): $ItemStack
- "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
- "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
- "getSlotLimit"(arg0: integer): integer
- "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
- "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "sendChangeNotification"(arg0: integer): void
- "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
- "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "getSlotInv"(arg0: integer): $InternalInventory
- "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
- "addItems"(arg0: $ItemStack$Type): $ItemStack
- "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
- "toItemHandler"(): $IItemHandler
- "toContainer"(): $Container
- "getRedstoneSignal"(): integer
- "mayAllowInsertion"(): boolean
- "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "isInstalled"(arg0: $ItemLike$Type): boolean
  "clear"(): void
  "isEmpty"(): boolean
  "size"(): integer
  "iterator"(): $Iterator<($ItemStack)>
+ "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
+ "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+ "getStackInSlot"(arg0: integer): $ItemStack
+ "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+ "getSlotLimit"(arg0: integer): integer
+ "sendChangeNotification"(arg0: integer): void
+ "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "toContainer"(): $Container
+ "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
+ "toItemHandler"(): $IItemHandler
+ "getSlotInv"(arg0: integer): $InternalInventory
+ "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "getRedstoneSignal"(): integer
+ "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
+ "addItems"(arg0: $ItemStack$Type): $ItemStack
+ "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+ "mayAllowInsertion"(): boolean
+ "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
  "spliterator"(): $Spliterator<($ItemStack)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
 }
 
 export namespace $IUpgradeInventory {
-function wrapExternal(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
-function wrapExternal(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
 function empty(): $InternalInventory
+function wrapExternal(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
+function wrapExternal(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -513,9 +513,9 @@ import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCoun
 export interface $ICraftingProvider extends $IGridNodeService {
 
  "getAvailablePatterns"(): $List<($IPatternDetails)>
+ "pushPattern"(arg0: $IPatternDetails$Type, arg1: ($KeyCounter$Type)[]): boolean
  "getEmitableItems"(): $Set<($AEKey)>
  "getPatternPriority"(): integer
- "pushPattern"(arg0: $IPatternDetails$Type, arg1: ($KeyCounter$Type)[]): boolean
  "isBusy"(): boolean
 }
 
@@ -539,8 +539,8 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IStorageComponent {
 
- "isStorageComponent"(arg0: $ItemStack$Type): boolean
  "getBytes"(arg0: $ItemStack$Type): integer
+ "isStorageComponent"(arg0: $ItemStack$Type): boolean
 }
 
 export namespace $IStorageComponent {
@@ -561,27 +561,27 @@ export type $IStorageComponent_ = $IStorageComponent$Type;
 declare module "packages/appeng/api/behaviors/$GenericInternalInventory" {
 import {$AEKeyType, $AEKeyType$Type} from "packages/appeng/api/stacks/$AEKeyType"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
-import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
+import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
 
 export interface $GenericInternalInventory {
 
- "getCapacity"(arg0: $AEKeyType$Type): long
- "isAllowed"(arg0: $AEKey$Type): boolean
- "onChange"(): void
- "setStack"(arg0: integer, arg1: $GenericStack$Type): void
- "canInsert"(): boolean
- "beginBatch"(): void
- "endBatch"(): void
- "canExtract"(): boolean
- "getMaxAmount"(arg0: $AEKey$Type): long
- "endBatchSuppressed"(): void
- "getAmount"(arg0: integer): long
  "extract"(arg0: integer, arg1: $AEKey$Type, arg2: long, arg3: $Actionable$Type): long
  "insert"(arg0: integer, arg1: $AEKey$Type, arg2: long, arg3: $Actionable$Type): long
  "size"(): integer
  "getKey"(arg0: integer): $AEKey
  "getStack"(arg0: integer): $GenericStack
+ "getCapacity"(arg0: $AEKeyType$Type): long
+ "isAllowed"(arg0: $AEKey$Type): boolean
+ "setStack"(arg0: integer, arg1: $GenericStack$Type): void
+ "canInsert"(): boolean
+ "onChange"(): void
+ "canExtract"(): boolean
+ "getMaxAmount"(arg0: $AEKey$Type): long
+ "endBatch"(): void
+ "beginBatch"(): void
+ "endBatchSuppressed"(): void
+ "getAmount"(arg0: integer): long
 }
 
 export namespace $GenericInternalInventory {
@@ -607,13 +607,13 @@ export class $CraftingJobStatus extends $Record {
 
 constructor(crafting: $GenericStack$Type, totalItems: long, progress: long, elapsedTimeNanos: long)
 
+public "equals"(arg0: any): boolean
+public "toString"(): string
+public "hashCode"(): integer
 public "progress"(): long
 public "crafting"(): $GenericStack
 public "elapsedTimeNanos"(): long
 public "totalItems"(): long
-public "equals"(arg0: any): boolean
-public "toString"(): string
-public "hashCode"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -661,9 +661,9 @@ export interface $IStorageService extends $IGridService {
  "getCachedInventory"(): $KeyCounter
  "invalidateCache"(): void
  "refreshNodeStorageProvider"(arg0: $IGridNode$Type): void
+ "removeGlobalStorageProvider"(arg0: $IStorageProvider$Type): void
  "addGlobalStorageProvider"(arg0: $IStorageProvider$Type): void
  "refreshGlobalStorageProvider"(arg0: $IStorageProvider$Type): void
- "removeGlobalStorageProvider"(arg0: $IStorageProvider$Type): void
 }
 
 export namespace $IStorageService {
@@ -718,11 +718,11 @@ import {$MemoryCardMessages, $MemoryCardMessages$Type} from "packages/appeng/api
 
 export interface $IMemoryCard {
 
- "notifyUser"(arg0: $Player$Type, arg1: $MemoryCardMessages$Type): void
- "getSettingsName"(arg0: $ItemStack$Type): string
+ "getData"(arg0: $ItemStack$Type): $CompoundTag
  "getColorCode"(arg0: $ItemStack$Type): ($AEColor)[]
  "setMemoryCardContents"(arg0: $ItemStack$Type, arg1: string, arg2: $CompoundTag$Type): void
- "getData"(arg0: $ItemStack$Type): $CompoundTag
+ "notifyUser"(arg0: $Player$Type, arg1: $MemoryCardMessages$Type): void
+ "getSettingsName"(arg0: $ItemStack$Type): string
 }
 
 export namespace $IMemoryCard {
@@ -774,8 +774,8 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 
 export interface $IColorableBlockEntity {
 
- "getColor"(): $AEColor
  "recolourBlock"(arg0: $Direction$Type, arg1: $AEColor$Type, arg2: $Player$Type): boolean
+ "getColor"(): $AEColor
 }
 
 export namespace $IColorableBlockEntity {
@@ -800,9 +800,9 @@ import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$Gen
 
 export interface $IPatternDetails$IInput {
 
+ "isValid"(arg0: $AEKey$Type, arg1: $Level$Type): boolean
  "getMultiplier"(): long
  "getPossibleInputs"(): ($GenericStack)[]
- "isValid"(arg0: $AEKey$Type, arg1: $Level$Type): boolean
  "getRemainingKey"(arg0: $AEKey$Type): $AEKey
 }
 
@@ -824,11 +824,11 @@ export type $IPatternDetails$IInput_ = $IPatternDetails$IInput$Type;
 declare module "packages/appeng/api/orientation/$BlockOrientation" {
 import {$Direction$AxisDirection, $Direction$AxisDirection$Type} from "packages/net/minecraft/core/$Direction$AxisDirection"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
+import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$Enum, $Enum$Type} from "packages/java/lang/$Enum"
-import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$Transformation, $Transformation$Type} from "packages/com/mojang/math/$Transformation"
 import {$Direction$Axis, $Direction$Axis$Type} from "packages/net/minecraft/core/$Direction$Axis"
 import {$IOrientationStrategy, $IOrientationStrategy$Type} from "packages/appeng/api/orientation/$IOrientationStrategy"
@@ -863,39 +863,39 @@ static readonly "EAST_DOWN": $BlockOrientation
 static readonly "EAST_SOUTH": $BlockOrientation
 
 
-public "getSpin"(): integer
-public "getQuaternion"(): $Quaternionf
-public "rotateClockwiseAround"(arg0: $Direction$Axis$Type, arg1: $Direction$AxisDirection$Type): $BlockOrientation
-public "rotateClockwiseAround"(arg0: $Direction$Type): $BlockOrientation
-public "getSides"(arg0: $Set$Type<($RelativeSide$Type)>): $Set<($Direction)>
-public "getTransformation"(): $Transformation
-public "resultingRotate"(arg0: $Direction$Type): $Direction
-public "getRelativeSide"(arg0: $Direction$Type): $RelativeSide
-public "getAngleX"(): integer
-public "getAngleY"(): integer
-public "isRedundant"(): boolean
-public "getAngleZ"(): integer
-public "setOn"(arg0: $BlockEntity$Type): void
-public "setOn"(arg0: $Level$Type, arg1: $BlockPos$Type): void
-public "getRelativeSides"(arg0: $Set$Type<($Direction$Type)>): $Set<($RelativeSide)>
-public static "get"(arg0: $IOrientationStrategy$Type, arg1: $BlockState$Type): $BlockOrientation
-public static "get"(arg0: $BlockState$Type): $BlockOrientation
 public static "get"(arg0: $Direction$Type): $BlockOrientation
 public static "get"(arg0: $Direction$Type, arg1: $Direction$Type): $BlockOrientation
 public static "get"(arg0: $Direction$Type, arg1: integer): $BlockOrientation
 public static "get"(arg0: $BlockEntity$Type): $BlockOrientation
+public static "get"(arg0: $BlockState$Type): $BlockOrientation
+public static "get"(arg0: $IOrientationStrategy$Type, arg1: $BlockState$Type): $BlockOrientation
 public static "values"(): ($BlockOrientation)[]
 public static "valueOf"(arg0: string): $BlockOrientation
 public "rotate"(arg0: $Direction$Type): $Direction
+public "getTransformation"(): $Transformation
 public "getSide"(arg0: $RelativeSide$Type): $Direction
+public "getSides"(arg0: $Set$Type<($RelativeSide$Type)>): $Set<($Direction)>
+public "getSpin"(): integer
+public "getQuaternion"(): $Quaternionf
+public "rotateClockwiseAround"(arg0: $Direction$Type): $BlockOrientation
+public "rotateClockwiseAround"(arg0: $Direction$Axis$Type, arg1: $Direction$AxisDirection$Type): $BlockOrientation
+public "isRedundant"(): boolean
+public "setOn"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+public "setOn"(arg0: $BlockEntity$Type): void
+public "getAngleY"(): integer
+public "getRelativeSide"(arg0: $Direction$Type): $RelativeSide
+public "getAngleZ"(): integer
+public "resultingRotate"(arg0: $Direction$Type): $Direction
+public "getAngleX"(): integer
+public "getRelativeSides"(arg0: $Set$Type<($Direction$Type)>): $Set<($RelativeSide)>
+get "transformation"(): $Transformation
 get "spin"(): integer
 get "quaternion"(): $Quaternionf
-get "transformation"(): $Transformation
-get "angleX"(): integer
-get "angleY"(): integer
 get "redundant"(): boolean
-get "angleZ"(): integer
 set "on"(value: $BlockEntity$Type)
+get "angleY"(): integer
+get "angleZ"(): integer
+get "angleX"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -915,12 +915,12 @@ import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
 
 export interface $ICraftingLink {
 
- "getCraftingID"(): $UUID
- "writeToNBT"(arg0: $CompoundTag$Type): void
  "cancel"(): void
+ "writeToNBT"(arg0: $CompoundTag$Type): void
+ "isStandalone"(): boolean
  "isDone"(): boolean
  "isCanceled"(): boolean
- "isStandalone"(): boolean
+ "getCraftingID"(): $UUID
 }
 
 export namespace $ICraftingLink {
@@ -947,12 +947,12 @@ import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCoun
 
 export interface $IPatternDetails {
 
+ "getDefinition"(): $AEItemKey
  "getOutputs"(): ($GenericStack)[]
  "getInputs"(): ($IPatternDetails$IInput)[]
  "supportsPushInputsToExternalInventory"(): boolean
  "pushInputsToExternalInventory"(arg0: ($KeyCounter$Type)[], arg1: $IPatternDetails$PatternInputSink$Type): void
  "getPrimaryOutput"(): $GenericStack
- "getDefinition"(): $AEItemKey
 }
 
 export namespace $IPatternDetails {
@@ -1001,10 +1001,10 @@ import {$DimensionalBlockPos, $DimensionalBlockPos$Type} from "packages/appeng/a
 
 export interface $IWirelessAccessPoint extends $IActionHost {
 
- "getRange"(): double
- "getGrid"(): $IGrid
  "getLocation"(): $DimensionalBlockPos
  "isActive"(): boolean
+ "getRange"(): double
+ "getGrid"(): $IGrid
  "getActionableNode"(): $IGridNode
 }
 
@@ -1030,10 +1030,10 @@ import {$IGridService, $IGridService$Type} from "packages/appeng/api/networking/
 
 export interface $IPathingService extends $IGridService {
 
- "getUsedChannels"(): integer
- "isNetworkBooting"(): boolean
  "repath"(): void
+ "getUsedChannels"(): integer
  "getControllerState"(): $ControllerState
+ "isNetworkBooting"(): boolean
  "getChannelMode"(): $ChannelMode
 }
 
@@ -1090,10 +1090,10 @@ static readonly "LEFT": $RelativeSide
 static readonly "RIGHT": $RelativeSide
 
 
-public "getUnrotatedSide"(): $Direction
-public static "fromUnrotatedSide"(arg0: $Direction$Type): $RelativeSide
 public static "values"(): ($RelativeSide)[]
 public static "valueOf"(arg0: string): $RelativeSide
+public static "fromUnrotatedSide"(arg0: $Direction$Type): $RelativeSide
+public "getUnrotatedSide"(): $Direction
 get "unrotatedSide"(): $Direction
 }
 /**
@@ -1146,15 +1146,15 @@ import {$IPartHost, $IPartHost$Type} from "packages/appeng/api/parts/$IPartHost"
 
 export interface $IFacadeContainer {
 
- "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
- "writeToNBT"(arg0: $CompoundTag$Type): void
- "readFromNBT"(arg0: $CompoundTag$Type): void
+ "isEmpty"(): boolean
  "writeToStream"(arg0: $FriendlyByteBuf$Type): void
- "addFacade"(arg0: $IFacadePart$Type): boolean
- "canAddFacade"(arg0: $IFacadePart$Type): boolean
+ "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
+ "readFromNBT"(arg0: $CompoundTag$Type): void
+ "writeToNBT"(arg0: $CompoundTag$Type): void
  "getFacade"(arg0: $Direction$Type): $IFacadePart
  "removeFacade"(arg0: $IPartHost$Type, arg1: $Direction$Type): void
- "isEmpty"(): boolean
+ "canAddFacade"(arg0: $IFacadePart$Type): boolean
+ "addFacade"(arg0: $IFacadePart$Type): boolean
 }
 
 export namespace $IFacadeContainer {
@@ -1183,12 +1183,12 @@ import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGrid
 export interface $IChestOrDrive extends $IActionHost {
 
  "isPowered"(): boolean
- "getOriginalCellInventory"(arg0: integer): $StorageCell
+ "getCellInventory"(arg0: integer): $MEStorage
  "isCellBlinking"(arg0: integer): boolean
  "getCellItem"(arg0: integer): $Item
  "getCellCount"(): integer
  "getCellStatus"(arg0: integer): $CellState
- "getCellInventory"(arg0: integer): $MEStorage
+ "getOriginalCellInventory"(arg0: integer): $StorageCell
  "getActionableNode"(): $IGridNode
 }
 
@@ -1218,12 +1218,12 @@ static readonly "X3": $ChannelMode
 static readonly "X4": $ChannelMode
 
 
-public "getCableCapacityFactor"(): integer
-public "getAdHocNetworkChannels"(): integer
 public static "values"(): ($ChannelMode)[]
 public static "valueOf"(arg0: string): $ChannelMode
-get "cableCapacityFactor"(): integer
+public "getAdHocNetworkChannels"(): integer
+public "getCableCapacityFactor"(): integer
 get "adHocNetworkChannels"(): integer
+get "cableCapacityFactor"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1246,12 +1246,12 @@ static readonly "MODULATE": $Actionable
 static readonly "SIMULATE": $Actionable
 
 
-public "isSimulate"(): boolean
-public static "ofSimulate"(arg0: boolean): $Actionable
-public "getFluidAction"(): $IFluidHandler$FluidAction
 public static "values"(): ($Actionable)[]
 public static "valueOf"(arg0: string): $Actionable
 public static "of"(arg0: $IFluidHandler$FluidAction$Type): $Actionable
+public "isSimulate"(): boolean
+public static "ofSimulate"(arg0: boolean): $Actionable
+public "getFluidAction"(): $IFluidHandler$FluidAction
 get "simulate"(): boolean
 get "fluidAction"(): $IFluidHandler$FluidAction
 }
@@ -1273,10 +1273,10 @@ import {$CraftingSubmitErrorCode, $CraftingSubmitErrorCode$Type} from "packages/
 
 export interface $ICraftingSubmitResult {
 
- "errorCode"(): $CraftingSubmitErrorCode
- "errorDetail"(): any
  "link"(): $ICraftingLink
  "successful"(): boolean
+ "errorCode"(): $CraftingSubmitErrorCode
+ "errorDetail"(): any
 }
 
 export namespace $ICraftingSubmitResult {
@@ -1356,12 +1356,12 @@ import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actiona
 
 export interface $IAEPowerStorage extends $IEnergySource, $IGridNodeService {
 
+ "getPriority"(): integer
  "injectAEPower"(arg0: double, arg1: $Actionable$Type): double
  "getAECurrentPower"(): double
- "getAEMaxPower"(): double
  "getPowerFlow"(): $AccessRestriction
+ "getAEMaxPower"(): double
  "isAEPublicPowerStorage"(): boolean
- "getPriority"(): integer
  "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
 }
 
@@ -1382,8 +1382,8 @@ export type $IAEPowerStorage_ = $IAEPowerStorage$Type;
 }}
 declare module "packages/appeng/api/networking/$IGrid" {
 import {$ICraftingService, $ICraftingService$Type} from "packages/appeng/api/networking/crafting/$ICraftingService"
-import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IGridService, $IGridService$Type} from "packages/appeng/api/networking/$IGridService"
+import {$Class, $Class$Type} from "packages/java/lang/$Class"
 import {$IPathingService, $IPathingService$Type} from "packages/appeng/api/networking/pathing/$IPathingService"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
 import {$Iterable, $Iterable$Type} from "packages/java/lang/$Iterable"
@@ -1396,22 +1396,22 @@ import {$GridEvent, $GridEvent$Type} from "packages/appeng/api/networking/events
 
 export interface $IGrid {
 
- "getPivot"(): $IGridNode
- "getMachineClasses"(): $Iterable<($Class<(any)>)>
- "getCraftingService"(): $ICraftingService
- "getActiveMachines"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
- "getMachineNodes"(arg0: $Class$Type<(any)>): $Iterable<($IGridNode)>
- "getNodes"(): $Iterable<($IGridNode)>
- "getMachines"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
- "getEnergyService"(): $IEnergyService
- "getPathingService"(): $IPathingService
- "getSpatialService"(): $ISpatialService
- "getStorageService"(): $IStorageService
- "getTickManager"(): $ITickManager
- "postEvent"<T extends $GridEvent>(arg0: T): T
  "isEmpty"(): boolean
  "size"(): integer
  "getService"<C extends $IGridService>(arg0: $Class$Type<(C)>): C
+ "getPivot"(): $IGridNode
+ "getActiveMachines"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
+ "getPathingService"(): $IPathingService
+ "getMachines"<T>(arg0: $Class$Type<(T)>): $Set<(T)>
+ "getSpatialService"(): $ISpatialService
+ "getMachineClasses"(): $Iterable<($Class<(any)>)>
+ "getEnergyService"(): $IEnergyService
+ "getNodes"(): $Iterable<($IGridNode)>
+ "getStorageService"(): $IStorageService
+ "getTickManager"(): $ITickManager
+ "getCraftingService"(): $ICraftingService
+ "getMachineNodes"(arg0: $Class$Type<(any)>): $Iterable<($IGridNode)>
+ "postEvent"<T extends $GridEvent>(arg0: T): T
 }
 
 export namespace $IGrid {
@@ -1553,52 +1553,51 @@ import {$Item, $Item$Type} from "packages/net/minecraft/world/item/$Item"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$ItemLike"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$AEKeyFilter, $AEKeyFilter$Type} from "packages/appeng/api/storage/$AEKeyFilter"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export class $AEItemKey extends $AEKey {
 
 
-public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
-public "isDamaged"(): boolean
-public "getMaxStackSize"(): integer
-public "hasTag"(): boolean
-public "isTagged"(arg0: $TagKey$Type<(any)>): boolean
-public "toTag"(): $CompoundTag
-public "addDrops"(arg0: long, arg1: $List$Type<($ItemStack$Type)>, arg2: $Level$Type, arg3: $BlockPos$Type): void
-public "getPrimaryKey"(): any
-public "dropSecondary"(): $AEItemKey
-public "copyTag"(): $CompoundTag
-public static "fromPacket"(arg0: $FriendlyByteBuf$Type): $AEItemKey
-public static "fromTag"(arg0: $CompoundTag$Type): $AEItemKey
-public "toStack"(): $ItemStack
-public "toStack"(arg0: integer): $ItemStack
-public "wrapForDisplayOrFilter"(): $ItemStack
-public "getFuzzySearchValue"(): integer
-public "getFuzzySearchMaxValue"(): integer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-public static "matches"(arg0: $AEKey$Type, arg1: $ItemStack$Type): boolean
 public "matches"(arg0: $ItemStack$Type): boolean
+public static "matches"(arg0: $AEKey$Type, arg1: $ItemStack$Type): boolean
+public static "of"(arg0: $ItemLike$Type): $AEItemKey
 public static "of"(arg0: $ItemLike$Type, arg1: $CompoundTag$Type): $AEItemKey
 public static "of"(arg0: $ItemStack$Type): $AEItemKey
-public static "of"(arg0: $ItemLike$Type): $AEItemKey
 public static "filter"(): $AEKeyFilter
 public "getId"(): $ResourceLocation
 public "getType"(): $AEKeyType
 public static "is"(arg0: $AEKey$Type): boolean
 public "getTag"(): $CompoundTag
 public "getItem"(): $Item
-get "damaged"(): boolean
-get "maxStackSize"(): integer
-get "primaryKey"(): any
-get "fuzzySearchValue"(): integer
-get "fuzzySearchMaxValue"(): integer
+public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
+public "getMaxStackSize"(): integer
+public "toTag"(): $CompoundTag
+public "isTagged"(arg0: $TagKey$Type<(any)>): boolean
+public "getPrimaryKey"(): any
+public "addDrops"(arg0: long, arg1: $List$Type<($ItemStack$Type)>, arg2: $Level$Type, arg3: $BlockPos$Type): void
+public static "fromPacket"(arg0: $FriendlyByteBuf$Type): $AEItemKey
+public static "fromTag"(arg0: $CompoundTag$Type): $AEItemKey
+public "copyTag"(): $CompoundTag
+public "isDamaged"(): boolean
+public "wrapForDisplayOrFilter"(): $ItemStack
+public "getFuzzySearchMaxValue"(): integer
+public "getFuzzySearchValue"(): integer
+public "hasTag"(): boolean
+public "toStack"(): $ItemStack
+public "toStack"(arg0: integer): $ItemStack
 get "id"(): $ResourceLocation
 get "type"(): $AEKeyType
 get "tag"(): $CompoundTag
 get "item"(): $Item
+get "maxStackSize"(): integer
+get "primaryKey"(): any
+get "damaged"(): boolean
+get "fuzzySearchMaxValue"(): integer
+get "fuzzySearchValue"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1621,12 +1620,12 @@ import {$IPartCollisionHelper, $IPartCollisionHelper$Type} from "packages/appeng
 
 export interface $IFacadePart {
 
- "getTextureItem"(): $ItemStack
- "getItemStack"(): $ItemStack
- "getBlockState"(): $BlockState
- "getBoxes"(arg0: $IPartCollisionHelper$Type, arg1: boolean): void
  "getItem"(): $Item
+ "getBlockState"(): $BlockState
+ "getItemStack"(): $ItemStack
+ "getBoxes"(arg0: $IPartCollisionHelper$Type, arg1: boolean): void
  "getSide"(): $Direction
+ "getTextureItem"(): $ItemStack
 }
 
 export namespace $IFacadePart {
@@ -1651,7 +1650,7 @@ export interface $AEKeyFilter {
 
  "matches"(arg0: $AEKey$Type): boolean
 
-(): $AEKeyFilter
+(arg0: $AEKey$Type): boolean
 }
 
 export namespace $AEKeyFilter {
@@ -1685,35 +1684,35 @@ export class $AEKeyType {
 
 constructor(arg0: $ResourceLocation$Type, arg1: $Class$Type<(any)>, arg2: $Component$Type)
 
-public "getKeyClass"(): $Class<(any)>
-public static "items"(): $AEKeyType
-public "readFromPacket"(arg0: $FriendlyByteBuf$Type): $AEKey
-public "getRawId"(): byte
-public "loadKeyFromTag"(arg0: $CompoundTag$Type): $AEKey
-public "formatAmount"(arg0: long, arg1: $AmountFormat$Type): string
-public static "fromRawId"(arg0: integer): $AEKeyType
-public "getAmountPerByte"(): integer
-public "getAmountPerUnit"(): integer
-public "getUnitSymbol"(): string
-public "getTagNames"(): $Stream<($TagKey<(any)>)>
-public static "fluids"(): $AEKeyType
-public "supportsFuzzyRangeSearch"(): boolean
-public "getAmountPerOperation"(): integer
-public "tryCast"(arg0: $AEKey$Type): $AEKey
 public "toString"(): string
 public "contains"(arg0: $AEKey$Type): boolean
 public "filter"(): $AEKeyFilter
 public "getId"(): $ResourceLocation
 public "getDescription"(): $Component
-get "keyClass"(): $Class<(any)>
-get "rawId"(): byte
-get "amountPerByte"(): integer
-get "amountPerUnit"(): integer
-get "unitSymbol"(): string
-get "tagNames"(): $Stream<($TagKey<(any)>)>
-get "amountPerOperation"(): integer
+public "getKeyClass"(): $Class<(any)>
+public "readFromPacket"(arg0: $FriendlyByteBuf$Type): $AEKey
+public "getTagNames"(): $Stream<($TagKey<(any)>)>
+public static "items"(): $AEKeyType
+public "tryCast"(arg0: $AEKey$Type): $AEKey
+public "loadKeyFromTag"(arg0: $CompoundTag$Type): $AEKey
+public "getRawId"(): byte
+public "getUnitSymbol"(): string
+public "getAmountPerUnit"(): integer
+public "getAmountPerByte"(): integer
+public "formatAmount"(arg0: long, arg1: $AmountFormat$Type): string
+public static "fromRawId"(arg0: integer): $AEKeyType
+public static "fluids"(): $AEKeyType
+public "supportsFuzzyRangeSearch"(): boolean
+public "getAmountPerOperation"(): integer
 get "id"(): $ResourceLocation
 get "description"(): $Component
+get "keyClass"(): $Class<(any)>
+get "tagNames"(): $Stream<($TagKey<(any)>)>
+get "rawId"(): byte
+get "unitSymbol"(): string
+get "amountPerUnit"(): integer
+get "amountPerByte"(): integer
+get "amountPerOperation"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1773,11 +1772,11 @@ export interface $IPortableTerminal extends $ITerminalHost, $IEnergySource {
  "getCloseHotkey"(): string
  "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
  "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
- "getUpgrades"(): $IUpgradeInventory
  "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+ "getUpgrades"(): $IUpgradeInventory
  "getConfigManager"(): $IConfigManager
- "getMainMenuIcon"(): $ItemStack
  "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+ "getMainMenuIcon"(): $ItemStack
 }
 
 export namespace $IPortableTerminal {
@@ -1797,16 +1796,16 @@ export type $IPortableTerminal_ = $IPortableTerminal$Type;
 }}
 declare module "packages/appeng/api/networking/$IManagedGridNode" {
 import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$CompoundTag"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
 import {$GridFlags, $GridFlags$Type} from "packages/appeng/api/networking/$GridFlags"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
 import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$ItemStack"
 import {$BiConsumer, $BiConsumer$Type} from "packages/java/util/function/$BiConsumer"
-import {$AEColor, $AEColor$Type} from "packages/appeng/api/util/$AEColor"
 import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
+import {$AEColor, $AEColor$Type} from "packages/appeng/api/util/$AEColor"
 import {$Player, $Player$Type} from "packages/net/minecraft/world/entity/player/$Player"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
 import {$IGridNodeService, $IGridNodeService$Type} from "packages/appeng/api/networking/$IGridNodeService"
@@ -1816,31 +1815,31 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $IManagedGridNode {
 
+ "getNode"(): $IGridNode
+ "destroy"(): void
+ "create"(arg0: $Level$Type, arg1: $BlockPos$Type): void
+ "isActive"(): boolean
+ "ifPresent"(arg0: $BiConsumer$Type<($IGrid$Type), ($IGridNode$Type)>): boolean
+ "ifPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
+ "addService"<T extends $IGridNodeService>(arg0: $Class$Type<(T)>, arg1: T): $IManagedGridNode
  "setFlags"(...arg0: ($GridFlags$Type)[]): $IManagedGridNode
  "getGrid"(): $IGrid
  "isPowered"(): boolean
  "hasGridBooted"(): boolean
  "isOnline"(): boolean
- "saveToNBT"(arg0: $CompoundTag$Type): void
  "setExposedOnSides"(arg0: $Set$Type<($Direction$Type)>): $IManagedGridNode
  "loadFromNBT"(arg0: $CompoundTag$Type): void
- "setOwningPlayer"(arg0: $Player$Type): void
- "setIdlePowerUsage"(arg0: double): $IManagedGridNode
- "setInWorldNode"(arg0: boolean): $IManagedGridNode
- "setTagName"(arg0: string): $IManagedGridNode
+ "saveToNBT"(arg0: $CompoundTag$Type): void
  "setGridColor"(arg0: $AEColor$Type): $IManagedGridNode
  "setOwningPlayerId"(arg0: integer): void
+ "setInWorldNode"(arg0: boolean): $IManagedGridNode
+ "setTagName"(arg0: string): $IManagedGridNode
+ "isReady"(): boolean
  "setVisualRepresentation"(arg0: $ItemLike$Type): $IManagedGridNode
  "setVisualRepresentation"(arg0: $AEItemKey$Type): $IManagedGridNode
  "setVisualRepresentation"(arg0: $ItemStack$Type): $IManagedGridNode
- "isReady"(): boolean
- "getNode"(): $IGridNode
- "destroy"(): void
- "create"(arg0: $Level$Type, arg1: $BlockPos$Type): void
- "isActive"(): boolean
- "ifPresent"(arg0: $Consumer$Type<($IGrid$Type)>): boolean
- "ifPresent"(arg0: $BiConsumer$Type<($IGrid$Type), ($IGridNode$Type)>): boolean
- "addService"<T extends $IGridNodeService>(arg0: $Class$Type<(T)>, arg1: T): $IManagedGridNode
+ "setOwningPlayer"(arg0: $Player$Type): void
+ "setIdlePowerUsage"(arg0: double): $IManagedGridNode
 }
 
 export namespace $IManagedGridNode {
@@ -1866,16 +1865,16 @@ import {$IActionHost, $IActionHost$Type} from "packages/appeng/api/networking/se
 
 export interface $IActionSource {
 
+ "context"<T>(arg0: $Class$Type<(T)>): $Optional<(T)>
  "player"(): $Optional<($Player)>
  "machine"(): $Optional<($IActionHost)>
- "context"<T>(arg0: $Class$Type<(T)>): $Optional<(T)>
 }
 
 export namespace $IActionSource {
-function ofMachine(arg0: $IActionHost$Type): $IActionSource
-function ofPlayer(arg0: $Player$Type): $IActionSource
-function ofPlayer(arg0: $Player$Type, arg1: $IActionHost$Type): $IActionSource
 function empty(): $IActionSource
+function ofPlayer(arg0: $Player$Type, arg1: $IActionHost$Type): $IActionSource
+function ofPlayer(arg0: $Player$Type): $IActionSource
+function ofMachine(arg0: $IActionHost$Type): $IActionSource
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -1895,18 +1894,18 @@ import {$TickRates, $TickRates$Type} from "packages/appeng/core/settings/$TickRa
 
 export class $TickingRequest extends $Record {
 
-constructor(arg0: integer, arg1: integer, arg2: boolean, arg3: boolean)
 constructor(minTickRate: integer, maxTickRate: integer, isSleeping: boolean, canBeAlerted: boolean, initialTickRate: integer)
 constructor(arg0: $TickRates$Type, arg1: boolean, arg2: boolean)
+constructor(arg0: integer, arg1: integer, arg2: boolean, arg3: boolean)
 
-public "minTickRate"(): integer
-public "canBeAlerted"(): boolean
-public "maxTickRate"(): integer
-public "isSleeping"(): boolean
-public "initialTickRate"(): integer
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public "minTickRate"(): integer
+public "maxTickRate"(): integer
+public "canBeAlerted"(): boolean
+public "isSleeping"(): boolean
+public "initialTickRate"(): integer
 get "sleeping"(): boolean
 }
 /**
@@ -1925,28 +1924,28 @@ declare module "packages/appeng/api/orientation/$IOrientationStrategy" {
 import {$IntegerProperty, $IntegerProperty$Type} from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
 import {$Collection, $Collection$Type} from "packages/java/util/$Collection"
 import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
-import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$Property, $Property$Type} from "packages/net/minecraft/world/level/block/state/properties/$Property"
+import {$Stream, $Stream$Type} from "packages/java/util/stream/$Stream"
 import {$BlockState, $BlockState$Type} from "packages/net/minecraft/world/level/block/state/$BlockState"
 import {$BlockPlaceContext, $BlockPlaceContext$Type} from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 import {$RelativeSide, $RelativeSide$Type} from "packages/appeng/api/orientation/$RelativeSide"
 
 export interface $IOrientationStrategy {
 
+ "getProperties"(): $Collection<($Property<(any)>)>
+ "getStateForPlacement"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
+ "allowsPlayerRotation"(): boolean
+ "getSide"(arg0: $BlockState$Type, arg1: $RelativeSide$Type): $Direction
  "getSpin"(arg0: $BlockState$Type): integer
  "getFacing"(arg0: $BlockState$Type): $Direction
+ "setFacing"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
+ "setSpin"(arg0: $BlockState$Type, arg1: integer): $BlockState
  "getAllStates"(arg0: $BlockState$Type): $Stream<($BlockState)>
+ "setUp"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
  "setOrientation"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: integer): $BlockState
  "setOrientation"(arg0: $BlockState$Type, arg1: $Direction$Type, arg2: $Direction$Type): $BlockState
- "setSpin"(arg0: $BlockState$Type, arg1: integer): $BlockState
- "setUp"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
- "setFacing"(arg0: $BlockState$Type, arg1: $Direction$Type): $BlockState
- "allowsPlayerRotation"(): boolean
- "getStateForPlacement"(arg0: $BlockState$Type, arg1: $BlockPlaceContext$Type): $BlockState
- "getProperties"(): $Collection<($Property<(any)>)>
- "getSide"(arg0: $BlockState$Type, arg1: $RelativeSide$Type): $Direction
 
-(arg0: $BlockState$Type): integer
+(arg0: $BlockState$Type): $IOrientationStrategy
 }
 
 export namespace $IOrientationStrategy {
@@ -1972,13 +1971,13 @@ import {$CpuSelectionMode, $CpuSelectionMode$Type} from "packages/appeng/api/con
 
 export interface $ICraftingCPU {
 
+ "getName"(): $Component
  "getAvailableStorage"(): long
  "isBusy"(): boolean
  "getCoProcessors"(): integer
- "getJobStatus"(): $CraftingJobStatus
  "cancelJob"(): void
  "getSelectionMode"(): $CpuSelectionMode
- "getName"(): $Component
+ "getJobStatus"(): $CraftingJobStatus
 }
 
 export namespace $ICraftingCPU {
@@ -2054,19 +2053,19 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export class $DimensionalBlockPos {
 
-constructor(arg0: $DimensionalBlockPos$Type)
-constructor(arg0: $BlockEntity$Type)
 constructor(arg0: $Level$Type, arg1: integer, arg2: integer, arg3: integer)
 constructor(arg0: $Level$Type, arg1: $BlockPos$Type)
+constructor(arg0: $BlockEntity$Type)
+constructor(arg0: $DimensionalBlockPos$Type)
 
-public "getPos"(): $BlockPos
-public "getLevel"(): $Level
-public "isInWorld"(arg0: $LevelAccessor$Type): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
-get "pos"(): $BlockPos
+public "getLevel"(): $Level
+public "isInWorld"(arg0: $LevelAccessor$Type): boolean
+public "getPos"(): $BlockPos
 get "level"(): $Level
+get "pos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2085,11 +2084,11 @@ import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Directio
 
 export interface $IPartCollisionHelper {
 
- "addBox"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): void
- "getWorldY"(): $Direction
  "getWorldZ"(): $Direction
- "getWorldX"(): $Direction
  "isBBCollision"(): boolean
+ "getWorldX"(): $Direction
+ "getWorldY"(): $Direction
+ "addBox"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): void
 }
 
 export namespace $IPartCollisionHelper {
@@ -2116,19 +2115,19 @@ import {$Class, $Class$Type} from "packages/java/lang/$Class"
 
 export class $Setting<T extends $Enum<(T)>> {
 
-constructor(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumSet$Type<(T)>)
 constructor(arg0: string, arg1: $Class$Type<(T)>)
+constructor(arg0: string, arg1: $Class$Type<(T)>, arg2: $EnumSet$Type<(T)>)
 
-public "getValues"(): $Set<(T)>
-public "setFromString"(arg0: $IConfigManager$Type, arg1: string): void
-public "getEnumClass"(): $Class<(T)>
 public "getName"(): string
 public "toString"(): string
 public "getValue"(arg0: $IConfigManager$Type): T
 public "copy"(arg0: $IConfigManager$Type, arg1: $IConfigManager$Type): void
+public "getValues"(): $Set<(T)>
+public "getEnumClass"(): $Class<(T)>
+public "setFromString"(arg0: $IConfigManager$Type, arg1: string): void
+get "name"(): string
 get "values"(): $Set<(T)>
 get "enumClass"(): $Class<(T)>
-get "name"(): string
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2159,11 +2158,11 @@ readonly "symbolName": string
  "conversionRatio": double
 
 
-public "getSymbolName"(): string
-public "textComponent"(): $Component
-public "convertTo"(arg0: $PowerUnits$Type, arg1: double): double
 public static "values"(): ($PowerUnits)[]
 public static "valueOf"(arg0: string): $PowerUnits
+public "convertTo"(arg0: $PowerUnits$Type, arg1: double): double
+public "textComponent"(): $Component
+public "getSymbolName"(): string
 get "symbolName"(): string
 }
 /**
@@ -2215,16 +2214,16 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $IPartItem<P extends $IPart> extends $ItemLike {
 
- "getPartClass"(): $Class<(P)>
  "createPart"(): P
+ "getPartClass"(): $Class<(P)>
  "asItem"(): $Item
 }
 
 export namespace $IPartItem {
-function byId(arg0: $ResourceLocation$Type): $IPartItem<(any)>
+function getId(arg0: $IPartItem$Type<(any)>): $ResourceLocation
 function getNetworkId(arg0: $IPartItem$Type<(any)>): integer
 function byNetworkId(arg0: integer): $IPartItem<(any)>
-function getId(arg0: $IPartItem$Type<(any)>): $ResourceLocation
+function byId(arg0: $ResourceLocation$Type): $IPartItem<(any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2247,8 +2246,8 @@ import {$CompoundTag, $CompoundTag$Type} from "packages/net/minecraft/nbt/$Compo
  */
 export interface $IGridStorage {
 
- "dataObject"(): $CompoundTag
  "getID"(): long
+ "dataObject"(): $CompoundTag
 }
 
 export namespace $IGridStorage {
@@ -2279,43 +2278,43 @@ import {$Consumer, $Consumer$Type} from "packages/java/util/function/$Consumer"
 import {$ItemTransfer, $ItemTransfer$Type} from "packages/appeng/api/inventories/$ItemTransfer"
 import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import {$Container, $Container$Type} from "packages/net/minecraft/world/$Container"
-import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 import {$Iterator, $Iterator$Type} from "packages/java/util/$Iterator"
+import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $InternalInventory extends $Iterable<($ItemStack)>, $ItemTransfer {
 
- "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
- "getStackInSlot"(arg0: integer): $ItemStack
- "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
- "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
- "getSlotLimit"(arg0: integer): integer
- "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
- "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "sendChangeNotification"(arg0: integer): void
- "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
- "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "getSlotInv"(arg0: integer): $InternalInventory
- "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
- "addItems"(arg0: $ItemStack$Type): $ItemStack
- "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
- "toItemHandler"(): $IItemHandler
- "toContainer"(): $Container
- "getRedstoneSignal"(): integer
- "mayAllowInsertion"(): boolean
- "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
  "clear"(): void
  "isEmpty"(): boolean
  "size"(): integer
  "iterator"(): $Iterator<($ItemStack)>
+ "insertItem"(arg0: integer, arg1: $ItemStack$Type, arg2: boolean): $ItemStack
+ "isItemValid"(arg0: integer, arg1: $ItemStack$Type): boolean
+ "getStackInSlot"(arg0: integer): $ItemStack
+ "extractItem"(arg0: integer, arg1: integer, arg2: boolean): $ItemStack
+ "getSlotLimit"(arg0: integer): integer
+ "sendChangeNotification"(arg0: integer): void
+ "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "toContainer"(): $Container
+ "setItemDirect"(arg0: integer, arg1: $ItemStack$Type): void
+ "toItemHandler"(): $IItemHandler
+ "getSlotInv"(arg0: integer): $InternalInventory
+ "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "getRedstoneSignal"(): integer
+ "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
+ "addItems"(arg0: $ItemStack$Type): $ItemStack
+ "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+ "mayAllowInsertion"(): boolean
+ "getSubInventory"(arg0: integer, arg1: integer): $InternalInventory
  "spliterator"(): $Spliterator<($ItemStack)>
  "forEach"(arg0: $Consumer$Type<(any)>): void
 }
 
 export namespace $InternalInventory {
-function wrapExternal(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
-function wrapExternal(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
 function empty(): $InternalInventory
+function wrapExternal(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ItemTransfer
+function wrapExternal(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $ItemTransfer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2335,9 +2334,9 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $IGridLinkableHandler {
 
+ "link"(arg0: $ItemStack$Type, arg1: $GlobalPos$Type): void
  "unlink"(arg0: $ItemStack$Type): void
  "canLink"(arg0: $ItemStack$Type): boolean
- "link"(arg0: $ItemStack$Type, arg1: $GlobalPos$Type): void
 }
 
 export namespace $IGridLinkableHandler {
@@ -2364,7 +2363,7 @@ export interface $IStorageProvider extends $IGridNodeService {
 
  "mountInventories"(arg0: $IStorageMounts$Type): void
 
-(arg0: $IStorageMounts$Type): void
+(arg0: $IManagedGridNode$Type): void
 }
 
 export namespace $IStorageProvider {
@@ -2390,13 +2389,13 @@ import {$Setting, $Setting$Type} from "packages/appeng/api/config/$Setting"
 
 export interface $IConfigManager {
 
- "writeToNBT"(arg0: $CompoundTag$Type): void
  "readFromNBT"(arg0: $CompoundTag$Type): boolean
+ "writeToNBT"(arg0: $CompoundTag$Type): void
  "getSettings"(): $Set<($Setting<(any)>)>
- "registerSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
- "getSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>): T
- "hasSetting"(arg0: $Setting$Type<(any)>): boolean
  "putSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
+ "hasSetting"(arg0: $Setting$Type<(any)>): boolean
+ "getSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>): T
+ "registerSetting"<T extends $Enum<(T)>>(arg0: $Setting$Type<(T)>, arg1: T): void
 }
 
 export namespace $IConfigManager {
@@ -2420,21 +2419,21 @@ import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$
 import {$MEStorage, $MEStorage$Type} from "packages/appeng/api/storage/$MEStorage"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
-import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
+import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 
 export interface $StorageCell extends $MEStorage {
 
- "persist"(): void
- "getStatus"(): $CellState
- "canFitInsideCell"(): boolean
  "getIdleDrain"(): double
- "getAvailableStacks"(arg0: $KeyCounter$Type): void
- "getAvailableStacks"(): $KeyCounter
- "isPreferredStorageFor"(arg0: $AEKey$Type, arg1: $IActionSource$Type): boolean
+ "getStatus"(): $CellState
+ "persist"(): void
+ "canFitInsideCell"(): boolean
  "extract"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
  "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
  "getDescription"(): $Component
+ "getAvailableStacks"(): $KeyCounter
+ "getAvailableStacks"(arg0: $KeyCounter$Type): void
+ "isPreferredStorageFor"(arg0: $AEKey$Type, arg1: $IActionSource$Type): boolean
 }
 
 export namespace $StorageCell {
@@ -2491,18 +2490,18 @@ static readonly "DENSE_SMART": $AECableType
 static readonly "VALIDCABLES": ($AECableType)[]
 
 
-public "isSmart"(): boolean
-public "isDense"(): boolean
 public static "values"(): ($AECableType)[]
 public static "min"(arg0: $AECableType$Type, arg1: $AECableType$Type): $AECableType
 public static "max"(arg0: $AECableType$Type, arg1: $AECableType$Type): $AECableType
 public static "valueOf"(arg0: string): $AECableType
 public "size"(): $AECableSize
-public "isValid"(): boolean
 public "variant"(): $AECableVariant
-get "smart"(): boolean
-get "dense"(): boolean
+public "isValid"(): boolean
+public "isDense"(): boolean
+public "isSmart"(): boolean
 get "valid"(): boolean
+get "dense"(): boolean
+get "smart"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -2522,13 +2521,13 @@ import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGrid
 
 export interface $IGridConnection {
 
- "getDirection"(arg0: $IGridNode$Type): $Direction
- "getUsedChannels"(): integer
- "getOtherSide"(arg0: $IGridNode$Type): $IGridNode
- "isInWorld"(): boolean
  "b"(): $IGridNode
  "a"(): $IGridNode
  "destroy"(): void
+ "getUsedChannels"(): integer
+ "isInWorld"(): boolean
+ "getOtherSide"(arg0: $IGridNode$Type): $IGridNode
+ "getDirection"(arg0: $IGridNode$Type): $Direction
 }
 
 export namespace $IGridConnection {
@@ -2577,8 +2576,8 @@ export interface $IAEItemPowerStorage {
 
  "injectAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
  "getAECurrentPower"(arg0: $ItemStack$Type): double
- "getAEMaxPower"(arg0: $ItemStack$Type): double
  "getPowerFlow"(arg0: $ItemStack$Type): $AccessRestriction
+ "getAEMaxPower"(arg0: $ItemStack$Type): double
  "extractAEPower"(arg0: $ItemStack$Type, arg1: double, arg2: $Actionable$Type): double
  "getChargeRate"(arg0: $ItemStack$Type): double
 }
@@ -2609,9 +2608,9 @@ static readonly "TYPES_FULL": $CellState
 static readonly "FULL": $CellState
 
 
-public "getStateColor"(): integer
 public static "values"(): ($CellState)[]
 public static "valueOf"(arg0: string): $CellState
+public "getStateColor"(): integer
 get "stateColor"(): integer
 }
 /**
@@ -2628,8 +2627,8 @@ export type $CellState_ = $CellState$Type;
 }}
 declare module "packages/appeng/api/parts/$IPartHost" {
 import {$VoxelShape, $VoxelShape$Type} from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$CollisionContext, $CollisionContext$Type} from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$IFacadeContainer, $IFacadeContainer$Type} from "packages/appeng/api/parts/$IFacadeContainer"
 import {$IPart, $IPart$Type} from "packages/appeng/api/parts/$IPart"
 import {$ICustomCableConnection, $ICustomCableConnection$Type} from "packages/appeng/api/parts/$ICustomCableConnection"
@@ -2646,30 +2645,30 @@ import {$SelectedPart, $SelectedPart$Type} from "packages/appeng/api/parts/$Sele
 
 export interface $IPartHost extends $ICustomCableConnection {
 
- "getBlockEntity"(): $BlockEntity
- "markForUpdate"(): void
- "replacePart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type, arg3: $InteractionHand$Type): T
- "markForSave"(): void
- "hasRedstone"(): boolean
- "selectPartWorld"(arg0: $Vec3$Type): $SelectedPart
- "getFacadeContainer"(): $IFacadeContainer
- "getPart"(arg0: $Direction$Type): $IPart
- "isInWorld"(): boolean
- "getColor"(): $AEColor
- "notifyNeighbors"(): void
- "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
- "getCollisionShape"(arg0: $CollisionContext$Type): $VoxelShape
- "isBlocked"(arg0: $Direction$Type): boolean
- "removePartFromSide"(arg0: $Direction$Type): void
- "removePart"(arg0: $IPart$Type): boolean
- "clearContainer"(): void
- "partChanged"(): void
- "notifyNeighborNow"(arg0: $Direction$Type): void
- "canAddPart"(arg0: $ItemStack$Type, arg1: $Direction$Type): boolean
- "addPart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type): T
  "isEmpty"(): boolean
  "getLocation"(): $DimensionalBlockPos
  "cleanup"(): void
+ "getBlockEntity"(): $BlockEntity
+ "isInWorld"(): boolean
+ "selectPartLocal"(arg0: $Vec3$Type): $SelectedPart
+ "getCollisionShape"(arg0: $CollisionContext$Type): $VoxelShape
+ "removePart"(arg0: $IPart$Type): boolean
+ "notifyNeighborNow"(arg0: $Direction$Type): void
+ "addPart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type): T
+ "isBlocked"(arg0: $Direction$Type): boolean
+ "partChanged"(): void
+ "removePartFromSide"(arg0: $Direction$Type): void
+ "clearContainer"(): void
+ "canAddPart"(arg0: $ItemStack$Type, arg1: $Direction$Type): boolean
+ "selectPartWorld"(arg0: $Vec3$Type): $SelectedPart
+ "getFacadeContainer"(): $IFacadeContainer
+ "getPart"(arg0: $Direction$Type): $IPart
+ "hasRedstone"(): boolean
+ "notifyNeighbors"(): void
+ "getColor"(): $AEColor
+ "markForUpdate"(): void
+ "replacePart"<T extends $IPart>(arg0: $IPartItem$Type<(T)>, arg1: $Direction$Type, arg2: $Player$Type, arg3: $InteractionHand$Type): T
+ "markForSave"(): void
  "getCableConnectionLength"(arg0: $AECableType$Type): float
 }
 
@@ -2704,20 +2703,20 @@ import {$Optional, $Optional$Type} from "packages/java/util/$Optional"
 
 export interface $IBasicCellItem extends $ICellWorkbenchItem {
 
+ "getBytes"(arg0: $ItemStack$Type): integer
+ "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
  "addCellInformationToTooltip"(arg0: $ItemStack$Type, arg1: $List$Type<($Component$Type)>): void
  "storableInStorageCell"(): boolean
- "getCellTooltipImage"(arg0: $ItemStack$Type): $Optional<($TooltipComponent)>
  "getBytesPerType"(arg0: $ItemStack$Type): integer
- "isStorageCell"(arg0: $ItemStack$Type): boolean
- "getIdleDrain"(): double
- "getKeyType"(): $AEKeyType
  "isBlackListed"(arg0: $ItemStack$Type, arg1: $AEKey$Type): boolean
+ "getKeyType"(): $AEKeyType
+ "getIdleDrain"(): double
  "getTotalTypes"(arg0: $ItemStack$Type): integer
- "getBytes"(arg0: $ItemStack$Type): integer
+ "isStorageCell"(arg0: $ItemStack$Type): boolean
  "getConfigInventory"(arg0: $ItemStack$Type): $ConfigInventory
  "getFuzzyMode"(arg0: $ItemStack$Type): $FuzzyMode
- "isEditable"(arg0: $ItemStack$Type): boolean
  "setFuzzyMode"(arg0: $ItemStack$Type, arg1: $FuzzyMode$Type): void
+ "isEditable"(arg0: $ItemStack$Type): boolean
  "getUpgrades"(arg0: $ItemStack$Type): $IUpgradeInventory
  "asItem"(): $Item
 }
@@ -2747,10 +2746,10 @@ static readonly "WRITE": $AccessRestriction
 static readonly "READ_WRITE": $AccessRestriction
 
 
-public "isAllowInsertion"(): boolean
-public "isAllowExtraction"(): boolean
 public static "values"(): ($AccessRestriction)[]
 public static "valueOf"(arg0: string): $AccessRestriction
+public "isAllowInsertion"(): boolean
+public "isAllowExtraction"(): boolean
 get "allowInsertion"(): boolean
 get "allowExtraction"(): boolean
 }
@@ -2850,12 +2849,12 @@ import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actiona
 export interface $IEnergyService extends $IGridService, $IEnergySource {
 
  "getIdlePowerUsage"(): double
- "getMaxStoredPower"(): double
  "getEnergyDemand"(arg0: double): double
- "getStoredPower"(): double
- "isNetworkPowered"(): boolean
  "getAvgPowerUsage"(): double
+ "getStoredPower"(): double
  "injectPower"(arg0: double, arg1: $Actionable$Type): double
+ "isNetworkPowered"(): boolean
+ "getMaxStoredPower"(): double
  "getChannelPowerUsage"(): double
  "getAvgPowerInjection"(): double
  "extractAEPower"(arg0: double, arg1: $Actionable$Type, arg2: $PowerMultiplier$Type): double
@@ -2884,8 +2883,8 @@ import {$IGridService, $IGridService$Type} from "packages/appeng/api/networking/
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$IGridNode, $IGridNode$Type} from "packages/appeng/api/networking/$IGridNode"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
-import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
 import {$ICraftingSimulationRequester, $ICraftingSimulationRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingSimulationRequester"
+import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
 import {$ICraftingRequester, $ICraftingRequester$Type} from "packages/appeng/api/networking/crafting/$ICraftingRequester"
 import {$ImmutableSet, $ImmutableSet$Type} from "packages/com/google/common/collect/$ImmutableSet"
 import {$Set, $Set$Type} from "packages/java/util/$Set"
@@ -2897,18 +2896,18 @@ import {$AEKeyFilter, $AEKeyFilter$Type} from "packages/appeng/api/storage/$AEKe
 
 export interface $ICraftingService extends $IGridService {
 
- "getFuzzyCraftable"(arg0: $AEKey$Type, arg1: $AEKeyFilter$Type): $AEKey
- "getRequestedAmount"(arg0: $AEKey$Type): long
- "getCpus"(): $ImmutableSet<($ICraftingCPU)>
- "getCraftingFor"(arg0: $AEKey$Type): $Collection<($IPatternDetails)>
- "submitJob"(arg0: $ICraftingPlan$Type, arg1: $ICraftingRequester$Type, arg2: $ICraftingCPU$Type, arg3: boolean, arg4: $IActionSource$Type): $ICraftingSubmitResult
- "isRequesting"(arg0: $AEKey$Type): boolean
- "canEmitFor"(arg0: $AEKey$Type): boolean
- "isCraftable"(arg0: $AEKey$Type): boolean
- "getCraftables"(arg0: $AEKeyFilter$Type): $Set<($AEKey)>
- "isRequestingAny"(): boolean
  "refreshNodeCraftingProvider"(arg0: $IGridNode$Type): void
  "beginCraftingCalculation"(arg0: $Level$Type, arg1: $ICraftingSimulationRequester$Type, arg2: $AEKey$Type, arg3: long, arg4: $CalculationStrategy$Type): $Future<($ICraftingPlan)>
+ "getFuzzyCraftable"(arg0: $AEKey$Type, arg1: $AEKeyFilter$Type): $AEKey
+ "canEmitFor"(arg0: $AEKey$Type): boolean
+ "getCraftingFor"(arg0: $AEKey$Type): $Collection<($IPatternDetails)>
+ "getRequestedAmount"(arg0: $AEKey$Type): long
+ "getCpus"(): $ImmutableSet<($ICraftingCPU)>
+ "isCraftable"(arg0: $AEKey$Type): boolean
+ "isRequestingAny"(): boolean
+ "isRequesting"(arg0: $AEKey$Type): boolean
+ "submitJob"(arg0: $ICraftingPlan$Type, arg1: $ICraftingRequester$Type, arg2: $ICraftingCPU$Type, arg3: boolean, arg4: $IActionSource$Type): $ICraftingSubmitResult
+ "getCraftables"(arg0: $AEKeyFilter$Type): $Set<($AEKey)>
 }
 
 export namespace $ICraftingService {
@@ -3003,19 +3002,19 @@ declare module "packages/appeng/api/storage/$MEStorage" {
 import {$Component, $Component$Type} from "packages/net/minecraft/network/chat/$Component"
 import {$AEKey, $AEKey$Type} from "packages/appeng/api/stacks/$AEKey"
 import {$IActionSource, $IActionSource$Type} from "packages/appeng/api/networking/security/$IActionSource"
-import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 import {$Actionable, $Actionable$Type} from "packages/appeng/api/config/$Actionable"
+import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 
 export interface $MEStorage {
 
- "getAvailableStacks"(arg0: $KeyCounter$Type): void
- "getAvailableStacks"(): $KeyCounter
- "isPreferredStorageFor"(arg0: $AEKey$Type, arg1: $IActionSource$Type): boolean
  "extract"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
  "insert"(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
  "getDescription"(): $Component
+ "getAvailableStacks"(): $KeyCounter
+ "getAvailableStacks"(arg0: $KeyCounter$Type): void
+ "isPreferredStorageFor"(arg0: $AEKey$Type, arg1: $IActionSource$Type): boolean
 
-(arg0: $KeyCounter$Type): void
+(arg0: $AEKey$Type, arg1: long, arg2: $Actionable$Type, arg3: $IActionSource$Type): long
 }
 
 export namespace $MEStorage {
@@ -3075,12 +3074,6 @@ export class $KeyCounter implements $Iterable<($Object2LongMap$Entry<($AEKey)>)>
 
 constructor()
 
-public "getFirstEntry"<T extends $AEKey>(arg0: $Class$Type<(T)>): $Object2LongMap$Entry<($AEKey)>
-public "getFirstEntry"(): $Object2LongMap$Entry<($AEKey)>
-public "findFuzzy"(arg0: $AEKey$Type, arg1: $FuzzyMode$Type): $Collection<($Object2LongMap$Entry<($AEKey)>)>
-public "removeZeros"(): void
-public "getFirstKey"(): $AEKey
-public "getFirstKey"<T extends $AEKey>(arg0: $Class$Type<(T)>): T
 public "add"(arg0: $AEKey$Type, arg1: long): void
 public "remove"(arg0: $AEKey$Type, arg1: long): void
 public "get"(arg0: $AEKey$Type): long
@@ -3093,12 +3086,18 @@ public "set"(arg0: $AEKey$Type, arg1: long): void
 public "keySet"(): $Set<($AEKey)>
 public "reset"(): void
 public "removeAll"(arg0: $KeyCounter$Type): void
+public "getFirstEntry"<T extends $AEKey>(arg0: $Class$Type<(T)>): $Object2LongMap$Entry<($AEKey)>
+public "getFirstEntry"(): $Object2LongMap$Entry<($AEKey)>
+public "findFuzzy"(arg0: $AEKey$Type, arg1: $FuzzyMode$Type): $Collection<($Object2LongMap$Entry<($AEKey)>)>
+public "removeZeros"(): void
+public "getFirstKey"<T extends $AEKey>(arg0: $Class$Type<(T)>): T
+public "getFirstKey"(): $AEKey
 public "spliterator"(): $Spliterator<($Object2LongMap$Entry<($AEKey)>)>
 public "forEach"(arg0: $Consumer$Type<(any)>): void
 [Symbol.iterator](): IterableIterator<$Object2LongMap$Entry<($AEKey)>>;
+get "empty"(): boolean
 get "firstEntry"(): $Object2LongMap$Entry<($AEKey)>
 get "firstKey"(): $AEKey
-get "empty"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3114,20 +3113,20 @@ export type $KeyCounter_ = $KeyCounter$Type;
 }}
 declare module "packages/appeng/api/networking/crafting/$ICraftingPlan" {
 import {$IPatternDetails, $IPatternDetails$Type} from "packages/appeng/api/crafting/$IPatternDetails"
-import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 import {$GenericStack, $GenericStack$Type} from "packages/appeng/api/stacks/$GenericStack"
+import {$KeyCounter, $KeyCounter$Type} from "packages/appeng/api/stacks/$KeyCounter"
 import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $ICraftingPlan {
 
+ "bytes"(): long
  "simulation"(): boolean
- "missingItems"(): $KeyCounter
- "multiplePaths"(): boolean
- "patternTimes"(): $Map<($IPatternDetails), (long)>
  "finalOutput"(): $GenericStack
+ "missingItems"(): $KeyCounter
  "usedItems"(): $KeyCounter
  "emittedItems"(): $KeyCounter
- "bytes"(): long
+ "multiplePaths"(): boolean
+ "patternTimes"(): $Map<($IPatternDetails), (long)>
 }
 
 export namespace $ICraftingPlan {
@@ -3162,17 +3161,17 @@ import {$BlockEntity, $BlockEntity$Type} from "packages/net/minecraft/world/leve
 import {$PoseStack, $PoseStack$Type} from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import {$List, $List$Type} from "packages/java/util/$List"
 import {$RandomSource, $RandomSource$Type} from "packages/net/minecraft/util/$RandomSource"
-import {$CrashReportCategory, $CrashReportCategory$Type} from "packages/net/minecraft/$CrashReportCategory"
 import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
+import {$CrashReportCategory, $CrashReportCategory$Type} from "packages/net/minecraft/$CrashReportCategory"
 import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity"
 import {$ModelData, $ModelData$Type} from "packages/net/minecraftforge/client/model/data/$ModelData"
-import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$Level, $Level$Type} from "packages/net/minecraft/world/level/$Level"
+import {$Vec3, $Vec3$Type} from "packages/net/minecraft/world/phys/$Vec3"
 import {$IPartCollisionHelper, $IPartCollisionHelper$Type} from "packages/appeng/api/parts/$IPartCollisionHelper"
 import {$Capability, $Capability$Type} from "packages/net/minecraftforge/common/capabilities/$Capability"
 import {$IPartItem, $IPartItem$Type} from "packages/appeng/api/parts/$IPartItem"
-import {$IPartModel, $IPartModel$Type} from "packages/appeng/api/parts/$IPartModel"
 import {$AECableType, $AECableType$Type} from "packages/appeng/api/util/$AECableType"
+import {$IPartModel, $IPartModel$Type} from "packages/appeng/api/parts/$IPartModel"
 import {$FriendlyByteBuf, $FriendlyByteBuf$Type} from "packages/net/minecraft/network/$FriendlyByteBuf"
 import {$InteractionHand, $InteractionHand$Type} from "packages/net/minecraft/world/$InteractionHand"
 import {$IPartHost, $IPartHost$Type} from "packages/appeng/api/parts/$IPartHost"
@@ -3180,49 +3179,49 @@ import {$MultiBufferSource, $MultiBufferSource$Type} from "packages/net/minecraf
 
 export interface $IPart extends $ICustomCableConnection, $Clearable {
 
+ "animateTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $RandomSource$Type): void
  "getCapability"<T>(arg0: $Capability$Type<(T)>): $LazyOptional<(T)>
- "isLadder"(arg0: $LivingEntity$Type): boolean
- "canConnectRedstone"(): boolean
- "addEntityCrashInfo"(arg0: $CrashReportCategory$Type): void
- "getGridNode"(): $IGridNode
- "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
- "removeFromWorld"(): void
- "getPartItem"(): $IPartItem<(any)>
- "writeToNBT"(arg0: $CompoundTag$Type): void
- "readFromNBT"(arg0: $CompoundTag$Type): void
+ "setPartHostInfo"(arg0: $Direction$Type, arg1: $IPartHost$Type, arg2: $BlockEntity$Type): void
  "addToWorld"(): void
  "writeToStream"(arg0: $FriendlyByteBuf$Type): void
- "onActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
- "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type): void
+ "removeFromWorld"(): void
+ "readFromStream"(arg0: $FriendlyByteBuf$Type): boolean
  "importSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type, arg2: $Player$Type): void
- "setPartHostInfo"(arg0: $Direction$Type, arg1: $IPartHost$Type, arg2: $BlockEntity$Type): void
- "onUpdateShape"(arg0: $Direction$Type): void
- "onClicked"(arg0: $Player$Type, arg1: $Vec3$Type): boolean
- "onNeighborChanged"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
- "addAdditionalDrops"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): void
- "isSolid"(): boolean
- "getLightLevel"(): integer
- "onShiftClicked"(arg0: $Player$Type, arg1: $Vec3$Type): boolean
- "onShiftActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
- "renderDynamic"(arg0: float, arg1: $PoseStack$Type, arg2: $MultiBufferSource$Type, arg3: integer, arg4: integer): void
- "addPartDrop"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): void
- "canBePlacedOn"(arg0: $BusSupport$Type): boolean
- "onPlacement"(arg0: $Player$Type): void
- "getStaticModels"(): $IPartModel
- "animateTick"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $RandomSource$Type): void
+ "exportSettings"(arg0: $SettingsFrom$Type, arg1: $CompoundTag$Type): void
+ "addEntityCrashInfo"(arg0: $CrashReportCategory$Type): void
+ "getGridNode"(): $IGridNode
+ "getPartItem"(): $IPartItem<(any)>
+ "readFromNBT"(arg0: $CompoundTag$Type): void
+ "writeToNBT"(arg0: $CompoundTag$Type): void
+ "getBoxes"(arg0: $IPartCollisionHelper$Type): void
  "onEntityCollision"(arg0: $Entity$Type): void
- "getModelData"(): $ModelData
+ "isLadder"(arg0: $LivingEntity$Type): boolean
+ "canConnectRedstone"(): boolean
  "clearContent"(): void
- "readVisualStateFromNBT"(arg0: $CompoundTag$Type): void
+ "getExternalCableConnectionType"(): $AECableType
  "writeVisualStateToNBT"(arg0: $CompoundTag$Type): void
  "getCableConnectionLength"(arg0: $AECableType$Type): float
- "getDesiredConnectionType"(): $AECableType
- "isProvidingStrongPower"(): integer
- "requireDynamicRender"(): boolean
- "isProvidingWeakPower"(): integer
- "getExternalCableConnectionType"(): $AECableType
  "getExternalFacingNode"(): $IGridNode
- "getBoxes"(arg0: $IPartCollisionHelper$Type): void
+ "isProvidingStrongPower"(): integer
+ "getDesiredConnectionType"(): $AECableType
+ "readVisualStateFromNBT"(arg0: $CompoundTag$Type): void
+ "isProvidingWeakPower"(): integer
+ "requireDynamicRender"(): boolean
+ "renderDynamic"(arg0: float, arg1: $PoseStack$Type, arg2: $MultiBufferSource$Type, arg3: integer, arg4: integer): void
+ "onPlacement"(arg0: $Player$Type): void
+ "getLightLevel"(): integer
+ "isSolid"(): boolean
+ "onNeighborChanged"(arg0: $BlockGetter$Type, arg1: $BlockPos$Type, arg2: $BlockPos$Type): void
+ "onUpdateShape"(arg0: $Direction$Type): void
+ "onShiftActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
+ "onActivate"(arg0: $Player$Type, arg1: $InteractionHand$Type, arg2: $Vec3$Type): boolean
+ "addAdditionalDrops"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): void
+ "canBePlacedOn"(arg0: $BusSupport$Type): boolean
+ "onClicked"(arg0: $Player$Type, arg1: $Vec3$Type): boolean
+ "getStaticModels"(): $IPartModel
+ "onShiftClicked"(arg0: $Player$Type, arg1: $Vec3$Type): boolean
+ "addPartDrop"(arg0: $List$Type<($ItemStack$Type)>, arg1: boolean): void
+ "getModelData"(): $ModelData
 }
 
 export namespace $IPart {
@@ -3417,8 +3416,8 @@ import {$ResourceLocation, $ResourceLocation$Type} from "packages/net/minecraft/
 
 export interface $IPartModel {
 
- "getModels"(): $List<($ResourceLocation)>
  "requireCableConnection"(): boolean
+ "getModels"(): $List<($ResourceLocation)>
 }
 
 export namespace $IPartModel {
@@ -3439,8 +3438,8 @@ export type $IPartModel_ = $IPartModel$Type;
 declare module "packages/appeng/api/networking/$IGridNode" {
 import {$IGridConnection, $IGridConnection$Type} from "packages/appeng/api/networking/$IGridConnection"
 import {$UUID, $UUID$Type} from "packages/java/util/$UUID"
-import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$Class, $Class$Type} from "packages/java/lang/$Class"
+import {$Direction, $Direction$Type} from "packages/net/minecraft/core/$Direction"
 import {$AEItemKey, $AEItemKey$Type} from "packages/appeng/api/stacks/$AEItemKey"
 import {$GridFlags, $GridFlags$Type} from "packages/appeng/api/networking/$GridFlags"
 import {$IGridVisitor, $IGridVisitor$Type} from "packages/appeng/api/networking/$IGridVisitor"
@@ -3455,28 +3454,28 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $IGridNode {
 
- "getGrid"(): $IGrid
- "getConnectedSides"(): $Set<($Direction)>
- "isPowered"(): boolean
- "getOwningPlayerId"(): integer
- "hasGridBooted"(): boolean
- "beginVisit"(arg0: $IGridVisitor$Type): void
- "isOnline"(): boolean
- "getIdlePowerUsage"(): double
- "getUsedChannels"(): integer
- "getConnections"(): $List<($IGridConnection)>
- "getGridColor"(): $AEColor
- "getMaxChannels"(): integer
- "hasFlag"(arg0: $GridFlags$Type): boolean
- "getLevel"(): $ServerLevel
- "getVisualRepresentation"(): $AEItemKey
- "meetsChannelRequirements"(): boolean
- "getInWorldConnections"(): $Map<($Direction), ($IGridConnection)>
- "fillCrashReportCategory"(arg0: $CrashReportCategory$Type): void
- "getOwningPlayerProfileId"(): $UUID
  "getOwner"(): any
  "isActive"(): boolean
  "getService"<T extends $IGridNodeService>(arg0: $Class$Type<(T)>): T
+ "getConnectedSides"(): $Set<($Direction)>
+ "getOwningPlayerId"(): integer
+ "getIdlePowerUsage"(): double
+ "getConnections"(): $List<($IGridConnection)>
+ "getGridColor"(): $AEColor
+ "getGrid"(): $IGrid
+ "isPowered"(): boolean
+ "hasGridBooted"(): boolean
+ "isOnline"(): boolean
+ "getMaxChannels"(): integer
+ "beginVisit"(arg0: $IGridVisitor$Type): void
+ "getUsedChannels"(): integer
+ "getLevel"(): $ServerLevel
+ "hasFlag"(arg0: $GridFlags$Type): boolean
+ "getOwningPlayerProfileId"(): $UUID
+ "getVisualRepresentation"(): $AEItemKey
+ "getInWorldConnections"(): $Map<($Direction), ($IGridConnection)>
+ "fillCrashReportCategory"(arg0: $CrashReportCategory$Type): void
+ "meetsChannelRequirements"(): boolean
 }
 
 export namespace $IGridNode {
@@ -3498,8 +3497,8 @@ declare module "packages/appeng/api/implementations/$IPowerChannelState" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IPowerChannelState {
 
- "isPowered"(): boolean
  "isActive"(): boolean
+ "isPowered"(): boolean
 }
 
 export namespace $IPowerChannelState {
@@ -3531,16 +3530,16 @@ export class $PatternContainerGroup extends $Record {
 
 constructor(icon: $AEItemKey$Type, name: $Component$Type, tooltip: $List$Type<($Component$Type)>)
 
-public static "readFromPacket"(arg0: $FriendlyByteBuf$Type): $PatternContainerGroup
-public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
-public static "fromMachine"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $PatternContainerGroup
-public "tooltip"(): $List<($Component)>
-public "icon"(): $AEItemKey
-public static "nothing"(): $PatternContainerGroup
 public "name"(): $Component
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "hashCode"(): integer
+public static "readFromPacket"(arg0: $FriendlyByteBuf$Type): $PatternContainerGroup
+public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
+public static "fromMachine"(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type): $PatternContainerGroup
+public static "nothing"(): $PatternContainerGroup
+public "icon"(): $AEItemKey
+public "tooltip"(): $List<($Component)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3566,20 +3565,20 @@ export class $ItemMenuHost implements $IUpgradeableObject {
 
 constructor(arg0: $Player$Type, arg1: integer, arg2: $ItemStack$Type)
 
+public "getSlot"(): integer
 public "isClientSide"(): boolean
 public "getItemStack"(): $ItemStack
-public "getPlayer"(): $Player
-public "getUpgrades"(): $IUpgradeInventory
-public "onBroadcastChanges"(arg0: $AbstractContainerMenu$Type): boolean
 public "drainPower"(): boolean
-public "getSlot"(): integer
+public "onBroadcastChanges"(arg0: $AbstractContainerMenu$Type): boolean
+public "getUpgrades"(): $IUpgradeInventory
+public "getPlayer"(): $Player
 public "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
 public "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+get "slot"(): integer
 get "clientSide"(): boolean
 get "itemStack"(): $ItemStack
-get "player"(): $Player
 get "upgrades"(): $IUpgradeInventory
-get "slot"(): integer
+get "player"(): $Player
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3636,8 +3635,8 @@ export interface $ICraftingMachine {
 }
 
 export namespace $ICraftingMachine {
-function of(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $BlockEntity$Type): $ICraftingMachine
 function of(arg0: $BlockEntity$Type, arg1: $Direction$Type): $ICraftingMachine
+function of(arg0: $Level$Type, arg1: $BlockPos$Type, arg2: $Direction$Type, arg3: $BlockEntity$Type): $ICraftingMachine
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3659,13 +3658,13 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 export interface $ItemTransfer {
 
  "simulateSimilarRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
- "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
- "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
  "simulateRemove"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
  "addItems"(arg0: $ItemStack$Type, arg1: boolean): $ItemStack
  "addItems"(arg0: $ItemStack$Type): $ItemStack
- "mayAllowInsertion"(): boolean
  "removeSimilarItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $FuzzyMode$Type, arg3: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "removeItems"(arg0: integer, arg1: $ItemStack$Type, arg2: $Predicate$Type<($ItemStack$Type)>): $ItemStack
+ "simulateAdd"(arg0: $ItemStack$Type): $ItemStack
+ "mayAllowInsertion"(): boolean
 }
 
 export namespace $ItemTransfer {
@@ -3700,11 +3699,11 @@ export interface $ITerminalHost extends $IUpgradeableObject, $IConfigurableObjec
  "getInventory"(): $MEStorage
  "getCloseHotkey"(): string
  "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
- "getUpgrades"(): $IUpgradeInventory
  "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+ "getUpgrades"(): $IUpgradeInventory
  "getConfigManager"(): $IConfigManager
- "getMainMenuIcon"(): $ItemStack
  "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+ "getMainMenuIcon"(): $ItemStack
 }
 
 export namespace $ITerminalHost {
@@ -3729,10 +3728,10 @@ import {$BlockPos, $BlockPos$Type} from "packages/net/minecraft/core/$BlockPos"
 
 export interface $ISpatialStorageCell {
 
+ "doSpatialTransition"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer): boolean
  "isSpatialStorage"(arg0: $ItemStack$Type): boolean
  "getAllocatedPlotId"(arg0: $ItemStack$Type): integer
  "getMaxStoredDim"(arg0: $ItemStack$Type): integer
- "doSpatialTransition"(arg0: $ItemStack$Type, arg1: $ServerLevel$Type, arg2: $BlockPos$Type, arg3: $BlockPos$Type, arg4: integer): boolean
 }
 
 export namespace $ISpatialStorageCell {
@@ -3769,44 +3768,44 @@ export class $AEKey {
 
 constructor()
 
-public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
-public static "writeKey"(arg0: $FriendlyByteBuf$Type, arg1: $AEKey$Type): void
-public "getModId"(): string
-public static "writeOptionalKey"(arg0: $FriendlyByteBuf$Type, arg1: $AEKey$Type): void
-public static "readOptionalKey"(arg0: $FriendlyByteBuf$Type): $AEKey
-public static "fromTagGeneric"(arg0: $CompoundTag$Type): $AEKey
-public static "readKey"(arg0: $FriendlyByteBuf$Type): $AEKey
-public "formatAmount"(arg0: long, arg1: $AmountFormat$Type): string
-public "getAmountPerByte"(): integer
-public "isTagged"(arg0: $TagKey$Type<(any)>): boolean
-public "toTag"(): $CompoundTag
-public "addDrops"(arg0: long, arg1: $List$Type<($ItemStack$Type)>, arg2: $Level$Type, arg3: $BlockPos$Type): void
-public "getAmountPerUnit"(): integer
-public "getPrimaryKey"(): any
-public "getUnitSymbol"(): string
-public "toTagGeneric"(): $CompoundTag
-public "dropSecondary"(): $AEKey
-public "supportsFuzzyRangeSearch"(): boolean
-public "getAmountPerOperation"(): integer
-public "wrapForDisplayOrFilter"(): $ItemStack
-public "getFuzzySearchValue"(): integer
-public "getFuzzySearchMaxValue"(): integer
-public "fuzzyEquals"(arg0: $AEKey$Type, arg1: $FuzzyMode$Type): boolean
 public "matches"(arg0: $GenericStack$Type): boolean
 public "getId"(): $ResourceLocation
 public "getType"(): $AEKeyType
 public "getDisplayName"(): $Component
-get "modId"(): string
-get "amountPerByte"(): integer
-get "amountPerUnit"(): integer
-get "primaryKey"(): any
-get "unitSymbol"(): string
-get "amountPerOperation"(): integer
-get "fuzzySearchValue"(): integer
-get "fuzzySearchMaxValue"(): integer
+public "writeToPacket"(arg0: $FriendlyByteBuf$Type): void
+public "fuzzyEquals"(arg0: $AEKey$Type, arg1: $FuzzyMode$Type): boolean
+public static "fromTagGeneric"(arg0: $CompoundTag$Type): $AEKey
+public static "writeOptionalKey"(arg0: $FriendlyByteBuf$Type, arg1: $AEKey$Type): void
+public static "readOptionalKey"(arg0: $FriendlyByteBuf$Type): $AEKey
+public "getUnitSymbol"(): string
+public "dropSecondary"(): $AEKey
+public "getAmountPerUnit"(): integer
+public "toTag"(): $CompoundTag
+public "toTagGeneric"(): $CompoundTag
+public "isTagged"(arg0: $TagKey$Type<(any)>): boolean
+public "getPrimaryKey"(): any
+public "getAmountPerByte"(): integer
+public "formatAmount"(arg0: long, arg1: $AmountFormat$Type): string
+public static "readKey"(arg0: $FriendlyByteBuf$Type): $AEKey
+public "addDrops"(arg0: long, arg1: $List$Type<($ItemStack$Type)>, arg2: $Level$Type, arg3: $BlockPos$Type): void
+public static "writeKey"(arg0: $FriendlyByteBuf$Type, arg1: $AEKey$Type): void
+public "getModId"(): string
+public "supportsFuzzyRangeSearch"(): boolean
+public "wrapForDisplayOrFilter"(): $ItemStack
+public "getAmountPerOperation"(): integer
+public "getFuzzySearchMaxValue"(): integer
+public "getFuzzySearchValue"(): integer
 get "id"(): $ResourceLocation
 get "type"(): $AEKeyType
 get "displayName"(): $Component
+get "unitSymbol"(): string
+get "amountPerUnit"(): integer
+get "primaryKey"(): any
+get "amountPerByte"(): integer
+get "modId"(): string
+get "amountPerOperation"(): integer
+get "fuzzySearchMaxValue"(): integer
+get "fuzzySearchValue"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -3852,8 +3851,8 @@ import {$ISubMenu, $ISubMenu$Type} from "packages/appeng/menu/$ISubMenu"
 
 export interface $ISubMenuHost {
 
- "getMainMenuIcon"(): $ItemStack
  "returnToMainMenu"(arg0: $Player$Type, arg1: $ISubMenu$Type): void
+ "getMainMenuIcon"(): $ItemStack
 }
 
 export namespace $ISubMenuHost {
@@ -3878,8 +3877,8 @@ import {$ItemLike, $ItemLike$Type} from "packages/net/minecraft/world/level/$Ite
 export interface $IUpgradeableObject {
 
  "getInstalledUpgrades"(arg0: $ItemLike$Type): integer
- "getUpgrades"(): $IUpgradeInventory
  "isUpgradedWith"(arg0: $ItemLike$Type): boolean
+ "getUpgrades"(): $IUpgradeInventory
 }
 
 export namespace $IUpgradeableObject {
@@ -3910,9 +3909,9 @@ readonly "breakPoint": float
 readonly "percentage": float
 
 
-public "calculateBreakPoint"(arg0: integer): integer
 public static "values"(): ($FuzzyMode)[]
 public static "valueOf"(arg0: string): $FuzzyMode
+public "calculateBreakPoint"(arg0: integer): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

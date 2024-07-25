@@ -76,18 +76,5 @@
       "type": "url",
       "value": "https://spark.lucko.me/eIn4rdxKDi"
     }
-  },
-  {
-    "user": {
-      "type": "player",
-      "name": "meepr_dib",
-      "uniqueId": "e167f3fe-1cc7-43aa-a558-cdd0babd44ce"
-    },
-    "time": 1716315153953,
-    "type": "Profiler",
-    "data": {
-      "type": "url",
-      "value": "https://spark.lucko.me/tkuzqRzfdN"
-    }
   }
 ]

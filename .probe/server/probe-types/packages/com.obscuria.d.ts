@@ -10,8 +10,8 @@ export class $Fury extends $MobEffect {
 
 constructor()
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "getDescriptionId"(): string
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 get "descriptionId"(): string
 }
 /**
@@ -38,8 +38,8 @@ export class $Knowledge extends $MobEffect {
 
 constructor()
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "getDescriptionId"(): string
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 get "descriptionId"(): string
 }
 /**
@@ -66,8 +66,8 @@ export class $Rush extends $MobEffect {
 
 constructor()
 
-public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 public "getDescriptionId"(): string
+public "isDurationEffectTick"(arg0: integer, arg1: integer): boolean
 get "descriptionId"(): string
 }
 /**
@@ -106,10 +106,10 @@ static readonly "MAX_BAR_WIDTH": integer
 
 constructor()
 
-public "getUseDuration"(arg0: $ItemStack$Type): integer
 public "finishUsingItem"(arg0: $ItemStack$Type, arg1: $Level$Type, arg2: $LivingEntity$Type): $ItemStack
-public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
 public "isFoil"(arg0: $ItemStack$Type): boolean
+public "getUseAnimation"(arg0: $ItemStack$Type): $UseAnim
+public "getUseDuration"(arg0: $ItemStack$Type): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

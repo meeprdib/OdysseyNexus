@@ -29,8 +29,8 @@ import {$Tag, $Tag$Type} from "packages/net/minecraft/nbt/$Tag"
 
 export interface $Facet<T extends $Tag> {
 
- "toNbt"(): T
  "loadNbt"(arg0: T): void
+ "toNbt"(): T
 }
 
 export namespace $Facet {
@@ -77,9 +77,9 @@ declare module "packages/com/redpxnda/nucleus/mixin/client/$DrawContextAccessor"
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $DrawContextAccessor {
 
- "callTryDraw"(): void
- "callDrawIfRunning"(): void
  "isRunningDrawCallback"(): boolean
+ "callDrawIfRunning"(): void
+ "callTryDraw"(): void
 }
 
 export namespace $DrawContextAccessor {
@@ -118,11 +118,11 @@ export class $RenderingMobEffect extends $MobEffect {
 public "applyEffectTick"(entity: $LivingEntity$Type, i: integer): void
 public "addAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
 public "removeAttributeModifiers"(entity: $LivingEntity$Type, attributeMap: $AttributeMap$Type, i: integer): void
-public "maxTickUpdateDistance"(): double
+public "tickUpdateInterval"(): integer
+public "renderHud"(instance: $MobEffectInstance$Type, minecraft: $Minecraft$Type, graphics: $GuiGraphics$Type, partialTick: float): boolean
 public "renderPost"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): void
 public "renderPre"(instance: $MobEffectInstance$Type, entity: $LivingEntity$Type, entityYaw: float, partialTick: float, matrixStack: $PoseStack$Type, multiBufferSource: $MultiBufferSource$Type, packedLight: integer): boolean
-public "renderHud"(instance: $MobEffectInstance$Type, minecraft: $Minecraft$Type, graphics: $GuiGraphics$Type, partialTick: float): boolean
-public "tickUpdateInterval"(): integer
+public "maxTickUpdateDistance"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -200,16 +200,16 @@ import {$Entity, $Entity$Type} from "packages/net/minecraft/world/entity/$Entity
 export class $FacetKey<T extends $Facet<(any)>> {
 
 
-public "getOptional"(holder: $ItemStack$Type): $Optional<(T)>
-public "getOptional"(holder: $Entity$Type): $Optional<(T)>
-public "getOptional"(holder: $MobEffectInstance$Type): $Optional<(T)>
-public "get"(holder: $Entity$Type): T
-public "get"(holder: $ItemStack$Type): T
 public "get"(holder: $MobEffectInstance$Type): T
+public "get"(holder: $ItemStack$Type): T
+public "get"(holder: $Entity$Type): T
 public "toString"(): string
 public "hashCode"(): integer
 public "id"(): $ResourceLocation
 public "cls"(): $Class<(T)>
+public "getOptional"(holder: $MobEffectInstance$Type): $Optional<(T)>
+public "getOptional"(holder: $ItemStack$Type): $Optional<(T)>
+public "getOptional"(holder: $Entity$Type): $Optional<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -332,13 +332,13 @@ export class $FacetInventory {
 
 constructor()
 
-public "getOptional"<T extends $Facet<(any)>>(key: $FacetKey$Type<(T)>): $Optional<(T)>
 public static "get"(entity: $Entity$Type): $FacetInventory
 public static "get"(stack: $ItemStack$Type): $FacetInventory
 public "get"<T extends $Facet<(any)>>(key: $FacetKey$Type<(T)>): T
 public "isEmpty"(): boolean
 public "forEach"(action: $BiConsumer$Type<(any), (any)>): void
 public "has"<T extends $Facet<(any)>>(key: $FacetKey$Type<(T)>): boolean
+public "getOptional"<T extends $Facet<(any)>>(key: $FacetKey$Type<(T)>): $Optional<(T)>
 get "empty"(): boolean
 }
 /**
@@ -383,17 +383,17 @@ export type $HeldItemRendererAccessor_ = $HeldItemRendererAccessor$Type;
 declare module "packages/com/redpxnda/nucleus/facet/$FacetHolder" {
 import {$FacetInventory, $FacetInventory$Type} from "packages/com/redpxnda/nucleus/facet/$FacetInventory"
 import {$Facet, $Facet$Type} from "packages/com/redpxnda/nucleus/facet/$Facet"
-import {$FacetKey, $FacetKey$Type} from "packages/com/redpxnda/nucleus/facet/$FacetKey"
 import {$FacetAttachmentEvent$FacetAttacher, $FacetAttachmentEvent$FacetAttacher$Type} from "packages/com/redpxnda/nucleus/facet/event/$FacetAttachmentEvent$FacetAttacher"
+import {$FacetKey, $FacetKey$Type} from "packages/com/redpxnda/nucleus/facet/$FacetKey"
 
 export interface $FacetHolder {
 
+ "getFacets"(): $FacetInventory
+ "setFacetsFromAttacher"(attacher: $FacetAttachmentEvent$FacetAttacher$Type): void
  "clearFacets"(): void
  "setFacet"(key: $FacetKey$Type<(any)>, val: $Facet$Type<(any)>): void
- "setFacetsFromAttacher"(attacher: $FacetAttachmentEvent$FacetAttacher$Type): void
- "getFacets"(): $FacetInventory
 
-(): void
+(holder: any): $FacetHolder
 }
 
 export namespace $FacetHolder {

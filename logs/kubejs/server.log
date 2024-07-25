@@ -1,59 +1,60 @@
-[21:31:36] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
-[21:31:36] [INIT] Loaded plugins:
-[21:31:36] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[21:31:36] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[21:31:36] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[21:31:36] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[21:31:36] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[21:31:36] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[21:31:36] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[21:31:36] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[21:31:36] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[21:31:36] [INIT] - com.oierbravo.create_mechanical_spawner.compat.kubejs.KubeJSCreateMechanicalSpawnerPlugin
-[21:31:36] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[21:31:36] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[21:31:36] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
-[21:31:36] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[21:31:36] [INFO] Loaded script server_scripts:enchantment.js in 0.0 s
-[21:31:36] [INFO] Loaded script server_scripts:loot.js in 0.002 s
-[21:31:36] [INFO] Loaded script server_scripts:recipes.js in 0.005 s
-[21:31:36] [INFO] Loaded script server_scripts:starter_kit.js in 0.0 s
-[21:31:36] [INFO] Loaded script server_scripts:tags.js in 0.003 s
-[21:31:36] [INFO] Loaded 5/5 KubeJS server scripts in 0.049 s with 0 errors and 0 warnings
-[21:31:36] [INFO] Scripts loaded
-[21:31:36] [INFO] Initializing recipe event...
-[21:31:37] [INFO] [minecraft:block] Found 646 tags, added 5 objects, removed 0 objects
-[21:31:37] [INFO] [minecraft:item] Found 1605 tags, added 160 objects, removed 1 objects
-[21:31:40] [INFO] Processing recipes...
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_smoked_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/cod_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_spirit[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rose[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/egg_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rose_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/screw[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rubber_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rubber[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_spirit_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/bolt[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_smoked[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/salmon_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/glowberry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/berry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
-[21:31:40] [INFO] Found 14097 recipes in 626.5 ms
-[21:31:40] [INFO] recipes.js#5: Recipes nuked!
-[21:31:40] [INFO] recipes.js#182: Not-recipes done!
-[21:31:40] [INFO] recipes.js#190: Item replacement recipes finished!
-[21:31:40] [INFO] recipes.js#577: Recipes added!
-[21:31:40] [INFO] Posted recipe events in 73.89 ms
-[21:31:40] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_spirit_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_spirit"},"loops":1,"results":[{"item":"railways:track_create_dd_spirit_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_spirit_wide"},{"item":"create_dd:spirit_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_spirit_wide"}}: Unknown item 'create_dd:spirit_slab'
-[21:31:40] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_rose_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_rose"},"loops":1,"results":[{"item":"railways:track_create_dd_rose_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_rose_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rose_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_rose_wide"},{"item":"create_dd:rose_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_rose_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_rose_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rose_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_rose_wide"}}: Unknown item 'create_dd:rose_slab'
-[21:31:40] [WARN] Error parsing recipe design_decor:item_application/millstones/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
-[21:31:40] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_rubber_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_rubber"},"loops":1,"results":[{"item":"railways:track_create_dd_rubber_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_rubber_wide"},{"item":"create_dd:rubber_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_rubber_wide"}}: Unknown item 'create_dd:rubber_slab'
-[21:31:40] [WARN] Error parsing recipe design_decor:item_application/crushing_wheels/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
-[21:31:40] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_smoked_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_smoked"},"loops":1,"results":[{"item":"railways:track_create_dd_smoked_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_smoked_wide"},{"item":"create_dd:smoked_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_smoked_wide"}}: Unknown item 'create_dd:smoked_slab'
-[21:31:40] [WARN] Error parsing recipe farmersrespite:chilidog_alt[minecraft:crafting_shapeless]: {"type":"minecraft:crafting_shapeless","ingredients":[{"item":"farmersrespite:blazing_chili"},{"item":"mynethersdelight:hotdog"},{"item":"mynethersdelight:hotdog"}],"result":{"count":2,"item":"mynethersdelight:chilidog"}}: Unknown item 'farmersrespite:blazing_chili'
-[21:31:40] [WARN] Error parsing recipe nethersdelight:cutting/hoglin_sausage_alt[farmersdelight:cutting]: {"type":"farmersdelight:cutting","ingredients":[{"item":"nethersdelight:hoglin_loin"}],"result":[{"count":2,"item":"mynethersdelight:hoglin_sausage"}],"tool":{"tag":"forge:tools/knives"}}: Unknown item 'nethersdelight:hoglin_loin'
-[21:31:41] [WARN] Error parsing recipe create:sequenced_assembly/me_storage_component[create:sequenced_assembly]: {"type":"create:sequenced_assembly","ingredient":{"tag":"forge:plates/gold"},"loops":2,"results":[{"chance":1,"item":"create:precision_mechanism"}],"sequence":[{"type":"create:deploying","ingredients":[{"item":"create:incomplete_precision_mechanism"},{"item":"create:cogwheel"}],"results":[{"item":"create:incomplete_precision_mechanism"}]},{"type":"createaddition:charging","input":{"item":"create:incomplete_precision_mechanism","count":1},"result":{"item":"create:incomplete_precision_mechanism","count":1},"energy":10000000,"maxChargeRate":1000}],"transitionalItem":{"item":"create:incomplete_precision_mechanism"}}: Not a supported recipe type
-[21:31:41] [INFO] Added 93 recipes, removed 301 recipes, modified 5 recipes, with 9 failed recipes in 830.6 ms
-[21:31:43] [INFO] Server resource reload complete!
+[20:13:07] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
+[20:13:07] [INIT] Loaded plugins:
+[20:13:07] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[20:13:07] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[20:13:07] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[20:13:07] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[20:13:07] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[20:13:07] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[20:13:07] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[20:13:07] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[20:13:07] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[20:13:07] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[20:13:07] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[20:13:07] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
+[20:13:07] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[20:13:07] [INFO] Loaded script server_scripts:enchantment.js in 0.003 s
+[20:13:07] [INFO] Loaded script server_scripts:loot.js in 0.001 s
+[20:13:07] [INFO] Loaded script server_scripts:recipes.js in 0.003 s
+[20:13:07] [INFO] Loaded script server_scripts:starter_kit.js in 0.0 s
+[20:13:07] [INFO] Loaded script server_scripts:tags.js in 0.001 s
+[20:13:07] [INFO] Loaded 5/5 KubeJS server scripts in 0.024 s with 0 errors and 0 warnings
+[20:13:07] [INFO] Scripts loaded
+[20:13:07] [INFO] Initializing recipe event...
+[20:13:07] [INFO] [minecraft:item] Found 1608 tags, added 177 objects, removed 1 objects
+[20:13:07] [INFO] [minecraft:block] Found 638 tags, added 5 objects, removed 0 objects
+[20:13:10] [INFO] Processing recipes...
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_smoked_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/cod_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_spirit[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rose[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/egg_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rose_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/screw[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rubber_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_rubber[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_spirit_narrow[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'design_decor:stonecutting/metals/iron/bolt[minecraft:stonecutting]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'railways:sequenced_assembly/track_create_dd_smoked[create:sequenced_assembly]'! Falling back to vanilla: Ingredient 'ingredient' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/salmon_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/glowberry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [WARN] Failed to parse recipe 'cratedelight:minecraft/crafting/berry_crate[minecraft:crafting_shaped]'! Falling back to vanilla: ItemStack 'result' can't be empty!
+[20:13:10] [INFO] Found 14089 recipes in 478.8 ms
+[20:13:10] [INFO] recipes.js#5: Recipes nuked!
+[20:13:10] [WARN] recipes.js#5: Failed to parse custom ingredient ("vintageimprovements:coiling") from {"type":"vintageimprovements:coiling"}: com.google.gson.JsonSyntaxException: Unknown ingredient type: vintageimprovements:coiling
+[20:13:10] [INFO] recipes.js#184: Not-recipes done!
+[20:13:10] [INFO] recipes.js#192: Item replacement recipes finished!
+[20:13:10] [INFO] recipes.js#737: Recipes added!
+[20:13:10] [INFO] Posted recipe events in 75.66 ms
+[20:13:10] [WARN] Error parsing recipe create:mixing/void_steel[create:mixing]: {"type":"create:mixing","heatRequirement":"heated","ingredients":[{"item":"cataclysm:void_core"},{"item":"create_dd:steel_ingot"}],"results":[{"count":4,"item":"createutilities:void_steel_ingot"}]}: Unknown item 'create_dd:steel_ingot'
+[20:13:10] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_rose_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_rose"},"loops":1,"results":[{"item":"railways:track_create_dd_rose_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_rose_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rose_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_rose_wide"},{"item":"create_dd:rose_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_rose_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_rose_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rose_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_rose_wide"}}: Unknown item 'create_dd:rose_slab'
+[20:13:10] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_spirit_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_spirit"},"loops":1,"results":[{"item":"railways:track_create_dd_spirit_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_spirit_wide"},{"item":"create_dd:spirit_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_spirit_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_spirit_wide"}}: Unknown item 'create_dd:spirit_slab'
+[20:13:10] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_rubber_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_rubber"},"loops":1,"results":[{"item":"railways:track_create_dd_rubber_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_rubber_wide"},{"item":"create_dd:rubber_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_rubber_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_rubber_wide"}}: Unknown item 'create_dd:rubber_slab'
+[20:13:10] [WARN] Error parsing recipe farmersrespite:chilidog_alt[minecraft:crafting_shapeless]: {"type":"minecraft:crafting_shapeless","ingredients":[{"item":"farmersrespite:blazing_chili"},{"item":"mynethersdelight:hotdog"},{"item":"mynethersdelight:hotdog"}],"result":{"count":2,"item":"mynethersdelight:chilidog"}}: Unknown item 'farmersrespite:blazing_chili'
+[20:13:10] [WARN] Error parsing recipe design_decor:item_application/crushing_wheels/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
+[20:13:10] [WARN] Error parsing recipe nethersdelight:cutting/hoglin_sausage_alt[farmersdelight:cutting]: {"type":"farmersdelight:cutting","ingredients":[{"item":"nethersdelight:hoglin_loin"}],"result":[{"count":2,"item":"mynethersdelight:hoglin_sausage"}],"tool":{"tag":"forge:tools/knives"}}: Unknown item 'nethersdelight:hoglin_loin'
+[20:13:10] [WARN] Error parsing recipe railways:sequenced_assembly/track_create_dd_smoked_wide[create:sequenced_assembly]: {"fabric:load_conditions":[{"condition":"fabric:all_mods_loaded","values":["create_dd"]}],"type":"create:sequenced_assembly","conditions":[{"type":"forge:mod_loaded","modid":"create_dd"}],"ingredient":{"item":"railways:track_create_dd_smoked"},"loops":1,"results":[{"item":"railways:track_create_dd_smoked_wide"}],"sequence":[{"type":"create:cutting","ingredients":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}]},{"type":"create:deploying","ingredients":[{"item":"railways:track_incomplete_create_dd_smoked_wide"},{"item":"create_dd:smoked_slab"}],"results":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}]},{"type":"create:pressing","ingredients":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}],"results":[{"item":"railways:track_incomplete_create_dd_smoked_wide"}]}],"transitionalItem":{"item":"railways:track_incomplete_create_dd_smoked_wide"}}: Unknown item 'create_dd:smoked_slab'
+[20:13:10] [WARN] Error parsing recipe design_decor:item_application/millstones/special_aluminum_cylinder[create:item_application]: {"type":"create:item_application","ingredients":[{"item":"design_decor:aluminum_boiler"},{"item":"minecraft:pink_dye"}],"results":[{"item":"design_decor:aluminum_boiler_special"}]}: Unknown item 'design_decor:aluminum_boiler'
+[20:13:10] [WARN] Error parsing recipe create:sequenced_assembly/me_storage_component[create:sequenced_assembly]: {"type":"create:sequenced_assembly","ingredient":{"tag":"forge:plates/gold"},"loops":2,"results":[{"chance":1,"item":"create:precision_mechanism"}],"sequence":[{"type":"create:deploying","ingredients":[{"item":"create:incomplete_precision_mechanism"},{"item":"create:cogwheel"}],"results":[{"item":"create:incomplete_precision_mechanism"}]},{"type":"createaddition:charging","input":{"item":"create:incomplete_precision_mechanism","count":1},"result":{"item":"create:incomplete_precision_mechanism","count":1},"energy":10000000,"maxChargeRate":1000}],"transitionalItem":{"item":"create:incomplete_precision_mechanism"}}: Not a supported recipe type
+[20:13:11] [INFO] Added 129 recipes, removed 354 recipes, modified 5 recipes, with 10 failed recipes in 787.0 ms
+[20:13:12] [INFO] Server resource reload complete!

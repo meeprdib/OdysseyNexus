@@ -5,11 +5,11 @@ import {$ItemStack, $ItemStack$Type} from "packages/net/minecraft/world/item/$It
 
 export interface $AccessorLivingEntity {
 
- "bookshelf$getHurtSound"(arg0: $DamageSource$Type): $SoundEvent
  "bookshelf$getDeathSound"(): $SoundEvent
- "bookshelf$getDrinkingSound"(arg0: $ItemStack$Type): $SoundEvent
- "bookshelf$makePoofParticles"(): void
  "bookshelf$getFallDamageSound"(arg0: integer): $SoundEvent
+ "bookshelf$makePoofParticles"(): void
+ "bookshelf$getDrinkingSound"(arg0: $ItemStack$Type): $SoundEvent
+ "bookshelf$getHurtSound"(arg0: $DamageSource$Type): $SoundEvent
 }
 
 export namespace $AccessorLivingEntity {
@@ -35,10 +35,10 @@ import {$ObjectArrayList, $ObjectArrayList$Type} from "packages/it/unimi/dsi/fas
 
 export interface $AccessorStructureTemplatePool {
 
- "bookshelf$getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
- "bookshelf$getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
  "bookshelf$setRawTemplates"(arg0: $List$Type<($Pair$Type<($StructurePoolElement$Type), (integer)>)>): void
  "bookshelf$setTemplates"(arg0: $ObjectArrayList$Type<($StructurePoolElement$Type)>): void
+ "bookshelf$getRawTemplates"(): $List<($Pair<($StructurePoolElement), (integer)>)>
+ "bookshelf$getTemplates"(): $ObjectArrayList<($StructurePoolElement)>
 }
 
 export namespace $AccessorStructureTemplatePool {
@@ -88,8 +88,8 @@ export class $SingletonArgumentInfo$Template<T extends $ArgumentType<(any)>> imp
 
 constructor(arg0: $Supplier$Type<(T)>, arg1: $ArgumentTypeInfo$Type<(T), (any)>)
 
-public "type"(): $ArgumentTypeInfo<(T), (any)>
 public "instantiate"(arg0: $CommandBuildContext$Type): T
+public "type"(): $ArgumentTypeInfo<(T), (any)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -186,8 +186,8 @@ import {$Map, $Map$Type} from "packages/java/util/$Map"
 
 export interface $AccessorItemCooldowns {
 
- "bookshelf$getTickCount"(): integer
  "bookshelf$getCooldowns"(): $Map<($Item), (any)>
+ "bookshelf$getTickCount"(): integer
 }
 
 export namespace $AccessorItemCooldowns {
@@ -312,8 +312,8 @@ import {$ImmutableList, $ImmutableList$Type} from "packages/com/google/common/co
 
 export interface $AccessorWeightedRandomList<E> {
 
- "bookshelf$getTotalWeight"(): integer
  "bookshelf$getEntries"(): $ImmutableList<(E)>
+ "bookshelf$getTotalWeight"(): integer
 }
 
 export namespace $AccessorWeightedRandomList {
@@ -514,8 +514,8 @@ export class $ShapelessDurabilityRecipe$Serializer implements $RecipeSerializer<
 constructor()
 
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ShapelessDurabilityRecipe
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ShapelessDurabilityRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ShapelessDurabilityRecipe$Type): void
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ShapelessDurabilityRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ShapelessDurabilityRecipe
 }
@@ -545,8 +545,8 @@ export class $ShapedDurabilityRecipe$Serializer implements $RecipeSerializer<($S
 constructor()
 
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type): $ShapedDurabilityRecipe
-public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ShapedDurabilityRecipe
 public "toNetwork"(arg0: $FriendlyByteBuf$Type, arg1: $ShapedDurabilityRecipe$Type): void
+public "fromNetwork"(arg0: $ResourceLocation$Type, arg1: $FriendlyByteBuf$Type): $ShapedDurabilityRecipe
 public static "register"<S extends $RecipeSerializer<(T)>, T extends $Recipe<(any)>>(arg0: string, arg1: S): S
 public "fromJson"(arg0: $ResourceLocation$Type, arg1: $JsonObject$Type, arg2: $ICondition$IContext$Type): $ShapedDurabilityRecipe
 }
@@ -622,12 +622,12 @@ import {$ArgumentType, $ArgumentType$Type} from "packages/com/mojang/brigadier/a
 export class $SingletonArgumentInfo<T extends $ArgumentType<(any)>> implements $ArgumentTypeInfo<(T), ($SingletonArgumentInfo$Template<(T)>)> {
 
 
-public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $SingletonArgumentInfo$Template<(T)>
-public "unpack"(arg0: T): $SingletonArgumentInfo$Template<(T)>
-public "serializeToNetwork"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $FriendlyByteBuf$Type): void
-public "serializeToJson"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $JsonObject$Type): void
 public static "of"<T extends $ArgumentType<(any)>>(arg0: T): $SingletonArgumentInfo<(T)>
 public static "of"<T extends $ArgumentType<(any)>>(arg0: $Supplier$Type<(T)>): $SingletonArgumentInfo<(T)>
+public "unpack"(arg0: T): $SingletonArgumentInfo$Template<(T)>
+public "serializeToJson"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $JsonObject$Type): void
+public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$Type): $SingletonArgumentInfo$Template<(T)>
+public "serializeToNetwork"(arg0: $SingletonArgumentInfo$Template$Type<(T)>, arg1: $FriendlyByteBuf$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

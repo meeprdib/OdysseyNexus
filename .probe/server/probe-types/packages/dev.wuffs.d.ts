@@ -31,15 +31,15 @@ static "CODEC": $Codec<($BetterStatus)>
 
 constructor(projectId: integer, name: string, version: string, versionId: integer, releaseType: string, isMetaData: boolean)
 
-public "versionId"(): integer
-public "isMetaData"(): boolean
-public "releaseType"(): string
-public "projectId"(): integer
 public "name"(): string
 public "equals"(arg0: any): boolean
 public "toString"(): string
 public "version"(): string
 public "hashCode"(): integer
+public "versionId"(): integer
+public "isMetaData"(): boolean
+public "releaseType"(): string
+public "projectId"(): integer
 get "metaData"(): boolean
 }
 /**

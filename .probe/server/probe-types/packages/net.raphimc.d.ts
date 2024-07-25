@@ -26,8 +26,8 @@ import {$MapAtlasTexture, $MapAtlasTexture$Type} from "packages/net/raphimc/imme
 
 export interface $IMapRenderer {
 
- "immediatelyFast$getAtlasMapping"(arg0: integer): integer
  "immediatelyFast$getMapAtlasTexture"(arg0: integer): $MapAtlasTexture
+ "immediatelyFast$getAtlasMapping"(arg0: integer): integer
 }
 
 export namespace $IMapRenderer {
@@ -58,16 +58,16 @@ static readonly "MAPS_PER_ATLAS": integer
 
 constructor(id: integer)
 
-public "getIdentifier"(): $ResourceLocation
-public "getTexture"(): $DynamicTexture
-public "getNextMapLocation"(): integer
 public "getId"(): integer
 public "close"(): void
-public "handler$bag000$forceMipMapOff"(id: integer, ci: $CallbackInfo$Type): void
-get "identifier"(): $ResourceLocation
-get "texture"(): $DynamicTexture
-get "nextMapLocation"(): integer
+public "getIdentifier"(): $ResourceLocation
+public "getNextMapLocation"(): integer
+public "getTexture"(): $DynamicTexture
+public "handler$bab000$forceMipMapOff"(id: integer, ci: $CallbackInfo$Type): void
 get "id"(): integer
+get "identifier"(): $ResourceLocation
+get "nextMapLocation"(): integer
+get "texture"(): $DynamicTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

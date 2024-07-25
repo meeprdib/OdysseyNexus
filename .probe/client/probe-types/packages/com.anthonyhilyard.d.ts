@@ -2,9 +2,9 @@ declare module "packages/com/anthonyhilyard/prism/util/$IColor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IColor {
 
- "isAnimated"(): boolean
  "getName"(): string
  "getValue"(): integer
+ "isAnimated"(): boolean
 }
 
 export namespace $IColor {
