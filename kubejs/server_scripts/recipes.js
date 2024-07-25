@@ -8,6 +8,7 @@ ServerEvents.recipes(event => {
             // '@create_dd',
             // '@waystones',
             '@create_mechanical_spawner',
+            'createaddition:modular_accumulator',
             '@gateways',
             'apotheosis:reforging_table',
             'apotheosis:augmenting_table',
@@ -134,50 +135,49 @@ ServerEvents.recipes(event => {
             'storagedrawers:illumination_upgrade',
             'storagedrawers:drawer_key',
             'storagedrawers:void_upgrade',
-            event.remove([{ type: 'vintageimprovements:coiling'}]),
-            event.remove([{ type: 'vintageimprovements:hammering'}]),
-            event.remove([{ type: 'vintageimprovements:pressurizing'}]),
-            event.remove([{ type: 'vintageimprovements:vacuumizing'}]),
-            event.remove([{ type: 'create_dd:seething'}]),
-            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_copper'}]),
-            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_gold'}]),
-            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_iron'}]),
-            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_silver'}]),
-            event.remove([{ type: 'create:crushing', output: 'create:crushed_raw_zinc'}]),
-            event.remove([{ type: 'create:crushing', output: 'minecraft:lapis_lazuli'}]),
-            event.remove([{ type: 'create:crushing', output: 'minecraft:redstone'}]),
-            event.remove([{ type: 'create:crushing', output: 'minecraft:coal'}]),
-            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_cinnabar'}]),
-            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_diamond_shard'}]),
-            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_diamond'}]),
-            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_emerald'}]),
-            event.remove([{ type: 'create:crushing', output: 'spelunkery:rough_lazurite'}]),
-            event.remove([{ output: '#vintageimprovements:springs'}]),
-            event.remove([{ output: '#vintageimprovements:small_springs'}]),
-            event.remove({id: 'minecraft:lodestone'}),
-            event.remove({id: 'spelunkery:copper_ore_blasting'}),
-            event.remove({id: 'spelunkery:copper_ore_smelting'}),
-            event.remove({id: 'spelunkery:diamond_ore_blasting'}),
-            event.remove({id: 'spelunkery:diamond_ore_smelting'}),
-            event.remove({id: 'spelunkery:emerald_ore_blasting'}),
-            event.remove({id: 'spelunkery:emerald_ore_smelting'}),
-            event.remove({id: 'spelunkery:gold_ore_blasting'}),
-            event.remove({id: 'spelunkery:gold_ore_smelting'}),
-            event.remove({id: 'spelunkery:iron_ore_blasting'}),
-            event.remove({id: 'spelunkery:iron_ore_smelting'}),
-            event.remove({id: 'spelunkery:redstone_ore_blasting'}),
-            event.remove({id: 'spelunkery:redstone_ore_smelting'}),
-            event.remove({id: 'spelunkery:zinc_ore_blasting'}),
-            event.remove({id: 'spelunkery:zinc_ore_smelting'}),
-            event.remove({id: 'vintagedelight:salt_bucket_to_salt'}),
+            ([{ type: 'vintageimprovements:coiling'}]),
+            ([{ type: 'vintageimprovements:hammering'}]),
+            ([{ type: 'vintageimprovements:pressurizing'}]),
+            ([{ type: 'vintageimprovements:vacuumizing'}]),
+            ([{ type: 'create_dd:seething'}]),
+            ([{ type: 'create:crushing', output: 'create:crushed_raw_copper'}]),
+            ([{ type: 'create:crushing', output: 'create:crushed_raw_gold'}]),
+            ([{ type: 'create:crushing', output: 'create:crushed_raw_iron'}]),
+            ([{ type: 'create:crushing', output: 'create:crushed_raw_silver'}]),
+            ([{ type: 'create:crushing', output: 'create:crushed_raw_zinc'}]),
+            ([{ type: 'create:crushing', output: 'minecraft:lapis_lazuli'}]),
+            ([{ type: 'create:crushing', output: 'minecraft:redstone'}]),
+            ([{ type: 'create:crushing', output: 'minecraft:coal'}]),
+            ([{ type: 'create:crushing', output: 'spelunkery:rough_cinnabar'}]),
+            ([{ type: 'create:crushing', output: 'spelunkery:rough_diamond_shard'}]),
+            ([{ type: 'create:crushing', output: 'spelunkery:rough_diamond'}]),
+            ([{ type: 'create:crushing', output: 'spelunkery:rough_emerald'}]),
+            ([{ type: 'create:crushing', output: 'spelunkery:rough_lazurite'}]),
+            ([{ output: '#vintageimprovements:springs'}]),
+            ([{ output: '#vintageimprovements:small_springs'}]),
+            ({id: 'minecraft:lodestone'}),
+            ({id: 'spelunkery:copper_ore_blasting'}),
+            ({id: 'spelunkery:copper_ore_smelting'}),
+            ({id: 'spelunkery:diamond_ore_blasting'}),
+            ({id: 'spelunkery:diamond_ore_smelting'}),
+            ({id: 'spelunkery:emerald_ore_blasting'}),
+            ({id: 'spelunkery:emerald_ore_smelting'}),
+            ({id: 'spelunkery:gold_ore_blasting'}),
+            ({id: 'spelunkery:gold_ore_smelting'}),
+            ({id: 'spelunkery:iron_ore_blasting'}),
+            ({id: 'spelunkery:iron_ore_smelting'}),
+            ({id: 'spelunkery:redstone_ore_blasting'}),
+            ({id: 'spelunkery:redstone_ore_smelting'}),
+            ({id: 'spelunkery:zinc_ore_blasting'}),
+            ({id: 'spelunkery:zinc_ore_smelting'}),
+            ({id: 'vintagedelight:salt_bucket_to_salt'}),
             ['createaddition:copper_spool', 'createaddition:gold_spool', 'createaddition:festive_spool'],
-            'ae2:portable_item_cell_16k',
             console.log('Recipes nuked!')
         ]
     })
 })
 ServerEvents.recipes(event => {
-    // event.remove({ not: { output: ['ae2:flawed_budding_quartz', 'ae2:damaged_budding_quartz', 'ae2:small_quartz_bud', 'ae2:quartz_block', 'ae2:quartz_cluster', 'ae2:large_quartz_bud', 'ae2:medium_quartz_bud', 'ae2:chipped_budding_quartz', 'ae2:flawless_budding_quartz', 'ae2:fluix_slab', 'ae2:chiseled_quartz_wall', 'ae2:smooth_quartz_slab', 'ae2:quartz_brick_slab', 'ae2:cut_quartz_wall', 'ae2:quartz_wall', 'ae2:quartz_stairs', 'ae2:cut_quartz_stairs', 'ae2:smooth_quartz_stairs', 'ae2:fluix_wall', 'ae2:quartz_pillar_stairs', 'ae2:chiseled_quartz_stairs', 'ae2:quartz_brick_stairs', 'ae2:smooth_quartz_wall', 'ae2:quartz_brick_wall', 'ae2:quartz_pillar_wall', 'ae2:quartz_slab', 'ae2:cut_quartz_slab', 'ae2:fluix_stairs', 'ae2:fluix_block', 'ae2:quartz_vibrant_glass', 'ae2:quartz_glass', 'ae2:chiseled_quartz_block', 'ae2:quartz_pillar', 'ae2:quartz_bricks', 'ae2:smooth_quartz_block', 'ae2:cut_quartz_block', 'ae2:quartz_pillar_slab', 'ae2:chiseled_quartz_slab', 'ae2:light_gray_smart_cable', 'ae2:gray_smart_cable', 'ae2:pink_smart_cable', 'ae2:lime_smart_cable', 'ae2:yellow_smart_cable', 'ae2:light_blue_smart_cable', 'ae2:magenta_smart_cable', 'ae2:orange_smart_cable', 'ae2:white_smart_cable', 'ae2:purple_smart_dense_cable', 'ae2:blue_smart_dense_cable', 'ae2:brown_smart_dense_cable', 'ae2:green_smart_dense_cable', 'ae2:red_smart_dense_cable', 'ae2:black_smart_dense_cable', 'ae2:fluix_smart_dense_cable', 'ae2:cyan_smart_dense_cable', 'ae2:light_gray_smart_dense_cable', 'ae2:gray_smart_dense_cable', 'ae2:pink_smart_dense_cable', 'ae2:lime_smart_dense_cable', 'ae2:yellow_smart_dense_cable', 'ae2:light_blue_smart_dense_cable', 'ae2:magenta_smart_dense_cable', 'ae2:orange_smart_dense_cable', 'ae2:cyan_smart_cable', 'ae2:purple_smart_cable', 'ae2:blue_smart_cable', 'ae2:brown_smart_cable', 'ae2:green_smart_cable', 'ae2:red_smart_cable', 'ae2:black_smart_cable', 'ae2:fluix_smart_cable', 'ae2:white_smart_dense_cable'] }, mod: 'ae2' })
+    event.remove({ not: { output: ['ae2:dark_monitor', 'ae2:semi_dark_monitor', 'ae2:monitor', 'ae2:inverted_toggle_bus', 'ae2:quantum_entangled_singularity', 'ae2:ender_dust', 'ae2:fluix_dust', 'ae2:certus_quartz_dust', 'ae2:certus_quartz_crystal', 'ae2:crafting_monitor', 'ae2:16k_crafting_storage', 'ae2:quartz_fixture', 'ae2:light_p2p_tunnel', 'ae2:fe_p2p_tunnel', 'ae2:fluid_p2p_tunnel', 'ae2:item_p2p_tunnel', 'ae2:redstone_p2p_tunnel', 'ae2:cable_energy_acceptor', 'ae2:cable_interface', 'ae2:cable_pattern_provider', 'ae2:cut_quartz_slab', 'ae2:smooth_quartz_slab', 'ae2:quartz_brick_slab', 'ae2:chiseled_quartz_slab', 'ae2:quartz_pillar_slab', 'ae2:flawless_budding_quartz', 'ae2:flawed_budding_quartz', 'ae2:chipped_budding_quartz', 'ae2:damaged_budding_quartz', 'ae2:small_quartz_bud', 'ae2:medium_quartz_bud', 'ae2:large_quartz_bud', 'ae2:quartz_cluster', 'ae2:quartz_block', 'ae2:cut_quartz_block', 'ae2:smooth_quartz_block', 'ae2:quartz_bricks', 'ae2:quartz_pillar', 'ae2:chiseled_quartz_block', 'ae2:quartz_stairs', 'ae2:cut_quartz_stairs', 'ae2:smooth_quartz_stairs', 'ae2:quartz_brick_stairs', 'ae2:chiseled_quartz_stairs', 'ae2:quartz_pillar_stairs', 'ae2:quartz_wall', 'ae2:cut_quartz_wall', 'ae2:smooth_quartz_wall', 'ae2:quartz_brick_wall', 'ae2:chiseled_quartz_wall', 'ae2:quartz_pillar_wall', 'ae2:quartz_slab', 'ae2:fluix_block', 'ae2:fluix_stairs', 'ae2:fluix_wall', 'ae2:fluix_slab'] }, mod: 'ae2' })
     // event.remove({ not: { output: ['vintageimprovements:belt_grinder'] }, mod: 'vintageimprovements' })
     console.log('Not-recipes done!')
 })
@@ -212,8 +212,15 @@ ServerEvents.recipes(event => {
     event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
 
     event.recipes.farmersdelight.cooking(
-	    ['#forge:fruits/chorus', 'minecraft:honey_bottle', 'minecraft:kelp', '#forge:sugar'],
+	    ['#on:chorus', 'minecraft:honey_bottle', 'minecraft:kelp', '#forge:sugar'],
 	    'kubejs:chorus_gummy',
+	    30,
+	    10,
+	)
+
+    event.recipes.farmersdelight.cooking(
+	    ['#forge:vegetables/spicy', 'minecraft:honey_bottle', 'minecraft:kelp', '#forge:sugar'],
+	    'kubejs:spicy_gummy',
 	    30,
 	    10,
 	)
@@ -228,7 +235,8 @@ ServerEvents.recipes(event => {
     event.recipes.create.sandpaper_polishing('kubejs:polished_certus_quartz', 'ae2:charged_certus_quartz_crystal')
     event.shapeless('ae2:network_tool', ['minecraft:stick', 'create_dd:kinetic_mechanism'])
     event.recipes.create.item_application('kubejs:silicon_casing', ['minecraft:quartz_block', 'kubejs:silicon_sheet'])
-    event.recipes.create.item_application('ae2:quantum_link', ['#forge:glass', 'ae2:fluix_crystal'])
+    event.recipes.create.item_application('ae2:quantum_link', ['#forge:glass', 'kubejs:chorus_gummy'])
+    event.recipes.create.item_application('ae2:molecular_assembler', ['#forge:glass', 'kubejs:silicon_sheet'])
 
 
     event.recipes.create.mixing('ae2:fluix_crystal', [
@@ -274,8 +282,6 @@ ServerEvents.recipes(event => {
         C: 'kubejs:silicon_casing'
     })
 
-    event.shapeless('ae2:basic_card', ['kubejs:silicon_sheet', 'kubejs:certus_quartz_sheet'])
-
     event.recipes.create.sequenced_assembly([
         ('kubejs:computational_mechanism')
     ], 'kubejs:silicon_sheet', [
@@ -286,15 +292,15 @@ ServerEvents.recipes(event => {
     ]).transitionalItem('kubejs:incomplete_computational_mechanism').loops(3)
 
     event.recipes.create.mechanical_crafting('8x ae2:quantum_ring', [
-    'ABA',
-    'C C',
-    'DED'
+    'ACBCA',
+    'C   C',
+    'B   B',
+    'C   C',
+    'ACBCA'
     ], {
         A: 'kubejs:computational_mechanism',
         B: 'create_dd:abstruse_mechanism',
-        C: 'kubejs:fluix_sheet',
-        D:  'minecraft:diamond_block',
-        E: 'kubejs:silicon_casing'
+        C: 'ae2:spatial_pylon',
     })
 
     event.recipes.create.mechanical_crafting('ae2:spatial_anchor', [
@@ -310,28 +316,84 @@ ServerEvents.recipes(event => {
             E: 'createutilities:void_casing'
         })
 
+event.shaped('ae2:dense_energy_cell', [
+    'ABA',
+    'BCB',
+    'ABA'
+], {
+    A: 'ae2:fluix_block',
+    B: 'kubejs:fluix_sheet',
+    C: 'createaddition:modular_accumulator'
+})
+
+event.shaped('ae2:wireless_booster', [
+    'A',
+    'B',
+    'C'
+], {
+    A: 'createutilities:void_steel_sheet',
+    B: 'kubejs:computational_mechanism',
+    C: '#forge:plates/iron'
+})
+
+event.shaped('ae2:export_bus', [
+    ' A ',
+    'BCB',
+    ' D '
+], {
+    A: 'create:chute',
+    B: '#forge:wires/copper',
+    C: 'ae2:silicon',
+    D: 'ae2:fluix_smart_cable'
+})
+
+event.shaped('ae2:import_bus', [
+    ' D ',
+    'BCB',
+    ' A '
+], {
+    A: 'create:chute',
+    B: '#forge:wires/copper',
+    C: 'ae2:silicon',
+    D: 'ae2:fluix_smart_cable'
+})
+
+event.shaped('ae2:interface', [
+    'ABA',
+    'CDE',
+    'ABA'
+], {
+    A: 'kubejs:silicon_sheet',
+    B: 'create_dd:integrated_circuit',
+    C: 'ae2:import_bus',
+    D: 'kubejs:silicon_casing',
+    E: 'ae2:export_bus'
+})
+
     event.shapeless('ae2:drive', ['#storagedrawers:drawers', 'kubejs:silicon_casing'])
     event.shapeless('ae2:chest', ['#forge:chests', 'kubejs:silicon_casing'])
-    event.shapeless('ae2:portable_item_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'createaddition:modular_accumulator', 'ae2:item_cell_housing'])
-    event.shapeless('ae2:portable_fluid_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'createaddition:modular_accumulator', 'ae2:fluid_cell_housing'])
+    event.shapeless('ae2:portable_item_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'ae2:dense_energy_cell', 'ae2:item_cell_housing'])
+    event.shapeless('ae2:portable_fluid_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'ae2:dense_energy_cell', 'ae2:fluid_cell_housing'])
     event.shapeless('ae2:cell_workbench', ['kubejs:silicon_casing', '#forge:workbench'])
 
-    event.shaped('6x ae2:fluix_smart_cable', [
+    event.shaped('4x ae2:fluix_smart_cable', [
         'AAA',
-        'BBB',
+        'BCB',
         'AAA'
     ], {
-        A: 'kubejs:silicon_sheet',
-        B: 'ae2:quartz_fiber'
+        A: 'create_dd:rubber',
+        B: '#forge:wires/copper',
+        C: 'ae2:silicon'
     })
 
-    event.shaped('12x ae2:quartz_fiber', [
+    event.shaped('4x ae2:quartz_fiber', [
         'AAA',
-        'BBB',
+        'BCB',
         'AAA'
     ], {
-        A: '#forge:plates/electrum',
-        B: 'minecraft:redstone'
+        A: 'create_dd:rubber',
+        B: '#forge:wires/electrum',
+        C: 'ae2:silicon'
     })
 
     event.shaped('ae2:energy_acceptor', [
@@ -348,19 +410,20 @@ ServerEvents.recipes(event => {
         'BCB',
         'AAA'
     ], {
-        A: 'kubejs:polished_fluix',
+        A: 'kubejs:chorus_gummy',
         B: 'ae2:fluix_smart_dense_cable',
         C: 'kubejs:silicon_casing'
     })
 
     event.shaped('ae2:crafting_unit', [
-        'ABA',
-        'BCB',
+        'ADA',
+        'DCD',
         'ABA'
     ], {
         A: 'kubejs:silicon_sheet',
         B: '#forge:workbench',
-        C: 'kubejs:silicon_casing'
+        C: 'kubejs:silicon_casing',
+        D: 'ae2:fluix_smart_dense_cable'
     })
 
     event.shaped('ae2:cell_component_16k', [
@@ -377,7 +440,7 @@ ServerEvents.recipes(event => {
         'BAB',
         'ABA'
     ], {
-        A: '#forge:gems/fluix',
+        A: 'kubejs:chorus_gummy',
         B: 'ae2:silicon'
     })
 
@@ -391,11 +454,85 @@ ServerEvents.recipes(event => {
         C: 'ae2:io_port'
     })
 
+    event.shaped('ae2:formation_plane', [
+        'AB',
+        'CB',
+        'AB'
+    ], {
+        A: 'kubejs:chorus_gummy',
+        B: 'ae2:charged_certus_quartz_crystal',
+        C: 'ae2:silicon'
+    })
+
+    event.shaped('ae2:annihilation_plane', [
+        'AB',
+        'CB',
+        'AB'
+    ], {
+        A: 'kubejs:spicy_gummy',
+        B: 'ae2:charged_certus_quartz_crystal',
+        C: 'ae2:silicon'
+    })
+
+    event.shaped('ae2:semi_dark_monitor', [
+        'AB',
+        'CB',
+        'AB'
+    ], {
+        A: '#forge:wires/electrum',
+        B: 'minecraft:redstone_lamp',
+        C: 'ae2:silicon'
+    })
+    
+    event.shaped('ae2:spatial_io_port', [
+        'AAA',
+        'ABA',
+        'CDC'
+    ], {
+        A: '#forge:ingots/steel',
+        B: 'kubejs:silicon_casing', 
+        C: 'kubejs:chorus_gummy', 
+        D: '#forge:gems/fluix'
+    })
+
+    event.shaped('ae2:color_applicator', [
+        'AB ',
+        'BB ',
+        '  B'
+    ], {
+        A: '#forge:gems/certus_quartz',
+        B: 'minecraft:stick'
+    })
+
     event.shapeless('ae2:cable_anchor', ['#forge:rods/wooden', 'ae2:silicon'])
     event.shapeless('ae2:toggle_bus', ['minecraft:lever', 'ae2:fluix_smart_cable'])
     event.shapeless('ae2:crafting_accelerator', ['ae2:crafting_unit', 'create_dd:integrated_circuit'])
     event.shapeless('ae2:pattern_provider', ['ae2:crafting_unit', 'ae2:blank_pattern'])
-    event.shapeless('ae2:memory_card', ['kubejs:silicon_sheet', '#forge:plates/electrum'])
+    event.shapeless('ae2:memory_card', ['kubejs:silicon_sheet', '#forge:plates/copper'])
+    event.shapeless('ae2:crafting_terminal', ['ae2:terminal', '#forge:workbench'])
+    event.shapeless('ae2:pattern_encoding_terminal', ['ae2:crafting_terminal', 'ae2:blank_pattern'])
+    event.shapeless('ae2:terminal', ['#ae2:illuminated_panel', 'create_dd:integrated_circuit'])
+    event.shapeless('ae2:storage_monitor', ['#ae2:illuminated_panel', '#storagedrawers:drawers'])
+    event.shapeless('ae2:storage_monitor', ['#ae2:illuminated_panel', '#forge:chests'])
+    event.shapeless('ae2:conversion_monitor', ['ae2:storage_monitor', 'kubejs:spicy_gummy', 'kubejs:chorus_gummy'])
+    event.shapeless('ae2:pattern_access_terminal', ['#ae2:illuminated_panel', '#ae2:pattern_provider'])
+    event.shapeless('ae2:wireless_access_point', ['ae2:fluix_smart_cable', 'createutilities:graviton_tube'])
+    event.shapeless('ae2:level_emitter', ['ae2:cable_anchor', 'minecraft:redstone_torch'])
+    event.shapeless('ae2:energy_level_emitter', ['ae2:energy_level_emitter', '#forge:gems/fluix'])
+    event.shapeless('ae2:wireless_terminal', ['minecraft:stick', 'createutilities:void_steel_sheet', 'ae2:terminal'])
+    event.shapeless('ae2:wireless_crafting_terminal', ['minecraft:stick', 'createutilities:void_steel_sheet', 'ae2:crafting_terminal'])
+    event.shapeless('ae2:wireless_crafting_terminal', ['minecraft:stick', 'createutilities:void_steel_sheet', 'ae2:terminal', '#forge:workbench'])
+
+    event.stonecutting('ae2:redstone_card', '#on:card')
+    event.stonecutting('ae2:capacity_card', '#on:card')
+    event.stonecutting('ae2:void_card', '#on:card')
+    event.stonecutting('ae2:advanced_card', '#on:card')
+    event.stonecutting('ae2:fuzzy_card', '#on:card')
+    event.stonecutting('ae2:speed_card', '#on:card')
+    event.stonecutting('ae2:inverter_card', '#on:card')
+    event.stonecutting('ae2:basic_card', '#on:card')
+    event.stonecutting('ae2:equal_distribution_card', '#on:card')
+    event.stonecutting('ae2:energy_card', '#on:card')
 
     // Create + Create Addons
 
@@ -418,10 +555,19 @@ ServerEvents.recipes(event => {
         event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'kubejs:polished_fluix']),
         event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', '#forge:ender_pearls']),
         event.recipes.createDeploying('create_dd:incomplete_abstruse_mechanism', ['create_dd:incomplete_abstruse_mechanism', 'createutilities:graviton_tube'])
-    ]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(4)
+    ]).transitionalItem('create_dd:incomplete_abstruse_mechanism').loops(3)
+
+    event.recipes.create.sequenced_assembly([
+        ('ae2:advanced_card')
+    ], 'kubejs:silicon_sheet', [
+        event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'kubejs:certus_quartz_sheet']),
+        event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'kubejs:fluix_sheet']),
+        event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'create_dd:integrated_circuit']),
+    ]).transitionalItem('kubejs:incomplete_card').loops(5)
 
     event.recipes.create.mixing('4x createutilities:void_steel_ingot', [
         '4x #forge:ingots/steel',
+        '2x ae2:ender_dust',
         'cataclysm:void_core'
     ]).superheated()
 
@@ -478,6 +624,18 @@ ServerEvents.recipes(event => {
         D: 'createaddition:diamond_grit_sandpaper'
     })
 
+    event.shaped('4x createaddition:modular_accumulator', [
+        'ABA',
+        'CDC',
+        'EEE'
+    ], {
+        A: '#forge:wires/electrum',
+        B: '#forge:ingots/electrum',
+        C: 'create:electron_tube',
+        D: 'create:brass_casing',
+        E: '#forge:ingots/brass'
+    })
+
 // Storage Drawers
 
     event.shaped('storagedrawers:compacting_drawers_3', [
@@ -511,7 +669,7 @@ ServerEvents.recipes(event => {
     })
 
     event.shaped('storagedrawers:diamond_storage_upgrade', [
-        'ABA',
+        'AAA',
         'ABA',
         'AAA'
     ], {
@@ -528,7 +686,7 @@ ServerEvents.recipes(event => {
     })
 
     event.shapeless('storagedrawers:one_stack_upgrade', ['minecraft:flint', 'sophisticatedbackpacks:upgrade_base'])
-    event.shapeless('4x storagedrawers:void_upgrade', ['createutilities:void_steel_ingot', 'sophisticatedbackpacks:upgrade_base'])
+    event.shapeless('storagedrawers:void_upgrade', ['kubejs:spicy_gummy', 'sophisticatedbackpacks:upgrade_base'])
     event.shapeless('storagedrawers:redstone_upgrade', ['minecraft:redstone', 'sophisticatedbackpacks:upgrade_base'])
     event.shapeless('storagedrawers:min_redstone_upgrade', 'storagedrawers:redstone_upgrade')
     event.shapeless('storagedrawers:max_redstone_upgrade', 'storagedrawers:min_redstone_upgrade')

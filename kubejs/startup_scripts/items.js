@@ -11,5 +11,31 @@ StartupEvents.registry('item', event => {
     event.create('incomplete_computational_mechanism').displayName('Incomplete Computational Mechanism').rarity('rare')
     event.create('nuclear_mechanism').displayName('Nuclear Mechanism')
     event.create('incomplete_nuclear_mechanism').displayName('Incomplete Nuclear Mechanism')
-    event.create('chorus_gummy').displayName('Chorus Gummy').hunger(2).saturation(0)
+    event.create('incomplete_card').displayName('Incomplete Upgrade Card')
+
+    event.create('chorus_gummy')
+    .displayName('Chorus Gummy')
+    .food(food => {
+        food
+        .hunger(2)
+        .saturation(1)
+        .alwaysEdible()
+        .fastToEat()
+        .effect('tipsylib:gravity_resistance', 600, 0, 1)
+    })
+
+    event.create('spicy_gummy')
+    .displayName('Spicy Gummy')
+    .food(food => {
+        food
+        .hunger(2)
+        .saturation(1)
+        .alwaysEdible()
+        .fastToEat()
+        .effect('tipsylib:trail_blazing', 600, 0, 1)
+        .effect('minecraft:speed', 600, 0, 1)
+    })
+
+    console.log('Items Added!')
+
 })

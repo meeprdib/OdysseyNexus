@@ -37,6 +37,7 @@ ServerEvents.tags('item', event => {
     event.add('on:small_mushroom', ['spelunkery:button_mushroom', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:crimson_fungus', 'minecraft:warped_fungus', 'spelunkery:conk_fungus', 'spelunkery:inkcap_mushroom', 'spelunkery:white_inkcap_mushroom', 'spelunkery:phosphor_fungus', 'regions_unexplored:blue_bioshroom', 'regions_unexplored:green_bioshroom', 'regions_unexplored:pink_bioshroom', 'regions_unexplored:yellow_bioshroom', 'quark:glow_shroom', 'regions_unexplored:tall_yellow_bioshroom', 'regions_unexplored:tall_pink_bioshroom', 'regions_unexplored:tall_green_bioshroom', 'regions_unexplored:tall_blue_bioshroom', 'spelunkery:mushgloom'])
     event.add('on:big_mushroom', ['quark:glow_shroom_stem', 'quark:glow_shroom_block', 'regions_unexplored:glistering_wart', 'regions_unexplored:stripped_yellow_bioshroom_hyphae', 'regions_unexplored:yellow_bioshroom_hyphae', 'regions_unexplored:stripped_yellow_bioshroom_stem', 'regions_unexplored:yellow_bioshroom_stem', 'regions_unexplored:stripped_pink_bioshroom_hyphae', 'regions_unexplored:pink_bioshroom_hyphae', 'regions_unexplored:stripped_pink_bioshroom_stem', 'regions_unexplored:pink_bioshroom_stem', 'regions_unexplored:stripped_green_bioshroom_hyphae', 'regions_unexplored:green_bioshroom_hyphae', 'regions_unexplored:stripped_green_bioshroom_stem', 'regions_unexplored:green_bioshroom_stem', 'regions_unexplored:stripped_blue_bioshroom_hyphae', 'regions_unexplored:blue_bioshroom_hyphae', 'regions_unexplored:stripped_blue_bioshroom_stem', 'regions_unexplored:blue_bioshroom_stem', 'regions_unexplored:glowing_yellow_bioshroom_block', 'regions_unexplored:glowing_pink_bioshroom_block', 'regions_unexplored:glowing_green_bioshroom_block', 'regions_unexplored:glowing_blue_bioshroom_block', 'regions_unexplored:yellow_bioshroom_block', 'regions_unexplored:pink_bioshroom_block', 'regions_unexplored:green_bioshroom_block', 'regions_unexplored:blue_bioshroom_block', 'iceandfire:pixie_house_mushroom_brown', 'iceandfire:pixie_house_mushroom_red', 'spelunkery:white_inkcap_mushroom_block', 'spelunkery:inkcap_mushroom_block', 'spelunkery:conk_fungus_block', 'minecraft:shroomlight', 'minecraft:warped_wart_block', 'minecraft:nether_wart_block', 'minecraft:mushroom_stem','minecraft:brown_mushroom_block', 'minecraft:red_mushroom_block', 'mynethersdelight:crimson_fungus_colony', 'farmersdelight:brown_mushroom_colony', 'mynethersdelight:warped_fungus_colony', 'farmersdelight:red_mushroom_colony'])
     event.add('on:sap', 'autumnity:sap_bottle', 'alexscaves:pewen_sap')
+    event.add('on:sap_bucket', 'create_central_kitchen:sap_bucket', 'create_dd:sap_bucket')
     event.add('on:leather', ['minecraft:rabbit_hide', 'mynethersdelight:hoglin_hide', 'alexscaves:tough_hide', 'minecraft:leather'])
     event.add('on:red_stuff', ['minecraft:redstone', 'minecraft:red_dye', 'create:cinder_flour'])
     event.add('on:cubable_raw_dragon_meat', 'ends_delight:raw_dragon_meat', 'iceandfire:ice_dragon_flesh', 'iceandfire:fire_dragon_flesh', 'iceandfire:lightning_dragon_flesh')
@@ -45,13 +46,12 @@ ServerEvents.tags('item', event => {
     event.add('on:salt_bucket', 'spelunkery:salt_bucket', 'vintagedelight:salt_bucket')
     event.add('on:salt_block', 'galosphere:pink_salt', 'spelunkery:rock_salt_block')
     event.add('on:piston', ['minecraft:piston', 'minecraft:sticky_piston', 'create:mechanical_piston', 'create:sticky_mechanical_piston'])
-    
+    event.add('on:chorus', ['minecraft:chorus_fruit', 'minecraft:popped_chorus_fruit', 'ends_delight:chorus_fruit_grain', 'ends_delight:chorus_succulent', 'ends_delight:dried_chorus_flower'])
+    event.add('on:card', ['ae2:basic_card', 'ae2:redstone_card', 'ae2:capacity_card', 'ae2:void_card', 'ae2:advanced_card', 'ae2:fuzzy_card', 'ae2:speed_card', 'ae2:inverter_card', 'ae2:crafting_card', 'ae2:equal_distribution_card', 'ae2:energy_card'])
     event.add('forge:ingots/steel', 'kubejs:steel_ingot')
 
     event.add('minecraft:coals', 'vintagedelight:ghost_charcoal')
     
-    event.add('forge:buckets/sap', 'create_central_kitchen:sap_bucket')
-
     event.remove('forge:ores/redstone', 'regions_unexplored:raw_redstone_block')
 })
 

@@ -46,5 +46,6 @@
     "block.ae2.spatial_anchor": "Chunkloader",
     "gui.ae2.SpatialAnchor": "Chunkloader",
     "block.ae2.drive": "Storage Cell Container",
-    "gui.ae2.Drive": "Storage Cell Container"
+    "gui.ae2.Drive": "Storage Cell Container",
+    "item.ae2.advanced_card": "Upgrade Card"
 }
