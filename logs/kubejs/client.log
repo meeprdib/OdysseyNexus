@@ -1,46 +1,57 @@
-[18:50:25] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
-[18:50:25] [INIT] Loaded plugins:
-[18:50:25] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[18:50:25] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[18:50:25] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[18:50:25] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[18:50:25] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[18:50:25] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[18:50:25] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[18:50:25] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[18:50:25] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[18:50:25] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[18:50:25] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[18:50:25] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
-[18:50:25] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[18:50:25] [INFO] Loaded script client_scripts:jei.js in 0.006 s
-[18:50:25] [INFO] Loaded script client_scripts:ponder/certusquartz.js in 0.013 s
-[18:50:25] [INFO] Loaded script client_scripts:tooltips.js in 0.0 s
-[18:50:25] [INFO] Loaded 3/3 KubeJS client scripts in 0.848 s with 0 errors and 0 warnings
-[18:50:51] [INFO] Client resource reload complete!
-[18:52:36] [INFO] jei.js#2: JEI items nuked!
-[18:52:36] [INFO] jei.js#142: JEI items added!
-[18:59:58] [INFO] jei.js#2: JEI items nuked!
-[18:59:59] [INFO] jei.js#142: JEI items added!
-[19:00:46] [INFO] jei.js#2: JEI items nuked!
-[19:00:46] [INFO] jei.js#142: JEI items added!
-[19:33:02] [INFO] jei.js#2: JEI items nuked!
-[19:33:03] [INFO] jei.js#142: JEI items added!
-[19:33:46] [INFO] jei.js#2: JEI items nuked!
-[19:33:46] [INFO] jei.js#142: JEI items added!
-[19:35:47] [INFO] jei.js#2: JEI items nuked!
-[19:35:48] [INFO] jei.js#142: JEI items added!
-[19:53:03] [INFO] jei.js#2: JEI items nuked!
-[19:53:04] [INFO] jei.js#142: JEI items added!
-[19:55:22] [INFO] jei.js#2: JEI items nuked!
-[19:55:23] [INFO] jei.js#142: JEI items added!
-[20:02:45] [INFO] jei.js#2: JEI items nuked!
-[20:02:45] [INFO] jei.js#142: JEI items added!
-[20:05:32] [INFO] jei.js#2: JEI items nuked!
-[20:05:32] [INFO] jei.js#142: JEI items added!
-[20:07:23] [INFO] jei.js#2: JEI items nuked!
-[20:07:23] [INFO] jei.js#142: JEI items added!
-[20:08:44] [INFO] jei.js#2: JEI items nuked!
-[20:08:44] [INFO] jei.js#142: JEI items added!
-[20:13:23] [INFO] jei.js#2: JEI items nuked!
-[20:13:24] [INFO] jei.js#142: JEI items added!
+[20:42:47] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
+[20:42:47] [INIT] Loaded plugins:
+[20:42:47] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[20:42:47] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[20:42:47] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[20:42:47] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[20:42:47] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[20:42:47] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[20:42:47] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[20:42:47] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[20:42:47] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[20:42:47] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[20:42:47] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[20:42:47] [INIT] - moe.wolfgirl.probejs.plugin.BuiltinProbeJSPlugin
+[20:42:47] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[20:42:48] [INFO] Loaded script client_scripts:bad_mods.js in 0.002 s
+[20:42:48] [INFO] Loaded script client_scripts:jei.js in 0.01 s
+[20:42:48] [INFO] Loaded script client_scripts:ponder/certusquartz.js in 0.009 s
+[20:42:48] [INFO] Loaded script client_scripts:tooltips.js in 0.001 s
+[20:42:48] [INFO] Loaded 4/4 KubeJS client scripts in 0.539 s with 0 errors and 0 warnings
+[20:43:10] [INFO] Client resource reload complete!
+[20:44:53] [INFO] jei.js#2: JEI items nuked!
+[20:44:53] [INFO] jei.js#70: JEI items added!
+[20:45:55] [INFO] jei.js#2: JEI items nuked!
+[20:45:55] [INFO] jei.js#70: JEI items added!
+[20:46:46] [INFO] jei.js#2: JEI items nuked!
+[20:46:47] [INFO] jei.js#70: JEI items added!
+[20:48:41] [INFO] jei.js#2: JEI items nuked!
+[20:48:41] [INFO] jei.js#70: JEI items added!
+[20:51:37] [INFO] jei.js#2: JEI items nuked!
+[20:51:38] [INFO] jei.js#70: JEI items added!
+[20:53:40] [INFO] jei.js#2: JEI items nuked!
+[20:53:40] [INFO] jei.js#70: JEI items added!
+[20:56:15] [INFO] jei.js#2: JEI items nuked!
+[20:56:15] [INFO] jei.js#70: JEI items added!
+[20:56:48] [INFO] jei.js#2: JEI items nuked!
+[20:56:48] [INFO] jei.js#70: JEI items added!
+[20:59:28] [INFO] jei.js#2: JEI items nuked!
+[20:59:29] [INFO] jei.js#70: JEI items added!
+[21:01:02] [INFO] jei.js#2: JEI items nuked!
+[21:01:03] [INFO] jei.js#70: JEI items added!
+[21:01:30] [INFO] jei.js#2: JEI items nuked!
+[21:01:30] [INFO] jei.js#70: JEI items added!
+[21:03:23] [INFO] jei.js#2: JEI items nuked!
+[21:03:24] [INFO] jei.js#70: JEI items added!
+[21:05:20] [INFO] jei.js#2: JEI items nuked!
+[21:05:20] [INFO] jei.js#70: JEI items added!
+[21:07:02] [INFO] jei.js#2: JEI items nuked!
+[21:07:02] [INFO] jei.js#70: JEI items added!
+[21:08:12] [INFO] jei.js#2: JEI items nuked!
+[21:08:12] [INFO] jei.js#70: JEI items added!
+[21:19:43] [INFO] jei.js#2: JEI items nuked!
+[21:19:43] [INFO] jei.js#70: JEI items added!
+[21:20:34] [INFO] jei.js#2: JEI items nuked!
+[21:20:34] [INFO] jei.js#70: JEI items added!
+[21:22:33] [INFO] jei.js#2: JEI items nuked!
+[21:22:33] [INFO] jei.js#70: JEI items added!

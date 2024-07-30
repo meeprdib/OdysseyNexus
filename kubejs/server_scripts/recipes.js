@@ -1,33 +1,37 @@
 
 // Removing recipes
 
+// Misc
+
 ServerEvents.recipes(event => {
     event.remove({
         output: [
-            // '@ae2',
-            // '@create_dd',
-            // '@waystones',
-            '@create_mechanical_spawner',
-            'createaddition:modular_accumulator',
             '@gateways',
-            'apotheosis:reforging_table',
-            'apotheosis:augmenting_table',
+            '#vintagedelight:salt_lamp',
             'alexscaves:nuclear_bomb',
             'alexscaves:nuclear_furnace_component',
+            'apotheosis:augmenting_table',
+            'apotheosis:reforging_table',
             'apotheosis:sigil_of_socketing',
             'apotheosis:simple_reforging_table',
             'cataclysm:ignitium_upgrade_smithing_template',
-            'create_power_loader:andesite_chunk_loader',
-            'create_power_loader:empty_andesite_chunk_loader',
-            'createaddition:capacitor',
-            'createdeco:industrial_iron_nugget',
-            'createutilities:void_battery',
-            'createutilities:void_chest',
-            'createutilities:void_motor',
-            'createutilities:void_steel_ingot',
-            'createutilities:void_tank',
+            'minecraft:enchanted_golden_apple',
+            'quark:chorus_fruit_block',
             'ends_delight:end_stone_knife',
             'ends_delight:purpur_knife',
+            'spelunkery:sulfur_block',
+            'vintagedelight:cheese_burger',
+            'vintagedelight:deluxe_burger',
+            'vintagedelight:salt_bucket',
+        ]
+    })
+})
+
+// ISS
+
+ServerEvents.recipes(event => {
+    event.remove({
+        output: [
             'irons_spellbooks:arcane_salvage',
             'irons_spellbooks:blood_upgrade_orb',
             'irons_spellbooks:ender_upgrade_orb',
@@ -38,8 +42,30 @@ ServerEvents.recipes(event => {
             'irons_spellbooks:lightning_upgrade_orb',
             'irons_spellbooks:nature_upgrade_orb',
             'irons_spellbooks:upgrade_orb',
-            'minecraft:enchanted_golden_apple',
-            'quark:chorus_fruit_block',
+        ]
+    })
+})
+
+// Storage Drawers
+
+ServerEvents.recipes(event => {
+    event.remove({
+        output: [
+            ['storagedrawers:controller_slave', 'storagedrawers:controller', 'storagedrawers:compacting_drawers_3'],
+            ['storagedrawers:obsidian_storage_upgrade', 'storagedrawers:iron_storage_upgrade', 'storagedrawers:gold_storage_upgrade', 'storagedrawers:emerald_storage_upgrade', 'storagedrawers:upgrade_template', 'storagedrawers:diamond_storage_upgrade', 'storagedrawers:one_stack_upgrade'],
+            ['storagedrawers:redstone_upgrade', 'storagedrawers:min_redstone_upgrade', 'storagedrawers:max_redstone_upgrade', 'storagedrawers:fill_level_upgrade'],
+            'storagedrawers:drawer_key',
+            'storagedrawers:illumination_upgrade',
+            'storagedrawers:void_upgrade',
+        ]
+    })
+})
+
+// Sophisticated Backpacks
+
+ServerEvents.recipes(event => {
+    event.remove({
+        output: [
             'sophisticatedbackpacks:advanced_compacting_upgrade',
             'sophisticatedbackpacks:advanced_deposit_upgrade',
             'sophisticatedbackpacks:advanced_feeding_upgrade',
@@ -87,13 +113,28 @@ ServerEvents.recipes(event => {
             'sophisticatedbackpacks:stonecutter_upgrade',
             'sophisticatedbackpacks:tank_upgrade',
             'sophisticatedbackpacks:tool_swapper_upgrade',
-            // 'sophisticatedbackpacks:upgrade_base',
             'sophisticatedbackpacks:void_upgrade',
             'sophisticatedbackpacks:xp_pump_upgrade',
-            'spelunkery:sulfur_block',
-            'vintagedelight:cheese_burger',
-            'vintagedelight:deluxe_burger',
-            'vintagedelight:salt_bucket',
+        ]
+    })
+})
+
+// Create
+
+ServerEvents.recipes(event => {
+    event.remove({
+        output: [
+            'create_dd:kinetic_motor',
+            'create_power_loader:andesite_chunk_loader',
+            'create_power_loader:empty_andesite_chunk_loader',
+            'createaddition:capacitor',
+            'createaddition:modular_accumulator',
+            'createdeco:industrial_iron_nugget',
+            'createutilities:void_battery',
+            'createutilities:void_chest',
+            'createutilities:void_motor',
+            'createutilities:void_steel_ingot',
+            'createutilities:void_tank',
             'vintageimprovements:concave_curving_head',
             'vintageimprovements:convex_curving_head',
             'vintageimprovements:curving_press',
@@ -103,76 +144,58 @@ ServerEvents.recipes(event => {
             'vintageimprovements:v_shaped_curving_head',
             'vintageimprovements:vacuum_chamber',
             'vintageimprovements:w_shaped_curving_head',
-            'create_dd:kinetic_motor',
-            ['storagedrawers:redstone_upgrade', 'storagedrawers:min_redstone_upgrade', 'storagedrawers:max_redstone_upgrade', 'storagedrawers:fill_level_upgrade'],
-            ['storagedrawers:obsidian_storage_upgrade', 'storagedrawers:iron_storage_upgrade', 'storagedrawers:gold_storage_upgrade', 'storagedrawers:emerald_storage_upgrade', 'storagedrawers:upgrade_template', 'storagedrawers:diamond_storage_upgrade', 'storagedrawers:one_stack_upgrade'],
-            // 'aether:iron_ring',
-            // 'iceandfire:armor_copper_metal_boots',
-            // 'iceandfire:armor_copper_metal_chestplate',
-            // 'iceandfire:armor_copper_metal_helmet',
-            // 'iceandfire:armor_copper_metal_leggings',
-            // 'iceandfire:armor_silver_metal_boots',
-            // 'iceandfire:armor_silver_metal_chestplate',
-            // 'iceandfire:armor_silver_metal_helmet',
-            // 'iceandfire:armor_silver_metal_leggings',
-            // 'iceandfire:copper_axe',
-            // 'iceandfire:copper_hoe',
-            // 'iceandfire:copper_pickaxe',
-            // 'iceandfire:copper_shovel',
-            // 'iceandfire:copper_sword',
-            // 'iceandfire:dragonforge_fire_core_disabled',
-            // 'iceandfire:dragonforge_fire_core',
-            // 'iceandfire:dragonforge_ice_core_disabled',
-            // 'iceandfire:dragonforge_ice_core',
-            // 'iceandfire:dragonforge_lightning_core_disabled',
-            // 'iceandfire:dragonforge_lightning_core',
-            // 'ratatouille:irrigation_tower',
-            // 'ratatouille:mechanical_demolder',
-            // 'ratatouille:squeeze_basin',
-            // 'ratatouille:thresher',
-            '#vintagedelight:salt_lamp',
-            ['storagedrawers:controller_slave', 'storagedrawers:controller', 'storagedrawers:compacting_drawers_3'],
-            'storagedrawers:illumination_upgrade',
-            'storagedrawers:drawer_key',
-            'storagedrawers:void_upgrade',
-            ([{ type: 'vintageimprovements:coiling'}]),
-            ([{ type: 'vintageimprovements:hammering'}]),
-            ([{ type: 'vintageimprovements:pressurizing'}]),
-            ([{ type: 'vintageimprovements:vacuumizing'}]),
-            ([{ type: 'create_dd:seething'}]),
-            ([{ type: 'create:crushing', output: 'create:crushed_raw_copper'}]),
-            ([{ type: 'create:crushing', output: 'create:crushed_raw_gold'}]),
-            ([{ type: 'create:crushing', output: 'create:crushed_raw_iron'}]),
-            ([{ type: 'create:crushing', output: 'create:crushed_raw_silver'}]),
-            ([{ type: 'create:crushing', output: 'create:crushed_raw_zinc'}]),
-            ([{ type: 'create:crushing', output: 'minecraft:lapis_lazuli'}]),
-            ([{ type: 'create:crushing', output: 'minecraft:redstone'}]),
-            ([{ type: 'create:crushing', output: 'minecraft:coal'}]),
-            ([{ type: 'create:crushing', output: 'spelunkery:rough_cinnabar'}]),
-            ([{ type: 'create:crushing', output: 'spelunkery:rough_diamond_shard'}]),
-            ([{ type: 'create:crushing', output: 'spelunkery:rough_diamond'}]),
-            ([{ type: 'create:crushing', output: 'spelunkery:rough_emerald'}]),
-            ([{ type: 'create:crushing', output: 'spelunkery:rough_lazurite'}]),
-            ([{ output: '#vintageimprovements:springs'}]),
-            ([{ output: '#vintageimprovements:small_springs'}]),
-            ({id: 'minecraft:lodestone'}),
-            ({id: 'spelunkery:copper_ore_blasting'}),
-            ({id: 'spelunkery:copper_ore_smelting'}),
-            ({id: 'spelunkery:diamond_ore_blasting'}),
-            ({id: 'spelunkery:diamond_ore_smelting'}),
-            ({id: 'spelunkery:emerald_ore_blasting'}),
-            ({id: 'spelunkery:emerald_ore_smelting'}),
-            ({id: 'spelunkery:gold_ore_blasting'}),
-            ({id: 'spelunkery:gold_ore_smelting'}),
-            ({id: 'spelunkery:iron_ore_blasting'}),
-            ({id: 'spelunkery:iron_ore_smelting'}),
-            ({id: 'spelunkery:redstone_ore_blasting'}),
-            ({id: 'spelunkery:redstone_ore_smelting'}),
-            ({id: 'spelunkery:zinc_ore_blasting'}),
-            ({id: 'spelunkery:zinc_ore_smelting'}),
-            ({id: 'vintagedelight:salt_bucket_to_salt'}),
-            ['createaddition:copper_spool', 'createaddition:gold_spool', 'createaddition:festive_spool'],
-            console.log('Recipes nuked!')
+            '#vintageimprovements:small_springs',
+            '#vintageimprovements:springs',
+            'createaddition:copper_spool',
+            'createaddition:gold_spool',
+            'createaddition:festive_spool'
+        ]
+    })
+})
+
+ServerEvents.recipes(event => {
+    event.remove({ type: 'vintageimprovements:pressurizing' })
+    event.remove({ type: 'vintageimprovements:vacuumizing' })
+    event.remove({ type: 'vintageimprovements:coiling' })
+    event.remove({ type: 'vintageimprovements:hammering' })
+    event.remove({ type: 'create_dd:seething' })
+})
+
+// Misc and Ore Processing
+
+ServerEvents.recipes(event => {
+    event.remove({ id: 'minecraft:lodestone' })
+    event.remove({ id: 'spelunkery:copper_ore_blasting' })
+    event.remove({ id: 'spelunkery:copper_ore_smelting' })
+    event.remove({ id: 'spelunkery:diamond_ore_blasting' })
+    event.remove({ id: 'spelunkery:emerald_ore_smelting' })
+    event.remove({ id: 'spelunkery:gold_ore_blasting' })
+    event.remove({ id: 'spelunkery:gold_ore_smelting' })
+    event.remove({ id: 'spelunkery:iron_ore_blasting' })
+    event.remove({ id: 'spelunkery:iron_ore_smelting' })
+    event.remove({ id: 'spelunkery:redstone_ore_blasting' })
+    event.remove({ id: 'spelunkery:redstone_ore_smelting' })
+    event.remove({ id: 'spelunkery:zinc_ore_blasting' })
+    event.remove({ id: 'spelunkery:zinc_ore_smelting' })
+    event.remove({ id: 'vintagedelight:salt_bucket_to_salt' })
+})
+
+ServerEvents.recipes(event => {
+    event.remove({
+        type: 'create:crushing', output: [
+            'create:crushed_raw_copper',
+            'create:crushed_raw_gold',
+            'create:crushed_raw_iron',
+            'create:crushed_raw_silver',
+            'create:crushed_raw_zinc',
+            'minecraft:coal',
+            'minecraft:lapis_lazuli',
+            'minecraft:redstone',
+            'spelunkery:rough_cinnabar',
+            'spelunkery:rough_diamond_shard',
+            'spelunkery:rough_diamond',
+            'spelunkery:rough_emerald',
+            'spelunkery:rough_lazurite',
         ]
     })
 })
@@ -375,6 +398,7 @@ event.shaped('ae2:interface', [
     event.shapeless('ae2:portable_item_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'ae2:dense_energy_cell', 'ae2:item_cell_housing'])
     event.shapeless('ae2:portable_fluid_cell_16k', ['ae2:chest', 'ae2:cell_component_16k', 'ae2:dense_energy_cell', 'ae2:fluid_cell_housing'])
     event.shapeless('ae2:cell_workbench', ['kubejs:silicon_casing', '#forge:workbench'])
+    event.shapeless('ae2:spatial_storage_cell_128', ['ae2:item_cell_housing', 'ae2:spatial_cell_component_128'])
 
     event.shaped('4x ae2:fluix_smart_cable', [
         'AAA',
@@ -563,7 +587,7 @@ event.shaped('ae2:interface', [
         event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'kubejs:certus_quartz_sheet']),
         event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'kubejs:fluix_sheet']),
         event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'create_dd:integrated_circuit']),
-    ]).transitionalItem('kubejs:incomplete_card').loops(5)
+    ]).transitionalItem('kubejs:incomplete_card').loops(3)
 
     event.recipes.create.mixing('4x createutilities:void_steel_ingot', [
         '4x #forge:ingots/steel',
