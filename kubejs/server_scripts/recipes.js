@@ -151,7 +151,8 @@ ServerEvents.recipes(event => {
             '#vintageimprovements:springs',
             'createaddition:copper_spool',
             'createaddition:gold_spool',
-            'createaddition:festive_spool'
+            'createaddition:festive_spool',
+            'createdeco:andesite_sheet'
         ]
     })
 })
@@ -224,6 +225,10 @@ ServerEvents.recipes(event => {
         { input: 'createaddition:gold_spool' },
         'createaddition:gold_spool',
         'createaddition:electrum_spool')
+    event.replaceInput(
+        { input: 'createdeco:andesite_sheet' },
+        'createdeco:andesite_sheet',
+        'vintageimprovements:andesite_sheet')
     console.log('Item replacement recipes finished!')
 })
 
