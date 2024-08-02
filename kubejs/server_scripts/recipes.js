@@ -7,6 +7,7 @@ ServerEvents.recipes(event => {
     event.remove({
         output: [
             '@gateways',
+            // '@industrialforegoing',
             '#vintagedelight:salt_lamp',
             'alexscaves:nuclear_bomb',
             'alexscaves:nuclear_furnace_component',
@@ -124,6 +125,7 @@ ServerEvents.recipes(event => {
 ServerEvents.recipes(event => {
     event.remove({
         output: [
+            'create:cart_assembler',
             'create_dd:kinetic_motor',
             'create_power_loader:andesite_chunk_loader',
             'create_power_loader:empty_andesite_chunk_loader',
@@ -178,6 +180,8 @@ ServerEvents.recipes(event => {
     event.remove({ id: 'spelunkery:zinc_ore_blasting' })
     event.remove({ id: 'spelunkery:zinc_ore_smelting' })
     event.remove({ id: 'vintagedelight:salt_bucket_to_salt' })
+    event.remove({ id: 'autumnity:sappy_maple_log_from_sap_bottle'})
+    event.remove({ id: 'autumnity:sappy_maple_wood_from_sap_bottle'})
 })
 
 ServerEvents.recipes(event => {
@@ -200,7 +204,7 @@ ServerEvents.recipes(event => {
     })
 })
 ServerEvents.recipes(event => {
-    event.remove({ not: { output: ['ae2:dark_monitor', 'ae2:semi_dark_monitor', 'ae2:monitor', 'ae2:inverted_toggle_bus', 'ae2:quantum_entangled_singularity', 'ae2:ender_dust', 'ae2:fluix_dust', 'ae2:certus_quartz_dust', 'ae2:certus_quartz_crystal', 'ae2:crafting_monitor', 'ae2:16k_crafting_storage', 'ae2:quartz_fixture', 'ae2:light_p2p_tunnel', 'ae2:fe_p2p_tunnel', 'ae2:fluid_p2p_tunnel', 'ae2:item_p2p_tunnel', 'ae2:redstone_p2p_tunnel', 'ae2:cable_energy_acceptor', 'ae2:cable_interface', 'ae2:cable_pattern_provider', 'ae2:cut_quartz_slab', 'ae2:smooth_quartz_slab', 'ae2:quartz_brick_slab', 'ae2:chiseled_quartz_slab', 'ae2:quartz_pillar_slab', 'ae2:flawless_budding_quartz', 'ae2:flawed_budding_quartz', 'ae2:chipped_budding_quartz', 'ae2:damaged_budding_quartz', 'ae2:small_quartz_bud', 'ae2:medium_quartz_bud', 'ae2:large_quartz_bud', 'ae2:quartz_cluster', 'ae2:quartz_block', 'ae2:cut_quartz_block', 'ae2:smooth_quartz_block', 'ae2:quartz_bricks', 'ae2:quartz_pillar', 'ae2:chiseled_quartz_block', 'ae2:quartz_stairs', 'ae2:cut_quartz_stairs', 'ae2:smooth_quartz_stairs', 'ae2:quartz_brick_stairs', 'ae2:chiseled_quartz_stairs', 'ae2:quartz_pillar_stairs', 'ae2:quartz_wall', 'ae2:cut_quartz_wall', 'ae2:smooth_quartz_wall', 'ae2:quartz_brick_wall', 'ae2:chiseled_quartz_wall', 'ae2:quartz_pillar_wall', 'ae2:quartz_slab', 'ae2:fluix_block', 'ae2:fluix_stairs', 'ae2:fluix_wall', 'ae2:fluix_slab'] }, mod: 'ae2' })
+    event.remove({ not: { output: ['ae2:dark_monitor', 'ae2:semi_dark_monitor', 'ae2:monitor', 'ae2:inverted_toggle_bus', 'ae2:quantum_entangled_singularity', 'ae2:ender_dust', 'ae2:fluix_dust', 'ae2:certus_quartz_dust', 'ae2:certus_quartz_crystal', 'ae2:crafting_monitor', 'ae2:16k_crafting_storage', 'ae2:quartz_fixture', 'ae2:light_p2p_tunnel', 'ae2:fe_p2p_tunnel', 'ae2:fluid_p2p_tunnel', 'ae2:item_p2p_tunnel', 'ae2:redstone_p2p_tunnel', 'ae2:cable_energy_acceptor', 'ae2:cable_interface', 'ae2:cable_pattern_provider', 'ae2:cut_quartz_slab', 'ae2:smooth_quartz_slab', 'ae2:quartz_brick_slab', 'ae2:chiseled_quartz_slab', 'ae2:quartz_pillar_slab', 'ae2:flawless_budding_quartz', 'ae2:flawed_budding_quartz', 'ae2:chipped_budding_quartz', 'ae2:damaged_budding_quartz', 'ae2:small_quartz_bud', 'ae2:medium_quartz_bud', 'ae2:large_quartz_bud', 'ae2:quartz_cluster', 'ae2:quartz_block', 'ae2:cut_quartz_block', 'ae2:smooth_quartz_block', 'ae2:quartz_bricks', 'ae2:quartz_pillar', 'ae2:chiseled_quartz_block', 'ae2:quartz_stairs', 'ae2:cut_quartz_stairs', 'ae2:smooth_quartz_stairs', 'ae2:quartz_brick_stairs', 'ae2:chiseled_quartz_stairs', 'ae2:quartz_pillar_stairs', 'ae2:quartz_wall', 'ae2:cut_quartz_wall', 'ae2:smooth_quartz_wall', 'ae2:quartz_brick_wall', 'ae2:chiseled_quartz_wall', 'ae2:quartz_pillar_wall', 'ae2:quartz_slab', 'ae2:fluix_block', 'ae2:fluix_stairs', 'ae2:fluix_wall', 'ae2:fluix_slab', 'ae2:fluix_smart_dense_cable'] }, mod: 'ae2' })
     // event.remove({ not: { output: ['vintageimprovements:belt_grinder'] }, mod: 'vintageimprovements' })
     console.log('Not-recipes done!')
 })
@@ -210,6 +214,14 @@ ServerEvents.recipes(event => {
         { input: 'createaddition:capacitor' },
         'createaddition:capacitor',
         'create:electron_tube')
+    event.replaceInput(
+        { input: 'createaddition:copper_spool' },
+        'createaddition:copper_spool',
+        'createaddition:electrum_spool')
+    event.replaceInput(
+        { input: 'createaddition:gold_spool' },
+        'createaddition:gold_spool',
+        'createaddition:electrum_spool')
     console.log('Item replacement recipes finished!')
 })
 
@@ -718,6 +730,17 @@ event.shaped('ae2:interface', [
     event.shapeless('storagedrawers:redstone_upgrade', 'storagedrawers:fill_level_upgrade')
     event.shapeless('storagedrawers:illumination_upgrade', ['#ae2:p2p_attunements/light_p2p_tunnel', 'sophisticatedbackpacks:upgrade_base'])
     
+// Industrial Foregoing
+
+    event.shaped('industrialforegoing:fluid_extractor', [
+        'AAA',
+        'BCB',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: 'create:mechanical_pump',
+        C: 'kubejs:silicon_casing'
+    })
 
 // Ore / material processing
 
@@ -758,4 +781,3 @@ event.shaped('ae2:interface', [
 
     console.log('Recipes added!')
 })
-

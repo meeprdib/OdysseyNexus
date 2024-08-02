@@ -1,4 +1,5 @@
 // Adding or creating tags to give to items / materials
+
 ServerEvents.tags('item', event => {
     event.add('ae2:can_remove_color', 'supplementaries:soap')
     event.add('ae2:lumen_paint_balls', ['ae2:cyan_lumen_paint_ball', 'ae2:purple_lumen_paint_ball', 'ae2:blue_lumen_paint_ball', 'ae2:brown_lumen_paint_ball', 'ae2:green_lumen_paint_ball', 'ae2:red_lumen_paint_ball', 'ae2:black_lumen_paint_ball', 'ae2:white_lumen_paint_ball', 'ae2:orange_lumen_paint_ball', 'ae2:magenta_lumen_paint_ball', 'ae2:light_blue_lumen_paint_ball', 'ae2:yellow_lumen_paint_ball', 'ae2:lime_lumen_paint_ball', 'ae2:pink_lumen_paint_ball', 'ae2:gray_lumen_paint_ball', 'ae2:light_gray_lumen_paint_ball'])
@@ -24,8 +25,8 @@ ServerEvents.tags('item', event => {
     event.add('forge:raw_fishes', ['alexscaves:radgill', 'alexscaves:lanternfish', 'alexscaves:tripodfish'])
     event.add('vintagedelight:raw_fish', ['alexscaves:radgill', 'alexscaves:lanternfish', 'alexscaves:tripodfish'])
 
-    event.add('aether:treated_as_aether_item', '#forge:tools')
-    event.add('aether:AetherItemTagData', '#forge:tools')
+    // event.add('aether:treated_as_aether_item', '#forge:tools')
+    // event.add('aether:AetherItemTagData', '#forge:tools')
 
     event.add('c:salt_dust', 'vintagedelight:salt_dust', 'ratatouille:salt', 'vintagedelight:salt')
     event.add('forge:storage_blocks/apple', 'fruitsdelight:apple_crate')
