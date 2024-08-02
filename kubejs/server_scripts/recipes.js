@@ -7,7 +7,8 @@ ServerEvents.recipes(event => {
     event.remove({
         output: [
             '@gateways',
-            // '@industrialforegoing',
+            '@waterframes',
+            '@industrialforegoing',
             '#vintagedelight:salt_lamp',
             'alexscaves:nuclear_bomb',
             'alexscaves:nuclear_furnace_component',
@@ -182,6 +183,7 @@ ServerEvents.recipes(event => {
     event.remove({ id: 'vintagedelight:salt_bucket_to_salt' })
     event.remove({ id: 'autumnity:sappy_maple_log_from_sap_bottle'})
     event.remove({ id: 'autumnity:sappy_maple_wood_from_sap_bottle'})
+    event.remove({ id: 'ae2:network/parts/panels_semi_dark_monitor'})
 })
 
 ServerEvents.recipes(event => {
@@ -510,7 +512,7 @@ event.shaped('ae2:interface', [
         C: 'ae2:silicon'
     })
 
-    event.shaped('ae2:semi_dark_monitor', [
+    event.shaped('4x ae2:semi_dark_monitor', [
         'AB',
         'CB',
         'AB'
@@ -740,6 +742,48 @@ event.shaped('ae2:interface', [
         A: '#forge:ingots/steel',
         B: 'create:mechanical_pump',
         C: 'kubejs:silicon_casing'
+    })
+
+// WaterFrames
+
+    event.shaped('waterframes:remote', [
+        'ABC',
+        'BDB',
+        'BEB'
+    ], {
+        A: 'minecraft:redstone',
+        C: 'minecraft:lapis_lazuli',
+        B: 'create_dd:rubber',
+        D: '#minecraft:buttons',
+        E: 'create_dd:integrated_circuit'
+    })
+
+    event.shapeless('waterframes:frame', ['#ae2:illuminated_panel', '#forge:wires/copper', 'create_dd:integrated_circuit'])
+
+    event.shaped('waterframes:projector', [
+        'AAA',
+        'ABC'
+    ], {
+        A: '#forge:ingots/industrial_iron',
+        B: 'minecraft:redstone_lamp',
+        C: 'minecraft:amethyst_shard'
+    })
+    event.shaped('waterframes:tv', [
+        'AA',
+        'AA',
+        'BB'
+    ], {
+        A: 'waterframes:frame',
+        B: 'ae2:cable_anchor'
+    })
+
+    event.shaped('waterframes:big_tv', [
+        'AAA',
+        'AAA',
+        'B B'
+    ], {
+        A: 'waterframes:frame',
+        B: 'ae2:cable_anchor'
     })
 
 // Ore / material processing
