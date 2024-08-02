@@ -158,7 +158,6 @@
 
 		[entries.wood_type.regions_unexplored]
 			branch = true
-			shrub = true
 
 		[entries.wood_type.create]
 			window = true
@@ -181,4 +180,7 @@
 		[entries.leaves_type.quark]
 			hedge = true
 			leaf_carpet = true
+
+		[entries.leaves_type.regions_unexplored]
+			shrub = true
 
