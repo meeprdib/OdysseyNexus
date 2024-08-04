@@ -16,6 +16,10 @@ ServerEvents.recipes(event => {
             'apotheosis:reforging_table',
             'apotheosis:sigil_of_socketing',
             'apotheosis:simple_reforging_table',
+            'apotheosis:sigil_of_unnaming',
+            'apotheosis:sigil_of_enhancement',
+            'apotheosis:sigil_of_rebirth',
+            'apotheosis:sigil_of_withdrawal',
             'cataclysm:ignitium_upgrade_smithing_template',
             'minecraft:enchanted_golden_apple',
             'quark:chorus_fruit_block',
@@ -25,6 +29,8 @@ ServerEvents.recipes(event => {
             'vintagedelight:cheese_burger',
             'vintagedelight:deluxe_burger',
             'vintagedelight:salt_bucket',
+            'apotheosis:gem_fused_slate',
+            'createdeco:netherite_sheet'
         ]
     })
 })
@@ -229,6 +235,10 @@ ServerEvents.recipes(event => {
         { input: 'createdeco:andesite_sheet' },
         'createdeco:andesite_sheet',
         'vintageimprovements:andesite_sheet')
+    event.replaceInput(
+        { input: 'createdeco:netherite_sheet' },
+        'createdeco:netherite_sheet',
+        'vintageimprovements:netherite_sheet')
     console.log('Item replacement recipes finished!')
 })
 
@@ -266,6 +276,92 @@ ServerEvents.recipes(event => {
 	    30,
 	    10,
 	)
+
+    event.recipes.create.pressing('vintageimprovements:netherite_sheet', '#forge:ingots/netherite')
+
+    // Industrial Foregoing
+
+    event.recipes.createMixing(
+        Fluid.of('industrialforegoing:essence', 100), ['create:experience_nugget']).heated()
+
+    // Apotheosis
+
+    event.recipes.createMixing(
+        '8x apotheosis:gem_fused_slate', [
+        'vintageimprovements:netherite_sheet',
+        '8x apotheosis:gem_dust',
+        Fluid.of('industrialforegoing:essence', 500)
+    ]).superheated()
+
+    event.shaped('8x apotheosis:sigil_of_withdrawal', [
+        'AAA',
+        'ABA',
+        'AAA'
+    ], {
+        A: 'apotheosis:gem_fused_slate',
+        B: 'kubejs:chorus_gummy'
+    })
+
+    event.shaped('8x apotheosis:sigil_of_rebirth', [
+        'AAA',
+        'ABA',
+        'AAA'
+    ], {
+        A: 'apotheosis:gem_fused_slate',
+        B: 'irons_spellbooks:arcane_ingot'
+    })
+
+    event.shaped('8x apotheosis:sigil_of_enhancement', [
+        'AAA',
+        'ABA',
+        'AAA'
+    ], {
+        A: 'apotheosis:gem_fused_slate',
+        B: 'cataclysm:burning_ashes'
+    })
+
+    event.shaped('8x apotheosis:sigil_of_unnaming', [
+        'AAA',
+        'ABA',
+        'AAA'
+    ], {
+        A: 'apotheosis:gem_fused_slate',
+        B: 'minecraft:flint'
+    })
+
+    event.shaped('apotheosis:salvaging_table', [
+        'AAA',
+        'BCB',
+        'BDB'
+    ], {
+        A: '#forge:ingots/industrial_iron',
+        B: '#minecraft:planks',
+        C: 'irons_spellbooks:arcane_ingot',
+        D: 'apotheosis:gem_dust'
+    })
+
+    event.shaped('apotheosis:reforging_table', [
+        ' A ',
+        'BCB',
+        'CCC'
+    ], {
+        A: '#on:hammer',
+        B: 'irons_spellbooks:arcane_ingot',
+        C: 'minecraft:nether_bricks'
+    })
+
+    event.recipes.create.mechanical_crafting('apotheosis:augmenting_table', [
+        'AABAA',
+        'ACCCA',
+        'BCDCB',
+        'ACCCA',
+        'AABAA'
+        ], {
+            A: 'bygonenether:netherite_scrap_ingot',
+            B: 'cataclysm:ignitium_ingot',
+            C: 'architects_palette:hadaline',
+            D: 'minecraft:nether_star'
+        })
 
     // AE2
 

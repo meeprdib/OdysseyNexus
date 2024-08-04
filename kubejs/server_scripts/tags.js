@@ -51,6 +51,7 @@ ServerEvents.tags('item', event => {
     event.add('on:chorus', ['minecraft:chorus_fruit', 'minecraft:popped_chorus_fruit', 'ends_delight:chorus_fruit_grain', 'ends_delight:chorus_succulent', 'ends_delight:dried_chorus_flower'])
     event.add('on:card', ['ae2:basic_card', 'ae2:redstone_card', 'ae2:capacity_card', 'ae2:void_card', 'ae2:advanced_card', 'ae2:fuzzy_card', 'ae2:speed_card', 'ae2:inverter_card', 'ae2:crafting_card', 'ae2:equal_distribution_card', 'ae2:energy_card'])
     event.add('forge:ingots/steel', 'kubejs:steel_ingot')
+    event.add('on:hammer', 'cataclysm:infernal_forge', 'cataclysm:void_forge')
 
     event.add('minecraft:coals', 'vintagedelight:ghost_charcoal')
     
