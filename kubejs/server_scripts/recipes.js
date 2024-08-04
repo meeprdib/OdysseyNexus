@@ -360,7 +360,7 @@ ServerEvents.recipes(event => {
             A: 'bygonenether:netherite_scrap_ingot',
             B: 'cataclysm:ignitium_ingot',
             C: 'architects_palette:hadaline',
-            D: 'minecraft:nether_star'
+            D: 'ae2:singularity'
         })
 
     // AE2
@@ -418,6 +418,17 @@ ServerEvents.recipes(event => {
         A: 'kubejs:polished_fluix',
         B: 'kubejs:computational_mechanism',
         C: 'kubejs:silicon_casing'
+    })
+
+    event.shaped('ae2:condenser', [
+        'ABA',
+        'BCB',
+        'ADA'
+    ], {
+        A: 'kubejs:polished_fluix',
+        B: 'kubejs:silicon_sheet',
+        C: 'kubejs:silicon_casing',
+        D: 'ae2:dense_energy_cell'
     })
 
     event.recipes.create.sequenced_assembly([
