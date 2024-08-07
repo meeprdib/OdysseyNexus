@@ -8,7 +8,7 @@ ServerEvents.recipes(event => {
         output: [
             '@gateways',
             '@waterframes',
-            '@industrialforegoing',
+            // '@industrialforegoing',
             '#vintagedelight:salt_lamp',
             'alexscaves:nuclear_bomb',
             'alexscaves:nuclear_furnace_component',
@@ -158,7 +158,8 @@ ServerEvents.recipes(event => {
             'createaddition:copper_spool',
             'createaddition:gold_spool',
             'createaddition:festive_spool',
-            'createdeco:andesite_sheet'
+            'createdeco:andesite_sheet',
+            ['create_dd:splashing_sail', 'create_dd:haunting_sail', 'create_dd:smoking_sail', 'create_dd:blasting_sail', 'create_dd:seething_sail', 'create_dd:freezing_sail', 'create_dd:sanding_sail']
         ]
     })
 })
@@ -284,6 +285,16 @@ ServerEvents.recipes(event => {
     event.recipes.createMixing(
         Fluid.of('industrialforegoing:essence', 100), ['create:experience_nugget']).heated()
 
+    event.shaped('industrialforegoing:dissolution_chamber', [
+        'AAA',
+        'BCB',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: 'create_dd:integrated_circuit',
+        C: 'ae2:crafting_unit'
+    })
+
     // Apotheosis
 
     event.recipes.createMixing(
@@ -298,7 +309,7 @@ ServerEvents.recipes(event => {
         'ABA',
         'AAA'
     ], {
-        A: 'apotheosis:gem_fused_slate',
+        A: '#on:sigil',
         B: 'kubejs:chorus_gummy'
     })
 
@@ -307,7 +318,7 @@ ServerEvents.recipes(event => {
         'ABA',
         'AAA'
     ], {
-        A: 'apotheosis:gem_fused_slate',
+        A: '#on:sigil',
         B: 'irons_spellbooks:arcane_ingot'
     })
 
@@ -316,8 +327,17 @@ ServerEvents.recipes(event => {
         'ABA',
         'AAA'
     ], {
-        A: 'apotheosis:gem_fused_slate',
+        A: '#on:sigil',
         B: 'cataclysm:burning_ashes'
+    })
+
+    event.shaped('8x apotheosis:sigil_of_enhancement', [
+        'AAA',
+        'ABA',
+        'AAA'
+    ], {
+        A: '#on:sigil',
+        B: 'irons_spellbooks:cinder_essence'
     })
 
     event.shaped('8x apotheosis:sigil_of_unnaming', [
@@ -325,7 +345,7 @@ ServerEvents.recipes(event => {
         'ABA',
         'AAA'
     ], {
-        A: 'apotheosis:gem_fused_slate',
+        A: '#on:sigil',
         B: 'minecraft:flint'
     })
 
@@ -935,5 +955,5 @@ event.shaped('ae2:interface', [
     event.recipes.create.crushing(['minecraft:redstone'], 'regions_unexplored:redstone_bud')
     event.recipes.create.crushing(['2x minecraft:redstone', Item.of('create:experience_nugget').withChance(0.50)], 'regions_unexplored:redstone_bulb')
 
-    console.log('Recipes added!')
+    console.log('Excellent, the fantastic recipes have been loaded, good day you log checker')
 })

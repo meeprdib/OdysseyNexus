@@ -1,0 +1,35 @@
+{
+    "type": "industrialforegoing:dissolution_chamber",
+    "input": [
+      {
+        "tag": "forge:ingots"
+      },
+      {
+        "tag": "forge:ingots"
+      },
+      {
+        "tag": "forge:ingots"
+      },
+      {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      {
+        "item": "irons_spellbooks:arcane_essence"
+      }
+    ],
+    "inputFluid": "{Amount:1000,FluidName:\"industrialforegoing:essence\"}",
+    "output": {
+      "count": 3,
+      "item": "irons_spellbooks:arcane_ingot"
+    },
+    "processingTime": 300
+  }

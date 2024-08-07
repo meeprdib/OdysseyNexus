@@ -1,14 +1,12 @@
 // Adding or creating tags to give to items / materials
 
 ServerEvents.tags('item', event => {
+
     event.add('ae2:can_remove_color', 'supplementaries:soap')
     event.add('ae2:lumen_paint_balls', ['ae2:cyan_lumen_paint_ball', 'ae2:purple_lumen_paint_ball', 'ae2:blue_lumen_paint_ball', 'ae2:brown_lumen_paint_ball', 'ae2:green_lumen_paint_ball', 'ae2:red_lumen_paint_ball', 'ae2:black_lumen_paint_ball', 'ae2:white_lumen_paint_ball', 'ae2:orange_lumen_paint_ball', 'ae2:magenta_lumen_paint_ball', 'ae2:light_blue_lumen_paint_ball', 'ae2:yellow_lumen_paint_ball', 'ae2:lime_lumen_paint_ball', 'ae2:pink_lumen_paint_ball', 'ae2:gray_lumen_paint_ball', 'ae2:light_gray_lumen_paint_ball'])
 
     event.add('forge:dusts/sulfur', 'spelunkery:sulfur', 'vintageimprovements:sulfur')
-    event.add('forge:ingots/bronze', 'create_dd:bronze_ingot')
     event.add('forge:ingots/industrial_iron', 'createdeco:industrial_iron_ingot')
-    event.add('forge:molten_brass', 'kubejs:molten_brass')
-    event.add('forge:molten_zinc', 'kubejs:molten_zinc')
     event.add('forge:ores/coal', ['spelunkery:andesite_coal_ore', 'spelunkery:diorite_coal_ore', 'spelunkery:granite_coal_ore', 'spelunkery:tuff_coal_ore'])
     event.add('forge:ores/copper', ['spelunkery:andesite_copper_ore', 'spelunkery:diorite_copper_ore', 'spelunkery:granite_copper_ore', 'spelunkery:tuff_copper_ore'])
     event.add('forge:ores/diamond', ['spelunkery:andesite_diamond_ore', 'spelunkery:diorite_diamond_ore', 'spelunkery:granite_diamond_ore', 'spelunkery:tuff_diamond_ore', 'spelunkery:smooth_basalt_diamond_ore'])
@@ -52,6 +50,7 @@ ServerEvents.tags('item', event => {
     event.add('on:card', ['ae2:basic_card', 'ae2:redstone_card', 'ae2:capacity_card', 'ae2:void_card', 'ae2:advanced_card', 'ae2:fuzzy_card', 'ae2:speed_card', 'ae2:inverter_card', 'ae2:crafting_card', 'ae2:equal_distribution_card', 'ae2:energy_card'])
     event.add('forge:ingots/steel', 'kubejs:steel_ingot')
     event.add('on:hammer', 'cataclysm:infernal_forge', 'cataclysm:void_forge')
+    event.add('on:sigil', ['apotheosis:gem_fused_slate', 'apotheosis:sigil_of_withdrawal', 'apotheosis:sigil_of_rebirth', 'apotheosis:sigil_of_enhancement', 'apotheosis:sigil_of_unnaming', 'apotheosis:sigil_of_socketing'])
 
     event.add('minecraft:coals', 'vintagedelight:ghost_charcoal')
     
