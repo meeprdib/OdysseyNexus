@@ -1,4 +1,8 @@
 {
+    "conditions": [{
+		"type": "forge:mod_loaded",
+		"modid": "alexscaves"
+	}],
     "dimensions": [
         "minecraft:overworld"
     ],
@@ -7,7 +11,7 @@
     "weight": 5,
     "quality": 3,
     "stack": {
-        "item": "minecraft:diamond_shovel",
+        "item": "alexscaves:hazmat_boots",
         "count": 1,
         "nbt": {
             "Damage": 0

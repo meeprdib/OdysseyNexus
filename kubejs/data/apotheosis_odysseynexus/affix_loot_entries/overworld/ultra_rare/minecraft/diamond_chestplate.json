@@ -4,10 +4,10 @@
     ],
     "min_rarity": "apotheosis:common",
     "max_rarity": "apotheosis:rare",
-    "weight": 5,
-    "quality": 3,
+    "weight": 1,
+    "quality": 5,
     "stack": {
-        "item": "minecraft:diamond_shovel",
+        "item": "minecraft:diamond_chestplate",
         "count": 1,
         "nbt": {
             "Damage": 0

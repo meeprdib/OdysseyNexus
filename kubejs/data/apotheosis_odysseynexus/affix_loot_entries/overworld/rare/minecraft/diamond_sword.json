@@ -7,7 +7,7 @@
     "weight": 5,
     "quality": 3,
     "stack": {
-        "item": "minecraft:diamond_shovel",
+        "item": "minecraft:diamond_sword",
         "count": 1,
         "nbt": {
             "Damage": 0
