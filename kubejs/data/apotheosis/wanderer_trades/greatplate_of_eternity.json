@@ -19,14 +19,6 @@
         "nbt": {
         "Enchantments": [
             {
-                "lvl": 5,
-                "id": "minecraft:protection"
-            },
-            {
-                "lvl": 5,
-                "id": "minecraft:projectile_protection"
-            },
-            {
                 "lvl": 1,
                 "id": "minecraft:mending"
             },

@@ -19,10 +19,6 @@
     "nbt": {
         "Enchantments": [
             {
-                "lvl": 10,
-                "id": "minecraft:sharpness"
-            },
-            {
                 "lvl": 1,
                 "id": "minecraft:mending"
             },

@@ -19,20 +19,12 @@
     "nbt": {
         "Enchantments": [
             {
-                "lvl": 5,
-                "id": "minecraft:protection"
-            },
-            {
                 "lvl": 1,
                 "id": "minecraft:mending"
             },
             {
                 "lvl": 5,
                 "id": "minecraft:unbreaking"
-            },
-            {
-                "lvl": 10,
-                "id": "apotheosis:rebounding"
             }
         ],
         "display": {
