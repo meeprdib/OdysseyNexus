@@ -1702,7 +1702,7 @@
       },
       "max": {
         "default": 1024,
-        "value": 1024
+        "value": 20
       }
     },
     "additional_attributes:spell_school_ender": {
