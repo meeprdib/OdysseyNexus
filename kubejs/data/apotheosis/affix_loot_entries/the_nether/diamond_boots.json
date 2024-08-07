@@ -4,8 +4,8 @@
     ],
     "min_rarity": "apotheosis:uncommon",
     "max_rarity": "apotheosis:epic",
-    "weight": 70,
-    "quality": 5.0,
+    "weight": 10,
+    "quality": 4.0,
     "stack": {
         "item": "minecraft:diamond_boots",
         "count": 1,

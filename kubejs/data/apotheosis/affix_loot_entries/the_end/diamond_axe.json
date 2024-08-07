@@ -3,9 +3,9 @@
         "minecraft:the_end"
     ],
     "min_rarity": "apotheosis:rare",
-    "max_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:epic",
     "weight": 100,
-    "quality": 5.0,
+    "quality": 0,
     "stack": {
         "item": "minecraft:diamond_axe",
         "count": 1,

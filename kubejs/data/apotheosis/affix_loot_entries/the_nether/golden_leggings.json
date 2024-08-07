@@ -3,9 +3,9 @@
         "minecraft:the_nether"
     ],
     "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
-    "weight": 85,
-    "quality": 3.0,
+    "max_rarity": "apotheosis:rare",
+    "weight": 40,
+    "quality": 0,
     "stack": {
         "item": "minecraft:golden_leggings",
         "count": 1,

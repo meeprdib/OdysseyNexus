@@ -3,9 +3,9 @@
         "minecraft:the_nether"
     ],
     "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
-    "weight": 100,
-    "quality": 1.0,
+    "max_rarity": "apotheosis:rare",
+    "weight": 40,
+    "quality": 0,
     "stack": {
         "item": "minecraft:iron_helmet",
         "count": 1,
