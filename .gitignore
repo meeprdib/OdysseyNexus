@@ -35,3 +35,7 @@ servers.dat
 /logs
 emi.json
 emi.json
+config/everycomp-hazardous.properties
+config/oculus.properties
+config/packetfixer.properties
+*.log

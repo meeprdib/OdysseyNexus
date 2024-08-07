@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "odysseynexus:cold_damage",
+	"attribute": "attributeslib:cold_damage",
 	"operation": "ADDITION",
 	"values": {
 		"uncommon": {
@@ -31,7 +31,6 @@
 	},
 	"types": [
 		"sword",
-		"trident",
-		"heavy_weapon"
+		"trident"
 	]
 }

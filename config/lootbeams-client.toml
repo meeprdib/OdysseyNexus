@@ -10,6 +10,8 @@
 	render_distance = 24.0
 	#Overrides an item's beam color with hex color. Must follow the specific format: (registryname=hexcolor) Or (#tagname=hexcolor). Example: "minecraft:stone=0xFFFFFF". This also accepts modids.
 	color_overrides = []
+	#If the rarity should be rendered under the nametag.
+	render_rarity = true
 
 	#Beam Configuration
 	["Loot Beams".Beam]

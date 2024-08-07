@@ -40,6 +40,8 @@
 		}
 	},
 	"types": [
+		"bow",
+		"crossbow",
 		"trident"
 	]
 }

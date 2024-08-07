@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "alembic:fire_damage",
+	"attribute": "attributeslib:fire_damage",
 	"operation": "ADDITION",
 	"values": {
 		"uncommon": {
@@ -31,7 +31,6 @@
 	},
 	"types": [
 		"sword",
-		"trident",
-		"heavy_weapon"
+		"trident"
 	]
 }
