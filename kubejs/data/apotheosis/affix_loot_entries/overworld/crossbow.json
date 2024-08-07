@@ -1,6 +1,6 @@
 {
-	"weight": 50,
-	"quality": 2.5,
+	"weight": 10,
+	"quality": 2,
 	"stack": {
 		"item": "minecraft:crossbow"
 	},

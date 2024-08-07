@@ -1,6 +1,6 @@
 {
-  "weight": 75,
-  "quality": 3.5,
+  "weight": 10,
+  "quality": 2,
   "stack": {
     "item": "minecraft:turtle_helmet",
     "count": 1,
