@@ -50,6 +50,7 @@ ServerEvents.tags('item', event => {
     event.add('on:card', ['ae2:basic_card', 'ae2:redstone_card', 'ae2:capacity_card', 'ae2:void_card', 'ae2:advanced_card', 'ae2:fuzzy_card', 'ae2:speed_card', 'ae2:inverter_card', 'ae2:crafting_card', 'ae2:equal_distribution_card', 'ae2:energy_card'])
     event.add('forge:ingots/steel', 'kubejs:steel_ingot')
     event.add('on:hammer', 'cataclysm:infernal_forge', 'cataclysm:void_forge')
+    event.add('on:cactus', ['minecraft:cactus', 'regions_unexplored:saguaro_cactus'])
     event.add('on:sigil', ['apotheosis:gem_fused_slate', 'apotheosis:sigil_of_withdrawal', 'apotheosis:sigil_of_rebirth', 'apotheosis:sigil_of_enhancement', 'apotheosis:sigil_of_unnaming', 'apotheosis:sigil_of_socketing'])
 
     event.add('minecraft:coals', 'vintagedelight:ghost_charcoal')
