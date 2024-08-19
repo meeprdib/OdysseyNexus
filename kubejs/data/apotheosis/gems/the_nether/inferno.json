@@ -23,8 +23,7 @@
 			"values": {
 				"rare": 6,
 				"epic": 8,
-				"mythic": 10,
-				"ancient": 12.5
+				"mythic": 10
 			}
 		},
 		{
@@ -43,11 +42,6 @@
 					"duration": 100,
 					"amplifier": 0,
 					"cooldown": 1200
-				},
-				"ancient": {
-					"duration": 100,
-					"amplifier": 1,
-					"cooldown": 1200
 				}
 			}
 		},
@@ -63,8 +57,7 @@
 			"values": {
 				"rare": 1,
 				"epic": 1,
-				"mythic": 2,
-				"ancient": 2
+				"mythic": 2
 			}
 		},
 		{
@@ -80,8 +73,7 @@
 			"values": {
 				"rare": 1,
 				"epic": 2,
-				"mythic": 3,
-				"ancient": 4
+				"mythic": 3
 			}
 		},
 		{
@@ -92,13 +84,12 @@
 					"helmet"
 				]
 			},
-			"attribute": "attributeslib:fire_damage",
+			"attribute": "odysseynexus:fire_damage",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
 				"rare": 0.50,
 				"epic": 0.625,
-				"mythic": 0.75,
-				"ancient": 0.90
+				"mythic": 0.75
 			}
 		}
 	]

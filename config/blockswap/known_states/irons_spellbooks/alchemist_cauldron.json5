@@ -9,77 +9,12 @@ to make editing this file much easier.
 */
 [
 	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "true",
-			"level": "0"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
 		"Name": "irons_spellbooks:alchemist_cauldron"
 	},
 	{
 		// Properties define the state of this block/fluid.
 		"Properties": {
-			"lit": "true",
-			"level": "1"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "false",
-			"level": "1"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "true",
-			"level": "2"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "false",
-			"level": "2"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "true",
-			"level": "3"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "false",
-			"level": "3"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "true",
-			"level": "4"
-		},
-		"Name": "irons_spellbooks:alchemist_cauldron"
-	},
-	{
-		// Properties define the state of this block/fluid.
-		"Properties": {
-			"lit": "false",
-			"level": "4"
+			"lit": "false"
 		},
 		"Name": "irons_spellbooks:alchemist_cauldron"
 	}

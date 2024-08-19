@@ -20,12 +20,12 @@
 		},
 		"epic": {
 			"min": 3,
-			"steps": 5,
+			"steps": 4,
 			"step": 1
 		},
 		"mythic": {
 			"min": 3,
-			"steps": 5,
+			"steps": 4,
 			"step": 1
 		},
 		"ancient": {
@@ -35,6 +35,6 @@
 		}
 	},
 	"types": [
-		"helmet", "chestplate", "leggings", "boots"
+		"helmet", "chestplate"
 	]
 }

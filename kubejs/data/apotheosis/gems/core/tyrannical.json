@@ -8,25 +8,6 @@
 	"bonuses": [{
 			"type": "apotheosis:attribute",
 			"gem_class": {
-				"key": "heavy_weapon",
-				"types": [
-					"heavy_weapon"
-				]
-			},
-			"attribute": "attributeslib:current_hp_damage",
-			"operation": "ADDITION",
-			"values": {
-				"common": 0.025,
-				"uncommon": 0.05,
-				"rare": 0.10,
-				"epic": 0.15,
-				"mythic": 0.20,
-				"ancient": 0.25
-			}
-		},
-		{
-			"type": "apotheosis:attribute",
-			"gem_class": {
 				"key": "light_weapon",
 				"types": [
 					"sword",
@@ -40,8 +21,7 @@
 				"uncommon": 1,
 				"rare": 1.5,
 				"epic": 2,
-				"mythic": 3,
-				"ancient": 3.5
+				"mythic": 3
 			}
 		},
 		{
@@ -59,8 +39,7 @@
 				"uncommon": 1,
 				"rare": 1.5,
 				"epic": 2.5,
-				"mythic": 4,
-				"ancient": 6
+				"mythic": 4
 			}
 		},
 		{
@@ -78,8 +57,7 @@
 				"uncommon": 0.10,
 				"rare": 0.15,
 				"epic": 0.225,
-				"mythic": 0.3,
-				"ancient": 0.425
+				"mythic": 0.3
 			}
 		},
         {
@@ -98,11 +76,6 @@
 				"mythic": {
 					"duration": 160,
 					"amplifier": 0,
-					"cooldown": 40
-				},
-				"ancient": {
-					"duration": 160,
-					"amplifier": 1,
 					"cooldown": 40
 				}
 			}

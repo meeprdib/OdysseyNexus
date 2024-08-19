@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "attributeslib:mining_speed",
+	"attribute": "miapi:generic.mining_speed.pickaxe",
 	"operation": "ADDITION",
 	"values": {
 		"common": {

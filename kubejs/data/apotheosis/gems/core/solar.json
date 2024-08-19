@@ -13,15 +13,14 @@
 					"trident"
 				]
 			},
-			"attribute": "attributeslib:fire_damage",
+			"attribute": "odysseynexus:fire_damage",
 			"operation": "ADDITION",
 			"values": {
 				"common": 1,
-				"uncommon": 1.5,
-				"rare": 2.5,
+				"uncommon": 2,
+				"rare": 3,
 				"epic": 4,
-				"mythic": 6,
-				"ancient": 8
+				"mythic": 5
 			}
 		},
 		{
@@ -39,8 +38,7 @@
 				"uncommon": 0.25,
 				"rare": 0.45,
 				"epic": 0.65,
-				"mythic": 0.85,
-				"ancient": 1.04
+				"mythic": 0.85
 			}
 		},
 		{
@@ -58,8 +56,7 @@
 				"uncommon": 0.5,
 				"rare": 1,
 				"epic": 1.5,
-				"mythic": 2,
-				"ancient": 3
+				"mythic": 2
 			}
 		}
 	]

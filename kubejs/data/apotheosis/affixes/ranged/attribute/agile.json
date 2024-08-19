@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "attributeslib:draw_speed",
+	"attribute": "miapi:generic.bow_draw_time",
 	"operation": "ADDITION",
 	"values": {
 		"common": {

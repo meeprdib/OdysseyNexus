@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "attributeslib:arrow_velocity",
+	"attribute": "miapi:generic.projectile_speed",
 	"operation": "ADDITION",
 	"values": {
 		"common": {

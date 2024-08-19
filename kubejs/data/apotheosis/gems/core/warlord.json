@@ -21,9 +21,7 @@
 				"common": 0.05,
 				"uncommon": 0.10,
 				"rare": 0.15,
-				"epic": 0.20,
-				"mythic": 0.25,
-				"ancient": 0.30
+				"epic": 0.20
 			}
 		},
 		{
@@ -41,8 +39,7 @@
 				"uncommon": 0.15,
 				"rare": 0.225,
 				"epic": 0.3,
-				"mythic": 0.35,
-				"ancient": 0.4
+				"mythic": 0.35
 			}
 		},
 		{
@@ -60,8 +57,7 @@
 				"uncommon": 0.10,
 				"rare": 0.15,
 				"epic": 0.20,
-				"mythic": 0.25,
-				"ancient": 0.30
+				"mythic": 0.25
 			}
 		},
 		{
@@ -79,8 +75,7 @@
 				"uncommon": 0.10,
 				"rare": 0.125,
 				"epic": 0.15,
-				"mythic": 0.175,
-				"ancient": 0.2
+				"mythic": 0.175
 			}
 		}
 	]

@@ -1,6 +1,6 @@
 {
 	"type": "apotheosis:attribute",
-	"attribute": "attributeslib:arrow_damage",
+	"attribute": "miapi:generic.projectile_damage",
 	"operation": "ADDITION",
 	"values": {
 		"common": {

@@ -7,26 +7,6 @@
 	"bonuses": [{
 			"type": "apotheosis:attribute",
 			"gem_class": {
-				"key": "core_armor",
-				"types": [
-					"chestplate",
-					"leggings"
-				]
-			},
-			"attribute": "minecraft:generic.luck",
-			"operation": "ADDITION",
-			"values": {
-				"common": 0.5,
-				"uncommon": 1.5,
-				"rare": 2.75,
-				"epic": 4,
-				"mythic": 5,
-				"ancient": 6
-			}
-		},
-		{
-			"type": "apotheosis:attribute",
-			"gem_class": {
 				"key": "weapon_or_tool",
 				"types": [
 					"sword",
@@ -45,8 +25,7 @@
 				"uncommon": 0.15,
 				"rare": 0.225,
 				"epic": 0.3,
-				"mythic": 0.35,
-				"ancient": 0.4
+				"mythic": 0.35
 			}
 		},
 		{
@@ -64,8 +43,7 @@
 				"uncommon": 0.25,
 				"rare": 0.35,
 				"epic": 0.45,
-				"mythic": 0.55,
-				"ancient": 0.70
+				"mythic": 0.55
 			}
 		}
 	]

@@ -30,10 +30,6 @@
 				"mythic": {
 					"chance": 0.01,
 					"cooldown": 4800
-				},
-				"ancient": {
-					"chance": 0.015,
-					"cooldown": 4800
 				}
 			}
 		},
@@ -52,8 +48,7 @@
 					"values": {
 						"rare": 0.10,
 						"epic": 0.20,
-						"mythic": 0.30,
-						"ancient": 0.40
+						"mythic": 0.30
 					}
 				},
 				{
@@ -62,8 +57,7 @@
 					"values": {
 						"rare": -0.05,
 						"epic": -0.10,
-						"mythic": -0.15,
-						"ancient": -0.20
+						"mythic": -0.15
 					}
 				}
 			]
@@ -79,8 +73,7 @@
 			"values": {
 				"rare": 24,
 				"epic": 20,
-				"mythic": 16,
-				"ancient": 12
+				"mythic": 16
 			}
 		},
 		{
@@ -98,8 +91,7 @@
 					"values": {
 						"rare": 0.35,
 						"epic": 0.50,
-						"mythic": 0.75,
-						"ancient": 1
+						"mythic": 0.75
 					}
 				},
 				{
@@ -108,8 +100,7 @@
 					"values": {
 						"rare": -0.25,
 						"epic": -0.40,
-						"mythic": -0.60,
-						"ancient": -0.80
+						"mythic": -0.60
 					}
 				},
 				{
@@ -118,8 +109,7 @@
 					"values": {
 						"rare": -0.25,
 						"epic": -0.40,
-						"mythic": -0.60,
-						"ancient": -0.80
+						"mythic": -0.60
 					}
 				}
 			]

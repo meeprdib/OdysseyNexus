@@ -30,10 +30,6 @@
 				"mythic": {
 					"chance": 0.125,
 					"cooldown": 5100
-				},
-				"ancient": {
-					"chance": 0.15,
-					"cooldown": 4800
 				}
 			}
 		},
@@ -50,8 +46,7 @@
 			"values": {
 				"rare": 0.50,
 				"epic": 0.625,
-				"mythic": 0.75,
-				"ancient": 0.90
+				"mythic": 0.75
 			}
 		},
 		{
@@ -62,13 +57,11 @@
 					"heavy_weapon"
 				]
 			},
-			"attribute": "attributeslib:cold_damage",
+			"attribute": "odysseynexus:cold_damage",
 			"operation": "ADDITION",
 			"values": {
 				"rare": 6,
-				"epic": 8,
-				"mythic": 10,
-				"ancient": 12.5
+				"epic": 8
 			}
 		},
 		{
@@ -87,11 +80,6 @@
 				"mythic": {
 					"duration": 180,
 					"amplifier": 1,
-					"cooldown": 500
-				},
-				"ancient": {
-					"duration": 240,
-					"amplifier": 2,
 					"cooldown": 500
 				}
 			}

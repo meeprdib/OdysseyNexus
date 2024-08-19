@@ -20,8 +20,7 @@
 				"uncommon": 0.25,
 				"rare": 0.40,
 				"epic": 0.525,
-				"mythic": 0.65,
-				"ancient": 0.75
+				"mythic": 0.65
 			}
 		},
 		{
@@ -40,8 +39,7 @@
 						"uncommon": 0.15,
 						"rare": 0.25,
 						"epic": 0.35,
-						"mythic": 0.45,
-						"ancient": 0.5
+						"mythic": 0.45
 					}
 				},
 				{
@@ -51,8 +49,7 @@
 						"uncommon": -0.15,
 						"rare": -0.25,
 						"epic": -0.35,
-						"mythic": -0.45,
-						"ancient": -0.5
+						"mythic": -0.45
 					}
 				}
 			]
@@ -71,8 +68,7 @@
 				"uncommon": 0.15,
 				"rare": 0.20,
 				"epic": 0.30,
-				"mythic": 0.40,
-				"ancient": 0.50
+				"mythic": 0.40
 			}
 		},
 		{
@@ -97,11 +93,6 @@
 					"health_cost": 0.40,
 					"damage_mult": 2.20,
 					"cooldown": 550
-				},
-				"ancient": {
-					"health_cost": 0.50,
-					"damage_mult": 2.50,
-					"cooldown": 600
 				}
 			}
 		},
@@ -123,10 +114,6 @@
 				"mythic": {
 					"heal_factor": 0.55,
 					"cooldown": 850
-				},
-				"ancient": {
-					"heal_factor": 0.65,
-					"cooldown": 1000
 				}
 			}
 		}

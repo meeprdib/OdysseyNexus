@@ -8,7 +8,6 @@ ServerEvents.recipes(event => {
         output: [
             '@gateways',
             '@waterframes',
-            // '@industrialforegoing',
             '#vintagedelight:salt_lamp',
             'alexscaves:nuclear_bomb',
             'alexscaves:nuclear_furnace_component',
@@ -30,7 +29,9 @@ ServerEvents.recipes(event => {
             'vintagedelight:deluxe_burger',
             'vintagedelight:salt_bucket',
             'apotheosis:gem_fused_slate',
-            'createdeco:netherite_sheet'
+            'createdeco:netherite_sheet',
+            'spelunkery:portal_fluid_bottle',
+            'spelunkery:portal_fluid_bucket'
         ]
     })
 })
@@ -280,29 +281,27 @@ ServerEvents.recipes(event => {
 
     event.recipes.create.pressing('vintageimprovements:netherite_sheet', '#forge:ingots/netherite')
 
-    // Industrial Foregoing
-
     event.recipes.createMixing(
-        Fluid.of('industrialforegoing:essence', 100), ['create:experience_nugget']).heated()
-
-    event.shaped('industrialforegoing:dissolution_chamber', [
-        'AAA',
-        'BCB',
-        'AAA'
-    ], {
-        A: '#forge:ingots/steel',
-        B: 'create_dd:integrated_circuit',
-        C: 'ae2:crafting_unit'
-    })
+        Fluid.of('sophisticatedcore:xp_still', 100), ['create:experience_nugget']).heated()
 
     // Apotheosis
 
-    event.recipes.createMixing(
-        '8x apotheosis:gem_fused_slate', [
-        'vintageimprovements:netherite_sheet',
-        '8x apotheosis:gem_dust',
-        Fluid.of('industrialforegoing:essence', 500)
-    ]).superheated()
+    // event.recipes.createMixing(
+    //     '8x apotheosis:gem_fused_slate', [
+    //     'vintageimprovements:netherite_sheet',
+    //     '8x apotheosis:gem_dust',
+    //     Fluid.of('sophisticatedcore:xp_still', 500)
+    // ]).superheated()
+
+    event.shaped('apotheosis:gem_fused_slate', [
+        'ABA',
+        'BCB',
+        'ABA'
+    ], {
+        A: 'apotheosis:gem_dust',
+        B: '#apotheosis:deepslate',
+        C: 'create:experience_nugget'
+    })
 
     event.shaped('8x apotheosis:sigil_of_withdrawal', [
         'AAA',
@@ -310,7 +309,7 @@ ServerEvents.recipes(event => {
         'AAA'
     ], {
         A: '#on:sigil',
-        B: 'kubejs:chorus_gummy'
+        B: '#minecraft:flowers'
     })
 
     event.shaped('8x apotheosis:sigil_of_rebirth', [
@@ -866,15 +865,15 @@ event.shaped('ae2:interface', [
     
 // Industrial Foregoing
 
-    event.shaped('industrialforegoing:fluid_extractor', [
-        'AAA',
-        'BCB',
-        'AAA'
-    ], {
-        A: '#forge:ingots/steel',
-        B: 'create:mechanical_pump',
-        C: 'kubejs:silicon_casing'
-    })
+    // event.shaped('industrialforegoing:fluid_extractor', [
+    //     'AAA',
+    //     'BCB',
+    //     'AAA'
+    // ], {
+    //     A: '#forge:ingots/steel',
+    //     B: 'create:mechanical_pump',
+    //     C: 'kubejs:silicon_casing'
+    // })
 
 // WaterFrames
 
