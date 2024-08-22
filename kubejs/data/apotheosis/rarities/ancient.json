@@ -79,10 +79,6 @@
 		{
 			"type": "socket",
 			"chance": 1
-		},
-		{
-			"type": "ancient",
-			"chance": 1
 		}
 	]
 }

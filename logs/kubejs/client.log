@@ -1,26 +1,33 @@
-[16:53:00] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
-[16:53:00] [INIT] Loaded plugins:
-[16:53:00] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[16:53:00] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[16:53:00] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
-[16:53:00] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
-[16:53:00] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
-[16:53:00] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
-[16:53:00] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
-[16:53:00] [INIT] - net.liopyu.entityjs.EntityJSPlugin
-[16:53:00] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
-[16:53:00] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
-[16:53:00] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
-[16:53:00] [INIT] - com.probejs.ProbeJSPlugin
-[16:53:00] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
-[16:53:00] [INFO] Loaded script client_scripts:bad_mods.js in 0.001 s
-[16:53:00] [INFO] Loaded script client_scripts:jei.js in 0.001 s
-[16:53:00] [INFO] Loaded script client_scripts:ponder/certusquartz.js in 0.001 s
-[16:53:00] [INFO] Loaded script client_scripts:tooltips.js in 0.001 s
-[16:53:00] [INFO] Loaded 4/4 KubeJS client scripts in 0.01 s with 0 errors and 0 warnings
-[16:53:00] [INFO] Ponder tags event is currently not reloadable. Only scenes were reloaded.
-[16:53:01] [INFO] Client resource reload complete!
-[20:38:43] [INFO] jei.js#2: JEI items nuked!
-[20:38:44] [INFO] jei.js#74: JEI items added!
-[21:02:33] [INFO] jei.js#2: JEI items nuked!
-[21:02:33] [INFO] jei.js#74: JEI items added!
+[11:10:41] [INIT] KubeJS 2001.6.5-build.14; MC 2001 forge
+[11:10:41] [INIT] Loaded plugins:
+[11:10:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[11:10:41] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[11:10:41] [INIT] - net.mehvahdjukaar.sawmill.integration.KubeJsPlugin
+[11:10:41] [INIT] - com.squoshi.irons_spells_js.IronsSpellsJSPlugin
+[11:10:41] [INIT] - com.squoshi.irons_spells_js.compat.entityjs.EntityJSPlugin
+[11:10:41] [INIT] - com.sunekaer.sdrp.integration.kubejs.SDRPKubeJSIntegration
+[11:10:41] [INIT] - smartin.miapi.compat.kubejs.KubeJSMiapiPlugin
+[11:10:41] [INIT] - net.liopyu.entityjs.EntityJSPlugin
+[11:10:41] [INIT] - dev.latvian.mods.kubejs.create.KubeJSCreatePlugin
+[11:10:41] [INIT] - qinomed.kubejsdelight.KubeJSDelightPlugin
+[11:10:41] [INIT] - com.almostreliable.lootjs.kube.LootJSPlugin
+[11:10:41] [INIT] - com.probejs.ProbeJSPlugin
+[11:10:41] [INIT] - com.almostreliable.ponderjs.PonderJSPlugin
+[11:10:42] [INFO] Loaded script client_scripts:bad_mods.js in 0.005 s
+[11:10:42] [INFO] Loaded script client_scripts:jei.js in 0.004 s
+[11:10:42] [INFO] Loaded script client_scripts:ponder/certusquartz.js in 0.011 s
+[11:10:42] [INFO] Loaded script client_scripts:tooltips.js in 0.001 s
+[11:10:42] [INFO] Loaded 4/4 KubeJS client scripts in 0.179 s with 0 errors and 0 warnings
+[11:11:11] [INFO] Client resource reload complete!
+[11:13:46] [INFO] jei.js#2: JEI items nuked!
+[11:13:47] [INFO] jei.js#76: JEI items added!
+[11:20:57] [INFO] jei.js#2: JEI items nuked!
+[11:20:57] [INFO] jei.js#76: JEI items added!
+[11:26:25] [INFO] jei.js#2: JEI items nuked!
+[11:26:25] [INFO] jei.js#76: JEI items added!
+[12:25:24] [INFO] jei.js#2: JEI items nuked!
+[12:25:24] [INFO] jei.js#76: JEI items added!
+[12:47:03] [INFO] jei.js#2: JEI items nuked!
+[12:47:03] [INFO] jei.js#76: JEI items added!
+[13:04:27] [INFO] jei.js#2: JEI items nuked!
+[13:04:28] [INFO] jei.js#76: JEI items added!

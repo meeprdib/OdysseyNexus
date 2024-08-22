@@ -22,10 +22,6 @@
 			driftwood = true
 			river = true
 
-		[types.wood_type.alexscaves]
-			pewen = true
-			thornwood = true
-
 		[types.wood_type.regions_unexplored]
 			alpha = true
 			baobab = true
@@ -109,9 +105,6 @@
 
 		[types.leaves_type.upgrade_aquatic]
 			river = true
-
-		[types.leaves_type.alexscaves]
-			ancient = true
 
 		[types.leaves_type.quark]
 			ancient = true

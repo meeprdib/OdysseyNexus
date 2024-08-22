@@ -9,8 +9,8 @@ ServerEvents.recipes(event => {
             '@gateways',
             '@waterframes',
             '#vintagedelight:salt_lamp',
-            'alexscaves:nuclear_bomb',
-            'alexscaves:nuclear_furnace_component',
+            // 'alexscaves:nuclear_bomb',
+            // 'alexscaves:nuclear_furnace_component',
             'apotheosis:augmenting_table',
             'apotheosis:reforging_table',
             'apotheosis:sigil_of_socketing',
@@ -31,7 +31,11 @@ ServerEvents.recipes(event => {
             'apotheosis:gem_fused_slate',
             'createdeco:netherite_sheet',
             'spelunkery:portal_fluid_bottle',
-            'spelunkery:portal_fluid_bucket'
+            'spelunkery:portal_fluid_bucket',
+            'irons_spellbooks:eldritch_manuscript',
+            'irons_spellbooks:iron_spell_book',
+            'irons_spellbooks:copper_spell_book',
+            'irons_spellbooks:arcane_anvil',
         ]
     })
 })
@@ -862,18 +866,6 @@ event.shaped('ae2:interface', [
     event.shapeless('storagedrawers:fill_level_upgrade', 'storagedrawers:min_redstone_upgrade')
     event.shapeless('storagedrawers:redstone_upgrade', 'storagedrawers:fill_level_upgrade')
     event.shapeless('storagedrawers:illumination_upgrade', ['#ae2:p2p_attunements/light_p2p_tunnel', 'sophisticatedbackpacks:upgrade_base'])
-    
-// Industrial Foregoing
-
-    // event.shaped('industrialforegoing:fluid_extractor', [
-    //     'AAA',
-    //     'BCB',
-    //     'AAA'
-    // ], {
-    //     A: '#forge:ingots/steel',
-    //     B: 'create:mechanical_pump',
-    //     C: 'kubejs:silicon_casing'
-    // })
 
 // WaterFrames
 
