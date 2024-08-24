@@ -37,6 +37,7 @@ ServerEvents.recipes(event => {
             'irons_spellbooks:copper_spell_book',
             'irons_spellbooks:arcane_anvil',
             'spelunkery:salt',
+            ['spelunkery:rock_salt_bricks', 'spelunkery:rock_salt_block', 'spelunkery:rock_salt_stairs', 'spelunkery:rock_salt_slab', 'spelunkery:rock_salt_wall', 'spelunkery:polished_rock_salt', 'spelunkery:polished_rock_salt_stairs', 'spelunkery:polished_rock_salt_slab', 'spelunkery:polished_rock_salt_wall', 'spelunkery:salt_block', 'spelunkery:rock_salt_brick_wall', 'spelunkery:rock_salt_brick_slab', 'spelunkery:rock_salt_brick_stairs', 'vintagedelight:salt_block', 'vintagedelight:smooth_salt_block', 'vintagedelight:salt_pillar', 'vintagedelight:salt_bricks', 'vintagedelight:salt_brick_stairs', 'vintagedelight:salt_brick_slab', 'vintagedelight:salt_brick_wall', 'vintagedelight:mixed_salt_bricks', 'vintagedelight:mixed_salt_brick_stairs', 'vintagedelight:mixed_salt_brick_slab', 'vintagedelight:mixed_salt_brick_wall']
         ]
     })
 })
@@ -275,6 +276,8 @@ ServerEvents.recipes(event => {
 
     event.shapeless('2x kubejs:mycelial_blend', ['kubejs:mushroom_paste', 'supplementaries:flax', 'kubejs:mushroom_paste', 'supplementaries:flax'])
     event.recipes.farmersdelight.cutting('#on:small_mushroom', '#forge:tools/knives', ['kubejs:mushroom_paste'])
+    event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
+
     event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
 
     event.recipes.farmersdelight.cooking(
