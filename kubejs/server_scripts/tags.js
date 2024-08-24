@@ -42,7 +42,7 @@ ServerEvents.tags('item', event => {
     event.add('on:raw_dragon_meat', 'ends_delight:raw_dragon_meat', 'ends_delight:raw_dragon_meat_cuts', 'ends_delight:dragon_leg', 'iceandfire:ice_dragon_flesh', 'iceandfire:fire_dragon_flesh', 'iceandfire:lightning_dragon_flesh')
     event.add('on:cake_base', 'ratatouille:cake_base', 'createaddition:cake_base')
     event.add('on:salt_bucket', 'spelunkery:salt_bucket', 'vintagedelight:salt_bucket')
-    event.add('on:salt_block', 'galosphere:pink_salt', 'spelunkery:rock_salt_block')
+    // event.add('on:salt_block', 'galosphere:pink_salt')
     event.add('on:piston', ['minecraft:piston', 'minecraft:sticky_piston', 'create:mechanical_piston', 'create:sticky_mechanical_piston'])
     event.add('on:chorus', ['minecraft:chorus_fruit', 'minecraft:popped_chorus_fruit', 'ends_delight:chorus_fruit_grain', 'ends_delight:chorus_succulent', 'ends_delight:dried_chorus_flower'])
     event.add('on:card', ['ae2:basic_card', 'ae2:redstone_card', 'ae2:capacity_card', 'ae2:void_card', 'ae2:advanced_card', 'ae2:fuzzy_card', 'ae2:speed_card', 'ae2:inverter_card', 'ae2:crafting_card', 'ae2:equal_distribution_card', 'ae2:energy_card'])

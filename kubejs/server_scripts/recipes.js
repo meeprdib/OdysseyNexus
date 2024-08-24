@@ -36,6 +36,7 @@ ServerEvents.recipes(event => {
             'irons_spellbooks:iron_spell_book',
             'irons_spellbooks:copper_spell_book',
             'irons_spellbooks:arcane_anvil',
+            'spelunkery:salt',
         ]
     })
 })
