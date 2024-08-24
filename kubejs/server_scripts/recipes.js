@@ -245,6 +245,10 @@ ServerEvents.recipes(event => {
         { input: 'createdeco:netherite_sheet' },
         'createdeco:netherite_sheet',
         'vintageimprovements:netherite_sheet')
+    event.replaceInput(
+        { input: 'create_central_kitchen:sap_bucket' },
+        'create_central_kitchen:sap_bucket',
+        'create_dd:sap_bucket')
     console.log('Item replacement recipes finished!')
 })
 
@@ -262,6 +266,9 @@ ServerEvents.recipes(event => {
         S: 'minecraft:string',
         L: '#on:leather'
     })
+
+    event.recipes.create.emptying([Fluid.of('create_dd:sap', 250), 'bottle'], 'autumnity:sap_bottle')
+    event.recipes.create.emptying([Fluid.of('create_dd:sap', 1000), 'bucket'], 'create_dd:sap_bucket')
 
     event.smelting('create:andesite_alloy', 'kubejs:mycelial_blend')
 
