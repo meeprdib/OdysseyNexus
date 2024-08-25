@@ -1,0 +1,185 @@
+### Alembic Damage Types ###
+alembic:alchemical_damage
+alembic:arcane_damage
+alembic:physical_damage
+alembic:fire_damage
+odysseynexus:cold_damage
+odysseynexus:holy_damage
+odysseynexus:fire_damage
+odysseynexus:nature_damage
+odysseynexus:blood_damage
+odysseynexus:end_damage
+odysseynexus:lightning_damage
+odysseynexus:evocation_damage
+odysseynexus:eldritch_damage
+alembic:true_damage
+
+
+
+
+
+
+### Vanilla Damage Types ###
+minecraft:
+  -  minecraft:cramming
+  -  minecraft:trident
+    - alembic:physical_damage -> 0.75
+    - alembic:arcane_damage -> 0.25
+  -  minecraft:sting
+    - alembic:alchemical_damage -> 0.2
+    - alembic:physical_damage -> 0.8
+  -  minecraft:thrown
+    - alembic:physical_damage -> 1.0
+  -  minecraft:bad_respawn_point
+  -  minecraft:generic_kill
+  -  minecraft:arrow
+    - alembic:physical_damage -> 1.0
+  -  minecraft:sweet_berry_bush
+  -  minecraft:out_of_world
+    - alembic:true_damage -> 1.0
+  -  minecraft:drown
+    - alembic:true_damage -> 1.0
+  -  minecraft:dry_out
+  -  minecraft:explosion
+    - alembic:fire_damage -> 0.5
+    - alembic:physical_damage -> 0.5
+  -  minecraft:generic
+  -  minecraft:indirect_magic
+  -  minecraft:lava
+  -  minecraft:unattributed_fireball
+  -  minecraft:stalagmite
+  -  minecraft:mob_attack
+  -  minecraft:freeze
+    - alembic:true_damage -> 1.0
+  -  minecraft:starve
+  -  minecraft:fireworks
+    - alembic:fire_damage -> 0.5
+    - alembic:physical_damage -> 0.5
+  -  minecraft:falling_anvil
+  -  minecraft:in_wall
+  -  minecraft:thorns
+    - alembic:arcane_damage -> 1.0
+  -  minecraft:mob_projectile
+  -  minecraft:hot_floor
+  -  minecraft:player_attack
+  -  minecraft:sonic_boom
+    - alembic:physical_damage -> 0.5
+    - alembic:arcane_damage -> 0.5
+  -  minecraft:mob_attack_no_aggro
+  -  minecraft:fireball
+    - alembic:fire_damage -> 0.7
+    - alembic:physical_damage -> 0.3
+  -  minecraft:player_explosion
+    - alembic:fire_damage -> 0.5
+    - alembic:physical_damage -> 0.5
+  -  minecraft:falling_stalactite
+  -  minecraft:dragon_breath
+  -  minecraft:fly_into_wall
+  -  minecraft:wither
+    - alembic:true_damage -> 0.5
+    - alembic:arcane_damage -> 0.5
+  -  minecraft:falling_block
+  -  minecraft:outside_border
+  -  minecraft:wither_skull
+    - alembic:physical_damage -> 0.3
+    - alembic:true_damage -> 0.1
+    - alembic:arcane_damage -> 0.6
+  -  minecraft:on_fire
+    - alembic:fire_damage -> 1.0
+  -  minecraft:in_fire
+    - alembic:fire_damage -> 1.0
+  -  minecraft:magic
+    - alembic:arcane_damage -> 1.0
+  -  minecraft:cactus
+  -  minecraft:fall
+    - alembic:true_damage -> 1.0
+  -  minecraft:lightning_bolt
+    - alembic:true_damage -> 1.0
+attributeslib:
+  -  attributeslib:detonation
+  -  attributeslib:bleeding
+  -  attributeslib:fire_damage
+  -  attributeslib:current_hp_damage
+  -  attributeslib:cold_damage
+irons_spellbooks:
+  -  irons_spellbooks:heartstop
+  -  irons_spellbooks:poison_cloud
+  -  irons_spellbooks:evocation_magic
+  -  irons_spellbooks:blood_magic
+  -  irons_spellbooks:dragon_breath_pool
+  -  irons_spellbooks:ender_magic
+  -  irons_spellbooks:holy_magic
+  -  irons_spellbooks:blood_cauldron
+  -  irons_spellbooks:fire_field
+  -  irons_spellbooks:nature_magic
+  -  irons_spellbooks:ice_magic
+  -  irons_spellbooks:fire_magic
+  -  irons_spellbooks:lightning_magic
+  -  irons_spellbooks:eldritch_magic
+farmersdelight:
+  -  farmersdelight:stove_burn
+alembic:
+  -  alembic:guardian_beam
+    - alembic:arcane_damage -> 1.0
+  -  alembic:allergy
+    - alembic:alchemical_damage -> 1.0
+  -  alembic:soul_fire
+    - alembic:fire_damage -> 0.5
+    - alembic:arcane_damage -> 0.5
+  -  alembic:alchemical
+    - alembic:alchemical_damage -> 1.0
+  -  alembic:evoker_fangs
+    - alembic:physical_damage -> 0.9
+    - alembic:arcane_damage -> 0.1
+bookshelf:
+  -  bookshelf:fake_player
+regions_unexplored:
+  -  regions_unexplored:dorcel
+  -  regions_unexplored:dusk_trap
+tipsylib:
+  -  tipsylib:hemolacria
+  -  tipsylib:venom
+  -  tipsylib:creative_shock
+  -  tipsylib:backlash
+  -  tipsylib:retaliation
+apotheosis:
+  -  apotheosis:corrupted
+  -  apotheosis:execute
+  -  apotheosis:psychic
+ends_delight:
+  -  ends_delight:enderman_gristle_teleport
+ae2:
+  -  ae2:matter_cannon
+upgrade_aquatic:
+  -  upgrade_aquatic:jellyfish_sting
+cataclysm:
+  -  cataclysm:deathlaser
+  -  cataclysm:emp
+  -  cataclysm:maledictio
+  -  cataclysm:abyssal_burn
+  -  cataclysm:laser
+  -  cataclysm:maledictio_sagitta
+  -  cataclysm:shredder
+  -  cataclysm:sword_dance
+create:
+  -  create:fan_fire
+  -  create:mechanical_drill
+  -  create:potato_cannon
+  -  create:cuckoo_surprise
+  -  create:fan_lava
+  -  create:mechanical_roller
+  -  create:run_over
+  -  create:mechanical_saw
+  -  create:crush
+supplementaries:
+  -  supplementaries:player_bomb_explosion
+  -  supplementaries:xp_extracting
+  -  supplementaries:bamboo_spikes
+  -  supplementaries:bomb_explosion
+quark:
+  -  quark:pickarang
+playerrevive:
+  -  playerrevive:bled_to_death
+createaddition:
+  -  createaddition:barbed_wire
+  -  createaddition:tesla_coil
