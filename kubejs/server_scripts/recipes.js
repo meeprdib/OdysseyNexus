@@ -294,6 +294,18 @@ ServerEvents.recipes(event => {
 	    10,
 	)
 
+    event.shaped('sophisticatedbackpacks:netherite_backpack', [
+        'A A',
+        'BCB',
+        'DED'
+    ], {
+        A: 'farmersdelight:rope',
+        B: 'minecraft:bundle',
+        C: 'minecraft:shulker_box',
+        D: 'supplementaries:sack',
+        E: '#on:leather'
+    })
+
     event.recipes.create.pressing('vintageimprovements:netherite_sheet', '#forge:ingots/netherite')
 
     event.recipes.createMixing(
