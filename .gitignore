@@ -39,3 +39,4 @@ config/everycomp-hazardous.properties
 config/oculus.properties
 config/packetfixer.properties
 *.log
+*.properties

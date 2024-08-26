@@ -76,6 +76,26 @@ ServerEvents.recipes(event => {
     })
 })
 
+// Every Compat
+
+ServerEvents.recipes(event => {
+    event.remove({
+        output: 
+        ['everycomp:rfm/regions_unexplored/maple_cutting_board', 'everycomp:rfm/regions_unexplored/mauve_cutting_board', 'everycomp:rfm/regions_unexplored/palm_cutting_board', 'everycomp:rfm/regions_unexplored/eucalyptus_cutting_board', 'everycomp:rfm/regions_unexplored/green_bioshroom_cutting_board', 'everycomp:rfm/regions_unexplored/joshua_cutting_board', 'everycomp:rfm/regions_unexplored/kapok_cutting_board', 'everycomp:rfm/regions_unexplored/larch_cutting_board', 'everycomp:rfm/regions_unexplored/magnolia_cutting_board', 'refurbished_furniture:oak_cutting_board', 'refurbished_furniture:spruce_cutting_board', 'refurbished_furniture:birch_cutting_board', 'refurbished_furniture:jungle_cutting_board', 'refurbished_furniture:acacia_cutting_board', 'refurbished_furniture:dark_oak_cutting_board', 'refurbished_furniture:mangrove_cutting_board', 'refurbished_furniture:cherry_cutting_board', 'refurbished_furniture:crimson_cutting_board', 'refurbished_furniture:warped_cutting_board', 'everycomp:rfm/mynethersdelight/powdery_cutting_board', 'everycomp:rfm/quark/azalea_cutting_board', 'everycomp:rfm/quark/ancient_cutting_board', 'everycomp:rfm/quark/blossom_cutting_board', 'everycomp:rfm/architects_palette/twisted_cutting_board', 'everycomp:rfm/cataclysm/chorus_cutting_board', 'everycomp:rfm/upgrade_aquatic/driftwood_cutting_board', 'everycomp:rfm/upgrade_aquatic/river_cutting_board', 'everycomp:rfm/autumnity/maple_cutting_board', 'everycomp:rfm/regions_unexplored/alpha_cutting_board', 'everycomp:rfm/regions_unexplored/brimwood_cutting_board', 'everycomp:rfm/regions_unexplored/blue_bioshroom_cutting_board', 'everycomp:rfm/regions_unexplored/blackwood_cutting_board', 'everycomp:rfm/regions_unexplored/baobab_cutting_board', 'everycomp:rfm/regions_unexplored/cobalt_cutting_board', 'everycomp:rfm/regions_unexplored/cypress_cutting_board', 'everycomp:rfm/regions_unexplored/dead_cutting_board',         'everycomp:rfm/regions_unexplored/palm_cutting_board', 'everycomp:rfm/regions_unexplored/pine_cutting_board', 'everycomp:rfm/regions_unexplored/pink_bioshroom_cutting_board', 'everycomp:rfm/regions_unexplored/redwood_cutting_board', 'everycomp:rfm/regions_unexplored/socotra_cutting_board', 'everycomp:rfm/regions_unexplored/willow_cutting_board', 'everycomp:rfm/regions_unexplored/yellow_bioshroom_cutting_board'],
+    })
+})
+
+// Furniture
+
+ServerEvents.recipes(event => {
+    event.remove({
+        output: [
+            'refurbished_furniture:workbench',
+            'refurbished_furniture:light_electricity_generator',
+        ]
+    })
+})
+
 // Sophisticated Backpacks
 
 ServerEvents.recipes(event => {
@@ -177,6 +197,7 @@ ServerEvents.recipes(event => {
     event.remove({ type: 'vintageimprovements:coiling' })
     event.remove({ type: 'vintageimprovements:hammering' })
     event.remove({ type: 'create_dd:seething' })
+    event.remove({ type: 'refurbished_furniture:cutting_board_slicing'})
 })
 
 // Misc and Ore Processing
@@ -310,6 +331,27 @@ ServerEvents.recipes(event => {
 
     event.recipes.createMixing(
         Fluid.of('sophisticatedcore:xp_still', 100), ['create:experience_nugget']).heated()
+
+// Furniture
+
+    event.shaped('refurbished_furniture:workbench', [
+        'ABA',
+        'ACA'
+    ], {
+        A: '#minecraft:planks',
+        B: 'minecraft:stonecutter',
+        C: '#forge:wires/electrum'
+    })
+
+    event.shaped('refurbished_furniture:light_electricity_generator', [
+        'AAA',
+        'BCB',
+        'AAA'
+    ], {
+        A: '#forge:ingots/steel',
+        B: '#forge:wires/electrum',
+        C: 'minecraft:furnace'
+    })
 
     // Apotheosis
 
