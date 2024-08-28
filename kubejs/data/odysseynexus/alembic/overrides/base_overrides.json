@@ -1,0 +1,58 @@
+{
+  "priority": 1,
+  "source_overrides": {
+    "minecraft:wither": {"odysseynexus:blood_damage": 1.0},
+    "minecraft:drown": {"odysseynexus: abyssal_damage": 1.0},
+    "minecraft:lava": {"odysseynexus:fire_damage": 1.0},
+    "minecraft:freeze": {"odysseynexus:ice_damage": 1.0},
+    "minecraft:lightning_bolt": {"odysseynexus:lightning_damage": 1.0},
+
+    "attributeslib:detonation": {"odysseynexus:fire_damage": 1.0},
+    "attributeslib:bleeding": {"odysseynexus:blood_damage": 1.0},
+    "attributeslib:fire_damage": {"odysseynexus:fire_damage": 1.0},
+    "attributeslib:cold_damage": {"odysseynexus:cold_damage": 1.0},
+
+    "irons_spellbooks:heartstop": {"odysseynexus:blood_damage": 1.0},
+    "irons_spellbooks:poison_cloud": {"odysseynexus:nature_damage": 1.0},
+    "irons_spellbooks:evocation_magic": {"odysseynexus:evocation_damage": 1.0},
+    "irons_spellbooks:blood_magic": {"odysseynexus:blood_damage": 1.0},
+    "irons_spellbooks:dragon_breath_pool": {"odysseynexus:end_damage": 1.0},
+    "irons_spellbooks:end_magic": {"odysseynexus:end_damage": 1.0},
+    "irons_spellbooks:holy_magic": {"odysseynexus:holy_damage": 1.0},
+    "irons_spellbooks:fire_field": {"odysseynexus:fire_damage": 1.0},
+    "irons_spellbooks:nature_magic": {"odysseynexus:nature_damage": 1.0},
+    "irons_spellbooks:ice_magic": {"odysseynexus:cold_damage": 1.0},
+    "irons_spellbooks:fire_magic": {"odysseynexus:fire_damage": 1.0},
+    "irons_spellbooks:lightning_magic": {"odysseynexus:lightning_damage": 1.0},
+    "irons_spellbooks:eldritch_magic": {"odysseynexus:endritch_damage": 1.0},
+
+    "farmersdelight:stove_burn": {"odysseynexus:fire_damage": 1.0},
+
+    "alembic:guardian_beam": {"odysseynexus:abyssal_damage": 1.0},
+    "alembic:evoker_fangs": {"odysseynexus:evocation_damage": 1.0},
+
+    "regions_unexplored:dorcel": {"nature_damage": 1.0},
+    "regions_unexplored:dusk_trap": {"nature_damage": 1.0},
+
+    "tipsylib:hemoclaria": {"odysseynexus:blood_damage": 1.0},
+    "tipsylib:venom": {"odysseynexus:nature_damage": 1.0},
+    
+    "ends_delight:enderman_gristle_teleport": {"odysseynexus:end_damage": 1.0},
+
+    "upgrade_aquatic:jellyfish_sting": {"odysseynexus:nature_damage": 1.0},
+
+    "cataclysm:deathlaser": {"odysseynexus:abyssal_damage": 1.0},
+    "cataclysm:abyssal_burn": {"odysseynexus:abyssal_damage": 1.0},
+    "cataclysm:emp": {"odysseynexus:lightning_damage": 1.0},
+    "cataclysm:maledictio": {"odysseynexus:ice_damage": 1.0},
+    "cataclysm:maledictio_sagitta": {"odysseynexus:ice_damage": 1.0},
+    "cataclysm:laser": {"odysseynexus:fire_damage": 1.0},
+
+    "create:fan_fire": {"odysseynexus:fire_damage": 1.0},
+    "create:fan_lava": {"odysseynexus:fire_damage": 1.0},
+    
+    "playerrevive:bled_to_death": {"odysseynexus:blood_damage": 1.0},
+
+    "createaddition:tesla_coil": {"odysseynexus:lightning_damage": 1.0}
+  }
+}

@@ -168,6 +168,28 @@
 			half_drawers_2 = true
 			full_drawers_1 = true
 
+		[entries.wood_type.refurbished_furniture]
+			cutting_board = true
+			drawer = true
+			storage_cabinet = true
+			table = true
+			mail_box = true
+			dark_ceiling_fan = true
+			kitchen_sink = true
+			toilet = true
+			storage_jar = true
+			lattice_fence = true
+			basin = true
+			kitchen_drawer = true
+			lattice_fence_gate = true
+			kitchen_cabinetry = true
+			bath = true
+			crate = true
+			desk = true
+			chair = true
+			light_ceiling_fan = true
+			kitchen_storage_cabinet = true
+
 	[entries.leaves_type]
 
 		[entries.leaves_type.quark]
@@ -176,4 +198,7 @@
 
 		[entries.leaves_type.regions_unexplored]
 			shrub = true
+
+		[entries.leaves_type.refurbished_furniture]
+			hedge = true
 

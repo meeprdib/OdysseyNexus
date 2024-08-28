@@ -3,4 +3,19 @@ ItemEvents.tooltip(event => {
     event.add(['apotheosis:gem'], '§7Apply to a piece of gear with sockets using a Smithing Table. Sockets can be granted to gear through the Reforging Table.')
     event.add(['irons_spellbooks:inscription_table', 'irons_spellbooks:scroll_forge', 'irons_spellbooks:alchemist_cauldron', 'irons_spellbooks:arcane_anvil'], '§7This item has had its functionality removed in this modpack, it only serves decorative purposes now!')
     event.add(['supplementaries:wild_flax', 'supplementaries:flax_seeds', 'supplementaries:flax'], '§7Found growing near water')
+    event.add([
+        ['unify:lead_ingot', 'unify:lead_nugget', 'unify:lead_block', 'unify:raw_lead', 'unify:raw_lead_block', 'unify:lead_ore'],
+        ['unify:tin_ingot', 'unify:tin_nugget', 'unify:tin_block', 'unify:raw_tin', 'unify:raw_tin_block', 'unify:tin_ore'],
+        ['unify:aluminum_ingot', 'unify:aluminum_nugget', 'unify:aluminum_block', 'unify:raw_aluminum', 'unify:raw_aluminum_block', 'unify:aluminum_ore'],
+        ['unify:nickel_ingot', 'unify:nickel_nugget', 'unify:nickel_block', 'unify:raw_nickel', 'unify:raw_nickel_block', 'unify:nickel_ore'],
+        ['unify:bronze_ingot', 'unify:bronze_nugget', 'unify:bronze_sheet', 'unify:bronze_block'],
+        ['unify:invar_ingot', 'unify:invar_nugget', 'unify:invar_sheet', 'unify:invar_block'],
+    ], "§7This material does not serve any purpose besides decoration at the moment, more uses may be given later on in the modpack's development")
+    event.add([
+        ['unify:platinum_ingot', 'unify:platinum_nugget', 'unify:platinum_block', 'unify:raw_platinum', 'unify:raw_platinum_block', 'unify:platinum_ore'],
+        ['unify:uranium_ingot', 'unify:uranium_nugget', 'unify:uranium_block', 'unify:raw_uranium', 'unify:raw_uranium_block', 'unify:uranium_ore'],
+        ['unify:tungsten_ingot', 'unify:tungsten_nugget', 'unify:tungsten_block', 'unify:raw_tungsten', 'unify:raw_tungsten_block', 'unify:tungsten_ore'],
+        ['unify:constantan_ingot', 'unify:constantan_nugget', 'unify:constantan_sheet', 'unify:constantan_block'],
+        ['unify:tarnished_gold_ingot', 'unify:tarnished_gold_nugget', 'unify:tarnished_gold_sheet', 'unify:tarnished_gold_block'],
+    ], "§4This material has limited functionality and is subject to be removed")
 })

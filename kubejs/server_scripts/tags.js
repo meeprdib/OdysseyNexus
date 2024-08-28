@@ -26,7 +26,7 @@ ServerEvents.tags('item', event => {
     // event.add('aether:treated_as_aether_item', '#forge:tools')
     // event.add('aether:AetherItemTagData', '#forge:tools')
 
-    event.add('c:salt_dust', 'vintagedelight:salt_dust', 'ratatouille:salt', 'vintagedelight:salt')
+    event.add('c:salt_dust', 'vintagedelight:salt_dust', 'ratatouille:salt', 'vintagedelight:salt', 'refurbished_furniture:sea_salt')
     event.add('forge:storage_blocks/apple', 'fruitsdelight:apple_crate')
     event.add('forge:storage_blocks/carrot', 'farmersdelight:carrot_crate')
     event.add('forge:storage_blocks/beetroot', 'farmersdelight:beetroot_crate')
@@ -52,6 +52,13 @@ ServerEvents.tags('item', event => {
     event.add('on:sigil', ['apotheosis:gem_fused_slate', 'apotheosis:sigil_of_withdrawal', 'apotheosis:sigil_of_rebirth', 'apotheosis:sigil_of_enhancement', 'apotheosis:sigil_of_unnaming', 'apotheosis:sigil_of_socketing'])
 
     event.add('minecraft:coals', 'vintagedelight:ghost_charcoal')
+
+    event.add('forge:ingots/aluminium', 'unify:aluminum_ingot')
+    event.add('forge:storage_blocks/aluminium', 'unify:aluminum_block')
+
+    event.add('forge:dough', 'refurbished_furniture:dough')
+    event.add('forge:flour', 'refurbished_furniture:wheat_flour')
+    event.add('create_enchantment_industry:ink_ingredient', ['spelunkery:inkcap_mushroom', 'regions_unexplored:dorcel', 'regions_unexplored:black_snowbelle'])
     
     event.remove('forge:ores/redstone', 'regions_unexplored:raw_redstone_block')
 })

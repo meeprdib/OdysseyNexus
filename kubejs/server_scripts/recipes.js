@@ -37,7 +37,36 @@ ServerEvents.recipes(event => {
             'irons_spellbooks:copper_spell_book',
             'irons_spellbooks:arcane_anvil',
             'spelunkery:salt',
-            ['spelunkery:rock_salt_bricks', 'spelunkery:rock_salt_block', 'spelunkery:rock_salt_stairs', 'spelunkery:rock_salt_slab', 'spelunkery:rock_salt_wall', 'spelunkery:polished_rock_salt', 'spelunkery:polished_rock_salt_stairs', 'spelunkery:polished_rock_salt_slab', 'spelunkery:polished_rock_salt_wall', 'spelunkery:salt_block', 'spelunkery:rock_salt_brick_wall', 'spelunkery:rock_salt_brick_slab', 'spelunkery:rock_salt_brick_stairs', 'vintagedelight:salt_block', 'vintagedelight:smooth_salt_block', 'vintagedelight:salt_pillar', 'vintagedelight:salt_bricks', 'vintagedelight:salt_brick_stairs', 'vintagedelight:salt_brick_slab', 'vintagedelight:salt_brick_wall', 'vintagedelight:mixed_salt_bricks', 'vintagedelight:mixed_salt_brick_stairs', 'vintagedelight:mixed_salt_brick_slab', 'vintagedelight:mixed_salt_brick_wall']
+            'refurbished_furniture:knife',
+            'spelunkery:rock_salt_bricks',
+            'spelunkery:rock_salt_block',
+            'spelunkery:rock_salt_stairs',
+            'spelunkery:rock_salt_slab',
+            'spelunkery:rock_salt_wall',
+            'spelunkery:polished_rock_salt',
+            'spelunkery:polished_rock_salt_stairs',
+            'spelunkery:polished_rock_salt_slab',
+            'spelunkery:polished_rock_salt_wall',
+            'spelunkery:salt_block',
+            'spelunkery:rock_salt_brick_wall',
+            'spelunkery:rock_salt_brick_slab',
+            'spelunkery:rock_salt_brick_stairs',
+            'vintagedelight:salt_block',
+            'vintagedelight:smooth_salt_block',
+            'vintagedelight:salt_pillar',
+            'vintagedelight:salt_bricks',
+            'vintagedelight:salt_brick_stairs',
+            'vintagedelight:salt_brick_slab',
+            'vintagedelight:salt_brick_wall',
+            'vintagedelight:mixed_salt_bricks',
+            'vintagedelight:mixed_salt_brick_stairs',
+            'vintagedelight:mixed_salt_brick_slab',
+            'vintagedelight:mixed_salt_brick_wall',
+            'vintagedelight:cheese_pizza',
+            'vintagedelight:cheese_pizza_slice',
+            'vintagedelight:meat_pizza',
+            'vintagedelight:meat_pizza_slice',
+            'createdeco:industrial_iron_ingot',
         ]
     })
 })
@@ -92,6 +121,7 @@ ServerEvents.recipes(event => {
         output: [
             'refurbished_furniture:workbench',
             'refurbished_furniture:light_electricity_generator',
+            'refurbished_furniture:cheese',
         ]
     })
 })
@@ -198,6 +228,7 @@ ServerEvents.recipes(event => {
     event.remove({ type: 'vintageimprovements:hammering' })
     event.remove({ type: 'create_dd:seething' })
     event.remove({ type: 'refurbished_furniture:cutting_board_slicing'})
+    event.remove({ type: 'refurbished_furniture:cutting_board_combining'})
 })
 
 // Misc and Ore Processing
@@ -220,6 +251,9 @@ ServerEvents.recipes(event => {
     event.remove({ id: 'autumnity:sappy_maple_log_from_sap_bottle'})
     event.remove({ id: 'autumnity:sappy_maple_wood_from_sap_bottle'})
     event.remove({ id: 'ae2:network/parts/panels_semi_dark_monitor'})
+    event.remove({ id: 'unify:compacting/steel_ingot' })
+    event.remove({ id: 'unify:compacting/cast_iron_ingot' })
+    event.remove({ id: 'unify:wrought_iron_ingot' })
 })
 
 ServerEvents.recipes(event => {
@@ -272,6 +306,10 @@ ServerEvents.recipes(event => {
         { input: 'create_central_kitchen:sap_bucket' },
         'create_central_kitchen:sap_bucket',
         'create_dd:sap_bucket')
+    event.replaceInput(
+        { input: 'refurbished_furniture:sweet_berry_jam' },
+        'refurbished_furniture:sweet_berry_jam',
+        'vintagedelight:sweet_berry_jam_bottle')
     console.log('Item replacement recipes finished!')
 })
 
@@ -300,6 +338,7 @@ ServerEvents.recipes(event => {
     event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
 
     event.recipes.farmersdelight.cutting('#on:big_mushroom', '#forge:tools/knives', ['4x kubejs:mushroom_paste'])
+    event.recipes.farmersdelight.cutting('minecraft:bread', '#forge:tools/knives', ['4x refurbished_furniture:bread_slice'])
 
     event.recipes.farmersdelight.cooking(
 	    ['#on:chorus', 'minecraft:honey_bottle', 'minecraft:kelp', '#forge:sugar'],
@@ -329,9 +368,6 @@ ServerEvents.recipes(event => {
 
     event.recipes.create.pressing('vintageimprovements:netherite_sheet', '#forge:ingots/netherite')
 
-    event.recipes.createMixing(
-        Fluid.of('sophisticatedcore:xp_still', 100), ['create:experience_nugget']).heated()
-
 // Furniture
 
     event.shaped('refurbished_furniture:workbench', [
@@ -353,6 +389,10 @@ ServerEvents.recipes(event => {
         C: 'minecraft:furnace'
     })
 
+    event.shapeless('refurbished_furniture:raw_vegetable_pizza', ['#forge:vegetables', '#forge:vegetables', '#forge:vegetables', 'vintagedelight:cheese_curds', 'vintagedelight:cheese_curds', '#forge:dough'])
+    event.shapeless('refurbished_furniture:raw_meatlovers_pizza', ['minecraft:cooked_chicken', 'minecraft:cooked_beef', 'minecraft:cooked_porkchop', 'vintagedelight:cheese_curds', 'vintagedelight:cheese_curds', '#forge:dough'])
+    event.shapeless('refurbished_furniture:cheese_sandwich', ['refurbished_furniture:bread_slice', 'vintagedelight:cheese_curds', 'refurbished_furniture:bread_slice'])
+
     // Apotheosis
 
     // event.recipes.createMixing(
@@ -368,7 +408,7 @@ ServerEvents.recipes(event => {
         'ABA'
     ], {
         A: 'apotheosis:gem_dust',
-        B: '#apotheosis:deepslate',
+        B: '#forge:plates/cast_iron',
         C: 'create:experience_nugget'
     })
 
@@ -422,7 +462,7 @@ ServerEvents.recipes(event => {
         'BCB',
         'BDB'
     ], {
-        A: '#forge:ingots/industrial_iron',
+        A: '#forge:ingots/cast_iron',
         B: '#minecraft:planks',
         C: 'irons_spellbooks:arcane_ingot',
         D: 'apotheosis:gem_dust'
@@ -803,14 +843,23 @@ event.shaped('ae2:interface', [
         event.recipes.createDeploying('kubejs:incomplete_card', ['kubejs:incomplete_card', 'create_dd:integrated_circuit']),
     ]).transitionalItem('kubejs:incomplete_card').loops(3)
 
-    event.recipes.create.mixing('4x createutilities:void_steel_ingot', [
+    event.recipes.create.compacting('4x createutilities:void_steel_ingot', [
         '4x #forge:ingots/steel',
         '2x ae2:ender_dust',
         'cataclysm:void_core'
     ]).superheated()
 
-    event.recipes.create.mixing('4x kubejs:steel_ingot', [
-        '4x createdeco:industrial_iron_ingot',
+    event.recipes.create.compacting('4x unify:steel_ingot', [
+        '4x unify:wrought_iron_ingot',
+        '#minecraft:coals'
+    ]).heated()
+
+    event.recipes.create.compacting('unify:wrought_iron_ingot', [
+        'minecraft:iron_ingot'
+    ]).heated()
+
+    event.recipes.create.compacting('unify:cast_iron_ingot', [
+        'minecraft:iron_ingot',
         '#minecraft:coals'
     ]).heated()
 
@@ -952,7 +1001,7 @@ event.shaped('ae2:interface', [
         'AAA',
         'ABC'
     ], {
-        A: '#forge:ingots/industrial_iron',
+        A: '#forge:ingots/cast_iron',
         B: 'minecraft:redstone_lamp',
         C: 'minecraft:amethyst_shard'
     })

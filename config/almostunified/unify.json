@@ -1,5 +1,6 @@
 {
   "modPriorities": [
+    "unify",
     "minecraft",
     "kubejs",
     "crafttweaker",
@@ -53,7 +54,8 @@
     "forge:sap",
     "on:sap_bucket",
     "forge:buckets/{material}",
-    "forge:biofuel"
+    "forge:biofuel",
+    "forge:flour"
   ],
   "materials": [
     "aeternium",
